@@ -70,7 +70,7 @@ def accentize(word: str, sequence: str) -> str:
          word = insert(word, accents.r)
       # after that we create a dict with letter numbers representing vowels
       syllabic = 0
-      position_to_accent: Dict[int, str] = {}
+      position_to_accent = {} # type: Dict[int, str]
       for i, letter in enumerate(word):
          if letter in 'aeiouAEIOUаеиоуАЕИОУ\u0325':
             syllabic += 1
