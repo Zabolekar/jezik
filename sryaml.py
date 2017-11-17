@@ -42,7 +42,7 @@ def decipher(sequence: str) -> GramInfo:
       AP = sequence[begin_AP:begin_MP]
       MP = sequence[begin_MP:]
    else:
-      accents, AP, MP = (Accents({}, {}), "", "")
+      accents, AP, MP = Accents({}, {}), "", ""
 
    return GramInfo(accents, AP, MP)
 
