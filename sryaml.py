@@ -63,6 +63,7 @@ def insert(word: str, position_to_accent: Dict[int, str]) -> str:
    return ''.join(pieces)
 
 def accentize(word: str, sequence: str) -> str:
+   print(sequence)
    real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304'}
    accents = decipher(sequence).accents
    if accents.v:
@@ -85,5 +86,6 @@ if __name__ == '__main__':
       data = yaml.load(f)
       letter_a = data['letter_a'][0]
       for raw_word in random.sample(letter_a.keys(), 10):
+         print('{:>25} : '.format(raw_word), end = "")
          accented_word = accentize(raw_word, letter_a[raw_word].get('i', ''))
-         print('{:>25} : {}'.format(raw_word, accented_word))
+         print(accented_word)
