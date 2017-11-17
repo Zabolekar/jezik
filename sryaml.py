@@ -51,7 +51,7 @@ def decipher(sequence: str) -> GramInfo:
 
 def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
-   sorted_keys = sorted(position_to_accent_.keys())
+   sorted_keys = sorted(position_to_accent.keys())
    first = [0] + sorted_keys
    second = sorted_keys + [None]
    pieces = [word[first[0]:second[0]]]
