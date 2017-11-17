@@ -3,14 +3,17 @@ import random
 import re
 import yaml
 
-class Accents(NamedTuple):
-   r: Dict[int, str] # syllabic r
-   v: Dict[int, str] # any other vowel
+# workaround for Python 3.5 without new NamedTuple syntax
+Accents = NamedTuple("Accents", [
+   ("r", Dict[int, str]), # syllabic r
+   ("v", Dict[int, str]) # any other vowel
+])   
    
-class GramInfo(NamedTuple):
-   accents: Accents
-   AP: str # accent paradigm
-   MP: str # morphological paradigm
+GramInfo = NamedTuple("Accents", [
+   ("accents", Accents),
+   ("AP", str), # accent paradigm
+   ("MP", str) # morphological paradigm
+])
 
 def deaccentize(text: str) -> str:
    accents = '̥́̀̄̆̏̑'
