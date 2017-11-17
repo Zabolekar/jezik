@@ -3,7 +3,7 @@ import re
 from typing import Dict
 import yaml
 
-def deaccentize(text):
+def deaccentize(text: str) -> str:
    accents = '̥́̀̄̆̏̑'
    accented = {'ȁȃáàā': 'a', 'ȅȇéèē': 'e', 'ȉȋíìī': 'i',
                'ȕȗúùū': 'u', 'ȑȓŕ': 'r', 'ȀȂÁÀĀ': 'A',
@@ -18,7 +18,7 @@ def deaccentize(text):
 
    return text
 
-def decypher(sequence):
+def decypher(sequence): # TODO: sequence is of type str, but what is the return type?
 
    if sequence:
       begin_R = re.search('@', sequence).start(0) if '@' in sequence else None
@@ -36,7 +36,7 @@ def decypher(sequence):
 
    return {'accents': accents, 'AP': AP, 'MP': MP}
 
-def insert(word, dict_):
+def insert(word: str, dict_: Dict[int, str]) -> str:
 
    list_ = sorted(dict_.keys())
    first = [0] + list_
@@ -49,7 +49,7 @@ def insert(word, dict_):
 
    return ''.join(pieces)
 
-def accentize(word, sequence):
+def accentize(word: str, sequence: str) -> str:
    real_accent = {'`': '̀', '´': '́', '¨': '̏', '^': '̑', '_': '̄'}
    acc_dict = decypher(sequence)['accents'] # dict of something to accents
    if acc_dict['v']:
