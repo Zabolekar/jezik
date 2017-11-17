@@ -1,7 +1,11 @@
+from typing import Dict, NamedTuple
 import random
 import re
-from typing import Dict
 import yaml
+
+class Accents(NamedTuple):
+   r: Dict[int, str]
+   v: Dict[int, str]
 
 def deaccentize(text: str) -> str:
    accents = '̥́̀̄̆̏̑'
@@ -26,13 +30,13 @@ def decypher(sequence): # TODO: sequence is of type str, but what is the return 
       begin_MP = re.search('[a-z]', sequence).start(0)
       line_accents = sequence[:begin_R] if '@' in sequence else sequence[:begin_AP]
       Rs = sequence[begin_R:begin_AP] if '@' in sequence else None
-      accents = {}
-      accents['r'] = {int(i): '̥' for i in Rs[1:].split(',')} if Rs else {}
-      accents['v'] = {int(i[:-1]): i[-1] for i in line_accents.split(',')} if line_accents else {}
+      accents = Accents(
+          {int(i): '̥' for i in Rs[1:].split(',')} if Rs else {},
+          {int(i[:-1]): i[-1] for i in line_accents.split(',')} if line_accents else {})
       AP = sequence[begin_AP:begin_MP]
       MP = sequence[begin_MP:]
    else:
-      accents, AP, MP = ({'v': {}, 'r': {}}, {}, {})
+      accents, AP, MP = (Accents({}, {}), {}, {})
 
    return {'accents': accents, 'AP': AP, 'MP': MP}
 
@@ -52,17 +56,17 @@ def insert(word: str, dict_: Dict[int, str]) -> str:
 def accentize(word: str, sequence: str) -> str:
    real_accent = {'`': '̀', '´': '́', '¨': '̏', '^': '̑', '_': '̄'}
    acc_dict = decypher(sequence)['accents'] # dict of something to accents
-   if acc_dict['v']:
-      if acc_dict['r']: # now we put the magic ring
-         word = insert(word, acc_dict['r'])
+   if acc_dict.v:
+      if acc_dict.r: # now we put the magic ring
+         word = insert(word, acc_dict.r)
       # after that we create a dict with letter numbers representing vowels
       syllabic = 0
       vow_dict: Dict[int, str] = {}
       for i, letter in enumerate(word):
          if letter in 'aeiouAEIOUаеиоуАЕИОУ̥':
             syllabic += 1
-            if syllabic in acc_dict['v']:
-               vow_dict[i+1] = real_accent[acc_dict['v'][syllabic]]
+            if syllabic in acc_dict.v:
+               vow_dict[i+1] = real_accent[acc_dict.v[syllabic]]
       return insert(word, vow_dict) # then we insert accents into word!
    else:
       return word
