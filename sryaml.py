@@ -63,8 +63,9 @@ def insert(word: str, position_to_accent: Dict[int, str]) -> str:
    return ''.join(pieces)
 
 def accentize(word: str, sequence: str) -> str:
+   # we aim to remove all todos from our yaml file, but until then that's how we handle them
    if sequence == "todo":
-      return "TODO" # we aim to remove all todos from our yaml file
+      return "TODO"
    real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304'}
    accents = decipher(sequence).accents
    if accents.v:
