@@ -4,8 +4,8 @@ import re
 import yaml
 
 class Accents(NamedTuple):
-   r: Dict[int, str]
-   v: Dict[int, str]
+   r: Dict[int, str] # syllabic r
+   v: Dict[int, str] # any other vowel
    
 class GramInfo(NamedTuple):
    accents: Accents
