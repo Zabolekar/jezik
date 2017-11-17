@@ -22,7 +22,7 @@ def deaccentize(text: str) -> str:
 
    return text
 
-def decypher(sequence): # TODO: sequence is of type str, but what is the return type?
+def decipher(sequence): # TODO: sequence is of type str, but what is the return type?
 
    if sequence:
       begin_R = re.search('@', sequence).start(0) if '@' in sequence else None
