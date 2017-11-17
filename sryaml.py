@@ -6,6 +6,11 @@ import yaml
 class Accents(NamedTuple):
    r: Dict[int, str]
    v: Dict[int, str]
+   
+class GramInfo(NamedTuple):
+   accents: Accents
+   AP: str # accent paradigm
+   MP: str # morphological paradigm
 
 def deaccentize(text: str) -> str:
    accents = '̥́̀̄̆̏̑'
@@ -22,7 +27,7 @@ def deaccentize(text: str) -> str:
 
    return text
 
-def decipher(sequence): # TODO: sequence is of type str, but what is the return type?
+def decipher(sequence: str) -> GramInfo:
 
    if sequence:
       begin_R = re.search('@', sequence).start(0) if '@' in sequence else None
@@ -32,13 +37,14 @@ def decipher(sequence): # TODO: sequence is of type str, but what is the return 
       Rs = sequence[begin_R:begin_AP] if '@' in sequence else None
       accents = Accents(
           {int(i): '̥' for i in Rs[1:].split(',')} if Rs else {},
-          {int(i[:-1]): i[-1] for i in line_accents.split(',')} if line_accents else {})
+          {int(i[:-1]): i[-1] for i in line_accents.split(',')} if line_accents else {}
+      )
       AP = sequence[begin_AP:begin_MP]
       MP = sequence[begin_MP:]
    else:
-      accents, AP, MP = (Accents({}, {}), {}, {})
+      accents, AP, MP = (Accents({}, {}), "", "")
 
-   return {'accents': accents, 'AP': AP, 'MP': MP}
+   return GramInfo(accents, AP, MP)
 
 def insert(word: str, dict_: Dict[int, str]) -> str:
 
@@ -55,7 +61,7 @@ def insert(word: str, dict_: Dict[int, str]) -> str:
 
 def accentize(word: str, sequence: str) -> str:
    real_accent = {'`': '̀', '´': '́', '¨': '̏', '^': '̑', '_': '̄'}
-   acc_dict = decypher(sequence)['accents'] # dict of something to accents
+   acc_dict = decipher(sequence).accents
    if acc_dict.v:
       if acc_dict.r: # now we put the magic ring
          word = insert(word, acc_dict.r)
