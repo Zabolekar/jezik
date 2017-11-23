@@ -123,7 +123,9 @@ def conjugate(verb, AP, MP):
    
    MP_dict = {'im': {'inf': verb[:-2], 'prs': (verb[:-3], 'и'), 'pp': (palatalize(verb[:-3], 'и'), 'е_н')},
               'am': {'inf': verb[:-2], 'prs': (verb[:-3], 'а'), 'pp': (verb[:-3], 'а_н')},
-              'ujem': {'inf': verb[:-2], 'prs': (verb[:-5]+'уј', 'е'), 'pp': (verb[:-3], 'а_н')}}
+              'ujem': {'inf': verb[:-2], 'prs': (verb[:-5]+'уј', 'е'), 'pp': (verb[:-3], 'а_н')},
+              'jem': {'inf': verb[:-2], 'prs': (palatalize(verb[:-3]), 'е'), 'pp': (verb[:-3], 'а_н')}
+              }
    #inf_stem
    
    for ending in inf_endings:
