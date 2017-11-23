@@ -83,11 +83,63 @@ def accentize(word: str, sequence: str) -> str:
    else:
       return word
 
+def palatalize(sequence, mode = ''):
+   if mode == 'и':
+      idict = {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
+            'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
+            'к': 'к', 'ц': 'ч', 'х': 'х', 'г': 'г',
+            'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
+            'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
+            'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
+   elif mode == 'ј':
+      idict = {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
+            'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
+            'к': 'чј', 'ц': 'чј', 'х': 'шј', 'г': 'жј',
+            'ш': 'шј', 'ж': 'жј', 'ч': 'чј', 'џ': 'џј',
+            'т': 'ћ', 'д': 'ђ', 'с': 'сј', 'з': 'зј',
+            'л': 'љ', 'р': 'рј', 'н': 'њ', 'ј': 'ј'}
+   else:
+      idict = {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
+            'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
+            'к': 'ч', 'ц': 'ч', 'х': 'ш', 'г': 'ж',
+            'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
+            'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
+            'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
+   
+   if sequence.endswith('ст') or sequence.endswith('зд') or sequence.endswith('сл') or sequence.endswith('зл'):
+      return sequence[:-2] + idict[sequence[-2:]]
+   else:
+      return sequence[:-1] + idict[sequence[-1]]
+
+def prettify(text):
+   text = re.sub('јй', '_ј', text)
+   return text
+      
+def conjugate(verb, AP, MP):
+   prs_endings = {'и': ['и_м', 'и_ш', 'и_', 'и_мо', 'и_те', 'е_', 'й', 'ймо', 'йте'],
+              'е': ['е_м', 'е_ш', 'е_', 'е_мо', 'е_те', 'у_', 'й', 'ймо', 'йте'],
+              'а': ['а_м', 'а_ш', 'а_', 'а_мо', 'а_те', 'ају_', 'а_ј', 'а_јмо', 'а_јте']}
+   inf_endings = ['ти', 'о', 'ла', 'ло', 'ли', 'ле', 'ла']
+   
+   MP_dict = {'im': {'inf': verb[:-2], 'prs': (verb[:-3], 'и'), 'pp': (palatalize(verb[:-3], 'и'), 'е_н')},
+              'am': {'inf': verb[:-2], 'prs': (verb[:-3], 'а'), 'pp': (verb[:-3], 'а_н')},
+              'ujem': {'inf': verb[:-2], 'prs': (verb[:-5]+'уј', 'е'), 'pp': (verb[:-3], 'а_н')}}
+   #inf_stem
+   
+   for ending in inf_endings:
+      print(prettify(MP_dict[MP]['inf'] + ending))
+   for ending in prs_endings[MP_dict[MP]['prs'][1]]:
+      print (prettify(MP_dict[MP]['prs'][0] + ending))
+      
+   return None
+      
 if __name__ == '__main__':
    with open('a_sr_ru.yaml', encoding="utf-8") as f:
       data = yaml.load(f)
       letter_a = data['letter_a'][0]
       for raw_word in random.sample(letter_a.keys(), 10):
-         print('{:>25} : '.format(raw_word), end = "")
-         accented_word = accentize(raw_word, letter_a[raw_word].get('i', ''))
-         print(accented_word)
+         if 'i' in letter_a[raw_word]:
+            print('{:>25} : '.format(raw_word), end = "")
+            accented_word = accentize(raw_word, letter_a[raw_word].get('i', ''))
+            print(accented_word)
+            conjugate(raw_word, None, decipher(letter_a[raw_word]['i']).MP)
