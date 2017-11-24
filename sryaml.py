@@ -113,20 +113,20 @@ def palatalize(sequence, mode = ''):
 
 def prettify(text):
    text = re.sub('јй', '_ј', text)
+   text = re.sub('й', 'и', text)
    return text
       
 def conjugate(verb, AP, MP):
    prs_endings = {'и': ['и_м', 'и_ш', 'и_', 'и_мо', 'и_те', 'е_', 'й', 'ймо', 'йте'],
               'е': ['е_м', 'е_ш', 'е_', 'е_мо', 'е_те', 'у_', 'й', 'ймо', 'йте'],
               'а': ['а_м', 'а_ш', 'а_', 'а_мо', 'а_те', 'ају_', 'а_ј', 'а_јмо', 'а_јте']}
-   inf_endings = ['ти', 'о', 'ла', 'ло', 'ли', 'ле', 'ла']
+   inf_endings = ['ти', 'о', 'ла', 'ло', 'ли', 'ле', 'ла', 'х', '', '', 'смо', 'сте', 'ше']
    
    MP_dict = {'im': {'inf': verb[:-2], 'prs': (verb[:-3], 'и'), 'pp': (palatalize(verb[:-3], 'и'), 'е_н')},
               'am': {'inf': verb[:-2], 'prs': (verb[:-3], 'а'), 'pp': (verb[:-3], 'а_н')},
               'ujem': {'inf': verb[:-2], 'prs': (verb[:-5]+'уј', 'е'), 'pp': (verb[:-3], 'а_н')},
               'jem': {'inf': verb[:-2], 'prs': (palatalize(verb[:-3]), 'е'), 'pp': (verb[:-3], 'а_н')}
               }
-   #inf_stem
    
    for ending in inf_endings:
       print(prettify(MP_dict[MP]['inf'] + ending))
