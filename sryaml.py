@@ -67,7 +67,7 @@ Past = NamedTuple("Past", [
 ])
 
 """Presents = NamedTuple("Presents", [
-   ("i", Present), 
+   ("i", Present),
    ("e", Present),
    ("a", Present),
    ("je", Present),
@@ -198,7 +198,7 @@ ova_past = Past(
    Ending(ova_theme_ipf, ending_ste),
    Ending(ova_theme_ipf, ending_xu)
 )
-            
+
 iva_past = Past(
    Ending(iva_theme_past, AccentedTuple('о', '')),
    Ending(iva_theme_past, AccentedTuple('ла', '')),
@@ -220,7 +220,7 @@ iva_past = Past(
    Ending(iva_theme_ipf, ending_ste),
    Ending(iva_theme_ipf, ending_xu)
 )
-            
+
 #("e", Present),   — todo later
 #("ie", Present), — todo later
 #("ne", Present) — todo after finishing the book
