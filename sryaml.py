@@ -294,15 +294,15 @@ delta = Stems(je_present, a_past)
 epsilon = Stems(uje_present, ova_past)
 zeta = Stems(uje_present, iva_past)
 eta = Stems(i_present, ie_past)
-            
+
 def last_vowel_index(trunk: str) -> int:
    *_, last_vowel = re.finditer('[АаЕеИиОоУуAaEeIiOoUu̥]', trunk)
    index, _ = last_vowel.span()
    return index
-   
+
 def first_vowel_index(trunk: str) -> int:
     return re.search('[АаЕеИиОоУуAaEeIiOoUu̥]', trunk).span()[0]
-            
+
 def deaccentize(text: str) -> str:
    accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325'
    accented = {'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìī': 'i',
@@ -365,7 +365,7 @@ def accentize(word: str, accents: Accents) -> str: # traditional accentuation
       return word
 
 def garde(word: str) -> str: # Garde's accentuation
-   # here add checking if there are non-initial ``s and ^s; 
+   # TODO: here add checking if there are non-initial ``s and ^s;
    # for now let us suppose there are none
    word2 = word
    insert_bool = False
@@ -380,22 +380,26 @@ def garde(word: str) -> str: # Garde's accentuation
             if len(word) > i+1:
                if word[i+1] in '\u0300': # `
                   insert_bool = True
-                  word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2) 
+                  word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
                elif word[i+1] in '\u0301': # ´
                   insert_bool = True
                   word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
                elif word[i+1] in '\u030f': # ¨
-                  word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u030d', word2)  # straight accent
+                  word2 = re.sub("^(.{" + str(i+1) + "}).",
+                                 r"\g<1>" + '\u030d',
+                                 word2)  # straight accent
                elif word[i+1] in '\u0311': # ^
-                  word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u030d', word2) # straight accent
+                  word2 = re.sub("^(.{" + str(i+1) + "}).",
+                                 r"\g<1>" + '\u030d',
+                                 word2) # straight accent
                   insert_dict[i+1] = '\u0304' # _
 
    word3 = insert(word2, insert_dict)
-   word3 = re.sub('•', '', word3) # delete 
+   word3 = re.sub('•', '', word3) # delete
    word3 = re.sub('̍\u0304', '\u0304̍', word3) # swap length (\u0304) and accent (\u030d)
-   
+
    return word3
-      
+
 def palatalize(sequence, mode=''):
    if mode == 'и':
       idict = {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
@@ -415,12 +419,12 @@ def palatalize(sequence, mode=''):
                'л': 'љ', 'р': 'рј', 'н': 'њ', 'ј': 'ј'}
    else:
       idict = {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
-            'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
-            'шт': 'шћ', 'жд': 'жђ',
-            'к': 'ч', 'ц': 'ч', 'х': 'ш', 'г': 'ж',
-            'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
-            'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
-            'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
+               'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
+               'шт': 'шћ', 'жд': 'жђ',
+               'к': 'ч', 'ц': 'ч', 'х': 'ш', 'г': 'ж',
+               'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
+               'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
+               'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
 
    if sequence[-2:] in ['ст', 'зд', 'сл', 'зл', 'шт', 'жд']:
       return sequence[:-2] + idict[sequence[-2:]]
