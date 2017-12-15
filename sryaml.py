@@ -348,7 +348,7 @@ def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
 def accentize(word: str, accents: Accents) -> str: # traditional accentuation
    real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304'}
-   #accents = decipher(sequence).accents
+   #accents = decipher(sequence).accents, TODO: discuss with sveto
    if accents.v:
       if accents.r: # now we put the magic ring
          word = insert(word, accents.r)
@@ -374,11 +374,11 @@ def garde(word: str) -> str: # Garde's accentuation
       # print('i, letter: ', i, ', ', letter)
       if letter in 'aeiouAEIOUаеиоуАЕИОУ\u0325':
          if insert_bool:
-            insert_dict[i+1] = '\u030d' #straight accent
+            insert_dict[i+1] = '\u030d' # straight accent
             insert_bool = False
          else:
             if len(word) > i+1:
-               if word[i+1] in '\u0300':# `
+               if word[i+1] in '\u0300': # `
                   insert_bool = True
                   word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2) 
                elif word[i+1] in '\u0301': # ´
@@ -392,7 +392,7 @@ def garde(word: str) -> str: # Garde's accentuation
 
    word3 = insert(word2, insert_dict)
    word3 = re.sub('•', '', word3) # delete 
-   word3 = re.sub('̍\u0304', '\u0304̍', word3)   # swap length (\u0304) and accent (\u030d)
+   word3 = re.sub('̍\u0304', '\u0304̍', word3) # swap length (\u0304) and accent (\u030d)
    
    return word3
       
@@ -442,7 +442,7 @@ def prettify(text):
    text = text.replace('й', 'и')
    return text
 
-# def yot_palatalize(())
+# TODO: def yot_palatalize(())
 
 def conjugate(verb, AP, MP):
    prs_endings = {'и': [(('и_', ), ('м')), (('и_'), ('ш')), (('и_'), ('')),
