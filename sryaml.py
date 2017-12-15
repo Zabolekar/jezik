@@ -288,12 +288,14 @@ uje_present = Present(
    Ending(uje_theme_imv, ending_te)
 )
 
-alpha = Stems(i_present, i_past)
-beta = Stems(a_present, a_past)
-delta = Stems(je_present, a_past)
-epsilon = Stems(uje_present, ova_past)
-zeta = Stems(uje_present, iva_past)
-eta = Stems(i_present, ie_past)
+MP_to_stems = dict(
+   alpha=Stems(i_present, i_past),
+   beta=Stems(a_present, a_past),
+   delta=Stems(je_present, a_past),
+   epsilon=Stems(uje_present, ova_past),
+   zeta=Stems(uje_present, iva_past),
+   eta=Stems(i_present, ie_past),
+) # type: Dict[str, Stems]
 
 def last_vowel_index(trunk: str) -> int:
    *_, last_vowel = re.finditer('[АаЕеИиОоУуAaEeIiOoUu̥]', trunk)
@@ -495,7 +497,7 @@ def conjugate2(verb: str, info: GramInfo):
       verb_forms = []
       if info.AP == 'a':
          trunk = accented_verb[:-len(infinitive_dict[info.MP])]
-         for stem_ in eval(info.MP):
+         for stem_ in MP_to_stems[info.MP]:
             for ending_ in stem_:
                verb_form = trunk
                for ending_part in ending_:
@@ -514,7 +516,7 @@ def conjugate2(verb: str, info: GramInfo):
             trunk = accented_verb[:-len(infinitive_dict[info.MP])-1]
          to_insert = last_vowel_index(trunk) + 1
          trunk = insert(trunk, {to_insert: '·'})
-         for stem_ in eval(info.MP):
+         for stem_ in MP_to_stems[info.MP]:
             for ending_ in stem_:
                verb_form = trunk
                #accentedness = False
