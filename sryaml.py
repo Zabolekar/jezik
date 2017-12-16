@@ -546,11 +546,11 @@ def conjugate2(verb: str, info: GramInfo):
          form = form.replace('0', '')
          form = form.replace('·', '')
          form = prettify(form)
-         print(form, end='\n')
+         yield form
 
    return verb_forms
 
-if __name__ == '__main__':
+def main():
    dir_path = os.path.dirname(os.path.realpath(__file__))
 
    with open(dir_path + '\\a_sr_ru.yaml', encoding="utf-8") as f:
@@ -566,5 +566,9 @@ if __name__ == '__main__':
             print(accented_word)
             print(garde(accented_word))
             #conjugate(raw_word, None, deciphered.MP)
-            conjugate2(raw_word, deciphered)
+            yield from conjugate2(raw_word, deciphered)
             break
+   
+if __name__ == '__main__':
+   for form in main():
+      print(form)
