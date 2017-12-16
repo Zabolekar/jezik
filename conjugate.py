@@ -87,7 +87,7 @@ def accentize(word: str, accents: Accents) -> str: # traditional accentuation
       return word
 
 def garde(word: str) -> str: # Garde's accentuation
-   # TODO: here add checking if there are non-initial ``s and ^s;
+   # TODO: check if there are non-initial ``s and ^s (пољопри̏вреда);
    # for now let us suppose there are none
    word2 = word
    insert_bool = False
@@ -138,8 +138,6 @@ def prettify(text: str) -> str:
    text = text.replace('й', 'и')
    return text
 
-# TODO: def yot_palatalize(())
-
 def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
    accented_verb = garde(accentize(verb, info.accents))
    infinitive_dict = {'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
@@ -148,7 +146,7 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
                       'kappa': 'ти', 'lambda': 'ти', 'mu': 'ати'}
    if info.MP in infinitive_dict:
       verb_forms = []
-      if info.AP == 'a':
+      if info.AP == 'a': # There are 2 major types of paradigms: 'a' and the rest
          trunk = accented_verb[:-len(infinitive_dict[info.MP])]
          for stem in MP_to_stems[info.MP]:
             for ending in stem: # type: ignore
@@ -186,15 +184,13 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
                verb_forms.append(verb_form)
 
       for form in verb_forms:
-         if '0̍' in form:
+         if '0̍' in form: # 0 means accent on the firstmost syllable
             form = form.replace('0', '')
             form = form.replace('̍', '')
             form = form.replace('~', '\u0304')
-            to_insert = first_vowel_index(form) + 1
+            to_insert = first_vowel_index(form) + 1 
             form = insert(form, {to_insert: '̍'})
          form = form.replace('̍\u0304', '\u0304̍')
-         form = form.replace('̍~', '̍')
-         form = form.replace('~̍', '̍') # if I accidentally forgot to manage it
          form = form.replace('~', '')
          form = form.replace('0', '')
          form = form.replace('·', '')

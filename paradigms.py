@@ -80,7 +80,7 @@ Stems = NamedTuple("Stems", [
 ])
 
 i_theme_past = AccentedTuple('и·', 'b.b:c.c:c#')
-a_theme_past = AccentedTuple('а·~', 'b.b:c.c:c#cjx.y.y:y#z.')
+a_theme_past = AccentedTuple('а·~', 'b.b:c.c:c#cjctx.y.y:y#z.')
 ie_theme_past = AccentedTuple('е·', 'b.c.c:')
 #zero_theme_past = AccentedTuple('', '')
 #nu_theme_past = AccentedTuple('ну', '') # finish the book first!
@@ -124,15 +124,15 @@ i_past = Past(
 )
 
 a_past = Past(
-   Ending(a_theme_past, AccentedTuple('о0·', 'x.ct')),
-   Ending(a_theme_past, AccentedTuple('ла0·', 'x.ct')),
-   Ending(a_theme_past, AccentedTuple('ло0·', 'x.ct')),
-   Ending(a_theme_past, AccentedTuple('ли0·', 'x.ct')),
-   Ending(a_theme_past, AccentedTuple('ле0·', 'x.ct')),
-   Ending(a_theme_past, AccentedTuple('ла0·', 'x.ct')),
+   Ending(a_theme_past, AccentedTuple('о0·', 'x.')),
+   Ending(a_theme_past, AccentedTuple('ла0·', 'x.')),
+   Ending(a_theme_past, AccentedTuple('ло0·', 'x.')),
+   Ending(a_theme_past, AccentedTuple('ли0·', 'x.')),
+   Ending(a_theme_past, AccentedTuple('ле0·', 'x.')),
+   Ending(a_theme_past, AccentedTuple('ла0·', 'x.')),
    Ending(a_theme_past, ending_x),
-   Ending(AccentedTuple('а', 'c#y:d.'), AccentedTuple('0·~', 'ax.z.b:c.ct')),
-   Ending(AccentedTuple('а', 'c#y:d.'), AccentedTuple('0·~', 'ax.z.b:c.ct')),
+   Ending(AccentedTuple('а', 'c#cty:d.'), AccentedTuple('0·~', 'ax.z.b:c.')),
+   Ending(AccentedTuple('а', 'c#cty:d.'), AccentedTuple('0·~', 'ax.z.b:c.')),
    Ending(a_theme_past, ending_smo),
    Ending(a_theme_past, ending_ste),
    Ending(a_theme_past, ending_she),
@@ -248,7 +248,7 @@ je_present = Present(
    Ending(je_theme_prs, ending_null),
    Ending(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('мо', 'y#')),
    Ending(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('те', 'y#')),
-   Ending(AccentedTuple('у·\u0304', 'y#'), ending_null),
+   Ending(AccentedTuple('\u0237у·\u0304', 'y#'), ending_null),
    Ending(je_theme_imv, ending_null),
    Ending(je_theme_imv, ending_mo),
    Ending(je_theme_imv, ending_te)
