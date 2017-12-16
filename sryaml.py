@@ -556,7 +556,8 @@ if __name__ == '__main__':
    with open(dir_path + '\\a_sr_ru.yaml', encoding="utf-8") as f:
       data = yaml.load(f)
       letter_a = data['letter_a'][0]
-      for raw_word in random.sample(letter_a.keys(), 10):
+      while True:
+         raw_word = random.choice(list(letter_a.keys()))
          if 'i' in letter_a[raw_word]:
             print('{:>25} : '.format(raw_word), end="")
             deciphered = decipher(letter_a[raw_word]['i'])
@@ -564,6 +565,6 @@ if __name__ == '__main__':
             accented_word = accentize(raw_word, deciphered.accents)
             print(accented_word)
             print(garde(accented_word))
-
             #conjugate(raw_word, None, deciphered.MP)
             conjugate2(raw_word, deciphered)
+            break
