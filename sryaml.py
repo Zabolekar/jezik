@@ -497,10 +497,10 @@ def conjugate2(verb: str, info: GramInfo):
       verb_forms = []
       if info.AP == 'a':
          trunk = accented_verb[:-len(infinitive_dict[info.MP])]
-         for stem_ in MP_to_stems[info.MP]:
-            for ending_ in stem_:
+         for stem in MP_to_stems[info.MP]:
+            for ending in stem:
                verb_form = trunk
-               for ending_part in ending_:
+               for ending_part in ending:
                   if info.AP in ending_part.accent:
                      verb_form.replace('̍', '')
                      current_morph = ending_part.morpheme.replace('·', '̍')
@@ -516,11 +516,11 @@ def conjugate2(verb: str, info: GramInfo):
             trunk = accented_verb[:-len(infinitive_dict[info.MP])-1]
          to_insert = last_vowel_index(trunk) + 1
          trunk = insert(trunk, {to_insert: '·'})
-         for stem_ in MP_to_stems[info.MP]:
-            for ending_ in stem_:
+         for stem in MP_to_stems[info.MP]:
+            for ending in stem:
                verb_form = trunk
                #accentedness = False
-               for ending_part in ending_:
+               for ending_part in ending:
                   if info.AP in ending_part.accent:
                      current_morph = ending_part.morpheme.replace('·', '̍')
                      #print('accented: ', current_morph)
@@ -541,7 +541,7 @@ def conjugate2(verb: str, info: GramInfo):
             form = insert(form, {to_insert: '̍'})
          form = form.replace('̍\u0304', '\u0304̍')
          form = form.replace('̍~', '̍')
-         form = form.replace('~̍', '̍')  # if I accidentally forgot to manage it
+         form = form.replace('~̍', '̍') # if I accidentally forgot to manage it
          form = form.replace('~', '')
          form = form.replace('0', '')
          form = form.replace('·', '')
