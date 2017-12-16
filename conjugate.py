@@ -180,7 +180,7 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
       if info.AP == 'a':
          trunk = accented_verb[:-len(infinitive_dict[info.MP])]
          for stem in MP_to_stems[info.MP]:
-            for ending in stem:
+            for ending in stem: # type: ignore
                verb_form = trunk
                for ending_part in ending:
                   if info.AP in ending_part.accent:
@@ -199,7 +199,7 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
          to_insert = last_vowel_index(trunk) + 1
          trunk = insert(trunk, {to_insert: '·'})
          for stem in MP_to_stems[info.MP]:
-            for ending in stem:
+            for ending in stem: # type: ignore
                verb_form = trunk
                #accentedness = False
                for ending_part in ending:
