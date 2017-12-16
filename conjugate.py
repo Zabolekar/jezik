@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Iterator
 import random
 import os
 import re
@@ -121,7 +121,7 @@ def garde(word: str) -> str: # Garde's accentuation
 
    return word3
 
-def palatalize(sequence, mode=''):
+def palatalize(sequence: str, mode='') -> str:
    if mode == 'и':
       idict = {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
                'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
@@ -152,7 +152,7 @@ def palatalize(sequence, mode=''):
 
    return sequence[:-1] + idict[sequence[-1]]
 
-def prettify(text):
+def prettify(text: str) -> str:
    idict = {'бȷ': 'бљ', 'мȷ': 'мљ', 'вȷ': 'вљ', 'фȷ': 'фљ', 'пȷ': 'пљ',
             'стȷ': 'штȷ', 'здȷ': 'ждȷ', 'слȷ': 'шљ', 'злȷ': 'жљ',
             'штȷ': 'шт', 'ждȷ': 'жд',
@@ -169,7 +169,7 @@ def prettify(text):
 
 # TODO: def yot_palatalize(())
 
-def conjugate(verb: str, info: GramInfo):
+def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
    accented_verb = garde(accentize(verb, info.accents))
    infinitive_dict = {'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
                       'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
@@ -232,7 +232,7 @@ def conjugate(verb: str, info: GramInfo):
 
    return verb_forms
 
-def lookup(raw_word):
+def lookup(raw_word: str) -> Iterator[str]:
    if raw_word not in letter_a:
       yield "Word not found :("
    elif 'i' in letter_a[raw_word]:
@@ -246,7 +246,7 @@ def lookup(raw_word):
    else:
       yield "This is not a verb :("
 
-def random_word():
+def random_word() -> Iterator[str]:
    while True:
       raw_word = random.choice(list(letter_a.keys()))
       if 'i' in letter_a[raw_word]:
