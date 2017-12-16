@@ -4,6 +4,11 @@ import random
 import re
 import yaml
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+with open(dir_path + '\\a_sr_ru.yaml', encoding="utf-8") as f:
+   data = yaml.load(f)
+   letter_a = data['letter_a'][0]
+
 # TODO: ungarde(word), e.g. асимилӣ̍ра̄м -> асимѝлӣра̄м
 # ----- well-named function for recessive accent,
 #       e.g. recessive(sequence) -> se̍quence
@@ -550,25 +555,28 @@ def conjugate2(verb: str, info: GramInfo):
 
    return verb_forms
 
-def main():
-   dir_path = os.path.dirname(os.path.realpath(__file__))
+def lookup(raw_word):
+   if raw_word not in letter_a:
+      yield "Word not found :("
+   elif 'i' in letter_a[raw_word]:
+      print('{:>25} : '.format(raw_word), end="")
+      deciphered = decipher(letter_a[raw_word]['i'])
+      print(deciphered)
+      accented_word = accentize(raw_word, deciphered.accents)
+      print(accented_word)
+      print(garde(accented_word))
+      #conjugate(raw_word, None, deciphered.MP)
+      yield from conjugate2(raw_word, deciphered)
+   else:
+      yield "This is not a verb :("
 
-   with open(dir_path + '\\a_sr_ru.yaml', encoding="utf-8") as f:
-      data = yaml.load(f)
-      letter_a = data['letter_a'][0]
-      while True:
-         raw_word = random.choice(list(letter_a.keys()))
-         if 'i' in letter_a[raw_word]:
-            print('{:>25} : '.format(raw_word), end="")
-            deciphered = decipher(letter_a[raw_word]['i'])
-            print(deciphered)
-            accented_word = accentize(raw_word, deciphered.accents)
-            print(accented_word)
-            print(garde(accented_word))
-            #conjugate(raw_word, None, deciphered.MP)
-            yield from conjugate2(raw_word, deciphered)
-            break
-   
+def random_word():
+   while True:
+      raw_word = random.choice(list(letter_a.keys()))
+      if 'i' in letter_a[raw_word]:
+         yield from lookup(raw_word)
+         break
+
 if __name__ == '__main__':
-   for form in main():
+   for form in random_word():
       print(form)
