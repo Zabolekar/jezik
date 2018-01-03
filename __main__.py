@@ -1,13 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from conjugate import lookup, random_word
 
 app = Flask(__name__)
 
 @app.route("/")
+def index():
+   return render_template("index.html")
+
 @app.route("/<word>")
-def index(word=None):
-   forms = lookup(word) if word else random_word()
-   return render_template("index.html", forms=forms)
+def results(word):
+   return render_template("results.html", forms=lookup(word))
+
+@app.route("/test")
+def random():
+   return render_template("results.html", forms=random_word())
 
 if __name__ == "__main__":
    app.run(threaded=True)

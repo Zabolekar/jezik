@@ -2,11 +2,14 @@
 <html>
 <head>
 </head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+<script type="text/javascript">$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
 <body>
-<table>
-{% for form in forms %}
-   <tr><td>{{ form }}</td></tr>
-{% endfor %}
-</table>
+<form id="search">
+   <input type=text id="word"/>
+   <input type="submit" value="Претрага"/>
+</form>
+<div id="results"></div>
 </body>
 </html>
