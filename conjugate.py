@@ -201,7 +201,7 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
 
 def lookup(raw_word: str) -> Iterator[str]:
    if raw_word not in letter_a:
-      yield "Word not found :("
+      yield "Реч није пронађена 😞"
    elif 'i' in letter_a[raw_word]:
       print('{:>25} : '.format(raw_word), end="")
       deciphered = decipher(letter_a[raw_word]['i'])
@@ -211,7 +211,7 @@ def lookup(raw_word: str) -> Iterator[str]:
       print(garde(accented_word))
       yield from conjugate(raw_word, deciphered)
    else:
-      yield "This is not a verb :("
+      yield "Ово није глагол 😞"
 
 def random_word() -> Iterator[str]:
    while True:

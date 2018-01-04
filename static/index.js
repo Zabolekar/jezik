@@ -5,8 +5,11 @@ function displayResults (reply) {
 }
 
 function onSubmit (event) {
-   var url = $SCRIPT_ROOT + $('#word').val();
-   $.ajax(url).done(displayResults);
+   var word = $('#word').val();
+   if (word) {
+      var url = $SCRIPT_ROOT + word;
+      $.ajax(url).done(displayResults);
+   }
    event.preventDefault();
 }
 
