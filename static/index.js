@@ -8,6 +8,8 @@ function onSubmit (event) {
    event.preventDefault();
 }
 
-$(document).ready(function() {
-  $('#search').submit(onSubmit);
-});
+function setup () {
+   $('#search').submit(onSubmit);
+}
+
+$(document).ready(setup);
