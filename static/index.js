@@ -1,5 +1,7 @@
 function displayResults (reply) {
    $('#results').html(reply);
+   var width = $('#word').width() + $('#button').width();
+   $('table').css('width', width+'px');
 }
 
 function onSubmit (event) {
