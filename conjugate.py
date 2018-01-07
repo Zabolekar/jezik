@@ -210,24 +210,20 @@ def lookup(raw_word: str) -> Iterator[Iterator[str]]:
    with_se = raw_word[-3:] == " се"
    if with_se:
       raw_word = raw_word[:-3]
-   hits = []
+
    for key in letter_a.keys():
       key_without_disambiguator = key.split()[0]
       if raw_word == key_without_disambiguator:
-         hits.append(key)
-
-   for hit in hits:
-      if 'i' in letter_a[hit]:
-         verb, info = letter_a[hit]['i'], letter_a[hit]['t']
-         if with_se and not 'Refl' in info:
+         if 'i' in letter_a[key]:
+            i, t = letter_a[key]['i'], letter_a[key]['t']
+            if with_se and not 'Refl' in t:
+               continue
+            deciphered = decipher(i, t)
+            yield conjugate(key, deciphered)
+         elif with_se: # for skipping meaningless queries like "адвокат се"
             continue
-         deciphered = decipher(verb, info)
-         accented_word = accentize(hit, deciphered.accents)
-         yield conjugate(hit, deciphered)
-      elif with_se: # for skipping meaningless queries like "адвокат се"
-         continue
-      else:
-         yield iter(["Ово није глагол 😞"]) # TODO
+         else:
+            yield iter(["Ово није глагол 😞"]) # TODO
 
 def random_word() -> Iterator[Iterator[str]]:
    while True:
