@@ -4,10 +4,17 @@
    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
-<table>
-{% for form in forms %}
-   <tr><td>{{ form }}</td></tr>
+{% for table in tables %}
+   <table>
+   {% for form in table %}
+      <tr><td>{{ form }}</td></tr>
+   {% endfor %}
+   </table>
+   <br>
+{% else %}
+   <div id="wordnotfound">
+      Реч није пронађена 😞
+   </div>
 {% endfor %}
-</table>
 </body>
 </html>

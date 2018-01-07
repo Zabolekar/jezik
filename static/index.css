@@ -8,13 +8,18 @@
 table {
    margin-left:auto;
    margin-right:auto;
+   margin-bottom: 2em;
    border-collapse: collapse;
 }
 
-table, td, tr {
+td, tr {
    border: 1px solid #ccc;
    text-align: center;
    padding: 15px 0px 15px 0px;
+}
+
+#wordnotfound {
+   text-align:center;
 }
 
 tr:hover {

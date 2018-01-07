@@ -57,7 +57,7 @@ def decipher(infos, typ: str) -> GramInfo:
       splitted_typ = typ.split('|')
       POS = splitted_typ[0]
       other = splitted_typ[1:]
-   
+
    return GramInfo(accents, AP, MP, POS, other)
 
 def insert(word: str, position_to_accent: Dict[int, str]) -> str:
@@ -193,7 +193,7 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
             form = form.replace('0', '')
             form = form.replace('̍', '')
             form = form.replace('~', '\u0304')
-            to_insert = first_vowel_index(form) + 1 
+            to_insert = first_vowel_index(form) + 1
             form = insert(form, {to_insert: '̍'})
          form = form.replace('̍\u0304', '\u0304̍')
          form = form.replace('~', '')
@@ -204,23 +204,32 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
             form = form + ' се'
          yield form
 
-   return verb_forms
+def lookup(raw_word: str) -> Iterator[Iterator[str]]:
+   # TODO: lookup by partial keys in a dict? Really?
+   # We ought to rethink the way we store data
+   with_se = raw_word[-3:] == " се"
+   if with_se:
+      raw_word = raw_word[:-3]
+   hits = []
+   for key in letter_a.keys():
+      key_without_disambiguator = key.split()[0]
+      if raw_word == key_without_disambiguator:
+         hits.append(key)
 
-def lookup(raw_word: str) -> Iterator[str]:
-   if raw_word not in letter_a:
-      yield "Реч није пронађена 😞"
-   elif 'i' in letter_a[raw_word]:
-      print('{:>25} : '.format(raw_word), end="")
-      deciphered = decipher(letter_a[raw_word]['i'], letter_a[raw_word]['t'])
-      print(deciphered)
-      accented_word = accentize(raw_word, deciphered.accents)
-      print(accented_word)
-      print(garde(accented_word))
-      yield from conjugate(raw_word, deciphered)
-   else:
-      yield "Ово није глагол 😞"
+   for hit in hits:
+      if 'i' in letter_a[hit]:
+         verb, info = letter_a[hit]['i'], letter_a[hit]['t']
+         if with_se and not 'Refl' in info:
+            continue
+         deciphered = decipher(verb, info)
+         accented_word = accentize(hit, deciphered.accents)
+         yield conjugate(hit, deciphered)
+      elif with_se: # for skipping meaningless queries like "адвокат се"
+         continue
+      else:
+         yield iter(["Ово није глагол 😞"]) # TODO
 
-def random_word() -> Iterator[str]:
+def random_word() -> Iterator[Iterator[str]]:
    while True:
       raw_word = random.choice(list(letter_a.keys()))
       if 'i' in letter_a[raw_word]:
