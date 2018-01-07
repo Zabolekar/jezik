@@ -40,12 +40,12 @@ def deaccentize(text: str) -> str:
 
    return text
 
-def decipher(sequence: str) -> GramInfo:
+def decipher(infos, typ: str) -> GramInfo:
 
-   if sequence:
-      line_accents, AP, MP = sequence.split('|')
-      Rs = line_accents.split('@')[0] if '@' in sequence else None
-      Vs = line_accents.split('@')[1] if '@' in sequence else line_accents
+   if infos:
+      line_accents, AP, MP = infos.split('|')
+      Rs = line_accents.split('@')[0] if '@' in infos else None
+      Vs = line_accents.split('@')[1] if '@' in infos else line_accents
       accents = Accents(
           {int(i): '\u0325' for i in Rs[1:].split(',')} if Rs else {},
           {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
@@ -53,7 +53,12 @@ def decipher(sequence: str) -> GramInfo:
    else:
       accents, AP, MP = Accents({}, {}), "", ""
 
-   return GramInfo(accents, AP, MP)
+   if typ:
+      splitted_typ = typ.split('|')
+      POS = splitted_typ[0]
+      other = splitted_typ[1:]
+   
+   return GramInfo(accents, AP, MP, POS, other)
 
 def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
@@ -195,6 +200,8 @@ def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
          form = form.replace('0', '')
          form = form.replace('·', '')
          form = prettify(form)
+         if 'Refl' in info.other:
+            form = form + ' се'
          yield form
 
    return verb_forms
@@ -204,7 +211,7 @@ def lookup(raw_word: str) -> Iterator[str]:
       yield "Реч није пронађена 😞"
    elif 'i' in letter_a[raw_word]:
       print('{:>25} : '.format(raw_word), end="")
-      deciphered = decipher(letter_a[raw_word]['i'])
+      deciphered = decipher(letter_a[raw_word]['i'], letter_a[raw_word]['t'])
       print(deciphered)
       accented_word = accentize(raw_word, deciphered.accents)
       print(accented_word)

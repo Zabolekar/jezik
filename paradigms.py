@@ -9,7 +9,9 @@ Accents = NamedTuple("Accents", [
 GramInfo = NamedTuple("Accents", [
    ("accents", Accents),
    ("AP", str), # accent paradigm
-   ("MP", str) # morphological paradigm
+   ("MP", str), # morphological paradigm
+   ("POS", str),
+   ("other", list)
 ])
 
 AccentedTuple = NamedTuple("AccentedTuple", [
