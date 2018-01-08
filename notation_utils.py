@@ -51,7 +51,7 @@ def prettify(text: str) -> str:
    idict = palatalization_modes['ȷ']
    for key in idict:
       text = text.replace(key, idict[key])
-   return text.replace('јй', '̄ј').replace('й', 'и')
+   return text.replace('јй', '\u0304ј').replace('й', 'и')
 
 def deaccentize(text: str) -> str:
    accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325'
@@ -100,6 +100,6 @@ def garde(word: str) -> str: # Garde's accentuation
 
    word3 = insert(word2, insert_dict)
    word3 = re.sub('•', '', word3) # delete
-   word3 = re.sub('̍\u0304', '\u0304̍', word3) # swap length (\u0304) and accent (\u030d)
+   word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) # swap length (\u0304) and accent (\u030d)
 
    return word3

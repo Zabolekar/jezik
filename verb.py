@@ -16,12 +16,12 @@ class Verb:
       if '0̍' in form: # 0 means accent on the firstmost syllable
          form = (form
                  .replace('0', '')
-                 .replace('̍', '')
+                 .replace('\u030d', '') # straight accent
                  .replace('~', '\u0304'))
          to_insert = first_vowel_index(form) + 1
-         form = insert(form, {to_insert: '̍'})
+         form = insert(form, {to_insert: '\u030d'}) # straight accent
       form = prettify(form
-                      .replace('̍\u0304', '\u0304̍')
+                      .replace('\u030d\u0304', '\u0304\u030d') #straight, macron
                       .replace('~', '')
                       .replace('0', '')
                       .replace('·', ''))
@@ -44,8 +44,8 @@ class Verb:
                   verb_form = trunk
                   for ending_part in ending:
                      if self.info.AP in ending_part.accent:
-                        verb_form.replace('̍', '')
-                        current_morph = ending_part.morpheme.replace('·', '̍')
+                        verb_form.replace('\u030d', '') # straight
+                        current_morph = ending_part.morpheme.replace('·', '̍') # to straight
                      else:
                         current_morph = ending_part.morpheme
                      verb_form += current_morph
@@ -64,11 +64,11 @@ class Verb:
                   #accentedness = False
                   for ending_part in ending:
                      if self.info.AP in ending_part.accent:
-                        current_morph = ending_part.morpheme.replace('·', '̍')
+                        current_morph = ending_part.morpheme.replace('·', '\u030d') # straight
                         #accentedness = True
                      else:
                         current_morph = ending_part.morpheme
                      verb_form += current_morph
-                  if '̍' not in verb_form:
-                     verb_form = verb_form.replace('·', '̍', 1)
+                  if '\u030d' not in verb_form: # straight
+                     verb_form = verb_form.replace('·', '̍', 1) # to straight
                   yield self.expose(verb_form)

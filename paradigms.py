@@ -236,9 +236,9 @@ i_present = Present(
    Ending(i_theme_prs, ending_m),
    Ending(i_theme_prs, ending_sh),
    Ending(i_theme_prs, ending_null),
-   Ending(AccentedTuple('и·̄', 'c.c:'), AccentedTuple('мо', 'c#')),
-   Ending(AccentedTuple('и·̄', 'c.c:'), AccentedTuple('те', 'c#')),
-   Ending(AccentedTuple('е·̄', 'c.c:c#'), ending_null),
+   Ending(AccentedTuple('и·\u0304', 'c.c:'), AccentedTuple('мо', 'c#')),
+   Ending(AccentedTuple('и·\u0304', 'c.c:'), AccentedTuple('те', 'c#')),
+   Ending(AccentedTuple('е·\u0304', 'c.c:c#'), ending_null),
    Ending(i_theme_imv, ending_null),
    Ending(i_theme_imv, ending_mo),
    Ending(i_theme_imv, ending_te)
