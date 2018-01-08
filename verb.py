@@ -49,7 +49,7 @@ class Verb:
                      else:
                         current_morph = ending_part.morpheme
                      verb_form += current_morph
-                  yield self.expose(verb_form)
+                  yield self._expose(verb_form)
 
          else:
             if self.info.MP == 'kappa' or self.info.MP == 'lambda':
@@ -71,4 +71,4 @@ class Verb:
                      verb_form += current_morph
                   if '\u030d' not in verb_form: # straight
                      verb_form = verb_form.replace('·', '\u030d', 1) # to straight
-                  yield self.expose(verb_form)
+                  yield self._expose(verb_form)
