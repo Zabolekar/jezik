@@ -45,7 +45,7 @@ class Verb:
                   for ending_part in ending:
                      if self.info.AP in ending_part.accent:
                         verb_form.replace('\u030d', '') # straight
-                        current_morph = ending_part.morpheme.replace('·', '̍') # to straight
+                        current_morph = ending_part.morpheme.replace('·', '\u030d') # to straight
                      else:
                         current_morph = ending_part.morpheme
                      verb_form += current_morph
@@ -70,5 +70,5 @@ class Verb:
                         current_morph = ending_part.morpheme
                      verb_form += current_morph
                   if '\u030d' not in verb_form: # straight
-                     verb_form = verb_form.replace('·', '̍', 1) # to straight
+                     verb_form = verb_form.replace('·', '\u030d', 1) # to straight
                   yield self.expose(verb_form)
