@@ -16,4 +16,4 @@ def random():
    return render_template("results.html", tables=random_word())
 
 if __name__ == "__main__":
-   app.run(threaded=True)
+   app.run(debug=True)

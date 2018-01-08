@@ -1,7 +1,7 @@
 from typing import Dict, Iterator, Any
-from paradigms import MP_to_stems
-from utils import (decipher, garde, accentize, insert, last_vowel_index,
-   first_vowel_index, prettify)
+from paradigms import GramInfo, MP_to_stems
+from notation_utils import accentize, insert, garde, prettify
+from utils import decipher, last_vowel_index, first_vowel_index
 
 class Verb:
    # TODO: get rid of Any
