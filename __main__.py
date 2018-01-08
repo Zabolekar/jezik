@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from conjugate import lookup, random_word
+from lookup import lookup, random_word
 
 app = Flask(__name__)
 

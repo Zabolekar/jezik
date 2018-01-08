@@ -1,21 +1,12 @@
-from typing import Dict, Iterator
-import random
-import os
-import re
-import yaml
-from paradigms import GramInfo, Accents, MP_to_stems
-from auxiliary_data import palatalization_modes
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
-with open(dir_path + '\\a_sr_ru.yaml', encoding="utf-8") as f:
-   data = yaml.load(f)
-   letter_a = data['letter_a'][0]
-
 # TODO: ungarde(word), e.g. асимилӣ̍ра̄м -> асимѝлӣра̄м
 # ----- well-named function for recessive accent,
 #       e.g. recessive(sequence) -> se̍quence
-# ----- reflexive verbs like а́чити се
 # ----- think of better name for prettify(), like alternate() or assimilate()
+
+from typing import Dict
+import re
+from paradigms import GramInfo, Accents
+from auxiliary_data import palatalization_modes
 
 def last_vowel_index(trunk: str) -> int:
    *__, last_vowel = re.finditer('[АаЕеИиОоУуAaEeIiOoUu̥]', trunk)
@@ -142,96 +133,3 @@ def prettify(text: str) -> str:
    text = text.replace('јй', '̄ј')
    text = text.replace('й', 'и')
    return text
-
-def conjugate(verb: str, info: GramInfo) -> Iterator[str]:
-   accented_verb = garde(accentize(verb, info.accents))
-   infinitive_dict = {'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
-                      'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
-                      'eta': 'ети', 'theta': 'ети', 'iota': 'ати',
-                      'kappa': 'ти', 'lambda': 'ти', 'mu': 'ати'}
-   if info.MP in infinitive_dict:
-      verb_forms = []
-      if info.AP == 'a': # There are 2 major types of paradigms: 'a' and the rest
-         trunk = accented_verb[:-len(infinitive_dict[info.MP])]
-         for stem in MP_to_stems[info.MP]:
-            for ending in stem: # type: ignore
-               verb_form = trunk
-               for ending_part in ending:
-                  if info.AP in ending_part.accent:
-                     verb_form.replace('̍', '')
-                     current_morph = ending_part.morpheme.replace('·', '̍')
-                  else:
-                     current_morph = ending_part.morpheme
-                  verb_form += current_morph
-               verb_forms.append(verb_form)
-
-      else:
-         if info.MP == 'kappa' or info.MP == 'lambda':
-            trunk = accented_verb[:-len(infinitive_dict[info.MP])]
-         else:
-            trunk = accented_verb[:-len(infinitive_dict[info.MP])-1]
-         to_insert = last_vowel_index(trunk) + 1
-         trunk = insert(trunk, {to_insert: '·'})
-         for stem in MP_to_stems[info.MP]:
-            for ending in stem: # type: ignore
-               verb_form = trunk
-               #accentedness = False
-               for ending_part in ending:
-                  if info.AP in ending_part.accent:
-                     current_morph = ending_part.morpheme.replace('·', '̍')
-                     #print('accented: ', current_morph)
-                     #accentedness = True
-                  else:
-                     current_morph = ending_part.morpheme
-                  verb_form += current_morph
-               if '̍' not in verb_form:
-                  verb_form = verb_form.replace('·', '̍', 1)
-               verb_forms.append(verb_form)
-
-      for form in verb_forms:
-         if '0̍' in form: # 0 means accent on the firstmost syllable
-            form = form.replace('0', '')
-            form = form.replace('̍', '')
-            form = form.replace('~', '\u0304')
-            to_insert = first_vowel_index(form) + 1
-            form = insert(form, {to_insert: '̍'})
-         form = form.replace('̍\u0304', '\u0304̍')
-         form = form.replace('~', '')
-         form = form.replace('0', '')
-         form = form.replace('·', '')
-         form = prettify(form)
-         if 'Refl' in info.other:
-            form = form + ' се'
-         yield form
-
-def lookup(raw_word: str) -> Iterator[Iterator[str]]:
-   # TODO: lookup by partial keys in a dict? Really?
-   # We ought to rethink the way we store data
-   with_se = raw_word[-3:] == " се"
-   if with_se:
-      raw_word = raw_word[:-3]
-
-   for key in letter_a.keys():
-      key_without_disambiguator = key.split()[0]
-      if raw_word == key_without_disambiguator:
-         if 'i' in letter_a[key]:
-            i, t = letter_a[key]['i'], letter_a[key]['t']
-            if with_se and not 'Refl' in t:
-               continue
-            deciphered = decipher(i, t)
-            yield conjugate(key, deciphered)
-         elif with_se: # for skipping meaningless queries like "адвокат се"
-            continue
-         else:
-            yield iter(["Ово није глагол 😞"]) # TODO
-
-def random_word() -> Iterator[Iterator[str]]:
-   while True:
-      raw_word = random.choice(list(letter_a.keys()))
-      if 'i' in letter_a[raw_word]:
-         yield from lookup(raw_word)
-         break
-
-if __name__ == '__main__':
-   for form in random_word():
-      print(form)
