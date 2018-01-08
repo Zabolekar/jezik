@@ -31,3 +31,10 @@ palatalization_modes = {
          'лȷ': 'љ', 'рȷ': 'р', 'нȷ': 'њ', 'јȷ': 'ј',
          'љȷ': 'љ', 'њȷ': 'њ'}
 } # type: Dict[str, Dict[str, str]]
+
+infinitive_dict = {
+   'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
+   'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
+   'eta': 'ети', 'theta': 'ети', 'iota': 'ати',
+   'kappa': 'ти', 'lambda': 'ти', 'mu': 'ати'
+} # type: Dict[str, str]
