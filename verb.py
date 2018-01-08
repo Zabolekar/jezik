@@ -14,6 +14,7 @@ class Verb:
       i, t = self.value['i'], self.value['t']
       self.info = decipher(i, t) # type: GramInfo
       self.is_reflexive = 'Refl' in self.info.other
+      self.trunk = self._trunk()
 
    def _expose(self, form: str) -> str:
       if '0̍' in form: # 0 means accent on the firstmost syllable
@@ -47,10 +48,9 @@ class Verb:
 
    def conjugate(self) -> Iterator[str]:
       if self.info.MP in infinitive_dict: # TODO: what if not?
-         trunk = self._trunk()
          for stem in MP_to_stems[self.info.MP]:
             for ending in stem: # type: ignore
-               verb_form = trunk
+               verb_form = self.trunk
                for ending_part in ending:
                   if self.info.AP in ending_part.accent:
                      if self.info.AP == 'a':
