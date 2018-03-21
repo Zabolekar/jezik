@@ -1,4 +1,4 @@
-# TODO: ungarde(word), e.g. асимилӣ̍ра̄м -> асимѝлӣра̄м
+# TODO:
 # ----- well-named function for recessive accent,
 #       e.g. recessive(sequence) -> se̍quence
 # ----- think of better name for prettify(), like alternate() or assimilate()
