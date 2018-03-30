@@ -82,17 +82,17 @@ def garde(word: str) -> str: # Garde's accentuation
             insert_bool = False
          else:
             if len(word) > i+1:
-               if word[i+1] in '\u0300': # `
+               if word[i+1] == '\u0300': # `
                   insert_bool = True
                   word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
-               elif word[i+1] in '\u0301': # ´
+               elif word[i+1] == '\u0301': # ´
                   insert_bool = True
                   word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
-               elif word[i+1] in '\u030f': # ¨
+               elif word[i+1] == '\u030f': # ¨
                   word2 = re.sub("^(.{" + str(i+1) + "}).",
                                  r"\g<1>" + '\u030d',
                                  word2)  # straight accent
-               elif word[i+1] in '\u0311': # ^
+               elif word[i+1] == '\u0311': # ^
                   word2 = re.sub("^(.{" + str(i+1) + "}).",
                                  r"\g<1>" + '\u030d',
                                  word2) # straight accent
