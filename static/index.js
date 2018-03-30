@@ -1,5 +1,6 @@
 function displayResults (reply) {
    $('#results').html(reply);
+   ungardeAll();
    var width = $('#word').width() + $('#button').width();
    $('table').css('width', width+'px');
 }
@@ -15,9 +16,14 @@ function onSubmit (event) {
 
 function setup () {
    $('#search').submit(onSubmit);
+   $('#ungarde').change(function () {
+      $("#results table td#traditional")[this.checked ? "show" : "hide"]();
+   });
 }
 
 $(document).ready(setup);
+
+
 
 function isVowel (c) {
    return "aeiouAEIOUаеиоуАЕИОУ\u0325".search(c) != -1;
@@ -79,8 +85,10 @@ function ungarde (word) {
 ["dȍbar", "dȃn", "nòga", "ljȗdi", "ljúdī", "асимѝлӣра̄м", "адвокати́рао", "хало̑", "зафр̥ка̏нт"]
 */
 
-function ungardeAllInPlace () {
-   $("#results table tr").each(function (i, word) {
-      word.innerText = ungarde(word.innerText); //TODO backup and restoring
+function ungardeAll () {
+   var traditional = $("#results table td#garde");
+   $("#results table td#traditional").each(function (i, word) {
+      word.innerText = ungarde(traditional[i].innerText);
    });
+   $('#ungarde').change();
 }
