@@ -1,7 +1,7 @@
 function displayResults (reply) {
    $('#results').html(reply);
    ungardeAll();
-   var width = $('#word').width() + $('#button').width();
+   var width = $('#word').width() + $('#button').width(); //TODO: issue #14
    $('table').css('width', width+'px');
 }
 
@@ -79,9 +79,7 @@ function ungarde (word) {
 }
 
 /* test:
-["do̍bar", "dā̍n", "noga̍", "ljū̍di", "ljūdī̍", "асимилӣ̍ра̄м", "адвокатӣра̍о", "ха!ло̄̍", "зафр̥!ка̍нт"].map(function (word) {
-   return ungarde(word);
-})
+["do̍bar", "dā̍n", "noga̍", "ljū̍di", "ljūdī̍", "асимилӣ̍ра̄м", "адвокатӣра̍о", "ха!ло̄̍", "зафр̥!ка̍нт"].map(ungarde)
 ["dȍbar", "dȃn", "nòga", "ljȗdi", "ljúdī", "асимѝлӣра̄м", "адвокати́рао", "хало̑", "зафр̥ка̏нт"]
 */
 
