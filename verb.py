@@ -12,7 +12,7 @@ class Verb:
       self.key = key
       self.value = value
       i, t = self.value['i'], self.value['t']
-      self.info = decipher(i, t) # type: GramInfo
+      self.info: GramInfo = decipher(i, t)
       self.is_reflexive = 'Refl' in self.info.other
       self.trunk = self._trunk()
 

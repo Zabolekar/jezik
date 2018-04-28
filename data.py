@@ -4,7 +4,7 @@ import os
 import yaml
 
 class Data:
-   def __init__(self, path):
+   def __init__(self, path: str) -> None:
       with open(path, encoding="utf-8") as f:
          self._data = yaml.load(f)
 

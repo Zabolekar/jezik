@@ -1,85 +1,76 @@
 from typing import Dict, NamedTuple
 
-# workaround for Python 3.5 without new NamedTuple syntax
-Accents = NamedTuple("Accents", [
-   ("r", Dict[int, str]), # syllabic r
-   ("v", Dict[int, str]) # any other vowel
-])
+class Accents(NamedTuple):
+   r: Dict[int, str] # syllabic r
+   v: Dict[int, str] # any other vowel
 
-GramInfo = NamedTuple("Accents", [
-   ("accents", Accents),
-   ("AP", str), # accent paradigm
-   ("MP", str), # morphological paradigm
-   ("POS", str),
-   ("other", list)
-])
+class GramInfo(NamedTuple):
+   accents: Accents
+   AP: str # accent paradigm
+   MP: str # morphological paradigm
+   POS: str
+   other: list # TODO: list of what?
 
-AccentedTuple = NamedTuple("AccentedTuple", [
-   ("morpheme", str),
-   ("accent", str)
-])
+class AccentedTuple(NamedTuple):
+   morpheme: str
+   accent: str
 
-Ending = NamedTuple("Ending", [
-   ("theme", AccentedTuple),
-   ("ending", AccentedTuple)
-])
+class Ending(NamedTuple):
+   theme: AccentedTuple
+   ending: AccentedTuple
 
-Present = NamedTuple("Present", [
-   ("prs1sg", Ending),
-   ("prs2sg", Ending),
-   ("prs3sg", Ending),
-   ("prs1pl", Ending),
-   ("prs2pl", Ending),
-   ("prs3pl", Ending),
-   ("imv2sg", Ending),
-   ("imv1pl", Ending),
-   ("imv2pl", Ending)
-])
+class Present(NamedTuple):
+   prs1sg: Ending
+   prs2sg: Ending
+   prs3sg: Ending
+   prs1pl: Ending
+   prs2pl: Ending
+   prs3pl: Ending
+   imv2sg: Ending
+   imv1pl: Ending
+   imv2pl: Ending
 
-Past = NamedTuple("Past", [
-   ("pfMsg", Ending),
-   ("pfFsg", Ending),
-   ("pfNsg", Ending),
-   ("pfMpl", Ending),
-   ("pfFpl", Ending),
-   ("pfnNpl", Ending),
-   ("aor1sg", Ending),
-   ("aor2sg", Ending),
-   ("aor3sg", Ending),
-   ("aor1pl", Ending),
-   ("aor2pl", Ending),
-   ("aor3pl", Ending),
-   ("infinitive", Ending),
-   ("ipf1sg", Ending),
-   ("ipf2sg", Ending),
-   ("ipf3sg", Ending),
-   ("ipf1pl", Ending),
-   ("ipf2pl", Ending),
-   ("ipf3pl", Ending)
-])
+class Past(NamedTuple):
+   pfMsg: Ending
+   pfFsg: Ending
+   pfNsg: Ending
+   pfMpl: Ending
+   pfFpl: Ending
+   pfnNpl: Ending
+   aor1sg: Ending
+   aor2sg: Ending
+   aor3sg: Ending
+   aor1pl: Ending
+   aor2pl: Ending
+   aor3pl: Ending
+   infinitive: Ending
+   ipf1sg: Ending
+   ipf2sg: Ending
+   ipf3sg: Ending
+   ipf1pl: Ending
+   ipf2pl: Ending
+   ipf3pl: Ending
 
-"""Presents = NamedTuple("Presents", [
-   ("i", Present),
-   ("e", Present),
-   ("a", Present),
-   ("je", Present),
-   ("ie", Present),
-   ("uje", Present)
-])
+"""class Presents(NamedTuple):
+   i: Present
+   e: Present
+   a: Present
+   je: Present
+   ie: Present
+   uje: Present
 
-Pasts = NamedTuple("Pasts",[
-   ("i", Past),
-   ("a", Past),
-   ("ie", Past),
-   ("ova", Past),
-   ("u", Past) # add "zero" after finishing the book!
-])"""
+class Pasts(NamedTuple):
+   i: Past
+   a: Past
+   ie: Past
+   ova: Past
+   u: Past # TODO: add "zero" after finishing the book!
+"""
 
 
-Stems = NamedTuple("Stems", [
-   ("present", Present),
-   ("past", Past)
-])
+class Stems(NamedTuple):
+   present: Present
+   past: Past
 
 i_theme_past = AccentedTuple('и·', 'b.b:c.c:c#')
 a_theme_past = AccentedTuple('а·~', 'b.b:c.c:c#cjctx.y.y:y#z.')
@@ -280,11 +271,11 @@ uje_present = Present(
    Ending(uje_theme_imv, ending_te)
 )
 
-MP_to_stems = dict(
+MP_to_stems: Dict[str, Stems] = dict(
    alpha=Stems(i_present, i_past),
    beta=Stems(a_present, a_past),
    delta=Stems(je_present, a_past),
    epsilon=Stems(uje_present, ova_past),
    zeta=Stems(uje_present, iva_past),
    eta=Stems(i_present, ie_past),
-) # type: Dict[str, Stems]
+)

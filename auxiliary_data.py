@@ -1,6 +1,6 @@
 from typing import Dict
 
-palatalization_modes = {
+palatalization_modes: Dict[str, Dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
          'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
          'шт': 'шт', 'жд': 'жд',
@@ -30,11 +30,11 @@ palatalization_modes = {
          'тȷ': 'ћ', 'дȷ': 'ђ', 'сȷ': 'ш', 'зȷ': 'ж',
          'лȷ': 'љ', 'рȷ': 'р', 'нȷ': 'њ', 'јȷ': 'ј',
          'љȷ': 'љ', 'њȷ': 'њ'}
-} # type: Dict[str, Dict[str, str]]
+}
 
-infinitive_dict = {
+infinitive_dict: Dict[str, str] = {
    'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
    'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
    'eta': 'ети', 'theta': 'ети', 'iota': 'ати',
    'kappa': 'ти', 'lambda': 'ти', 'mu': 'ати'
-} # type: Dict[str, str]
+}
