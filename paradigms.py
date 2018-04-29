@@ -4,7 +4,7 @@ class Accents(NamedTuple):
    r: Dict[int, str] # syllabic r
    v: Dict[int, str] # any other vowel
 
-class GramInfo(NamedTuple):
+class GramInfo:
    """
    How to read the field `other`:
    - If the word is a verb, then `other` contains a list with two elements,
@@ -12,11 +12,30 @@ class GramInfo(NamedTuple):
    reflexive) and one of "Pf", "Ipf", "Dv" (perfective, imperfective,
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
-   accents: Accents
-   AP: str # accent paradigm
-   MP: str # morphological paradigm
-   POS: str # part of speech
-   other: List[str]
+   def __init__(self, infos, types: str) -> None:
+      if infos:
+         line_accents, AP, MP = infos.split('|')
+         if '@' in infos:
+            Rs, Vs = line_accents.split('@')
+         else:
+            Rs, Vs = None, line_accents
+         accents = Accents(
+             {int(i): '\u0325' for i in Rs[1:].split(',')} if Rs else {},
+             {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
+         )
+      else:
+         raise ValueError("Can't decipher empty i")
+
+      if types:
+         POS, *other = types.split('|')
+      else:
+         raise ValueError("Can't decipher empty t")
+
+      self.accents: Accents = accents
+      self.AP: str = AP # accent paradigm
+      self.MP: str = MP # morphological paradigm
+      self.POS: str = POS # part of speech
+      self.other: List[str] = other
 
 class AccentedTuple(NamedTuple):
    morpheme: str

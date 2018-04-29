@@ -1,7 +1,7 @@
 from typing import Dict, Iterator, Any
 from paradigms import GramInfo, MP_to_stems
 from notation_utils import accentize, insert, garde, prettify
-from utils import decipher, last_vowel_index, first_vowel_index
+from utils import last_vowel_index, first_vowel_index
 from auxiliary_data import infinitive_dict
 
 # There are 2 major types of paradigms: 'a' and the rest
@@ -12,7 +12,7 @@ class Verb:
       self.key = key
       self.value = value
       i, t = self.value['i'], self.value['t']
-      self.info: GramInfo = decipher(i, t)
+      self.info = GramInfo(i, t)
       self.is_reflexive = 'Refl' in self.info.other
       self.trunk = self._trunk()
 
