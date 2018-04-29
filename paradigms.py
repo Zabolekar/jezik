@@ -1,8 +1,30 @@
 from typing import Dict, NamedTuple, List
+from utils import insert
 
-class Accents(NamedTuple):
-   r: Dict[int, str] # syllabic r
-   v: Dict[int, str] # any other vowel
+# TODO: when 3.7 is out, make Accents and GramInfo dataclasses
+
+class Accents:
+
+   def __init__(self, r, v: Dict[int, str]) -> None:
+      self.r = r # syllabic r
+      self.v = v # any other vowel
+
+   def accentize(self, word: str) -> str: # traditional accentuation
+      real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304'}
+      if self.v:
+         if self.r: # now we put the magic ring
+            word = insert(word, self.r)
+         # after that we create a dict with letter numbers representing vowels
+         syllabic = 0
+         position_to_accent: Dict[int, str] = {}
+         for i, letter in enumerate(word):
+            if letter in 'aeiouAEIOUаеиоуАЕИОУ\u0325':
+               syllabic += 1
+               if syllabic in self.v:
+                  position_to_accent[i+1] = real_accent[self.v[syllabic]]
+         return insert(word, position_to_accent) # then we insert accents into word!
+      else:
+         return word
 
 class GramInfo:
    """

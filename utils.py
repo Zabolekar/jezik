@@ -5,7 +5,6 @@
 
 import re
 from typing import Dict
-from paradigms import Accents
 from auxiliary_data import palatalization_modes
 
 def last_vowel_index(trunk: str) -> int:
@@ -28,24 +27,6 @@ def insert(word: str, position_to_accent: Dict[int, str]) -> str:
       pieces.append(word[first[y]:second[y]])
 
    return ''.join(pieces)
-
-def accentize(word: str, accents: Accents) -> str: # traditional accentuation
-   real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304'}
-   #accents = decipher(sequence).accents, TODO: discuss with sveto
-   if accents.v:
-      if accents.r: # now we put the magic ring
-         word = insert(word, accents.r)
-      # after that we create a dict with letter numbers representing vowels
-      syllabic = 0
-      position_to_accent = {} # type: Dict[int, str]
-      for i, letter in enumerate(word):
-         if letter in 'aeiouAEIOUаеиоуАЕИОУ\u0325':
-            syllabic += 1
-            if syllabic in accents.v:
-               position_to_accent[i+1] = real_accent[accents.v[syllabic]]
-      return insert(word, position_to_accent) # then we insert accents into word!
-   else:
-      return word
 
 def palatalize(sequence: str, mode='') -> str:
    idict = palatalization_modes[mode]

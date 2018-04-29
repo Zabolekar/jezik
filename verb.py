@@ -1,13 +1,11 @@
 from typing import Dict, Iterator, Any
 from paradigms import GramInfo, MP_to_stems
-from utils import (accentize, insert, garde, prettify,
-   last_vowel_index, first_vowel_index)
+from utils import insert, garde, prettify, last_vowel_index, first_vowel_index
 from auxiliary_data import infinitive_dict
 
 # There are 2 major types of paradigms: 'a' and the rest
 
 class Verb:
-   # TODO: get rid of Any
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
       self.key = key
       self.value = value
@@ -34,7 +32,7 @@ class Verb:
       return form
 
    def _trunk(self):
-      accented_verb = garde(accentize(self.key, self.info.accents))
+      accented_verb = garde(self.info.accents.accentize(self.key))
       N = len(infinitive_dict[self.info.MP])
       if self.info.AP == 'a':
          return accented_verb[:-N]
