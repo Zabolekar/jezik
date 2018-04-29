@@ -9,22 +9,24 @@ def last_vowel_index(trunk: str) -> int:
 def first_vowel_index(trunk: str) -> int:
     return re.search('[АаЕеИиОоУуAaEeIiOoUu\u0325]', trunk).span()[0]
 
-def decipher(infos, typ: str) -> GramInfo:
+def decipher(infos, types: str) -> GramInfo:
 
    if infos:
       line_accents, AP, MP = infos.split('|')
-      Rs = line_accents.split('@')[0] if '@' in infos else None
-      Vs = line_accents.split('@')[1] if '@' in infos else line_accents
+      if '@' in infos:
+         Rs, Vs = line_accents.split('@')
+      else:
+         Rs, Vs = None, line_accents
       accents = Accents(
           {int(i): '\u0325' for i in Rs[1:].split(',')} if Rs else {},
           {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
       )
    else:
-      accents, AP, MP = Accents({}, {}), "", ""
+      raise ValueError("Can't decipher empty i")
 
-   if typ:
-      splitted_typ = typ.split('|')
-      POS = splitted_typ[0]
-      other = splitted_typ[1:]
+   if types:
+      POS, *other = types.split('|')
+   else:
+      raise ValueError("Can't decipher empty t")
 
    return GramInfo(accents, AP, MP, POS, other)

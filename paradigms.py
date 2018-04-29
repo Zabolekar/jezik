@@ -1,15 +1,22 @@
-from typing import Dict, NamedTuple
+from typing import Dict, NamedTuple, List
 
 class Accents(NamedTuple):
    r: Dict[int, str] # syllabic r
    v: Dict[int, str] # any other vowel
 
 class GramInfo(NamedTuple):
+   """
+   How to read the field `other`:
+   - If the word is a verb, then `other` contains a list with two elements,
+   one of "Tr", "Itr", "Refl" (which means transitive, intransitive,
+   reflexive) and one of "Pf", "Ipf", "Dv" (perfective, imperfective,
+   biaspectual; abbreviation "Dv" comes from "dvòvīdan")
+   """
    accents: Accents
    AP: str # accent paradigm
    MP: str # morphological paradigm
-   POS: str
-   other: list # TODO: list of what?
+   POS: str # part of speech
+   other: List[str]
 
 class AccentedTuple(NamedTuple):
    morpheme: str
@@ -76,7 +83,7 @@ i_theme_past = AccentedTuple('и·', 'b.b:c.c:c#')
 a_theme_past = AccentedTuple('а·~', 'b.b:c.c:c#cjctx.y.y:y#z.')
 ie_theme_past = AccentedTuple('е·', 'b.c.c:')
 #zero_theme_past = AccentedTuple('', '')
-#nu_theme_past = AccentedTuple('ну', '') # finish the book first!
+#nu_theme_past = AccentedTuple('ну', '') # TODO: finish the book first!
 ova_theme_past = AccentedTuple('ова·', 'cp')
 iva_theme_past = AccentedTuple('и\u0304ва·', 'ct')
 
