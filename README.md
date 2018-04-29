@@ -1,4 +1,4 @@
-# jezik
+# jèzik
 
 This will be a Serbian dictionary with detailed information about accent.
 
