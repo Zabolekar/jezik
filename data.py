@@ -1,20 +1,27 @@
-from typing import Iterator, Dict, Tuple, Any
+from typing import Any, Dict, Tuple, List
 import random
 import os
 import yaml
 
+Entry = Tuple[str, Dict[str, Any]]
+
 class Data:
    def __init__(self, path: str) -> None:
       with open(path, encoding="utf-8") as f:
-         self._data = yaml.load(f)
+         raw_data = yaml.load(f)
+         # ad-hoc multidict
+         self._data: Dict[str, List[Entry]] = {}  
+         for full_key in raw_data.keys():
+            # full_key is with disambiguator, key is without
+            key = full_key.split()[0]
+            pair = full_key, raw_data[full_key]
+            if key in self._data:
+               self._data[key].append(pair)
+            else:
+               self._data[key] = [pair]
 
-   def all_entries(self, raw_word: str) -> Iterator[Tuple[str, Dict[str, Any]]]:
-      # TODO: lookup by partial keys in a dict? Really?
-      # We ought to rethink the way we store data
-      for key in self._data.keys():
-         key_without_disambiguator = key.split()[0]
-         if raw_word == key_without_disambiguator:
-            yield key, self._data[key]
+   def __getitem__(self, word: str) -> List[Entry]:
+      return self._data[word]
 
    def random_key(self) -> str:
       return random.choice(list(self._data.keys()))

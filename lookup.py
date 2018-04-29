@@ -12,7 +12,7 @@ def lookup(raw_word: str) -> Iterator[Iterator[str]]:
    if with_se:
       raw_word = raw_word[:-3]
 
-   for key, value in data.all_entries(raw_word):
+   for key, value in data[raw_word]:
       if part_of_speech(value) is Verb:
          verb = Verb(key, value)
          if with_se and not verb.is_reflexive:
