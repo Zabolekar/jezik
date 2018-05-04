@@ -23,5 +23,5 @@ def lookup(raw_word: str) -> Iterator[Iterator[str]]:
       else:
          yield iter(["Ово није глагол 😞"]) # TODO
 
-def random_word() -> Iterator[Iterator[str]]:
+def random_lookup() -> Iterator[Iterator[str]]:
    yield from lookup(data.random_key())

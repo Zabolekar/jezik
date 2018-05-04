@@ -29,6 +29,10 @@ td, tr {
    text-align:center;
 }
 
+#fourhundredfour {
+   text-align:center;
+}
+
 tr:hover {
    background-color: #eee;
 }
