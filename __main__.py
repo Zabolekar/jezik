@@ -14,6 +14,10 @@ def results(word):
       return render_template("results.html", tables=lookup(word))
    except KeyError:
       return render_template("404.html"), 404
+      
+@app.errorhandler(404)
+def page_not_found(_):
+   return render_template('404.html'), 404
 
 @app.route("/test")
 def random():
