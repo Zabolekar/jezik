@@ -5,7 +5,7 @@
 
 import re
 from typing import Dict
-from auxiliary_data import palatalization_modes
+from .auxiliary_data import palatalization_modes
 
 def last_vowel_index(trunk: str) -> int:
    *__, last_vowel = re.finditer('[АаЕеИиОоУуAaEeIiOoUu\u0325]', trunk)

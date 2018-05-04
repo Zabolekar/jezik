@@ -1,6 +1,7 @@
 import os
-from flask import Flask, render_template, send_from_directory
-from lookup import lookup, random_lookup
+import sys
+from flask import Flask, render_template, send_from_directory # type: ignore
+from .lookup import lookup, random_lookup
 
 app = Flask(__name__)
 
@@ -28,6 +29,3 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, "static"),
                                "favicon.ico",
                                mimetype="image/vnd.microsoft.icon")
-
-if __name__ == "__main__":
-   app.run(debug=True)

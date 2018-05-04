@@ -1,7 +1,7 @@
 from typing import Dict, Iterator, Any
-from paradigms import GramInfo, MP_to_stems
-from utils import insert, garde, prettify, last_vowel_index, first_vowel_index
-from auxiliary_data import infinitive_dict
+from .paradigms import GramInfo, MP_to_stems
+from .utils import insert, garde, prettify, last_vowel_index, first_vowel_index
+from .auxiliary_data import infinitive_dict
 
 # There are 2 major types of paradigms: 'a' and the rest
 

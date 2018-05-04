@@ -1,6 +1,6 @@
 from typing import Iterator, Dict, Any
-from verb import Verb
-from data import data
+from .verb import Verb
+from .data import data
 
 def part_of_speech(value: Dict[str, Any]) -> type: # TODO: make more precise
    if 'i' in value:

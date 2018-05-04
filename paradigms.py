@@ -1,5 +1,5 @@
 from typing import Dict, NamedTuple, List
-from utils import insert
+from .utils import insert
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
