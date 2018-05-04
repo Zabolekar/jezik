@@ -11,11 +11,8 @@ def index():
 
 @app.route("/<word>")
 def results(word):
-   try:
-      return render_template("results.html", tables=lookup(word))
-   except KeyError:
-      return render_template("404.html"), 404
-      
+   return render_template("results.html", tables=lookup(word))
+
 @app.errorhandler(404)
 def page_not_found(_):
    return render_template('404.html'), 404

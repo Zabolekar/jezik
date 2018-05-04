@@ -21,7 +21,10 @@ class Data:
                self._data[key] = [pair]
 
    def __getitem__(self, word: str) -> List[Entry]:
-      return self._data[word]
+      try:
+         return self._data[word]
+      except KeyError:
+         return []
 
    def random_key(self) -> str:
       return random.choice(list(self._data.keys()))
