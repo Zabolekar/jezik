@@ -8,8 +8,18 @@ function displayResults (reply) {
 function onSubmit (event) {
    var word = $('#word').val();
    if (word) {
-      var url = $SCRIPT_ROOT + word;
-      $.ajax(url).done(displayResults);
+      var c = containsConfusingCharacters(word);
+      console.log(c);
+      if (c) {
+         console.log("ooo");
+         $('#results').html("<div id=\"fourhundredfour\">" +
+                            "Ваш упит садржи знак " + c +
+                            ", такве речи не постоје.</div>");
+      } else {
+         console.log("uuu");
+         var url = $SCRIPT_ROOT + "lookup/" + word;
+         $.ajax(url).done(displayResults);
+      }
    }
    event.preventDefault();
 }
@@ -23,7 +33,23 @@ function setup () {
 
 $(document).ready(setup);
 
-
+/* 
+   Some characters have special meaning in URLs. Queries that contain such
+   characters might confuse our site if sent via the search bar. It won't
+   enable the user to do anything dangerous, but it might look weird. Luckily
+   for us, words don't contain characters like that anyway.
+*/
+function containsConfusingCharacters (word) {
+   prohibited = ["/","?","=","&",";","#","[","]","+",".",":","@"];
+   var c;
+   for(var i = 0; i < prohibited.length; i++) {
+      c = prohibited[i];
+      if (word.indexOf(c) != -1) {
+         return c;
+      }
+   }
+   return "";
+}
 
 function isVowel (c) {
    return "aeiouAEIOUаеиоуАЕИОУ\u0325".search(c) != -1;

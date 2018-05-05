@@ -33,6 +33,10 @@ td, tr {
    text-align:center;
 }
 
+#invalid {
+   text-align:center;
+}
+
 tr:hover {
    background-color: #eee;
 }

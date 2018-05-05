@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
    return render_template("index.html")
 
-@app.route("/<word>")
+@app.route("/lookup/<word>")
 def results(word):
    return render_template("results.html", tables=lookup(word))
 
@@ -17,7 +17,7 @@ def results(word):
 def page_not_found(_):
    return render_template("404.html"), 404
 
-@app.route("/test")
+@app.route("/random")
 def random():
    return render_template("results.html", tables=random_lookup())
 
