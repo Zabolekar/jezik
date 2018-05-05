@@ -15,13 +15,13 @@ def results(word):
 
 @app.errorhandler(404)
 def page_not_found(_):
-   return render_template('404.html'), 404
+   return render_template("404.html"), 404
 
 @app.route("/test")
 def random():
    return render_template("results.html", tables=random_lookup())
 
-@app.route('/favicon.ico')
+@app.route("/favicon.ico")
 def favicon():
     return send_from_directory(os.path.join(app.root_path, "static"),
                                "favicon.ico",

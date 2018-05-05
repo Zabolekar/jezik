@@ -3,7 +3,7 @@ from .verb import Verb
 from .data import data
 
 def part_of_speech(value: Dict[str, Any]) -> type: # TODO: make more precise
-   if 'i' in value:
+   if "i" in value:
       return Verb
    return type(None) # TODO other parts of speech
 
