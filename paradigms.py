@@ -1,91 +1,130 @@
-from typing import Dict, NamedTuple
+from typing import Dict, NamedTuple, List
+from .utils import insert
 
-# workaround for Python 3.5 without new NamedTuple syntax
-Accents = NamedTuple("Accents", [
-   ("r", Dict[int, str]), # syllabic r
-   ("v", Dict[int, str]) # any other vowel
-])
+# TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
-GramInfo = NamedTuple("Accents", [
-   ("accents", Accents),
-   ("AP", str), # accent paradigm
-   ("MP", str), # morphological paradigm
-   ("POS", str),
-   ("other", list)
-])
+class Accents:
 
-AccentedTuple = NamedTuple("AccentedTuple", [
-   ("morpheme", str),
-   ("accent", str)
-])
+   def __init__(self, r, v: Dict[int, str]) -> None:
+      self.r = r # syllabic r
+      self.v = v # any other vowel
 
-Ending = NamedTuple("Ending", [
-   ("theme", AccentedTuple),
-   ("ending", AccentedTuple)
-])
+   def accentize(self, word: str) -> str: # traditional accentuation
+      real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304'}
+      if self.v:
+         if self.r: # now we put the magic ring
+            word = insert(word, self.r)
+         # after that we create a dict with letter numbers representing vowels
+         syllabic = 0
+         position_to_accent: Dict[int, str] = {}
+         for i, letter in enumerate(word):
+            if letter in 'aeiouAEIOUаеиоуАЕИОУ\u0325':
+               syllabic += 1
+               if syllabic in self.v:
+                  position_to_accent[i+1] = real_accent[self.v[syllabic]]
+         return insert(word, position_to_accent) # then we insert accents into word!
+      else:
+         return word
 
-Present = NamedTuple("Present", [
-   ("prs1sg", Ending),
-   ("prs2sg", Ending),
-   ("prs3sg", Ending),
-   ("prs1pl", Ending),
-   ("prs2pl", Ending),
-   ("prs3pl", Ending),
-   ("imv2sg", Ending),
-   ("imv1pl", Ending),
-   ("imv2pl", Ending)
-])
+class GramInfo:
+   """
+   How to read the field `other`:
+   - If the word is a verb, then `other` contains a list with two elements,
+   one of "Tr", "Itr", "Refl" (which means transitive, intransitive,
+   reflexive) and one of "Pf", "Ipf", "Dv" (perfective, imperfective,
+   biaspectual; abbreviation "Dv" comes from "dvòvīdan")
+   """
+   def __init__(self, infos, types: str) -> None:
+      if infos:
+         line_accents, AP, MP = infos.split('|')
+         if '@' in infos:
+            Rs, Vs = line_accents.split('@')
+         else:
+            Rs, Vs = None, line_accents
+         accents = Accents(
+             {int(i): '\u0325' for i in Rs[1:].split(',')} if Rs else {},
+             {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
+         )
+      else:
+         raise ValueError("Can't decipher empty i")
 
-Past = NamedTuple("Past", [
-   ("pfMsg", Ending),
-   ("pfFsg", Ending),
-   ("pfNsg", Ending),
-   ("pfMpl", Ending),
-   ("pfFpl", Ending),
-   ("pfnNpl", Ending),
-   ("aor1sg", Ending),
-   ("aor2sg", Ending),
-   ("aor3sg", Ending),
-   ("aor1pl", Ending),
-   ("aor2pl", Ending),
-   ("aor3pl", Ending),
-   ("infinitive", Ending),
-   ("ipf1sg", Ending),
-   ("ipf2sg", Ending),
-   ("ipf3sg", Ending),
-   ("ipf1pl", Ending),
-   ("ipf2pl", Ending),
-   ("ipf3pl", Ending)
-])
+      if types:
+         POS, *other = types.split('|')
+      else:
+         raise ValueError("Can't decipher empty t")
 
-"""Presents = NamedTuple("Presents", [
-   ("i", Present),
-   ("e", Present),
-   ("a", Present),
-   ("je", Present),
-   ("ie", Present),
-   ("uje", Present)
-])
+      self.accents: Accents = accents
+      self.AP: str = AP # accent paradigm
+      self.MP: str = MP # morphological paradigm
+      self.POS: str = POS # part of speech
+      self.other: List[str] = other
 
-Pasts = NamedTuple("Pasts",[
-   ("i", Past),
-   ("a", Past),
-   ("ie", Past),
-   ("ova", Past),
-   ("u", Past) # add "zero" after finishing the book!
-])"""
+class AccentedTuple(NamedTuple):
+   morpheme: str
+   accent: str
+
+class Ending(NamedTuple):
+   theme: AccentedTuple
+   ending: AccentedTuple
+
+class Present(NamedTuple):
+   prs1sg: Ending
+   prs2sg: Ending
+   prs3sg: Ending
+   prs1pl: Ending
+   prs2pl: Ending
+   prs3pl: Ending
+   imv2sg: Ending
+   imv1pl: Ending
+   imv2pl: Ending
+
+class Past(NamedTuple):
+   pfMsg: Ending
+   pfFsg: Ending
+   pfNsg: Ending
+   pfMpl: Ending
+   pfFpl: Ending
+   pfnNpl: Ending
+   aor1sg: Ending
+   aor2sg: Ending
+   aor3sg: Ending
+   aor1pl: Ending
+   aor2pl: Ending
+   aor3pl: Ending
+   infinitive: Ending
+   ipf1sg: Ending
+   ipf2sg: Ending
+   ipf3sg: Ending
+   ipf1pl: Ending
+   ipf2pl: Ending
+   ipf3pl: Ending
+
+"""class Presents(NamedTuple):
+   i: Present
+   e: Present
+   a: Present
+   je: Present
+   ie: Present
+   uje: Present
+
+class Pasts(NamedTuple):
+   i: Past
+   a: Past
+   ie: Past
+   ova: Past
+   u: Past # TODO: add "zero" after finishing the book!
+"""
 
 
-Stems = NamedTuple("Stems", [
-   ("present", Present),
-   ("past", Past)
-])
+class Stems(NamedTuple):
+   present: Present
+   past: Past
 
 i_theme_past = AccentedTuple('и·', 'b.b:c.c:c#')
 a_theme_past = AccentedTuple('а·~', 'b.b:c.c:c#cjctx.y.y:y#z.')
 ie_theme_past = AccentedTuple('е·', 'b.c.c:')
 #zero_theme_past = AccentedTuple('', '')
-#nu_theme_past = AccentedTuple('ну', '') # finish the book first!
+#nu_theme_past = AccentedTuple('ну', '') # TODO: finish the book first!
 ova_theme_past = AccentedTuple('ова·', 'cp')
 iva_theme_past = AccentedTuple('и\u0304ва·', 'ct')
 
@@ -280,11 +319,11 @@ uje_present = Present(
    Ending(uje_theme_imv, ending_te)
 )
 
-MP_to_stems = dict(
+MP_to_stems: Dict[str, Stems] = dict(
    alpha=Stems(i_present, i_past),
    beta=Stems(a_present, a_past),
    delta=Stems(je_present, a_past),
    epsilon=Stems(uje_present, ova_past),
    zeta=Stems(uje_present, iva_past),
    eta=Stems(i_present, ie_past),
-) # type: Dict[str, Stems]
+)

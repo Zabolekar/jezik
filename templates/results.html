@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <meta charset="utf-8">
    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
 {% for table in tables %}
    <table>
    {% for form in table %}
-      <tr><td>{{ form }}</td></tr>
+      <tr><td id="garde">{{ form }}</td><td id="traditional"></td></tr>
    {% endfor %}
    </table>
    <br>

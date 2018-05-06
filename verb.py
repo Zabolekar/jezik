@@ -1,19 +1,18 @@
 from typing import Dict, Iterator, Any
-from paradigms import GramInfo, MP_to_stems
-from notation_utils import accentize, insert, garde, prettify
-from utils import decipher, last_vowel_index, first_vowel_index
-from auxiliary_data import infinitive_dict
+from .paradigms import GramInfo, MP_to_stems
+from .utils import insert, garde, prettify, last_vowel_index, first_vowel_index
+from .auxiliary_data import infinitive_dict
 
 # There are 2 major types of paradigms: 'a' and the rest
 
 class Verb:
-   # TODO: get rid of Any
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
       self.key = key
       self.value = value
       i, t = self.value['i'], self.value['t']
-      self.info = decipher(i, t) # type: GramInfo
+      self.info = GramInfo(i, t)
       self.is_reflexive = 'Refl' in self.info.other
+      self.trunk = self._trunk()
 
    def _expose(self, form: str) -> str:
       if '0̍' in form: # 0 means accent on the firstmost syllable
@@ -33,7 +32,7 @@ class Verb:
       return form
 
    def _trunk(self):
-      accented_verb = garde(accentize(self.key, self.info.accents))
+      accented_verb = garde(self.info.accents.accentize(self.key))
       N = len(infinitive_dict[self.info.MP])
       if self.info.AP == 'a':
          return accented_verb[:-N]
@@ -47,10 +46,9 @@ class Verb:
 
    def conjugate(self) -> Iterator[str]:
       if self.info.MP in infinitive_dict: # TODO: what if not?
-         trunk = self._trunk()
          for stem in MP_to_stems[self.info.MP]:
             for ending in stem: # type: ignore
-               verb_form = trunk
+               verb_form = self.trunk
                for ending_part in ending:
                   if self.info.AP in ending_part.accent:
                      if self.info.AP == 'a':

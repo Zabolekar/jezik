@@ -1,23 +1,19 @@
-from typing import Iterator, Dict, Tuple, Any
-import random
+from typing import Any, Dict, Tuple
 import os
 import yaml
+from .multidict import Multidict
 
-class Data:
-   def __init__(self, path):
-      with open(path, encoding="utf-8") as f:
-         self._data = yaml.load(f)
-
-   def all_entries(self, raw_word: str) -> Iterator[Tuple[str, Dict[str, Any]]]:
-      # TODO: lookup by partial keys in a dict? Really?
-      # We ought to rethink the way we store data
-      for key in self._data.keys():
-         key_without_disambiguator = key.split()[0]
-         if raw_word == key_without_disambiguator:
-            yield key, self._data[key]
-
-   def random_key(self) -> str:
-      return random.choice(list(self._data.keys()))
+Entry = Tuple[str, Dict[str, Any]]
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-data = Data(dir_path + '\\a_sr_ru.yaml')
+file_path = dir_path + "\\a_sr_ru.yaml"
+
+data = Multidict[str, Entry]()
+
+with open(file_path, encoding="utf-8") as f:
+   raw_data = yaml.load(f)
+   for full_key in raw_data.keys():
+      # full_key is with disambiguator, key is without
+      key = full_key.split()[0]
+      pair = full_key, raw_data[full_key]
+      data[key] = pair
