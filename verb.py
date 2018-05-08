@@ -1,5 +1,5 @@
 from typing import Dict, Iterator, Any
-from .paradigms import GramInfo, MP_to_stems
+from .paradigms import GramInfo, MP_to_verb_stems
 from .utils import insert, garde, prettify, last_vowel_index, first_vowel_index
 from .auxiliary_data import infinitive_dict
 
@@ -46,7 +46,7 @@ class Verb:
 
    def conjugate(self) -> Iterator[str]:
       if self.info.MP in infinitive_dict: # TODO: what if not?
-         for stem in MP_to_stems[self.info.MP]:
+         for stem in MP_to_verb_stems[self.info.MP]:
             for ending in stem: # type: ignore
                verb_form = self.trunk
                for ending_part in ending:
