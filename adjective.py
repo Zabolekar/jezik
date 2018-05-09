@@ -1,5 +1,5 @@
 from typing import Dict, Iterator, Any
-from .paradigms import GramInfo, MP_to_stems
+from .paradigms import GramInfo
 from .utils import insert, garde, prettify, last_vowel_index, first_vowel_index
 
 class Adjective:
@@ -17,7 +17,7 @@ class Adjective:
          pass
          #return accented_adj[:-N]
       else:
-         if self.info.MP = 'all' and 'ə' in self.info.other:
+         if self.info.MP == 'all' and 'ə' in self.info.other:
             pass
             #trunk = accented_adj[:-N]
          else:
