@@ -1,14 +1,13 @@
 from typing import Any, Dict, Tuple
-import os
+from os import path
 import yaml
 from .multidict import Multidict
 
 Entry = Tuple[str, Dict[str, Any]]
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
-file_path = dir_path + "/a_sr_ru.yaml"
-
 data = Multidict[str, Entry]()
+
+dir_path = path.dirname(os.path.realpath(__file__))
+file_path = path.join(dir_path, "a_sr_ru.yaml")
 
 with open(file_path, encoding="utf-8") as f:
    raw_data = yaml.load(f)
