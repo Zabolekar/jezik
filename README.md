@@ -10,22 +10,18 @@ This will be a Serbian dictionary with detailed information about accent.
 
 Steps to get it work locally:
 
-* Install virtualenv 
-```bash
-mkvirtualenv -p pytyhon3.6 jezik
-```
-* Install dependencies
+* Create and activate a virtual environment in a way you prefer
+* Install the dependencies
 ```bash
 pip install -r requirements.txt
 ```
-* To make it work as a flask app
+* Export some Flask-related environment variables
 ```bash
 export FLASK_APP=jezik
 export FLASK_ENV=development
 ```
-
-* Change directory to the level where the repo is cloned to (do not enter inside the repo directory)
-
+(on Windows cmd, use `set` instead of `export`)
+* Change the working directory to the level where the repo is cloned to (that is, *not* inside the repo directory)
 * Run flask application
 ```bash
 flask run
