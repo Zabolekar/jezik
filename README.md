@@ -7,3 +7,6 @@ This will be a Serbian dictionary with detailed information about accent.
 - Python 3.6 or later
 - Flask
 - PyYAML
+
+
+![alt text](example.png "Example")

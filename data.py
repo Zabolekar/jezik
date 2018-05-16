@@ -6,7 +6,7 @@ from .multidict import Multidict
 Entry = Tuple[str, Dict[str, Any]]
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-file_path = dir_path + "\\a_sr_ru.yaml"
+file_path = dir_path + "/a_sr_ru.yaml"
 
 data = Multidict[str, Entry]()
 
