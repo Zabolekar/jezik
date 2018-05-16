@@ -6,7 +6,7 @@ from .multidict import Multidict
 Entry = Tuple[str, Dict[str, Any]]
 data = Multidict[str, Entry]()
 
-dir_path = path.dirname(os.path.realpath(__file__))
+dir_path = path.dirname(path.realpath(__file__))
 file_path = path.join(dir_path, "a_sr_ru.yaml")
 
 with open(file_path, encoding="utf-8") as f:
