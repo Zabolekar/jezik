@@ -1,6 +1,6 @@
 function displayResults (reply) {
    $('#results').html(reply);
-   ungardeAll();
+   generateTraditional();
    var width = $('#word').width() + $('#button').width(); //TODO: issue #14
    $('table').css('width', width+'px');
 }
@@ -8,15 +8,12 @@ function displayResults (reply) {
 function onSubmit (event) {
    var word = $('#word').val();
    if (word) {
-      var c = containsConfusingCharacters(word);
-      console.log(c);
+      var c = confusingCharacters(word);
       if (c) {
-         console.log("ooo");
          $('#results').html("<div id=\"fourhundredfour\">" +
                             "Ваш упит садржи знак " + c +
                             ", такве речи не постоје.</div>");
       } else {
-         console.log("uuu");
          var url = $SCRIPT_ROOT + "lookup/" + word;
          $.ajax(url).done(displayResults);
       }
@@ -47,7 +44,7 @@ $(document).ready(setup);
    enable the user to do anything dangerous, but it might look weird. Luckily
    for us, words don't contain characters like that anyway.
 */
-function containsConfusingCharacters (word) {
+function confusingCharacters (word) {
    prohibited = ["/","?","=","&",";","#","[","]","+",".",":","@"];
    var c;
    for(var i = 0; i < prohibited.length; i++) {
@@ -117,10 +114,10 @@ function ungarde (word) {
 ["dȍbar", "dȃn", "nòga", "ljȗdi", "ljúdī", "асимѝлӣра̄м", "адвокати́рао", "хало̑", "зафр̥ка̏нт"]
 */
 
-function ungardeAll () {
-   var traditional = $("#results table td#garde");
+function generateTraditional () {
+   var garde = $("#results table td#garde");
    $("#results table td#traditional").each(function (i, word) {
-      word.innerText = ungarde(traditional[i].innerText);
+      word.innerText = ungarde(garde[i].innerText);
    });
    $('#ungarde').change();
 }
