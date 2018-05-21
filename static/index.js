@@ -27,7 +27,15 @@ function onSubmit (event) {
 function setup () {
    $('#search').submit(onSubmit);
    $('#ungarde').change(function () {
-      $("#results table td#traditional")[this.checked ? "show" : "hide"]();
+      var garde = $("#results table td#garde"),
+          traditional = $("#results table td#traditional");
+      if (this.checked) {
+         garde.hide();
+         traditional.show();
+      } else {
+         garde.show();
+         traditional.hide();
+      }
    });
 }
 
