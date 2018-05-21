@@ -12,14 +12,16 @@ class Adjective:
       
    def _trunk(self):
       accented_adj = garde(self.info.accents.accentize(self.key))
-      N = len(infinitive_dict[self.info.MP])
-      if self.info.AP == 'a':
-         pass
-         #return accented_adj[:-N]
-      else:
-         if self.info.MP == 'all' and 'ə' in self.info.other:
+      
+      if self.info.MP == 'ov':
+         trunk = accented_adj
+      elif self.info.MP == 'ski':
+         trunk = accented_adj[]
+      elif self.info.MP == 'all':
+         if 'ə' in self.info.other:
             pass
-            #trunk = accented_adj[:-N]
+            trunk = accented_adj[:-2] + accented_adj[-1]
+            trunk = trunk.replace('стн', 'сн')
          else:
             pass
             #trunk = accented_adj[:-N-1]
