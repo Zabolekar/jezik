@@ -1,3 +1,35 @@
+@font-face {
+   font-family: "Charis SIL Web";
+   src: url(CharisSIL-R.woff);
+   unicode-range: U+21-17E, U+300-325, U+409-45F; /* can be made more precise to further save the bandwidth */
+}
+
+@font-face {
+  font-family: "Charis SIL Web";
+  font-style: italic;
+  src: url(CharisSIL-I.woff);
+  unicode-range: U+21-17E, U+300-325, U+409-45F;
+}
+
+@font-face {
+	font-family: "Charis SIL Web";
+	font-weight: bold;
+	src: url(CharisSIL-B.woff);
+   unicode-range: U+21-17E, U+300-325, U+409-45F;
+}
+
+/*@font-face {
+	font-family: "Charis SIL Web";
+	font-weight: bold;
+	font-style: italic;
+	src: url(CharisSIL-BI.woff);
+   unicode-range: U+21-17E, U+300-325, U+409-45F;
+}*/
+
+body {
+   font-family: "Charkis SIL", Cambsria, "Charis SIL Web", serif;
+}
+
 #search, #notation {
    text-align:center;
    margin-left:auto;
