@@ -12,18 +12,19 @@ class Adjective:
       
    def _trunk(self):
       accented_adj = garde(self.info.accents.accentize(self.key))
-      
+      # 
       if self.info.MP == 'ov':
          trunk = accented_adj
       elif self.info.MP == 'ski':
-         trunk = accented_adj[]
+         trunk = accented_adj[:-3] if accented_adj.endswith('\u030d') else accented_adj[:-2]
       elif self.info.MP == 'all':
-         if 'ə' in self.info.other:
-            pass
+         if 'ъ\u030d' in accented_adj:
             trunk = accented_adj[:-2] + accented_adj[-1]
-            trunk = trunk.replace('стн', 'сн')
+            #trunk = trunk.replace('стн', 'сн')
          else:
-            pass
-            #trunk = accented_adj[:-N-1]
+            trunk = accented_adj[:-1]
+      if 'b' in GramInfo.AP:
          to_insert = last_vowel_index(trunk) + 1
-         return insert(trunk, {to_insert: '·'})
+         trunk = insert(trunk, {to_insert: '·'})
+         
+      return trunk
