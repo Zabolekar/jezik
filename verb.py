@@ -23,10 +23,10 @@ class Verb:
          to_insert = first_vowel_index(form) + 1
          form = insert(form, {to_insert: '\u030d'}) # straight accent
       form = prettify(form
-                      .replace('\u030d\u0304', '\u0304\u030d') #straight, macron
                       .replace('~', '')
                       .replace('0', '')
-                      .replace('·', ''))
+                      .replace('·', '')
+                      .replace('\u030d\u0304', '\u0304\u030d')) #straight, macron
       if self.is_reflexive:
          form += ' се'
       return form
