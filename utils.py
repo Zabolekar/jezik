@@ -8,12 +8,12 @@ from typing import Dict
 from .auxiliary_data import palatalization_modes
 
 def last_vowel_index(trunk: str) -> int:
-   *__, last_vowel = re.finditer('[АаЕеИиОоУуAaEeIiOoUu\u0325]', trunk)
+   *__, last_vowel = re.finditer('[АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325]', trunk)
    index, _ = last_vowel.span()
    return index
 
 def first_vowel_index(trunk: str) -> int:
-    return re.search('[АаЕеИиОоУуAaEeIiOoUu\u0325]', trunk).span()[0]
+    return re.search('[АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325]', trunk).span()[0]
 
 def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
@@ -77,7 +77,7 @@ def garde(word: str) -> str: # Garde's accentuation
    insert_dict = {}
    for i, letter in enumerate(word):
       # print('i, letter: ', i, ', ', letter)
-      if letter in 'aeiouAEIOUаеиоуАЕИОУ\u0325':
+      if letter in 'aeiouAEIOUаеиоуАЕИОУЙйŒœꙒꙓѢѣ\u0325':
          if insert_bool:
             insert_dict[i+1] = '\u030d' # straight accent
             insert_bool = False
