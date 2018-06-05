@@ -36,11 +36,25 @@ def palatalize(sequence: str, mode='') -> str:
 
    return sequence[:-1] + idict[sequence[-1]]
 
-def prettify(text: str) -> str:
+def prettify(text: str, yat = 'ekav') -> str:
    idict = palatalization_modes['ȷ']
+   replaces = [('јй', '\u0304ј'), ('й', 'и'),
+               ('̄̍ʌ', '̍ʌ'), ('̄ʌ', 'ʌ'), ('ʌ(а|е|и|о|у|р|\u0325)', 'л\1'), ('ʌ', 'о')
+               ]
+   yat_replaces = {'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
+                   'jekav': [('лѣ', 'ље'), ('нѣ', 'ње'),
+                             ('[ѣꙓ]([ољјњ])', 'и\1'), ('ꙓ̄', 'и̯је̄'),
+                             ('([бгджзкпстфхцчш]р)ꙓ', '\1е'), ('[ꙓѣ]', 'је')],
+                   'ijekav': [('лѣ', 'ље'), ('нѣ', 'ње'),
+                              ('[ѣꙓ]([ољјњ])', 'и\1'), ('ꙓ̄', 'ије'),
+                              ('([бгджзкпстфхцчш]р)ꙓ', '\1е'), ('[ꙓѣ]', 'је')]} 
    for key in idict:
       text = text.replace(key, idict[key])
-   return text.replace('јй', '\u0304ј').replace('й', 'и')
+   for entity in replaces:
+      text = re.sub(entity[0], entity[1], text)
+   for entity in yat_replaces[yat]:
+      text = re.sub(entity[0], entity[1], text)
+   return text
 
 def deaccentize(text: str) -> str:
    accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325'
