@@ -4,40 +4,46 @@
 # ----- think of better name for prettify(), like alternate() or assimilate()
 
 import re
-from typing import Dict
+from typing import Dict, Optional, Iterator
 from .auxiliary_data import palatalization_modes
 
-any_vowel = '[АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325]'
-all_vowels = 'АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325'
+all_vowels = "АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325"
+any_vowel = f"[{all_vowels}]"
 
-def last_vowel_index(trunk: str) -> int:
+def last_vowel_index(trunk: str) -> Optional[int]:
    if re.search(any_vowel, trunk):
       *__, last_vowel = re.finditer(any_vowel, trunk)
       index, _ = last_vowel.span()
       return index
    else:
-      return -1
+      return None
 
-def first_vowel_index(trunk: str) -> int:
-  if re.search(any_vowel, trunk):
-     return re.search(any_vowel, trunk).span()[0]
-  else:
-     return -1
+def first_vowel_index(trunk: str) -> Optional[int]:
+   match = re.search(any_vowel, trunk)
+   if match:
+      return match.span()[0]
+   else:
+      return None
 
 def insert(word: str, position_to_accent: Dict[int, str]) -> str:
+   if not position_to_accent:
+      return word
 
-   sorted_keys = sorted(position_to_accent.keys())
-   first = [0] + sorted_keys
-   second = sorted_keys + [None]
-   pieces = [word[first[0]:second[0]]]
+   keys = sorted(position_to_accent.keys())
 
-   for y in range(1, len(first)):
-      pieces.append(position_to_accent[sorted_keys[y-1]])
-      pieces.append(word[first[y]:second[y]])
+   def pieces() -> Iterator[str]:
+      yield word[:keys[0]]
 
-   return ''.join(pieces)
+      for i in range(1, len(keys)):
+         yield position_to_accent[keys[i-1]]
+         yield word[keys[i-1]:keys[i]]
 
-def palatalize(sequence: str, mode='') -> str:
+      yield position_to_accent[keys[-1]]
+      yield word[keys[-1]:]
+
+   return ''.join(pieces())
+
+def palatalize(sequence: str, mode: str='') -> str:
    idict = palatalization_modes[mode]
    digraphs = ['ст', 'зд', 'сл', 'зл', 'шт', 'жд']
    if sequence[-2:] in digraphs:
@@ -45,18 +51,23 @@ def palatalize(sequence: str, mode='') -> str:
 
    return sequence[:-1] + idict[sequence[-1]]
 
-def deyerify(form):
+def deyerify(form: str) -> str:
    if 'ø' in form:
       form = form.replace('ø', '').replace('ъ', 'а')
    else:
       form = form.replace('ъ', '')
-   if re.search('[бвгдђжзјклʌљмнљпрстфхцчџш]̍', form):
-      wrong_acc_index = re.search('[бвгдђжзјклʌљмнљпрстфхцчџш]̍', form).span()[0]
+   match = re.search('[бвгдђжзјклʌљмнљпрстфхцчџш]̍', form)
+   if match:
+      wrong_acc_index = match.span()[0]
       form = form.replace('̍', '')
-      form = insert(form, {last_vowel_index(form[:wrong_acc_index])+1: '̍'})
+      lvi = last_vowel_index(form[:wrong_acc_index])
+      if lvi is None:
+         raise ValueError(f"{form} does not contain any vowels")
+      else:
+         form = insert(form, {lvi+1: '̍'})
    return form
    
-def prettify(text: str, yat = 'ekav') -> str:
+def prettify(text: str, yat:str='ekav') -> str:
    idict = palatalization_modes['ȷ']
    replaces = [ ('јй', '\u0304ј'), ('й', 'и'),
                 ('̄̍ʌ', '̍ʌ'), ('̄ʌ', 'ʌ'), ('ʌ(а|е|и|о|у|р|œ|\u0325)', 'л\\1'), ('ʌ', 'о'),
@@ -128,23 +139,28 @@ def garde(word: str) -> str: # Garde's accentuation
 
    return word3
 
-def zeroify(form: str):
+def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
       form = (form
               .replace('0', '')
               .replace('\u030d', '') # straight accent
               .replace('~', '\u0304'))
-      to_insert = first_vowel_index(form) + 1
-      form = insert(form, {to_insert: '\u030d'}) # straight accent
+      fvi = first_vowel_index(form)
+      if fvi is None:
+         raise ValueError(f"{form} does not contain any vowels")
+      else:
+         to_insert = fvi + 1
+         form = insert(form, {to_insert: '\u030d'}) # straight accent
    return form
   
-def purify(form: str):
+def purify(form: str) -> str:
    return (form.replace('~', '')
                .replace('0', '')
                .replace('·', '')
                .replace('\u030d\u0304', '\u0304\u030d')
            )
   
-def expose(form):
-     return prettify(purify(zeroify(deyerify(form))))
+def expose(form: str) -> str:
+   "all transformations from internal to external representation"
+   return prettify(purify(zeroify(deyerify(form))))
    

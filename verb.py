@@ -20,7 +20,7 @@ class Verb:
          form += ' се'
       return form
 
-   def _trunk(self):
+   def _trunk(self) -> str:
       accented_verb = garde(self.info.accents.accentize(self.key))
       N = len(infinitive_dict[self.info.MP])
       if self.info.AP == 'a':
@@ -30,8 +30,12 @@ class Verb:
             trunk = accented_verb[:-N]
          else:
             trunk = accented_verb[:-N-1]
-         to_insert = last_vowel_index(trunk) + 1
-         return insert(trunk, {to_insert: '·'})
+         lvi = last_vowel_index(trunk)
+         if lvi is None:
+            raise ValueError(f"{trunk} does not contain any vowels")
+         else:
+            to_insert = lvi + 1
+            return insert(trunk, {to_insert: '·'})
 
    def conjugate(self) -> Iterator[str]:
       if self.info.MP in infinitive_dict: # TODO: what if not?

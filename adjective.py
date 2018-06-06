@@ -8,15 +8,13 @@ class Adjective:
       self.value = value
       i, t = self.value['i'].split(';')[0], self.value['t'] # add loop for multiple i's; for now only the first one is shown
       self.info = GramInfo(i, t)
-      print('self.info', str(self.info))
-      print('self.info.AP: ', self.info.AP)
       self.short_AP, self.long_AP = self.info.AP.split(',')
       self.trunk = self._trunk()
     
    def _expose(self, form: str) -> str:
       return expose(form)
     
-   def _trunk(self):
+   def _trunk(self) -> str:
       accented_adj = garde(self.info.accents.accentize(self.key))
       # 
       if 'ov' in self.info.other:
@@ -29,16 +27,20 @@ class Adjective:
       elif 'ski' in self.info.other:
          trunk = accented_adj[:-3] if accented_adj.endswith('\u030d') else accented_adj[:-2] # ok
       if not 'a' in self.info.AP:
-         if last_vowel_index(trunk) > -1:
-            to_insert = last_vowel_index(trunk) + 1
-            trunk = insert(trunk, {to_insert: '·'})         
+         lvi = last_vowel_index(trunk)
+         if lvi is None:
+            raise ValueError(f"{trunk} does not contain any vowels")
+         else:
+            if lvi > -1:
+               to_insert = lvi + 1
+               trunk = insert(trunk, {to_insert: '·'})
       return trunk
       
    def decline(self) -> Iterator[str]:
-      adj_MPs_dict = {'all': [short_adj, long_adj], 'ski': [long_adj]}# think how to add ov
+      adj_MPs_dict = {'all': [short_adj, long_adj], 'ski': [long_adj]} # TODO think how to add ov
       which_AP = {'ShortAdj': self.short_AP, 'LongAdj': self.long_AP}
       MPs = adj_MPs_dict[self.info.other[0]]
-      for paradigm in MPs:
+      for paradigm in MPs: # type: ignore
          for ending in paradigm:
             adj_forms = []
             current_AP = which_AP[type(paradigm).__name__] # current subparadigm: short or long AP (they behave differently)

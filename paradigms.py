@@ -1,11 +1,11 @@
-from typing import Dict, NamedTuple, List
+from typing import Dict, NamedTuple, List, Optional
 from .utils import insert
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
 class Accents:
 
-   def __init__(self, r, v: Dict[int, str]) -> None:
+   def __init__(self, r: Dict[int, str], v: Dict[int, str]) -> None:
       self.r = r # syllabic r
       self.v = v # any other vowel
 
@@ -34,7 +34,9 @@ class GramInfo:
    reflexive) and one of "Pf", "Ipf", "Dv" (perfective, imperfective,
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
-   def __init__(self, infos, types: str) -> None:
+   def __init__(self, infos: str, types: str) -> None:
+      Rs: Optional[str] # circles below syllabic r's
+      Vs: str # accents above vowels AND above circles (see Rs)
       if infos:
          line_accents, AP, MP = infos.split('|')
          if '@' in infos:
