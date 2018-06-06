@@ -36,10 +36,17 @@ def palatalize(sequence: str, mode='') -> str:
 
    return sequence[:-1] + idict[sequence[-1]]
 
+def deyerify(form):
+   if 'ø' in form:
+      return form.replace('ø', '').replace('ъ', 'а')
+   else:
+      return form.replace('ъ', '')
+   
 def prettify(text: str, yat = 'ekav') -> str:
    idict = palatalization_modes['ȷ']
    replaces = [ ('јй', '\u0304ј'), ('й', 'и'),
-                ('̄̍ʌ', '̍ʌ'), ('̄ʌ', 'ʌ'), ('ʌ(а|е|и|о|у|р|\u0325)', 'л\1'), ('ʌ', 'о') ]
+                ('̄̍ʌ', '̍ʌ'), ('̄ʌ', 'ʌ'), ('ʌ(а|е|и|о|у|р|\u0325)', 'л\1'), ('ʌ', 'о'),
+                ('([чџњљћђшжј])œ', '\1е'), ('œ', 'о')]
    yat_replaces = { 'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
                     'jekav': [('лѣ', 'ље'), ('нѣ', 'ње'),
                               ('[ѣꙓ]([ољјњ])', 'и\1'), ('ꙓ̄', 'ӥје̄'),
@@ -55,7 +62,7 @@ def prettify(text: str, yat = 'ekav') -> str:
    return text
 
 def deaccentize(text: str) -> str:
-   accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325'
+   accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325!'
    accented = {'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìī': 'i',
                'ȕȗûúùū': 'u', 'ȑȓŕ': 'r', 'ȀȂÂÁÀĀ': 'A',
                'ȄȆÊÉÈĒ': 'E', 'ȈȊÎÍÌĪ': 'I', 'ȔȖÛÚÙŪ': 'U',
@@ -123,5 +130,5 @@ def purify(form: str):
            )
   
 def expose(form):
-     return prettify(purify(zeroify(form)))
+     return prettify(purify(zeroify(deyerify(form))))
    

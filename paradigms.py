@@ -10,7 +10,7 @@ class Accents:
       self.v = v # any other vowel
 
    def accentize(self, word: str) -> str: # traditional accentuation
-      real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304'}
+      real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304', '!': '!'}
       if self.v:
          if self.r: # now we put the magic ring
             word = insert(word, self.r)
@@ -18,7 +18,7 @@ class Accents:
          syllabic = 0
          position_to_accent: Dict[int, str] = {}
          for i, letter in enumerate(word):
-            if letter in 'aeiouAEIOUаеиоуАЕИОУ\u0325':
+            if letter in 'aeiouAEIOUаеиоуАЕИОУŒœЙйѢѣꙒꙓ\u0325':
                syllabic += 1
                if syllabic in self.v:
                   position_to_accent[i+1] = real_accent[self.v[syllabic]]
@@ -136,33 +136,33 @@ class LongAdj(NamedTuple):
   pl_rest: List[AccentedTuple] # ! 2
 
 long_adj = LongAdj(
-  [AccentedTuple('и_·', 'c.c:')],
-  [AccentedTuple('œ_·г', 'c.c:'), AccentedTuple('œ_·га', 'c.c:')],
-  [AccentedTuple('œ_·м', 'c.c:'), AccentedTuple('œ_·ме', 'c.c:'), AccentedTuple('œ_·му', 'c.c:')],
-  [AccentedTuple('и_·м', 'c.c:')],
-  [AccentedTuple('œ_·м', 'c.c:'), AccentedTuple('œ_·ме', 'c.c:'), AccentedTuple('œ_·му', 'c.c:')],
-  [AccentedTuple('œ_·г', 'c.c:'), AccentedTuple('œ_·га', 'c.c:')],
-  [AccentedTuple('и_·', 'c.c:')], 
-  [AccentedTuple('а_·', 'c.c:')],
-  [AccentedTuple('е_·', 'c.c:')],
-  [AccentedTuple('о_·ј', 'c.c:')],
-  [AccentedTuple('у_·', 'c.c:')],
-  [AccentedTuple('о_·м', 'c.c:')],
-  [AccentedTuple('о_·ј', 'c.c:')],
-  [AccentedTuple('œ_·', 'c.c:')],
-  [AccentedTuple('œ_·г', 'c.c:'), AccentedTuple('œ_·га', 'c.c:')], # = m_sg_gen
-  [AccentedTuple('œ_·м', 'c.c:'), AccentedTuple('œ_·ме', 'c.c:'), AccentedTuple('œ_·му', 'c.c:')], # = m_sg_dat
-  [AccentedTuple('œ_·', 'c.c:')], # = n_sg_nom
-  [AccentedTuple('и_·м', 'c.c:')], # = m_sg_ins
-  [AccentedTuple('œ_·м', 'c.c:'), AccentedTuple('œ_·ме', 'c.c:'), AccentedTuple('œ_·му', 'c.c:')], # = m_sg_loc
-  [AccentedTuple('и_·', 'c.c:')],
-  [AccentedTuple('е_·', 'c.c:')], 
-  [AccentedTuple('а_·', 'c.c:')],
-  [AccentedTuple('е_·', 'c.c:')], 
-  [AccentedTuple('е_·', 'c.c:')], #  = f_pl_nom
-  [AccentedTuple('а_·', 'c.c:')], #  = n_pl_nom
-  [AccentedTuple('и_·х', 'c.c:')], 
-  [AccentedTuple('и_·м', 'c.c:'), AccentedTuple('и_·ма', 'c.c:')]
+  [AccentedTuple('и·̄', 'c.c:')],
+  [AccentedTuple('œ·̄г', 'c.c:'), AccentedTuple('œ·̄га', 'c.c:')],
+  [AccentedTuple('œ·̄м', 'c.c:'), AccentedTuple('œ·̄ме', 'c.c:'), AccentedTuple('œ·̄му', 'c.c:')],
+  [AccentedTuple('и·̄м', 'c.c:')],
+  [AccentedTuple('œ·̄м', 'c.c:'), AccentedTuple('œ·̄ме', 'c.c:'), AccentedTuple('œ·̄му', 'c.c:')],
+  [AccentedTuple('œ·̄г', 'c.c:'), AccentedTuple('œ·̄га', 'c.c:')],
+  [AccentedTuple('и·̄', 'c.c:')], 
+  [AccentedTuple('а·̄', 'c.c:')],
+  [AccentedTuple('е·̄', 'c.c:')],
+  [AccentedTuple('о·̄ј', 'c.c:')],
+  [AccentedTuple('у·̄', 'c.c:')],
+  [AccentedTuple('о·̄м', 'c.c:')],
+  [AccentedTuple('о·̄ј', 'c.c:')],
+  [AccentedTuple('œ·̄', 'c.c:')],
+  [AccentedTuple('œ·̄г', 'c.c:'), AccentedTuple('œ·̄га', 'c.c:')], # = m_sg_gen
+  [AccentedTuple('œ·̄м', 'c.c:'), AccentedTuple('œ·̄ме', 'c.c:'), AccentedTuple('œ·̄му', 'c.c:')], # = m_sg_dat
+  [AccentedTuple('œ·̄', 'c.c:')], # = n_sg_nom
+  [AccentedTuple('и·̄м', 'c.c:')], # = m_sg_ins
+  [AccentedTuple('œ·̄м', 'c.c:'), AccentedTuple('œ·̄ме', 'c.c:'), AccentedTuple('œ·̄му', 'c.c:')], # = m_sg_loc
+  [AccentedTuple('и·̄', 'c.c:')],
+  [AccentedTuple('е·̄', 'c.c:')], 
+  [AccentedTuple('а·̄', 'c.c:')],
+  [AccentedTuple('е·̄', 'c.c:')], 
+  [AccentedTuple('е·̄', 'c.c:')], #  = f_pl_nom
+  [AccentedTuple('а·̄', 'c.c:')], #  = n_pl_nom
+  [AccentedTuple('и·̄х', 'c.c:')], 
+  [AccentedTuple('и·̄м', 'c.c:'), AccentedTuple('и·̄ма', 'c.c:')]
            )
   
 # class OvAdj(NamedTuple):
