@@ -27,9 +27,10 @@ def lookup(raw_word: str) -> Iterator[Iterator[str]]:
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
       elif POS is Adjective:
-         yield iter(["ТУДУ АСАП"])
+         adjective = Adjective(key, value)
+         yield adjective.decline()
       else:
-         yield iter(["Ово није глагол 😞"]) # TODO
+         yield iter(["Још не знамо како се акцентује ова реч 😞"]) # TODO
 
 def random_lookup() -> Iterator[Iterator[str]]:
    yield from lookup(data.random_key())

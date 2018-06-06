@@ -1,6 +1,6 @@
 from typing import Dict, Iterator, Any
 from .paradigms import GramInfo, MP_to_verb_stems
-from .utils import insert, garde, prettify, last_vowel_index, first_vowel_index
+from .utils import insert, garde, expose, last_vowel_index, first_vowel_index
 from .auxiliary_data import infinitive_dict
 
 # There are 2 major types of paradigms: 'a' and the rest
@@ -15,18 +15,7 @@ class Verb:
       self.trunk = self._trunk()
 
    def _expose(self, form: str) -> str:
-      if '0̍' in form: # 0 means accent on the firstmost syllable
-         form = (form
-                 .replace('0', '')
-                 .replace('\u030d', '') # straight accent
-                 .replace('~', '\u0304'))
-         to_insert = first_vowel_index(form) + 1
-         form = insert(form, {to_insert: '\u030d'}) # straight accent
-      form = prettify(form
-                      .replace('~', '')
-                      .replace('0', '')
-                      .replace('·', '')
-                      .replace('\u030d\u0304', '\u0304\u030d')) #straight, macron
+      form = expose(form)
       if self.is_reflexive:
          form += ' се'
       return form

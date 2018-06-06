@@ -104,3 +104,24 @@ def garde(word: str) -> str: # Garde's accentuation
    word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) # swap length (\u0304) and accent (\u030d)
 
    return word3
+
+def zeroify(form: str):
+   if '0̍' in form: # 0 means accent on the firstmost syllable
+      form = (form
+              .replace('0', '')
+              .replace('\u030d', '') # straight accent
+              .replace('~', '\u0304'))
+      to_insert = first_vowel_index(form) + 1
+      form = insert(form, {to_insert: '\u030d'}) # straight accent
+   return form
+  
+def purify(form: str):
+   return (form.replace('~', '')
+               .replace('0', '')
+               .replace('·', '')
+               .replace('\u030d\u0304', '\u0304\u030d')
+           )
+  
+def expose(form):
+     return prettify(purify(zeroify(form)))
+   
