@@ -29,9 +29,9 @@ class Adjective:
       elif 'ski' in self.info.other:
          trunk = accented_adj[:-3] if accented_adj.endswith('\u030d') else accented_adj[:-2] # ok
       if not 'a' in self.info.AP:
-         to_insert = last_vowel_index(trunk) + 1
-         trunk = insert(trunk, {to_insert: '·'})
-            
+         if last_vowel_index(trunk) > -1:
+            to_insert = last_vowel_index(trunk) + 1
+            trunk = insert(trunk, {to_insert: '·'})         
       return trunk
       
    def decline(self) -> Iterator[str]:
@@ -40,16 +40,19 @@ class Adjective:
       MPs = adj_MPs_dict[self.info.other[0]]
       for paradigm in MPs:
          for ending in paradigm:
-            adj_form = self.trunk
+            adj_forms = []
             current_AP = which_AP[type(paradigm).__name__] # current subparadigm: short or long AP (they behave differently)
-            if current_AP in ending[0].accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
-               if 'a' in current_AP:
-                  adj_form = adj_form.replace('\u030d', '') # straight
-               current_morph = ending[0].morpheme.replace('·', '\u030d') # to straight
-            else: 
-               current_morph = ending[0].morpheme
-            adj_form += current_morph
-            if not 'a' in current_AP:
-               if '\u030d' not in adj_form: # straight
-                  adj_form = adj_form.replace('·', '\u030d', 1) # to straight
-            yield self._expose(adj_form)
+            for variant in ending:
+               adj_form = self.trunk
+               if current_AP in variant.accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
+                  if 'a' in current_AP:
+                     adj_form = adj_form.replace('\u030d', '') # straight
+                  current_morph = variant.morpheme.replace('·', '\u030d') # to straight
+               else: 
+                  current_morph = variant.morpheme
+               adj_form += current_morph
+               if not 'a' in current_AP:
+                  if '\u030d' not in adj_form: # straight
+                     adj_form = adj_form.replace('·', '\u030d', 1) # to straight
+               adj_forms.append(adj_form)
+            yield ', '.join([self._expose(adjform) for adjform in adj_forms])

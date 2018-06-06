@@ -7,13 +7,22 @@ import re
 from typing import Dict
 from .auxiliary_data import palatalization_modes
 
+any_vowel = '[АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325]'
+all_vowels = 'АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325'
+
 def last_vowel_index(trunk: str) -> int:
-   *__, last_vowel = re.finditer('[АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325]', trunk)
-   index, _ = last_vowel.span()
-   return index
+   if re.search(any_vowel, trunk):
+      *__, last_vowel = re.finditer(any_vowel, trunk)
+      index, _ = last_vowel.span()
+      return index
+   else:
+      return -1
 
 def first_vowel_index(trunk: str) -> int:
-    return re.search('[АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325]', trunk).span()[0]
+  if re.search(any_vowel, trunk):
+     return re.search(any_vowel, trunk).span()[0]
+  else:
+     return -1
 
 def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
@@ -38,14 +47,19 @@ def palatalize(sequence: str, mode='') -> str:
 
 def deyerify(form):
    if 'ø' in form:
-      return form.replace('ø', '').replace('ъ', 'а')
+      form = form.replace('ø', '').replace('ъ', 'а')
    else:
-      return form.replace('ъ', '')
+      form = form.replace('ъ', '')
+   if re.search('[бвгдђжзјклʌљмнљпрстфхцчџш]̍', form):
+      wrong_acc_index = re.search('[бвгдђжзјклʌљмнљпрстфхцчџш]̍', form).span()[0]
+      form = form.replace('̍', '')
+      form = insert(form, {last_vowel_index(form[:wrong_acc_index])+1: '̍'})
+   return form
    
 def prettify(text: str, yat = 'ekav') -> str:
    idict = palatalization_modes['ȷ']
    replaces = [ ('јй', '\u0304ј'), ('й', 'и'),
-                ('̄̍ʌ', '̍ʌ'), ('̄ʌ', 'ʌ'), ('ʌ(а|е|и|о|у|р|\u0325)', 'л\\1'), ('ʌ', 'о'),
+                ('̄̍ʌ', '̍ʌ'), ('̄ʌ', 'ʌ'), ('ʌ(а|е|и|о|у|р|œ|\u0325)', 'л\\1'), ('ʌ', 'о'),
                 ('([чџњљћђшжј])œ', '\\1е'), ('œ', 'о')]
    yat_replaces = { 'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
                     'jekav': [('лѣ', 'ље'), ('нѣ', 'ње'),
@@ -61,6 +75,8 @@ def prettify(text: str, yat = 'ekav') -> str:
       text = re.sub(entity[0], entity[1], text)
    return text
 
+
+   
 def deaccentize(text: str) -> str:
    accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325!'
    accented = {'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìī': 'i',
@@ -84,7 +100,7 @@ def garde(word: str) -> str: # Garde's accentuation
    insert_dict = {}
    for i, letter in enumerate(word):
       # print('i, letter: ', i, ', ', letter)
-      if letter in 'aeiouAEIOUаеиоуАЕИОУЙйŒœꙒꙓѢѣ\u0325':
+      if letter in all_vowels:
          if insert_bool:
             insert_dict[i+1] = '\u030d' # straight accent
             insert_bool = False
