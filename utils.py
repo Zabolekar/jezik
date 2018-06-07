@@ -86,8 +86,6 @@ def prettify(text: str, yat:str='ekav') -> str:
       text = re.sub(entity[0], entity[1], text)
    return text
 
-
-   
 def deaccentize(text: str) -> str:
    accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325!'
    accented = {'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìī': 'i',
@@ -159,8 +157,38 @@ def purify(form: str) -> str:
                .replace('·', '')
                .replace('\u030d\u0304', '\u0304\u030d')
            )
-  
+
+def ungarde(form: str) -> str:
+
+   chars = list(form)
+   old_accent_index = chars.index("\u030d")
+   chars.pop(old_accent_index)
+
+   new_accent_index = old_accent_index - 1
+   vowel_count = 0
+   shifted = False
+   while new_accent_index >= 0:
+      if chars[new_accent_index] == "!":
+         chars.pop(new_accent_index)
+         old_accent_index -= 1
+         break
+      if chars[new_accent_index] in "aeiouAEIOUаеиоуАЕИОУ\u0325": # TODO: what about ije? now bi̯jē̍l becomes bì̯jēl instead of bi̯jȇl
+         vowel_count += 1
+         if vowel_count == 2:
+            shifted = True
+            new_accent_index += 1
+            break
+      new_accent_index -= 1
+
+   if shifted:
+      chars.insert(new_accent_index, "\u0300") #rising
+   else:
+      chars.insert(old_accent_index, "\u030f") #falling
+
+   return ("".join(chars)
+             .replace("\u0300\u0304", "\u0301") #long rising
+             .replace("\u0304\u030f", "\u0311")) #long falling
+
 def expose(form: str) -> str:
    "all transformations from internal to external representation"
-   return prettify(purify(zeroify(deyerify(form))))
-   
+   return ungarde(prettify(purify(zeroify(deyerify(form)))))

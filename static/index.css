@@ -27,7 +27,7 @@
 }*/
 
 body {
-   font-family: "Charkis SIL", Cambsria, "Charis SIL Web", serif;
+   font-family: "Charis SIL", Cambria, "Charis SIL Web", serif;
 }
 
 #search, #notation {
@@ -38,10 +38,6 @@ body {
 
 #search {
    padding: 2em 0em 1em 0em;
-}
-
-#notation {
-   padding: 1em 0em 2em 0em;
 }
 
 table {
