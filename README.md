@@ -8,6 +8,8 @@ This will be a Serbian dictionary with detailed information about accent.
 - Flask
 - PyYAML
 
+We also use pytest to run the tests and mypy for static type checking, but they are not necessary to run the code.
+
 ## Running it locally
 
 To run the app locally for development purposes, do the following:
