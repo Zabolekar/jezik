@@ -29,7 +29,8 @@ class Adjective:
       if not 'a' in self.info.AP:
          lvi = last_vowel_index(trunk)
          if lvi is None:
-            raise ValueError(f"{trunk} does not contain any vowels")
+            #raise ValueError(f"{trunk} does not contain any vowels")
+            pass
          else:
             if lvi > -1:
                to_insert = lvi + 1

@@ -32,7 +32,8 @@ class Verb:
             trunk = accented_verb[:-N-1]
          lvi = last_vowel_index(trunk)
          if lvi is None:
-            raise ValueError(f"{trunk} does not contain any vowels")
+            #raise ValueError(f"{trunk} does not contain any vowels")
+            pass
          else:
             to_insert = lvi + 1
             return insert(trunk, {to_insert: '·'})
