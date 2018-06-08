@@ -7,7 +7,7 @@ import re
 from typing import Dict, Optional, Iterator
 from .auxiliary_data import palatalization_modes
 
-all_vowels = "АаЕеИиОоУуЙйŒœꙒꙓѢѣAaEeIiOoUu\u0325"
+all_vowels = "АаЕеИиОоУуӤӥŒœꙒꙓѢѣAaEeIiOoUu\u0325"
 any_vowel = f"[{all_vowels}]"
 
 def last_vowel_index(trunk: str) -> Optional[int]:
@@ -69,12 +69,12 @@ def deyerify(form: str) -> str:
    
 def prettify(text: str, yat:str='ekav') -> str:
    idict = palatalization_modes['ȷ']
-   replaces = [ ('јй', '\u0304ј'), ('й', 'и'),
+   replaces = [ ('јӥ', '\u0304ј'), ('ӥ', 'и'),
                 ('̄̍ʌ', '̍ʌ'), ('̄ʌ', 'ʌ'), ('ʌ(а|е|и|о|у|р|œ|\u0325)', 'л\\1'), ('ʌ', 'о'),
                 ('([чџњљћђшжј])œ', '\\1е'), ('œ', 'о')]
    yat_replaces = { 'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
                     'jekav': [('лѣ', 'ље'), ('нѣ', 'ње'),
-                              ('[ѣꙓ]([ољјњ])', 'и\\1'), ('ꙓ̄', 'ӥје̄'),
+                              ('[ѣꙓ]([ољјњ])', 'и\\1'), ('ꙓ̄', 'йје̄'),
                               ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'), ('[ꙓѣ]', 'је')] }
    yat_replaces['ijekav'] = yat_replaces['jekav']
             

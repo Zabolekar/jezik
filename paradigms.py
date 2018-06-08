@@ -1,5 +1,5 @@
 from typing import Dict, NamedTuple, List, Optional
-from .utils import insert
+from .utils import insert, all_vowels
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
@@ -18,7 +18,7 @@ class Accents:
          syllabic = 0
          position_to_accent: Dict[int, str] = {}
          for i, letter in enumerate(word):
-            if letter in 'aeiouAEIOUаеиоуАЕИОУŒœЙйѢѣꙒꙓ\u0325':
+            if letter in all_vowels:
                syllabic += 1
                if syllabic in self.v:
                   position_to_accent[i+1] = real_accent[self.v[syllabic]]
@@ -395,8 +395,8 @@ je_theme_prs = AccentedTuple('\u0237е·\u0304', 'y#')
 a_theme_prs = AccentedTuple('а·\u0304', 'c.cpc#')
 uje_theme_prs = AccentedTuple('у·је\u0304', 'cpct')
 
-i_theme_imv = AccentedTuple('й·', 'b.b:c.c:c#')
-je_theme_imv = AccentedTuple('\u0237й·', 'x.y.y#y:z.')
+i_theme_imv = AccentedTuple('ӥ·', 'b.b:c.c:c#')
+je_theme_imv = AccentedTuple('\u0237ӥ·', 'x.y.y#y:z.')
 a_theme_imv = AccentedTuple('а·\u0304ј', 'с.cpc#')
 uje_theme_imv = AccentedTuple('у·\u0304ј', 'cpct')
 
