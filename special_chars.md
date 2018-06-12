@@ -2,13 +2,13 @@
 
 * **œ** = **о** after most consonants, **е** after soft and sibilant consonants: *добрœ̄г* = *добро̄г*, *лошœ̄г* = *лоше̄г*
 
-* **й** = **и** after most consonants, **none** after **ј** (with lengthening of the previous vowel): *звонй* = *звони*, *дојй* = *до̄ј*
+* **ӥ** = **и** after most consonants, **none** after **ј** (with lengthening of the previous vowel): *звонӥ* = *звони*, *дојӥ* = *до̄ј*
 
 * **й** = auxiliary jekavian symbol for correct accenting of **ије**; subsequently becomes **и** in ijekavian with influence on accent
 
 * **ꙓ** = **ије** in non-ekavian variants when long; **је** or **е** when short; becomes **и** (long or short) before **о**, **ј**, **љ**, **њ**
 
-* **ꙓ** = **е** (long or short) in ekavian; **NB**: **ије** is considered two syllables in ijekavian and one syllable in jekavian, that's why it is written **и̯је** (with a special symbol) in jekavian
+* **ꙓ** = **е** (long or short) in ekavian; **NB**: **ије** is considered two syllables in ijekavian and one syllable in jekavian, that's why it is written **йје** (with a special symbol) in jekavian
 
 * **ѣ** = **је** (short or long) in non-ekavian variants; probably **и** (short or also long?) before **о**, **ј**, **љ**, **њ**
 
