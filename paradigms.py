@@ -254,19 +254,19 @@ class Stems(NamedTuple):
    present: Present
    past: Past
 
-i_theme_past = AccentedTuple('и·', 'b.b:c.c:c#')
-a_theme_past = AccentedTuple('а·~', 'b.b:c.c:c#cjctx.y.y:y#z.')
-ie_theme_past = AccentedTuple('е·', 'b.c.c:')
+i_theme_past = AccentedTuple('и·', 'p.p:r.r:s0')
+a_theme_past = AccentedTuple('а·~', ' k:l.m.n.p:t.x.y0z0')
+ie_theme_past = AccentedTuple('е·', 'k.q:s.')
 #zero_theme_past = AccentedTuple('', '')
 #nu_theme_past = AccentedTuple('ну', '') # TODO: finish the book first!
-ova_theme_past = AccentedTuple('ова·', 'cp')
-iva_theme_past = AccentedTuple('и\u0304ва·', 'ct')
+ova_theme_past = AccentedTuple('ова·', 'm.')
+iva_theme_past = AccentedTuple('и\u0304ва·', 'k’')
 
-i_theme_ipf = AccentedTuple('ȷа\u0304·', 'c.c:c#')
-ie_theme_ipf = AccentedTuple('ȷа\u0304·', 'c.c:')
-a_theme_ipf = AccentedTuple('а\u0304·', 'c.cpc#y#')
-ova_theme_ipf = AccentedTuple('о·ва\u0304', 'cp')
-iva_theme_ipf = AccentedTuple('и\u0304·ва\u0304', 'ct')
+i_theme_ipf = AccentedTuple('ȷа\u0304·', 'r.r:s0')
+ie_theme_ipf = AccentedTuple('ȷа\u0304·', 'q:s.')
+a_theme_ipf = AccentedTuple('а\u0304·', 'm.n.y0z0')
+ova_theme_ipf = AccentedTuple('о·ва\u0304', 'm.')
+iva_theme_ipf = AccentedTuple('и\u0304·ва\u0304', 'k’')  
 
 ending_null = AccentedTuple('', '')
 ending_x = AccentedTuple('х', '')
@@ -284,8 +284,8 @@ i_past = Past(
    VerbEnding(i_theme_past, AccentedTuple('ле', '')),
    VerbEnding(i_theme_past, AccentedTuple('ла', '')),
    VerbEnding(i_theme_past, ending_x),
-   VerbEnding(AccentedTuple('и·', 'c#'), AccentedTuple('0·~', 'ab.b:c.c:')),
-   VerbEnding(AccentedTuple('и·', 'c#'), AccentedTuple('0·~', 'ab.b:c.c:')),
+   VerbEnding(AccentedTuple('и·', 's0'), AccentedTuple('0·~', 'o.p.p:r.r:')),
+   VerbEnding(AccentedTuple('и·', 's0'), AccentedTuple('0·~', 'o.p.p:r.r:')),
    VerbEnding(i_theme_past, ending_smo),
    VerbEnding(i_theme_past, ending_ste),
    VerbEnding(i_theme_past, ending_she),
@@ -299,15 +299,15 @@ i_past = Past(
 )
 
 a_past = Past(
-   VerbEnding(a_theme_past, AccentedTuple('ʌ0·', 'x.')),
-   VerbEnding(a_theme_past, AccentedTuple('ла0·', 'x.')),
-   VerbEnding(a_theme_past, AccentedTuple('ло0·', 'x.')),
-   VerbEnding(a_theme_past, AccentedTuple('ли0·', 'x.')),
-   VerbEnding(a_theme_past, AccentedTuple('ле0·', 'x.')),
-   VerbEnding(a_theme_past, AccentedTuple('ла0·', 'x.')),
+   VerbEnding(a_theme_past, AccentedTuple('ʌ0·', 'm.')),
+   VerbEnding(a_theme_past, AccentedTuple('ла0·', 'm.')),
+   VerbEnding(a_theme_past, AccentedTuple('ло0·', 'm.')),
+   VerbEnding(a_theme_past, AccentedTuple('ли0·', 'm.')),
+   VerbEnding(a_theme_past, AccentedTuple('ле0·', 'm.')),
+   VerbEnding(a_theme_past, AccentedTuple('ла0·', 'm.')),
    VerbEnding(a_theme_past, ending_x),
-   VerbEnding(AccentedTuple('а', 'c#cty:d.'), AccentedTuple('0·~', 'ax.z.b:c.')),
-   VerbEnding(AccentedTuple('а', 'c#cty:d.'), AccentedTuple('0·~', 'ax.z.b:c.')),
+   VerbEnding(AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.')),
+   VerbEnding(AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.')),
    VerbEnding(a_theme_past, ending_smo),
    VerbEnding(a_theme_past, ending_ste),
    VerbEnding(a_theme_past, ending_she),
@@ -343,15 +343,15 @@ ie_past = Past(
 )
 
 ova_past = Past(
-   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ʌ0·', 'cp')),
-   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'cp')),
-   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ло0·', 'cp')),
-   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ли0·', 'cp')),
-   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ле0·', 'cp')),
-   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'cp')),
+   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ʌ0·', 'm.')),
+   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'm.')),
+   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ло0·', 'm.')),
+   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ли0·', 'm.')),
+   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ле0·', 'm.')),
+   VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'm.')),
    VerbEnding(ova_theme_past, ending_x),
-   VerbEnding(AccentedTuple('ова', ''), AccentedTuple('0·~', 'acp')),
-   VerbEnding(AccentedTuple('ова', ''), AccentedTuple('0·~', 'acp')),
+   VerbEnding(AccentedTuple('ова', ''), AccentedTuple('0·~', 'o.m.')),
+   VerbEnding(AccentedTuple('ова', ''), AccentedTuple('0·~', 'o.m.')),
    VerbEnding(ova_theme_past, ending_smo),
    VerbEnding(ova_theme_past, ending_ste),
    VerbEnding(ova_theme_past, ending_she),
@@ -372,8 +372,8 @@ iva_past = Past(
    VerbEnding(iva_theme_past, AccentedTuple('ле', '')),
    VerbEnding(iva_theme_past, AccentedTuple('ла', '')),
    VerbEnding(iva_theme_past, ending_x),
-   VerbEnding(iva_theme_past, AccentedTuple('·', 'ct')),
-   VerbEnding(iva_theme_past, AccentedTuple('·', 'ct')),
+   VerbEnding(iva_theme_past, AccentedTuple('·', 'k’')),
+   VerbEnding(iva_theme_past, AccentedTuple('·', 'k’')),
    VerbEnding(iva_theme_past, ending_smo),
    VerbEnding(iva_theme_past, ending_ste),
    VerbEnding(iva_theme_past, ending_she),
@@ -390,15 +390,15 @@ iva_past = Past(
 #("ie", Present), — todo later
 #("ne", Present) — todo after finishing the book
 
-i_theme_prs = AccentedTuple('и·\u0304', 'c.c:c#')
-je_theme_prs = AccentedTuple('\u0237е·\u0304', 'y#')
-a_theme_prs = AccentedTuple('а·\u0304', 'c.cpc#')
-uje_theme_prs = AccentedTuple('у·је\u0304', 'cpct')
+i_theme_prs = AccentedTuple('и·\u0304', 'r.r:s0')
+je_theme_prs = AccentedTuple('\u0237е·\u0304', 'z0')
+a_theme_prs = AccentedTuple('а·\u0304', 'm.n.y0')
+uje_theme_prs = AccentedTuple('у·је\u0304', 'k’m.')
 
-i_theme_imv = AccentedTuple('ӥ·', 'b.b:c.c:c#')
-je_theme_imv = AccentedTuple('\u0237ӥ·', 'x.y.y#y:z.')
-a_theme_imv = AccentedTuple('а·\u0304ј', 'с.cpc#')
-uje_theme_imv = AccentedTuple('у·\u0304ј', 'cpct')
+i_theme_imv = AccentedTuple('ӥ·', 'p.p:r.r:s0')
+je_theme_imv = AccentedTuple('\u0237ӥ·', 'l.m.p:t.z0')
+a_theme_imv = AccentedTuple('а·\u0304ј', 'm.n.y0')
+uje_theme_imv = AccentedTuple('у·\u0304ј', 'k’m.')
 
 ending_mo = AccentedTuple('мо', '')
 ending_te = AccentedTuple('те', '')
@@ -409,9 +409,9 @@ i_present = Present(
    VerbEnding(i_theme_prs, ending_m),
    VerbEnding(i_theme_prs, ending_sh),
    VerbEnding(i_theme_prs, ending_null),
-   VerbEnding(AccentedTuple('и·\u0304', 'c.c:'), AccentedTuple('мо', 'c#')),
-   VerbEnding(AccentedTuple('и·\u0304', 'c.c:'), AccentedTuple('те', 'c#')),
-   VerbEnding(AccentedTuple('е·\u0304', 'c.c:c#'), ending_null),
+   VerbEnding(AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('мо', 's0')),
+   VerbEnding(AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('те', 's0')),
+   VerbEnding(AccentedTuple('е·\u0304', 'r.r:s0'), ending_null),
    VerbEnding(i_theme_imv, ending_null),
    VerbEnding(i_theme_imv, ending_mo),
    VerbEnding(i_theme_imv, ending_te)
@@ -421,9 +421,9 @@ je_present = Present(
    VerbEnding(je_theme_prs, ending_m),
    VerbEnding(je_theme_prs, ending_sh),
    VerbEnding(je_theme_prs, ending_null),
-   VerbEnding(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('мо', 'y#')),
-   VerbEnding(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('те', 'y#')),
-   VerbEnding(AccentedTuple('\u0237у·\u0304', 'y#'), ending_null),
+   VerbEnding(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('мо', 'z0')),
+   VerbEnding(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('те', 'z0')),
+   VerbEnding(AccentedTuple('\u0237у·\u0304', 'z0'), ending_null),
    VerbEnding(je_theme_imv, ending_null),
    VerbEnding(je_theme_imv, ending_mo),
    VerbEnding(je_theme_imv, ending_te)
@@ -433,9 +433,9 @@ a_present = Present(
    VerbEnding(a_theme_prs, ending_m),
    VerbEnding(a_theme_prs, ending_sh),
    VerbEnding(a_theme_prs, ending_null),
-   VerbEnding(AccentedTuple('а·\u0304', 'c.cp'), AccentedTuple('мо', 'c#')),
-   VerbEnding(AccentedTuple('а·\u0304', 'c.cp'), AccentedTuple('те', 'c#')),
-   VerbEnding(AccentedTuple('а·ју\u0304', 'b:d.с.c#cp'), ending_null),
+   VerbEnding(AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('мо', 'y0')),
+   VerbEnding(AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('те', 'y0')),
+   VerbEnding(AccentedTuple('а·ју\u0304', 'k:l.n.x.y0'), ending_null),
    VerbEnding(a_theme_imv, ending_null),
    VerbEnding(a_theme_imv, ending_mo),
    VerbEnding(a_theme_imv, ending_te)
@@ -447,7 +447,7 @@ uje_present = Present(
    VerbEnding(uje_theme_prs, ending_null),
    VerbEnding(uje_theme_prs, ending_mo),
    VerbEnding(uje_theme_prs, ending_te),
-   VerbEnding(AccentedTuple('у·ју\u0304', 'cpct'), ending_null),
+   VerbEnding(AccentedTuple('у·ју\u0304', 'k’m.'), ending_null),
    VerbEnding(uje_theme_imv, ending_null),
    VerbEnding(uje_theme_imv, ending_mo),
    VerbEnding(uje_theme_imv, ending_te)
