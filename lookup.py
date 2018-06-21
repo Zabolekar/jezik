@@ -1,4 +1,5 @@
 from typing import Iterator, Dict, Any
+from .table import Multitable
 from .adjective import Adjective
 from .verb import Verb
 from .data import data
@@ -12,7 +13,7 @@ def part_of_speech(value: Dict[str, Any]) -> type: # TODO: make more precise
          return Adjective
    return type(None) # TODO other parts of speech
 
-def lookup(raw_word: str) -> Iterator[Iterator[str]]:
+def lookup(raw_word: str) -> Multitable:
    with_se = raw_word[-3:] == " се"
    if with_se:
       raw_word = raw_word[:-3]
@@ -30,7 +31,7 @@ def lookup(raw_word: str) -> Iterator[Iterator[str]]:
          adjective = Adjective(key, value)
          yield adjective.decline()
       else:
-         yield iter(["Још не знамо како се акцентује ова реч 😞"]) # TODO
+         yield iter([iter(["Још не знамо како се акцентује ова реч 😞"])]) # TODO
 
-def random_lookup() -> Iterator[Iterator[str]]:
+def random_lookup() -> Multitable:
    yield from lookup(data.random_key())

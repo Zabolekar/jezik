@@ -1,4 +1,5 @@
 from typing import Dict, Iterator, Any
+from .table import Table
 from .paradigms import GramInfo, short_adj, long_adj
 from .utils import insert, garde, expose, last_vowel_index, first_vowel_index
 
@@ -10,10 +11,10 @@ class Adjective:
       self.info = GramInfo(i, t)
       self.short_AP, self.long_AP = self.info.AP.split(',')
       self.trunk = self._trunk()
-    
+
    def _expose(self, form: str) -> str:
       return expose(form)
-    
+
    def _trunk(self) -> str:
       accented_adj = garde(self.info.accents.accentize(self.key))
       # 
@@ -36,8 +37,8 @@ class Adjective:
                to_insert = lvi + 1
                trunk = insert(trunk, {to_insert: '·'})
       return trunk
-      
-   def decline(self) -> Iterator[str]:
+
+   def decline(self) -> Table:
       adj_MPs_dict = {'all': [short_adj, long_adj], 'ski': [long_adj]} # TODO think how to add ov
       which_AP = {'ShortAdj': self.short_AP, 'LongAdj': self.long_AP}
       MPs = adj_MPs_dict[self.info.other[0]]
@@ -58,4 +59,4 @@ class Adjective:
                   if '\u030d' not in adj_form: # straight
                      adj_form = adj_form.replace('·', '\u030d', 1) # to straight
                adj_forms.append(adj_form)
-            yield ', '.join([self._expose(adjform) for adjform in adj_forms])
+            yield (self._expose(adjform) for adjform in adj_forms)

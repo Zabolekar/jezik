@@ -1,5 +1,4 @@
 import os
-import sys
 from flask import Flask, render_template, send_from_directory # type: ignore
 from .lookup import lookup, random_lookup
 

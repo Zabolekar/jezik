@@ -8,8 +8,10 @@
 <body>
 {% for table in tables %}
    <table>
-   {% for form in table %}
-      <tr><td id="form">{{ form }}</td></tr>
+   {% for forms in table %}
+      <tr><td id="forms">
+      {{ forms|join(", ") }}
+      </td></tr>
    {% endfor %}
    </table>
    <br>

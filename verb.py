@@ -1,4 +1,5 @@
 from typing import Dict, Iterator, Any
+from .table import Table
 from .paradigms import GramInfo, MP_to_verb_stems
 from .utils import insert, garde, expose, last_vowel_index, first_vowel_index
 from .auxiliary_data import infinitive_dict
@@ -32,13 +33,11 @@ class Verb:
             trunk = accented_verb[:-N-1]
          lvi = last_vowel_index(trunk)
          if lvi is None:
-            #raise ValueError(f"{trunk} does not contain any vowels")
-            pass
+            return trunk
          else:
-            to_insert = lvi + 1
-            return insert(trunk, {to_insert: '·'})
+            return insert(trunk, {lvi + 1: '·'})
 
-   def conjugate(self) -> Iterator[str]:
+   def conjugate(self) -> Table:
       if self.info.MP in infinitive_dict: # TODO: what if not?
          for stem in MP_to_verb_stems[self.info.MP]:
             for ending in stem: # type: ignore
@@ -54,4 +53,4 @@ class Verb:
                if self.info.AP not in ['o.', 'a.', 'a:']:
                   if '\u030d' not in verb_form: # straight
                      verb_form = verb_form.replace('·', '\u030d', 1) # to straight
-               yield self._expose(verb_form)
+               yield iter([self._expose(verb_form)]) # TODO: multiforms
