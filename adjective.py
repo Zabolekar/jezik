@@ -74,4 +74,4 @@ class Adjective:
          yield from self._paradigm_table(paradigm)
       # TODO: this ONLY works because "Table" is currently an Iterator
       # you CAN'T just expect to yield from two tables and obtain another table
-      # well, you can, but you have to implement the table in a way that makes it possible
+      # pay special attention to this part when rewriting Table

@@ -6,4 +6,3 @@ Form = str
 Multiform = Iterator[Form]
 LabeledMultiform = Tuple[str, Multiform]
 Table = GenericTable[LabeledMultiform]
-Multitable = Iterator[Table]

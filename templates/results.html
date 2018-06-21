@@ -8,14 +8,18 @@
 <body>
 {% for table in tables %}
    <table>
-   <caption>{{ "I"*loop.index }}</caption>
-   {% for forms in table %}
+   <caption>
+      {% if tables|length > 1 %}
+         {{ "I"*loop.index }}
+      {% endif %}	
+   </caption>
+   {% for form_name, forms in table %}
       <tr>
          <th class="form-name">
-            {{ forms[0] }}
+            {{ form_name }}
          </th>
          <td class="forms">
-            {{ forms[1]|join(", ") }}
+            {{ forms|join(", ") }}
          </td>
    </tr>
    {% endfor %}
