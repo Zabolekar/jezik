@@ -8,15 +8,21 @@
 <body>
 {% for table in tables %}
    <table>
+   <caption>{{ "I"*loop.index }}</caption>
    {% for forms in table %}
-      <tr><td id="forms">
-      {{ forms|join(", ") }}
-      </td></tr>
+      <tr>
+         <th class="form-name">
+            {{ loop.index }}
+         </th>
+         <td class="forms">
+            {{ forms|join(", ") }}
+         </td>
+   </tr>
    {% endfor %}
    </table>
    <br>
 {% else %}
-   <div id="wordnotfound">
+   <div id="word-not-found">
       Реч није пронађена 😞
    </div>
 {% endfor %}
