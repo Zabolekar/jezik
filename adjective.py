@@ -43,7 +43,7 @@ class Adjective:
       which_AP = {'ShortAdj': self.short_AP, 'LongAdj': self.long_AP}
       MPs = adj_MPs_dict[self.info.other[0]]
       for paradigm in MPs: # type: ignore
-         for ending in paradigm:
+         for label, ending in zip(paradigm._fields, paradigm):
             adj_forms = []
             current_AP = which_AP[type(paradigm).__name__] # current subparadigm: short or long AP (they behave differently)
             for variant in ending:
@@ -59,4 +59,4 @@ class Adjective:
                   if '\u030d' not in adj_form: # straight
                      adj_form = adj_form.replace('·', '\u030d', 1) # to straight
                adj_forms.append(adj_form)
-            yield ("TODO", (self._expose(adjform) for adjform in adj_forms))
+            yield label, (self._expose(adjform) for adjform in adj_forms)
