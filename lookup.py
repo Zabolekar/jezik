@@ -31,7 +31,7 @@ def lookup(raw_word: str) -> Multitable:
          adjective = Adjective(key, value)
          yield adjective.decline()
       else:
-         yield iter([iter(["Још не знамо како се акцентује ова реч 😞"])]) # TODO
+         yield iter([("😞", iter(["Још не знамо како се акцентује ова реч"]))]) # TODO
 
 def random_lookup() -> Multitable:
    yield from lookup(data.random_key())

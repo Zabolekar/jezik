@@ -59,4 +59,4 @@ class Adjective:
                   if '\u030d' not in adj_form: # straight
                      adj_form = adj_form.replace('·', '\u030d', 1) # to straight
                adj_forms.append(adj_form)
-            yield (self._expose(adjform) for adjform in adj_forms)
+            yield ("TODO", (self._expose(adjform) for adjform in adj_forms))

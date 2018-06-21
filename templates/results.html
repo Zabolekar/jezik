@@ -12,10 +12,10 @@
    {% for forms in table %}
       <tr>
          <th class="form-name">
-            {{ loop.index }}
+            {{ forms[0] }}
          </th>
          <td class="forms">
-            {{ forms|join(", ") }}
+            {{ forms[1]|join(", ") }}
          </td>
    </tr>
    {% endfor %}

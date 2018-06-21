@@ -1,4 +1,4 @@
-from typing import Dict, NamedTuple, List, Optional
+from typing import Dict, Iterator, NamedTuple, List, Optional, Tuple
 from .utils import insert, all_vowels
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
@@ -195,11 +195,12 @@ long_adj = LongAdj(
   # n_pl_acc = ShortAdj.n_pl_acc # = n_pl_nom
   # pl_gen = LongAdj.pl_gen
   # pl_rest = longAdj.pl_rest
-  
-   
+
 class VerbEnding(NamedTuple):
    theme: AccentedTuple
    ending: AccentedTuple
+
+LabeledEnding = Tuple[str, VerbEnding]
 
 class Present(NamedTuple):
    prs1sg: VerbEnding
@@ -211,6 +212,10 @@ class Present(NamedTuple):
    imv2sg: VerbEnding
    imv1pl: VerbEnding
    imv2pl: VerbEnding
+
+   @property
+   def labeled_endings(self) -> Iterator[LabeledEnding]:
+      yield from zip(self._fields, super().__iter__())
 
 class Past(NamedTuple):
    pfMsg: VerbEnding
@@ -233,6 +238,10 @@ class Past(NamedTuple):
    ipf2pl: VerbEnding
    ipf3pl: VerbEnding
 
+   @property
+   def labeled_endings(self) -> Iterator[LabeledEnding]:
+      yield from zip(self._fields, super().__iter__())
+
 """class Presents(NamedTuple):
    i: Present
    e: Present
@@ -249,10 +258,14 @@ class Pasts(NamedTuple):
    u: Past # TODO: add "zero" after finishing the book!
 """
 
-
 class Stems(NamedTuple):
    present: Present
    past: Past
+
+   @property
+   def labeled_endings(self) -> Iterator[LabeledEnding]:
+      yield from self.present.labeled_endings
+      yield from self.past.labeled_endings
 
 i_theme_past = AccentedTuple('и·', 'p.p:r.r:s0')
 a_theme_past = AccentedTuple('а·~', ' k:l.m.n.p:t.x.y0z0')

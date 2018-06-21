@@ -1,8 +1,9 @@
-from typing import Iterator
+from typing import Iterator, Tuple
 
 GenericTable = Iterator # TODO: it's not a simple iterator
 
 Form = str
 Multiform = Iterator[Form]
-Table = GenericTable[Multiform]
+LabeledMultiform = Tuple[str, Multiform]
+Table = GenericTable[LabeledMultiform]
 Multitable = Iterator[Table]
