@@ -56,4 +56,4 @@ class Verb:
             if self.info.AP not in ['o.', 'a.', 'a:']:
                if '\u030d' not in verb_form: # straight
                   verb_form = verb_form.replace('·', '\u030d', 1) # to straight
-            yield (label, iter([self._expose(verb_form)])) # TODO: multiforms
+            yield label, iter([self._expose(verb_form)]) # TODO: multiforms

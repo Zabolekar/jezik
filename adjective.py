@@ -1,6 +1,6 @@
-from typing import Dict, Iterator, Any
+from typing import Any, Dict, Iterator, List
 from .table import Table
-from .paradigms import GramInfo, short_adj, long_adj
+from .paradigms import GramInfo, AdjParadigm, short_adj, long_adj
 from .utils import insert, garde, expose, last_vowel_index, first_vowel_index
 
 class Adjective:
@@ -38,25 +38,40 @@ class Adjective:
                trunk = insert(trunk, {to_insert: '·'})
       return trunk
 
+   def _paradigm_table(self, paradigm: AdjParadigm) -> Table:
+      # current subparadigm: short or long AP (they behave differently)
+      if paradigm is short_adj:
+         current_AP = self.short_AP
+      elif paradigm is long_adj:
+         current_AP = self.long_AP
+
+      for label, ending in zip(paradigm._fields, paradigm):
+         adj_forms = []
+         for variant in ending:
+            adj_form = self.trunk
+            if current_AP in variant.accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
+               if 'a' in current_AP:
+                  adj_form = adj_form.replace('\u030d', '') # straight
+               current_morpheme = variant.morpheme.replace('·', '\u030d') # to straight
+            else: 
+               current_morpheme = variant.morpheme
+            adj_form += current_morpheme
+            if not 'a' in current_AP:
+               if '\u030d' not in adj_form: # straight
+                  adj_form = adj_form.replace('·', '\u030d', 1) # to straight
+            adj_forms.append(adj_form)
+         yield label, (self._expose(adj_form) for adj_form in adj_forms)
+
    def decline(self) -> Table:
-      adj_MPs_dict = {'all': [short_adj, long_adj], 'ski': [long_adj]} # TODO think how to add ov
-      which_AP = {'ShortAdj': self.short_AP, 'LongAdj': self.long_AP}
-      MPs = adj_MPs_dict[self.info.other[0]]
-      for paradigm in MPs: # type: ignore
-         for label, ending in zip(paradigm._fields, paradigm):
-            adj_forms = []
-            current_AP = which_AP[type(paradigm).__name__] # current subparadigm: short or long AP (they behave differently)
-            for variant in ending:
-               adj_form = self.trunk
-               if current_AP in variant.accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
-                  if 'a' in current_AP:
-                     adj_form = adj_form.replace('\u030d', '') # straight
-                  current_morph = variant.morpheme.replace('·', '\u030d') # to straight
-               else: 
-                  current_morph = variant.morpheme
-               adj_form += current_morph
-               if not 'a' in current_AP:
-                  if '\u030d' not in adj_form: # straight
-                     adj_form = adj_form.replace('·', '\u030d', 1) # to straight
-               adj_forms.append(adj_form)
-            yield label, (self._expose(adjform) for adjform in adj_forms)
+      endings = self.info.other[0]
+      MPs: List[AdjParadigm]
+      if endings == "all":
+         MPs = [short_adj, long_adj]
+      elif endings == "ski":
+         MPs = [long_adj]
+      # else: TODO think how to add ov
+      for paradigm in MPs:
+         yield from self._paradigm_table(paradigm)
+      # TODO: this ONLY works because "Table" is currently an Iterator
+      # you CAN'T just expect to yield from two tables and obtain another table
+      # well, you can, but you have to implement the table in a way that makes it possible

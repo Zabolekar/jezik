@@ -1,4 +1,4 @@
-from typing import Dict, Iterator, NamedTuple, List, Optional, Tuple
+from typing import Dict, Iterator, NamedTuple, List, Optional, Tuple, Union
 from .utils import insert, all_vowels
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
@@ -195,6 +195,8 @@ long_adj = LongAdj(
   # n_pl_acc = ShortAdj.n_pl_acc # = n_pl_nom
   # pl_gen = LongAdj.pl_gen
   # pl_rest = longAdj.pl_rest
+
+AdjParadigm = Union[ShortAdj, LongAdj]
 
 class VerbEnding(NamedTuple):
    theme: AccentedTuple
