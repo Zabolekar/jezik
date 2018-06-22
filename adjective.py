@@ -1,7 +1,7 @@
-from typing import Any, Dict, Iterator, List
+from typing import Any, Dict, List
 from .table import Table
 from .paradigms import GramInfo, AdjParadigm, short_adj, long_adj
-from .utils import insert, garde, expose, last_vowel_index, first_vowel_index
+from .utils import insert, garde, expose, last_vowel_index
 
 class Adjective:
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
