@@ -7,7 +7,7 @@ Entry = Tuple[str, Dict[str, Any]]
 data = Multidict[str, Entry]()
 
 dir_path = path.dirname(path.realpath(__file__))
-file_path = path.join(dir_path, "a_sr_ru.yaml")
+file_path = path.join(dir_path, "data.yml")
 
 with open(file_path, encoding="utf-8") as f:
    raw_data = yaml.safe_load(f)

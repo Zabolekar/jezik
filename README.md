@@ -1,6 +1,12 @@
 # jèzik
 
+[![Travis-CI Build Status](https://travis-ci.org/Zabolekar/jezik.svg?branch=master)](https://travis-ci.org/Zabolekar/jezik)
+
 This will be a Serbian dictionary with detailed information about accent.
+
+## Screenshots
+
+![alt text](example.png "Example")
 
 ## Requirements
 
@@ -14,24 +20,27 @@ We also use pytest to run the tests and mypy for static type checking, but they 
 
 To run the app locally for development purposes, do the following:
 
-* Clone the repo, create and activate a virtual environment in a way you prefer
+* Clone the repo to a directory named `jezik`
+* Create and activate a virtual environment in a way you prefer
 * Install the dependencies
 ```bash
 pip install -r requirements.txt
 ```
-* Change the working directory to the level where the repo is cloned to (that is, *not* inside the repo directory but directly above)
-* Export some Flask-related environment variables
+* Run the following script (it sets the needed environment variables and starts Flask):
 ```bash
-export FLASK_APP=jezik
-export FLASK_ENV=development
+./run.sh
 ```
-(on Windows cmd, use `set` instead of `export`)
-* Run the app
-```bash
-flask run
-```
+(on Windows cmd, use `run.bat` instead)
 * Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-## Screenshots
+## Testing it locally
 
-![alt text](example.png "Example")
+If the following commands give you errors, don't commit:
+
+* `mypy ../jezik`
+* `pytest`
+
+The following commands might give you some useful hints, but don't trust them blindly:
+
+* `pylint ../jezik`
+* `flake8`

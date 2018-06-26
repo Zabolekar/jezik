@@ -73,7 +73,7 @@ class ShortAdj(NamedTuple):
    f_pl_nom: List[AccentedTuple] # 1
    n_pl_nom: List[AccentedTuple] # 1
    m_pl_acc: List[AccentedTuple] # 1
-   f_pl_acc: List[AccentedTuple] # 1; = f_pl_nom 
+   f_pl_acc: List[AccentedTuple] # 1; = f_pl_nom
    n_pl_acc: List[AccentedTuple] # 1; = n_pl_nom
    m_sg_gen: List[AccentedTuple] # 1
    m_sg_dat: List[AccentedTuple] # 1
@@ -83,59 +83,59 @@ class ShortAdj(NamedTuple):
    n_sg_gen: List[AccentedTuple] # 1; = m_sg_gen
    n_sg_dat: List[AccentedTuple] # 1; = m_sg_dat
    n_sg_loc: List[AccentedTuple] # 1; = m_sg_dat
-   m_sg_acc_in: List[AccentedTuple] #; 1 = m_sg_nom 
+   m_sg_acc_in: List[AccentedTuple] #; 1 = m_sg_nom
    m_sg_acc_an: List[AccentedTuple] #; 1 = m_sg_gen
-   
+
 short_adj = ShortAdj(
    [AccentedTuple('ø·', 'b.b:')], # ø means 'zero ending' (which, however, can take stress, in a way)
-   [AccentedTuple('а·', 'b.b:')], 
+   [AccentedTuple('а·', 'b.b:')],
    [AccentedTuple('œ·', 'b.b:')],
    [AccentedTuple('и·', 'b.b:')],
    [AccentedTuple('е·', 'b.b:')],
    [AccentedTuple('а·', 'b.b:')],
    [AccentedTuple('е·', 'b.b:')],
-   [AccentedTuple('е·', 'b.b:')], # = f_pl_nom 
+   [AccentedTuple('е·', 'b.b:')], # = f_pl_nom
    [AccentedTuple('а·', 'b.b:')], # = n_pl_nom
-   [AccentedTuple('а·', 'b.b:')], 
-   [AccentedTuple('у·', 'b.b:')], 
-   [AccentedTuple('у·', 'b.b:')], 
-   [AccentedTuple('у·', 'b.b:')], 
+   [AccentedTuple('а·', 'b.b:')],
+   [AccentedTuple('у·', 'b.b:')],
+   [AccentedTuple('у·', 'b.b:')],
+   [AccentedTuple('у·', 'b.b:')],
    [AccentedTuple('œ·', 'b.b:')], # = n_sg_nom
    [AccentedTuple('а·', 'b.b:')], # = m_sg_gen
    [AccentedTuple('у·', 'b.b:')], # = m_sg_dat
    [AccentedTuple('у·', 'b.b:')], # = m_sg_dat
-   [AccentedTuple('ø·', 'b.b:')], #; = m_sg_nom 
+   [AccentedTuple('ø·', 'b.b:')], #; = m_sg_nom
    [AccentedTuple('а·', 'b.b:')] #; = m_sg_gen
                     )
-   
+
 class LongAdj(NamedTuple):
-  m_sg_nom: List[AccentedTuple] # len 1
-  m_sg_gen: List[AccentedTuple] # ! len 2
-  m_sg_dat: List[AccentedTuple] # ! len 3
-  m_sg_ins: List[AccentedTuple] # 1
-  m_sg_loc: List[AccentedTuple] # ! 3
-  m_sg_acc_an: List[AccentedTuple] # ! 2; = m_sg_gen
-  m_sg_acc_in: List[AccentedTuple] # 1; = m_sg_nom
-  f_sg_nom: List[AccentedTuple] # 1
-  f_sg_gen: List[AccentedTuple] # 1
-  f_sg_dat: List[AccentedTuple] # 1
-  f_sg_acc: List[AccentedTuple] # 1
-  f_sg_ins: List[AccentedTuple] # 1
-  f_sg_loc: List[AccentedTuple] # 1
-  n_sg_nom: List[AccentedTuple] # 1
-  n_sg_gen: List[AccentedTuple] # ! 2; = m_sg_gen
-  n_sg_dat: List[AccentedTuple] # ! 3; = m_sg_dat
-  n_sg_acc: List[AccentedTuple] # 1; = n_sg_nom
-  n_sg_ins: List[AccentedTuple] # 1; = m_sg_ins
-  n_sg_loc: List[AccentedTuple] # ! 3; = m_sg_loc
-  m_pl_nom: List[AccentedTuple] # 1
-  f_pl_nom: List[AccentedTuple] # 1
-  n_pl_nom: List[AccentedTuple] # 1
-  m_pl_acc: List[AccentedTuple] # 1
-  f_pl_acc: List[AccentedTuple] # 1; = f_pl_nom
-  n_pl_acc: List[AccentedTuple] # 1; = n_pl_nom
-  pl_gen: List[AccentedTuple] # 1
-  pl_rest: List[AccentedTuple] # ! 2
+   m_sg_nom: List[AccentedTuple] # len 1
+   m_sg_gen: List[AccentedTuple] # ! len 2
+   m_sg_dat: List[AccentedTuple] # ! len 3
+   m_sg_ins: List[AccentedTuple] # 1
+   m_sg_loc: List[AccentedTuple] # ! 3
+   m_sg_acc_an: List[AccentedTuple] # ! 2; = m_sg_gen
+   m_sg_acc_in: List[AccentedTuple] # 1; = m_sg_nom
+   f_sg_nom: List[AccentedTuple] # 1
+   f_sg_gen: List[AccentedTuple] # 1
+   f_sg_dat: List[AccentedTuple] # 1
+   f_sg_acc: List[AccentedTuple] # 1
+   f_sg_ins: List[AccentedTuple] # 1
+   f_sg_loc: List[AccentedTuple] # 1
+   n_sg_nom: List[AccentedTuple] # 1
+   n_sg_gen: List[AccentedTuple] # ! 2; = m_sg_gen
+   n_sg_dat: List[AccentedTuple] # ! 3; = m_sg_dat
+   n_sg_acc: List[AccentedTuple] # 1; = n_sg_nom
+   n_sg_ins: List[AccentedTuple] # 1; = m_sg_ins
+   n_sg_loc: List[AccentedTuple] # ! 3; = m_sg_loc
+   m_pl_nom: List[AccentedTuple] # 1
+   f_pl_nom: List[AccentedTuple] # 1
+   n_pl_nom: List[AccentedTuple] # 1
+   m_pl_acc: List[AccentedTuple] # 1
+   f_pl_acc: List[AccentedTuple] # 1; = f_pl_nom
+   n_pl_acc: List[AccentedTuple] # 1; = n_pl_nom
+   pl_gen: List[AccentedTuple] # 1
+   pl_rest: List[AccentedTuple] # ! 2
 
 long_adj = LongAdj(
   [AccentedTuple('и·̄', 'c.c:')],
@@ -144,7 +144,7 @@ long_adj = LongAdj(
   [AccentedTuple('и·̄м', 'c.c:')],
   [AccentedTuple('œ·̄м', 'c.c:'), AccentedTuple('œ·̄ме', 'c.c:'), AccentedTuple('œ·̄му', 'c.c:')],
   [AccentedTuple('œ·̄г', 'c.c:'), AccentedTuple('œ·̄га', 'c.c:')],
-  [AccentedTuple('и·̄', 'c.c:')], 
+  [AccentedTuple('и·̄', 'c.c:')],
   [AccentedTuple('а·̄', 'c.c:')],
   [AccentedTuple('е·̄', 'c.c:')],
   [AccentedTuple('о·̄ј', 'c.c:')],
@@ -158,15 +158,15 @@ long_adj = LongAdj(
   [AccentedTuple('и·̄м', 'c.c:')], # = m_sg_ins
   [AccentedTuple('œ·̄м', 'c.c:'), AccentedTuple('œ·̄ме', 'c.c:'), AccentedTuple('œ·̄му', 'c.c:')], # = m_sg_loc
   [AccentedTuple('и·̄', 'c.c:')],
-  [AccentedTuple('е·̄', 'c.c:')], 
+  [AccentedTuple('е·̄', 'c.c:')],
   [AccentedTuple('а·̄', 'c.c:')],
-  [AccentedTuple('е·̄', 'c.c:')], 
+  [AccentedTuple('е·̄', 'c.c:')],
   [AccentedTuple('е·̄', 'c.c:')], #  = f_pl_nom
   [AccentedTuple('а·̄', 'c.c:')], #  = n_pl_nom
-  [AccentedTuple('и·̄х', 'c.c:')], 
+  [AccentedTuple('и·̄х', 'c.c:')],
   [AccentedTuple('и·̄м', 'c.c:'), AccentedTuple('и·̄ма', 'c.c:')]
            )
-  
+
 # class OvAdj(NamedTuple):
   # m_sg_nom = ShortAdj.m_sg_nom
   # m_sg_gen = ShortAdj.m_sg_gen + LongAdj.m_sg_gen
@@ -281,7 +281,7 @@ i_theme_ipf = AccentedTuple('ȷа\u0304·', 'r.r:s0')
 ie_theme_ipf = AccentedTuple('ȷа\u0304·', 'q:s.')
 a_theme_ipf = AccentedTuple('а\u0304·', 'm.n.y0z0')
 ova_theme_ipf = AccentedTuple('о·ва\u0304', 'm.')
-iva_theme_ipf = AccentedTuple('и\u0304·ва\u0304', 'k’')  
+iva_theme_ipf = AccentedTuple('и\u0304·ва\u0304', 'k’')
 
 ending_null = AccentedTuple('', '')
 ending_x = AccentedTuple('х', '')

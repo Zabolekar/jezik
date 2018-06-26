@@ -17,9 +17,8 @@ class Adjective:
 
    def _trunk(self) -> str:
       accented_adj = garde(self.info.accents.accentize(self.key))
-      # 
       if 'ov' in self.info.other:
-         trunk = accented_adj # ok   
+         trunk = accented_adj # ok
       elif 'all' in self.info.other:
          if 'ъ\u030d' in accented_adj:
             trunk = accented_adj[:-2] + accented_adj[-1]
@@ -53,7 +52,7 @@ class Adjective:
                if 'a' in current_AP:
                   adj_form = adj_form.replace('\u030d', '') # straight
                current_morpheme = variant.morpheme.replace('·', '\u030d') # to straight
-            else: 
+            else:
                current_morpheme = variant.morpheme
             adj_form += current_morpheme
             if not 'a' in current_AP:

@@ -66,7 +66,7 @@ def deyerify(form: str) -> str:
       else:
          form = insert(form, {lvi+1: '̍'})
    return form
-   
+
 def prettify(text: str, yat:str='ekav') -> str:
    idict = palatalization_modes['ȷ']
    replaces = [ ('јӥ', '\u0304ј'), ('ӥ', 'и'),
@@ -77,7 +77,7 @@ def prettify(text: str, yat:str='ekav') -> str:
                               ('[ѣꙓ]([ољјњ])', 'и\\1'), ('ꙓ̄', 'йје̄'),
                               ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'), ('[ꙓѣ]', 'је')] }
    yat_replaces['ijekav'] = yat_replaces['jekav']
-            
+
    for key in idict:
       text = text.replace(key, idict[key])
    for entity in replaces:
@@ -150,7 +150,7 @@ def zeroify(form: str) -> str:
          to_insert = fvi + 1
          form = insert(form, {to_insert: '\u030d'}) # straight accent
    return form
-  
+
 def purify(form: str) -> str:
    return (form.replace('~', '')
                .replace('0', '')
