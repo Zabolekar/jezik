@@ -61,7 +61,7 @@ class Adjective:
             trunk_lvi = last_vowel_index(self.trunk[number])
             last_macron = self.trunk[number].rfind('\u0304')
             if trunk_lvi:
-               if current_AP.endswith(':') and self.trunk[number][trunk_lvi+1] == '·' and trunk_lvi+2 != last_macron:
+               if current_AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
                   adj_form = insert(self.trunk[number], {trunk_lvi+2: '\u0304'})
                elif current_AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
                   adj_form = self.trunk[number][:last_macron] + self.trunk[number][last_macron+1:] # delete last macron
@@ -73,11 +73,16 @@ class Adjective:
             new_adj_form = adj_form
             if current_AP in variant.accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
                new_adj_form = new_adj_form.replace('\u030d', '') # straight
-               if 'a' not in current_AP:
-                  new_adj_form = new_adj_form.replace('·', '')
+               #if 'a' not in current_AP:
+                  #new_adj_form = new_adj_form.replace('·', '')
                current_morpheme = variant.morpheme.replace('·', '\u030d') # to straight
             else:
                current_morpheme = variant.morpheme.replace('·', '')
+            if current_AP == self.short_AP[number]:
+               if current_AP.endswith('?') and not 'ø' in current_morpheme:
+                  trunk_lvi = last_vowel_index(new_adj_form)
+                  last_macron = new_adj_form.rfind('\u0304')
+                  new_adj_form = new_adj_form[:last_macron] + new_adj_form[last_macron+1:] # delete last macron
             new_adj_form += current_morpheme
             if not 'a' in current_AP:
                if '\u030d' not in adj_form: # straight

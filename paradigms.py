@@ -91,25 +91,25 @@ class ShortAdj(NamedTuple):
    m_sg_acc_an: List[AccentedTuple] #; 1 = m_sg_gen
 
 short_adj = ShortAdj(
-   [AccentedTuple('ø·', 'b.b:')], # ø means 'zero ending' (which, however, can take stress, in a way)
-   [AccentedTuple('а·', 'b.b:')],
-   [AccentedTuple('œ·', 'b.b:')],
-   [AccentedTuple('и·', 'b.b:')],
-   [AccentedTuple('е·', 'b.b:')],
-   [AccentedTuple('а·', 'b.b:')],
-   [AccentedTuple('е·', 'b.b:')],
-   [AccentedTuple('е·', 'b.b:')], # = f_pl_nom
-   [AccentedTuple('а·', 'b.b:')], # = n_pl_nom
-   [AccentedTuple('а·', 'b.b:')],
-   [AccentedTuple('у·', 'b.b:')],
-   [AccentedTuple('у·', 'b.b:')],
-   [AccentedTuple('у·', 'b.b:')],
-   [AccentedTuple('œ·', 'b.b:')], # = n_sg_nom
-   [AccentedTuple('а·', 'b.b:')], # = m_sg_gen
-   [AccentedTuple('у·', 'b.b:')], # = m_sg_dat
-   [AccentedTuple('у·', 'b.b:')], # = m_sg_dat
-   [AccentedTuple('ø·', 'b.b:')], #; = m_sg_nom
-   [AccentedTuple('а·', 'b.b:')] #; = m_sg_gen
+   [AccentedTuple('ø·', 'b.b:b?')], # ø means 'zero ending' (which, however, can take stress, in a way)
+   [AccentedTuple('а·', 'b.b:b?')],
+   [AccentedTuple('œ·', 'b.b:b?')],
+   [AccentedTuple('и·', 'b.b:b?')],
+   [AccentedTuple('е·', 'b.b:b?')],
+   [AccentedTuple('а·', 'b.b:b?')],
+   [AccentedTuple('е·', 'b.b:b?')],
+   [AccentedTuple('е·', 'b.b:b?')], # = f_pl_nom
+   [AccentedTuple('а·', 'b.b:b?')], # = n_pl_nom
+   [AccentedTuple('а·', 'b.b:b?')],
+   [AccentedTuple('у·', 'b.b:b?')],
+   [AccentedTuple('у·', 'b.b:b?')],
+   [AccentedTuple('у·', 'b.b:b?')],
+   [AccentedTuple('œ·', 'b.b:b?')], # = n_sg_nom
+   [AccentedTuple('а·', 'b.b:b?')], # = m_sg_gen
+   [AccentedTuple('у·', 'b.b:b?')], # = m_sg_dat
+   [AccentedTuple('у·', 'b.b:b?')], # = m_sg_dat
+   [AccentedTuple('ø·', 'b.b:b?')], #; = m_sg_nom
+   [AccentedTuple('а·', 'b.b:b?')] #; = m_sg_gen
                     )
 
 class LongAdj(NamedTuple):
