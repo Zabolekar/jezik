@@ -38,7 +38,7 @@ class GramInfo:
       Rs: Optional[str] # circles below syllabic r's
       Vs: str # accents above vowels AND above circles (see Rs)
       accents = []
-      self.AP = []
+      self.AP: List[str] = []
       for inf in infos:
          if inf:
             line_accents, AP, MP = inf.split('|')
