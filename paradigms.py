@@ -34,29 +34,33 @@ class GramInfo:
    reflexive) and one of "Pf", "Ipf", "Dv" (perfective, imperfective,
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
-   def __init__(self, infos: str, types: str) -> None:
+   def __init__(self, infos: List[str], types: str) -> None:
       Rs: Optional[str] # circles below syllabic r's
       Vs: str # accents above vowels AND above circles (see Rs)
-      if infos:
-         line_accents, AP, MP = infos.split('|')
-         if '@' in infos:
-            Rs, Vs = line_accents.split('@')
+      accents = []
+      self.AP = []
+      for inf in infos:
+         if inf:
+            line_accents, AP, MP = inf.split('|')
+            if '@' in inf:
+               Rs, Vs = line_accents.split('@')
+            else:
+               Rs, Vs = None, line_accents
+            accents.append(Accents(
+                {int(i): '\u0325' for i in Rs[1:].split(',')} if Rs else {},
+                {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
+            )              )
+            self.AP.append(AP) # accent paradigm
          else:
-            Rs, Vs = None, line_accents
-         accents = Accents(
-             {int(i): '\u0325' for i in Rs[1:].split(',')} if Rs else {},
-             {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
-         )
-      else:
-         raise ValueError("Can't decipher empty i")
+            raise ValueError("Can't decipher empty i")
 
       if types:
          POS, *other = types.split('|')
       else:
          raise ValueError("Can't decipher empty t")
 
-      self.accents: Accents = accents
-      self.AP: str = AP # accent paradigm
+      self.accents: List[Accents] = accents
+      
       self.MP: str = MP # morphological paradigm
       self.POS: str = POS # part of speech
       self.other: List[str] = other
@@ -167,34 +171,34 @@ long_adj = LongAdj(
   [AccentedTuple('и·̄м', 'c.c:'), AccentedTuple('и·̄ма', 'c.c:')]
            )
 
-# class OvAdj(NamedTuple):
-  # m_sg_nom = ShortAdj.m_sg_nom
-  # m_sg_gen = ShortAdj.m_sg_gen + LongAdj.m_sg_gen
-  # m_sg_dat = ShortAdj.m_sg_dat + LongAdj.m_sg_dat
-  # m_sg_ins = LongAdj.m_sg_ins
-  # m_sg_loc = ShortAdj.m_sg_loc + LongAdj.m_sg_loc
-  # m_sg_acc_in = ShortAdj.m_sg_acc_in
-  # m_sg_acc_an = ShortAdj.m_sg_acc_an + LongAdj.m_sg_acc_an
-  # f_sg_nom = ShortAdj.f_sg_nom
-  # f_sg_gen = LongAdj.f_sg_gen
-  # f_sg_dat = LongAdj.f_sg_dat
-  # f_sg_acc = ShortAdj.m_sg_nom
-  # f_sg_ins = LongAdj.f_sg_ins
-  # f_sg_loc = LongAdj.f_sg_loc
-  # n_sg_nom = ShortAdj.n_sg_nom
-  # n_sg_gen = ShortAdj.n_sg_gen + LongAdj.n_sg_gen # = m_sg_gen
-  # n_sg_dat = ShortAdj.n_sg_dat + LongAdj.n_sg_dat # = m_sg_dat
-  # n_sg_acc = ShortAdj.n_sg_acc # = n_sg_nom
-  # n_sg_ins = LongAdj.n_sg_ins # = m_sg_ins
-  # n_sg_loc = ShortAdj.n_sg_loc + LongAdj.n_sg_loc # = m_sg_loc
-  # m_pl_nom = ShortAdj.m_pl_nom
-  # f_pl_nom = ShortAdj.f_pl_nom
-  # n_pl_nom = ShortAdj.n_pl_nom
-  # m_pl_acc = ShortAdj.m_pl_acc
-  # f_pl_acc = ShortAdj.f_pl_acc
-  # n_pl_acc = ShortAdj.n_pl_acc # = n_pl_nom
-  # pl_gen = LongAdj.pl_gen
-  # pl_rest = longAdj.pl_rest
+mixed_adj = LongAdj(
+  m_sg_nom = short_adj.m_sg_nom,
+  m_sg_gen = short_adj.m_sg_gen + long_adj.m_sg_gen,
+  m_sg_dat = short_adj.m_sg_dat + long_adj.m_sg_dat,
+  m_sg_ins = long_adj.m_sg_ins,
+  m_sg_loc = short_adj.m_sg_loc + long_adj.m_sg_loc,
+  m_sg_acc_in = short_adj.m_sg_acc_in,
+  m_sg_acc_an = short_adj.m_sg_acc_an + long_adj.m_sg_acc_an,
+  f_sg_nom = short_adj.f_sg_nom,
+  f_sg_gen = long_adj.f_sg_gen,
+  f_sg_dat = long_adj.f_sg_dat,
+  f_sg_acc = short_adj.m_sg_nom,
+  f_sg_ins = long_adj.f_sg_ins,
+  f_sg_loc = long_adj.f_sg_loc,
+  n_sg_nom = short_adj.n_sg_nom,
+  n_sg_gen = short_adj.n_sg_gen + long_adj.n_sg_gen,
+  n_sg_dat = short_adj.n_sg_dat + long_adj.n_sg_dat,
+  n_sg_acc = short_adj.n_sg_acc,
+  n_sg_ins = long_adj.n_sg_ins,
+  n_sg_loc = short_adj.n_sg_loc + long_adj.n_sg_loc,
+  m_pl_nom = short_adj.m_pl_nom,
+  f_pl_nom = short_adj.f_pl_nom,
+  n_pl_nom = short_adj.n_pl_nom,
+  m_pl_acc = short_adj.m_pl_acc,
+  f_pl_acc = short_adj.f_pl_acc,
+  n_pl_acc = short_adj.n_pl_acc,
+  pl_gen = long_adj.pl_gen,
+  pl_rest = long_adj.pl_rest)
 
 AdjParadigm = Union[ShortAdj, LongAdj]
 
