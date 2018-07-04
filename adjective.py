@@ -23,8 +23,8 @@ class Adjective:
 
    def _trunk(self) -> List[str]:
       result = []
-      for nmr, item in enumerate(self.info.AP):
-         accented_adj = garde(self.info.accents[nmr].accentize(self.key))
+      for number, item in enumerate(self.info.AP):
+         accented_adj = garde(self.info.accents[number].accentize(self.key))
          if 'ov' in self.info.other:
             trunk = accented_adj # ok
          elif 'all' in self.info.other:
@@ -34,7 +34,7 @@ class Adjective:
                trunk = accented_adj
          elif 'ski' in self.info.other:
             trunk = re.sub('\u0304\u030d$', '\u0304', accented_adj)[:-2]
-         if not 'a' in self.info.AP[nmr]:
+         if not 'a' in self.info.AP[number]:
             lvi = last_vowel_index(trunk)
             if lvi is None:
                #raise ValueError(f"{trunk} does not contain any vowels")
@@ -46,29 +46,29 @@ class Adjective:
          result.append(trunk)
       return result
 
-   def _paradigm_table(self, paradigm: AdjParadigm, nmbr: int, length_inconstancy: bool) -> Table:
+   def _paradigm_table(self, paradigm: AdjParadigm, number: int, length_inconstancy: bool) -> Table:
       # current subparadigm: short or long AP (they behave differently)
       if paradigm is short_adj:
-         current_AP = self.short_AP[nmbr]
+         current_AP = self.short_AP[number]
       elif paradigm is long_adj:
-         current_AP = self.long_AP[nmbr]
+         current_AP = self.long_AP[number]
       elif paradigm is mixed_adj:
-         current_AP = self.long_AP[nmbr]
+         current_AP = self.long_AP[number]
 
       for label, ending in zip(paradigm._fields, paradigm):
          adj_forms = []
-         if length_inconstancy and current_AP == self.long_AP[nmbr]:
-            trunk_lvi = last_vowel_index(self.trunk[nmbr])
-            last_macron = self.trunk[nmbr].rfind('\u0304')
+         if length_inconstancy and current_AP == self.long_AP[number]:
+            trunk_lvi = last_vowel_index(self.trunk[number])
+            last_macron = self.trunk[number].rfind('\u0304')
             if trunk_lvi:
-               if current_AP.endswith(':') and self.trunk[nmbr][trunk_lvi+1] == '·' and trunk_lvi+2 != last_macron:
-                  adj_form = insert(self.trunk[nmbr], {trunk_lvi+2: '\u0304'})
+               if current_AP.endswith(':') and self.trunk[number][trunk_lvi+1] == '·' and trunk_lvi+2 != last_macron:
+                  adj_form = insert(self.trunk[number], {trunk_lvi+2: '\u0304'})
                elif current_AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
-                  adj_form = self.trunk[nmbr][:last_macron] + self.trunk[nmbr][last_macron+1:] # delete last macron
+                  adj_form = self.trunk[number][:last_macron] + self.trunk[number][last_macron+1:] # delete last macron
                else: 
-                  adj_form = self.trunk[nmbr]
+                  adj_form = self.trunk[number]
          else:
-            adj_form = self.trunk[nmbr]
+            adj_form = self.trunk[number]
          for variant in ending:
             new_adj_form = adj_form
             if current_AP in variant.accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
@@ -96,12 +96,12 @@ class Adjective:
       elif endings == "ov":
          MPs = [mixed_adj]
       
-      for nmbr, AP in enumerate(self.info.accents):
+      for number, AP in enumerate(self.info.accents):
          length_inconstancy = False
-         if endings == "all" and self.short_AP[nmbr][-1] != self.long_AP[nmbr][-1]:
+         if endings == "all" and self.short_AP[number][-1] != self.long_AP[number][-1]:
             length_inconstancy = True
          for paradigm in MPs:
-            yield from self._paradigm_table(paradigm, nmbr, length_inconstancy)
+            yield from self._paradigm_table(paradigm, number, length_inconstancy)
          # TODO: this ONLY works because "Table" is currently an Iterator
          # you CAN'T just expect to yield from two tables and obtain another table
          # pay special attention to this part when rewriting Table

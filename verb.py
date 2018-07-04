@@ -22,7 +22,7 @@ class Verb:
       return form
 
    def _trunk(self) -> str:
-      accented_verb = garde(self.info.accents[0].accentize(self.key)) # add loop
+      accented_verb = garde(self.info.accents[0].accentize(self.key)) # TODO: add loop
       N = len(infinitive_dict[self.info.MP])
       if self.info.AP in ['o.', 'a.', 'a:']:
          return accented_verb[:-N]
