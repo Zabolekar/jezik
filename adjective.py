@@ -72,7 +72,6 @@ class Adjective:
          for variant in ending:
             new_adj_form = adj_form
             if current_AP in variant.accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
-               print(current_AP)
                new_adj_form = new_adj_form.replace('\u030d', '') # straight
                if 'a' not in current_AP:
                   new_adj_form = new_adj_form.replace('·', '')
@@ -85,7 +84,6 @@ class Adjective:
                   new_adj_form = new_adj_form.replace('·', '\u030d', 1) # to straight
                   
             adj_forms.append(new_adj_form)
-            print(adj_forms)
          yield label, (self._expose(adjform) for adjform in adj_forms)
 
    def decline(self) -> Table:
