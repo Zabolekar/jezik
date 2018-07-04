@@ -54,7 +54,6 @@ class Verb:
       if self.info.MP in infinitive_dict: # TODO: what if not?
          for number, AP in enumerate(self.info.AP):
             for label, endings in MP_to_verb_stems[self.info.MP].labeled_endings:
-               print(label, type(label))
                verb_forms: List[str] = []
                for ending in endings:
                   verb_form = self.trunk[number]
@@ -64,4 +63,4 @@ class Verb:
                      if '\u030d' not in verb_form: # straight
                         verb_form = verb_form.replace('·', '\u030d', 1) # to straight
                   verb_forms.append(self._expose(verb_form))
-               yield label, verb_forms
+               yield label, iter(verb_forms) # TODO: why does it need to be iter?

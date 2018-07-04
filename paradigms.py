@@ -207,9 +207,9 @@ class VerbEnding(NamedTuple):
    theme: AccentedTuple
    ending: AccentedTuple
 
-LabeledEnding = Tuple[NamedTuple, NamedTuple]
+LabeledEnding = Tuple[str, List[VerbEnding]]
 
-class Present(List[NamedTuple]):
+class Present(NamedTuple):
    prs1sg: List[VerbEnding]
    prs2sg: List[VerbEnding]
    prs3sg: List[VerbEnding]
@@ -224,7 +224,7 @@ class Present(List[NamedTuple]):
    def labeled_endings(self) -> Iterator[LabeledEnding]:
       yield from zip(self._fields, super().__iter__())
 
-class Past(List[NamedTuple]):
+class Past(NamedTuple):
    pfMsg: List[VerbEnding]
    pfFsg: List[VerbEnding]
    pfNsg: List[VerbEnding]
