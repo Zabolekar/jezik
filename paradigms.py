@@ -41,7 +41,6 @@ class GramInfo:
       self.AP: List[str] = []
       for inf in infos:
          if inf:
-            print(inf)
             line_accents, AP, MP = inf.split('|')
             if '@' in inf:
                Rs, Vs = line_accents.split('@')
