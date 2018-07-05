@@ -1,8 +1,9 @@
-from typing import Any, Dict, List, Iterator
+from typing import Any, Dict, List
 import re
-from .table import Table
-from .paradigms import GramInfo, AdjParadigm, short_adj, long_adj, mixed_adj
-from .utils import insert, garde, expose, last_vowel_index
+from ..table import Table
+from ..utils import insert, garde, expose, last_vowel_index
+from ..paradigm_helpers import GramInfo
+from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
 class Adjective:
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
@@ -55,7 +56,7 @@ class Adjective:
       elif paradigm is mixed_adj:
          current_AP = self.long_AP[number]
 
-      for label, ending in zip(paradigm._fields, paradigm):
+      for label, ending in zip(paradigm._fields, paradigm): # TODO: verbs do it completely differently, unify
          adj_forms = []
          if length_inconstancy and current_AP == self.long_AP[number]:
             trunk_lvi = last_vowel_index(self.trunk[number])

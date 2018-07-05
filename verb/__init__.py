@@ -1,8 +1,9 @@
 from typing import Any, Dict, List
-from .table import Table
-from .paradigms import GramInfo, MP_to_verb_stems
-from .utils import insert, garde, expose, last_vowel_index
-from .auxiliary_data import infinitive_dict
+from ..table import Table
+from ..auxiliary_data import infinitive_dict
+from ..utils import insert, garde, expose, last_vowel_index
+from ..paradigm_helpers import GramInfo
+from .paradigms import MP_to_verb_stems
 
 # There are 2 major types of paradigms: o., a., a: and the rest
 
