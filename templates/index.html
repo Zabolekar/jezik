@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="sr">
-<head>
-   <meta charset="utf-8">
-   <title>jèzik</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block body %}
 <form id="search">
    <input type="text" id="word"/>
    <input type="submit" id="button" value="Претрага"/>
@@ -15,5 +8,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 <script>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
-</body>
-</html>
+{% endblock %}

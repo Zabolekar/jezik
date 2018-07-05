@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="sr">
-<head>
-   <meta charset="utf-8">
-   <title>jèzik</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block body %}
 <div id="four-hundred-four">
    <p>
       <h1>grȅška čȅtiristo čètiri</h1>
@@ -15,5 +8,4 @@
       <a href="{{ url_for('index') }}">nȁzād</a>
    </p>
 </div>
-</body>
-</html>
+{% endblock %}

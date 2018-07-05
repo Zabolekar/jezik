@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="sr">
-<head>
-   <meta charset="utf-8">
-   <title>jèzik</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block body %}
 <div id="tables-or-not-found">
 {% for table in tables %}
    <table>
@@ -33,5 +26,4 @@
    </div>
 {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}
