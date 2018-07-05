@@ -1,5 +1,5 @@
 function displayResults (reply) {
-   $('#results').html(reply);
+   $('#results').html($(reply).filter("#tables-or-not-found"));
    var width = $('#word').width() + $('#button').width(); //TODO: issue #14
    $('table').css('width', width+'px');
 }

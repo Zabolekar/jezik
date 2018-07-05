@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="sr">
 <head>
    <meta charset="utf-8">
+   <title>jèzik</title>
    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
+<div id="tables-or-not-found">
 {% for table in tables %}
    <table>
    <caption>
@@ -30,5 +32,6 @@
       Реч није пронађена 😞
    </div>
 {% endfor %}
+</div>
 </body>
 </html>
