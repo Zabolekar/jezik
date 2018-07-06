@@ -1,11 +1,17 @@
 from typing import Any, Dict, List
 from ..table import Table
-from ..auxiliary_data import infinitive_dict
 from ..utils import insert, garde, expose, last_vowel_index
 from ..paradigm_helpers import GramInfo
 from .paradigms import MP_to_verb_stems
 
 # There are 2 major types of paradigms: o., a., a: and the rest
+
+infinitive_dict: Dict[str, str] = {
+   'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
+   'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
+   'eta': 'ети', 'theta': 'ети', 'iota': 'ати',
+   'kappa': 'ти', 'lambda': 'ти', 'mu': 'ати'
+}
 
 class Verb:
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
