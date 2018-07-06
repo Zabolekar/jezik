@@ -1,4 +1,5 @@
 from typing import Dict, Iterator, NamedTuple, Tuple, List
+import re
 from ..paradigm_helpers import AccentedTuple
 
 class VerbEnding(NamedTuple):
@@ -6,6 +7,10 @@ class VerbEnding(NamedTuple):
    ending: AccentedTuple
 
 LabeledEnding = Tuple[str, List[VerbEnding]]
+
+_r = re.compile("([a-z]+|[A-Z]|\d)")
+def nice_name(name: str) -> str:
+   return " ".join(_r.findall(name)) # TODO
 
 class Present(NamedTuple):
    prs1sg: List[VerbEnding]
@@ -20,7 +25,8 @@ class Present(NamedTuple):
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
-      yield from zip(self._fields, super().__iter__())
+      yield from zip(map(nice_name, self._fields),
+                     super().__iter__())
 
 class Past(NamedTuple):
    pfMsg: List[VerbEnding]
@@ -45,7 +51,8 @@ class Past(NamedTuple):
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
-      yield from zip(self._fields, super().__iter__())
+      yield from zip(map(nice_name, self._fields),
+                     super().__iter__())
 
 """class Presents(NamedTuple):
    i: Present

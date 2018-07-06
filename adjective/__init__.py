@@ -5,6 +5,10 @@ from ..utils import insert, garde, expose, last_vowel_index
 from ..paradigm_helpers import GramInfo
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
+_r = re.compile("([a-z]+|[A-Z]|\d)")
+def _nice_name(name: str) -> str:
+   return " ".join(_r.findall(name)) # TODO
+
 class Adjective:
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
       self.key = key
@@ -90,7 +94,7 @@ class Adjective:
                   new_adj_form = new_adj_form.replace('·', '\u030d', 1) # to straight
                   
             adj_forms.append(new_adj_form)
-         yield label, (self._expose(adjform) for adjform in adj_forms)
+         yield _nice_name(label), (self._expose(adjform) for adjform in adj_forms)
 
    def decline(self) -> Table:
       endings = self.info.other[0]
