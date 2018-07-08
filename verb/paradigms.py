@@ -10,7 +10,7 @@ LabeledEnding = Tuple[str, List[VerbEnding]]
 
 _r = re.compile("([a-z]+|[A-Z]|\d)")
 def nice_name(name: str) -> str:
-   return " ".join(_r.findall(name)) # TODO
+   return "\u00a0".join(_r.findall(name)) # TODO
 
 class Present(NamedTuple):
    prs1sg: List[VerbEnding]

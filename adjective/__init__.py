@@ -7,7 +7,7 @@ from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
 _r = re.compile("([a-z]+|[A-Z]|\d)")
 def _nice_name(name: str) -> str:
-   return " ".join(_r.findall(name)) # TODO
+   return "\u00a0".join(_r.findall(name)) # TODO
 
 class Adjective:
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
