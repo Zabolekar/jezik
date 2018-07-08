@@ -1,16 +1,11 @@
 from typing import Dict, Iterator, NamedTuple, Tuple, List
-import re
-from ..paradigm_helpers import AccentedTuple
+from ..paradigm_helpers import AccentedTuple, nice_name
 
 class VerbEnding(NamedTuple):
    theme: AccentedTuple
    ending: AccentedTuple
 
 LabeledEnding = Tuple[str, List[VerbEnding]]
-
-_r = re.compile("([a-z]+|[A-Z]|\d)")
-def nice_name(name: str) -> str:
-   return "\u00a0".join(_r.findall(name)) # TODO
 
 class Present(NamedTuple):
    prs1sg: List[VerbEnding]

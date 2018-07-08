@@ -1,7 +1,13 @@
 from typing import Dict, NamedTuple, List, Optional
+import re
 from .utils import insert, all_vowels
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
+
+_r = re.compile("([a-z]+|[A-Z]|\d)")
+def nice_name(name: str) -> str:
+   # \u00a0 will magically become &nbsp;
+   return "\u00a0".join(_r.findall(name))
 
 class Accents:
 
