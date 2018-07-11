@@ -5,12 +5,7 @@ function displayResults (reply) {
 }
 
 function onSubmit (event) {
-   var word = $('#word').val().replace(/^\/*/, "");
-   /*
-      Flask needs a custom converter for handling leading slashes in queries.
-      Luckily for us, a word shouldn't contain them anyway, a user might only
-      enter them by accident, so it's easier to just remove them.
-   */
+   var word = $('#word').val();
    if (word) {
       var url = $SCRIPT_ROOT + "lookup/" + encodeURIComponent(word);
       $.ajax(url).done(displayResults);
