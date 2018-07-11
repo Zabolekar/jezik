@@ -9,9 +9,9 @@ function onSubmit (event) {
    if (word) {
       var c = confusingCharacters(word);
       if (c) {
-         $('#results').html("<div id=\"fourhundredfour\">" +
-                            "Ваш упит садржи знак " + c +
-                            ", такве речи не постоје.</div>");
+         $('#results').html("<div id=\"four-hundred-four\">" +
+                            "Ваш упит садржи знак <b>" + c +
+                            "</b>, такве речи не постоје.</div>");
       } else {
          var url = $SCRIPT_ROOT + "lookup/" + word;
          $.ajax(url).done(displayResults);
@@ -29,11 +29,13 @@ $(document).ready(setup);
 /* 
    Some characters have special meaning in URLs. Queries that contain such
    characters might confuse our site if sent via the search bar. It won't
-   enable the user to do anything dangerous, but it might look weird. Luckily
-   for us, words don't contain characters like that anyway.
+   enable the user to do anything dangerous, but it might look weird. For
+   example, '/' and '?' in queries might cause 404 where 200 was expected.
+   Other characters were added just in case. Luckily for us, words don't
+   contain characters like that anyway.
 */
 function confusingCharacters (word) {
-   prohibited = "/?=&;#[]+.:@".split("");
+   prohibited = "/?%=&;#[]+.:@".split("");
    var c;
    for(var i = 0; i < prohibited.length; i++) {
       c = prohibited[i];
