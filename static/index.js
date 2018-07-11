@@ -5,17 +5,15 @@ function displayResults (reply) {
 }
 
 function onSubmit (event) {
-   var word = $('#word').val();
+   var word = $('#word').val().replace(/^\/*/, "");
+   /*
+      Flask needs a custom converter for handling leading slashes in queries.
+      Luckily for us, a word shouldn't contain them anyway, a user might only
+      enter them by accident, so it's easier to just remove them.
+   */
    if (word) {
-      var c = confusingCharacters(word);
-      if (c) {
-         $('#results').html("<div id=\"four-hundred-four\">" +
-                            "Ваш упит садржи знак <b>" + c +
-                            "</b>, такве речи не постоје.</div>");
-      } else {
-         var url = $SCRIPT_ROOT + "lookup/" + word;
-         $.ajax(url).done(displayResults);
-      }
+      var url = $SCRIPT_ROOT + "lookup/" + encodeURIComponent(word);
+      $.ajax(url).done(displayResults);
    }
    event.preventDefault();
 }
@@ -25,23 +23,3 @@ function setup () {
 }
 
 $(document).ready(setup);
-
-/* 
-   Some characters have special meaning in URLs. Queries that contain such
-   characters might confuse our site if sent via the search bar. It won't
-   enable the user to do anything dangerous, but it might look weird. For
-   example, '/' and '?' in queries might cause 404 where 200 was expected.
-   Other characters were added just in case. Luckily for us, words don't
-   contain characters like that anyway.
-*/
-function confusingCharacters (word) {
-   prohibited = "/?%=&;#[]+.:@".split("");
-   var c;
-   for(var i = 0; i < prohibited.length; i++) {
-      c = prohibited[i];
-      if (word.indexOf(c) != -1) {
-         return c;
-      }
-   }
-   return "";
-}

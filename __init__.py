@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
    return render_template("index.html")
 
-@app.route("/lookup/<word>")
+@app.route("/lookup/<path:word>")
 def results(word):
    return render_template("results.html", tables=lookup(word))
 
