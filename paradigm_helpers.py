@@ -53,7 +53,7 @@ class GramInfo:
             else:
                Rs, Vs = None, line_accents
             accents.append(Accents(
-                {int(i): '\u0325' for i in Rs[1:].split(',')} if Rs else {},
+                {int(i): '\u0325' for i in Rs[0:].split(',')} if Rs else {},
                 {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
             )              )
             self.AP.append(AP) # accent paradigm

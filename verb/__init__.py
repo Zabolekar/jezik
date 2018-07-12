@@ -30,8 +30,14 @@ class Verb:
 
    def _trunk(self) -> List[str]:
       result: List[str] = []
+      # deleting the disambiguing postfixes:
+      first_space = self.key.find(' ')
+      if first_space != -1:
+         normal_key = self.key[:first_space]
+      else: normal_key = self.key
+      
       for number, AP in enumerate(self.info.AP):
-         accented_verb = garde(self.info.accents[number].accentize(self.key)) # TODO: add loop
+         accented_verb = garde(self.info.accents[number].accentize(normal_key)) # TODO: add loop
          N = len(infinitive_dict[self.info.MP])
          if AP in ['o.', 'a.', 'a:']:
             result.append(accented_verb[:-N])

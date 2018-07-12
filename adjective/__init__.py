@@ -24,8 +24,14 @@ class Adjective:
 
    def _trunk(self) -> List[str]:
       result = []
+      # deleting the disambiguing postfixes:
+      first_space = self.key.find(' ')
+      if first_space != -1:
+         normal_key = self.key[:first_space]
+      else: normal_key = self.key      
+      
       for number, item in enumerate(self.info.AP):
-         accented_adj = garde(self.info.accents[number].accentize(self.key))
+         accented_adj = garde(self.info.accents[number].accentize(normal_key))
          if 'ov' in self.info.other:
             trunk = accented_adj # ok
          elif 'all' in self.info.other:
@@ -58,38 +64,68 @@ class Adjective:
 
       for label, ending in zip(paradigm._fields, paradigm): # TODO: verbs do it completely differently, unify
          adj_forms = []
+         
+         # at first we process words like boos ~ bosa
+         # (this code will be very useful while processing nouns,
+         # so it should better be put into Utils):
+         
          if length_inconstancy and current_AP == self.long_AP[number]:
             trunk_lvi = last_vowel_index(self.trunk[number])
             last_macron = self.trunk[number].rfind('\u0304')
-            if trunk_lvi:
+            if trunk_lvi: # if the word has vowels:
                if current_AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
+               # if we need to insert macron, we do it
                   adj_form = insert(self.trunk[number], {trunk_lvi+2: '\u0304'})
                elif current_AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
-                  adj_form = self.trunk[number][:last_macron] + self.trunk[number][last_macron+1:] # delete last macron
-               else: 
+               # and vice versa, we delete macron from the last vowel in case it is there
+                  adj_form = self.trunk[number][:last_macron] + self.trunk[number][last_macron+1:] 
+               else: # TODO: when does this actually happen? maybe we should raise an error?
                   adj_form = self.trunk[number]
+                  print('word got vowels, but length switch not possible!')
+         
+         # this part is about words where length is the same in most forms:
+                  
          else:
             adj_form = self.trunk[number]
-         for variant in ending:
+            
+         # the rest is valid for any adjective:
+         
+         for variant in ending: # e.g. -om, -ome, -omu
             new_adj_form = adj_form
-            if current_AP in variant.accent: # please add loop, so it would be "ending[i].accent" or so, since adj ending is actually a list of endings
-               new_adj_form = new_adj_form.replace('\u030d', '') # straight
-               #if 'a' not in current_AP:
-                  #new_adj_form = new_adj_form.replace('·', '')
-               current_morpheme = variant.morpheme.replace('·', '\u030d') # to straight
+            
+            if current_AP in variant.accent: # if the ending should be accented
+               new_adj_form = new_adj_form.replace('\u030d', '') # delete all already put accents from the stem
+               if 'a' not in current_AP: # and, further, if the stem has no firmly accented place,
+                   # then we delete all the accentable places from the stem.
+                   # if we do not do this, we get wrong (double) accents in result!
+                   # TODO: when extending this to verbs, do not forget the 'o' paradigm
+                  new_adj_form = new_adj_form.replace('·', '')
+               # -- and finally we put the accent on the ending:
+               current_morpheme = variant.morpheme.replace('·', '\u030d')
+               
             else:
                current_morpheme = variant.morpheme.replace('·', '')
+            
+            # special case: if we are in the short AP
+            
             if current_AP == self.short_AP[number]:
                if current_AP.endswith('?') and not 'ø' in current_morpheme:
                   trunk_lvi = last_vowel_index(new_adj_form)
                   last_macron = new_adj_form.rfind('\u0304')
-                  new_adj_form = new_adj_form[:last_macron] + new_adj_form[last_macron+1:] # delete last macron
-            new_adj_form += current_morpheme
-            if not 'a' in current_AP:
-               if '\u030d' not in adj_form: # straight
-                  new_adj_form = new_adj_form.replace('·', '\u030d', 1) # to straight
+                  new_adj_form = new_adj_form[:last_macron] + new_adj_form[last_macron+1:]
+                  # we delete macron on the last vowel from words with inconstant length
+                  # BIG QUESTION: why do we check and do this twice? just for security?
+                  
+            new_adj_form += current_morpheme # add the ending to the stem
+
+            # finally, if the word is not accented, we put the accent on the stem
+            
+            if 'a' not in current_AP: # why this? why not always? TODO: test on an 'a'-adj
+               if '\u030d' not in adj_form:
+                  new_adj_form = new_adj_form.replace('·', '\u030d', 1) 
                   
             adj_forms.append(new_adj_form)
+            
          yield nice_name(label), (self._expose(adjform) for adjform in adj_forms)
 
    def decline(self) -> Table:

@@ -87,7 +87,7 @@ def deyerify(form: str) -> str:
       form = form.replace('ø', '').replace('ъ', 'а')
    else:
       form = form.replace('ъ', '')
-   match = re.search('[бвгдђжзјклʌљмнљпрстфхцчџш]̍', form)
+   match = re.search('[бвгдђжзјклʌљмнњпрṕстћфхцчџш]̍', form)
    if match:
       wrong_acc_index = match.span()[0]
       form = form.replace('̍', '')
