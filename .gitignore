@@ -1,5 +1,12 @@
 __pycache__
 .mypy_cache
 .pytest_cache
+
 .vscode
 .jezik
+
+htmlcov
+.coverage
+.coveragerc
+
+packages.png
