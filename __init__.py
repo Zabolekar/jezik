@@ -16,7 +16,7 @@ def index():
 
 @app.route("/lookup/<query:word>")
 def results(word):
-   return render_template("results.html", tables=lookup(word), word=word)
+   return render_template("results.html", tables=lookup(word))
 
 @app.errorhandler(404)
 def page_not_found(_):
@@ -24,7 +24,7 @@ def page_not_found(_):
 
 @app.route("/random")
 def random():
-   return render_template("results.html", tables=random_lookup(), word=word)
+   return render_template("results.html", tables=random_lookup())
 
 @app.route("/favicon.ico")
 def favicon():
