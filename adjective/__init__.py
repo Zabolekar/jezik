@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 import re
 from ..table import Table
-from ..utils import insert, garde, expose, last_vowel_index
+from ..utils import insert, garde, expose, last_vowel_index, normalize_key
 from ..paradigm_helpers import GramInfo, nice_name
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
@@ -24,12 +24,9 @@ class Adjective:
 
    def _trunk(self) -> List[str]:
       result = []
-      # deleting the disambiguing postfixes:
-      first_space = self.key.find(' ')
-      if first_space != -1:
-         normal_key = self.key[:first_space]
-      else: normal_key = self.key      
       
+      normal_key = normalize_key(self.key)
+
       for number, item in enumerate(self.info.AP):
          accented_adj = garde(self.info.accents[number].accentize(normal_key))
          if 'ov' in self.info.other:

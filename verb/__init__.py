@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 from ..table import Table
-from ..utils import insert, garde, expose, last_vowel_index
+from ..utils import insert, garde, expose, last_vowel_index, normalize_key
 from ..paradigm_helpers import GramInfo
 from .paradigms import MP_to_verb_stems
 
@@ -29,12 +29,9 @@ class Verb:
       return form
 
    def _trunk(self) -> List[str]:
-      result: List[str] = []
-      # deleting the disambiguing postfixes:
-      first_space = self.key.find(' ')
-      if first_space != -1:
-         normal_key = self.key[:first_space]
-      else: normal_key = self.key
+      result = []
+      
+      normal_key = normalize_key(self.key)
       
       for number, AP in enumerate(self.info.AP):
          accented_verb = garde(self.info.accents[number].accentize(normal_key)) # TODO: add loop
