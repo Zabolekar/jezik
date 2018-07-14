@@ -33,6 +33,20 @@ pip install -r requirements.txt
 (on Windows cmd, use `run.bat` instead)
 * Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
+## Using it without the web interface
+
+You can use the underlying `lookup` function directly. It returns `Multitable` objects that can be queried in a flexible manner:
+
+```python
+>>> lookup("ауторски")["nom sg"]
+ [nom sg]
+m sg nom            а̀уторскӣ
+f sg nom            а̀уторска̄
+n sg nom            а̀уторско̄
+```
+
+However, the output may be incorrect depending on your console font. We've found Noto Mono and Fira Code to work well.
+
 ## Testing it locally
 
 If the following commands give you errors, don't commit:

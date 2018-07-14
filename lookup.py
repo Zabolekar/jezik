@@ -1,19 +1,25 @@
-from typing import Any, Dict, Iterator, List
+from typing import Any, Dict, Iterator, List, Union
 from .table import Table
 from .adjective import Adjective
 from .verb import Verb
 from .data import data
 
-class Multitable(list):
-   """
-   # TODO:
-   Currently, it has to be a list because we need its length to display the
-   table caption. Later, when the disambiguators are ready, we can greatly 
-   simplify this file and get rid of the whole lookup/lazy_lookup distinction.
-   """
+class Multitable:
    def __init__(self, word: str, iterable: Iterator[Table]) -> None:
-      super().__init__(iterable)
+      self._tables = list(iterable)
       self.word = word
+   
+   def __repr__(self) -> str:
+      return "\n".join(str(table) for table in self._tables)
+
+   def __getitem__(self, query: Union[int, str]) -> Table:
+      if isinstance(query, int):
+         return self._tables[query]
+      else:
+         if len(self._tables) == 1:
+            return self[0][query]
+         else:
+            raise ValueError("There's more than one table, please use explicit indexing")
 
 def part_of_speech(value: Dict[str, Any]) -> type: # TODO: make more precise
    if "t" in value:
