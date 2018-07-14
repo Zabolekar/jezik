@@ -49,20 +49,6 @@ class Past(NamedTuple):
       yield from zip(map(nice_name, self._fields),
                      super().__iter__())
 
-"""class Presents(NamedTuple):
-   i: Present
-   e: Present
-   a: Present
-   je: Present
-   ie: Present
-   uje: Present
-class Pasts(NamedTuple):
-   i: Past
-   a: Past
-   ie: Past
-   ova: Past
-   u: Past # TODO: add "zero" after finishing the book!
-"""
 
 class Stems(NamedTuple):
    present: Present
@@ -300,8 +286,8 @@ ie_present = Present(
    [VerbEnding(ie_theme_prs, ending_m)],
    [VerbEnding(ie_theme_prs, ending_sh)],
    [VerbEnding(ie_theme_prs, ending_null)],
-   [VerbEnding(AccentedTuple('ꙓ\u0304', ''), AccentedTuple('мо', 's.'))],
-   [VerbEnding(AccentedTuple('ꙓ\u0304', ''), AccentedTuple('те', 's.'))],
+   [VerbEnding(AccentedTuple('ꙓ\u0304', ''), AccentedTuple('мо·', 's.'))],
+   [VerbEnding(AccentedTuple('ꙓ\u0304', ''), AccentedTuple('те·', 's.'))],
    [VerbEnding(AccentedTuple('ѣ·ју\u0304', 's.'), ending_null)],
    [VerbEnding(ie_theme_imv, ending_null)],
    [VerbEnding(ie_theme_imv, ending_mo)],
