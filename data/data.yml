@@ -2994,6 +2994,79 @@
  t: A|all
  i: 1¨|a.,a.|
  
+снити:
+ t: V|Tr|Ipf
+ i: 1¨|s0|alpha
 
+приснити:
+ t: V|Refl|Pf
+ i: 1`|s0|alpha
+
+саснити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+
+уснити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+
+склити:
+ t: V|Refl|Ipf
+ i: 1¨|s0|alpha
+ v: цклити се
  
+цклити:
+ t: V|Refl|Ipf
+ i: 1¨|s0|alpha
+ v: склити се
+
+заднити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+ c: ставити дно
+
+одаднити:
+ t: V|Tr|Pf
+ i: 2`|s0|alpha
+
+удрити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+
+заждити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+ c: и за̏ждије̄м
+
+пождити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+
+приждити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
  
+саждити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+ 
+уждити:
+ t: V|Tr|Pf
+ i: 1`|s0|alpha
+ 
+узаждити:
+ t: V|Tr|Pf
+ i: 2`|s0|alpha
+ 
+умѣти:
+ t: V|Itr|Ipf
+ i: 1`|s.|theta
+ 
+изумѣти:
+ t: V|Tr|Pf
+ i: 2`|s.|theta
+ 
+разумѣти:
+ t: V|Tr|Dv
+ i: 2`|s.|theta
+
