@@ -1,8 +1,13 @@
 from typing import Iterator, Tuple
 
-GenericTable = Iterator # TODO: it's not a simple iterator
-
 Form = str
 Multiform = Iterator[Form]
 LabeledMultiform = Tuple[str, Multiform]
-Table = GenericTable[LabeledMultiform]
+
+class Table:
+   def __init__(self, caption, data):
+      self.caption = caption
+      self._data = data
+
+   def __iter__(self):
+      return self._data

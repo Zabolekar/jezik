@@ -24,25 +24,25 @@ def part_of_speech(value: Dict[str, Any]) -> type: # TODO: make more precise
          return Adjective
    return type(None) # TODO other parts of speech
 
-def lazy_lookup(raw_word: str) -> Iterator[Table]:
-   with_se = raw_word[-3:] == " се"
+def lazy_lookup(key: str) -> Iterator[Table]:
+   with_se = key[-3:] == " се"
    if with_se:
-      raw_word = raw_word[:-3]
+      key = key[:-3]
 
-   for key, value in data[raw_word]:
+   for caption, value in data[key]:
       POS = part_of_speech(value) # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
          verb = Verb(key, value)
          if with_se and not verb.is_reflexive:
             continue
-         yield verb.conjugate()
+         yield Table(caption, verb.conjugate())
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
       elif POS is Adjective:
          adjective = Adjective(key, value)
-         yield adjective.decline()
+         yield Table(caption, adjective.decline())
       else:
-         yield iter([("😞", iter(["Још не знамо како се акцентује ова реч"]))]) # TODO
+         yield Table("😞", iter([("😞", iter(["Још не знамо како се акцентује ова реч"]))])) # TODO
 
 def lookup(raw_word: str) -> Multitable:
    return Multitable(raw_word, lazy_lookup(raw_word))

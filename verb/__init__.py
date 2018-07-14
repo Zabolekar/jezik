@@ -1,6 +1,6 @@
-from typing import Any, Dict, List
-from ..table import Table
-from ..utils import insert, garde, expose, last_vowel_index, normalize_key
+from typing import Any, Dict, List, Iterator
+from ..table import LabeledMultiform
+from ..utils import insert, garde, expose, last_vowel_index
 from ..paradigm_helpers import GramInfo
 from .paradigms import MP_to_verb_stems
 
@@ -31,10 +31,8 @@ class Verb:
    def _trunk(self) -> List[str]:
       result = []
       
-      normal_key = normalize_key(self.key)
-      
       for number, AP in enumerate(self.info.AP):
-         accented_verb = garde(self.info.accents[number].accentize(normal_key)) # TODO: add loop
+         accented_verb = garde(self.info.accents[number].accentize(self.key)) # TODO: add loop
          N = len(infinitive_dict[self.info.MP])
          if AP in ['o.', 'a.', 'a:']:
             result.append(accented_verb[:-N])
@@ -60,7 +58,7 @@ class Verb:
          morpheme = ending_part.morpheme
       return verb_form + morpheme
 
-   def conjugate(self) -> Table:
+   def conjugate(self) -> Iterator[LabeledMultiform]:
       if self.info.MP in infinitive_dict: # TODO: what if not?
          for number, AP in enumerate(self.info.AP):
             for label, endings in MP_to_verb_stems[self.info.MP].labeled_endings:

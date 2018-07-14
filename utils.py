@@ -226,12 +226,3 @@ def expose(form: str) -> str:
    "all transformations from internal to external representation"
    return ungarde(prettify(purify(zeroify(deyerify(form)))))
 
-def normalize_key(key: str) -> str:
-   """
-   Deletes the disambiguing postfixes
-   """
-   first_space = key.find(" ")
-   if first_space != -1:
-      return key[:first_space]
-   else:
-      return key    

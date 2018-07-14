@@ -1,7 +1,7 @@
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Iterator
 import re
-from ..table import Table
-from ..utils import insert, garde, expose, last_vowel_index, normalize_key
+from ..table import LabeledMultiform
+from ..utils import insert, garde, expose, last_vowel_index
 from ..paradigm_helpers import GramInfo, nice_name
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
@@ -24,11 +24,9 @@ class Adjective:
 
    def _trunk(self) -> List[str]:
       result = []
-      
-      normal_key = normalize_key(self.key)
 
       for number, item in enumerate(self.info.AP):
-         accented_adj = garde(self.info.accents[number].accentize(normal_key))
+         accented_adj = garde(self.info.accents[number].accentize(self.key))
          if 'ov' in self.info.other:
             trunk = accented_adj # ok
          elif 'all' in self.info.other:
@@ -50,7 +48,7 @@ class Adjective:
          result.append(trunk)
       return result
 
-   def _paradigm_table(self, paradigm: AdjParadigm, number: int, length_inconstancy: bool) -> Table:
+   def _paradigm_table(self, paradigm: AdjParadigm, number: int, length_inconstancy: bool) -> Iterator[LabeledMultiform]:
       # current subparadigm: short or long AP (they behave differently)
       if paradigm is short_adj:
          current_AP = self.short_AP[number]
@@ -111,7 +109,7 @@ class Adjective:
                   last_macron = new_adj_form.rfind('\u0304')
                   new_adj_form = new_adj_form[:last_macron] + new_adj_form[last_macron+1:]
                   # we delete macron on the last vowel from words with inconstant length
-                  # BIG QUESTION: why do we check and do this twice? just for security?
+                  # TODO: BIG QUESTION: why do we check and do this twice? just for security?
                   
             new_adj_form += current_morpheme # add the ending to the stem
 
@@ -125,7 +123,7 @@ class Adjective:
             
          yield nice_name(label), (self._expose(adjform) for adjform in adj_forms)
 
-   def decline(self) -> Table:
+   def decline(self) -> Iterator[LabeledMultiform]:
       endings = self.info.other[0]
       MPs: List[AdjParadigm]
       if endings == "all":

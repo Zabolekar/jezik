@@ -4,9 +4,7 @@
 {% for table in tables %}
    <table>
    <caption>
-      {% if tables|length > 1 %}
-         {{ "I"*loop.index }}
-      {% endif %}	
+      {{ table.caption }}
    </caption>
    {% for form_name, forms in table %}
       <tr>
