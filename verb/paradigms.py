@@ -29,7 +29,7 @@ class Past(NamedTuple):
    pfNsg: List[VerbEnding]
    pfMpl: List[VerbEnding]
    pfFpl: List[VerbEnding]
-   pfnNpl: List[VerbEnding]
+   pfNpl: List[VerbEnding]
    aor1sg: List[VerbEnding]
    aor2sg: List[VerbEnding]
    aor3sg: List[VerbEnding]
