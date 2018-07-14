@@ -48,14 +48,17 @@ class Adjective:
          result.append(trunk)
       return result
 
-   def _paradigm_table(self, paradigm: AdjParadigm, number: int, length_inconstancy: bool) -> Iterator[LabeledMultiform]:
-      # current subparadigm: short or long AP (they behave differently)
+   def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool) -> Iterator[LabeledMultiform]:
+      """
+      Current subparadigm: short or long AP (they behave differently)
+      i: index of the variant (by variant we mean things like зу̑бнӣ зу́бнӣ)
+      """ 
       if paradigm is short_adj:
-         current_AP = self.short_AP[number]
+         current_AP = self.short_AP[i]
       elif paradigm is long_adj:
-         current_AP = self.long_AP[number]
+         current_AP = self.long_AP[i]
       elif paradigm is mixed_adj:
-         current_AP = self.long_AP[number]
+         current_AP = self.long_AP[i]
 
       for label, ending in zip(paradigm._fields, paradigm): # TODO: verbs do it completely differently, unify
          adj_forms = []
@@ -64,24 +67,24 @@ class Adjective:
          # (this code will be very useful while processing nouns,
          # so it should better be put into Utils):
          
-         if length_inconstancy and current_AP == self.long_AP[number]:
-            trunk_lvi = last_vowel_index(self.trunk[number])
-            last_macron = self.trunk[number].rfind('\u0304')
+         if length_inconstant and current_AP == self.long_AP[i]:
+            trunk_lvi = last_vowel_index(self.trunk[i])
+            last_macron = self.trunk[i].rfind('\u0304')
             if trunk_lvi: # if the word has vowels:
                if current_AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
                # if we need to insert macron, we do it
-                  adj_form = insert(self.trunk[number], {trunk_lvi+2: '\u0304'})
+                  adj_form = insert(self.trunk[i], {trunk_lvi+2: '\u0304'})
                elif current_AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
                # and vice versa, we delete macron from the last vowel in case it is there
-                  adj_form = self.trunk[number][:last_macron] + self.trunk[number][last_macron+1:] 
+                  adj_form = self.trunk[i][:last_macron] + self.trunk[i][last_macron+1:] 
                else: # TODO: when does this actually happen? maybe we should raise an error?
-                  adj_form = self.trunk[number]
+                  adj_form = self.trunk[i]
                   print('word got vowels, but length switch not possible!')
          
          # this part is about words where length is the same in most forms:
                   
          else:
-            adj_form = self.trunk[number]
+            adj_form = self.trunk[i]
             
          # the rest is valid for any adjective:
          
@@ -103,7 +106,7 @@ class Adjective:
             
             # special case: if we are in the short AP
             
-            if current_AP == self.short_AP[number]:
+            if current_AP == self.short_AP[i]:
                if current_AP.endswith('?') and not 'ø' in current_morpheme:
                   trunk_lvi = last_vowel_index(new_adj_form)
                   last_macron = new_adj_form.rfind('\u0304')
@@ -121,7 +124,7 @@ class Adjective:
                   
             adj_forms.append(new_adj_form)
             
-         yield nice_name(label), (self._expose(adjform) for adjform in adj_forms)
+         yield nice_name(label), [self._expose(adjform) for adjform in adj_forms]
 
    def decline(self) -> Iterator[LabeledMultiform]:
       endings = self.info.other[0]
@@ -133,12 +136,9 @@ class Adjective:
       elif endings == "ov":
          MPs = [mixed_adj]
       
-      for number, AP in enumerate(self.info.accents):
+      for i, AP in enumerate(self.info.accents):
          length_inconstancy = False
-         if endings == "all" and self.short_AP[number][-1] != self.long_AP[number][-1]:
+         if endings == "all" and self.short_AP[i][-1] != self.long_AP[i][-1]:
             length_inconstancy = True
          for paradigm in MPs:
-            yield from self._paradigm_table(paradigm, number, length_inconstancy)
-         # TODO: this ONLY works because "Table" is currently an Iterator
-         # you CAN'T just expect to yield from two tables and obtain another table
-         # pay special attention to this part when rewriting Table
+            yield from self._paradigm_to_forms(paradigm, i, length_inconstancy)

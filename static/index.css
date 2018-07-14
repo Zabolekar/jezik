@@ -44,6 +44,10 @@ table {
    border-collapse: collapse;
 }
 
+caption {
+   font-style: italic;
+}
+
 td, tr {
    border: 1px solid #ccc;
    text-align: center;

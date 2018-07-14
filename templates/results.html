@@ -9,7 +9,8 @@
    {% for form_name, forms in table %}
       <tr>
          <th class="form-name">
-            {{ form_name }}
+            {{ form_name|replace(" ", "\u00a0") }}
+            {# \u00a0 will magically become &nbsp; #}
          </th>
          <td class="forms">
             {{ forms|join(", ") }}

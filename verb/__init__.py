@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Iterator
 from ..table import LabeledMultiform
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import GramInfo
+from ..paradigm_helpers import AccentedTuple, GramInfo
 from .paradigms import MP_to_verb_stems
 
 # There are 2 major types of paradigms: o., a., a: and the rest
@@ -31,8 +31,8 @@ class Verb:
    def _trunk(self) -> List[str]:
       result = []
       
-      for number, AP in enumerate(self.info.AP):
-         accented_verb = garde(self.info.accents[number].accentize(self.key)) # TODO: add loop
+      for i, AP in enumerate(self.info.AP):
+         accented_verb = garde(self.info.accents[i].accentize(self.key)) # TODO: add loop
          N = len(infinitive_dict[self.info.MP])
          if AP in ['o.', 'a.', 'a:']:
             result.append(accented_verb[:-N])
@@ -48,10 +48,10 @@ class Verb:
                result.append(insert(trunk, {lvi + 1: '·'}))
       return result
                
-   def _append_morpheme(self, number, verb_form, ending_part):
+   def _append_morpheme(self, i: int, verb_form: str, ending_part: AccentedTuple) -> str:
       # TODO: sveto: please understand and document
-      if self.info.AP[number] in ending_part.accent:
-         if self.info.AP[number] in ['o.', 'a.', 'a:']:
+      if self.info.AP[i] in ending_part.accent:
+         if self.info.AP[i] in ['o.', 'a.', 'a:']:
             verb_form = verb_form.replace('\u030d', '') # straight
          morpheme = ending_part.morpheme.replace('·', '\u030d') # to straight
       else:
@@ -60,15 +60,15 @@ class Verb:
 
    def conjugate(self) -> Iterator[LabeledMultiform]:
       if self.info.MP in infinitive_dict: # TODO: what if not?
-         for number, AP in enumerate(self.info.AP):
+         for i, AP in enumerate(self.info.AP):
             for label, endings in MP_to_verb_stems[self.info.MP].labeled_endings:
                verb_forms: List[str] = []
                for ending in endings:
-                  verb_form = self.trunk[number]
-                  verb_form = self._append_morpheme(number, verb_form, ending.theme)
-                  verb_form = self._append_morpheme(number, verb_form, ending.ending)
+                  verb_form = self.trunk[i]
+                  verb_form = self._append_morpheme(i, verb_form, ending.theme)
+                  verb_form = self._append_morpheme(i, verb_form, ending.ending)
                   if self.info.AP not in ['o.', 'a.', 'a:']:
                      if '\u030d' not in verb_form: # straight
                         verb_form = verb_form.replace('·', '\u030d', 1) # to straight
                   verb_forms.append(self._expose(verb_form))
-               yield label, iter(verb_forms) # TODO: why does it need to be iter?
+               yield label, verb_forms

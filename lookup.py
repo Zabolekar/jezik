@@ -42,7 +42,7 @@ def lazy_lookup(key: str) -> Iterator[Table]:
          adjective = Adjective(key, value)
          yield Table(caption, adjective.decline())
       else:
-         yield Table("😞", iter([("😞", iter(["Још не знамо како се акцентује ова реч"]))])) # TODO
+         yield Table("", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO
 
 def lookup(raw_word: str) -> Multitable:
    return Multitable(raw_word, lazy_lookup(raw_word))
