@@ -138,39 +138,48 @@ def deaccentize(text: str) -> str:
 def garde(word: str) -> str: # Garde's accentuation
    # TODO: check if there are non-initial ``s and ^s (пољопри̏вреда);
    # for now let us suppose there are none
-   word2 = word
-   insert_bool = False
-   insert_dict = {}
-   for i, letter in enumerate(word):
-      # print('i, letter: ', i, ', ', letter)
-      if letter in all_vowels:
-         if insert_bool:
-            insert_dict[i+1] = '\u030d' # straight accent
-            insert_bool = False
-         else:
-            if len(word) > i+1:
-               if word[i+1] == '\u0300': # `
-                  insert_bool = True
-                  word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
-               elif word[i+1] == '\u0301': # ´
-                  insert_bool = True
-                  word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
-               elif word[i+1] == '\u030f': # ¨
-                  word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                 r"\g<1>" + '\u030d',
-                                 word2)  # straight accent
-               elif word[i+1] == '\u0311': # ^
-                  word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                 r"\g<1>" + '\u030d',
-                                 word2) # straight accent
-                  insert_dict[i+1] = '\u0304' # _
+   short_falling_index = word.find('\u030f')
+   long_falling_index = word.find('\u0311')
+   fvi = first_vowel_index(word) or -10
+   if not ((fvi + 1 != short_falling_index and short_falling_index != -1) \
+        or (fvi +1 != long_falling_index and long_falling_index != -1)):
+      word2 = word
+      insert_bool = False
+      insert_dict = {}
+      for i, letter in enumerate(word):
 
-   word3 = insert(word2, insert_dict)
-   word3 = re.sub('•', '', word3) # delete
-   word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) # swap length (\u0304) and accent (\u030d)
+         if letter in all_vowels:
+            if insert_bool:
+               insert_dict[i+1] = '\u030d' # straight accent
+               insert_bool = False
+            else:
+               if len(word) > i+1:
+                  if word[i+1] == '\u0300': # `
+                     insert_bool = True
+                     word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
+                  elif word[i+1] == '\u0301': # ´
+                     insert_bool = True
+                     word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
+                  elif word[i+1] == '\u030f': # ¨
+                     word2 = re.sub("^(.{" + str(i+1) + "}).",
+                                    r"\g<1>" + '\u030d',
+                                    word2)  # straight accent
+                  elif word[i+1] == '\u0311': # ^
+                     word2 = re.sub("^(.{" + str(i+1) + "}).",
+                                    r"\g<1>" + '\u030d',
+                                    word2) # straight accent
+                     insert_dict[i+1] = '\u0304' # _
 
-   return word3
+      word3 = insert(word2, insert_dict)
+      word3 = re.sub('•', '', word3) # delete
+      word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) # swap length (\u0304) and accent (\u030d)
 
+      return word3
+      
+   else:
+      noninit_falling_index = max(short_falling_index, long_falling_index)
+      return insert(word, {noninit_falling_index: '!'}).replace('\u030f', '\u030d').replace('\u0311', '\u0304\030d')
+      
 def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
       form = (form
