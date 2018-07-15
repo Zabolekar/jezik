@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Iterator
 from ..table import LabeledMultiform
 from ..utils import insert, garde, expose, last_vowel_index
 from ..paradigm_helpers import AccentedTuple, GramInfo
-from .paradigms import MP_to_verb_stems
+from .paradigms import MP_to_verb_stems, VerbEnding
 
 # There are 2 major types of paradigms: o., a., a: and the rest
 
@@ -57,12 +57,37 @@ class Verb:
       else:
          morpheme = ending_part.morpheme
       return verb_form + morpheme
+      
+   def _reduce_doublets(self, endings_: List[VerbEnding], AP: str) -> List[VerbEnding]:
+      # the following code is for verbs only (is it?).
+      # it deletes endings identical in future
+      endings: List[Any] = []
+      if len(endings_) > 1:
+         for ending_ in endings_:
+            addendum = True
+            supr_ = (ending_.theme.morpheme+ending_.ending.morpheme).replace('·', '')
+            for ending in endings:
+               supr = (ending_.theme.morpheme+ending_.ending.morpheme).replace('·', '')
+               accents_ = ''.join([ending.theme.accent+ending.ending.accent])
+               if AP not in accents_ and supr_ == supr:
+                  addendum = False
+            if addendum:   
+               endings.append(ending_)
+      else:
+         endings = endings_
+         
+      print([type(x) for x in endings])
+      return endings
+      
 
    def conjugate(self) -> Iterator[LabeledMultiform]:
       if self.info.MP in infinitive_dict: # TODO: what if not?
          for i, AP in enumerate(self.info.AP):
-            for label, endings in MP_to_verb_stems[self.info.MP].labeled_endings:
-               verb_forms: List[str] = []
+            for label, endings_ in MP_to_verb_stems[self.info.MP].labeled_endings:
+
+               verb_forms: List[str] = []               
+               endings = self._reduce_doublets(endings_, AP)
+               
                for ending in endings:
                   verb_form = self.trunk[i]
                   verb_form = self._append_morpheme(i, verb_form, ending.theme)
