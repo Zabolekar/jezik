@@ -47,7 +47,13 @@ class Verb:
             else:
                result.append(insert(trunk, {lvi + 1: '·'}))
       return result
-               
+      
+   def _verb_form_is_possible(self, label, aspect):
+      if label.startswith('ipf'):
+         return not 'Pf' in aspect
+      else:
+         return True
+      
    def _append_morpheme(self, i: int, verb_form: str, ending_part: AccentedTuple) -> str:
       # TODO: sveto: please understand and document
       if self.info.AP[i] in ending_part.accent:
@@ -67,7 +73,7 @@ class Verb:
             addendum = True
             supr_ = (ending_.theme.morpheme+ending_.ending.morpheme).replace('·', '')
             for ending in endings:
-               supr = (ending_.theme.morpheme+ending_.ending.morpheme).replace('·', '')
+               supr = (ending.theme.morpheme+ending.ending.morpheme).replace('·', '')
                accents_ = ''.join([ending.theme.accent+ending.ending.accent])
                if AP not in accents_ and supr_ == supr:
                   addendum = False
@@ -76,7 +82,6 @@ class Verb:
       else:
          endings = endings_
          
-      print([type(x) for x in endings])
       return endings
       
 
@@ -84,16 +89,17 @@ class Verb:
       if self.info.MP in infinitive_dict: # TODO: what if not?
          for i, AP in enumerate(self.info.AP):
             for label, endings_ in MP_to_verb_stems[self.info.MP].labeled_endings:
-
-               verb_forms: List[str] = []               
-               endings = self._reduce_doublets(endings_, AP)
-               
-               for ending in endings:
-                  verb_form = self.trunk[i]
-                  verb_form = self._append_morpheme(i, verb_form, ending.theme)
-                  verb_form = self._append_morpheme(i, verb_form, ending.ending)
-                  if self.info.AP not in ['o.', 'a.', 'a:']:
-                     if '\u030d' not in verb_form: # straight
-                        verb_form = verb_form.replace('·', '\u030d', 1) # to straight
-                  verb_forms.append(self._expose(verb_form))
-               yield label, verb_forms
+               if self._verb_form_is_possible(label, self.info.other):
+                  verb_forms: List[str] = []               
+                  endings = self._reduce_doublets(endings_, AP)
+                  
+                  for ending in endings:
+                     verb_form = self.trunk[i]
+                     verb_form = self._append_morpheme(i, verb_form, ending.theme)
+                     verb_form = self._append_morpheme(i, verb_form, ending.ending)
+                     if self.info.AP not in ['o.', 'a.', 'a:']:
+                        if '\u030d' not in verb_form: # straight
+                           verb_form = verb_form.replace('·', '\u030d', 1) # to straight
+                           
+                     verb_forms.append(self._expose(verb_form))
+                  yield label, verb_forms

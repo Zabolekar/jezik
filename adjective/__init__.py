@@ -10,7 +10,7 @@ class Adjective:
       self.key = key
       self.value = value
       i, t = self.value['i'].split(';'), self.value['t'] # NB i is a list
-      self.info = GramInfo(i, t)
+      self.info = GramInfo(i, t) 
       self.short_AP: List[str] = []
       self.long_AP: List[str] = []
       for AP in self.info.AP:  # please rewrite and reorder this somehow
@@ -48,6 +48,9 @@ class Adjective:
          result.append(trunk)
       return result
 
+   def _adj_form_is_possible(self, adj_form: str) -> bool:
+      return re.search('[њљћђшжчџјṕ]œ.ме$', adj_form) is None
+      
    def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool) -> Iterator[LabeledMultiform]:
       """
       Current subparadigm: short or long AP (they behave differently)
@@ -121,11 +124,12 @@ class Adjective:
             if 'a' not in current_AP: # why this? why not always? TODO: test on an 'a'-adj
                if '\u030d' not in adj_form:
                   new_adj_form = new_adj_form.replace('·', '\u030d', 1) 
-                  
-            adj_forms.append(new_adj_form)
+            if self._adj_form_is_possible(new_adj_form):
+               adj_forms.append(new_adj_form)
             
          yield nice_name(label), [self._expose(adjform) for adjform in adj_forms]
 
+         
    def decline(self) -> Iterator[LabeledMultiform]:
       endings = self.info.other[0]
       MPs: List[AdjParadigm]

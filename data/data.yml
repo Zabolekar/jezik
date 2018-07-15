@@ -3063,6 +3063,10 @@
  t: V|Tr|Pf
  i: 2`|s0|alpha
  
+смѣти:
+ t: V|Itr|Ipf
+ i: 1¨|s.|theta
+ 
 умѣти:
  t: V|Itr|Ipf
  i: 1`|s.|theta
@@ -3075,3 +3079,14 @@
  t: V|Tr|Dv
  i: 2`|s.|theta
 
+гоṕи:
+ t: A|ski
+ i: 1¨,2_|0,a.|
+
+шиṕи:
+ t: A|ski
+ i: 1¨,2_|0,a.|
+
+пољопривредни:
+ t: A|ski
+ i: 3¨,5_|0,a.|
