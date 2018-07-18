@@ -37,27 +37,6 @@ body {
    padding: 2em 0em 1em 0em;
 }
 
-table {
-   margin-left:auto;
-   margin-right:auto;
-   margin-bottom: 2em;
-   border-collapse: collapse;
-}
-
-caption {
-   font-style: italic;
-}
-
-td, tr {
-   border: 1px solid #ccc;
-   text-align: center;
-   padding: 15px 0px 15px 0px;
-}
-
-.form-name {
-   background-color: #eee;
-}
-
 #word-not-found {
    text-align:center;
 }
@@ -70,6 +49,32 @@ td, tr {
    text-align:center;
 }
 
-tr:hover {
+table {
+   margin-left:auto;
+   margin-right:auto;
+   margin-bottom: 2em;
+   border-collapse: collapse;
+}
+
+caption {
+   font-style: italic;
+}
+
+.form-name {
+   font-weight: bold;
+}
+
+th:not(.empty), td {
+   border: 1px solid #ccc;
+   text-align: center;
+   padding: 15px 0px 15px 0px;
+}
+
+.form-name {
+   background-color: #eee;
+   font-style: bold;
+}
+
+td:hover:not(.empty) {
    background-color: #eee;
 }

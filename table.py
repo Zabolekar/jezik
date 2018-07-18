@@ -6,8 +6,9 @@ Multiform = List[Form]
 LabeledMultiform = Tuple[str, Multiform]
 
 class Table:
-   def __init__(self, caption: str, data: Iterable[LabeledMultiform]) -> None:
+   def __init__(self, pos: str, caption: str, data: Iterable[LabeledMultiform]) -> None:
       self.caption = caption
+      self.pos = pos
       self._data = list(data)
 
    def __getitem__(self, query: str) -> "Table": # TODO: you know what to do when we switch to 3.7
@@ -17,7 +18,13 @@ class Table:
          w = form_name.split()
          if all(s in w for s in v):
             result.append((form_name, forms))
-      return Table(f"{self.caption} [{query}]", result)
+      return Table(f"partial {self.pos}", f"{self.caption} [{query}]", result)
+
+   @property
+   def multiform(self) -> List[str]: # TODO: document in README, rethink
+      if len(self._data) != 1:
+         raise AttributeError("A 'Table' object has an attribute 'multiform' if and only if it contains exactly one cell")
+      return self._data[0][1]
 
    def __repr__(self) -> str:
       result = self.caption + "\n"

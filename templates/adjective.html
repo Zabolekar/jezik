@@ -1,0 +1,34 @@
+<tr>
+   <th class="empty"></th>
+   <td colspan="3" class="form-name">Sg</td>
+</tr>
+<tr>
+   <th class="empty"></th>
+   <td class="form-name">m</td>
+   <td class="form-name">f</td>
+   <td class="form-name">n</td>
+</tr>
+<tr>
+   <th class="form-name">Nom</th>
+   {{ forms("m nom sg") }}
+   {{ forms("f nom sg") }}
+   {{ forms("n nom sg") }}
+</tr>
+<tr>
+   <th class="form-name">Gen</th>
+   {{ forms("m gen sg") }}
+   {{ forms("f gen sg") }}
+   {{ forms("n gen sg") }}
+</tr>
+
+{% for form_name, forms in table %}
+<tr>
+   <th class="form-name">
+      {{ form_name|replace(" ", "\u00a0") }}
+      {# \u00a0 will magically become &nbsp; #}
+   </th>
+   <td class="forms">
+      {{ forms|join(", ") }}
+   </td>
+</tr>
+{% endfor %}

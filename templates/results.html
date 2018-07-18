@@ -2,23 +2,15 @@
 {% block body %}
 <div id="tables-or-not-found">
 {% for table in tables %}
+   {% macro forms(query) %}
+      <td>{{ table[query].multiform|join(", ") }}</td>
+   {% endmacro %}
    <table>
-   <caption>
-      {{ table.caption }}
-   </caption>
-   {% for form_name, forms in table %}
-      <tr>
-         <th class="form-name">
-            {{ form_name|replace(" ", "\u00a0") }}
-            {# \u00a0 will magically become &nbsp; #}
-         </th>
-         <td class="forms">
-            {{ forms|join(", ") }}
-         </td>
-   </tr>
-   {% endfor %}
+      <caption>
+         {{ table.caption }}
+      </caption>
+      {% include table.pos + ".html" %}
    </table>
-   <br>
 {% else %}
    <div id="word-not-found">
       Реч „{{ tables.word }}” није пронађена 😞
