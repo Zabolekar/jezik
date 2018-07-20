@@ -1,34 +1,22 @@
-<tr>
-   <th class="empty"></th>
-   <td colspan="3" class="form-name">Sg</td>
-</tr>
-<tr>
-   <th class="empty"></th>
-   <td class="form-name">m</td>
-   <td class="form-name">f</td>
-   <td class="form-name">n</td>
-</tr>
-<tr>
-   <th class="form-name">Nom</th>
-   {{ forms("m nom sg") }}
-   {{ forms("f nom sg") }}
-   {{ forms("n nom sg") }}
-</tr>
-<tr>
-   <th class="form-name">Gen</th>
-   {{ forms("m gen sg") }}
-   {{ forms("f gen sg") }}
-   {{ forms("n gen sg") }}
-</tr>
-
-{% for form_name, forms in table %}
-<tr>
-   <th class="form-name">
-      {{ form_name|replace(" ", "\u00a0") }}
-      {# \u00a0 will magically become &nbsp; #}
-   </th>
-   <td class="forms">
-      {{ forms|join(", ") }}
-   </td>
-</tr>
+{% for length in ["short", "long"] %}
+   {% for number in ["sg", "pl"] %}
+      <tr>
+         <th class="empty"></th>
+         <td colspan="3" class="form-name">{{ number|capitalize }}</td>
+      </tr>
+      <tr>
+         <th class="empty"></th>
+         {% for c in "mfn" %}
+            <td class="form-name">{{ c }}</td>
+         {% endfor %}
+      </tr>
+      {% for case in ["nom", "acc", "gen", "dat", "loc", "ins"] %}
+      <tr>
+         <th class="form-name">{{ case|capitalize }}</th>
+         {% for name, forms in table["%s %s %s" % (length, case, number)] %}
+            <td title="{{ name }}">{{ forms|join(", ") }}</td>
+         {% endfor %}
+      </tr>
+      {% endfor %}
+   {% endfor %}
 {% endfor %}

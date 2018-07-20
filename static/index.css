@@ -37,42 +37,41 @@ body {
    padding: 2em 0em 1em 0em;
 }
 
-#word-not-found {
-   text-align:center;
-}
-
-#four-hundred-four {
-   text-align:center;
-}
-
-#invalid {
+#word-not-found, #four-hundred-four {
    text-align:center;
 }
 
 table {
+   border-collapse: collapse;
+}
+
+table:not(.inner) {
    margin-left:auto;
    margin-right:auto;
    margin-bottom: 2em;
-   border-collapse: collapse;
 }
 
 caption {
    font-style: italic;
 }
 
-.form-name {
-   font-weight: bold;
-}
-
-th:not(.empty), td {
-   border: 1px solid #ccc;
+th, td {
    text-align: center;
    padding: 15px 0px 15px 0px;
 }
 
+th:not(.empty), td:not(emtpy) {
+   border: 1px solid #ccc;
+}
+
+.inner {
+   border: none;
+   margin: 0 auto
+}
+
 .form-name {
    background-color: #eee;
-   font-style: bold;
+   font-weight: bold;
 }
 
 td:hover:not(.empty) {
