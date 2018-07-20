@@ -55,7 +55,7 @@ caption {
    font-style: italic;
 }
 
-th, td {
+th:not(.inner), td:not(.inner) {
    text-align: center;
    padding: 15px 0px 15px 0px;
 }
@@ -65,8 +65,10 @@ th:not(.empty), td:not(emtpy) {
 }
 
 .inner {
-   border: none;
-   margin: 0 auto
+   width: 100%;
+   /*border: none;*/
+   padding: 0px 0px 0px 0px;
+   margin: 0 auto;
 }
 
 .form-name {
@@ -74,6 +76,6 @@ th:not(.empty), td:not(emtpy) {
    font-weight: bold;
 }
 
-td:hover:not(.empty) {
+td:hover:not(.empty):not(.multicell) {
    background-color: #eee;
 }
