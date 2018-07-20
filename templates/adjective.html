@@ -16,7 +16,7 @@
          {% if empty %}
             {# skip row #}
          {% else %}
-            {% if case == "acc" and number == "sg" %}
+            {% if case == "acc" and number == "sg" and mfn["acc sg m"]|list|length == 2 %}
                {% set rows = 2 %}
             {% else %}
                {% set rows = 1 %}
@@ -30,13 +30,14 @@
                   {% elif cell|length == 1 %}
                      <td title="{{ cell[0][0] }}" rowspan="{{ rows }}">{{ cell[0][1]|join(", ") }}</td>
                   {% else %} {# cell|length == 2, only happens when gender == "m" #}
+                     {% set cell = mfn["m in"]|list %}
                      <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
                   {% endif %}
                {% endfor %}
             </tr>
             {% if rows == 2 %}
                <tr>
-                  {% set cell = mfn["m"]|list %}
+                  {% set cell = mfn["m an"]|list %}
                   <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
                </tr>
             {% endif %}
