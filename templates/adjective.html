@@ -6,15 +6,19 @@
       </tr>
       <tr>
          <th class="empty"></th>
-         {% for c in "mfn" %}
-            <td class="form-name">{{ c }}</td>
+         {% for gender in "mfn" %}
+            <td class="form-name">{{ gender }}</td>
          {% endfor %}
       </tr>
       {% for case in ["nom", "acc", "gen", "dat", "loc", "ins"] %}
       <tr>
          <th class="form-name">{{ case|capitalize }}</th>
-         {% for name, forms in table["%s %s %s" % (length, case, number)] %}
-            <td title="{{ name }}">{{ forms|join(", ") }}</td>
+         {% for gender in "mfn" %}
+            {% for name, forms in table["%s %s %s %s" % (length, case, number, gender)] %}
+               <td title="{{ name }}">{{ forms|join(", ") }}</td>
+            {% else %}
+               <td class="empty"></td>
+            {% endfor %}
          {% endfor %}
       </tr>
       {% endfor %}
