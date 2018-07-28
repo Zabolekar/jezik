@@ -138,11 +138,12 @@ def deaccentize(text: str) -> str:
 def garde(word: str) -> str: # Garde's accentuation
    # TODO: check if there are non-initial ``s and ^s (пољопри̏вреда);
    # for now let us suppose there are none
-   short_falling_index = word.find('\u030f')
-   long_falling_index = word.find('\u0311')
-   fvi = first_vowel_index(word) or -10
-   if not ((fvi + 1 != short_falling_index and short_falling_index != -1) \
-        or (fvi +1 != long_falling_index and long_falling_index != -1)):
+   short_desc_index = word.find('\u030f')
+   long_desc_index = word.find('\u0311')
+   real_fvi = first_vowel_index(word)
+   fvi = real_fvi if real_fvi is not None else -10
+   if not ((fvi + 1 != short_desc_index and short_desc_index != -1) \
+        or (fvi +1 != long_desc_index and long_desc_index != -1)):
       word2 = word
       insert_bool = False
       insert_dict = {}
@@ -172,13 +173,13 @@ def garde(word: str) -> str: # Garde's accentuation
 
       word3 = insert(word2, insert_dict)
       word3 = re.sub('•', '', word3) # delete
-      word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) # swap length (\u0304) and accent (\u030d)
+      word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) #swap length \u0304 and accent \u030d
 
       return word3
       
    else:
-      noninit_falling_index = max(short_falling_index, long_falling_index)
-      return insert(word, {noninit_falling_index: '!'}).replace('\u030f', '\u030d').replace('\u0311', '\u0304\030d')
+      excl_index = max(short_desc_index, long_desc_index)
+      return insert(word, {excl_index: '!'}).replace('\u030f', '\u030d').replace('\u0311', '\u0304\030d')
       
 def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
@@ -215,7 +216,8 @@ def ungarde(form: str) -> str:
          chars.pop(new_accent_index)
          old_accent_index -= 1
          break
-      if chars[new_accent_index] in "aeiouAEIOUаеиоуАЕИОУ\u0325": # TODO: what about ije? now bi̯jē̍l becomes bì̯jēl instead of bi̯jȇl
+      if chars[new_accent_index] in "aeiouAEIOUаеиоуАЕИОУ\u0325":
+      # TODO: what about ije? now bi̯jē̍l becomes bì̯jēl instead of bi̯jȇl
          vowel_count += 1
          if vowel_count == 2:
             shifted = True
