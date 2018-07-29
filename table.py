@@ -28,8 +28,9 @@ class Table:
 
    def __repr__(self) -> str:
       result = self.caption + "\n"
+      max_name_width = max(len(form_name) for form_name, _ in self._data)
       for form_name, forms in self._data:
-         result += f"{form_name:20}{', '.join(forms)}\n"
+         result += f"{form_name:{max_name_width + 5}}{', '.join(forms)}\n"
       return result
 
    def __iter__(self) -> Iterator[LabeledMultiform]:

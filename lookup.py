@@ -5,18 +5,24 @@ from .verb import Verb
 from .data import data
 
 class Multitable:
-   def __init__(self, word: str, iterable: Iterator[Table]) -> None:
-      self._tables = list(iterable)
+   def __init__(self, word: str, tables: Iterator[Table]) -> None:
+      self._tables = list(tables)
       self.word = word
    
    def __repr__(self) -> str:
-      return "\n".join(str(table) for table in self._tables)
+      if self._tables:
+         return "\n".join(str(table) for table in self._tables)
+      else:
+         return "Word not found"
 
    def __getitem__(self, query: Union[int, str]) -> Table:
       if isinstance(query, int):
          return self._tables[query]
       else:
-         if len(self._tables) == 1:
+         n_tables = len(self._tables)
+         if n_tables == 0:
+            raise ValueError("You can't index an empty multitable")
+         elif n_tables == 1:
             return self[0][query]
          else:
             raise ValueError("There's more than one table, please use explicit indexing")
