@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Iterator
+from typing import Any, Dict, List, Iterator, Optional
 import re
 from ..table import LabeledMultiform
 from ..utils import insert, garde, expose, last_vowel_index
@@ -13,10 +13,10 @@ class Adjective:
       self.info = GramInfo(i, t) 
       self.short_AP: List[str] = []
       self.long_AP: List[str] = []
-      for AP in self.info.AP:  # please rewrite and reorder this somehow
-         bothAPs = AP.split(',')
-         self.short_AP.append(bothAPs[0])
-         self.long_AP.append(bothAPs[1])
+      for AP in self.info.AP:  # TODO: please rewrite and reorder this somehow
+         short, long = AP.split(',')
+         self.short_AP.append(short)
+         self.long_AP.append(long)
       self.trunk = self._trunk()
 
    def _expose(self, form: str) -> str:
@@ -129,8 +129,8 @@ class Adjective:
             
          yield nice_name(label), [self._expose(adjform) for adjform in adj_forms]
 
-         
-   def decline(self) -> Iterator[LabeledMultiform]:
+   def multiforms(self, *, variant: Optional[int] = None) -> Iterator[LabeledMultiform]:
+      """decline"""
       endings = self.info.other[0]
       MPs: List[AdjParadigm]
       if endings == "all":
@@ -139,8 +139,11 @@ class Adjective:
          MPs = [long_adj]
       elif endings == "ov":
          MPs = [mixed_adj]
-      
+
       for i, AP in enumerate(self.info.accents):
+         # variant = None means all variants
+         if variant is not None and variant != i:
+            continue
          length_inconstancy = False
          if endings == "all" and self.short_AP[i][-1] != self.long_AP[i][-1]:
             length_inconstancy = True

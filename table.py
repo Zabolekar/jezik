@@ -23,7 +23,7 @@ class Table:
    @property
    def multiform(self) -> List[str]: # TODO: document in README, rethink
       if len(self._data) != 1:
-         raise AttributeError("A 'Table' object has an attribute 'multiform' if and only if it contains exactly one cell")
+         raise AttributeError("A 'Table' object has an attribute 'multiform' if and only if it has exactly one cell")
       return self._data[0][1]
 
    def __repr__(self) -> str:
@@ -40,6 +40,8 @@ class Table:
    def __iter__(self) -> Iterator[LabeledMultiform]:
       return iter(self._data)
 
+   def __len__(self) -> int:
+      return len(self._data)
 
 class Multitable:
    def __init__(self, word: str, tables: Iterator[Table]) -> None:
@@ -52,7 +54,7 @@ class Multitable:
       else:
          return "Word not found"
 
-   def __getitem__(self, query: Union[int, str]) -> Table:
+   def __getitem__(self, query: Union[int, str]) -> "Union[Multitable, Table]":
       if isinstance(query, int):
          return self._tables[query]
       else:
@@ -62,4 +64,6 @@ class Multitable:
          elif n_tables == 1:
             return self[0][query]
          else:
-            raise ValueError("There's more than one table, please use explicit indexing")
+            print("There's more than one table, consider using explicit indexing!", end="\n\n")
+            return Multitable(self.word, (table[query] for table in self._tables))
+

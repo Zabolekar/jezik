@@ -83,9 +83,9 @@ class Verb:
          endings = endings_
          
       return endings
-      
 
-   def conjugate(self) -> Iterator[LabeledMultiform]:
+   def multiforms(self) -> Iterator[LabeledMultiform]:
+      """conjugate"""
       if self.info.MP in infinitive_dict: # TODO: what if not?
          for i, AP in enumerate(self.info.AP):
             for label, endings_ in MP_to_verb_stems[self.info.MP].labeled_endings:
