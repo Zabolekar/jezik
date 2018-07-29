@@ -1,33 +1,14 @@
-from typing import Any, Dict, Iterator, List, Union
-from .table import Table
+from typing import Any, Dict, Iterator, Type, Union
+from .table import Table, Multitable
 from .adjective import Adjective
 from .verb import Verb
 from .data import data
 
-class Multitable:
-   def __init__(self, word: str, tables: Iterator[Table]) -> None:
-      self._tables = list(tables)
-      self.word = word
-   
-   def __repr__(self) -> str:
-      if self._tables:
-         return "\n".join(str(table) for table in self._tables)
-      else:
-         return "Word not found"
+PartOfSpeech = Union[Type[Verb],
+                     Type[Adjective],
+                     Type[None]]
 
-   def __getitem__(self, query: Union[int, str]) -> Table:
-      if isinstance(query, int):
-         return self._tables[query]
-      else:
-         n_tables = len(self._tables)
-         if n_tables == 0:
-            raise ValueError("You can't index an empty multitable")
-         elif n_tables == 1:
-            return self[0][query]
-         else:
-            raise ValueError("There's more than one table, please use explicit indexing")
-
-def part_of_speech(value: Dict[str, Any]) -> type: # TODO: make more precise
+def part_of_speech(value: Dict[str, Any]) -> PartOfSpeech:
    if "t" in value:
       POS = value["t"].split('|')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink
       if POS == "V":

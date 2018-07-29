@@ -44,17 +44,17 @@ class GramInfo:
       Vs: str # accents above vowels AND above circles (see Rs)
       accents = []
       self.AP: List[str] = []
-      for inf in infos:
-         if inf:
-            line_accents, AP, MP = inf.split('|')
-            if '@' in inf:
+      for info in infos:
+         if info:
+            line_accents, AP, MP = info.split('|')
+            if '@' in info:
                Rs, Vs = line_accents.split('@')
             else:
                Rs, Vs = None, line_accents
             accents.append(Accents(
                 {int(i): '\u0325' for i in Rs[0:].split(',')} if Rs else {},
                 {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
-            )              )
+            ))
             self.AP.append(AP) # accent paradigm
          else:
             raise ValueError("Can't decipher empty i")
