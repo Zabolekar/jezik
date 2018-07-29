@@ -28,9 +28,13 @@ class Table:
 
    def __repr__(self) -> str:
       result = self.caption + "\n"
-      max_name_width = max(len(form_name) for form_name, _ in self._data)
-      for form_name, forms in self._data:
-         result += f"{form_name:{max_name_width + 5}}{', '.join(forms)}\n"
+      name_widths = (len(form_name) for form_name, _ in self._data)
+      column_width = max(name_widths, default=0) + 5
+      if self._data:
+         for form_name, forms in self._data:
+            result += f"{form_name:{column_width}}{', '.join(forms)}\n"
+      else:
+         result += "Form not found\n"
       return result
 
    def __iter__(self) -> Iterator[LabeledMultiform]:
