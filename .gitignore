@@ -1,3 +1,4 @@
+local_docs
 __pycache__
 .mypy_cache
 .pytest_cache
