@@ -76,7 +76,7 @@ def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
 def palatalize(sequence: str, mode: str='') -> str:
    idict = palatalization_modes[mode]
-   digraphs = ['ст', 'зд', 'сл', 'зл', 'шт', 'жд']
+   digraphs = ['ст', 'зд', 'сл', 'зл', 'шт', 'жд', 'ск', 'зг']
    if sequence[-2:] in digraphs:
       return sequence[:-2] + idict[sequence[-2:]]
 
@@ -85,7 +85,9 @@ def palatalize(sequence: str, mode: str='') -> str:
 def deyerify(form: str) -> str:
    repl_dict = {"стън": "сн",
                 "(бък": "пк", "дък": "тк", "ђък": "ћк",
-                "жък": "шк", "зък": "ск", "џък": "чк"}
+                "жък": "шк", "зък": "ск", "џък": "чк",
+                "бъц": "пц", "ђъц": "ћц", "тъц": "ц",
+                "жъц": "шц", "зц": "сц", "џц": "чц"} # NB дъц is not assimilated
    if 'ø' in form:
       form = form.replace('ø', '').replace('ъ', 'а')
    else:
@@ -179,12 +181,15 @@ def garde(word: str) -> str: # Garde's accentuation
       word3 = insert(word2, insert_dict)
       word3 = re.sub('•', '', word3) # delete
       word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) #swap length \u0304 and accent \u030d
-
+      
       return word3
       
    else:
       excl_index = max(short_desc_index, long_desc_index)
-      return insert(word, {excl_index: '!'}).replace('\u030f', '\u030d').replace('\u0311', '\u0304\030d')
+      result = insert(word, {excl_index-1: '!'})
+      result = result.replace('\u030f', '\u030d').replace('\u0311', '\u0304\u030d')
+      print(result)
+      return result
       
 def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
