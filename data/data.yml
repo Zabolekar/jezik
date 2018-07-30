@@ -4158,6 +4158,14 @@
 рњав:
  t: A|all
  i: 1@1¨|a.,a.|
+ c: који има зечју усну
+ v: хрњав
+
+хрњав:
+ t: A|all
+ i: 2@1¨|a.,a.|
+ c: који има зечју усну
+ v: рњав
 
 рохав:
  t: A|all
@@ -4278,6 +4286,7 @@
 цотав:
  t: A|all
  i: 1¨|a.,a.|
+ c: који цо̏та̄, хро̏м, ше̏пав
 
 чађав:
  t: A|all
@@ -5896,5 +5905,245 @@
 наполичити:
  t: V|Itr|Ipf
  i: 1¨|o.|alpha
- c: и на̀поличити; радити као наполичар
+ c: и на̀поличити; радити као на̏полича̄р (односно на̀полича̄р)
 
+бискати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+ c: и би̑ска̄м
+
+побискати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+ c: и по̀бӣска̄м
+
+букати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+разбукати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+везати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+завезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+извезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+навезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+надвезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+обавезати:
+ t: V|Tr|Pf
+ i: 3´|p:|delta
+
+одвезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+повезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+подвезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+привезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+свезати:
+ t: V|Tr|Pf
+ i: 1´|p:|delta
+
+савезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+увезати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+викати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+довикати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+завикати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+извикати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+навикати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+ c: издовољити се извикивањем
+
+надвикати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+ c: надвладати некога виком
+
+одвикати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+повикати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+провикати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+развикати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+ 
+свикати:
+ t: V|Tr|Pf
+ i: 1´|p:|delta
+
+гакати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+гракати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+гукати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+дисати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+задихати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+духати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+екати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+зидати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+ c: и зи̑да̄м
+
+зукати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+зазукати:
+ t: V|Itr|Pf
+ i: 2´|p:|delta
+
+писати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+дописати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+записати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+исписати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+написати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+натписати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+описати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+отписати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+пописати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+потписати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+преписати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+расписати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+списати:
+ t: V|Tr|Pf
+ i: 1´|p:|delta
+
+уписати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+мазати:
+ t: V|Tr|Ipf
+ i: 1"|o.|delta
+
+замазати:
+ t: V|Tr|Pf
+ i: 1`|o.|delta
+
+измазати:
+ t: V|Tr|Pf
+ i: 1`|o.|delta
+
+намазати:
+ t: V|Tr|Pf
+ i: 1`|o.|delta
+
+омазати:
+ t: V|Tr|Pf
+ i: 1`|o.|delta
+
+помазати:
+ t: V|Tr|Pf
+ i: 1`|o.|delta
+
+промазати:
+ t: V|Tr|Pf
+ i: 1`|o.|delta
