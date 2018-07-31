@@ -13,7 +13,7 @@ class Adjective:
       self.info = GramInfo(i, t) 
 
       # Adjective-only: zipping the APs to 2 lists. But is it really necessary?
-      self.short_AP, self.long_AP = list(zip([AP.split(',') for AP in self.info.AP]))[0][0]
+      self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.info.AP]))
 
       self.trunk = self._trunk()
 
@@ -131,7 +131,10 @@ class Adjective:
          if variant is not None and variant != i:
             continue
          length_inconstancy = False
-         if endings == "all" and self.short_AP[i][-1] != self.long_AP[i][-1]:
-            length_inconstancy = True
+         print(self.short_AP)
+         print(self.long_AP)
+         if endings == "all":
+            if self.short_AP[i][-1] != self.long_AP[i][-1]:
+               length_inconstancy = True
          for paradigm in MPs:
             yield from self._paradigm_to_forms(paradigm, i, length_inconstancy)

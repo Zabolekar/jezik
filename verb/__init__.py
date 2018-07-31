@@ -5,6 +5,7 @@ from ..paradigm_helpers import AccentedTuple, GramInfo
 from .paradigms import MP_to_verb_stems, VerbEnding
 
 # There are 2 major types of paradigms: o., a., a: and the rest
+oa = ['o.', 'a.', 'a:']
 
 infinitive_dict: Dict[str, str] = {
    'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
@@ -34,7 +35,7 @@ class Verb:
       for i, AP in enumerate(self.info.AP):
          accented_verb = garde(self.info.accents[i].accentize(self.key)) # TODO: add loop
          N = len(infinitive_dict[self.info.MP])
-         if AP in ['o.', 'a.', 'a:']:
+         if AP in oa:
             result.append(accented_verb[:-N])
          else:
             if self.info.MP in ['kappa', 'lambda']:
@@ -47,7 +48,8 @@ class Verb:
             else:
                result.append(insert(trunk, {lvi + 1: '·'}))
       return result
-      
+   
+   # Verb-only
    def _verb_form_is_possible(self, label, aspect):
       if label.startswith('ipf'):
          return not 'Pf' in aspect
@@ -57,15 +59,16 @@ class Verb:
    def _append_morpheme(self, i: int, verb_form: str, ending_part: AccentedTuple) -> str:
       # TODO: sveto: please understand and document
       if self.info.AP[i] in ending_part.accent:
-         if self.info.AP[i] in ['o.', 'a.', 'a:']:
+         if self.info.AP[i] in oa:
             verb_form = verb_form.replace('\u030d', '') # straight
          morpheme = ending_part.morpheme.replace('·', '\u030d') # to straight
       else:
          morpheme = ending_part.morpheme
       return verb_form + morpheme
-      
+   
    def _reduce_doublets(self, endings_: List[VerbEnding], AP: str) -> List[VerbEnding]:
       # the following code is for verbs only (is it?).
+      # but only because it is not needed in adjectives.
       # it deletes endings identical in future
       endings: List[Any] = []
       if len(endings_) > 1:
@@ -86,7 +89,7 @@ class Verb:
 
    def multiforms(self) -> Iterator[LabeledMultiform]:
       """conjugate"""
-      if self.info.MP in infinitive_dict: # TODO: what if not?
+      if self.info.MP in infinitive_dict:
          for i, AP in enumerate(self.info.AP):
             for label, endings_ in MP_to_verb_stems[self.info.MP].labeled_endings:
                if self._verb_form_is_possible(label, self.info.other):
@@ -97,9 +100,12 @@ class Verb:
                      verb_form = self.trunk[i]
                      verb_form = self._append_morpheme(i, verb_form, ending.theme)
                      verb_form = self._append_morpheme(i, verb_form, ending.ending)
-                     if self.info.AP not in ['o.', 'a.', 'a:']:
+                     if self.info.AP not in oa:
                         if '\u030d' not in verb_form: # straight
                            verb_form = verb_form.replace('·', '\u030d', 1) # to straight
                            
                      verb_forms.append(self._expose(verb_form))
                   yield label, verb_forms
+      
+      else:
+         raise NotImplementedError('Type {self.info.MP} ({}) does not exist or is not ready yet')
