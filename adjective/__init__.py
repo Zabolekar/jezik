@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Iterator, Optional
 import re
 from ..table import LabeledMultiform
-from ..utils import insert, garde, expose, last_vowel_index
+from ..utils import insert, garde, expose, last_vowel_index, swap_length
 from ..paradigm_helpers import GramInfo, nice_name
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
@@ -11,17 +11,16 @@ class Adjective:
       self.value = value
       i, t = self.value['i'].split(';'), self.value['t'] # NB i is a list
       self.info = GramInfo(i, t) 
-      self.short_AP: List[str] = []
-      self.long_AP: List[str] = []
-      for AP in self.info.AP:  # TODO: please rewrite and reorder this somehow
-         short, long = AP.split(',')
-         self.short_AP.append(short)
-         self.long_AP.append(long)
+
+      # Adjective-only: zipping the APs to 2 lists. But is it really necessary?
+      self.short_AP, self.long_AP = list(zip([AP.split(',') for AP in self.info.AP]))[0][0]
+
       self.trunk = self._trunk()
 
    def _expose(self, form: str) -> str:
       return expose(form)
 
+   # different for Verb and Adjective
    def _trunk(self) -> List[str]:
       result = []
 
@@ -48,9 +47,11 @@ class Adjective:
          result.append(trunk)
       return result
 
+   # Adjective-only. Verb has its own one
    def _adj_form_is_possible(self, adj_form: str) -> bool:
       return re.search('[њљћђшжчџјṕ]œ.ме$', adj_form) is None
-      
+
+   # Adjective-only. Verb should have its own one 
    def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool) -> Iterator[LabeledMultiform]:
       """
       Current subparadigm: short or long AP (they behave differently)
@@ -67,28 +68,13 @@ class Adjective:
          adj_forms = []
          
          # at first we process words like boos ~ bosa
-         # (this code will be very useful while processing nouns,
-         # so it should better be put into Utils):
-         
          if length_inconstant and current_AP == self.long_AP[i]:
-            trunk_lvi = last_vowel_index(self.trunk[i])
-            last_macron = self.trunk[i].rfind('\u0304')
-            if trunk_lvi: # if the word has vowels:
-               if current_AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
-               # if we need to insert macron, we do it
-                  adj_form = insert(self.trunk[i], {trunk_lvi+2: '\u0304'})
-               elif current_AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
-               # and vice versa, we delete macron from the last vowel in case it is there
-                  adj_form = self.trunk[i][:last_macron] + self.trunk[i][last_macron+1:] 
-               else: # TODO: when does this actually happen? maybe we should raise an error?
-                  adj_form = self.trunk[i]
-                  print('word got vowels, but length switch not possible!')
-         
+            adj_form = swap_length(self.trunk[i], current_AP)
+
          # this part is about words where length is the same in most forms:
-                  
          else:
             adj_form = self.trunk[i]
-            
+
          # the rest is valid for any adjective:
          
          for variant in ending: # e.g. -om, -ome, -omu
