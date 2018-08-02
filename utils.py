@@ -191,7 +191,6 @@ def garde(word: str) -> str: # Garde's accentuation
                      if result[i+1] == '\u0300': # `
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
-                        print("an à-accent found and garded")
                      elif result[i+1] == '\u0301': # ´
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
@@ -209,14 +208,11 @@ def garde(word: str) -> str: # Garde's accentuation
          word3 = re.sub('•', '', word3) # delete
          word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) #swap length \u0304 and accent \u030d
          result = word3
-         print(result)
       
       else:
-         print("non-initial falling accent found, deleting the accent")
          excl_index = max(short_desc_index, long_desc_index)
          result = insert(result, {excl_index-1: '!'})
          result = result.replace('\u030f', '\u030d').replace('\u0311', '\u0304\u030d')
-         print(result)
       
    return result
       
