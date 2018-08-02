@@ -160,53 +160,61 @@ def deaccentize(text: str) -> str:
    return text
 
 def garde(word: str) -> str: # Garde's accentuation
-   # TODO: check if there are non-initial ``s and ^s (пољопри̏вреда);
-   # for now let us suppose there are none
-   short_desc_index = word.find('\u030f')
-   long_desc_index = word.find('\u0311')
-   real_fvi = first_vowel_index(word)
-   fvi = real_fvi if real_fvi is not None else -10
-   if not ((fvi + 1 != short_desc_index and short_desc_index != -1) \
-        or (fvi +1 != long_desc_index and long_desc_index != -1)):
-      word2 = word
-      insert_bool = False
-      insert_dict = {}
-      for i, letter in enumerate(word):
+   
+   result = word
+   while re.findall("[\u0300\u0301\u030f\u0311]", result): # while word is ungarded-like:
 
-         if letter in all_vowels:
-            if insert_bool:
-               insert_dict[i+1] = '\u030d' # straight accent
-               insert_bool = False
-            else:
-               if len(word) > i+1:
-                  if word[i+1] == '\u0300': # `
-                     insert_bool = True
-                     word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
-                  elif word[i+1] == '\u0301': # ´
-                     insert_bool = True
-                     word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
-                  elif word[i+1] == '\u030f': # ¨
-                     word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                    r"\g<1>" + '\u030d',
-                                    word2)  # straight accent
-                  elif word[i+1] == '\u0311': # ^
-                     word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                    r"\g<1>" + '\u030d',
-                                    word2) # straight accent
-                     insert_dict[i+1] = '\u0304' # _
+      short_desc_index = result.rfind('\u030f') # short falling index
+      long_desc_index = result.rfind('\u0311') # long falling index
+      real_fvi = first_vowel_index(result)
+      fvi = real_fvi if real_fvi is not None else -10
 
-      word3 = insert(word2, insert_dict)
-      word3 = re.sub('•', '', word3) # delete
-      word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) #swap length \u0304 and accent \u030d
+      # if not 'there is a falling accent and it is not of the first syllable'
+      # then the word is garded the usual way
+      if not ((fvi + 1 != short_desc_index and short_desc_index != -1) \
+           or (fvi + 1 != long_desc_index and long_desc_index != -1)):
+         word2 = result
+         insert_bool = False
+         insert_dict = {}
+         # which means: for each letter, if the letter is a vowel, we take the next symbol,
+         # change it to '•' and insert a straight accent afther the next vowel;
+         # not sure how it works on 2 consecutive accents,
+         # so if you know such a word please tell us
+         for i, letter in enumerate(word2):
+
+            if letter in all_vowels:
+               if insert_bool:
+                  insert_dict[i+1] = '\u030d' # straight accent
+                  insert_bool = False
+               else:
+                  if len(result) > i+1:
+                     if result[i+1] == '\u0300': # `
+                        insert_bool = True
+                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
+                     elif result[i+1] == '\u0301': # ´
+                        insert_bool = True
+                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
+                     elif result[i+1] == '\u030f': # ¨
+                        word2 = re.sub("^(.{" + str(i+1) + "}).",
+                                       r"\g<1>" + '\u030d',
+                                       word2)  # straight accent
+                     elif result[i+1] == '\u0311': # ^
+                        word2 = re.sub("^(.{" + str(i+1) + "}).",
+                                       r"\g<1>" + '\u030d',
+                                       word2) # straight accent
+                        insert_dict[i+1] = '\u0304' # _
+
+         word3 = insert(word2, insert_dict)
+         word3 = re.sub('•', '', word3) # delete
+         word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) #swap length \u0304 and accent \u030d
+         result = word3
       
-      return word3
+      else:
+         excl_index = max(short_desc_index, long_desc_index)
+         result = insert(result, {excl_index-1: '!'})
+         result = result.replace('\u030f', '\u030d').replace('\u0311', '\u0304\u030d')
       
-   else:
-      excl_index = max(short_desc_index, long_desc_index)
-      result = insert(word, {excl_index-1: '!'})
-      result = result.replace('\u030f', '\u030d').replace('\u0311', '\u0304\u030d')
-      print(result)
-      return result
+   return result
       
 def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
@@ -232,30 +240,30 @@ def purify(form: str) -> str:
 def ungarde(form: str) -> str:
 
    chars = list(form)
-   old_accent_index = chars.index("\u030d")
-   chars.pop(old_accent_index)
+   while '\u030d' in chars:
+      old_accent_index = chars.index("\u030d")
+      chars.pop(old_accent_index)
 
-   new_accent_index = old_accent_index - 1
-   vowel_count = 0
-   shifted = False
-   while new_accent_index >= 0:
-      if chars[new_accent_index] == "!":
-         chars.pop(new_accent_index)
-         old_accent_index -= 1
-         break
-      if chars[new_accent_index] in "aeiouAEIOUаеиоуАЕИОУ\u0325":
-      # TODO: what about ije? now bi̯jē̍l becomes bì̯jēl instead of bi̯jȇl
-         vowel_count += 1
-         if vowel_count == 2:
-            shifted = True
-            new_accent_index += 1
+      new_accent_index = old_accent_index - 1
+      vowel_count = 0
+      shifted = False
+      while new_accent_index >= 0:
+         if chars[new_accent_index] == "!":
+            chars.pop(new_accent_index)
+            old_accent_index -= 1
             break
-      new_accent_index -= 1
+         if chars[new_accent_index] in "aeiouAEIOUаеиоуАЕИОУ\u0325":
+            vowel_count += 1
+            if vowel_count == 2:
+               shifted = True
+               new_accent_index += 1
+               break
+         new_accent_index -= 1
 
-   if shifted:
-      chars.insert(new_accent_index, "\u0300") #rising
-   else:
-      chars.insert(old_accent_index, "\u030f") #falling
+      if shifted:
+         chars.insert(new_accent_index, "\u0300") #rising
+      else:
+         chars.insert(old_accent_index, "\u030f") #falling
 
    return ("".join(chars)
              .replace("\u0300\u0304", "\u0301") #long rising

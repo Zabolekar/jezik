@@ -6133,3 +6133,377 @@
 промазати:
  t: V|Tr|Pf
  i: 1`|o.|delta
+
+жвакати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+пожвакати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+прожвакати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+сажвакати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+жватати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+пожватати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+прожватати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+сажватати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+искати:
+ t:
+ i: 1`|l.|delta;1`|n.|beta
+
+поискати:
+ t:
+ i: 2`|m.|delta;2`|x.|beta
+
+казати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+доказати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+заказати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+исказати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+отказати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+показати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+потказати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+приказати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+проказати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+указати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+кракати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+ c: корачати
+
+кретати I:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+кретати се:
+ t: V|Refl|Ipf
+ i: 1´|p:|delta
+
+окретати:
+ t: V|Tr|Ipf
+ i: 2´|p:|delta
+
+окретати се:
+ t: V|Refl|Ipf
+ i: 2´|p:|delta
+
+покретати:
+ t: V|Tr|Ipf
+ i: 2´|p:|delta
+
+покретати се:
+ t: V|Refl|Ipf
+ i: 2´|p:|delta
+
+прекретати:
+ t: V|Tr|Ipf
+ i: 2´|p:|delta
+
+купати:
+ t: V|Tr|Ipf
+ i: 1´|k:|beta
+
+накупати се:
+ t: V|Refl|Pf
+ i: 2´|k:|beta
+
+окупати:
+ t: V|Itr|Pf
+ i: 2´|k:|beta
+
+прокупати се:
+ t: V|Refl|Pf
+ i: 2´|k:|beta
+
+искупати се:
+ t: V|Refl|Pf
+ i: 2´|k:|beta
+
+лизати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+лизати се:
+ t: V|Refl|Ipf
+ i: 1´|p:|delta
+
+зализати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+зализати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+излизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+излизати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+нализати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+олизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+облизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+полизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+пролизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+разлизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+слизати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+улизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+улизати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+лꙓгати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+залꙓгати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+полꙓгати:
+ t: V|Itr|Pf
+ i: 2´|p:|delta
+
+прилꙓгати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+разлꙓгати се:
+ t: V|Refl|Ipf
+ i: 2´|p:|delta
+
+улꙓгати се:
+ t: V|Refl|Ipf
+ i: 2´|p:|delta
+
+лꙓтати: 
+ t: V|Itr|Ipf
+ i: 1´|p:|delta;1´|k:|beta
+
+долꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+залꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+излꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+налꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+налꙓтати се:
+ t: V|Refl|Ipf
+ i: 2´|p:|delta
+
+облꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+одлꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+полꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+прелꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+прилꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+пролꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+разлꙓтати се:
+ t: V|Refl|Ipf
+ i: 2´|p:|delta
+
+слꙓтати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+салꙓтати:
+ t: V|Itr|Ipf
+ i: 2´|p:|delta
+
+послꙓтати:
+ t: V|Itr|Pf
+ i: 2´|p:|delta
+
+махати: 
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+замахати I:
+ t: V|Itr|Pf
+ i: 2´|p:|delta
+
+замахати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta
+
+умахати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+мркати I:
+ t: V|Tr|Ipf
+ i: 2@1´|p:|delta;2@1´|k:|beta
+
+мркати се:
+ t: V|Refl|Ipf
+ i: 2@1´|p:|delta;2@1´|k:|beta
+
+мукати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+низати I:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
+
+низати се:
+ t: V|Refl|Ipf
+ i: 1´|p:|delta
+
+нанизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+обнизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+поднизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+пренизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+разнизати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta
+
+снизати:
+ t: V|Tr|Pf
+ i: 1´|p:|delta
+
+нꙓкати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta;1´|k:|beta
+ c: само јекавски
+
+њакати:
+ t: V|Itr|Ipf
+ i: 1´|p:|delta
+
+њихати I:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta;1´|k:|beta
+
+њихати се:
+ t: V|Refl|Ipf
+ i: 1´|p:|delta;1´|k:|beta
+
+зањихати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta;1´|k:|beta
+
+зањихати се:
+ t: V|Refl|Pf
+ i: 2´|p:|delta;1´|k:|beta
+
+одњихати:
+ t: V|Tr|Pf
+ i: 2´|p:|delta;1´|k:|beta
+
+пахати:
+ t: V|Tr|Ipf
+ i: 1´|p:|delta
