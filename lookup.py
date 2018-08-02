@@ -28,7 +28,11 @@ def lazy_lookup(key: str) -> Iterator[Table]:
          verb = Verb(key, value)
          if with_se and not verb.is_reflexive:
             continue
-         yield Table("verb", caption, verb.multiforms())
+         # TODO: simplify duplicate code here and a few lines below
+         n_variants = len(verb.info.accents)
+         for i in range(n_variants):
+            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i})"
+            yield Table("verb", full_caption, verb.multiforms(variant=i))
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
       elif POS is Adjective:

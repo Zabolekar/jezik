@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Iterator
+from typing import Any, Dict, List, Iterator, Optional
 from ..table import LabeledMultiform
 from ..utils import insert, garde, expose, last_vowel_index
 from ..paradigm_helpers import AccentedTuple, GramInfo
@@ -87,10 +87,12 @@ class Verb:
          
       return endings
 
-   def multiforms(self) -> Iterator[LabeledMultiform]:
+   def multiforms(self, *, variant: Optional[int] = None) -> Iterator[LabeledMultiform]:
       """conjugate"""
       if self.info.MP in infinitive_dict:
          for i, AP in enumerate(self.info.AP):
+            if variant is not None and variant != i:
+               continue
             for label, endings_ in MP_to_verb_stems[self.info.MP].labeled_endings:
                if self._verb_form_is_possible(label, self.info.other):
                   verb_forms: List[str] = []               
