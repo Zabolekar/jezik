@@ -1,22 +1,18 @@
 from typing import Dict, Iterator, NamedTuple, Tuple, List
 from ..paradigm_helpers import AccentedTuple, nice_name
 
-class VerbEnding(NamedTuple):
-   theme: AccentedTuple
-   ending: AccentedTuple
-
-LabeledEnding = Tuple[str, List[VerbEnding]]
+LabeledEnding = Tuple[str, List[List[AccentedTuple]]]
 
 class Present(NamedTuple):
-   prs1sg: List[VerbEnding]
-   prs2sg: List[VerbEnding]
-   prs3sg: List[VerbEnding]
-   prs1pl: List[VerbEnding]
-   prs2pl: List[VerbEnding]
-   prs3pl: List[VerbEnding]
-   imv2sg: List[VerbEnding]
-   imv1pl: List[VerbEnding]
-   imv2pl: List[VerbEnding]
+   prs_1_sg: List[List[AccentedTuple]]
+   prs_2_sg: List[List[AccentedTuple]]
+   prs_3_sg: List[List[AccentedTuple]]
+   prs_1_pl: List[List[AccentedTuple]]
+   prs_2_pl: List[List[AccentedTuple]]
+   prs_3_pl: List[List[AccentedTuple]]
+   imv_2_sg: List[List[AccentedTuple]]
+   imv_1_pl: List[List[AccentedTuple]]
+   imv_2_pl: List[List[AccentedTuple]]
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
@@ -24,25 +20,25 @@ class Present(NamedTuple):
                      super().__iter__())
 
 class Past(NamedTuple):
-   pfMsg: List[VerbEnding]
-   pfFsg: List[VerbEnding]
-   pfNsg: List[VerbEnding]
-   pfMpl: List[VerbEnding]
-   pfFpl: List[VerbEnding]
-   pfNpl: List[VerbEnding]
-   aor1sg: List[VerbEnding]
-   aor2sg: List[VerbEnding]
-   aor3sg: List[VerbEnding]
-   aor1pl: List[VerbEnding]
-   aor2pl: List[VerbEnding]
-   aor3pl: List[VerbEnding]
-   infinitive: List[VerbEnding]
-   ipf1sg: List[VerbEnding]
-   ipf2sg: List[VerbEnding]
-   ipf3sg: List[VerbEnding]
-   ipf1pl: List[VerbEnding]
-   ipf2pl: List[VerbEnding]
-   ipf3pl: List[VerbEnding]
+   pf_m_sg: List[List[AccentedTuple]]
+   pf_f_sg: List[List[AccentedTuple]]
+   pf_n_sg: List[List[AccentedTuple]]
+   pf_m_pl: List[List[AccentedTuple]]
+   pf_f_pl: List[List[AccentedTuple]]
+   pf_n_pl: List[List[AccentedTuple]]
+   aor_1_sg: List[List[AccentedTuple]]
+   aor_2_sg: List[List[AccentedTuple]]
+   aor_3_sg: List[List[AccentedTuple]]
+   aor_1_pl: List[List[AccentedTuple]]
+   aor_2_pl: List[List[AccentedTuple]]
+   aor_3_pl: List[List[AccentedTuple]]
+   infinitive: List[List[AccentedTuple]]
+   ipf_1_sg: List[List[AccentedTuple]]
+   ipf_2_sg: List[List[AccentedTuple]]
+   ipf_3_sg: List[List[AccentedTuple]]
+   ipf_1_pl: List[List[AccentedTuple]]
+   ipf_2_pl: List[List[AccentedTuple]]
+   ipf_3_pl: List[List[AccentedTuple]]
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
@@ -83,135 +79,135 @@ ending_xu = AccentedTuple('ху', '')
 ending_ti = AccentedTuple('ти', '')
 
 i_past = Past(
-   [VerbEnding(i_theme_past, AccentedTuple('ʌ', ''))],
-   [VerbEnding(i_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(i_theme_past, AccentedTuple('ло', ''))],
-   [VerbEnding(i_theme_past, AccentedTuple('ли', ''))],
-   [VerbEnding(i_theme_past, AccentedTuple('ле', ''))],
-   [VerbEnding(i_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(i_theme_past, ending_x)],
-   [VerbEnding(AccentedTuple('и·', 's0'), AccentedTuple('0·~', 'o.p.p:r.r:'))],
-   [VerbEnding(AccentedTuple('и·', 's0'), AccentedTuple('0·~', 'o.p.p:r.r:'))],
-   [VerbEnding(i_theme_past, ending_smo)],
-   [VerbEnding(i_theme_past, ending_ste)],
-   [VerbEnding(i_theme_past, ending_she)],
-   [VerbEnding(i_theme_past, ending_ti)],
-   [VerbEnding(i_theme_ipf, ending_x)],
-   [VerbEnding(i_theme_ipf, ending_she)],
-   [VerbEnding(i_theme_ipf, ending_she)],
-   [VerbEnding(i_theme_ipf, ending_smo)],
-   [VerbEnding(i_theme_ipf, ending_ste)],
-   [VerbEnding(i_theme_ipf, ending_xu)]
+   [[i_theme_past, AccentedTuple('ʌ', '')]],
+   [[i_theme_past, AccentedTuple('ла', '')]],
+   [[i_theme_past, AccentedTuple('ло', '')]],
+   [[i_theme_past, AccentedTuple('ли', '')]],
+   [[i_theme_past, AccentedTuple('ле', '')]],
+   [[i_theme_past, AccentedTuple('ла', '')]],
+   [[i_theme_past, ending_x]],
+   [[AccentedTuple('и·', 's0'), AccentedTuple('0·~', 'o.p.p:r.r:')]],
+   [[AccentedTuple('и·', 's0'), AccentedTuple('0·~', 'o.p.p:r.r:')]],
+   [[i_theme_past, ending_smo]],
+   [[i_theme_past, ending_ste]],
+   [[i_theme_past, ending_she]],
+   [[i_theme_past, ending_ti]],
+   [[i_theme_ipf, ending_x]],
+   [[i_theme_ipf, ending_she]],
+   [[i_theme_ipf, ending_she]],
+   [[i_theme_ipf, ending_smo]],
+   [[i_theme_ipf, ending_ste]],
+   [[i_theme_ipf, ending_xu]]
 )
 
 a_past = Past(
-   [VerbEnding(a_theme_past, AccentedTuple('ʌ0·', 'm.'))],
-   [VerbEnding(a_theme_past, AccentedTuple('ла0·', 'm.'))],
-   [VerbEnding(a_theme_past, AccentedTuple('ло0·', 'm.'))],
-   [VerbEnding(a_theme_past, AccentedTuple('ли0·', 'm.'))],
-   [VerbEnding(a_theme_past, AccentedTuple('ле0·', 'm.'))],
-   [VerbEnding(a_theme_past, AccentedTuple('ла0·', 'm.'))],
-   [VerbEnding(a_theme_past, ending_x)],
-   [VerbEnding(AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.'))],
-   [VerbEnding(AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.'))],
-   [VerbEnding(a_theme_past, ending_smo)],
-   [VerbEnding(a_theme_past, ending_ste)],
-   [VerbEnding(a_theme_past, ending_she)],
-   [VerbEnding(a_theme_past, ending_ti)],
-   [VerbEnding(a_theme_ipf, ending_x)],
-   [VerbEnding(a_theme_ipf, ending_she)],
-   [VerbEnding(a_theme_ipf, ending_she)],
-   [VerbEnding(a_theme_ipf, ending_smo)],
-   [VerbEnding(a_theme_ipf, ending_smo)],
-   [VerbEnding(a_theme_ipf, ending_xu)]
+   [[a_theme_past, AccentedTuple('ʌ0·', 'm.')]],
+   [[a_theme_past, AccentedTuple('ла0·', 'm.')]],
+   [[a_theme_past, AccentedTuple('ло0·', 'm.')]],
+   [[a_theme_past, AccentedTuple('ли0·', 'm.')]],
+   [[a_theme_past, AccentedTuple('ле0·', 'm.')]],
+   [[a_theme_past, AccentedTuple('ла0·', 'm.')]],
+   [[a_theme_past, ending_x]],
+   [[AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.')]],
+   [[AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.')]],
+   [[a_theme_past, ending_smo]],
+   [[a_theme_past, ending_ste]],
+   [[a_theme_past, ending_she]],
+   [[a_theme_past, ending_ti]],
+   [[a_theme_ipf, ending_x]],
+   [[a_theme_ipf, ending_she]],
+   [[a_theme_ipf, ending_she]],
+   [[a_theme_ipf, ending_smo]],
+   [[a_theme_ipf, ending_smo]],
+   [[a_theme_ipf, ending_xu]]
 )
 
 ie_past = Past(
-   [VerbEnding(ie_theme_past, AccentedTuple('ʌ', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ло', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ли', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ле', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(ie_theme_past, ending_x)],
-   [VerbEnding(ie_theme_past, ending_null)],
-   [VerbEnding(ie_theme_past, ending_null)],
-   [VerbEnding(ie_theme_past, ending_smo)],
-   [VerbEnding(ie_theme_past, ending_ste)],
-   [VerbEnding(ie_theme_past, ending_she)],
-   [VerbEnding(ie_theme_past, ending_ti)],
-   [VerbEnding(ie_theme_ipf, ending_x)],
-   [VerbEnding(ie_theme_ipf, ending_she)],
-   [VerbEnding(ie_theme_ipf, ending_she)],
-   [VerbEnding(ie_theme_ipf, ending_smo)],
-   [VerbEnding(ie_theme_ipf, ending_ste)],
-   [VerbEnding(ie_theme_ipf, ending_xu)]
+   [[ie_theme_past, AccentedTuple('ʌ', '')]],
+   [[ie_theme_past, AccentedTuple('ла', '')]],
+   [[ie_theme_past, AccentedTuple('ло', '')]],
+   [[ie_theme_past, AccentedTuple('ли', '')]],
+   [[ie_theme_past, AccentedTuple('ле', '')]],
+   [[ie_theme_past, AccentedTuple('ла', '')]],
+   [[ie_theme_past, ending_x]],
+   [[ie_theme_past, ending_null]],
+   [[ie_theme_past, ending_null]],
+   [[ie_theme_past, ending_smo]],
+   [[ie_theme_past, ending_ste]],
+   [[ie_theme_past, ending_she]],
+   [[ie_theme_past, ending_ti]],
+   [[ie_theme_ipf, ending_x]],
+   [[ie_theme_ipf, ending_she]],
+   [[ie_theme_ipf, ending_she]],
+   [[ie_theme_ipf, ending_smo]],
+   [[ie_theme_ipf, ending_ste]],
+   [[ie_theme_ipf, ending_xu]]
 )
 
 ie2_past = Past(
-   [VerbEnding(ie_theme_past, AccentedTuple('ʌ', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ло', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ли', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ле', ''))],
-   [VerbEnding(ie_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(ie_theme_past, ending_x)],
-   [VerbEnding(ie_theme_past, ending_null)],
-   [VerbEnding(ie_theme_past, ending_null)],
-   [VerbEnding(ie_theme_past, ending_smo)],
-   [VerbEnding(ie_theme_past, ending_ste)],
-   [VerbEnding(ie_theme_past, ending_she)],
-   [VerbEnding(ie_theme_past, ending_ti)],
-   [VerbEnding(ie2_theme_ipf, ending_x)],
-   [VerbEnding(ie2_theme_ipf, ending_she)],
-   [VerbEnding(ie2_theme_ipf, ending_she)],
-   [VerbEnding(ie2_theme_ipf, ending_smo)],
-   [VerbEnding(ie2_theme_ipf, ending_ste)],
-   [VerbEnding(ie2_theme_ipf, ending_xu)]
+   [[ie_theme_past, AccentedTuple('ʌ', '')]],
+   [[ie_theme_past, AccentedTuple('ла', '')]],
+   [[ie_theme_past, AccentedTuple('ло', '')]],
+   [[ie_theme_past, AccentedTuple('ли', '')]],
+   [[ie_theme_past, AccentedTuple('ле', '')]],
+   [[ie_theme_past, AccentedTuple('ла', '')]],
+   [[ie_theme_past, ending_x]],
+   [[ie_theme_past, ending_null]],
+   [[ie_theme_past, ending_null]],
+   [[ie_theme_past, ending_smo]],
+   [[ie_theme_past, ending_ste]],
+   [[ie_theme_past, ending_she]],
+   [[ie_theme_past, ending_ti]],
+   [[ie2_theme_ipf, ending_x]],
+   [[ie2_theme_ipf, ending_she]],
+   [[ie2_theme_ipf, ending_she]],
+   [[ie2_theme_ipf, ending_smo]],
+   [[ie2_theme_ipf, ending_ste]],
+   [[ie2_theme_ipf, ending_xu]]
 )
 
 ova_past = Past(
-   [VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ʌ0·', 'm.'))],
-   [VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'm.'))],
-   [VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ло0·', 'm.'))],
-   [VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ли0·', 'm.'))],
-   [VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ле0·', 'm.'))],
-   [VerbEnding(AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'm.'))],
-   [VerbEnding(ova_theme_past, ending_x)],
-   [VerbEnding(AccentedTuple('ова', ''), AccentedTuple('0·~', 'o.m.'))],
-   [VerbEnding(AccentedTuple('ова', ''), AccentedTuple('0·~', 'o.m.'))],
-   [VerbEnding(ova_theme_past, ending_smo)],
-   [VerbEnding(ova_theme_past, ending_ste)],
-   [VerbEnding(ova_theme_past, ending_she)],
-   [VerbEnding(ova_theme_past, ending_ti)],
-   [VerbEnding(ova_theme_ipf, ending_x)],
-   [VerbEnding(ova_theme_ipf, ending_she)],
-   [VerbEnding(ova_theme_ipf, ending_she)],
-   [VerbEnding(ova_theme_ipf, ending_smo)],
-   [VerbEnding(ova_theme_ipf, ending_ste)],
-   [VerbEnding(ova_theme_ipf, ending_xu)]
+   [[AccentedTuple('ова~', ''), AccentedTuple('ʌ0·', 'm.')]],
+   [[AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'm.')]],
+   [[AccentedTuple('ова~', ''), AccentedTuple('ло0·', 'm.')]],
+   [[AccentedTuple('ова~', ''), AccentedTuple('ли0·', 'm.')]],
+   [[AccentedTuple('ова~', ''), AccentedTuple('ле0·', 'm.')]],
+   [[AccentedTuple('ова~', ''), AccentedTuple('ла0·', 'm.')]],
+   [[ova_theme_past, ending_x]],
+   [[AccentedTuple('ова', ''), AccentedTuple('0·~', 'o.m.')]],
+   [[AccentedTuple('ова', ''), AccentedTuple('0·~', 'o.m.')]],
+   [[ova_theme_past, ending_smo]],
+   [[ova_theme_past, ending_ste]],
+   [[ova_theme_past, ending_she]],
+   [[ova_theme_past, ending_ti]],
+   [[ova_theme_ipf, ending_x]],
+   [[ova_theme_ipf, ending_she]],
+   [[ova_theme_ipf, ending_she]],
+   [[ova_theme_ipf, ending_smo]],
+   [[ova_theme_ipf, ending_ste]],
+   [[ova_theme_ipf, ending_xu]]
 )
 
 iva_past = Past(
-   [VerbEnding(iva_theme_past, AccentedTuple('ʌ', ''))],
-   [VerbEnding(iva_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(iva_theme_past, AccentedTuple('ло', ''))],
-   [VerbEnding(iva_theme_past, AccentedTuple('ли', ''))],
-   [VerbEnding(iva_theme_past, AccentedTuple('ле', ''))],
-   [VerbEnding(iva_theme_past, AccentedTuple('ла', ''))],
-   [VerbEnding(iva_theme_past, ending_x)],
-   [VerbEnding(iva_theme_past, AccentedTuple('·', 'k’'))],
-   [VerbEnding(iva_theme_past, AccentedTuple('·', 'k’'))],
-   [VerbEnding(iva_theme_past, ending_smo)],
-   [VerbEnding(iva_theme_past, ending_ste)],
-   [VerbEnding(iva_theme_past, ending_she)],
-   [VerbEnding(iva_theme_past, ending_ti)],
-   [VerbEnding(iva_theme_ipf, ending_x)],
-   [VerbEnding(iva_theme_ipf, ending_she)],
-   [VerbEnding(iva_theme_ipf, ending_she)],
-   [VerbEnding(iva_theme_ipf, ending_smo)],
-   [VerbEnding(iva_theme_ipf, ending_ste)],
-   [VerbEnding(iva_theme_ipf, ending_xu)]
+   [[iva_theme_past, AccentedTuple('ʌ', '')]],
+   [[iva_theme_past, AccentedTuple('ла', '')]],
+   [[iva_theme_past, AccentedTuple('ло', '')]],
+   [[iva_theme_past, AccentedTuple('ли', '')]],
+   [[iva_theme_past, AccentedTuple('ле', '')]],
+   [[iva_theme_past, AccentedTuple('ла', '')]],
+   [[iva_theme_past, ending_x]],
+   [[iva_theme_past, AccentedTuple('·', 'k’')]],
+   [[iva_theme_past, AccentedTuple('·', 'k’')]],
+   [[iva_theme_past, ending_smo]],
+   [[iva_theme_past, ending_ste]],
+   [[iva_theme_past, ending_she]],
+   [[iva_theme_past, ending_ti]],
+   [[iva_theme_ipf, ending_x]],
+   [[iva_theme_ipf, ending_she]],
+   [[iva_theme_ipf, ending_she]],
+   [[iva_theme_ipf, ending_smo]],
+   [[iva_theme_ipf, ending_ste]],
+   [[iva_theme_ipf, ending_xu]]
 )
 
 #("e", Present),   — todo later
@@ -235,71 +231,71 @@ ending_m = AccentedTuple('м', '')
 ending_sh = AccentedTuple('ш', '')
 
 i_present = Present(
-   [VerbEnding(i_theme_prs, ending_m)],
-   [VerbEnding(i_theme_prs, ending_sh)],
-   [VerbEnding(i_theme_prs, ending_null)],
-   [VerbEnding(AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('мо·', 's0')),
-   VerbEnding(i_theme_prs, ending_mo)],
-   [VerbEnding(AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('те·', 's0')),
-   VerbEnding(i_theme_prs, ending_te)],
-   [VerbEnding(AccentedTuple('е·\u0304', 'r.r:s0'), ending_null)],
-   [VerbEnding(i_theme_imv, ending_null)],
-   [VerbEnding(i_theme_imv, ending_mo)],
-   [VerbEnding(i_theme_imv, ending_te)]
+   [[i_theme_prs, ending_m]],
+   [[i_theme_prs, ending_sh]],
+   [[i_theme_prs, ending_null]],
+   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('мо·', 's0')],
+   [i_theme_prs, ending_mo]],
+   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('те·', 's0')],
+   [i_theme_prs, ending_te]],
+   [[AccentedTuple('е·\u0304', 'r.r:s0'), ending_null]],
+   [[i_theme_imv, ending_null]],
+   [[i_theme_imv, ending_mo]],
+   [[i_theme_imv, ending_te]]
 )
 
 je_present = Present(
-   [VerbEnding(je_theme_prs, ending_m)],
-   [VerbEnding(je_theme_prs, ending_sh)],
-   [VerbEnding(je_theme_prs, ending_null)],
-   [VerbEnding(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('мо·', 'z0')),
-   VerbEnding(je_theme_prs, ending_mo)],
-   [VerbEnding(AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('те·', 'z0')),
-   VerbEnding(je_theme_prs, ending_te)],
-   [VerbEnding(AccentedTuple('\u0237у·\u0304', 'z0'), ending_null)],
-   [VerbEnding(je_theme_imv, ending_null)],
-   [VerbEnding(je_theme_imv, ending_mo)],
-   [VerbEnding(je_theme_imv, ending_te)]
+   [[je_theme_prs, ending_m]],
+   [[je_theme_prs, ending_sh]],
+   [[je_theme_prs, ending_null]],
+   [[AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('мо·', 'z0')],
+   [je_theme_prs, ending_mo]],
+   [[AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('те·', 'z0')],
+   [je_theme_prs, ending_te]],
+   [[AccentedTuple('\u0237у·\u0304', 'z0'), ending_null]],
+   [[je_theme_imv, ending_null]],
+   [[je_theme_imv, ending_mo]],
+   [[je_theme_imv, ending_te]]
 )
 
 a_present = Present(
-   [VerbEnding(a_theme_prs, ending_m)],
-   [VerbEnding(a_theme_prs, ending_sh)],
-   [VerbEnding(a_theme_prs, ending_null)],
-   [VerbEnding(AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('мо·', 'y0')),
-   VerbEnding(a_theme_prs, ending_mo)],
-   [VerbEnding(AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('те·', 'y0')),
-   VerbEnding(a_theme_prs, ending_te)],
-   [VerbEnding(AccentedTuple('а·ју\u0304', 'k:l.n.x.y0'), ending_null)],
-   [VerbEnding(a_theme_imv, ending_null)],
-   [VerbEnding(a_theme_imv, ending_mo)],
-   [VerbEnding(a_theme_imv, ending_te)]
+   [[a_theme_prs, ending_m]],
+   [[a_theme_prs, ending_sh]],
+   [[a_theme_prs, ending_null]],
+   [[AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('мо·', 'y0')],
+   [a_theme_prs, ending_mo]],
+   [[AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('те·', 'y0')],
+   [a_theme_prs, ending_te]],
+   [[AccentedTuple('а·ју\u0304', 'k:l.n.x.y0'), ending_null]],
+   [[a_theme_imv, ending_null]],
+   [[a_theme_imv, ending_mo]],
+   [[a_theme_imv, ending_te]]
 )
 
 uje_present = Present(
-   [VerbEnding(uje_theme_prs, ending_m)],
-   [VerbEnding(uje_theme_prs, ending_sh)],
-   [VerbEnding(uje_theme_prs, ending_null)],
-   [VerbEnding(uje_theme_prs, ending_mo)],
-   [VerbEnding(uje_theme_prs, ending_te)],
-   [VerbEnding(AccentedTuple('у·ју\u0304', 'k’m.'), ending_null)],
-   [VerbEnding(uje_theme_imv, ending_null)],
-   [VerbEnding(uje_theme_imv, ending_mo)],
-   [VerbEnding(uje_theme_imv, ending_te)]
+   [[uje_theme_prs, ending_m]],
+   [[uje_theme_prs, ending_sh]],
+   [[uje_theme_prs, ending_null]],
+   [[uje_theme_prs, ending_mo]],
+   [[uje_theme_prs, ending_te]],
+   [[AccentedTuple('у·ју\u0304', 'k’m.'), ending_null]],
+   [[uje_theme_imv, ending_null]],
+   [[uje_theme_imv, ending_mo]],
+   [[uje_theme_imv, ending_te]]
 )
 
 ie_present = Present(
-   [VerbEnding(ie_theme_prs, ending_m)],
-   [VerbEnding(ie_theme_prs, ending_sh)],
-   [VerbEnding(ie_theme_prs, ending_null)],
-   [VerbEnding(AccentedTuple('ꙓ\u0304', ''), AccentedTuple('мо·', 's.')),
-   VerbEnding(ie_theme_prs, ending_mo)],
-   [VerbEnding(AccentedTuple('ꙓ\u0304', ''), AccentedTuple('те·', 's.')),
-   VerbEnding(ie_theme_prs, ending_te)],
-   [VerbEnding(AccentedTuple('ѣ·ју\u0304', 's.'), ending_null)],
-   [VerbEnding(ie_theme_imv, ending_null)],
-   [VerbEnding(ie_theme_imv, ending_mo)],
-   [VerbEnding(ie_theme_imv, ending_te)]
+   [[ie_theme_prs, ending_m]],
+   [[ie_theme_prs, ending_sh]],
+   [[ie_theme_prs, ending_null]],
+   [[AccentedTuple('ꙓ\u0304', ''), AccentedTuple('мо·', 's.')],
+   [ie_theme_prs, ending_mo]],
+   [[AccentedTuple('ꙓ\u0304', ''), AccentedTuple('те·', 's.')],
+   [ie_theme_prs, ending_te]],
+   [[AccentedTuple('ѣ·ју\u0304', 's.'), ending_null]],
+   [[ie_theme_imv, ending_null]],
+   [[ie_theme_imv, ending_mo]],
+   [[ie_theme_imv, ending_te]]
 )
 
 MP_to_verb_stems: Dict[str, Stems] = dict(

@@ -4,6 +4,8 @@ from .utils import insert, all_vowels
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
+oa = ['o.', 'a.', 'a:']
+
 _r = re.compile("([a-z]+|[A-Z]|\d)")
 def nice_name(name: str) -> str:
    return " ".join(_r.findall(name))
@@ -43,7 +45,8 @@ class GramInfo:
       Rs: Optional[str] # circles below syllabic r's
       Vs: str # accents above vowels AND above circles (see Rs)
       accents = []
-      self.AP: List[str] = []
+      self.AP: List[str] = [] # accent paradigm
+      self.MP: List[str] = [] # morphological paradigm
       for info in infos:
          if info:
             line_accents, AP, MP = info.split('|')
@@ -55,7 +58,8 @@ class GramInfo:
                 {int(i): '\u0325' for i in Rs[0:].split(',')} if Rs else {},
                 {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
             ))
-            self.AP.append(AP) # accent paradigm
+            self.AP.append(AP) 
+            self.MP.append(MP)
          else:
             raise ValueError("Can't decipher empty i")
 
@@ -66,7 +70,6 @@ class GramInfo:
 
       self.accents: List[Accents] = accents
       
-      self.MP: str = MP # morphological paradigm
       self.POS: str = POS # part of speech
       self.other: List[str] = other
 

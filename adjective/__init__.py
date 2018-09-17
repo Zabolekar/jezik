@@ -1,22 +1,20 @@
 from typing import Any, Dict, List, Iterator, Optional
 import re
 from ..table import LabeledMultiform
-from ..utils import insert, garde, expose, last_vowel_index, swap_length
-from ..paradigm_helpers import GramInfo, nice_name
+from ..pos import PartOfSpeech
+from ..utils import insert, garde, expose, last_vowel_index
+from ..paradigm_helpers import GramInfo, nice_name, oa
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
-class Adjective:
+class Adjective(PartOfSpeech):
    def __init__(self, key: str, value: Dict[str, Any]) -> None:
-      self.key = key
-      self.value = value
-      i, t = self.value['i'].split(';'), self.value['t'] # NB i is a list
-      self.info = GramInfo(i, t) 
-
+      super().__init__(key, value)
       # Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.info.AP]))
 
-      self.trunk = self._trunk()
+      self.trunk = self._trunk() #both but not separable
 
+   # different
    def _expose(self, form: str) -> str:
       return expose(form)
 
@@ -47,7 +45,7 @@ class Adjective:
          result.append(trunk)
       return result
 
-   # Adjective-only. Verb has its own one
+   # Adjective-specific. Verb has its own one
    def _adj_form_is_possible(self, adj_form: str) -> bool:
       return re.search('[њљћђшжчџјṕ]œ.ме$', adj_form) is None
 
@@ -55,43 +53,32 @@ class Adjective:
    def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool) -> Iterator[LabeledMultiform]:
       """
       Current subparadigm: short or long AP (they behave differently)
-      i: index of the variant (by variant we mean things like зу̑бнӣ зу́бнӣ)
-      """ 
-      if paradigm is short_adj:
-         current_AP = self.short_AP[i]
-      elif paradigm is long_adj:
-         current_AP = self.long_AP[i]
-      elif paradigm is mixed_adj:
-         current_AP = self.long_AP[i]
+      i: index of the variation (by variation we mean things like зу̑бнӣ зу́бнӣ)
+      """
+      current_AP = self.short_AP[i] if paradigm is short_adj else self.long_AP[i]
 
       for label, ending in zip(paradigm._fields, paradigm): # TODO: verbs do it completely differently, unify
-         adj_forms = []
+         ready_forms = []
          
-         # at first we process words like boos ~ bosa
-         if length_inconstant and current_AP == self.long_AP[i]:
-            adj_form = swap_length(self.trunk[i], current_AP)
+         adj_form = self._swap(self.trunk[i], length_inconstant, current_AP, self.long_AP[i])
 
-         # this part is about words where length is the same in most forms:
-         else:
-            adj_form = self.trunk[i]
-
-         # the rest is valid for any adjective:
-         
-         for variant in ending: # e.g. -om, -ome, -omu
+         for variation in ending: # e.g. -om, -ome, -omu
             new_adj_form = adj_form
             
-            if current_AP in variant.accent: # if the ending should be accented
+            new_adj_form = new_adj_form
+
+            if current_AP in variation.accent: # if the ending should be accented
                new_adj_form = new_adj_form.replace('\u030d', '') # delete all already put accents from the stem
-               if 'a' not in current_AP: # and, further, if the stem has no firmly accented place,
+               if current_AP not in oa: # and, further, if the stem has no firmly accented place,
                    # then we delete all the accentable places from the stem.
                    # if we do not do this, we get wrong (double) accents in result!
                    # TODO: when extending this to verbs, do not forget the 'o' paradigm
                   new_adj_form = new_adj_form.replace('·', '')
                # -- and finally we put the accent on the ending:
-               current_morpheme = variant.morpheme.replace('·', '\u030d')
+               current_morpheme = variation.morpheme.replace('·', '\u030d')
                
             else:
-               current_morpheme = variant.morpheme.replace('·', '')
+               current_morpheme = variation.morpheme.replace('·', '')
             
             # special case: if we are in the short AP
             
@@ -111,9 +98,9 @@ class Adjective:
                if '\u030d' not in adj_form:
                   new_adj_form = new_adj_form.replace('·', '\u030d', 1) 
             if self._adj_form_is_possible(new_adj_form):
-               adj_forms.append(new_adj_form)
+               ready_forms.append(new_adj_form)
             
-         yield nice_name(label), [self._expose(adjform) for adjform in adj_forms]
+         yield nice_name(label), [self._expose(w_form) for w_form in ready_forms]
 
    def multiforms(self, *, variant: Optional[int] = None) -> Iterator[LabeledMultiform]:
       """decline"""
