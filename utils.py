@@ -131,8 +131,10 @@ def prettify(text: str, yat:str='ekav') -> str:
                 ('([чџњљћђшжјṕ])œ', '\\1е'), ('œ', 'о'),
                 ('ṕ', 'р')]
    yat_replaces = { 'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
-                    'jekav': [('лѣ', 'ље'), ('нѣ', 'ње'),
-                              ('[ѣꙓ]([ољјњ])', 'и\\1'), ('ꙓ̄', 'йје̄'),
+                    'jekav': [('ѣ(\u030d?о)', 'и\\1'),
+                              ('лѣ', 'ље'), ('нѣ', 'ње'),
+                              ('ѣ(\u030d?[љјњ])', 'и\\1'),
+                              ('ꙓ(\u030d?[ој])', "и\\1"), ('ꙓ̄', 'йје̄'),
                               ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'), ('[ꙓѣ]', 'је')] }
    yat_replaces['ijekav'] = yat_replaces['jekav']
 
@@ -269,7 +271,7 @@ def ungarde(form: str) -> str:
              .replace("\u0300\u0304", "\u0301") #long rising
              .replace("\u0304\u030f", "\u0311")) #long falling
 
-def expose(form: str) -> str:
+def expose(form: str, yat:str='ekav') -> str:
    "all transformations from internal to external representation"
-   return ungarde(prettify(purify(zeroify(deyerify(form)))))
+   return ungarde(prettify(purify(zeroify(deyerify(form))), yat))
 

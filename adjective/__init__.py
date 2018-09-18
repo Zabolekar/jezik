@@ -7,16 +7,16 @@ from ..paradigm_helpers import GramInfo, nice_name, oa
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
 class Adjective(PartOfSpeech):
-   def __init__(self, key: str, value: Dict[str, Any]) -> None:
-      super().__init__(key, value)
+   def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
+      super().__init__(key, value, yat)
       # Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.info.AP]))
 
       self.trunk = self._trunk() #both but not separable
 
    # different
-   def _expose(self, form: str) -> str:
-      return expose(form)
+   def _expose(self, form: str, yat:str="ekav") -> str:
+      return expose(form, yat)
 
    # different for Verb and Adjective
    def _trunk(self) -> List[str]:
@@ -50,7 +50,7 @@ class Adjective(PartOfSpeech):
       return re.search('[њљћђшжчџјṕ]œ.ме$', adj_form) is None
 
    # Adjective-only. Verb should have its own one 
-   def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool) -> Iterator[LabeledMultiform]:
+   def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """
       Current subparadigm: short or long AP (they behave differently)
       i: index of the variation (by variation we mean things like зу̑бнӣ зу́бнӣ)
@@ -100,9 +100,9 @@ class Adjective(PartOfSpeech):
             if self._adj_form_is_possible(new_adj_form):
                ready_forms.append(new_adj_form)
             
-         yield nice_name(label), [self._expose(w_form) for w_form in ready_forms]
+         yield nice_name(label), [self._expose(w_form, yat) for w_form in ready_forms]
 
-   def multiforms(self, *, variant: Optional[int] = None) -> Iterator[LabeledMultiform]:
+   def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """decline"""
       endings = self.info.other[0]
       MPs: List[AdjParadigm]
@@ -124,4 +124,4 @@ class Adjective(PartOfSpeech):
             if self.short_AP[i][-1] != self.long_AP[i][-1]:
                length_inconstancy = True
          for paradigm in MPs:
-            yield from self._paradigm_to_forms(paradigm, i, length_inconstancy)
+            yield from self._paradigm_to_forms(paradigm, i, length_inconstancy, yat)

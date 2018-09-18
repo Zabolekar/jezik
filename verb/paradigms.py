@@ -57,7 +57,7 @@ class Stems(NamedTuple):
 
 i_theme_past = AccentedTuple('и·', 'p.p:r.r:s0')
 a_theme_past = AccentedTuple('а·~', ' k:l.m.n.p:t.x.y0z0')
-ie_theme_past = AccentedTuple('е·', 'k.q:s.')
+ie_theme_past = AccentedTuple('ѣ·', 'k.q:s.')
 #zero_theme_past = AccentedTuple('', '')
 #nu_theme_past = AccentedTuple('ну', '') # TODO: finish the book first!
 ova_theme_past = AccentedTuple('ова·', 'm.')

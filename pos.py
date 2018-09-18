@@ -3,7 +3,7 @@ from .paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa
 from .utils import swap_length
 
 class PartOfSpeech():
-   def __init__(self, key: str, value: Dict[str, Any]) -> None:
+   def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
       self.key = key 
       self.value = value 
       i, t = self.value['i'].split(';'), self.value['t'] 

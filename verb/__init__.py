@@ -13,16 +13,16 @@ infinitive_dict: Dict[str, str] = {
 }
 
 class Verb(PartOfSpeech):
-   def __init__(self, key: str, value: Dict[str, Any]) -> None:
-      super().__init__(key, value)
+   def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
+      super().__init__(key, value, yat)
       #Verb-only
       self.is_reflexive = 'Refl' in self.info.other
 
       self.trunk = self._trunk() #both but not separable
 
    # Verb-specific
-   def _expose(self, form: str) -> str:
-      form = expose(form)
+   def _expose(self, form: str, yat:str="ekav") -> str:
+      form = expose(form, yat)
       if self.is_reflexive:
          form += ' се'
       return form
@@ -55,7 +55,7 @@ class Verb(PartOfSpeech):
       else:
          return True
 
-   def _paradigm_to_forms(self, paradigm, i, length_inconstancy):
+   def _paradigm_to_forms(self, paradigm, i, length_inconstancy, yat:str="ekav"):
          for label, endings_ in MP_to_verb_stems[self.info.MP[i]].labeled_endings:
             if self._verb_form_is_possible(label, self.info.other):
                ready_forms: List[str] = []               
@@ -70,17 +70,17 @@ class Verb(PartOfSpeech):
                         verb_form = verb_form.replace('·', '\u030d', 1) # to straight
                            
                   ready_forms.append(verb_form)
-               yield nice_name(label), [self._expose(w_form) for w_form in ready_forms]
+               yield nice_name(label), [self._expose(w_form, yat) for w_form in ready_forms]
 
 
-   def multiforms(self, *, variant: Optional[int] = None) -> Iterator[LabeledMultiform]:
+   def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """conjugate"""
       for i, AP in enumerate(self.info.AP):
          if self.info.MP[i] in infinitive_dict:         
             if variant is not None and variant != i:
                continue
 
-            yield from self._paradigm_to_forms(self.info.MP[i], i, False)
+            yield from self._paradigm_to_forms(self.info.MP[i], i, False, yat)
   
          else:
             raise NotImplementedError(f'Type {self.info.MP[i]} ({self.key}) does not exist or is not ready yet')
