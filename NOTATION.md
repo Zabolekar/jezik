@@ -6,7 +6,8 @@
 
 * **й** = auxiliary jekavian symbol for correct accenting of **ије**; subsequently becomes **и** in ijekavian with influence on accent
 
-* **ꙓ** = **ије** in non-ekavian variants when long; **је** or **е** when short; becomes **и** (long or short) before **о**, **ј**, **љ**, **њ**
+* **ꙓ** = **ије** in non-ekavian variants when long; **је** or **е** when short; becomes **и** (long or short) before **о**, **ј**
+!! apparently remains **ије** when long before **љ**, **њ**
 
 * **ꙓ** = **е** (long or short) in ekavian; **NB**: **ије** is considered two syllables in ijekavian and one syllable in jekavian, that's why it is written **йје** (with a special symbol) in jekavian
 
