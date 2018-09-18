@@ -6660,3 +6660,136 @@
  t: A|all
  i: 1^,2_|a:,a:|
  c: који су ваљали, изваљали
+
+имућън:
+ t: A|all
+ i: 1¨,2_|a.,a.|;2´|b:,b:|
+
+лагушън:
+ t: A|all
+ i: 1¨,2_|a.,a.|;2´|b:,b:|
+
+мајушън:
+ t: A|all
+ i: 1¨,2_|a.,a.|;2´|b:,b:|
+
+могућън:
+ t: A|all
+ i: 1¨,2_|a.,a.|;2´|b:,b:|
+
+танушън:
+ t: A|all
+ i: 1¨,2_|a.,a.|;2´|b:,b:|
+
+округъʌ:
+ t: A|all
+ i: 2´|b:,b:|;1`,2_|a:,a:|
+
+подмукъʌ:
+ t: A|all
+ i: 2´|b:,b:|;1`,2_|a:,a:|
+
+волѣти:
+ t: V|Tr|Ipf
+ i: 1`|k.|eta
+
+изволѣти:
+ t: V|Tr|Pf
+ i: 2`|k.|eta
+
+приволѣти:
+ t: V|Tr|Pf
+ i: 2`|k.|eta;2`|s.|eta
+
+заволѣти:
+ t: V|Tr|Pf
+ i: 2`|k.|eta
+
+баздѣти:
+ t: V|Itr|Ipf
+ i: 1`|s.|eta
+
+забаздѣти:
+ t: V|Itr|Pf
+ i: 2`|s.|eta
+
+убаздѣти се:
+ t: V|Refl|Pf
+ i: 2`|s.|eta
+
+бѣснѣти:
+ t: V|Itr|Ipf
+ i: 1`|s.|eta
+
+побѣснѣти:
+ t: V|Itr|Pf
+ i: 2`|s.|eta
+
+болѣти:
+ t: V|Itr|Ipf
+ i: 1`|s.|eta
+
+доболѣти:
+ t: V|Itr|Pf
+ i: 2`|s.|eta
+
+заболѣти:
+ t: V|Itr|Pf
+ i: 2`|s.|eta
+
+изболѣти:
+ t: V|Itr|Pf
+ i: 2`|s.|eta
+
+оболѣти:
+ t: V|Itr|Pf
+ i: 2`|s.|eta
+
+преболѣти:
+ t: V|Itr|Pf
+ i: 2`|s.|eta
+
+уболѣти:
+ t: V|Tr|Pf
+ i: 2`|s.|eta
+
+поболѣти се:
+ t: V|Refl|Pf
+ i: 2`|s.|eta
+
+разболѣти се:
+ t: V|Refl|Pf
+ i: 2`|s.|eta
+
+буктѣти:
+ t: V|Itr|Ipf
+ i: 1`|s.|eta
+
+бѣлѣжити:
+ t: V|Tr|Ipf
+ i: 1`|o.|alpha
+
+забѣлѣжити:
+ t: V|Tr|Pf
+ i: 2`|o.|alpha
+ 
+бꙓлѣти:
+ t: V|Itr|Ipf
+ i: 1´|q:|eta
+
+забꙓлѣти:
+ t: V|Itr|Pf
+ i: 2´|q:|eta
+
+избꙓлѣти:
+ t: V|Itr|Pf
+ i: 2´|q:|eta
+
+побꙓлѣти:
+ t: V|Itr|Pf
+ i: 2´|q:|eta
+
+обꙓлѣти:
+ t: V|Itr|Pf
+ i: 2´|q:|eta
+ 
