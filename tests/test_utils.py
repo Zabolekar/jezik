@@ -1,4 +1,4 @@
-from ..utils import ungarde, garde, deyerify, insert
+from ..utils import ungarde, garde, deyerify, insert, prettify
 
 def test_ungarde():
    assert [ungarde(i) for i in [
@@ -61,3 +61,11 @@ def test_insert():
    "аустроу\u030fгарск!и\u0304",
    "аустроу\u030fгарски!\u0304"
    ]
+
+def test_prettify():
+   assert [prettify(word, "jekav") for word in [
+       "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
+   "цйје̄ље\u030dти", "биље\u030dжӣм", "ви\u030dдио"]
+   assert [prettify(word, "ekav") for word in [
+       "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
+   "це̄ле\u030dти", "беле\u030dжӣм", "ви\u030dдео"]
