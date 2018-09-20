@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 from .paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa
-from .utils import swap_length
+from .utils import swap_length, last_vowel_index, insert
 
 class PartOfSpeech():
    def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
@@ -25,12 +25,22 @@ class PartOfSpeech():
       # the word hereby being accented;
       # and if it shouldn't, we just do nothing and leave it unaccented;
       # after that, we append the morpheme
+      morpheme = ending_part.morpheme
+      if morpheme.startswith('>'):
+         word_form = word_form.replace('\u0304', '')
+         morpheme = morpheme.replace('>', '')
+      if morpheme.startswith('<'):
+         lvi = last_vowel_index(word_form)
+         if not '\u0304' in word_form[lvi:] and lvi is not None:
+            word_form = insert(word_form, {lvi+1: '\u0304'})
+            word_form = word_form.replace('\u0304·', '·\u0304')
+         morpheme = morpheme.replace('<', '')
       if self.info.AP[i] in ending_part.accent:
          if self.info.AP[i] in oa:
             word_form = word_form.replace('\u030d', '') # straight
-         morpheme = ending_part.morpheme.replace('·', '\u030d') # to straight
-      else:
-         morpheme = ending_part.morpheme
+         #print('do: ', ending_part.morpheme)
+         morpheme = morpheme.replace('·', '\u030d') # to straight
+         #print('posle: ', morpheme)
       return word_form + morpheme
 
    def _reduce_doublets(self, endings_: List[List[AccentedTuple]], AP: str) -> List[List[AccentedTuple]]:
