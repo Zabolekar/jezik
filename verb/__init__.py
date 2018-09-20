@@ -65,7 +65,7 @@ class Verb(PartOfSpeech):
                   verb_form = self.trunk[i]
                   for w in variation:
                      verb_form = self._append_morpheme(i, verb_form, w)
-                  if self.info.AP not in oa:
+                  if self.info.AP[i] not in oa: # i or not i?
                      if '\u030d' not in verb_form: # straight
                         verb_form = verb_form.replace('·', '\u030d', 1) # to straight
                            

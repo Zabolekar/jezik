@@ -64,15 +64,12 @@ class Adjective(PartOfSpeech):
 
          for variation in ending: # e.g. -om, -ome, -omu
             new_adj_form = adj_form
-            
-            new_adj_form = new_adj_form
 
             if current_AP in variation.accent: # if the ending should be accented
                new_adj_form = new_adj_form.replace('\u030d', '') # delete all already put accents from the stem
                if current_AP not in oa: # and, further, if the stem has no firmly accented place,
                    # then we delete all the accentable places from the stem.
                    # if we do not do this, we get wrong (double) accents in result!
-                   # TODO: when extending this to verbs, do not forget the 'o' paradigm
                   new_adj_form = new_adj_form.replace('·', '')
                # -- and finally we put the accent on the ending:
                current_morpheme = variation.morpheme.replace('·', '\u030d')
@@ -118,8 +115,7 @@ class Adjective(PartOfSpeech):
          if variant is not None and variant != i:
             continue
          length_inconstancy = False
-         print(self.short_AP)
-         print(self.long_AP)
+         
          if endings == "all":
             if self.short_AP[i][-1] != self.long_AP[i][-1]:
                length_inconstancy = True
