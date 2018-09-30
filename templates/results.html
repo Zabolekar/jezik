@@ -2,9 +2,6 @@
 {% block body %}
 <div id="tables-or-not-found">
 {% for table in tables %}
-   {% macro forms(query) %}
-      <td>{{ table[query].multiform|join(", ") }}</td>
-   {% endmacro %}
    <table>
       <caption>
          {{ table.caption }}
