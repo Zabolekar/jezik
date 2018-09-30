@@ -213,13 +213,13 @@ iva_past = Past(
 #("e", Present),   — todo later
 #("ne", Present) — todo after finishing the book
 
-i_theme_prs = AccentedTuple('и·\u0304', 'r.r:s0')
+i_theme_prs = AccentedTuple('и·\u0304', 'r.r:s0s.')
 je_theme_prs = AccentedTuple('\u0237е·\u0304', 'z0')
 a_theme_prs = AccentedTuple('а·\u0304', 'm.n.y0')
 uje_theme_prs = AccentedTuple('у·је\u0304', 'k’m.')
 ie_theme_prs = AccentedTuple('ꙓ·\u0304', 's.')
 
-i_theme_imv = AccentedTuple('ӥ·', 'p.p:r.r:s0')
+i_theme_imv = AccentedTuple('ӥ·', 'p.p:r.r:s0s.')
 je_theme_imv = AccentedTuple('\u0237ӥ·', 'l.m.p:t.z0')
 a_theme_imv = AccentedTuple('а·\u0304ј', 'm.n.y0')
 uje_theme_imv = AccentedTuple('у·\u0304ј', 'k’m.')
@@ -234,11 +234,11 @@ i_present = Present(
    [[i_theme_prs, ending_m]],
    [[i_theme_prs, ending_sh]],
    [[i_theme_prs, ending_null]],
-   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('мо·', 's0')],
+   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('мо·', 's0s.')],
    [i_theme_prs, ending_mo]],
-   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('те·', 's0')],
+   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('те·', 's0s.')],
    [i_theme_prs, ending_te]],
-   [[AccentedTuple('е·\u0304', 'r.r:s0'), ending_null]],
+   [[AccentedTuple('е·\u0304', 'r.r:s0s.  '), ending_null]],
    [[i_theme_imv, ending_null]],
    [[i_theme_imv, ending_mo]],
    [[i_theme_imv, ending_te]]
