@@ -35,7 +35,7 @@ def lazy_lookup(key: str, yat:str="ekav") -> Iterator[Table]:
          # TODO: simplify duplicate code here and a few lines below
          n_variants = len(verb.info.accents)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i})"
+            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table("verb", full_caption, verb.multiforms(variant=i, yat=yat))
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
@@ -43,13 +43,13 @@ def lazy_lookup(key: str, yat:str="ekav") -> Iterator[Table]:
          adjective = Adjective(key, value, yat)
          n_variants = len(adjective.info.accents)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i})"
+            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table("adjective", full_caption, adjective.multiforms(variant=i, yat=yat))
       elif POS is Noun:
          noun = Noun(key, value, yat)
          n_variants = len(noun.info.accents)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i})"
+            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table("noun", full_caption, noun.multiforms(variant=i, yat=yat))
       else:
          yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO
