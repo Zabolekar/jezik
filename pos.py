@@ -38,6 +38,8 @@ class PartOfSpeech():
       if self.info.AP[i] in ending_part.accent:
          if self.info.AP[i] in oa:
             word_form = word_form.replace('\u030d', '') # straight
+         if 'b' in self.info.AP[i] and '\u030d' in word_form:
+            morpheme = morpheme.replace('·', '')
          #print('do: ', ending_part.morpheme)
          morpheme = morpheme.replace('·', '\u030d') # to straight
          #print('posle: ', morpheme)

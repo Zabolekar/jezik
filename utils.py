@@ -35,7 +35,10 @@ palatalization_modes: Dict[str, Dict[str, str]] = {
          'шȷ': 'ш', 'жȷ': 'ж', 'чȷ': 'ч', 'џȷ': 'џ',
          'тȷ': 'ћ', 'дȷ': 'ђ', 'сȷ': 'ш', 'зȷ': 'ж',
          'лȷ': 'љ', 'рȷ': 'р', 'нȷ': 'њ', 'јȷ': 'ј',
-         'љȷ': 'љ', 'њȷ': 'њ'}
+         'љȷ': 'љ', 'њȷ': 'њ',
+         'кʹ': 'ц', 'гʹ': 'з', 'хʹ': 'с',
+         'кʺе': 'че', 'гʺ': 'ж', 'хʺ': 'ш',
+         'ʹ': '', 'ʺ': '', 'ȷ': ''}
 }
 
 all_vowels = "АаЕеИиОоУуӤӥŒœꙒꙓѢѣAaEeIiOoUu\u0325"
@@ -111,15 +114,15 @@ def deyerify(form: str) -> str:
       for repl in repl_dict:
          form = form.replace(repl, repl_dict[repl])
       form = form.replace('ъ', '')
-   match = re.search('[бвгдђжзјклʌљмнњпрṕстћфхцчџш]̍', form)
-   if match:
+   match = re.search('[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]\u030d', form)
+   if match: # if 
       wrong_acc_index = match.span()[0]
-      form = form.replace('̍', '')
-      lvi = last_vowel_index(form[:wrong_acc_index])
+      form = form.replace('\u030d', '')
+      lvi = last_vowel_index(form[:wrong_acc_index+2])
       if lvi is None:
-         raise ValueError(f"{form} does not contain any vowels")
+         raise ValueError(f"_{form[:wrong_acc_index+2]}_ does not contain any vowels")
       else:
-         form = insert(form, {lvi+1: '̍'})
+         form = insert(form, {lvi+1: '\u030d'})
    return form
 
 def prettify(text: str, yat:str='ekav') -> str:

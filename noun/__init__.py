@@ -24,12 +24,14 @@ class Noun(PartOfSpeech):
       for i, AP in enumerate(self.info.AP):
          #print("AP: ", AP)
          accented_noun = garde(self.info.accents[i].accentize(self.key))
-
-         if 'm' in self.info.other[i] and not 'o' in self.info.other[i]:
-            trunk_ = self.key
+         #print(self.info.other)
+         if 'm' in self.info.other and not 'o' in self.info.other:
+            trunk_ = accented_noun.replace('\u030d', '')
+            # self.key is useless here; accented_noun has not only stress place,
+            # it has also all the lengths in the stem which surely are of importance
             accented_trunk_ = accented_noun
          else:
-            trunk_ = self.key[:-1]
+            trunk_ = accented_noun.replace('\u030d', '')[:-1]
             accented_trunk_ = accented_noun[:-1]
 
          if 'c' in AP:
@@ -49,30 +51,41 @@ class Noun(PartOfSpeech):
             if lvi is None:
                trunk = trunk_
             else:
-               trunk = insert(trunk_, {lvi: '·'})
+               trunk = insert(trunk_, {lvi+1: '·'})
          elif 'a' in AP:
             trunk = accented_trunk_
          else:
             raise NotImplementedError
          #print(trunk)
+         trunk = trunk.replace('·\u0304', '\u0304·')
+         trunk = trunk.replace('\u030d\u0304', '\u0304\u030d')
          result.append(trunk)     
-      
+      print('trunk: ', result)
       return result
 
-   def _paradigm_to_forms(self, paradigm, i, length_inconstancy, yat:str="ekav"):
+   def _noun_form_is_possible(self, noun_form: str, variation, paradigm):
+      return not(first_vowel_index(noun_form) == last_vowel_index(noun_form)
+                 and 'c' in paradigm
+                 and variation == [AccentedTuple('<а\u0304', '')])
+      
+
+   def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
       for label, ending in c_m(self.suff[i], self.anim[i]).labeled_endings:
          ready_forms: List[str] = []
          for variation in ending:
             noun_form = self.trunk[i]
-            for w in variation:
-               noun_form = self._append_morpheme(i, noun_form, w)
-            if self.info.AP[i] not in oa:
-               if '\u030d' not in noun_form: # straight
-                  noun_form = noun_form.replace('·', '\u030d', 1) # to straight
-            ready_forms.append(noun_form)
+            if self._noun_form_is_possible(noun_form, variation, self.info.AP[i]):
+               for w in variation:
+                  noun_form = self._append_morpheme(i, noun_form, w)
+               if self.info.AP[i] not in oa: 
+                  if '\u030d' not in noun_form: # straight
+                     noun_form = noun_form.replace('·', '\u030d', 1) # to straight
+               ready_forms.append(noun_form)
          yield nice_name(label), [self._expose(w_form, yat) for w_form in ready_forms]
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """conjugate"""
+      print('self.info.AP: ', self.info.AP)
       for i, AP in enumerate(self.info.AP):
-         yield from self._paradigm_to_forms(self.info.other[i], i, False, yat)
+         print ('i & AP: ', i, AP)
+         yield from self._paradigm_to_forms(i, False, yat)

@@ -55,7 +55,7 @@ class Verb(PartOfSpeech):
       else:
          return True
 
-   def _paradigm_to_forms(self, paradigm, i, length_inconstancy, yat:str="ekav"):
+   def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
          for label, endings_ in MP_to_verb_stems[self.info.MP[i]].labeled_endings:
             if self._verb_form_is_possible(label, self.info.other):
                ready_forms: List[str] = []               
@@ -80,7 +80,7 @@ class Verb(PartOfSpeech):
             if variant is not None and variant != i:
                continue
 
-            yield from self._paradigm_to_forms(self.info.MP[i], i, False, yat)
+            yield from self._paradigm_to_forms(i, False, yat)
   
          else:
             raise NotImplementedError(f'Type {self.info.MP[i]} ({self.key}) does not exist or is not ready yet')

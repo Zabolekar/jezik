@@ -2852,16 +2852,15 @@
  
 какотати:
  t: V|Tr|Ipf
- i: 1´|a:|delta
- c: и како̀тати
+ i: 1´|a:|delta;2`|t.|delta
  
 одкакотати:
  t: V|Tr|Pf
- i: 2´|a:|delta
+ i: 2´|a:|delta;3`|t.|delta
  
 разкакотати:
  t: V|Refl|Pf
- i: 2´|a:|delta
+ i: 2´|a:|delta;3`|t.|delta
  
 манисати:
  t: V|Tr|Ipf
@@ -6800,3 +6799,19 @@
 случај:
  t: N|m
  i: 1¨,2_|c:|±,in
+
+враг:
+ t: N|m
+ i: 1^|c:|±,an
+
+друг:
+ t: N|m
+ i: 1^|c:|±,an
+
+ћук:
+ t: N|m
+ i: 1^|c:|±,an
+
+јеж:
+ t: N|m
+ i: 1^|c:|+,an;1^|b:|+,an
