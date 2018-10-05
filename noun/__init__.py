@@ -10,7 +10,6 @@ class Noun(PartOfSpeech):
       super().__init__(key, value, yat)
 
       self.trunk = self._trunk()
-      #print(self.info.MP)
       x = self.info.MP[0].split(',')
       self.anim = [x.split(',')[1] for x in self.info.MP]
       self.suff = [x.split(',')[0] for x in self.info.MP]
@@ -22,9 +21,9 @@ class Noun(PartOfSpeech):
       result = []
 
       for i, AP in enumerate(self.info.AP):
-         #print("AP: ", AP)
+
          accented_noun = garde(self.info.accents[i].accentize(self.key))
-         #print(self.info.other)
+
          if 'm' in self.info.other and not 'o' in self.info.other:
             trunk_ = accented_noun.replace('\u030d', '')
             # self.key is useless here; accented_noun has not only stress place,
@@ -37,15 +36,12 @@ class Noun(PartOfSpeech):
          if 'c' in AP:
             if not self.key.endswith('а'):
                trunk = accented_trunk_.replace('\u030d', '·')
-               #print(trunk_, '->', trunk)
             else:
                fvi = first_vowel_index(trunk_)
                if fvi is None:
                   trunk = trunk_
-                  #print('no vowel found: ', trunk)
                else:
                   trunk = insert(trunk_, {fvi: '·'})
-                  #print(trunk_, ' : ', trunk)
          elif 'b' in AP:
             lvi = last_vowel_index(trunk_)
             if lvi is None:
@@ -56,22 +52,19 @@ class Noun(PartOfSpeech):
             trunk = accented_trunk_
          else:
             raise NotImplementedError
-         #print(trunk)
          trunk = trunk.replace('·\u0304', '\u0304·')
          trunk = trunk.replace('\u030d\u0304', '\u0304\u030d')
-         result.append(trunk)     
-      print('trunk: ', result)
+         result.append(trunk)
       return result
 
    def _noun_form_is_possible(self, noun_form: str, variation, paradigm):
       return not(first_vowel_index(noun_form) == last_vowel_index(noun_form)
                  and 'c' in paradigm
                  and variation == [AccentedTuple('<а\u0304', '')])
-      
 
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
       for label, ending in c_m(self.suff[i], self.anim[i]).labeled_endings:
-         ready_forms: List[str] = []
+         ready_forms: List[str] = [] # TODO: better name
          for variation in ending:
             noun_form = self.trunk[i]
             if self._noun_form_is_possible(noun_form, variation, self.info.AP[i]):
@@ -84,8 +77,11 @@ class Noun(PartOfSpeech):
          yield nice_name(label), [self._expose(w_form, yat) for w_form in ready_forms]
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
-      """conjugate"""
-      print('self.info.AP: ', self.info.AP)
+      """decline"""
       for i, AP in enumerate(self.info.AP):
-         print ('i & AP: ', i, AP)
+         if variant is not None and variant != i:
+            # TODO: we do not fully understand this part
+            # also, we have a similar construction in adjectives and verbs
+            # we feel like it could be simplified
+            continue
          yield from self._paradigm_to_forms(i, False, yat)

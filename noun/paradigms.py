@@ -62,7 +62,5 @@ def c_m(suff, anim):
    [[AccentedTuple('ʺе·', 'b:')]]]
 
    m_plural_ = m_plural(suff)
-
    declension = m_singular_ + m_plural_
-   print('len_of_Declension: ', len(declension))
    return NounStem(*declension)
