@@ -1,10 +1,9 @@
-from typing import Any, Dict, Tuple
+from typing import Dict
 from os import path
 import yaml
-from .multidict import Multidict
+from .multidict import FancyLookup
 
-Entry = Tuple[str, Dict[str, Any]]
-data = Multidict[str, Entry]()
+data = FancyLookup()
 
 dir_path = path.dirname(path.realpath(__file__))
 file_path = path.join(dir_path, "data.yml")
@@ -28,5 +27,6 @@ with open(file_path, encoding="utf-8") as f:
          caption = f"{disambiguator} ({comment})"
       else:
          caption = disambiguator + comment
-      pair = caption, raw_data[full_key]
-      data[key] = pair
+      entry = key, caption, raw_data[full_key]
+      # yes, the value contains the key
+      data[key] = entry

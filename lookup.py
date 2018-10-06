@@ -22,14 +22,14 @@ def part_of_speech(value: Dict[str, Any]) -> PartOfSpeech:
    return type(None) # TODO other parts of speech
 
 def lazy_lookup(key: str, yat:str="ekav") -> Iterator[Table]:
-   with_se = key[-3:] == " се"
+   with_se = key[-3:] == " се" # TODO Latin
    if with_se:
       key = key[:-3]
 
-   for caption, value in data[key]:
+   for inner_key, caption, value in data[key]:
       POS = part_of_speech(value) # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
-         verb = Verb(key, value, yat)
+         verb = Verb(inner_key, value, yat)
          if with_se and not verb.is_reflexive:
             continue
          # TODO: simplify duplicate code here and a few lines below
@@ -40,13 +40,13 @@ def lazy_lookup(key: str, yat:str="ekav") -> Iterator[Table]:
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
       elif POS is Adjective:
-         adjective = Adjective(key, value, yat)
+         adjective = Adjective(inner_key, value, yat)
          n_variants = len(adjective.info.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table("adjective", full_caption, adjective.multiforms(variant=i, yat=yat))
       elif POS is Noun:
-         noun = Noun(key, value, yat)
+         noun = Noun(inner_key, value, yat)
          n_variants = len(noun.info.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
