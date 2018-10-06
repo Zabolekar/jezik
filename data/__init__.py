@@ -27,6 +27,6 @@ with open(file_path, encoding="utf-8") as f:
          caption = f"{disambiguator} ({comment})"
       else:
          caption = disambiguator + comment
-      entry = key, caption, raw_data[full_key]
+      pair = caption, raw_data[full_key]
       # yes, the value contains the key
-      data[key] = entry
+      data[key] = pair

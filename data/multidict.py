@@ -35,7 +35,7 @@ class Multidict(Generic[KT, VT]):
 # more due to e.g. yat reflexes. Outer representations of different words can
 # coincide (e.g. свет can be an outer representation of both свет and свꙓт).
 
-Entry = Tuple[str, str, Dict[str, Any]] # inner key, caption, info
+Entry = Tuple[str, Dict[str, Any]] # caption, info
 
 def inner_to_outer(s: str) -> Iterator[str]:
    """
@@ -57,12 +57,11 @@ class FancyLookup:
       self._inner_to_entries = Multidict[str, Entry]()
       self._outer_to_inner = Multidict[str, str]()
 
-   def __getitem__(self, outer_key: str) -> List[Entry]:
-      result = []
+   def __getitem__(self, outer_key: str) -> Iterator[Tuple[str, Entry]]:
       inner_keys = self._outer_to_inner[outer_key]
       for key in inner_keys:
-         result.extend(self._inner_to_entries[key])
-      return result
+         for entry in self._inner_to_entries[key]:
+            yield key, entry
 
    def __setitem__(self, inner_key: str, value: Entry) -> None:
       self._inner_to_entries[inner_key] = value

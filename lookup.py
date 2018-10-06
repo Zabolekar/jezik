@@ -26,7 +26,7 @@ def lazy_lookup(key: str, yat:str="ekav") -> Iterator[Table]:
    if with_se:
       key = key[:-3]
 
-   for inner_key, caption, value in data[key]:
+   for inner_key, (caption, value) in data[key]:
       POS = part_of_speech(value) # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
          verb = Verb(inner_key, value, yat)
