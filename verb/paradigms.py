@@ -219,7 +219,7 @@ a_theme_prs = AccentedTuple('а·\u0304', 'm.n.y0')
 uje_theme_prs = AccentedTuple('у·је\u0304', 'k’m.')
 ie_theme_prs = AccentedTuple('ꙓ·\u0304', 's.')
 
-i_theme_imv = AccentedTuple('ӥ·', 'p.p:r.r:s0s.')
+i_theme_imv = AccentedTuple('ӥ·', 'k.p.p:q:r.r:s0s.')
 je_theme_imv = AccentedTuple('\u0237ӥ·', 'l.m.p:t.z0')
 a_theme_imv = AccentedTuple('а·\u0304ј', 'm.n.y0')
 uje_theme_imv = AccentedTuple('у·\u0304ј', 'k’m.')
