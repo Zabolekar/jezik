@@ -37,9 +37,12 @@ class PartOfSpeech():
             fvi = first_vowel_index(word_form)
             if lvi != fvi and '\u0304\u030d' in word_form[lvi:] \
                   and not '\u0304' in word_form[:lvi] :
-               lvi2 = last_vowel_index(word_form[:lvi])               
-               word_form = word_form.replace('\u030d', '')
-               word_form = insert(word_form, {lvi2+1: '\u030d'})
+               pvi = last_vowel_index(word_form[:lvi]) # penultimate vowel index
+               if pvi:     
+                  word_form = word_form.replace('\u030d', '')
+                  word_form = insert(word_form, {pvi+1: '\u030d'})
+               else:
+                  raise IndexError(f"{word_form} has not enough vowels for this operation")
          morpheme = morpheme.replace('<', '')
       if self.info.AP[i] in ending_part.accent:
          if self.info.AP[i] in oa:
