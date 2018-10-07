@@ -60,11 +60,12 @@ class Noun(PartOfSpeech):
    def _noun_form_is_possible(self, noun_form: str, variation, paradigm):
       return not(first_vowel_index(noun_form) == last_vowel_index(noun_form)
                  and 'c' in paradigm
-                 and variation == [AccentedTuple('<а\u0304', '')])
+                 and variation == [AccentedTuple('<а·\u0304', 'b.b:')])
 
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
-      for label, ending in c_m(self.suff[i], self.anim[i]).labeled_endings:
+      for label, endings_ in c_m(self.suff[i], self.anim[i]).labeled_endings:
          ready_forms: List[str] = [] # TODO: better name
+         ending = self._reduce_doublets(endings_, self.info.AP[i])
          for variation in ending:
             noun_form = self.trunk[i]
             if self._noun_form_is_possible(noun_form, variation, self.info.AP[i]):

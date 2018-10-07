@@ -24,22 +24,22 @@ class NounStem(NamedTuple):
       yield from zip(map(nice_name, self._fields),
                      super().__iter__())
 
-anim_dict = {'sg_acc': {'in': [AccentedTuple('ø·', 'b:')],
-                       'an': [AccentedTuple('а·', 'b:')]},
-            'sg_loc': {'an': [AccentedTuple('у·', 'b:')],
-                       'in': [AccentedTuple('у·', 'b:c:')]}
+anim_dict = {'sg_acc': {'in': [AccentedTuple('ø·', 'b.b:')],
+                       'an': [AccentedTuple('а·', 'b.b:')]},
+            'sg_loc': {'an': [AccentedTuple('у·', 'b.b:')],
+                       'in': [AccentedTuple('у·', 'b.b:c:')]}
             }
 
 def m_plural(suff='_'):
-   ov = AccentedTuple('>œ·в', 'b:')
+   ov = AccentedTuple('>œ·в', 'b.b:')
    plurals = [
-       [[AccentedTuple('ʹи·', 'b:')]],
-       [[AccentedTuple('е·', 'b:')]],
-       [[AccentedTuple('<а·\u0304', 'b:c:')], [AccentedTuple('<а·\u0304', 'b:')]],
-       [[AccentedTuple('ʹи·ма', 'b:c:')], [AccentedTuple('ʹи·ма', 'b:')]],
-       [[AccentedTuple('ʹи·ма', 'b:c:')], [AccentedTuple('ʹи·ма', 'b:')]],
-       [[AccentedTuple('ʹи·ма', 'b:c:')], [AccentedTuple('ʹи·ма', 'b:')]],
-       [[AccentedTuple('ʹи·', 'b:')]]
+       [[AccentedTuple('ʹи·', 'b.b:')]],
+       [[AccentedTuple('е·', 'b.b:')]],
+       [[AccentedTuple('<а·\u0304', 'b.b:c:')], [AccentedTuple('<а·\u0304', 'b.b:')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:')], [AccentedTuple('ʹи·ма', 'b.b:')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:')], [AccentedTuple('ʹи·ма', 'b.b:')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:')], [AccentedTuple('ʹи·ма', 'b.b:')]],
+       [[AccentedTuple('ʹи0·', 'b.b:c:')]]
              ]
    if suff == '+':
       return [[[ov] + a for a in plural] for plural in plurals]
@@ -53,13 +53,13 @@ def m_plural(suff='_'):
 
 
 def c_m(suff, anim):
-   m_singular_ = [[[AccentedTuple('ø', 'b:')]],
+   m_singular_ = [[[AccentedTuple('ø', 'b.b:')]],
    [anim_dict['sg_acc'][anim]],
-   [[AccentedTuple('а·', 'b:')]],
-   [[AccentedTuple('у·', 'b:')]],
-   [[AccentedTuple('œ·м', 'b:')]],
+   [[AccentedTuple('а·', 'b.b:')]],
+   [[AccentedTuple('у·', 'b.b:')]],
+   [[AccentedTuple('œ·м', 'b.b:')]],
    [anim_dict['sg_loc'][anim]],
-   [[AccentedTuple('ʺе·', 'b:')]]]
+   [[AccentedTuple('ʺе0·', 'b.b:c:')]]]
 
    m_plural_ = m_plural(suff)
    declension = m_singular_ + m_plural_
