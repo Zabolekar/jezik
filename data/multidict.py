@@ -1,5 +1,6 @@
 from typing import Any, Dict, Generic, List, Iterator, Tuple, TypeVar
 import random
+from ..utils import all_vowels, expose
 
 KT = TypeVar("KT")
 VT = TypeVar("VT")
@@ -42,14 +43,9 @@ def inner_to_outer(s: str) -> Iterator[str]:
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
    """
-   # TODO this is too simple to work as intended, consider using utils.py
    # TODO: Latin
-   tmp = s.replace("ъ", "а").replace("ʌ", "о")
-   if "ꙓ" in tmp:
-      yield tmp.replace("ꙓ", "е")
-      yield tmp.replace("ꙓ", "ије")
-   else:
-      yield tmp
+   tmp = s + 'ø' if not s[-1] in all_vowels else s
+   yield expose(tmp)
 
 class FancyLookup:
 
