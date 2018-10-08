@@ -1,4 +1,4 @@
-from typing import Any, Dict, Iterator, Type, Union
+from typing import Any, Dict, Iterator, Optional, Type, Union
 from .table import Table, Multitable
 from .adjective import Adjective
 from .noun import Noun
@@ -21,43 +21,44 @@ def part_of_speech(value: Dict[str, Any]) -> PartOfSpeech:
          return Noun
    return type(None) # TODO other parts of speech
 
-def lazy_lookup(key: str, yat:str="ekav", input_yat:str="ekav") -> Iterator[Table]:
+def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
+
    with_se = key[-3:] == " се" # TODO Latin
    if with_se:
-      newkey = (key[:-3], yat, input_yat)
-   else:
-      newkey = (key, yat, input_yat)
+      key = key[:-3]
 
-   for inner_key, (caption, value) in data[newkey]:
+   for inner_key, (caption, value) in data.__getitem__(key, input_yat): # TODO without __
       POS = part_of_speech(value) # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
-         verb = Verb(inner_key, value, yat)
+         verb = Verb(inner_key, value, output_yat)
          if with_se and not verb.is_reflexive:
             continue
          # TODO: simplify duplicate code here and a few lines below
          n_variants = len(verb.info.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
-            yield Table("verb", full_caption, verb.multiforms(variant=i, yat=yat))
+            yield Table("verb", full_caption, verb.multiforms(variant=i, yat=output_yat))
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
       elif POS is Adjective:
-         adjective = Adjective(inner_key, value, yat)
+         adjective = Adjective(inner_key, value, output_yat)
          n_variants = len(adjective.info.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
-            yield Table("adjective", full_caption, adjective.multiforms(variant=i, yat=yat))
+            yield Table("adjective", full_caption, adjective.multiforms(variant=i, yat=output_yat))
       elif POS is Noun:
-         noun = Noun(inner_key, value, yat)
+         noun = Noun(inner_key, value, output_yat)
          n_variants = len(noun.info.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
-            yield Table("noun", full_caption, noun.multiforms(variant=i, yat=yat))
+            yield Table("noun", full_caption, noun.multiforms(variant=i, yat=output_yat))
       else:
          yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO
 
-def lookup(raw_word: str, yat:str="ekav", input_yat:str="ekav") -> Multitable:
-   return Multitable(raw_word, lazy_lookup(raw_word, yat, input_yat))
+def lookup(outer_key: str, input_yat:str="ekav", output_yat:Optional[str]=None) -> Multitable:
+   if output_yat is None:
+      output_yat = input_yat
+   return Multitable(outer_key, lazy_lookup(outer_key, input_yat, output_yat))
 
 def random_lookup() -> Multitable:
-   return lookup(data.random_key())
+   return lookup(*data.random_key())

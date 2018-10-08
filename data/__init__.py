@@ -28,5 +28,4 @@ with open(file_path, encoding="utf-8") as f:
       else:
          caption = disambiguator + comment
       pair = caption, raw_data[full_key]
-      # yes, the value contains the key
       data[key] = pair

@@ -38,33 +38,34 @@ class Multidict(Generic[KT, VT]):
 
 Entry = Tuple[str, Dict[str, Any]] # caption, info
 
-def inner_to_outer(s: str, input_yat:str="ekav") -> str:
+def inner_to_outer(s: str) -> Iterator[Tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
    """
    # TODO: Latin
    tmp = s + 'ø' if not s[-1] in all_vowels else s
-   return expose(tmp, yat=input_yat)
+   for input_yat in ["ekav", "jekav", "ijekav"]:
+      yield expose(tmp, yat=input_yat), input_yat
 
 class FancyLookup:
 
    def __init__(self) -> None:
       self._inner_to_entries = Multidict[str, Entry]()
-      self._outer_to_inner = Multidict[str, str]()
+      self._outer_to_inner = Multidict[Tuple[str, str], str]()
+      # in this Tuple[str, str] the first str is the outer key and the second is the yat mode
 
-   def __getitem__(self, outer_key: Tuple[str, str, str]) -> Iterator[Tuple[str, Entry]]:
-      inner_keys = self._outer_to_inner[outer_key[0]]
+   def __getitem__(self, outer_key: str, input_yat: str) -> Iterator[Tuple[str, Entry]]:
+      inner_keys = self._outer_to_inner[(outer_key, input_yat)]
       for key in inner_keys:
          for entry in self._inner_to_entries[key]:
             yield key, entry
 
-   def __setitem__(self, inner_key: str, value: Entry, input_yat="ekav") -> None:
-      #print('inner_key: ', inner_key)
+   def __setitem__(self, inner_key: str, value: Entry) -> None:
       self._inner_to_entries[inner_key] = value
-      # for outer_key in inner_to_outer(inner_key):
-      outer_key = inner_to_outer(inner_key, input_yat)
-      self._outer_to_inner[outer_key[0]] = inner_key
+      
+      for outer_key, input_yat in inner_to_outer(inner_key):
+         self._outer_to_inner[(outer_key, input_yat)] = inner_key
 
-   def random_key(self) -> str:
+   def random_key(self) -> Tuple[str, str]:
       return random.choice(list(self._outer_to_inner._data.keys()))
