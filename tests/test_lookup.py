@@ -20,3 +20,9 @@ def test_lookup_magarciti_1():
 
 def test_lookup_magarciti_2():
    assert [a[1] for a in lookup("магарчити се")["pf f sg"][1]._data] == [["мага́рчила се"]]
+
+#def test_lookup_dub():
+    #assert [a[1] for a in lookup("дуб")["ins pl"]._data] == [["дубо̀вима", "ду̏бовима", "ду́бима", "ду̑бима"]]
+    #assert [a[1] for a in lookup("дуб")["gen pl"]._data] == [["дубо́ва̄", "ду̏бо̄ва̄", "ду́ба̄"]]
+
+    

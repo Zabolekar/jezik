@@ -21,12 +21,14 @@ def part_of_speech(value: Dict[str, Any]) -> PartOfSpeech:
          return Noun
    return type(None) # TODO other parts of speech
 
-def lazy_lookup(key: str, yat:str="ekav") -> Iterator[Table]:
+def lazy_lookup(key: str, yat:str="ekav", input_yat:str="ekav") -> Iterator[Table]:
    with_se = key[-3:] == " се" # TODO Latin
    if with_se:
-      key = key[:-3]
+      newkey = (key[:-3], yat, input_yat)
+   else:
+      newkey = (key, yat, input_yat)
 
-   for inner_key, (caption, value) in data[key]:
+   for inner_key, (caption, value) in data[newkey]:
       POS = part_of_speech(value) # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
          verb = Verb(inner_key, value, yat)
@@ -54,8 +56,8 @@ def lazy_lookup(key: str, yat:str="ekav") -> Iterator[Table]:
       else:
          yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO
 
-def lookup(raw_word: str, yat:str="ekav") -> Multitable:
-   return Multitable(raw_word, lazy_lookup(raw_word, yat))
+def lookup(raw_word: str, yat:str="ekav", input_yat:str="ekav") -> Multitable:
+   return Multitable(raw_word, lazy_lookup(raw_word, yat, input_yat))
 
 def random_lookup() -> Multitable:
    return lookup(data.random_key())
