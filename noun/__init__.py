@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Iterator, Optional
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index
-from ..paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa
+from ..paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa, accentize
 from ..table import LabeledMultiform
 from .paradigms import c_m
 
@@ -22,7 +22,7 @@ class Noun(PartOfSpeech):
 
       for i, AP in enumerate(self.info.AP):
 
-         accented_noun = garde(self.info.accents[i].accentize(self.key))
+         accented_noun = garde(accentize(self.key, self.info.accents[i].r, self.info.accents[i].v))
 
          if 'm' in self.info.other and not 'o' in self.info.other:
             trunk_ = accented_noun.replace('\u030d', '')

@@ -3,7 +3,7 @@ import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import GramInfo, nice_name, oa
+from ..paradigm_helpers import GramInfo, nice_name, oa, accentize
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
 class Adjective(PartOfSpeech):
@@ -23,7 +23,7 @@ class Adjective(PartOfSpeech):
       result = []
 
       for number, item in enumerate(self.info.AP):
-         accented_adj = garde(self.info.accents[number].accentize(self.key))
+         accented_adj = garde(accentize(self.key, self.info.accents[number].r, self.info.accents[number].v))
          if 'ov' in self.info.other:
             trunk = accented_adj # ok
          elif 'all' in self.info.other:

@@ -1,6 +1,7 @@
 from typing import Any, Dict, Generic, List, Iterator, Tuple, TypeVar
 import random
-from ..utils import all_vowels, expose
+from ..utils import all_vowels, deaccentize, expose, garde
+from ..paradigm_helpers import accentize, Accents, i_to_accents
 
 KT = TypeVar("KT")
 VT = TypeVar("VT")
@@ -38,15 +39,19 @@ class Multidict(Generic[KT, VT]):
 
 Entry = Tuple[str, Dict[str, Any]] # caption, info
 
-def inner_to_outer(s: str) -> Iterator[Tuple[str, str]]:
+def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
    """
    # TODO: Latin
+   accent_dict = i_to_accents(accent)
    tmp = s + 'ø' if not s[-1] in all_vowels else s
    for input_yat in ["ekav", "jekav", "ijekav"]:
-      yield expose(tmp, yat=input_yat), input_yat
+      accented_token = garde(accentize(tmp, accent_dict.r, accent_dict.v))
+      exposed_token = expose(accented_token, yat=input_yat)
+      deaccentized_token = deaccentize(exposed_token)
+      yield deaccentized_token, input_yat
 
 class FancyLookup:
 
@@ -63,8 +68,15 @@ class FancyLookup:
 
    def __setitem__(self, inner_key: str, value: Entry) -> None:
       self._inner_to_entries[inner_key] = value
-      
-      for outer_key, input_yat in inner_to_outer(inner_key):
+      if 'i' in value[1]:
+         if '|' in value[1]['i']:
+            indx = value[1]['i'].find('|')
+            first_accent = value[1]['i'][:indx]
+         else:
+            first_accent = ""
+      else:
+         first_accent = ""
+      for outer_key, input_yat in inner_to_outer(inner_key, first_accent):
          self._outer_to_inner[(outer_key, input_yat)] = inner_key
 
    def random_key(self) -> Tuple[str, str]:

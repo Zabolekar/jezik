@@ -10,28 +10,37 @@ _r = re.compile("([a-z]+|[A-Z]|\d)")
 def nice_name(name: str) -> str:
    return " ".join(_r.findall(name))
 
-class Accents:
 
+def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditional accentuation
+   real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304', '!': '!'}
+   if v:
+      if r: # now we put the magic ring
+         word = insert(word, r)
+      # after that we create a dict with letter numbers representing vowels
+      syllabic = 0
+      position_to_accent: Dict[int, str] = {}
+      for i, letter in enumerate(word):
+         if letter in all_vowels:
+            syllabic += 1
+            if syllabic in v:
+               position_to_accent[i+1] = real_accent[v[syllabic]]
+      return insert(word, position_to_accent) # then we insert accents into word!
+   else:
+      return word
+
+class Accents:
    def __init__(self, r: Dict[int, str], v: Dict[int, str]) -> None:
       self.r = r # syllabic r
       self.v = v # any other vowel
 
-   def accentize(self, word: str) -> str: # traditional accentuation
-      real_accent = {'`': '\u0300', '´': '\u0301', '¨': '\u030f', '^': '\u0311', '_': '\u0304', '!': '!'}
-      if self.v:
-         if self.r: # now we put the magic ring
-            word = insert(word, self.r)
-         # after that we create a dict with letter numbers representing vowels
-         syllabic = 0
-         position_to_accent: Dict[int, str] = {}
-         for i, letter in enumerate(word):
-            if letter in all_vowels:
-               syllabic += 1
-               if syllabic in self.v:
-                  position_to_accent[i+1] = real_accent[self.v[syllabic]]
-         return insert(word, position_to_accent) # then we insert accents into word!
-      else:
-         return word
+def i_to_accents(line_accents):
+   if '@' in line_accents:
+      Rs, Vs = line_accents.split('@')
+   else:
+      Rs, Vs = None, line_accents
+   Rs_dict = {int(i): '\u0325' for i in Rs[0:].split(',')} if Rs else {}
+   Vs_dict = {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
+   return Accents(Rs_dict, Vs_dict)
 
 class GramInfo:
    """
@@ -50,14 +59,7 @@ class GramInfo:
       for info in infos:
          if info:
             line_accents, AP, MP = info.split('|')
-            if '@' in info:
-               Rs, Vs = line_accents.split('@')
-            else:
-               Rs, Vs = None, line_accents
-            accents.append(Accents(
-                {int(i): '\u0325' for i in Rs[0:].split(',')} if Rs else {},
-                {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
-            ))
+            accents.append(i_to_accents(line_accents))
             self.AP.append(AP) 
             self.MP.append(MP)
          else:

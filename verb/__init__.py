@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Iterator, Optional
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa
+from ..paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa, accentize
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
 
@@ -32,7 +32,7 @@ class Verb(PartOfSpeech):
       result = []
       
       for i, AP in enumerate(self.info.AP):
-         accented_verb = garde(self.info.accents[i].accentize(self.key))
+         accented_verb = garde(accentize(self.key, self.info.accents[i].r, self.info.accents[i].v))
          N = len(infinitive_dict[self.info.MP[i]])
          if AP in oa:
             result.append(accented_verb[:-N])
