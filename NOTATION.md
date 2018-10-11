@@ -24,3 +24,5 @@
 * **ъ** = **а** or zero letter depending on the forthcoming ending
 
 * **ø** = marker of an ending which causes **ъ** to become **а**
+
+* **!** = marker of non-initial falling tone
