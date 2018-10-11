@@ -10,9 +10,19 @@ class Noun(PartOfSpeech):
       super().__init__(key, value, yat)
 
       self.trunk = self._trunk()
-      #x = self.info.MP[0].split(',')
-      self.anim = [x.split(',')[1] for x in self.info.MP]
-      self.suff = [x.split(',')[0] for x in self.info.MP]
+      self.anim: List[str] = []
+      self.suff: List[str] = []
+      self.vocative: List[str] = []
+      for x in self.info.MP:
+         y = x.split(',')
+         self.anim.append(y[1])
+         self.suff.append(y[0])
+         if 'u' in y:
+            self.vocative.append('u')
+         elif 'ue' in y:
+            self.vocative.append('ue')
+         else:
+            self.vocative.append('e')
 
    def _expose(self, form: str, yat:str="ekav") -> str:
       return expose(form, yat)
@@ -63,7 +73,7 @@ class Noun(PartOfSpeech):
                  and variation == [AccentedTuple('<а·\u0304', 'b.b:')])
 
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
-      for label, ending in c_m(self.suff[i], self.anim[i]).labeled_endings:
+      for label, ending in c_m(self.suff[i], self.anim[i], self.vocative[i]).labeled_endings:
          ready_forms: List[str] = [] # TODO: better name
          for variation in ending:
             noun_form = self.trunk[i]

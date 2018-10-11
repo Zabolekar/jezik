@@ -30,6 +30,10 @@ anim_dict = {'sg_acc': {'in': [AccentedTuple('ø·', 'b.b:')],
                        'in': [AccentedTuple('у·', 'b.b:c:d:')]}
             }
 
+vocative_dict = {'u': [AccentedTuple('у0·', 'b.b:c:d:')],
+          'ue': [AccentedTuple('у0·', 'b.b:c:d:'), AccentedTuple('ʺе0·', 'b.b:c:d:')],
+          'e': [AccentedTuple('ʺе0·', 'b.b:c:d:')]}
+
 def m_plural(suff='_'):
    ov = AccentedTuple('>œ·в', 'b.b:d:')
    plurals = [
@@ -52,14 +56,16 @@ def m_plural(suff='_'):
    
 
 
-def c_m(suff, anim):
-   m_singular_ = [[[AccentedTuple('ø', 'b.b:')]],
+def c_m(suff, anim, vocative):
+   m_singular_ = [
+         [[AccentedTuple('ø', 'b.b:')]],
    [anim_dict['sg_acc'][anim]],
    [[AccentedTuple('а·', 'b.b:')]],
    [[AccentedTuple('у·', 'b.b:')]],
    [[AccentedTuple('œ·м', 'b.b:')]],
    [anim_dict['sg_loc'][anim]],
-   [[AccentedTuple('ʺе0·', 'b.b:c:d:')]]]
+   [vocative_dict[vocative]],
+   ]
 
    m_plural_ = m_plural(suff)
    declension = m_singular_ + m_plural_
