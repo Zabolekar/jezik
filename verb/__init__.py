@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Iterator, Optional
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa, accentize
+from ..paradigm_helpers import OrderedSet, nice_name, oa, accentize
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
 
@@ -56,10 +56,9 @@ class Verb(PartOfSpeech):
          return True
 
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
-         for label, endings_ in MP_to_verb_stems[self.info.MP[i]].labeled_endings:
+         for label, ending in MP_to_verb_stems[self.info.MP[i]].labeled_endings:
             if self._verb_form_is_possible(label, self.info.other):
                ready_forms: List[str] = []               
-               ending = self._reduce_doublets(endings_, self.info.AP[i])
                   
                for variation in ending:
                   verb_form = self.trunk[i]
@@ -70,17 +69,15 @@ class Verb(PartOfSpeech):
                         verb_form = verb_form.replace('·', '\u030d', 1) # to straight
                            
                   ready_forms.append(verb_form)
-               yield nice_name(label), [self._expose(w_form, yat) for w_form in ready_forms]
+               yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """conjugate"""
       for i, AP in enumerate(self.info.AP):
          if self.info.MP[i] in infinitive_dict:         
-            if variant is not None and variant != i:
-               continue
-
-            yield from self._paradigm_to_forms(i, False, yat)
+            if not (variant is not None and variant != i):
+               yield from self._paradigm_to_forms(i, False, yat)
   
          else:
             raise NotImplementedError(f'Type {self.info.MP[i]} ({self.key}) does not exist or is not ready yet')

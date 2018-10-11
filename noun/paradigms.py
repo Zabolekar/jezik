@@ -27,15 +27,15 @@ class NounStem(NamedTuple):
 anim_dict = {'sg_acc': {'in': [AccentedTuple('ø·', 'b.b:')],
                        'an': [AccentedTuple('а·', 'b.b:')]},
             'sg_loc': {'an': [AccentedTuple('у·', 'b.b:')],
-                       'in': [AccentedTuple('у·', 'b.b:c:')]}
+                       'in': [AccentedTuple('у·', 'b.b:c:d:')]}
             }
 
 def m_plural(suff='_'):
-   ov = AccentedTuple('>œ·в', 'b.b:')
+   ov = AccentedTuple('>œ·в', 'b.b:d:')
    plurals = [
        [[AccentedTuple('ʹи·', 'b.b:')]],
        [[AccentedTuple('е·', 'b.b:')]],
-       [[AccentedTuple('<а·\u0304', 'b.b:c:')], [AccentedTuple('<а·\u0304', 'b.b:')]],
+       [[AccentedTuple('<а·\u0304', 'b.b:c:d:')], [AccentedTuple('<а·\u0304', 'b.b:')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:')], [AccentedTuple('ʹи·ма', 'b.b:')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:')], [AccentedTuple('ʹи·ма', 'b.b:')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:')], [AccentedTuple('ʹи·ма', 'b.b:')]],
@@ -48,7 +48,7 @@ def m_plural(suff='_'):
    elif suff == '±':
       return [[[ov] + a for a in plural] + [a for a in plural] for plural in plurals]
    else:
-      raise UnknownParadigmError
+      raise NotImplementedError("Unknown paradigm")
    
 
 
@@ -59,7 +59,7 @@ def c_m(suff, anim):
    [[AccentedTuple('у·', 'b.b:')]],
    [[AccentedTuple('œ·м', 'b.b:')]],
    [anim_dict['sg_loc'][anim]],
-   [[AccentedTuple('ʺе0·', 'b.b:c:')]]]
+   [[AccentedTuple('ʺе0·', 'b.b:c:d:')]]]
 
    m_plural_ = m_plural(suff)
    declension = m_singular_ + m_plural_

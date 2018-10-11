@@ -1,12 +1,15 @@
-from typing import Dict, NamedTuple, List, Optional
-import re
+from typing import Dict, NamedTuple, List, Optional, Generic, Iterable, TypeVar
+from collections import OrderedDict
+from itertools import repeat
+from re import compile as rcompile
 from .utils import insert, all_vowels
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
 oa = ['o.', 'a.', 'a:']
+T = TypeVar('T')
 
-_r = re.compile("([a-z]+|[A-Z]|\d)")
+_r = rcompile("([a-z]+|[A-Z]|\d)")
 def nice_name(name: str) -> str:
    return " ".join(_r.findall(name))
 
@@ -79,3 +82,9 @@ class AccentedTuple(NamedTuple):
    morpheme: str
    accent: str
 
+class OrderedSet(OrderedDict, Generic[T]): 
+   def __init__(self, i: Iterable[T]) -> None: 
+      super().__init__(zip(i, repeat(None))) 
+
+   def __repr__(self): 
+      return f"OrderedSet({list(self)})"

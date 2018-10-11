@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Iterator, Optional
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index
-from ..paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa, accentize
+from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from ..table import LabeledMultiform
 from .paradigms import c_m
 
@@ -10,7 +10,7 @@ class Noun(PartOfSpeech):
       super().__init__(key, value, yat)
 
       self.trunk = self._trunk()
-      x = self.info.MP[0].split(',')
+      #x = self.info.MP[0].split(',')
       self.anim = [x.split(',')[1] for x in self.info.MP]
       self.suff = [x.split(',')[0] for x in self.info.MP]
 
@@ -33,7 +33,7 @@ class Noun(PartOfSpeech):
             trunk_ = accented_noun.replace('\u030d', '')[:-1]
             accented_trunk_ = accented_noun[:-1]
 
-         if 'c' in AP:
+         if 'c' in AP or 'd' in AP:
             if not self.key.endswith('а'):
                trunk = accented_trunk_.replace('\u030d', '·')
             else:
@@ -59,13 +59,12 @@ class Noun(PartOfSpeech):
 
    def _noun_form_is_possible(self, noun_form: str, variation, paradigm):
       return not(first_vowel_index(noun_form) == last_vowel_index(noun_form)
-                 and 'c' in paradigm
+                 and ('c' in paradigm or 'd' in paradigm)
                  and variation == [AccentedTuple('<а·\u0304', 'b.b:')])
 
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
-      for label, endings_ in c_m(self.suff[i], self.anim[i]).labeled_endings:
+      for label, ending in c_m(self.suff[i], self.anim[i]).labeled_endings:
          ready_forms: List[str] = [] # TODO: better name
-         ending = self._reduce_doublets(endings_, self.info.AP[i])
          for variation in ending:
             noun_form = self.trunk[i]
             if self._noun_form_is_possible(noun_form, variation, self.info.AP[i]):
@@ -75,14 +74,10 @@ class Noun(PartOfSpeech):
                   if '\u030d' not in noun_form: # straight
                      noun_form = noun_form.replace('·', '\u030d', 1) # to straight
                ready_forms.append(noun_form)
-         yield nice_name(label), [self._expose(w_form, yat) for w_form in ready_forms]
+         yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """decline"""
       for i, AP in enumerate(self.info.AP):
-         if variant is not None and variant != i:
-            # TODO: we do not fully understand this part
-            # also, we have a similar construction in adjectives and verbs
-            # we feel like it could be simplified
-            continue
-         yield from self._paradigm_to_forms(i, False, yat)
+         if not (variant is not None and variant != i):
+            yield from self._paradigm_to_forms(i, False, yat)

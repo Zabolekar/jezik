@@ -3,7 +3,7 @@ import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import GramInfo, nice_name, oa, accentize
+from ..paradigm_helpers import nice_name, oa, accentize
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
 class Adjective(PartOfSpeech):
@@ -81,7 +81,7 @@ class Adjective(PartOfSpeech):
             
             if current_AP == self.short_AP[i]:
                if current_AP.endswith('?') and not 'ø' in current_morpheme:
-                  trunk_lvi = last_vowel_index(new_adj_form)
+                  #trunk_lvi = last_vowel_index(new_adj_form)
                   last_macron = new_adj_form.rfind('\u0304')
                   new_adj_form = new_adj_form[:last_macron] + new_adj_form[last_macron+1:]
                   # we delete macron on the last vowel from words with inconstant length
@@ -112,12 +112,11 @@ class Adjective(PartOfSpeech):
 
       for i, AP in enumerate(self.info.accents):
          # variant = None means all variants
-         if variant is not None and variant != i:
-            continue
-         length_inconstancy = False
-         
-         if endings == "all":
-            if self.short_AP[i][-1] != self.long_AP[i][-1]:
-               length_inconstancy = True
-         for paradigm in MPs:
-            yield from self._paradigm_to_forms(paradigm, i, length_inconstancy, yat)
+         if not(variant is not None and variant != i):
+            length_inconstancy = False
+            
+            if endings == "all":
+               if self.short_AP[i][-1] != self.long_AP[i][-1]:
+                  length_inconstancy = True
+            for paradigm in MPs:
+               yield from self._paradigm_to_forms(paradigm, i, length_inconstancy, yat)

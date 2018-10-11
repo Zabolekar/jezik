@@ -1,5 +1,5 @@
-from typing import Any, Dict, List
-from .paradigm_helpers import AccentedTuple, GramInfo, nice_name, oa
+from typing import Any, Dict
+from .paradigm_helpers import AccentedTuple, GramInfo, oa
 from .utils import swap_length, first_vowel_index, last_vowel_index, insert
 
 class PartOfSpeech():
@@ -26,9 +26,9 @@ class PartOfSpeech():
       # and if it shouldn't, we just do nothing and leave it unaccented;
       # after that, we append the morpheme
       morpheme = ending_part.morpheme
-      if morpheme.startswith('>'):
+      if morpheme.startswith('>') and self.info.AP[i] != 'd:':
          word_form = word_form.replace('\u0304', '')
-         morpheme = morpheme.replace('>', '')
+      morpheme = morpheme.replace('>', '')
       if morpheme.startswith('<'):
          lvi = last_vowel_index(word_form)
          if not '\u0304' in word_form[lvi:] and lvi is not None:
@@ -43,40 +43,14 @@ class PartOfSpeech():
                   word_form = insert(word_form, {pvi+1: '\u030d'})
                else:
                   raise IndexError(f"{word_form} has not enough vowels for this operation")
-         morpheme = morpheme.replace('<', '')
+      morpheme = morpheme.replace('<', '')
       if self.info.AP[i] in ending_part.accent:
          if self.info.AP[i] in oa:
             word_form = word_form.replace('\u030d', '') # straight
-         if 'b' in self.info.AP[i] and '\u030d' in word_form and not '0' in morpheme:
+         if ('b' in self.info.AP[i] or 'd' in self.info.AP[i]) and '\u030d' in word_form and not '0' in morpheme:
             morpheme = morpheme.replace('·', '')
          #print('do: ', ending_part.morpheme)
          morpheme = morpheme.replace('·', '\u030d') # to straight
          #print('posle: ', morpheme)
       return word_form + morpheme
-
-   def _unstick(self, s: str):
-      return set([s[x:x+2] for x in range(0, len(s), 2)])
-
-   def _reduce_doublets(self, endings_: List[List[AccentedTuple]], AP: str) -> List[List[AccentedTuple]]:
-      # necessary in verbs and nouns;
-      # not needed in adjectives.
-      # it deletes endings identical in future
-      ready_endings: List[Any] = []
-      if len(endings_) > 1:
-         for ending_ in endings_:
-            addendum = True
-            # next statement means: the AP is in every intersection of APs of an ending_ with another ending_
-            # TODO: please make the code less sofisticated and more comprehensible
-            ok = all([AP in self._unstick(x.accent).intersection(self._unstick(y.accent)) for x in ending_ for y in ending_])
-            supr_ = ''.join([x.morpheme for x in ending_]).replace('·', '')
-            for ending in ready_endings:
-               supr = ''.join([d.morpheme for d in ending]).replace('·', '')
-               accents_ = ''.join([z.accent for z in ending])
-               if (AP not in accents_ or ok) and supr_ == supr:
-                  addendum = False
-            if addendum:   
-               ready_endings.append(ending_)
-      else:
-         ready_endings = endings_
-         
-      return ready_endings
+      
