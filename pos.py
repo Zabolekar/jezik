@@ -27,7 +27,7 @@ class PartOfSpeech():
       # after that, we append the morpheme
       morpheme = ending_part.morpheme
       if morpheme.startswith('>') and self.info.AP[i] not in ['d:', 'e:'] \
-                                  and self.info.other == 'm':
+                                  and 'm' in self.info.other:
          word_form = word_form.replace('\u0304', '')
       morpheme = morpheme.replace('>', '')
       twofold_neocirk = False
