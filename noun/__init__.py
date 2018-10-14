@@ -52,7 +52,7 @@ class Noun(PartOfSpeech):
                   trunk = trunk_
                else:
                   trunk = insert(trunk_, {fvi: '·'})
-         elif 'b' in AP:
+         elif 'b' in AP or 'e' in AP:
             lvi = last_vowel_index(trunk_)
             if lvi is None:
                trunk = trunk_
@@ -70,7 +70,7 @@ class Noun(PartOfSpeech):
    def _noun_form_is_possible(self, noun_form: str, variation, paradigm):
       return not(first_vowel_index(noun_form) == last_vowel_index(noun_form)
                  and ('c' in paradigm or 'd' in paradigm)
-                 and variation == [AccentedTuple('<а·\u0304', 'b.b:')])
+                 and variation == [AccentedTuple('<а·\u0304', 'b.b:e:')])
 
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
       for label, ending in c_m(self.suff[i], self.anim[i], self.vocative[i]).labeled_endings:
