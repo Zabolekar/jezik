@@ -111,7 +111,6 @@ def deyerify(form: str) -> str:
    if 'ø' in form:
       form = form.replace('ø', '').replace('ъ', 'а')
    else:
-      print(form)
       form = re.sub('([аеиоу\u0325][\u030d·]?)([лљмнњрṕјв])ъ', '\\1\u0304\\2ъ', form)
       for repl in repl_dict:
          form = form.replace(repl, repl_dict[repl])
