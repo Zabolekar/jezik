@@ -36,7 +36,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          # TODO: simplify duplicate code here and a few lines below
          n_variants = len(verb.info.accents)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
+            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})" # TODO latin
             yield Table("verb", full_caption, verb.multiforms(variant=i, yat=output_yat))
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
@@ -53,7 +53,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table("noun", full_caption, noun.multiforms(variant=i, yat=output_yat))
       else:
-         yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO
+         yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO, and also sometimes ријеч and/or latin
 
 def lookup(outer_key: str, input_yat:str="ekav", output_yat:Optional[str]=None) -> Multitable:
    if output_yat is None:

@@ -66,8 +66,5 @@ class PartOfSpeech():
             word_form = word_form.replace('\u030d', '') # straight
          if (self.info.AP[i] in ['b.', 'b:', 'd:', 'e:']) and '\u030d' in word_form and not '0' in morpheme:
             morpheme = morpheme.replace('·', '')
-         #print('do: ', ending_part.morpheme)
          morpheme = morpheme.replace('·', '\u030d') # to straight
-         #print('posle: ', morpheme)
       return word_form + morpheme
-      

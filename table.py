@@ -44,9 +44,9 @@ class Table:
       return len(self._data)
 
 class Multitable:
-   def __init__(self, word: str, tables: Iterator[Table]) -> None:
+   def __init__(self, input: str, tables: Iterator[Table]) -> None:
       self._tables = list(tables)
-      self.word = word
+      self.input = input
    
    def __repr__(self) -> str:
       if self._tables:
@@ -65,5 +65,10 @@ class Multitable:
             return self[0][query]
          else:
             print("There's more than one table, consider using explicit indexing!", end="\n\n")
-            return Multitable(self.word, (table[query] for table in self._tables))
+            return Multitable(self.input, (table[query] for table in self._tables))
 
+   def __len__(self) -> int:
+      return len(self._tables)
+
+   def __bool__(self) -> bool:
+      return bool(self._tables)
