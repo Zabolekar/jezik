@@ -26,22 +26,27 @@ class PartOfSpeech():
       # and if it shouldn't, we just do nothing and leave it unaccented;
       # after that, we append the morpheme
       morpheme = ending_part.morpheme
-      if morpheme.startswith('>') and self.info.AP[i] not in ['d:', 'e:'] \
-                                  and 'm' in self.info.other:
+      if morpheme.startswith('>') and self.info.AP[i] not in ['d:', 'e:']:
          word_form = word_form.replace('\u0304', '')
       morpheme = morpheme.replace('>', '')
       twofold_neocirk = False
-      if morpheme.startswith('<'):
-         if 'ъ' in word_form and self.info.AP[i] in ending_part.accent:
+      if morpheme.startswith('<'): # so far only '-ā' is like that
+         if 'ъ' in word_form and self.info.AP[i] in ending_part.accent \
+                             and not 'q' in self.info.AP[i] \
+                             and 'm' in self.info.other:
             twofold_neocirk = True 
+
          word_form = word_form.replace('ъ', 'а')
 
          lvi = last_vowel_index(word_form)
          fvi = first_vowel_index(word_form)
          pvi = last_vowel_index(word_form[:lvi]) # penultimate vowel index
 
+         if '·' in word_form and self.info.AP[i] == 'q.' and lvi:
+            word_form = insert(word_form.replace('·', ''), {lvi: '·'})
+
          if twofold_neocirk:
-            if lvi and pvi:
+            if lvi is not None and pvi is not None:
                word_form = insert(word_form, {lvi+1: '\u0304'})
                word_form = word_form.replace('\u030d', '')
                word_form = insert(word_form, {pvi+1: '\u030d'})
@@ -54,8 +59,9 @@ class PartOfSpeech():
                word_form = word_form.replace('\u0304·', '·\u0304')
                   
             if lvi != fvi and '\u0304\u030d' in word_form[lvi:] \
-                  and not '\u0304' in word_form[:lvi]:
-               if pvi:     
+                  and not '\u0304' in word_form[:lvi] \
+                  and not 'q' in self.info.AP[i]:
+               if pvi is not None:     
                   word_form = word_form.replace('\u030d', '')
                   word_form = insert(word_form, {pvi+1: '\u030d'})
                else:
@@ -66,5 +72,7 @@ class PartOfSpeech():
             word_form = word_form.replace('\u030d', '') # straight
          if (self.info.AP[i] in ['b.', 'b:', 'd:', 'e:']) and '\u030d' in word_form and not '0' in morpheme:
             morpheme = morpheme.replace('·', '')
+         if  'q' in self.info.AP[i]:
+            morpheme = morpheme.replace('0', '')
          morpheme = morpheme.replace('·', '\u030d') # to straight
       return word_form + morpheme

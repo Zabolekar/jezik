@@ -24,26 +24,26 @@ class NounStem(NamedTuple):
       yield from zip(map(nice_name, self._fields),
                      super().__iter__())
 
-anim_dict = {'sg_acc': {'in': [AccentedTuple('ø·', 'b.b:e:')],
-                       'an': [AccentedTuple('а·', 'b.b:e:')]},
-            'sg_loc': {'an': [AccentedTuple('у·', 'b.b:e:')],
-                       'in': [AccentedTuple('у·', 'b.b:c:d:e:')]}
+anim_dict = {'sg_acc': {'in': [AccentedTuple('ø·', 'b.b:e:q.')],
+                       'an': [AccentedTuple('а·', 'b.b:e:q.')]},
+            'sg_loc': {'an': [AccentedTuple('у·', 'b.b:e:q.')],
+                       'in': [AccentedTuple('у·', 'b.b:c:d:e:q.')]}
             }
 
-vocative_dict = {'u': [AccentedTuple('у0·', 'b.b:c:d:e:')],
-          'ue': [AccentedTuple('у0·', 'b.b:c:d:e:'), AccentedTuple('ʺе0·', 'b.b:c:d:e:')],
-          'e': [AccentedTuple('ʺе0·', 'b.b:c:d:e:')]}
+vocative_dict = {'u': [AccentedTuple('у0·', 'b.b:c:d:e:q.')],
+          'ue': [AccentedTuple('у0·', 'b.b:c:d:e:q.'), AccentedTuple('ʺе0·', 'b.b:c:d:e:q.')],
+          'e': [AccentedTuple('ʺе0·', 'b.b:c:d:e:q.')]}
 
 def m_plural(suff='_'):
    ov = AccentedTuple('>œ·в', 'b.b:d:e:')
    plurals = [
-       [[AccentedTuple('ʹи·', 'b.b:e:')]],
-       [[AccentedTuple('е·', 'b.b:e:')]],
+       [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
+       [[AccentedTuple('е·', 'b.b:e:q.')]],
        [[AccentedTuple('<а·\u0304', 'b.b:c:d:e:')], [AccentedTuple('<а·\u0304', 'b.b:e:')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:e:')], [AccentedTuple('ʹи·ма', 'b.b:e:')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:e:')], [AccentedTuple('ʹи·ма', 'b.b:e:')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:e:')], [AccentedTuple('ʹи·ма', 'b.b:e:')]],
-       [[AccentedTuple('ʹи0·', 'b.b:c:e:')]]
+       [[AccentedTuple('ʹи·ма', 'b.b:c:e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
+       [[AccentedTuple('ʹи0·', 'b.b:c:e:q.')]]
              ]
    if suff == '+':
       return [[[ov] + a for a in plural] for plural in plurals]
@@ -58,11 +58,11 @@ def m_plural(suff='_'):
 
 def c_m(suff, anim, vocative):
    m_singular_ = [
-         [[AccentedTuple('ø·', 'b.b:e:')]],
+         [[AccentedTuple('ø·', 'b.b:e:q.')]],
    [anim_dict['sg_acc'][anim]],
-   [[AccentedTuple('а·', 'b.b:e:')]],
-   [[AccentedTuple('у·', 'b.b:e:')]],
-   [[AccentedTuple('œ·м', 'b.b:e:')]],
+   [[AccentedTuple('а·', 'b.b:e:q.')]],
+   [[AccentedTuple('у·', 'b.b:e:q.')]],
+   [[AccentedTuple('œ·м', 'b.b:e:q.')]],
    [anim_dict['sg_loc'][anim]],
    [vocative_dict[vocative]],
    ]

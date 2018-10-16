@@ -52,7 +52,7 @@ class Noun(PartOfSpeech):
                   trunk = trunk_
                else:
                   trunk = insert(trunk_, {fvi: '·'})
-         elif 'b' in AP or 'e' in AP:
+         elif 'b' in AP or 'e' in AP or 'q' in AP:
             lvi = last_vowel_index(trunk_)
             if lvi is None:
                trunk = trunk_
@@ -75,15 +75,21 @@ class Noun(PartOfSpeech):
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
       for label, ending in c_m(self.suff[i], self.anim[i], self.vocative[i]).labeled_endings:
          ready_forms: List[str] = [] # TODO: better name
-         for variation in ending:
+         for ending_variation in ending:
             noun_form = self.trunk[i]
-            if self._noun_form_is_possible(noun_form, variation, self.info.AP[i]):
-               for w in variation:
-                  noun_form = self._append_morpheme(i, noun_form, w)
-               if self.info.AP[i] not in oa: 
-                  if '\u030d' not in noun_form: # straight
-                     noun_form = noun_form.replace('·', '\u030d', 1) # to straight
-               ready_forms.append(noun_form)
+            
+            if self._noun_form_is_possible(noun_form, ending_variation, self.info.AP[i]):
+               for w in ending_variation:
+                  if 'Ъ' in noun_form and 'ø' in w.morpheme:
+                     noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
+                  else:   
+                     noun_variants = [noun_form.replace('Ъ', 'ъ')]
+                  for noun_variant in noun_variants:
+                     noun_variant = self._append_morpheme(i, noun_variant, w)
+                     if self.info.AP[i] not in oa: 
+                        if '\u030d' not in noun_variant: # straight
+                           noun_variant = noun_variant.replace('·', '\u030d', 1) # to straight
+                     ready_forms.append(noun_variant)
          yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
