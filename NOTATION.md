@@ -25,4 +25,6 @@
 
 * **ø** = marker of an ending which causes **ъ** to become **а**
 
+**Ъ** = **ъ** or zero (two variants) before an ending containing **ø**, else **ъ**
+
 * **!** = marker of non-initial falling tone
