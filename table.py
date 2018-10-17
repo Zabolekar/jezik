@@ -1,5 +1,5 @@
 from typing import Iterable, Iterator, List, Tuple, Union
-from pprint import pprint
+#from pprint import pprint
 
 Form = str
 Multiform = List[Form]

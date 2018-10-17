@@ -1,4 +1,4 @@
-from typing import Tuple, NamedTuple, List, Union, Iterator
+from typing import Tuple, NamedTuple, List, Iterator
 from ..paradigm_helpers import AccentedTuple, nice_name
 
 LabeledEnding = Tuple[str, List[List[AccentedTuple]]]

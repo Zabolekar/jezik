@@ -1,4 +1,3 @@
-from typing import Dict
 from os import path
 import yaml
 from .multidict import FancyLookup

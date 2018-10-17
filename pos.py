@@ -1,5 +1,5 @@
 from typing import Any, Dict
-from .paradigm_helpers import AccentedTuple, GramInfo, oa
+from .paradigm_helpers import AccentedTuple, GramInfo #, oa
 from .utils import swap_length, first_vowel_index, last_vowel_index, insert
 
 class PartOfSpeech():
@@ -68,8 +68,8 @@ class PartOfSpeech():
                   raise IndexError(f"{word_form} has not enough vowels for this operation")
       morpheme = morpheme.replace('<', '')
       if self.info.AP[i] in ending_part.accent:
-         if self.info.AP[i] in oa:
-            word_form = word_form.replace('\u030d', '') # straight
+         #if self.info.AP[i] in oa:
+         word_form = word_form.replace('\u030d', '') # straight
          if (self.info.AP[i] in ['b.', 'b:', 'd:', 'e:']) and '\u030d' in word_form and not '0' in morpheme:
             morpheme = morpheme.replace('·', '')
          if  'q' in self.info.AP[i]:

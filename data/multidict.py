@@ -1,7 +1,7 @@
 from typing import Any, Dict, Generic, List, Iterator, Tuple, TypeVar
 import random
 from ..utils import all_vowels, deaccentize, expose, garde
-from ..paradigm_helpers import accentize, Accents, i_to_accents
+from ..paradigm_helpers import accentize, i_to_accents
 
 KT = TypeVar("KT")
 VT = TypeVar("VT")
