@@ -24,10 +24,10 @@ class NounStem(NamedTuple):
       yield from zip(map(nice_name, self._fields),
                      super().__iter__())
 
-anim_dict = {'sg_acc': {'in': [AccentedTuple('ø·', 'b.b:e:q.')],
-                       'an': [AccentedTuple('а·', 'b.b:e:q.')]},
-            'sg_loc': {'an': [AccentedTuple('у·', 'b.b:e:q.')],
-                       'in': [AccentedTuple('у·', 'b.b:c:d:e:q.')]}
+anim_dict = {'sg_acc': {'in': [[AccentedTuple('ø·', 'b.b:e:q.')]],
+                       'an': [[AccentedTuple('а·', 'b.b:e:q.')]]},
+            'sg_loc': {'an': [[AccentedTuple('у·', 'b.b:e:q.')]],
+                       'in': [[AccentedTuple('у·', 'b.b:c:d:e:q.')], [AccentedTuple('у·', 'b.b:e:q.')]]}
             }
 
 vocative_dict = {'u': [AccentedTuple('у0·', 'b.b:c:d:e:q.')],
@@ -59,11 +59,11 @@ def m_plural(suff='_'):
 def c_m(suff, anim, vocative):
    m_singular_ = [
          [[AccentedTuple('ø·', 'b.b:e:q.')]],
-   [anim_dict['sg_acc'][anim]],
+   anim_dict['sg_acc'][anim],
    [[AccentedTuple('а·', 'b.b:e:q.')]],
    [[AccentedTuple('у·', 'b.b:e:q.')]],
    [[AccentedTuple('œ·м', 'b.b:e:q.')]],
-   [anim_dict['sg_loc'][anim]],
+   anim_dict['sg_loc'][anim],
    [vocative_dict[vocative]],
    ]
 
