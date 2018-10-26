@@ -59,17 +59,19 @@ class GramInfo:
       accents = []
       self.AP: List[str] = [] # accent paradigm
       self.MP: List[str] = [] # morphological paradigm
+      self.comment: List[str] = []
       for info in infos:
          if info:
-            line_accents, AP, MP = info.split('|')
+            comment, line_accents, AP, MP = info.split('\\')
             accents.append(i_to_accents(line_accents))
-            self.AP.append(AP) 
+            self.AP.append(AP)
             self.MP.append(MP)
+            self.comment.append(comment)
          else:
             raise ValueError("Can't decipher empty i")
 
       if types:
-         POS, *other = types.split('|')
+         POS, *other = types.split('\\')
       else:
          raise ValueError("Can't decipher empty t")
 

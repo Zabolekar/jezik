@@ -71,9 +71,10 @@ class FancyLookup:
    def __setitem__(self, inner_key: str, value: Entry) -> None:
       self._inner_to_entries[inner_key] = value
       if 'i' in value[1]:
-         if '|' in value[1]['i']:
-            indx = value[1]['i'].find('|')
-            first_accent = value[1]['i'][:indx]
+         if '\\' in value[1]['i']:
+            first_substr = value[1]['i'].split(';')[0]
+            first_accent = first_substr.split('\\')[1]
+            print(first_accent)
          else:
             first_accent = ""
       else:

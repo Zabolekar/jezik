@@ -16,14 +16,22 @@ class Noun(PartOfSpeech):
       self.vocative: List[str] = []
       for x in self.info.MP:
          y = x.split(',')
-         self.anim.append(y[1])
-         self.suff.append(y[0])
          if 'u' in y:
             self.vocative.append('u')
          elif 'ue' in y:
             self.vocative.append('ue')
          else:
             self.vocative.append('e')
+         if '+' in y:
+            self.suff.append('+')
+         elif '±' in y:
+            self.suff.append('±')
+         else:
+            self.suff.append('_')
+         if 'an' in y:
+            self.anim.append('an')
+         else:
+            self.anim.append('in')
 
    def _expose(self, form: str, yat:str="ekav") -> str:
       return expose(form, yat)

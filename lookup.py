@@ -12,7 +12,7 @@ PartOfSpeech = Union[Type[Verb],
 
 def part_of_speech(value: Dict[str, Any]) -> PartOfSpeech:
    if "t" in value:
-      POS = value["t"].split('|')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink
+      POS = value["t"].split('\\')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink
       if POS == "V":
          return Verb
       if POS == "A":
