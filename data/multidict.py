@@ -74,7 +74,6 @@ class FancyLookup:
          if '\\' in value[1]['i']:
             first_substr = value[1]['i'].split(';')[0]
             first_accent = first_substr.split('\\')[1]
-            print(first_accent)
          else:
             first_accent = ""
       else:

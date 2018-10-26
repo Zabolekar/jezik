@@ -77,21 +77,6 @@ def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
    return ''.join(pieces())
 
-def swap_length(trunk_: str, current_AP: str) -> str:
-   trunk_lvi = last_vowel_index(trunk_)
-   last_macron = trunk_.rfind('\u0304')
-   if trunk_lvi: # if the word has vowels:
-      if current_AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
-      # if we need to insert macron, we do it
-         word_form = insert(trunk_, {trunk_lvi+2: '\u0304'})
-      elif current_AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
-      # and vice versa, we delete macron from the last vowel in case it is there
-         word_form = trunk_[:last_macron] + trunk_[last_macron+1:] 
-      else: # TODO: when does this actually happen? maybe we should raise an error?
-         word_form = trunk_
-         print('word {word_form} got vowels, but length switch not possible!')
-   return word_form
-
 def palatalize(sequence: str, mode: str='') -> str:
    idict = palatalization_modes[mode]
    digraphs = ['ст', 'зд', 'сл', 'зл', 'шт', 'жд', 'ск', 'зг']

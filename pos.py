@@ -1,6 +1,21 @@
 from typing import Any, Dict
 from .paradigm_helpers import AccentedTuple, GramInfo #, oa
-from .utils import swap_length, first_vowel_index, last_vowel_index, insert
+from .utils import first_vowel_index, last_vowel_index, insert
+
+def _swap(trunk_: str, current_AP: str) -> str:
+   trunk_lvi = last_vowel_index(trunk_)
+   last_macron = trunk_.rfind('\u0304')
+   if trunk_lvi: # if the word has vowels:
+      if current_AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
+      # if we need to insert macron, we do it
+         word_form = insert(trunk_, {trunk_lvi+2: '\u0304'})
+      elif current_AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
+      # and vice versa, we delete macron from the last vowel in case it is there
+         word_form = trunk_[:last_macron] + trunk_[last_macron+1:] 
+      else: # TODO: when does this actually happen? maybe we should raise an error?
+         word_form = trunk_
+         print(f'word {word_form} got vowels, but length switch not possible!')
+   return word_form
 
 class PartOfSpeech():
    def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
@@ -9,10 +24,11 @@ class PartOfSpeech():
       i, t = self.value['i'].split(';'), self.value['t'] 
       self.info = GramInfo(i, t) 
 
-   def _swap(self, trunk_: str, length_inconstant: bool, AP: str, target_AP: str) -> str:
+   def swap(self, trunk_: str, length_inconstant: bool, AP: str, target_AP: str) -> str:
       # at first we process words like boos ~ bosa
       if length_inconstant and AP == target_AP:
-         word_form = swap_length(trunk_, AP)
+         # TODO: swap_length is defined in utils.py but only used here
+         word_form = _swap(trunk_, AP)
       # this part is about words where length is the same in most forms:
       else:
          word_form = trunk_

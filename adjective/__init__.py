@@ -9,7 +9,7 @@ from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 class Adjective(PartOfSpeech):
    def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
       super().__init__(key, value, yat)
-      # Adjective-only: zipping the APs to 2 lists. But is it really necessary?
+      # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.info.AP]))
 
       self.trunk = self._trunk() #both but not separable
@@ -25,7 +25,7 @@ class Adjective(PartOfSpeech):
       for number, item in enumerate(self.info.AP):
          accented_adj = garde(accentize(self.key, self.info.accents[number].r, self.info.accents[number].v))
          if 'ov' in self.info.other:
-            trunk = accented_adj # ok
+            trunk = accented_adj
          elif 'all' in self.info.other:
             if 'ъ\u030d' in accented_adj:
                trunk = accented_adj[:-2] + accented_adj[-1]
@@ -57,10 +57,10 @@ class Adjective(PartOfSpeech):
       """
       current_AP = self.short_AP[i] if paradigm is short_adj else self.long_AP[i]
 
+      adj_form = self.swap(self.trunk[i], length_inconstant, current_AP, self.long_AP[i])
+
       for label, ending in zip(paradigm._fields, paradigm): # TODO: verbs do it completely differently, unify
          ready_forms = []
-         
-         adj_form = self._swap(self.trunk[i], length_inconstant, current_AP, self.long_AP[i])
 
          for variation in ending: # e.g. -om, -ome, -omu
             new_adj_form = adj_form
