@@ -71,7 +71,7 @@ class Noun(PartOfSpeech):
             trunk = accented_trunk_
          else:
             raise NotImplementedError
-         trunk = trunk.replace('·\u0304', '\u0304·')
+         trunk = trunk.replace('\u0304·', '·\u0304')
          trunk = trunk.replace('\u030d\u0304', '\u0304\u030d')
          result.append(trunk)
       return result
@@ -82,10 +82,17 @@ class Noun(PartOfSpeech):
                  and variation == [AccentedTuple('<а·\u0304', 'b.b:e:')])
 
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
+
+      start_AP = self.info.AP[i].replace('?', '.')
+      target_AP = self.info.AP[i].replace('?', '.')      
       
       for label, ending in c_m(self.suff[i], self.anim[i], self.vocative[i]).labeled_endings:
+
          ready_forms: List[str] = [] # TODO: better name
-         noun_form = self.trunk[i]
+         bool_swap = ('ø' not in ending[0][0].morpheme)
+
+         noun_form = self.swap(self.trunk[i], bool_swap, start_AP, target_AP) 
+
          for ending_variation in ending:
 
             if 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:

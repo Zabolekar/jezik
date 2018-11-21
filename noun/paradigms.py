@@ -27,15 +27,15 @@ class NounStem(NamedTuple):
 anim_dict = {'sg_acc': {'in': [[AccentedTuple('ø·', 'b.b:e:q.')]],
                        'an': [[AccentedTuple('а·', 'b.b:e:q.')]]},
             'sg_loc': {'an': [[AccentedTuple('у·', 'b.b:e:q.')]],
-                       'in': [[AccentedTuple('у·', 'b.b:c:d:e:q.')], [AccentedTuple('у·', 'b.b:e:q.')]]}
+                       'in': [[AccentedTuple('у·', 'b.b:c:c?d:e:q.')], [AccentedTuple('у·', 'b.b:e:q.')]]}
             }
 
-vocative_dict = {'u': [AccentedTuple('у0·', 'b.b:c:d:e:q.')],
-          'ue': [AccentedTuple('у0·', 'b.b:c:d:e:q.'), AccentedTuple('ʺе0·', 'b.b:c:d:e:q.')],
-          'e': [AccentedTuple('ʺе0·', 'b.b:c:d:e:q.')]}
+vocative_dict = {'u': [AccentedTuple('у0·', 'b.b:c:c?d:e:q.')],
+          'ue': [AccentedTuple('у0·', 'b.b:c:c?d:e:q.'), AccentedTuple('ʺе0·', 'b.b:c:c?d:e:q.')],
+          'e': [AccentedTuple('ʺе0·', 'b.b:c:c?d:e:q.')]}
 
 def m_plural(suff='_'):
-   ov = AccentedTuple('>œ·в', 'b.b:d:e:')
+   ov = AccentedTuple('>œ·в', 'b.b:c?d:e:')
    plurals = [
        [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
        [[AccentedTuple('е·', 'b.b:e:q.')]],
