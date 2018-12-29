@@ -6,7 +6,7 @@ from .utils import insert, all_vowels
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
-oa = ['o.', 'a.', 'a:']
+oa = ['o.', 'o:', 'a.', 'a:']
 T = TypeVar('T')
 
 _r = rcompile("([a-z]+|[A-Z]|\d)")

@@ -4,7 +4,7 @@
 # ----- think of better name for prettify(), like alternate() or assimilate()
 
 import re
-from typing import Dict, Optional, Iterator
+from typing import Dict, Optional, Iterator, Tuple
 
 palatalization_modes: Dict[str, Dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
@@ -58,6 +58,12 @@ def first_vowel_index(trunk: str) -> Optional[int]:
       return match.span()[0]
    else:
       return None
+
+def indices(trunk: str) -> Tuple[Optional[int], Optional[int], Optional[int]]:
+   lvi = last_vowel_index(trunk)
+   fvi = first_vowel_index(trunk)
+   pvi = last_vowel_index(trunk[:lvi])
+   return lvi, fvi, pvi
 
 def insert(word: str, position_to_accent: Dict[int, str]) -> str:
    if not position_to_accent:

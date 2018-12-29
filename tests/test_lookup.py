@@ -66,11 +66,17 @@ def test_magarciti():
 
 def test_srp():
    assert lookup("срп")["pl gen"].multiform == ['ср̥по́ва̄', 'ср̥̏по̄ва̄', 'ср̥́па̄']
+   assert lookup("срп")["sg gen"].multiform == ['ср̥̑па']
+   assert lookup("срп")["pl dat"].multiform == ['ср̥по̀вима', 'ср̥̏повима', 'ср̥́пима', 'ср̥̑пима']
 
 def test_sluchaj():
    assert lookup("случај")["pl dat"].multiform == ['случајѐвима', 'слу̏чајевима', 'случа́јима', 'слу̏ча̄јима']
 
 def test_apB():
    assert [a for _, [a] in lookup("пиљак")["gen"]] == ["пи́љка", "пи̑ља̄ка̄"]
-   assert lookup("грош")["pl gen"].multiform == ["гроше́ва̄", "гро́ша̄"]
+   assert lookup("грош")["pl gen"].multiform == ["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"]
    assert [a for _, [a] in lookup("аминаш")["nom"]] == ["амѝна̄ш", "амина́ши"]
+
+def test_neocirk():
+   assert lookup("језик")["pl gen"].multiform == ["је̏зӣка̄"]
+   # add нѐпце : не̏ба̄ца̄ when neuter is ready?

@@ -39,11 +39,11 @@ def m_plural(suff='_'):
    plurals = [
        [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
        [[AccentedTuple('е·', 'b.b:e:q.')]],
-       [[AccentedTuple('<а·\u0304', 'b.b:c:d:e:')], [AccentedTuple('<а·\u0304', 'b.b:e:')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
-       [[AccentedTuple('ʹи0·', 'b.b:c:e:q.')]]
+       [[AccentedTuple('<а·\u0304', 'b.b:c:c?d:e:')], [AccentedTuple('<а·\u0304', 'b.b:e:')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
+       [[AccentedTuple('ʹи0·', 'b.b:c:c?e:q.')]]
              ]
    if suff == '+':
       return [[[ov] + a for a in plural] for plural in plurals]

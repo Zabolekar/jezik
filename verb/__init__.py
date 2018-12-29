@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Iterator, Optional
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import OrderedSet, nice_name, oa, accentize
+from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
 
@@ -55,20 +55,22 @@ class Verb(PartOfSpeech):
       else:
          return True
 
+   def process_one_form(self, i: str, verb_trunk: str, ending_variation: List[AccentedTuple]) -> List[str]:
+      verb_form = [verb_trunk]
+      for w in ending_variation:
+         verb_form = self._append_morpheme(self.info.AP[i], verb_form, w)
+         for x in verb_form:
+            x = self.accentize(i, x)
+      return verb_form
+
    def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
          for label, ending in MP_to_verb_stems[self.info.MP[i]].labeled_endings:
             if self._verb_form_is_possible(label, self.info.other):
                ready_forms: List[str] = []               
                   
                for variation in ending:
-                  verb_form = self.trunk[i]
-                  for w in variation:
-                     verb_form = self._append_morpheme(i, verb_form, w)
-                  if self.info.AP[i] not in oa: # i or not i?
-                     if '\u030d' not in verb_form: # straight
-                        verb_form = verb_form.replace('·', '\u030d', 1) # to straight
+                  ready_forms += self.process_one_form(i, self.trunk[i], variation)
                            
-                  ready_forms.append(verb_form)
                yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
 

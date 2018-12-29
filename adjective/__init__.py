@@ -1,9 +1,10 @@
 from typing import Any, Dict, List, Iterator, Optional
+from copy import deepcopy
 import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import nice_name, oa, accentize
+from ..paradigm_helpers import AccentedTuple, nice_name, oa, accentize
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
 class Adjective(PartOfSpeech):
@@ -49,6 +50,17 @@ class Adjective(PartOfSpeech):
    def _adj_form_is_possible(self, adj_form: str) -> bool:
       return re.search('[њљћђшжчџјṕ]œ.ме$', adj_form) is None
 
+   def process_one_form(self, current_AP: str, adj_variant: str, ending_variation: AccentedTuple):
+      #if current_AP in ending_variation.accent: # if the ending should be accented
+      #   adj_variant = adj_variant.replace('\u030d', '') # delete all already put accents from the stem
+      #   if current_AP not in oa: # and, further, if the stem has no firmly accented place,
+      #      adj_variant = adj_variant.replace('·', '')
+         # -- and finally we put the accent on the ending:
+      #   current_morpheme = ending_variation.morpheme.replace('·', '\u030d')      
+      result = self._append_morpheme(current_AP, [adj_variant], ending_variation)[0] # no iterability in adjectives
+      #result = self.accentize(current_AP, result) # TODO: why not? can we unify it somehow in future?
+      return result
+
    # Adjective-only. Verb should have its own one 
    def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """
@@ -56,44 +68,12 @@ class Adjective(PartOfSpeech):
       i: index of the variation (by variation we mean things like зу̑бнӣ зу́бнӣ)
       """
       current_AP = self.short_AP[i] if paradigm is short_adj else self.long_AP[i]
-
       adj_form = self.swap(self.trunk[i], length_inconstant, current_AP, self.long_AP[i])
 
-      for label, ending in zip(paradigm._fields, paradigm): # TODO: verbs do it completely differently, unify
+      for label, ending in zip(paradigm._fields, paradigm):
          ready_forms = []
-
          for variation in ending: # e.g. -om, -ome, -omu
-            new_adj_form = adj_form
-
-            if current_AP in variation.accent: # if the ending should be accented
-               new_adj_form = new_adj_form.replace('\u030d', '') # delete all already put accents from the stem
-               if current_AP not in oa: # and, further, if the stem has no firmly accented place,
-                   # then we delete all the accentable places from the stem.
-                   # if we do not do this, we get wrong (double) accents in result!
-                  new_adj_form = new_adj_form.replace('·', '')
-               # -- and finally we put the accent on the ending:
-               current_morpheme = variation.morpheme.replace('·', '\u030d')
-               
-            else:
-               current_morpheme = variation.morpheme.replace('·', '')
-            
-            # special case: if we are in the short AP
-            
-            if current_AP == self.short_AP[i]:
-               if current_AP.endswith('?') and not 'ø' in current_morpheme:
-                  #trunk_lvi = last_vowel_index(new_adj_form)
-                  last_macron = new_adj_form.rfind('\u0304')
-                  new_adj_form = new_adj_form[:last_macron] + new_adj_form[last_macron+1:]
-                  # we delete macron on the last vowel from words with inconstant length
-                  # TODO: BIG QUESTION: why do we check and do this twice? just for security?
-                  
-            new_adj_form += current_morpheme # add the ending to the stem
-
-            # finally, if the word is not accented, we put the accent on the stem
-            
-            if 'a' not in current_AP: # why this? why not always? TODO: test on an 'a'-adj
-               if '\u030d' not in adj_form:
-                  new_adj_form = new_adj_form.replace('·', '\u030d', 1) 
+            new_adj_form = self.process_one_form(current_AP, adj_form, variation)
             if self._adj_form_is_possible(new_adj_form):
                ready_forms.append(new_adj_form)
             
