@@ -80,7 +80,7 @@ class PartOfSpeech():
       morpheme = morpheme.replace('>', '')
       return word_form, morpheme
 
-   def _delete_left_bracket(self, word_form: str, morpheme: str, accent: str, current_AP) -> List[List[str]]:
+   def _delete_left_bracket(self, word_form: str, morpheme: str, accent: str, current_AP: str) -> List[List[str]]:
       connectenda = []
       if morpheme.startswith('<'): # so far only '-ā' is like that
          # 1. handling yers and defining if the word has neocircumflex:

@@ -50,13 +50,7 @@ class Adjective(PartOfSpeech):
    def _adj_form_is_possible(self, adj_form: str) -> bool:
       return re.search('[њљћђшжчџјṕ]œ.ме$', adj_form) is None
 
-   def process_one_form(self, current_AP: str, adj_variant: str, ending_variation: AccentedTuple):
-      #if current_AP in ending_variation.accent: # if the ending should be accented
-      #   adj_variant = adj_variant.replace('\u030d', '') # delete all already put accents from the stem
-      #   if current_AP not in oa: # and, further, if the stem has no firmly accented place,
-      #      adj_variant = adj_variant.replace('·', '')
-         # -- and finally we put the accent on the ending:
-      #   current_morpheme = ending_variation.morpheme.replace('·', '\u030d')      
+   def process_one_form(self, current_AP: str, adj_variant: str, ending_variation: AccentedTuple) -> str:
       result = self._append_morpheme(current_AP, [adj_variant], ending_variation)[0] # no iterability in adjectives
       #result = self.accentize(current_AP, result) # TODO: why not? can we unify it somehow in future?
       return result

@@ -76,23 +76,25 @@ class Noun(PartOfSpeech):
          result.append(trunk)
       return result
 
-   def _noun_form_is_possible(self, noun_form: str, variation: AccentedTuple, paradigm: str):
-      return not(first_vowel_index(noun_form) == last_vowel_index(noun_form)
-                 and ('c' in paradigm or 'd' in paradigm)
-                 and variation == [AccentedTuple('<а·\u0304', 'b.b:e:')])
-                 # this is the ā which is NOT accented in a. p. c
+   def _noun_form_is_possible(self, noun_form: str, variation: List[AccentedTuple], paradigm: str) -> bool:
+      return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
+               or ('c' not in paradigm and 'd' not in paradigm)
+               or variation != [AccentedTuple('<а·\u0304', 'b.b:e:')])
+               # this is the ā which is NOT accented in a. p. c
 
-   def process_one_form(self, i: str, noun_variant: str, ending_variation: List[AccentedTuple]) -> List[str]:
+   def process_one_form(self, i: int, noun_variant: str, ending_variation: List[AccentedTuple]) -> List[str]:
 
       iterable_noun_variant = [deepcopy(noun_variant)]
+      current_AP = self.info.AP[i]
       for w in ending_variation: # w is submorph in ending, like -ov- and -i in bog-ov-i
-         iterable_noun_variant = self._append_morpheme(self.info.AP[i], iterable_noun_variant, w)
+         iterable_noun_variant = self._append_morpheme(current_AP, iterable_noun_variant, w)
          for nnv in iterable_noun_variant:
-            nnv = self.accentize(i, nnv)
+            nnv = self.accentize(current_AP, nnv)
       return iterable_noun_variant
 
-   def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
-
+   def _paradigm_to_forms(self, i: int, length_inconstancy: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
+      # TODO: length inconstancy currently not used
+      # however, Svetozar says he will use it later
       start_AP = self.info.AP[i].replace('?', '.')
       target_AP = self.info.AP[i].replace('?', '.')      
       

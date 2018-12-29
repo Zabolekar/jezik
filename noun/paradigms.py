@@ -1,40 +1,41 @@
-from typing import Tuple, NamedTuple, List, Iterator
+from typing import Dict, Tuple, NamedTuple, List, Iterator
 from ..paradigm_helpers import AccentedTuple, nice_name
 
-LabeledEnding = Tuple[str, List[List[AccentedTuple]]]
+MorphemeChain = List[AccentedTuple] # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
+LabeledEnding = Tuple[str, List[MorphemeChain]]
 
 class NounStem(NamedTuple):
-   sg_nom: List[List[AccentedTuple]]
-   sg_acc: List[List[AccentedTuple]]
-   sg_gen: List[List[AccentedTuple]]
-   sg_dat: List[List[AccentedTuple]]
-   sg_ins: List[List[AccentedTuple]]
-   sg_loc: List[List[AccentedTuple]]
-   sg_voc: List[List[AccentedTuple]]
-   pl_nom: List[List[AccentedTuple]]
-   pl_acc: List[List[AccentedTuple]]
-   pl_gen: List[List[AccentedTuple]]
-   pl_dat: List[List[AccentedTuple]]
-   pl_ins: List[List[AccentedTuple]]
-   pl_loc: List[List[AccentedTuple]]
-   pl_voc: List[List[AccentedTuple]]
+   sg_nom: List[MorphemeChain]
+   sg_acc: List[MorphemeChain]
+   sg_gen: List[MorphemeChain]
+   sg_dat: List[MorphemeChain]
+   sg_ins: List[MorphemeChain]
+   sg_loc: List[MorphemeChain]
+   sg_voc: List[MorphemeChain]
+   pl_nom: List[MorphemeChain]
+   pl_acc: List[MorphemeChain]
+   pl_gen: List[MorphemeChain]
+   pl_dat: List[MorphemeChain]
+   pl_ins: List[MorphemeChain]
+   pl_loc: List[MorphemeChain]
+   pl_voc: List[MorphemeChain]
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
       yield from zip(map(nice_name, self._fields),
                      super().__iter__())
 
-anim_dict = {'sg_acc': {'in': [[AccentedTuple('ø·', 'b.b:e:q.')]],
+anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {'sg_acc': {'in': [[AccentedTuple('ø·', 'b.b:e:q.')]],
                        'an': [[AccentedTuple('а·', 'b.b:e:q.')]]},
             'sg_loc': {'an': [[AccentedTuple('у·', 'b.b:e:q.')]],
                        'in': [[AccentedTuple('у·', 'b.b:c:c?d:e:q.')], [AccentedTuple('у·', 'b.b:e:q.')]]}
             }
 
-vocative_dict = {'u': [AccentedTuple('у0·', 'b.b:c:c?d:e:q.')],
+vocative_dict: Dict[str, MorphemeChain] = {'u': [AccentedTuple('у0·', 'b.b:c:c?d:e:q.')],
           'ue': [AccentedTuple('у0·', 'b.b:c:c?d:e:q.'), AccentedTuple('ʺе0·', 'b.b:c:c?d:e:q.')],
           'e': [AccentedTuple('ʺе0·', 'b.b:c:c?d:e:q.')]}
 
-def m_plural(suff='_'):
+def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    ov = AccentedTuple('>œ·в', 'b.b:c?d:e:')
    plurals = [
        [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
@@ -56,7 +57,7 @@ def m_plural(suff='_'):
    
 
 
-def c_m(suff, anim, vocative):
+def c_m(suff: str, anim: str, vocative: str) -> NounStem:
    m_singular_ = [
          [[AccentedTuple('ø·', 'b.b:e:q.')]],
    anim_dict['sg_acc'][anim],

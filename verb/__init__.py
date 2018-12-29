@@ -49,28 +49,29 @@ class Verb(PartOfSpeech):
       return result
    
    # Verb-only
-   def _verb_form_is_possible(self, label, aspect):
+   def _verb_form_is_possible(self, label: str, aspect: List[str]) -> bool:
       if label.startswith('ipf'):
          return not 'Pf' in aspect
       else:
          return True
 
-   def process_one_form(self, i: str, verb_trunk: str, ending_variation: List[AccentedTuple]) -> List[str]:
+   def process_one_form(self, i: int, verb_trunk: str, ending_variation: List[AccentedTuple]) -> List[str]:
       verb_form = [verb_trunk]
+      current_AP = self.info.AP[i]
       for w in ending_variation:
-         verb_form = self._append_morpheme(self.info.AP[i], verb_form, w)
+         verb_form = self._append_morpheme(current_AP, verb_form, w)
          for x in verb_form:
-            x = self.accentize(i, x)
+            x = self.accentize(current_AP, x)
       return verb_form
 
-   def _paradigm_to_forms(self, i, length_inconstancy, yat:str="ekav"):
-         for label, ending in MP_to_verb_stems[self.info.MP[i]].labeled_endings:
-            if self._verb_form_is_possible(label, self.info.other):
-               ready_forms: List[str] = []               
-                  
-               for variation in ending:
-                  ready_forms += self.process_one_form(i, self.trunk[i], variation)
-                           
+   def _paradigm_to_forms(self, i: int, length_inconstancy: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
+      # TODO: length_inconstancy currently not used
+      # however, but Svetozar says he will use it later
+      for label, ending in MP_to_verb_stems[self.info.MP[i]].labeled_endings:
+         if self._verb_form_is_possible(label, self.info.other):
+            ready_forms: List[str] = [] 
+            for variation in ending:
+               ready_forms += self.process_one_form(i, self.trunk[i], variation)
                yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
 

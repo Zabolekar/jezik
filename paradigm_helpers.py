@@ -36,8 +36,10 @@ class Accents:
       self.r = r # syllabic r
       self.v = v # any other vowel
 
-def i_to_accents(line_accents):
+def i_to_accents(line_accents: str) -> Accents:
    if '@' in line_accents:
+      Rs: Optional[str]
+      Vs: str
       Rs, Vs = line_accents.split('@')
    else:
       Rs, Vs = None, line_accents
@@ -88,5 +90,5 @@ class OrderedSet(OrderedDict, Generic[T]):
    def __init__(self, i: Iterable[T]) -> None: 
       super().__init__(zip(i, repeat(None))) 
 
-   def __repr__(self): 
+   def __repr__(self) -> str: 
       return f"OrderedSet({list(self)})"
