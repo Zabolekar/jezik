@@ -1,20 +1,28 @@
 function displayResults (reply) {
    $('#results').html($(reply).filter("#tables-or-not-found"));
-   var width = $('#word').width() + $('#button').width(); //TODO: issue #14
    $('table').css('width', width+'px');
 }
 
 function onSubmit (event) {
-   var word = $('#word').val();
+   var word = $('#word').val(),
+       inputYat = $('input[name=inputYat]:checked').val(),
+       outputYat = $('input[name=outputYat]:checked').val();
    if (word) {
-      var url = $SCRIPT_ROOT + "lookup/" + encodeURIComponent(word);
+      var url = $SCRIPT_ROOT + "lookup/" +
+                encodeURIComponent(word) +
+                "?inputYat=" + inputYat +
+                "&outputYat=" + outputYat;
       $.ajax(url).done(displayResults);
    }
    event.preventDefault();
 }
 
+var width;
 function setup () {
    $('#search').submit(onSubmit);
+   //$('#searchBox').html(width/$(document).width());
+   width = $('#options').width();
+   $('#search').css('width', width+'px');
 }
 
 $(document).ready(setup);

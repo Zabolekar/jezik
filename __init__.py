@@ -1,6 +1,6 @@
 import os
 from werkzeug.routing import PathConverter
-from flask import Flask, render_template, send_from_directory # type: ignore
+from flask import Flask, render_template, request, send_from_directory # type: ignore
 from .lookup import lookup, random_lookup
 
 class Query(PathConverter):
@@ -16,7 +16,9 @@ def index():
 
 @app.route("/lookup/<query:word>")
 def results(word):
-   return render_template("results.html", tables=lookup(word))
+   tables = lookup(word, request.args.get("inputYat"),
+                         request.args.get("outputYat"))
+   return render_template("results.html", tables=tables)
 
 @app.errorhandler(404)
 def page_not_found(_):

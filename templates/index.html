@@ -1,8 +1,34 @@
 {% extends "base.html" %}
 {% block body %}
 <form id="search">
-   <input type="text" id="word"/>
-   <input type="submit" id="button" value="Претрага"/>
+   
+   <div id="searchBox">
+      <input type="text" id="word"/>
+      <input type="submit" id="button" value="Претрага"/>
+   </div>
+
+   </br>
+
+   <div id="options">
+      <fieldset>
+         <legend>Јат у упиту:</legend></br>
+         <input type="radio" id="inputYat1" name="inputYat" value="ekav" checked>
+         <label for="inputYat1">снег</label>
+         <input type="radio" id="inputYat2" name="inputYat" value="ijekav">
+         <label for="inputYat2">снијег</label>
+      </fieldset>
+
+      <fieldset>
+            <legend>Јат у резултату:</legend></br>
+            <input type="radio" id="outputYat1" name="outputYat" value="ekav" checked>
+            <label for="outputYat1">сне̑г</label>
+            <input type="radio" id="outputYat2" name="outputYat" value="jekav">
+            <label for="outputYat2">сни̏јег</label>
+            <input type="radio" id="outputYat3" name="outputYat" value="ijekav">
+            <label for="outputYat3">сније̑г</label>
+      </fieldset>
+   </div>
+
 </form>
 <div id="results"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
