@@ -16,8 +16,9 @@ def index():
 
 @app.route("/lookup/<query:word>")
 def results(word):
-   tables = lookup(word, request.args.get("inputYat"),
-                         request.args.get("outputYat"))
+   input_yat = request.args.get("inputYat") or "ekav"
+   output_yat = request.args.get("outputYat")
+   tables = lookup(word, input_yat, output_yat)
    return render_template("results.html", tables=tables)
 
 @app.errorhandler(404)
