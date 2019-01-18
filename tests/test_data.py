@@ -7,7 +7,9 @@ def test_data():
    """
    for outer_key, yat_mode in data._outer_to_inner._data:
       try:
-         lookup(outer_key, input_yat=yat_mode)
+         multitable = lookup(outer_key, input_yat=yat_mode)
+         if any(not table.pos for table in multitable):
+            raise ValueError("invalid part of speech")
       except Exception as e:
          print(outer_key, yat_mode)
          raise
