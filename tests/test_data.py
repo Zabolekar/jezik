@@ -1,5 +1,13 @@
+import pytest
 from ..lookup import lookup, data
 
+import pytest
+
+quick = pytest.mark.skipif(
+      pytest.config.option.quick,
+      reason="data validation only runs without --quick option")
+
+@quick
 def test_data():
    """
    Iterate over entries in the database.

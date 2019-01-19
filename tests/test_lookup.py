@@ -1,3 +1,4 @@
+import pytest
 from ..lookup import lookup
 
 def test_nonsense():
@@ -60,9 +61,10 @@ def test_magarciti():
    assert [a for _, [a] in lookup("магарчити се")["aor sg"][0]] == ["ма̀га̄рчих се", "ма̏га̄рчӣ се", "ма̏га̄рчӣ се"]
    assert [a for _, [a] in lookup("магарчити се")["pf f sg"][1]] == ["мага́рчила се"]
 
-#def test_dub():
-#   assert [a for _, a in lookup("дуб")["ins pl"]] == [["дубо̀вима", "ду̏бовима", "ду́бима", "ду̑бима"]]
-#   assert [a for _, a in lookup("дуб")["gen pl"]] == [["дубо́ва̄", "ду̏бо̄ва̄", "ду́ба̄"]]
+@pytest.mark.xfail
+def test_dub():
+   assert [a for _, a in lookup("дуб")["ins pl"]] == [["дубо̀вима", "ду̏бовима", "ду́бима", "ду̑бима"]]
+   assert [a for _, a in lookup("дуб")["gen pl"]] == [["дубо́ва̄", "ду̏бо̄ва̄", "ду́ба̄"]]
 
 def test_srp():
    assert lookup("срп")["pl gen"].multiform == ['ср̥по́ва̄', 'ср̥̏по̄ва̄', 'ср̥́па̄']
@@ -79,4 +81,38 @@ def test_apB():
 
 def test_neocirk():
    assert lookup("језик")["pl gen"].multiform == ["је̏зӣка̄"]
-   # add нѐпце : не̏ба̄ца̄ when neuter is ready?
+   # TODO: нѐпце : не̏ба̄ца̄ when neuter is ready?
+
+def test_snjegovi():
+   l = lookup("снијег", input_yat="ijekav", output_yat="jekav")
+   assert l["sg nom"].multiform == ['снйје̑г']
+   assert l["pl nom"].multiform == ['сње̏гови', 'снйје̑зи']
+
+@pytest.mark.xfail
+def test_multiple_results():
+   assert len(lookup("апсорбовати")) == 2
+   assert len(lookup("зор")) == 2
+
+@pytest.mark.xfail
+def test_different_ije():
+ 
+   la1 = lookup("снијег", input_yat="ijekav")
+   la2 = lookup("снијег", input_yat="ijekav", output_yat="jekav")
+   assert la1["sg nom"].multiform == ['сни̏јег']
+   assert la2["sg nom"].multiform == ['снйје̑г']
+
+   lb1 = lookup("вијек", input_yat="ijekav")
+   lb2 = lookup("вијек", input_yat="ijekav", output_yat="jekav")
+   assert lb1["sg nom"].multiform == ['ви̏јек']
+   assert lb2["sg nom"].multiform == ['вйје̑к']
+
+   # TODO: йје́ vs ијѐ
+
+@pytest.mark.xfail
+def test_advokatirati():
+   """
+   This test was added to cover issue #25
+   """
+   assert lookup("адвокатирати")["prs 1 sg"].multiform == ['адвока̀тӣра̄м']
+   assert lookup("алудирати")["prs 1 sg"].multiform == ['алу̀дӣра̄м']
+   assert lookup("ачити се")["prs 1 sg"].multiform == ['а̑чӣм се']
