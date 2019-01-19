@@ -1,4 +1,4 @@
-import pytest
+import pytest # type: ignore
 from ..lookup import lookup, data
 
 quick = pytest.mark.skipif(

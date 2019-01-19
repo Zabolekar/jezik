@@ -1,4 +1,4 @@
-import pytest
+import pytest # type: ignore
 from ..lookup import lookup
 
 def test_nonsense():
