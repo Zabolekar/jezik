@@ -55,7 +55,7 @@ class GramInfo:
    reflexive) and one of "Pf", "Ipf", "Dv" (perfective, imperfective,
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
-   def __init__(self, infos: List[str], types: str) -> None:
+   def __init__(self, kind: str, infos: List[str]) -> None:
       Rs: Optional[str] # circles below syllabic r's
       Vs: str # accents above vowels AND above circles (see Rs)
       accents = []
@@ -72,8 +72,8 @@ class GramInfo:
          else:
             raise ValueError("Can't decipher empty i")
 
-      if types:
-         POS, *other = types.split('\\')
+      if kind:
+         POS, *other = kind.split('\\')
       else:
          raise ValueError("Can't decipher empty t")
 

@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, oa
 from .utils import first_vowel_index, last_vowel_index, indices, insert
 
@@ -50,11 +50,9 @@ def _apply_neocirk(word_form: str,
    return result
 
 class PartOfSpeech():
-   def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
-      self.key = key 
-      self.value = value 
-      i, t = self.value['i'].split(';'), self.value['t'] 
-      self.info = GramInfo(i, t)
+   def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
+      self.key = key
+      self.gram = GramInfo(kind, info.split(';'))
 
    def accentize(self, current_AP: str, word: str) -> str:
       if current_AP not in oa:
@@ -102,17 +100,17 @@ class PartOfSpeech():
          if ('ъ' in word_form \
             and current_AP in accent \
             and 'q' not in current_AP \
-            and 'm' in self.info.other or 'n' in self.info.other):
+            and 'm' in self.gram.other or 'n' in self.gram.other):
             retraction = [2]
          elif pvi is not None and ('ъ' not in word_form \
             and current_AP not in accent \
-            and 'm' in self.info.other or 'n' in self.info.other \
+            and 'm' in self.gram.other or 'n' in self.gram.other \
             and not '\u030d' in word_form[pvi+2:]):
             retraction = [1]
-         elif 'm' in self.info.other and 'œв' in word_form \
+         elif 'm' in self.gram.other and 'œв' in word_form \
             and 'c' in current_AP:
             retraction = [1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
-         elif 'm' in self.info.other and 'œв' in word_form \
+         elif 'm' in self.gram.other and 'œв' in word_form \
             and 'b' in current_AP:
             retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄
          else:
@@ -183,7 +181,7 @@ class PartOfSpeech():
       for pair in connectenda:
          # accentizing 
          if current_AP in ending_part.accent:
-            #if self.info.AP[i] not in ['c?']:
+            #if self.gram.AP[i] not in ['c?']:
             #word_form = word_form.replace('\u030d', '') # straight
             if '\u030d' in word_form and not '0' in pair[1]: # TODO: provide example for this
                pair[1] = pair[1].replace('·', '')

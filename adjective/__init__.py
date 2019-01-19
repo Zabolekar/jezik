@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Iterator, Optional
+from typing import Dict, List, Iterator, Optional
 from copy import deepcopy
 import re
 from ..table import LabeledMultiform
@@ -8,10 +8,10 @@ from ..paradigm_helpers import AccentedTuple, nice_name, oa, accentize
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 
 class Adjective(PartOfSpeech):
-   def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
-      super().__init__(key, value, yat)
+   def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
+      super().__init__(key, kind, info, yat)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
-      self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.info.AP]))
+      self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
 
       self.trunk = self._trunk() #both but not separable
 
@@ -23,18 +23,18 @@ class Adjective(PartOfSpeech):
    def _trunk(self) -> List[str]:
       result = []
 
-      for number, item in enumerate(self.info.AP):
-         accented_adj = garde(accentize(self.key, self.info.accents[number].r, self.info.accents[number].v))
-         if 'ov' in self.info.other:
+      for number, item in enumerate(self.gram.AP):
+         accented_adj = garde(accentize(self.key, self.gram.accents[number].r, self.gram.accents[number].v))
+         if 'ov' in self.gram.other:
             trunk = accented_adj
-         elif 'all' in self.info.other:
+         elif 'all' in self.gram.other:
             if 'ъ\u030d' in accented_adj:
                trunk = accented_adj[:-2] + accented_adj[-1]
             else:
                trunk = accented_adj
-         elif 'ski' in self.info.other:
+         elif 'ski' in self.gram.other:
             trunk = re.sub('\u0304\u030d$', '\u0304', accented_adj)[:-2]
-         if not 'a' in self.info.AP[number]:
+         if not 'a' in self.gram.AP[number]:
             lvi = last_vowel_index(trunk)
             if lvi is None:
                #raise ValueError(f"{trunk} does not contain any vowels")
@@ -75,7 +75,7 @@ class Adjective(PartOfSpeech):
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """decline"""
-      endings = self.info.other[0]
+      endings = self.gram.other[0]
       MPs: List[AdjParadigm]
       if endings == "all":
          MPs = [short_adj, long_adj]
@@ -84,7 +84,7 @@ class Adjective(PartOfSpeech):
       elif endings == "ov":
          MPs = [mixed_adj]
 
-      for i, AP in enumerate(self.info.accents):
+      for i, AP in enumerate(self.gram.accents):
          # variant = None means all variants
          if not(variant is not None and variant != i):
             length_inconstancy = False

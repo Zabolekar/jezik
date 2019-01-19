@@ -88,7 +88,6 @@ def test_snjegovi():
    assert l["sg nom"].multiform == ['снйје̑г']
    assert l["pl nom"].multiform == ['сње̏гови', 'снйје̑зи']
 
-@pytest.mark.xfail
 def test_multiple_results():
    assert len(lookup("апсорбовати")) == 2
    assert len(lookup("зор")) == 2

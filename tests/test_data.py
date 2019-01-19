@@ -19,4 +19,3 @@ def test_data():
       except Exception as e:
          print(outer_key, yat_mode)
          raise
-

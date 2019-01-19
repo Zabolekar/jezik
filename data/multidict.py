@@ -1,4 +1,4 @@
-from typing import Any, Dict, Generic, List, Iterator, Tuple, TypeVar
+from typing import Dict, Generic, List, NamedTuple, Iterator, Tuple, TypeVar
 import random
 from ..utils import all_vowels, deaccentize, expose, garde
 from ..paradigm_helpers import accentize, i_to_accents
@@ -10,6 +10,8 @@ class Multidict(Generic[KT, VT]):
    """
    A key can correspond to zero or more values.
    There are no KeyErrors: no values are not an error, just a special case.
+   Values are unique. Then why do we use a List and not a Set, you may ask?
+   Because we need consistent order for testing.
    """
    def __init__(self) -> None:
       self._data: Dict[KT, List[VT]] = {}
@@ -23,6 +25,7 @@ class Multidict(Generic[KT, VT]):
    def __setitem__(self, key: KT, value: VT) -> None:
       if key in self._data:
          self._data[key].append(value)
+         self._data[key] = sorted(set(self._data[key]))
       else:
          self._data[key] = [value]
 
@@ -37,7 +40,10 @@ class Multidict(Generic[KT, VT]):
 # more due to e.g. yat reflexes. Outer representations of different words can
 # coincide (e.g. свет can be an outer representation of both свет and свꙓт).
 
-Entry = Tuple[str, Dict[str, Any]] # caption, info
+class Entry(NamedTuple):
+   caption: str
+   type: str
+   info: str
 
 def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    """
@@ -62,7 +68,8 @@ class FancyLookup:
       self._outer_to_inner = Multidict[Tuple[str, str], str]()
       # in this Tuple[str, str] the first str is the outer key and the second is the yat mode
 
-   def __getitem__(self, outer_key: str, input_yat: str) -> Iterator[Tuple[str, Entry]]:
+   def __getitem__(self, key_with_mode: Tuple[str, str]) -> Iterator[Tuple[str, Entry]]:
+      outer_key, input_yat = key_with_mode
       inner_keys = self._outer_to_inner[(outer_key, input_yat)]
       for key in inner_keys:
          for entry in self._inner_to_entries[key]:
@@ -70,14 +77,12 @@ class FancyLookup:
 
    def __setitem__(self, inner_key: str, value: Entry) -> None:
       self._inner_to_entries[inner_key] = value
-      if 'i' in value[1]:
-         if '\\' in value[1]['i']:
-            first_substr = value[1]['i'].split(';')[0]
-            first_accent = first_substr.split('\\')[1]
-         else:
-            first_accent = ""
+      if '\\' in value.info:
+         first_substr = value.info.split(';')[0]
+         first_accent = first_substr.split('\\')[1]
       else:
          first_accent = ""
+
       for outer_key, input_yat in inner_to_outer(inner_key, first_accent):
          self._outer_to_inner[(outer_key, input_yat)] = inner_key
 

@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Iterator, Optional
+from typing import Dict, List, Iterator, Optional
 from copy import deepcopy
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index
@@ -7,14 +7,14 @@ from ..table import LabeledMultiform
 from .paradigms import c_m
 
 class Noun(PartOfSpeech):
-   def __init__(self, key: str, value: Dict[str, Any], yat:str="ekav") -> None:
-      super().__init__(key, value, yat)
+   def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
+      super().__init__(key, kind, info, yat)
 
       self.trunk = self._trunk()
       self.anim: List[str] = []
       self.suff: List[str] = []
       self.vocative: List[str] = []
-      for x in self.info.MP:
+      for x in self.gram.MP:
          y = x.split(',')
          if 'u' in y:
             self.vocative.append('u')
@@ -39,11 +39,11 @@ class Noun(PartOfSpeech):
    def _trunk(self) -> List[str]:
       result = []
 
-      for i, AP in enumerate(self.info.AP):
+      for i, AP in enumerate(self.gram.AP):
 
-         accented_noun = garde(accentize(self.key, self.info.accents[i].r, self.info.accents[i].v))
+         accented_noun = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
 
-         if 'm' in self.info.other and not 'o' in self.info.other:
+         if 'm' in self.gram.other and not 'o' in self.gram.other:
             trunk_ = accented_noun.replace('\u030d', '')
             # self.key is useless here; accented_noun has not only stress place,
             # it has also all the lengths in the stem which surely are of importance
@@ -85,7 +85,7 @@ class Noun(PartOfSpeech):
    def process_one_form(self, i: int, noun_variant: str, ending_variation: List[AccentedTuple]) -> List[str]:
 
       iterable_noun_variant = [deepcopy(noun_variant)]
-      current_AP = self.info.AP[i]
+      current_AP = self.gram.AP[i]
       for w in ending_variation: # w is submorph in ending, like -ov- and -i in bog-ov-i
          iterable_noun_variant = self._append_morpheme(current_AP, iterable_noun_variant, w)
          for nnv in iterable_noun_variant:
@@ -95,8 +95,8 @@ class Noun(PartOfSpeech):
    def _paradigm_to_forms(self, i: int, length_inconstancy: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
       # TODO: length inconstancy currently not used
       # however, Svetozar says he will use it later
-      start_AP = self.info.AP[i].replace('?', '.')
-      target_AP = self.info.AP[i].replace('?', '.')      
+      start_AP = self.gram.AP[i].replace('?', '.')
+      target_AP = self.gram.AP[i].replace('?', '.')      
       
       for label, ending in c_m(self.suff[i], self.anim[i], self.vocative[i]).labeled_endings:
 
@@ -119,12 +119,12 @@ class Noun(PartOfSpeech):
             # now iterating by stem (like, akcenat/akcent)
 
             for noun_variant in noun_variants:
-               if self._noun_form_is_possible(noun_variant, ending_variation, self.info.AP[i]):
+               if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
                   ready_forms += self.process_one_form(i, noun_variant, ending_variation)
          yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """decline"""
-      for i, AP in enumerate(self.info.AP):
+      for i, AP in enumerate(self.gram.AP):
          if not (variant is not None and variant != i):
             yield from self._paradigm_to_forms(i, False, yat)

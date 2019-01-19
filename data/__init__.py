@@ -1,6 +1,6 @@
 from os import path
 import yaml
-from .multidict import FancyLookup
+from .multidict import Entry, FancyLookup
 
 data = FancyLookup()
 
@@ -26,5 +26,5 @@ with open(file_path, encoding="utf-8") as f:
          caption = f"{disambiguator} ({comment})"
       else:
          caption = disambiguator + comment
-      pair = caption, raw_data[full_key]
-      data[key] = pair
+      raw_entry = raw_data[full_key]
+      data[key] = Entry(caption, raw_entry["t"], raw_entry["i"])
