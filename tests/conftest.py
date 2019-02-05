@@ -1,4 +1,4 @@
-import pytest
+import pytest # type: ignore
 
 def pytest_addoption(parser):
    parser.addoption("--quick", action="store_true", default=False,
