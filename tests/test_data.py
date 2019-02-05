@@ -1,11 +1,7 @@
 import pytest # type: ignore
 from ..lookup import lookup, data
 
-slow = pytest.mark.skipif(
-      pytest.config.option.quick,
-      reason="data validation is slow and only runs without --quick option")
-
-@slow
+@pytest.mark.slow
 def test_data():
    """
    Iterate over entries in the database.
