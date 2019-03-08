@@ -1,3 +1,8 @@
+# This file is a tool intended to be run from the terminal, not imported.
+# It isn't a part of our project structure. It's only placed inside the
+# data folder for convenience (because it operates on our data file that
+# also lies inside the data folder).
+
 import sys
 import argparse
 import yaml
