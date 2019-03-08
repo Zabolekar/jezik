@@ -1,4 +1,4 @@
-from typing import Dict, NamedTuple, List, Optional, Generic, Iterable, TypeVar
+from typing import Dict, NamedTuple, List, Optional, Generic, Iterable, Tuple, TypeVar
 from collections import OrderedDict
 from itertools import repeat
 from re import compile as rcompile
@@ -85,6 +85,9 @@ class GramInfo:
 class AccentedTuple(NamedTuple):
    morpheme: str
    accent: str
+
+MorphemeChain = List[AccentedTuple] # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
+LabeledEnding = Tuple[str, List[MorphemeChain]]
 
 class OrderedSet(OrderedDict, Generic[T]): 
    def __init__(self, i: Iterable[T]) -> None: 

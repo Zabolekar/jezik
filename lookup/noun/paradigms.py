@@ -1,8 +1,6 @@
-from typing import Dict, Tuple, NamedTuple, List, Iterator
-from ..paradigm_helpers import AccentedTuple, nice_name
-
-MorphemeChain = List[AccentedTuple] # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
-LabeledEnding = Tuple[str, List[MorphemeChain]]
+from typing import Dict, NamedTuple, List, Iterator
+from ..paradigm_helpers import (AccentedTuple, nice_name,
+                                MorphemeChain, LabeledEnding)
 
 class NounStem(NamedTuple):
    sg_nom: List[MorphemeChain]

@@ -1,6 +1,8 @@
 from typing import NamedTuple, List, Union
 from ..paradigm_helpers import AccentedTuple
 
+# TODO: why is this organized so differently from nouns and verbs? unify and/or document
+
 class ShortAdj(NamedTuple):
    m_sg_nom_short: List[AccentedTuple] # len 1
    f_sg_nom_short: List[AccentedTuple] # 1
