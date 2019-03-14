@@ -1,18 +1,19 @@
 from typing import Dict, List, Optional, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, oa
 from .utils import first_vowel_index, last_vowel_index, indices, insert
+from .charutils import cstraight, cmacron
 
 def _swap(trunk_: str, AP: str) -> str:
    # this function swaps last vowel of given trunk
    # from long to short and vice versa
 
    trunk_lvi = last_vowel_index(trunk_)
-   last_macron = trunk_.rfind('\u0304')
+   last_macron = trunk_.rfind(cmacron)
 
    if trunk_lvi: # if the word has vowels (otherwise, do nothing):
       if AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
       # if we need to insert macron, we do it
-         word_form = insert(trunk_, {trunk_lvi+2: '\u0304'})
+         word_form = insert(trunk_, {trunk_lvi+2: cmacron})
 
       elif AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
       # and vice versa, we delete macron from the last vowel in case it is there
@@ -35,14 +36,14 @@ def _apply_neocirk(word_form: str,
    # neocircumflex is accent retraction from a newly long vowel;
    # this function returns only one tuple, unlike _delete_left_bracket
    for i in range(case):
-      if '\u030d' not in word_form:
+      if cstraight not in word_form:
          if lvi is not None:
-            word_form = insert(word_form, {lvi+1: '\u030d'})
+            word_form = insert(word_form, {lvi+1: cstraight})
             morpheme = morpheme.replace('·', '') # no further possibilities to accentize it
       elif lvi is not None and pvi is not None:
          #word_form = insert(word_form, {lvi+1: '\u0304'}) #macronize last vowel
-         word_form = word_form.replace('\u030d', '') # delete accent mark
-         word_form = insert(word_form, {pvi+1: '\u030d'}) # add accent mark after pvi
+         word_form = word_form.replace(cstraight, '') # delete accent mark
+         word_form = insert(word_form, {pvi+1: cstraight}) # add accent mark after pvi
          morpheme = morpheme.replace('·', '') 
       #else:
          #raise IndexError(f"{word_form} has not enough vowels for this operation")
@@ -56,9 +57,9 @@ class PartOfSpeech():
 
    def accentize(self, current_AP: str, word: str) -> str:
       if current_AP not in oa:
-         word = word.replace('\u030d', '')
-         if '\u030d' not in word: # straight
-            word = word.replace('·', '\u030d', 1) # to straight
+         word = word.replace(cstraight, '')
+         if cstraight not in word: # straight
+            word = word.replace('·', cstraight, 1) # to straight
       else:
          word = word.replace('·', '')
       return word
@@ -74,7 +75,7 @@ class PartOfSpeech():
 
    def _delete_right_bracket(self, word_form: str, morpheme: str, current_AP: str) -> Tuple[str, str]:
       if morpheme.startswith('>') and current_AP not in ['d:', 'e:']:
-         word_form = word_form.replace('\u0304', '')
+         word_form = word_form.replace(cmacron, '')
       morpheme = morpheme.replace('>', '')
       return word_form, morpheme
 
@@ -126,8 +127,8 @@ class PartOfSpeech():
             word_form = insert(word_form.replace('·', ''), {lvi: '·'})
 
          # 4. we insert macron after lvi if last vowel is short
-         if not '\u0304' in word_form[lvi:] and lvi is not None:
-            word_form = insert(word_form, {lvi+1: '\u0304'}).replace('\u0304·', '·\u0304')
+         if not cmacron in word_form[lvi:] and lvi is not None:
+            word_form = insert(word_form, {lvi+1: cmacron}).replace(f'{cmacron}·', f'·{cmacron}')
 
          # 5. if we have neocircumflex retraction, we apply it
          for case in retraction:
@@ -135,13 +136,13 @@ class PartOfSpeech():
 
          if retraction == [False]:
             # 6. in some cases (TODO: when??) we delete all straight accents and reinsert a new one at pvi
-            if lvi != fvi and '\u0304\u030d' in word_form[lvi:] \
-                  and not '\u0304' in word_form[:lvi] \
+            if lvi != fvi and f"{cmacron}{cstraight}" in word_form[lvi:] \
+                  and not cmacron in word_form[:lvi] \
                   and not 'q' in current_AP \
                   and not 'c?' in current_AP:
                if pvi is not None:
-                  word_form = word_form.replace('\u030d', '')
-                  word_form = insert(word_form, {pvi+1: '\u030d'})
+                  word_form = word_form.replace(cstraight, '')
+                  word_form = insert(word_form, {pvi+1: cstraight})
                # 7. and we raise IndexError if it is not possible
                else:
                   raise IndexError(f"{word_form} has not enough vowels for this operation")
@@ -160,8 +161,8 @@ class PartOfSpeech():
          morpheme = ending_part.morpheme
          accent = ending_part.accent
          # deleting the first of two accents (is it OK to have it here?)
-         if current_AP in accent and '\u030d' in word_subform:
-            word_subform = word_subform.replace('\u030d', '')
+         if current_AP in accent and cstraight in word_subform:
+            word_subform = word_subform.replace(cstraight, '')
 
          # first we delete '>' (= delete all macrons in the word)
          # then we delete '<' (= lengthen the last vowel in the stem)
@@ -182,19 +183,19 @@ class PartOfSpeech():
          # accentizing 
          if current_AP in ending_part.accent:
             #if self.gram.AP[i] not in ['c?']:
-            #word_form = word_form.replace('\u030d', '') # straight
-            if '\u030d' in word_form and not '0' in pair[1]: # TODO: provide example for this
+            #word_form = word_form.replace('\u030d', '')
+            if cstraight in word_form and not '0' in pair[1]: # TODO: provide example for this
                pair[1] = pair[1].replace('·', '')
             if 'q' in current_AP:
                pair[1] = pair[1].replace('0', '')
-            pair[1] = pair[1].replace('·', '\u030d') # to straight
+            pair[1] = pair[1].replace('·', cstraight) 
             pair[0] = pair[0].replace('·', '')
          # accentizing enclinomena (words without accent)
          elif all([x not in current_AP for x in ['o', 'a', 'b', 'e']]) \
-         and '\u030d' not in pair[0]:
+         and cstraight not in pair[0]:
             _fvi = first_vowel_index(pair[0])
             if  _fvi is not None:
-               pair[0] = insert(pair[0], {_fvi: '\u030d'})
+               pair[0] = insert(pair[0], {_fvi: cstraight})
          
       result = [pair[0]+pair[1] for pair in connectenda]
       return result

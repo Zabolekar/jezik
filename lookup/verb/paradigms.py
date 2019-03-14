@@ -1,6 +1,7 @@
 from typing import Dict, Iterator, NamedTuple, Tuple, List
 from ..paradigm_helpers import (AccentedTuple, nice_name,
                                 MorphemeChain, LabeledEnding)
+from ..charutils import cmacron
 
 class Present(NamedTuple):
    prs_1_sg: List[MorphemeChain]
@@ -60,14 +61,14 @@ ie_theme_past = AccentedTuple('ѣ·', 'k.q:s.')
 #zero_theme_past = AccentedTuple('', '')
 #nu_theme_past = AccentedTuple('ну', '') # TODO: finish the book first!
 ova_theme_past = AccentedTuple('ова·', 'm.')
-iva_theme_past = AccentedTuple('и\u0304ва·', 'k’')
+iva_theme_past = AccentedTuple(f'и{cmacron}ва·', 'k’')
 
-i_theme_ipf = AccentedTuple('ȷа\u0304·', 'r.r:s0')
-ie_theme_ipf = AccentedTuple('ȷа\u0304·', 'q:s.')
-ie2_theme_ipf = AccentedTuple('ꙓ·ја\u0304', 's.')
-a_theme_ipf = AccentedTuple('а\u0304·', 'm.n.y0z0')
-ova_theme_ipf = AccentedTuple('о·ва\u0304', 'm.')
-iva_theme_ipf = AccentedTuple('и\u0304·ва\u0304', 'k’')
+i_theme_ipf = AccentedTuple(f'ȷа{cmacron}·', 'r.r:s0')
+ie_theme_ipf = AccentedTuple(f'ȷа{cmacron}·', 'q:s.')
+ie2_theme_ipf = AccentedTuple(f'ꙓ·ја{cmacron}', 's.')
+a_theme_ipf = AccentedTuple(f'а{cmacron}·', 'm.n.y0z0')
+ova_theme_ipf = AccentedTuple(f'о·ва{cmacron}', 'm.')
+iva_theme_ipf = AccentedTuple(f'и{cmacron}·ва{cmacron}', 'k’')
 
 ending_null = AccentedTuple('', '')
 ending_x = AccentedTuple('х', '')
@@ -212,17 +213,17 @@ iva_past = Past(
 #("e", Present),   — todo later
 #("ne", Present) — todo after finishing the book
 
-i_theme_prs = AccentedTuple('и·\u0304', 'r.r:s0s.')
-je_theme_prs = AccentedTuple('\u0237е·\u0304', 'z0')
-a_theme_prs = AccentedTuple('а·\u0304', 'm.n.y0')
-uje_theme_prs = AccentedTuple('у·је\u0304', 'k’m.')
-ie_theme_prs = AccentedTuple('ꙓ·\u0304', 's.')
+i_theme_prs = AccentedTuple(f'и·{cmacron}', 'r.r:s0s.')
+je_theme_prs = AccentedTuple(f'ȷе·{cmacron}', 'z0')
+a_theme_prs = AccentedTuple(f'а·{cmacron}', 'm.n.y0')
+uje_theme_prs = AccentedTuple(f'у·је{cmacron}', 'k’m.')
+ie_theme_prs = AccentedTuple(f'ꙓ·{cmacron}', 's.')
 
 i_theme_imv = AccentedTuple('ӥ·', 'k.p.p:q:r.r:s0s.')
-je_theme_imv = AccentedTuple('\u0237ӥ·', 'l.m.p:t.z0')
-a_theme_imv = AccentedTuple('а·\u0304ј', 'm.n.y0')
-uje_theme_imv = AccentedTuple('у·\u0304ј', 'k’m.')
-ie_theme_imv = AccentedTuple('ꙓ·\u0304ј', 's.')
+je_theme_imv = AccentedTuple('ȷӥ·', 'l.m.p:t.z0')
+a_theme_imv = AccentedTuple(f'а·{cmacron}ј', 'm.n.y0')
+uje_theme_imv = AccentedTuple(f'у·{cmacron}ј', 'k’m.')
+ie_theme_imv = AccentedTuple(f'ꙓ·{cmacron}ј', 's.')
 
 ending_mo = AccentedTuple('мо', '')
 ending_te = AccentedTuple('те', '')
@@ -233,11 +234,11 @@ i_present = Present(
    [[i_theme_prs, ending_m]],
    [[i_theme_prs, ending_sh]],
    [[i_theme_prs, ending_null]],
-   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('мо·', 's0s.')],
+   [[AccentedTuple(f'и·{cmacron}', 'r.r:'), AccentedTuple('мо·', 's0s.')],
    [i_theme_prs, ending_mo]],
-   [[AccentedTuple('и·\u0304', 'r.r:'), AccentedTuple('те·', 's0s.')],
+   [[AccentedTuple(f'и·{cmacron}', 'r.r:'), AccentedTuple('те·', 's0s.')],
    [i_theme_prs, ending_te]],
-   [[AccentedTuple('е·\u0304', 'r.r:s0s.  '), ending_null]],
+   [[AccentedTuple(f'е·{cmacron}', 'r.r:s0s.  '), ending_null]],
    [[i_theme_imv, ending_null]],
    [[i_theme_imv, ending_mo]],
    [[i_theme_imv, ending_te]]
@@ -247,11 +248,11 @@ je_present = Present(
    [[je_theme_prs, ending_m]],
    [[je_theme_prs, ending_sh]],
    [[je_theme_prs, ending_null]],
-   [[AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('мо·', 'z0')],
+   [[AccentedTuple(f'ȷе·{cmacron}', ''), AccentedTuple('мо·', 'z0')],
    [je_theme_prs, ending_mo]],
-   [[AccentedTuple('\u0237е·\u0304', ''), AccentedTuple('те·', 'z0')],
+   [[AccentedTuple(f'ȷе·{cmacron}', ''), AccentedTuple('те·', 'z0')],
    [je_theme_prs, ending_te]],
-   [[AccentedTuple('\u0237у·\u0304', 'z0'), ending_null]],
+   [[AccentedTuple(f'ȷу·{cmacron}', 'z0'), ending_null]],
    [[je_theme_imv, ending_null]],
    [[je_theme_imv, ending_mo]],
    [[je_theme_imv, ending_te]]
@@ -261,11 +262,11 @@ a_present = Present(
    [[a_theme_prs, ending_m]],
    [[a_theme_prs, ending_sh]],
    [[a_theme_prs, ending_null]],
-   [[AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('мо·', 'y0')],
+   [[AccentedTuple(f'а·{cmacron}', 'n.x.'), AccentedTuple('мо·', 'y0')],
    [a_theme_prs, ending_mo]],
-   [[AccentedTuple('а·\u0304', 'n.x.'), AccentedTuple('те·', 'y0')],
+   [[AccentedTuple(f'а·{cmacron}', 'n.x.'), AccentedTuple('те·', 'y0')],
    [a_theme_prs, ending_te]],
-   [[AccentedTuple('а·ју\u0304', 'k:l.n.x.y0'), ending_null]],
+   [[AccentedTuple(f'а·ју{cmacron}', 'k:l.n.x.y0'), ending_null]],
    [[a_theme_imv, ending_null]],
    [[a_theme_imv, ending_mo]],
    [[a_theme_imv, ending_te]]
@@ -277,7 +278,7 @@ uje_present = Present(
    [[uje_theme_prs, ending_null]],
    [[uje_theme_prs, ending_mo]],
    [[uje_theme_prs, ending_te]],
-   [[AccentedTuple('у·ју\u0304', 'k’m.'), ending_null]],
+   [[AccentedTuple(f'у·ју{cmacron}', 'k’m.'), ending_null]],
    [[uje_theme_imv, ending_null]],
    [[uje_theme_imv, ending_mo]],
    [[uje_theme_imv, ending_te]]
@@ -287,11 +288,11 @@ ie_present = Present(
    [[ie_theme_prs, ending_m]],
    [[ie_theme_prs, ending_sh]],
    [[ie_theme_prs, ending_null]],
-   [[AccentedTuple('ꙓ\u0304', ''), AccentedTuple('мо·', 's.')],
+   [[AccentedTuple(f'ꙓ{cmacron}', ''), AccentedTuple('мо·', 's.')],
    [ie_theme_prs, ending_mo]],
-   [[AccentedTuple('ꙓ\u0304', ''), AccentedTuple('те·', 's.')],
+   [[AccentedTuple(f'ꙓ{cmacron}', ''), AccentedTuple('те·', 's.')],
    [ie_theme_prs, ending_te]],
-   [[AccentedTuple('ѣ·ју\u0304', 's.'), ending_null]],
+   [[AccentedTuple(f'ѣ·ју{cmacron}', 's.'), ending_null]],
    [[ie_theme_imv, ending_null]],
    [[ie_theme_imv, ending_mo]],
    [[ie_theme_imv, ending_te]]

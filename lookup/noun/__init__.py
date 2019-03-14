@@ -5,6 +5,7 @@ from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from ..table import LabeledMultiform
 from .paradigms import c_m
+from ..charutils import cmacron, cstraight
 
 class Noun(PartOfSpeech):
    def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
@@ -44,17 +45,17 @@ class Noun(PartOfSpeech):
          accented_noun = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
 
          if 'm' in self.gram.other and not 'o' in self.gram.other:
-            trunk_ = accented_noun.replace('\u030d', '')
+            trunk_ = accented_noun.replace(cstraight, '')
             # self.key is useless here; accented_noun has not only stress place,
             # it has also all the lengths in the stem which surely are of importance
             accented_trunk_ = accented_noun
          else:
-            trunk_ = accented_noun.replace('\u030d', '')[:-1]
+            trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
 
          if 'c' in AP or 'd' in AP: # c, d are c-like paradigms
             if not self.key.endswith('а'):
-               trunk = accented_trunk_.replace('\u030d', '·')
+               trunk = accented_trunk_.replace(cstraight, '·')
             else:
                fvi = first_vowel_index(trunk_)
                if fvi is None:
@@ -71,15 +72,15 @@ class Noun(PartOfSpeech):
             trunk = accented_trunk_
          else:
             raise NotImplementedError
-         trunk = trunk.replace('\u0304·', '·\u0304')
-         trunk = trunk.replace('\u030d\u0304', '\u0304\u030d')
+         trunk = trunk.replace(f'{cmacron}·', f'·{cmacron}')
+         trunk = trunk.replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
          result.append(trunk)
       return result
 
    def _noun_form_is_possible(self, noun_form: str, variation: List[AccentedTuple], paradigm: str) -> bool:
       return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
                or ('c' not in paradigm and 'd' not in paradigm)
-               or variation != [AccentedTuple('<а·\u0304', 'b.b:e:')])
+               or variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')])
                # this is the ā which is NOT accented in a. p. c
 
    def process_one_form(self, i: int, noun_variant: str, ending_variation: List[AccentedTuple]) -> List[str]:

@@ -1,6 +1,7 @@
 from typing import Dict, NamedTuple, List, Iterator
 from ..paradigm_helpers import (AccentedTuple, nice_name,
                                 MorphemeChain, LabeledEnding)
+from ..charutils import cmacron
 
 class NounStem(NamedTuple):
    sg_nom: List[MorphemeChain]
@@ -38,7 +39,7 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    plurals = [
        [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
        [[AccentedTuple('е·', 'b.b:e:q.')]],
-       [[AccentedTuple('<а·\u0304', 'b.b:c:c?d:e:')], [AccentedTuple('<а·\u0304', 'b.b:e:')]],
+       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?d:e:')], [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],

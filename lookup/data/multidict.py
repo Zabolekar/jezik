@@ -56,9 +56,11 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    tmp_list = [tmp.replace('Ъ', ''), tmp.replace('Ъ', 'ъ')] if 'Ъ' in tmp else [tmp]
    for input_yat in ["ekav", "jekav", "ijekav"]:
       for item in tmp_list:
-         accented_token = garde(accentize(item, accent_dict.r, accent_dict.v)) # TODO: this does not depend on yat, can be moved out of the loop (and inner loop should be made outer loop before that)
+         accented_token = garde(accentize(item, accent_dict.r, accent_dict.v))
+         # TODO: this does not depend on yat, can be moved out of the loop
+         # (and inner loop should be made outer loop before that)
          exposed_token = expose(accented_token, yat=input_yat)
-         deaccentized_token = deaccentize(exposed_token)
+         deaccentized_token = deaccentize(exposed_token).lower()
          yield deaccentized_token, input_yat
 
 class FancyLookup:
@@ -70,7 +72,7 @@ class FancyLookup:
 
    def __getitem__(self, key_with_mode: Tuple[str, str]) -> Iterator[Tuple[str, Entry]]:
       outer_key, input_yat = key_with_mode
-      inner_keys = self._outer_to_inner[(outer_key, input_yat)]
+      inner_keys = self._outer_to_inner[(outer_key.lower(), input_yat)]
       for key in inner_keys:
          for entry in self._inner_to_entries[key]:
             yield key, entry

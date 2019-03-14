@@ -18,18 +18,18 @@ def test_ije():
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
    assert l[2]["sg nom"].multiform == ['све̑т']
 
-   l = lookup("свет", input_yat="ekav", output_yat="ijekav") # свет, свијет
+   l = lookup("свет", input_yat="ekav", output_yat="jekav") # свет, свијет
    assert len(l) == 3
    assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
    assert l[2]["sg nom"].multiform == ['свйје̑т']
 
-   l = lookup("свет", input_yat="ijekav", output_yat="ekav") # свет (*svętъ)
+   l = lookup("свет", input_yat="jekav", output_yat="ekav") # свет (*svętъ)
    assert len(l) == 2
    assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
 
-   l = lookup("свет", input_yat="ijekav", output_yat="ijekav") # свет (*svętъ)
+   l = lookup("свет", input_yat="jekav", output_yat="jekav") # свет (*svętъ)
    assert len(l) == 2
    assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
@@ -37,16 +37,20 @@ def test_ije():
    l = lookup("свијет", input_yat="ekav", output_yat="ekav") # not found
    assert not l
 
-   l = lookup("свијет", input_yat="ekav", output_yat="ijekav") # not found
+   l = lookup("свијет", input_yat="ekav", output_yat="jekav") # not found
    assert not l
 
-   l = lookup("свијет", input_yat="ijekav", output_yat="ekav") # свет (*světъ)
+   l = lookup("свијет", input_yat="jekav", output_yat="ekav") # свет (*světъ)
    assert len(l) == 1
    assert l[0]["sg nom"].multiform == ['све̑т']
 
-   l = lookup("свијет", input_yat="ijekav", output_yat="ijekav") # свијет
+   l = lookup("свијет", input_yat="jekav", output_yat="jekav") # свијет
    assert len(l) == 1
    assert l[0]["sg nom"].multiform == ['свйје̑т']
+
+   l = lookup("свијет", input_yat="ijekav", output_yat="ijekav")
+   assert len(l) == 1
+   assert l[0]["sg nom"].multiform == ['сви̏јет']
 
 def test_drven():
    assert lookup("дрвен")["m sg nom long"][0].multiform == ['др̥̏венӣ']

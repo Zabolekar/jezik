@@ -5,6 +5,7 @@
 
 import re
 from typing import Dict, Optional, Iterator, Tuple
+from .charutils import *
 
 palatalization_modes: Dict[str, Dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
@@ -40,9 +41,6 @@ palatalization_modes: Dict[str, Dict[str, str]] = {
          'кʺе': 'че', 'цʺе': 'че', 'гʺ': 'ж', 'хʺ': 'ш',
          'ʹ': '', 'ʺ': '', 'ȷ': ''}
 }
-
-all_vowels = "АаЕеИиОоУуӤӥŒœꙒꙓѢѣAaEeIiOoUu\u0325"
-any_vowel = f"[{all_vowels}]"
 
 def last_vowel_index(trunk: str) -> Optional[int]:
    if re.search(any_vowel, trunk):
@@ -102,37 +100,41 @@ def deyerify(form: str) -> str:
    if 'ø' in form:
       form = form.replace('ø', '').replace('ъ', 'а')
    else:
-      form = re.sub('([аеиоу\u0325][\u030d·]?)([лљмнњрјв]ʲ?)ъ', '\\1\u0304\\2ъ', form)
+      form = re.sub(f'([аеиоу{cring}][{cstraight}·]?)([лљмнњрјв]ʲ?)ъ', f'\\1{cmacron}\\2ъ', form)
       for repl in repl_dict:
          form = form.replace(repl, repl_dict[repl])
       form = form.replace('ъ', '')
-   match = re.search('[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?\u030d', form)
+   match = re.search(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}', form)
    if match: # if 
       wrong_acc_index = match.span()[0]
-      form = form.replace('\u030d', '')
+      form = form.replace(cstraight, '')
       lvi = last_vowel_index(form[:wrong_acc_index+2])
       if lvi is None:
          raise ValueError(f"_{form[:wrong_acc_index+2]}_ does not contain any vowels")
       else:
-         form = insert(form, {lvi+1: '\u030d'})
+         form = insert(form, {lvi+1: cstraight})
    return form
 
 def prettify(text: str, yat:str='ekav') -> str:
    idict = palatalization_modes['ȷ']
-   replaces = [ ('јӥ', '\u0304ј'), ('ӥ', 'и'),
-                ('ʌ(а|е|и|о|у|р|œ|\u0325)', 'л\\1'), ('̄̍ʌ', '̍ʌ'), ( '̄ʌ', 'ʌ'),
-                ('о·ʌ', 'о\u0304·'), ('оʌ', 'о\u0304'), ('о\u030dʌ', 'о\u0304\u030d'),
-                ('о·\u0304ʌ', 'о·\u0304'), ('ʌ', 'о'),
+   replaces = [ ('јӥ', f'{cmacron}ј'), ('ӥ', 'и'),
+                (f'ʌ(а|е|и|о|у|р|œ|{cring})', 'л\\1'),
+                (f'{cmacron}{cstraight}ʌ', f'{cstraight}ʌ'),
+                (f'{cmacron}ʌ', 'ʌ'),
+                ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
+                (f'о{cstraight}ʌ', f'о{cmacron}{cstraight}'),
+                (f'о·{cmacron}ʌ', f'о·{cmacron}'), ('ʌ', 'о'),
                 ('([цчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
                 ('ʲ', '')]
    yat_replaces = { 'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
-                    'jekav': [('ѣ(\u030d?о)', 'и\\1'),
+                    'jekav': [(f'ѣ({cstraight}?о)', 'и\\1'),
                               ('лѣ', 'ље'), ('нѣ', 'ње'),
-                              ('ѣ(\u030d?[љјњ])', 'и\\1'),
-                              ('ꙓ(\u030d?[ој])', "и\\1"), ('ꙓ̄', 'йје̄'),
+                              (f'ѣ({cstraight}?[љјњ])', 'и\\1'),
+                              (f'ꙓ({cstraight}?[ој])', "и\\1"),
+                              (f'ꙓ{cmacron}', f'йје{cmacron}'),
                               ('лꙓ', 'ље'), ('нꙓ', 'ње'),
                               ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'), ('[ꙓѣ]', 'је')] }
-   yat_replaces['ijekav'] = yat_replaces['jekav']
+   yat_replaces['ijekav'] = yat_replaces['jekav'] 
 
    for key in idict:
       text = text.replace(key, idict[key])
@@ -143,13 +145,12 @@ def prettify(text: str, yat:str='ekav') -> str:
    return text
 
 def deaccentize(text: str) -> str:
-   accents = '\u0301\u0300\u0304\u0306\u030f\u0311\u0302\u0325!'
-   accented = {'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìī': 'i',
+   accented = {'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìīĭ': 'i',
                'ȕȗûúùū': 'u', 'ȑȓŕ': 'r', 'ȀȂÂÁÀĀ': 'A',
-               'ȄȆÊÉÈĒ': 'E', 'ȈȊÎÍÌĪ': 'I', 'ȔȖÛÚÙŪ': 'U',
+               'ȄȆÊÉÈĒ': 'E', 'ȈȊÎÍÌĪĬ': 'I', 'ȔȖÛÚÙŪ': 'U',
                'ȐȒŔ': 'R', 'ȍȏôóòō': 'o', 'ȌȎÔÓÒŌ': 'O',
                'ӣѝй': 'и', 'ѐ': 'е', 'ӢЍЙ': 'И', 'Ѐ': 'Е'}
-   for accent in accents:
+   for accent in all_accent_marks:
       text = text.replace(accent, '')
    for letters in accented:
       for letter in letters:
@@ -160,10 +161,10 @@ def deaccentize(text: str) -> str:
 def garde(word: str) -> str: # Garde's accentuation
    
    result = word
-   while re.findall("[\u0300\u0301\u030f\u0311]", result): # while word is ungarded-like:
+   while re.findall(any_of_four_accents, result): # while word is ungarded-like:
 
-      short_desc_index = result.rfind('\u030f') # short falling index
-      long_desc_index = result.rfind('\u0311') # long falling index
+      short_desc_index = result.rfind(cdoublegrave)
+      long_desc_index = result.rfind(ccircumflex)
       real_fvi = first_vowel_index(result)
       fvi = real_fvi if real_fvi is not None else -10
 
@@ -182,35 +183,35 @@ def garde(word: str) -> str: # Garde's accentuation
 
             if letter in all_vowels:
                if insert_bool:
-                  insert_dict[i+1] = '\u030d' # straight accent
+                  insert_dict[i+1] = cstraight
                   insert_bool = False
                else:
                   if len(result) > i+1:
-                     if result[i+1] == '\u0300': # `
+                     if result[i+1] == cgrave:
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
-                     elif result[i+1] == '\u0301': # ´
+                     elif result[i+1] == cacute: 
                         insert_bool = True
-                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '\u0304', word2)
-                     elif result[i+1] == '\u030f': # ¨
+                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + cmacron, word2)
+                     elif result[i+1] == cdoublegrave: 
                         word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                       r"\g<1>" + '\u030d',
-                                       word2)  # straight accent
-                     elif result[i+1] == '\u0311': # ^
+                                       r"\g<1>" + cstraight,
+                                       word2)  
+                     elif result[i+1] == ccircumflex: 
                         word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                       r"\g<1>" + '\u030d',
-                                       word2) # straight accent
-                        insert_dict[i+1] = '\u0304' # _
+                                       r"\g<1>" + cstraight,
+                                       word2)
+                        insert_dict[i+1] = cmacron
 
          word3 = insert(word2, insert_dict)
          word3 = re.sub('•', '', word3) # delete
-         word3 = re.sub('\u030d\u0304', '\u0304\u030d', word3) #swap length \u0304 and accent \u030d
+         word3 = re.sub(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}', word3) #swap length and accent
          result = word3
       
       else:
          excl_index = max(short_desc_index, long_desc_index)
          result = insert(result, {excl_index-1: '!'})
-         result = result.replace('\u030f', '\u030d').replace('\u0311', '\u0304\u030d')
+         result = result.replace(cdoublegrave, cstraight).replace(ccircumflex, f'{cmacron}{cstraight}')
       
    return result
       
@@ -218,28 +219,28 @@ def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
       form = (form
               .replace('0', '')
-              .replace('\u030d', '') # straight accent
-              .replace('~', '\u0304'))
+              .replace(cstraight, '')
+              .replace('~', cmacron))
       fvi = first_vowel_index(form)
       if fvi is None:
          raise ValueError(f"{form} does not contain any vowels")
       else:
          to_insert = fvi + 1
-         form = insert(form, {to_insert: '\u030d'}) # straight accent
+         form = insert(form, {to_insert: cstraight}) # straight accent
    return form
 
 def purify(form: str) -> str:
    return (form.replace('~', '')
                .replace('0', '')
                .replace('·', '')
-               .replace('\u030d\u0304', '\u0304\u030d')
+               .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
            )
 
 def ungarde(form: str) -> str:
 
    chars = list(form)
-   while '\u030d' in chars:
-      old_accent_index = chars.index("\u030d")
+   while cstraight in chars:
+      old_accent_index = chars.index(cstraight)
       chars.pop(old_accent_index)
 
       new_accent_index = old_accent_index - 1
@@ -250,7 +251,7 @@ def ungarde(form: str) -> str:
             chars.pop(new_accent_index)
             old_accent_index -= 1
             break
-         if chars[new_accent_index] in "aeiouAEIOUаеиоуАЕИОУ\u0325":
+         if chars[new_accent_index] in all_vowels:
             vowel_count += 1
             if vowel_count == 2:
                shifted = True
@@ -259,15 +260,26 @@ def ungarde(form: str) -> str:
          new_accent_index -= 1
 
       if shifted:
-         chars.insert(new_accent_index, "\u0300") #rising
+         chars.insert(new_accent_index, cgrave) #rising
       else:
-         chars.insert(old_accent_index, "\u030f") #falling
+         chars.insert(old_accent_index, cdoublegrave) #falling
 
    return ("".join(chars)
-             .replace("\u0300\u0304", "\u0301") #long rising
-             .replace("\u0304\u030f", "\u0311")) #long falling
+             .replace(f'{cgrave}{cmacron}', cacute) #long rising
+             .replace(f'{cmacron}{cdoublegrave}', ccircumflex)) #long falling
 
 def expose(form: str, yat:str='ekav') -> str:
-   "all transformations from internal to external representation"
-   return ungarde(prettify(purify(zeroify(deyerify(form))), yat))
+   """all transformations from internal to external representation;
+   ijekavian two-syllable yat appears only here, not in yat_replaces,
+   otherwise ungarde() produces wrong results, i.e. **snìjeg"""
+
+   result = ungarde(prettify(purify(zeroify(deyerify(form))), yat))
+
+   if yat == 'ijekav':
+      result = result.replace(
+         f'йје{cacute}', f'ије{cgrave}').replace(
+         f'йје{ccircumflex}', f'и{cdoublegrave}је').replace(
+         f'йје{cmacron}', 'ије')
+         
+   return result
 

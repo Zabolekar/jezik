@@ -6,6 +6,7 @@ from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
 from ..paradigm_helpers import AccentedTuple, nice_name, oa, accentize
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
+from ..charutils import cmacron, cstraight
 
 class Adjective(PartOfSpeech):
    def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
@@ -33,7 +34,7 @@ class Adjective(PartOfSpeech):
             else:
                trunk = accented_adj
          elif 'ski' in self.gram.other:
-            trunk = re.sub('\u0304\u030d$', '\u0304', accented_adj)[:-2]
+            trunk = re.sub(f'{cmacron}{cstraight}$', cmacron, accented_adj)[:-2]
          if not 'a' in self.gram.AP[number]:
             lvi = last_vowel_index(trunk)
             if lvi is None:
