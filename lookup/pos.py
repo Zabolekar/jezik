@@ -58,8 +58,8 @@ class PartOfSpeech():
    def accentize(self, current_AP: str, word: str) -> str:
       if current_AP not in oa:
          word = word.replace(cstraight, '')
-         if cstraight not in word: # straight
-            word = word.replace('·', cstraight, 1) # to straight
+      if cstraight not in word: # straight
+         word = word.replace('·', cstraight, 1) # to straight
       else:
          word = word.replace('·', '')
       return word
@@ -134,7 +134,8 @@ class PartOfSpeech():
          for case in retraction:
             connectenda.append(_apply_neocirk(word_form, lvi, fvi, pvi, morpheme, case))
 
-         if retraction == [False]:
+         if retraction == [0]:
+            #pass
             # 6. in some cases (TODO: when??) we delete all straight accents and reinsert a new one at pvi
             if lvi != fvi and f"{cmacron}{cstraight}" in word_form[lvi:] \
                   and not cmacron in word_form[:lvi] \
@@ -160,6 +161,7 @@ class PartOfSpeech():
 
          morpheme = ending_part.morpheme
          accent = ending_part.accent
+         
          # deleting the first of two accents (is it OK to have it here?)
          if current_AP in accent and cstraight in word_subform:
             word_subform = word_subform.replace(cstraight, '')
@@ -180,7 +182,7 @@ class PartOfSpeech():
       # I already see it is needed here, but it seems unlogical
 
       for pair in connectenda:
-         # accentizing 
+         # accentizing endings (?)
          if current_AP in ending_part.accent:
             #if self.gram.AP[i] not in ['c?']:
             #word_form = word_form.replace('\u030d', '')
@@ -192,10 +194,15 @@ class PartOfSpeech():
             pair[0] = pair[0].replace('·', '')
          # accentizing enclinomena (words without accent)
          elif all([x not in current_AP for x in ['o', 'a', 'b', 'e']]) \
-         and cstraight not in pair[0]:
+           and cstraight not in pair[0] and '·' not in pair[0]:
             _fvi = first_vowel_index(pair[0])
             if  _fvi is not None:
-               pair[0] = insert(pair[0], {_fvi: cstraight})
+               pair[0] = insert(pair[0], {_fvi+1: cstraight})
+         # accentizing non-enclinomical words (finally!)
+         # this line of code also helped solving 'aludirati' bug
+         # (when too many enclinomena appear, like **ȁludīrām)
+         elif cstraight not in pair[0]:
+            pair[0] = pair[0].replace('·', cstraight)
          
       result = [pair[0]+pair[1] for pair in connectenda]
       return result

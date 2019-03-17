@@ -67,6 +67,7 @@ class Verb(PartOfSpeech):
    def _paradigm_to_forms(self, i: int, length_inconstancy: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
       # TODO: length_inconstancy currently not used
       # however, but Svetozar says he will use it later
+      # e.g. гри̏сти, гри́зе̄м
       for label, ending in MP_to_verb_stems[self.gram.MP[i]].labeled_endings:
          if self._verb_form_is_possible(label, self.gram.other):
             ready_forms: List[str] = [] 
