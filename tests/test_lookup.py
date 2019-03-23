@@ -96,7 +96,6 @@ def test_multiple_results():
    assert len(lookup("апсорбовати")) == 2
    assert len(lookup("зор")) == 2
 
-@pytest.mark.xfail
 def test_different_ije():
  
    la1 = lookup("снијег", input_yat="ijekav")
@@ -109,9 +108,6 @@ def test_different_ije():
    assert lb1["sg nom"].multiform == ['ви̏јек']
    assert lb2["sg nom"].multiform == ['вйје̑к']
 
-   # TODO: йје́ vs ијѐ
-
-@pytest.mark.xfail
 def test_advokatirati():
    """
    This test was added to cover issue #25
@@ -119,3 +115,8 @@ def test_advokatirati():
    assert lookup("адвокатирати")["prs 1 sg"].multiform == ['адвока̀тӣра̄м']
    assert lookup("алудирати")["prs 1 sg"].multiform == ['алу̀дӣра̄м']
    assert lookup("ачити се")["prs 1 sg"].multiform == ['а̑чӣм се']
+
+def test_lll():
+   assert lookup("го")["nom sg m short"].multiform == ['го̑', 'го̑л']
+   assert lookup("бо")["nom sg"].multiform == ['бо̑', 'бо̑л']
+   
