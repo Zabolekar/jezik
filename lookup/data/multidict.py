@@ -53,7 +53,12 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    # TODO: Latin
    accent_dict = i_to_accents(accent)
    tmp = s + 'ø' if not s[-1] in all_vowels else s
-   tmp_list = [tmp.replace('Ъ', ''), tmp.replace('Ъ', 'ъ')] if 'Ъ' in tmp else [tmp]
+   if 'ʟ' in tmp:
+      tmp_list = [tmp.replace('ʟ', 'л'), tmp.replace('ʟ', 'ʌ')]
+   elif 'Ъ' in tmp:
+      tmp_list = [tmp.replace('Ъ', ''), tmp.replace('Ъ', 'ъ')]
+   else:
+      tmp_list = [tmp]
    for input_yat in ["ekav", "jekav", "ijekav"]:
       for item in tmp_list:
          accented_token = garde(accentize(item, accent_dict.r, accent_dict.v))

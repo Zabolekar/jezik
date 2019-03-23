@@ -112,7 +112,7 @@ class PartOfSpeech():
             and 'c' in current_AP:
             retraction = [1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
-            and 'b' in current_AP:
+            and 'b' in current_AP or 'd' in current_AP:
             retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄
          else:
             retraction = [0]

@@ -110,9 +110,11 @@ class Noun(PartOfSpeech):
          # after that, iterating by ending variation
          for ending_variation in ending:
 
-            # processing forms like akcenat/akcent (marked with Ъ)
-
-            if 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
+            # processing words like bo / bol (marked with ʟ)
+            if 'ʟ' in noun_form:
+               noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
+            # processing forms like akcenat/akcent (marked with Ъ)       
+            elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
                noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
             else:
                noun_variants = [noun_form.replace('Ъ', 'ъ')]
