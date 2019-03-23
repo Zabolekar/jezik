@@ -1048,7 +1048,7 @@
  t: A\all
  i: \1^\a:,a:\
  
-гоʟ:
+гоʟ I:
  t: A\all
  i: \1^\b?,b.\
  
@@ -7208,7 +7208,122 @@
  t: N\m
  i: \1¨\a.\;\1`\a.\
 
-
 котлић:
  t: N\m
  i: \1`\a.\u;\1`,2_\b:\u
+
+гол II:
+ t: N\m
+ i: \1^\d:\+
+
+животарити:
+ t: V\Itr\Ipf
+ i: \3´\p:\alpha
+
+живѣти:
+ t: V\Itr\Ipf
+ i: \1´\q:\eta
+
+доживѣти:
+ t: V\Tr\Pf
+ i: \2´\q:\eta
+
+иживѣти I:
+ t: V\Tr\Pf
+ i: \2´\q:\eta
+
+иживѣти се:
+ t: V\Refl\Pf
+ i: \2´\q:\eta
+
+надживѣти:
+ t: V\Tr\Pf
+ i: \2´\q:\eta
+
+одживѣти:
+ t: V\Tr\Pf
+ i: \2´\q:\eta
+
+оживѣти:
+ t: V\Itr\Pf
+ i: \2´\q:\eta
+
+поживѣти:
+ t: V\Itr\Pf
+ i: \2´\q:\eta
+
+преживѣти:
+ t: V\Tr\Pf
+ i: \2´\q:\eta
+
+проживѣти:
+ t: V\Tr\Pf
+ i: \2´\q:\eta
+
+саживѣти се:
+ t: V\Refl\Pf
+ i: \2´\q:\eta
+
+уживѣти се:
+ t: V\Refl\Pf
+ i: \2´\q:\eta
+
+заживѣти:
+ t: V\Itr\Pf
+ i: \2´\q:\eta
+
+трпѣти:
+ t: V\Tr\Ipf
+ i: \2@1´\q:\eta
+
+отрпѣти:
+ t: V\Tr\Pf
+ i: \3@2´\q:\eta
+
+претрпѣти:
+ t: V\Tr\Pf
+ i: \5@2´\q:\eta
+
+вртѣти I:
+ t: V\Tr\Ipf
+ i: \2@1`\s.\eta
+
+вртѣти се:
+ t: V\Refl\Ipf
+ i: \2@1`\s.\eta
+
+извртѣти:
+ t: V\Tr\Pf
+ i: \4@2`\s.\eta
+
+одвртѣти:
+ t: V\Tr\Pf
+ i: \4@2`\s.\eta
+ 
+провртѣти:
+ t: V\Tr\Pf
+ i: \5@2`\s.\eta
+ 
+увртѣти:
+ t: V\Tr\Pf
+ i: \3@2`\s.\eta
+ 
+узвртѣти се:
+ t: V\Refl\Pf
+ i: \4@2`\s.\eta
+ 
+завртѣти I:
+ t: V\Tr\Pf
+ i: \4@2`\s.\eta
+
+завртѣти се:
+ t: V\Tr\Pf
+ i: \4@2`\s.\eta
+
+грмѣти:
+ t: V\Itr\Ipf
+ i: \2@1`\s.\eta
+
+загрмѣти:
+ t: V\Itr\Pf
+ i: \4@2`\s.\eta
