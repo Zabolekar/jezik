@@ -4,7 +4,7 @@ import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index
-from ..paradigm_helpers import AccentedTuple, nice_name, oa, accentize
+from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 from ..charutils import cmacron, cstraight
 
@@ -68,11 +68,15 @@ class Adjective(PartOfSpeech):
       for label, ending in zip(paradigm._fields, paradigm):
          ready_forms = []
          for variation in ending: # e.g. -om, -ome, -omu
-            new_adj_form = self.process_one_form(current_AP, adj_form, variation)
-            if self._adj_form_is_possible(new_adj_form):
-               ready_forms.append(new_adj_form)
+            if 'ʟ' in adj_form:
+               adj_variants = [adj_form.replace('ʟ', 'ʌ'), adj_form.replace('ʟ', 'л')]
+            else:
+               adj_variants = [adj_form]
+            for adj_variant in adj_variants:
+               if self._adj_form_is_possible(adj_variant):
+                  ready_forms.append(self.process_one_form(current_AP, adj_variant, variation))
             
-         yield nice_name(label), [self._expose(w_form, yat) for w_form in ready_forms]
+         yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """decline"""
