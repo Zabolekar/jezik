@@ -7,7 +7,7 @@ from .charutils import cacute, cgrave, cdoublegrave, ccircumflex, cmacron, cring
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
-oa = ['o.', 'o:', 'a.', 'a:']
+oa = ['o.', 'o:', 'a.', 'a:', 'a!']
 T = TypeVar('T')
 
 _r = rcompile("([a-z]+|[A-Z]|\d)")

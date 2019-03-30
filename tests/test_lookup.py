@@ -119,4 +119,9 @@ def test_advokatirati():
 def test_lll():
    assert lookup("го")["nom sg m short"].multiform == ['го̑', 'го̑л']
    assert lookup("бо")["nom sg"].multiform == ['бо̑', 'бо̑л']
-   
+
+def test_abang_paradigm():
+   assert lookup("агитатор")["gen sg"].multiform == ['агѝта̄тора']
+   assert lookup("аманет")["gen pl"].multiform == ['а̀ма̄не̄та̄']
+   assert lookup("анђео")["ins sg"].multiform == ['а̑нђелом']
+   assert lookup("амбасадор")["pl nom"].multiform == ['амба̀са̄дори']

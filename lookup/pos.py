@@ -13,7 +13,7 @@ def _swap(trunk_: str, AP: str) -> str:
    if trunk_lvi: # if the word has vowels (otherwise, do nothing):
       if AP.endswith(':') and trunk_lvi+1 != last_macron and trunk_lvi+2 != last_macron:
       # if we need to insert macron, we do it
-         word_form = insert(trunk_, {trunk_lvi+2: cmacron})
+         word_form = insert(trunk_, {trunk_lvi+1: cmacron})
 
       elif AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
       # and vice versa, we delete macron from the last vowel in case it is there
@@ -106,7 +106,7 @@ class PartOfSpeech():
          elif pvi is not None and ('ъ' not in word_form \
             and current_AP not in accent \
             and 'm' in self.gram.other or 'n' in self.gram.other \
-            and not '\u030d' in word_form[pvi+2:]):
+            and not cstraight in word_form[pvi+2:]):
             retraction = [1]
          elif 'm' in self.gram.other and 'œв' in word_form \
             and 'c' in current_AP:
