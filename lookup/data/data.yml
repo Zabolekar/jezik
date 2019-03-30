@@ -73,7 +73,7 @@
 
 агитатор:
  t: N\m
- i: \2`,3_\a.\an
+ i: \2`,3_\a!\an
 
 агитовати:
  t: V\Tr\Dv
@@ -302,7 +302,7 @@
 
 аманет:
  t: N\m
- i: \2´\a.\
+ i: \2´\a!\
 
 аматер:
  t: N\m
@@ -314,7 +314,7 @@
 
 амбасадор:
  t: N\m
- i: \2`,3_\a.\an
+ i: \2`,3_\a!\an
 
 амбасадорски:
  t: A\ski
@@ -354,7 +354,7 @@
 
 аминовати:
   t: V\Tr\Dv
-  i: \1´\a:\epsilon
+  i: \1´\a!\epsilon
 
 амнестирати:
  t: V\Tr\Dv
@@ -366,7 +366,7 @@
 
 амонијачън:
  t: A\all
- i: \1`,2_\a.,a.\;\ 2`\a.,a.\;\ 3`,4_\a.,a.\
+ i: \1`,2_\a.,a.\;\2`\a.,a.\;\ 3`,4_\a.,a.\
 
 амортизовати:
  t: V\Tr\Dv
@@ -426,7 +426,7 @@
  
 анђеʌ:
  t: N\m
- i: \1^\a.\an
+ i: \1^\a!\an
 
 анемичън:
  t: A\all
@@ -683,12 +683,12 @@
 
 атар:
  t: N\m
- i: \1¨,2_\a.\
+ i: \1¨,2_\a!\
  c: и ха̏та̄р
 
 хатар:
  t: N\m
- i: \1¨,2_\a.\
+ i: \1¨,2_\a!\
  c: и а̏та̄р
 
 атеизъм:
@@ -701,7 +701,7 @@
 
 атентатор:
  t: N\m
- i: \2`,3_\a.\an
+ i: \2`,3_\a!\an
 
 атерирати:
  t: V\Itr\Dv
@@ -2358,19 +2358,19 @@
  
 какотати:
  t: V\Tr\Ipf
- i: \1´\a:\delta;\2`\t.\delta
+ i: \1´\a!\delta;\2`\t.\delta
  
 одкакотати:
  t: V\Tr\Pf
- i: \2´\a:\delta;\3`\t.\delta
+ i: \2´\a!\delta;\3`\t.\delta
  
 разкакотати:
  t: V\Refl\Pf
- i: \2´\a:\delta;\3`\t.\delta
+ i: \2´\a!\delta;\3`\t.\delta
  
 манисати:
  t: V\Tr\Ipf
- i: \1´\a:\delta;\1`\o.\delta
+ i: \1´\a!\delta;\1`\o.\delta
  
 рђав:
  t: A\all
@@ -6667,12 +6667,12 @@
 
 брешчић:
  t: N\m
- i: \1`\a.\,u
+ i: \1`\a.\u
  c: = брежић
 
 брежић:
  t: N\m
- i: \1`\a.\,u
+ i: \1`\a.\u
  c: = брешчић
 
 кожух:
@@ -6736,7 +6736,7 @@
 
 зубић:
  t: N\m
- i: \1`\a.\,u
+ i: \1`\a.\u
 
 суџук:
  t: N\m
@@ -7327,3 +7327,855 @@
 загрмѣти:
  t: V\Itr\Pf
  i: \4@2`\s.\eta
+
+хмељ:
+ t: N\m
+ i: \1¨\b.\±
+
+носити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+носити се:
+ t: V\Refl\Ipf
+ i: \1`\p.\alpha
+
+доносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+доприносити:
+ t: V\Tr\Ipf
+ i: \3`\p.\alpha
+
+износити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+ c: премештати ван; стајати, коштати; изрицати
+
+износити II:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+ c: искористити, истрошити
+
+износити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+ c: изрицати се
+
+надносити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+надносити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+наносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+обносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+односити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+подносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+преносити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+преносити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+преузносити I:
+ t: V\Tr\Ipf
+ i: \3`\p.\alpha
+
+преузносити се:
+ t: V\Refl\Ipf
+ i: \3`\p.\alpha
+
+придоносити:
+ t: V\Tr\Ipf
+ i: \3`\p.\alpha
+
+приносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+проносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+разносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+саносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+сносити:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+уносити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+уносити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+узносити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+заносити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+заносити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+говорити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+изговорити I:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha
+
+изговорити се:
+ t: V\Refl\Pf
+ i: \3`\p.\alpha
+
+наговорити:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha
+
+одговорити:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha
+
+приговорити:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha
+
+проговорити:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha
+
+уговорити:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha
+
+заговорити се:
+ t: V\Refl\Pf
+ i: \3`\p.\alpha
+
+благословити:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha
+
+јесенити се:
+ t: V\Tr\Ipf
+ i: \2`\r.\alpha
+
+пријатељити I:
+ t: V\Tr\Ipf
+ i: \3`\p.\alpha;\3`\r.\alpha
+
+спријатељити I:
+ t: V\Tr\Pf
+ i: \3`\p.\alpha;\3`\r.\alpha
+
+пријатељити се:
+ t: V\Refl\Ipf
+ i: \3`\p.\alpha;\3`\r.\alpha
+
+спријатељити се:
+ t: V\Refl\Pf
+ i: \3`\p.\alpha;\3`\r.\alpha
+
+треперити:
+ t: V\Itr\Ipf
+ i: \2`\r.\alpha
+
+затреперити:
+ t: V\Itr\Pf
+ i: \3`\r.\alpha 
+
+будалити:
+ t: V\Itr\Ipf
+ i: \2`\r.\alpha
+
+губити I:
+ t: V\Tr\Ipf
+ i: \1`\r.\alpha
+
+губити се:
+ t: V\Refl\Ipf
+ i: \1`\r.\alpha
+
+изгубити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+изгубити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+погубити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+загубити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+загубити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+дангубити:
+ t: V\Itr\Ipf
+ i: \1`\o.\alpha
+
+продангубити:
+ t: V\Itr\Pf
+ i: \2`\o.\alpha
+
+пиљити:
+ t: V\Itr\Ipf
+ i: \1´\r:\alpha
+
+пиздрити:
+ t: V\Itr\Ipf
+ i: \1´\r:\alpha
+
+пиждрити:
+ t: V\Itr\Ipf
+ i: \1´\r:\alpha
+
+буљити:
+ t: V\Itr\Ipf
+ i: \1´\r:\alpha
+ 
+зјати:
+ t: V\Itr\Ipf
+ i: \1¨\y0\beta
+
+зазјати:
+ t: V\Itr\Pf
+ i: \1`\n.\beta
+
+сјати:
+ t: V\Itr\Ipf
+ i: \1¨\y0\beta
+
+засјати се:
+ t: V\Refl\Pf
+ i: \1`\n.\beta
+
+обасјати:
+ t: V\Tr\Pf
+ i: \2`\x.\beta
+
+разасјати се:
+ t: V\Refl\Pf
+ i: \2`\x.\beta
+
+саздати:
+ t: V\Tr\Pf
+ i: \1`\n.\beta
+
+прижгати:
+ t: V\Tr\Pf
+ i: \1`\n.\beta
+
+ужгати:
+ t: V\Tr\Pf
+ i: \1`\n.\beta
+
+затљати:
+ t: V\Itr\Pf
+ i: \1`\n.\beta
+
+возити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+возити се:
+ t: V\Refl\Ipf
+ i: \1`\p.\alpha
+
+довозити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+извозити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+навозити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+навозити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+превозити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+превозити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+одвозити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+увозити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+увозити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+водити:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+изводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+ 
+наводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+одводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+доводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+подводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+приводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+производити:
+ t: V\Tr\Ipf
+ i: \3`\p.\alpha
+
+преводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+проводити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+проводити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+сводити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+сводити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+уводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+заводити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+гонити:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+нагонити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+загонити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+изгонити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+прогонити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+женити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+женити се:
+ t: V\Refl\Ipf
+ i: \1`\p.\alpha
+
+оженити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+оженити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+поженити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+поженити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+приженити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+приженити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+козити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+козити се:
+ t: V\Refl\Ipf
+ i: \1`\p.\alpha
+
+косити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+ c: од ко̀са
+
+накосити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+покосити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+прокосити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+косити II:
+ t: V\Itr\Ipf
+ i: \1´\p:\alpha
+
+накосити II:
+ t: V\Tr\Pf
+ i: \2´\p:\alpha
+
+укосити:
+ t: V\Tr\Pf
+ i: \2´\p:\alpha
+
+кречити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha;\1¨\o.\alpha
+ c: премазивати кречним раствором
+
+кречити II:
+ t: V\Tr\Ipf
+ i: \1´\p:\alpha
+ c: размицати, ширити (ноге)
+
+кречити се:
+ t: V\Refl\Ipf
+ i: \1´\p:\alpha
+ c: размицати, ширити ноге
+
+раскречити I:
+ t: V\Tr\Ipf
+ i: \2´\p:\alpha
+
+раскречити се:
+ t: V\Refl\Ipf
+ i: \2´\p:\alpha
+
+крочити:
+ t: V\Ipf\Dv
+ i: \1`\p.\alpha
+
+молити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+молити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+помолити I:
+ t: V\Tr\Pf
+ i: \1`\p.\alpha
+ c: показати (напр. нос)
+
+помолити се:
+ t: V\Refl\Pf
+ i: \1`\p.\alpha
+ c: показати се
+
+измолити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+умолити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+замолити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+просити:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+испросити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+запросити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+простити:
+ t: V\Tr\Pf
+ i: \1`\p.\alpha;\1`\r.\alpha
+
+опростити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+пустити I:
+ t: V\Tr\Pf
+ i: \1`\p.\alpha
+
+пустити се:
+ t: V\Refl\Pf
+ i: \1`\p.\alpha
+
+допустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+испустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+напустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+опустити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+ c: пустити да слободно виси
+
+опустити II:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+ c: опустошити
+
+опустити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+отпустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+попустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+препустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+припустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+пропустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+распустити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+спустити I:
+ t: V\Tr\Pf
+ i: \1`\p.\alpha
+
+спустити се:
+ t: V\Refl\Pf
+ i: \1`\p.\alpha
+
+запустити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+запустити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+родити I:
+ t: V\Tr\Pf
+ i: \1`\p.\alpha;\1`\r.\alpha
+
+родити се:
+ t: V\Refl\Pf
+ i: \1`\p.\alpha;\1`\r.\alpha
+
+изродити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+изродити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+народити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+одродити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+одродити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+породити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+ 
+породити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+сродити се:
+ t: V\Refl\Pf
+ i: \1`\p.\alpha
+
+селити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+селити се:
+ t: V\Refl\Ipf
+ i: \1`\p.\alpha
+
+доселити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+доселити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+иселити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+иселити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+преселити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+преселити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+раселити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+раселити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+уселити I:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+уселити се:
+ t: V\Refl\Pf
+ i: \2`\p.\alpha
+
+скочити:
+ t: V\Itr\Pf
+ i: \1`\p.\alpha
+
+одскочити:
+ t: V\Itr\Pf
+ i: \2`\p.\alpha
+
+прескочити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+наскочити:
+ t: V\Itr\Pf
+ i: \2`\p.\alpha
+
+ускочити:
+ t: V\Itr\Pf
+ i: \2`\p.\alpha
+
+заскочити:
+ t: V\Tr\Pf
+ i: \2`\p.\alpha
+
+телити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+телити се:
+ t: V\Refl\Ipf
+ i: \1`\p.\alpha
+
+отелити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+отелити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+ходити:
+ t: V\Itr\Ipf
+ i: \1`\p.\alpha
+
+исходити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+опходити I:
+ t: V\Itr\Ipf
+ i: \2`\p.\alpha
+
+опходити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+отходити:
+ t: V\Itr\Ipf
+ i: \2`\p.\alpha
+
+доходити:
+ t: V\Itr\Ipf
+ i: \2`\p.\alpha
+
+походити:
+ t: V\Tr\Dv
+ i: \2`\p.\alpha
+
+претходити:
+ t: V\Itr\Ipf
+ i: \2`\p.\alpha
+
+заходити:
+ t: V\Itr\Ipf
+ i: \2`\p.\alpha
+
+штенити I:
+ t: V\Tr\Ipf
+ i: \1`\p.\alpha
+
+штенити се:
+ t: V\Refl\Ipf
+ i: \1`\p.\alpha
+
+оштенити I:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+оштенити се:
+ t: V\Refl\Ipf
+ i: \2`\p.\alpha
+
+половити I:
+ t: V\Tr\Dv
+ i: \2`\p.\alpha;\2`\r.\alpha;\1`\o.\alpha
+ c: (по)делити напола
+
+питомити:
+ t: V\Tr\Ipf
+ i: \2`\p.\alpha
+
+роморити:
+ t: V\Itr\Ipf
+ i: \2`\p.\alpha;\2`\r.\alpha
+
+штовати:
+ t: V\Tr\Ipf
+ i: \1`\m.\eta
+
+псовати:
+ t: V\Tr\Ipf
+ i: \1`\m.\eta
+
+опсовати:
+ t: V\Tr\Pf
+ i: \2`\m.\eta
+
+запсовати:
+ t: V\Itr\Pf
+ i: \2`\m.\eta
+ 
+напсовати I:
+ t: V\Tr\Pf
+ i: \2`\m.\eta
+ 
+напсовати се:
+ t: V\Refl\Pf
+ i: \2`\m.\eta
+ 
+испсовати I:
+ t: V\Tr\Pf
+ i: \2`\m.\eta
+ 
+испсовати се:
+ t: V\Refl\Pf
+ i: \2`\m.\eta
