@@ -73,7 +73,7 @@ class Verb(PartOfSpeech):
             ready_forms: List[str] = [] 
             for variation in ending:
                ready_forms += self.process_one_form(i, self.trunk[i], variation)
-               yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
+            yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:

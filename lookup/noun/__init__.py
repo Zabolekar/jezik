@@ -62,7 +62,7 @@ class Noun(PartOfSpeech):
                   trunk = trunk_
                else:
                   trunk = insert(trunk_, {fvi: '·'})
-         elif 'b' in AP or 'e' in AP or 'q' in AP: # b, e, q are b-like paradigms
+         elif any([x in AP for x in 'beq']): # b, e, q are b-like paradigms
             lvi = last_vowel_index(trunk_)
             if lvi is None:
                trunk = trunk_
@@ -79,8 +79,9 @@ class Noun(PartOfSpeech):
 
    def _noun_form_is_possible(self, noun_form: str, variation: List[AccentedTuple], paradigm: str) -> bool:
       return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
-               or ('c' not in paradigm and 'd' not in paradigm)
-               or variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')])
+               or all([x not in paradigm for x in 'cde'])
+               or (variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:')]
+               and variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]))
                # this is the ā which is NOT accented in a. p. c
 
    def process_one_form(self, i: int, noun_variant: str, ending_variation: List[AccentedTuple]) -> List[str]:

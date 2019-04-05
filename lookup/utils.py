@@ -105,7 +105,7 @@ def deyerify(form: str) -> str:
          form = form.replace(repl, repl_dict[repl])
       form = form.replace('ъ', '')
    match = re.search(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}', form)
-   if match: # if 
+   if match: # if TODO what if?
       wrong_acc_index = match.span()[0]
       form = form.replace(cstraight, '')
       lvi = last_vowel_index(form[:wrong_acc_index+2])
@@ -124,7 +124,8 @@ def prettify(text: str, yat:str='ekav') -> str:
                 ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
                 (f'о{cstraight}ʌ', f'о{cmacron}{cstraight}'),
                 (f'о·{cmacron}ʌ', f'о·{cmacron}'), ('ʌ', 'о'),
-                ('([цчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
+                ('цœ', 'че'),
+                ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
                 ('ʲ', '')]
    yat_replaces = { 'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
                     'jekav': [(f'ѣ({cstraight}?о)', 'и\\1'),

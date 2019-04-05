@@ -36,21 +36,32 @@ vocative_dict: Dict[str, MorphemeChain] = {'u': [AccentedTuple('у0·', 'b.b:c:c
 
 def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    ov = AccentedTuple('>œ·в', 'b.b:c?d:e:')
-   plurals = [
+
+   suffixed_plurals = [
+       [[AccentedTuple('ʹи·', '')]],
+       [[AccentedTuple('е·', '')]],
+       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?d:')], [AccentedTuple(f'<а·{cmacron}', 'b.b:')]],
+       [[AccentedTuple('ʹи·ма', 'c:c?')], [AccentedTuple('ʹи·ма', '')]],
+       [[AccentedTuple('ʹи·ма', 'c:c?')], [AccentedTuple('ʹи·ма', '')]],
+       [[AccentedTuple('ʹи·ма', 'c:c?')], [AccentedTuple('ʹи·ма', '')]],
+       [[AccentedTuple('ʹи0·', 'b.b:c:c?q.')]]
+            ]
+
+   free_plurals = [
        [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
        [[AccentedTuple('е·', 'b.b:e:q.')]],
        [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?d:e:')], [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
-       [[AccentedTuple('ʹи0·', 'b.b:c:c?e:q.')]]
+       [[AccentedTuple('ʹи0·', 'b.b:c:c?q.')]]
              ]
    if suff == '+':
-      return [[[ov] + a for a in plural] for plural in plurals]
+      return [[[ov] + a for a in plural] for plural in suffixed_plurals]
    elif suff == '_':
-      return plurals
+      return free_plurals
    elif suff == '±':
-      return [[[ov] + a for a in plural] + [a for a in plural] for plural in plurals]
+      return [[[ov] + a for a in suffixed_plurals[i]] + [a for a in free_plurals[i]] for i in range(7)]
    else:
       raise NotImplementedError("Unknown paradigm")
    

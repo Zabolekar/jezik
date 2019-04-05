@@ -1,6 +1,6 @@
 from typing import Dict, List, Optional, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, oa
-from .utils import first_vowel_index, last_vowel_index, indices, insert
+from .utils import first_vowel_index, last_vowel_index, indices, insert, deyerify
 from .charutils import cstraight, cmacron
 
 def _swap(trunk_: str, AP: str) -> str:
@@ -98,26 +98,31 @@ class PartOfSpeech():
          # 2. finding vowel places that will be of importance
          lvi, fvi, pvi = indices(word_form)
 
-         if ('ъ' in word_form \
+         if 'ъ' in word_form \
             and current_AP in accent \
-            and 'q' not in current_AP \
-            and 'm' in self.gram.other or 'n' in self.gram.other):
-            retraction = [2]
-         elif pvi is not None and ('ъ' not in word_form \
+            and ':' in current_AP \
+            and 'm' in self.gram.other:
+            retraction = [2] # Макѐдо̄на̄ца̄
+         elif ('m' in self.gram.other) \
+            and ((pvi is not None and 'ъ' not in word_form \
             and current_AP not in accent \
-            and 'm' in self.gram.other or 'n' in self.gram.other \
-            and not cstraight in word_form[pvi+2:]):
-            retraction = [1]
+            and 'a' in current_AP ) 
+            or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form)):
+            retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀це̄ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
-            and 'c' in current_AP:
-            retraction = [1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
+            and 'c?' in current_AP:
+            retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
-            and 'b' in current_AP or 'd' in current_AP:
-            retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄
+            and ('b' in current_AP or 'd' in current_AP) \
+            and 'ъ' not in word_form:
+            retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          else:
             retraction = [0]
 
-         word_form = word_form.replace('ъ', 'а')
+         if not 'œ' in word_form: # TODO one day think about better condition
+            word_form = word_form.replace('ъ', 'а')
+         else:
+            word_form = deyerify(word_form)
 
          # a renewed set of indices, since ъ has become а
          lvi, fvi, pvi = indices(word_form)
