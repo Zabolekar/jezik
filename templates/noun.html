@@ -1,11 +1,20 @@
-{% for form_name, forms in table %}
 <tr>
-   <th class="form-name">
-      {{ form_name|replace(" ", "\u00a0") }}
-      {# \u00a0 will magically become &nbsp; #}
-   </th>
-   <td class="forms">
-      {{ forms|join(", ") }}
-   </td>
+   <th class="empty"></th>
+   <th class="form-name">Sg</th>
+   <th class="form-name">Pl</th>
 </tr>
+{% for case in ["nom", "acc", "gen", "dat", "loc", "ins", "voc"] %}   
+   <tr>
+      <th class="form-name">
+         {{ case|capitalize }}
+      </th>
+      {% set sg_form = table["%s %s" % ("sg", case)].multiform %}
+      <td class="forms">
+         {{ sg_form|join(', ') }}
+      </td>
+      {% set pl_form = table["%s %s" % ("pl", case)].multiform %}
+      <td class="forms">
+         {{ pl_form|join(', ') }}
+      </td>   
+   </tr>
 {% endfor %}

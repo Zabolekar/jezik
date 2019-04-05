@@ -1,47 +1,50 @@
 {% for length in ["short", "long"] %}
-   {% for number in ["sg", "pl"] %}
-      <tr>
-         <th class="empty"></th>
-         <td colspan="3" class="form-name">{{ number|capitalize }}</td>
-      </tr>
-      <tr>
-         <th class="empty"></th>
-         {% for gender in "mfn" %}
-            <td class="form-name">{{ gender }}</td>
-         {% endfor %}
-      </tr>
-      {% for case in ["nom", "acc", "gen", "dat", "loc", "ins"] %}
-         {% set mfn = table["%s %s %s" % (length, case, number)] %}
-         {% set empty = mfn|list|length == 0 %}
-         {% if empty %}
-            {# skip row #}
-         {% else %}
-            {% if case == "acc" and number == "sg" and mfn["acc sg m"]|list|length == 2 %}
-               {% set rows = 2 %}
+   {% if table["%s" % length]|list|length %}
+      {% for number in ["sg", "pl"] %}
+         <tr>
+            <th class="empty"></th>
+            <td colspan="3" class="form-name">{{ number|capitalize }}</td>
+         </tr>
+         <tr>
+            <th class="empty"></th>
+            {% for gender in "mfn" %}
+               <td class="form-name">{{ gender }}</td>
+            {% endfor %}
+         </tr>
+         
+         {% for case in ["nom", "acc", "gen", "dat", "loc", "ins"] %}
+            {% set mfn = table["%s %s %s" % (length, case, number)] %}
+            {% set empty = mfn|list|length == 0 %}
+            {% if empty %}
+               {# skip row #}
             {% else %}
-               {% set rows = 1 %}
-            {% endif %}
-            <tr>
-               <th class="form-name" rowspan="{{ rows }}">{{ case|capitalize }}</th>
-               {% for gender in "mfn" %}
-                  {% set cell = mfn[gender]|list %}
-                  {% if cell|length == 0 %}
-                     <td class="empty" rowspan="{{ rows }}"></td>
-                  {% elif cell|length == 1 %}
-                     <td title="{{ cell[0][0] }}" rowspan="{{ rows }}">{{ cell[0][1]|join(", ") }}</td>
-                  {% else %} {# cell|length == 2, only happens when gender == "m" #}
-                     {% set cell = mfn["m in"]|list %}
-                     <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
-                  {% endif %}
-               {% endfor %}
-            </tr>
-            {% if rows == 2 %}
+               {% if case == "acc" and number == "sg" and mfn["acc sg m"]|list|length == 2 %}
+                  {% set rows = 2 %}
+               {% else %}
+                  {% set rows = 1 %}
+               {% endif %}
                <tr>
-                  {% set cell = mfn["m an"]|list %}
-                  <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
+                  <th class="form-name" rowspan="{{ rows }}">{{ case|capitalize }}</th>
+                  {% for gender in "mfn" %}
+                     {% set cell = mfn[gender]|list %}
+                     {% if cell|length == 0 %}
+                        <td class="empty" rowspan="{{ rows }}"></td>
+                     {% elif cell|length == 1 %}
+                        <td title="{{ cell[0][0] }}" rowspan="{{ rows }}">{{ cell[0][1]|join(", ") }}</td>
+                     {% else %} {# cell|length == 2, only happens when gender == "m" #}
+                        {% set cell = mfn["m in"]|list %}
+                        <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
+                     {% endif %}
+                  {% endfor %}
                </tr>
+               {% if rows == 2 %}
+                  <tr>
+                     {% set cell = mfn["m an"]|list %}
+                     <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
+                  </tr>
+               {% endif %}
             {% endif %}
-         {% endif %}
+         {% endfor %}
       {% endfor %}
-   {% endfor %}
+   {% endif %}
 {% endfor %}

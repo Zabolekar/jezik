@@ -1,11 +1,144 @@
-{% for form_name, forms in table %}
 <tr>
    <th class="form-name">
-      {{ form_name|replace(" ", "\u00a0") }}
-      {# \u00a0 will magically become &nbsp; #}
+      infinitive
    </th>
-   <td class="forms">
-      {{ forms|join(", ") }}
+   <td class="forms" colspan="2">
+         {{ table["infinitive"].multiform|join(", ") }}
    </td>
 </tr>
+
+<tr>
+   <th class="form-name">
+      Prs
+   </th>
+   <th class="form-name">
+      Sg
+   </th>
+   <th class="form-name">
+      Pl
+   </th>
+</tr>
+
+{% for person in ("1","2","3") %}
+   <tr>
+      <th class="form-name">
+         {{ person }}
+      </th>
+      {% for number in ("sg", "pl") %}
+         {% set forms = table["prs %s %s" % (person, number)].multiform %}
+         <td class="forms">
+            {{ forms|join(", ") }}
+         </td>
+      {% endfor %}
+   </tr>
 {% endfor %}
+
+<tr>
+      <th class="form-name">
+         Imv
+      </th>
+      <th class="form-name">
+         Sg
+      </th>
+      <th class="form-name">
+         Pl
+      </th>
+   </tr>
+   
+{% for person in ("1","2") %}
+   <tr>
+      <th class="form-name">
+         {{ person }}
+      </th>
+      {% for number in ("sg", "pl") %}
+         {% set forms = table["imv %s %s" % (person, number)].multiform %}
+         <td class="forms">
+            {% if forms %} 
+               {{ forms|join(", ") }}
+            {% else %}
+               —
+            {% endif %}
+         </td>
+      {% endfor %}
+   </tr>
+{% endfor %}
+
+<tr>
+   <th class="form-name">
+      Pf
+   </th>
+   <th class="form-name">
+      Sg
+   </th>
+   <th class="form-name">
+      Pl
+   </th>
+</tr>
+   
+{% for gender in ("m","f","n") %}
+   <tr>
+      <th class="form-name">
+         {{ gender }}
+      </th>
+      {% for number in ("sg", "pl") %}
+         {% set forms = table["pf %s %s" % (gender, number)].multiform %}
+         <td class="forms">
+         {{ forms|join(", ") }}
+         </td>
+      {% endfor %}
+   </tr>
+{% endfor %}
+
+<tr>
+  <th class="form-name">
+      Aor
+   </th>
+   <th class="form-name">
+      Sg
+   </th>
+   <th class="form-name">
+      Pl
+   </th>
+</tr>
+   
+{% for person in ("1","2","3") %}
+   <tr>
+      <th class="form-name">
+         {{ person }}
+      </th>
+   {% for number in ("sg", "pl") %}
+      {% set forms = table["aor %s %s" % (person, number)].multiform %}
+      <td class="forms">
+         {{ forms|join(", ") }}
+      </td>
+   {% endfor %}
+   </tr>
+{% endfor %}
+
+{% if table["ipf"] %}
+   <tr>
+      <th class="form-name">
+          Ipf
+       </th>
+       <th class="form-name">
+          Sg
+       </th>
+       <th class="form-name">
+          Pl
+       </th>
+   </tr>
+       
+   {% for person in ("1","2","3") %}
+       <tr>
+          <th class="form-name">
+             {{ person }}
+          </th>
+       {% for number in ("sg", "pl") %}
+          {% set forms = table["ipf %s %s" % (person, number)].multiform %}
+          <td class="forms">
+             {{ forms|join(", ") }}
+          </td>
+       {% endfor %}
+       </tr>
+    {% endfor %}
+{% endif %}
