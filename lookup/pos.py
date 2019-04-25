@@ -51,9 +51,16 @@ def _apply_neocirk(word_form: str,
    return result
 
 class PartOfSpeech():
-   def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
+   def __init__(
+      self, 
+      key: str, 
+      kind: str, 
+      info: str, 
+      exceptions: Dict[str, List[str]],
+      yat:str="ekav") -> None:
       self.key = key
       self.gram = GramInfo(kind, info.split(';'))
+      self.exceptions = exceptions
 
    def accentize(self, current_AP: str, word: str) -> str:
       if current_AP not in oa:
@@ -80,6 +87,11 @@ class PartOfSpeech():
       return word_form, morpheme
 
    def _delete_left_bracket(self, word_form: str, morpheme: str, accent: str, current_AP: str) -> List[List[str]]:
+      """
+      This function is so far for nouns only. 
+      It explicitly uses noun AP names.
+      So it better be placed somewhere else.
+      """
       connectenda = []
       if morpheme.startswith('<'): # so far only '-ā' is like that
          # 1. handling yers and defining if the word has neocircumflex:
@@ -106,7 +118,7 @@ class PartOfSpeech():
          elif ('m' in self.gram.other) \
             and ((pvi is not None and 'ъ' not in word_form \
             and current_AP not in accent \
-            and 'a' in current_AP ) 
+            and 'a' in current_AP) 
             or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form)):
             retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀це̄ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
@@ -158,7 +170,11 @@ class PartOfSpeech():
          pair[1] = pair[1].replace('<', '')
       return connectenda
 
-   def _append_morpheme(self, current_AP: str, word_form: List[str], ending_part: AccentedTuple) -> List[str]:
+   def _append_morpheme(
+      self,
+      current_AP: str,
+      word_form: List[str],
+      ending_part: AccentedTuple) -> List[str]:
 
       connectenda: List[List[str]] = []
 
@@ -186,6 +202,8 @@ class PartOfSpeech():
       # TODO: understand all this "in [paradigm list]" stuff;
       # I already see it is needed here, but it seems unlogical
 
+      result = []
+
       for pair in connectenda:
          # accentizing endings (?)
          if current_AP in ending_part.accent:
@@ -197,17 +215,23 @@ class PartOfSpeech():
                pair[1] = pair[1].replace('0', '')
             pair[1] = pair[1].replace('·', cstraight) 
             pair[0] = pair[0].replace('·', '')
-         # accentizing enclinomena (words without accent)
-         elif all([x not in current_AP for x in ['o', 'a', 'b', 'e']]) \
-           and cstraight not in pair[0] and '·' not in pair[0]:
-            _fvi = first_vowel_index(pair[0])
-            if  _fvi is not None:
-               pair[0] = insert(pair[0], {_fvi+1: cstraight})
          # accentizing non-enclinomical words (finally!)
          # this line of code also helped solving 'aludirati' bug
          # (when too many enclinomena appear, like **ȁludīrām)
          elif cstraight not in pair[0]:
             pair[0] = pair[0].replace('·', cstraight)
+
+         result_word = pair[0] + pair[1]
+
+         # accentizing enclinomena (words without accent)
+         #if all([x not in current_AP for x in ['o', 'a', 'b', 'e']]) and # TODO: is this line needed?
+         if cstraight not in result_word:
+            _fvi = first_vowel_index(result_word)
+            if _fvi is None and 'ъ' in result_word and 'ø' in result_word: # сънø > сан etc.
+               _fvi = result_word.find('ъ')
+            if _fvi is not None:
+               result_word = insert(result_word, {_fvi+1: cstraight})
          
-      result = [pair[0]+pair[1] for pair in connectenda]
+         result.append(result_word)
+         
       return result

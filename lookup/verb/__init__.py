@@ -1,6 +1,6 @@
 from typing import Dict, List, Iterator, Optional
 from ..pos import PartOfSpeech
-from ..utils import insert, garde, expose, last_vowel_index
+from ..utils import insert, garde, expose, last_vowel_index, expose_exception
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
@@ -13,11 +13,17 @@ infinitive_dict: Dict[str, str] = {
 }
 
 class Verb(PartOfSpeech):
-   def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
-      super().__init__(key, kind, info, yat)
+   def __init__(
+      self, 
+      key: str, 
+      kind: str, 
+      info: str,
+      exceptions: Dict[str, List[str]],
+      yat:str="ekav") -> None:
+      super().__init__(key, kind, info, exceptions, yat)
       #Verb-only
       self.is_reflexive = 'Refl' in self.gram.other
-
+      self.exceptions = exceptions
       self.trunk = self._trunk() #both but not separable
 
    # Verb-specific
@@ -69,11 +75,26 @@ class Verb(PartOfSpeech):
       # however, but Svetozar says he will use it later
       # e.g. гри̏сти, гри́зе̄м
       for label, ending in MP_to_verb_stems[self.gram.MP[i]].labeled_endings:
-         if self._verb_form_is_possible(label, self.gram.other):
-            ready_forms: List[str] = [] 
-            for variation in ending:
-               ready_forms += self.process_one_form(i, self.trunk[i], variation)
-            yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
+
+         if label in self.exceptions:
+            yield nice_name(label), \
+               list(
+                  OrderedSet(
+                     [expose_exception(w_form, yat) for w_form in self.exceptions[label]]
+                     )
+                  )
+
+         else:
+            if self._verb_form_is_possible(label, self.gram.other):
+               ready_forms: List[str] = [] 
+               for variation in ending:
+                  ready_forms += self.process_one_form(i, self.trunk[i], variation)
+               yield nice_name(label), \
+                  list(
+                     OrderedSet(
+                        [self._expose(w_form, yat) for w_form in ready_forms]
+                        )
+                     )
 
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:

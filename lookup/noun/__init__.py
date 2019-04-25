@@ -1,28 +1,27 @@
 from typing import Dict, List, Iterator, Optional
 from copy import deepcopy
 from ..pos import PartOfSpeech
-from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index
+from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index, expose_exception
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from ..table import LabeledMultiform
 from .paradigms import c_m
 from ..charutils import cmacron, cstraight
 
 class Noun(PartOfSpeech):
-   def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
-      super().__init__(key, kind, info, yat)
+   def __init__(
+      self,
+      key: str, 
+      kind: str, 
+      info: str, 
+      exceptions: Dict[str, List[str]],
+      yat:str="ekav") -> None:
+      super().__init__(key, kind, info, exceptions, yat)
 
       self.trunk = self._trunk()
       self.anim: List[str] = []
       self.suff: List[str] = []
-      self.vocative: List[str] = []
       for x in self.gram.MP:
          y = x.split(',')
-         if 'u' in y:
-            self.vocative.append('u')
-         elif 'ue' in y:
-            self.vocative.append('ue')
-         else:
-            self.vocative.append('e')
          if '+' in y:
             self.suff.append('+')
          elif '±' in y:
@@ -33,6 +32,8 @@ class Noun(PartOfSpeech):
             self.anim.append('an')
          else:
             self.anim.append('in')
+
+      self.exceptions = exceptions
 
    def _expose(self, form: str, yat:str="ekav") -> str:
       return expose(form, yat)
@@ -77,14 +78,22 @@ class Noun(PartOfSpeech):
          result.append(trunk)
       return result
 
-   def _noun_form_is_possible(self, noun_form: str, variation: List[AccentedTuple], paradigm: str) -> bool:
+   def _noun_form_is_possible(
+      self,
+      noun_form: str,
+      variation: List[AccentedTuple],
+      paradigm: str) -> bool:
       return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
                or all([x not in paradigm for x in 'cde'])
                or (variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:')]
                and variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]))
                # this is the ā which is NOT accented in a. p. c
 
-   def process_one_form(self, i: int, noun_variant: str, ending_variation: List[AccentedTuple]) -> List[str]:
+   def process_one_form(
+      self,
+      i: int, 
+      noun_variant: str,
+      ending_variation: List[AccentedTuple]) -> List[str]:
 
       iterable_noun_variant = [deepcopy(noun_variant)]
       current_AP = self.gram.AP[i]
@@ -100,32 +109,47 @@ class Noun(PartOfSpeech):
       start_AP = self.gram.AP[i].replace('?', '.')
       target_AP = self.gram.AP[i].replace('?', '.')      
       
-      for label, ending in c_m(self.suff[i], self.anim[i], self.vocative[i]).labeled_endings:
+      for label, ending in c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
 
-         ready_forms: List[str] = [] # TODO: better name
+         if label in self.exceptions:
+            yield nice_name(label), \
+               list(
+                  OrderedSet(
+                     [expose_exception(w_form, yat) for w_form in self.exceptions[label]]
+                     )
+                  )
+         
+         else:
 
-         # swapping length in case it is necessary
-         to_swap_or_not = ('ø' not in ending[0][0].morpheme)
-         noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP) 
+            ready_forms: List[str] = [] # TODO: better name
 
-         # after that, iterating by ending variation
-         for ending_variation in ending:
+            # swapping length in case it is necessary
+            to_swap_or_not = ('ø' not in ending[0][0].morpheme)
+            noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP) 
 
-            # processing words like bo / bol (marked with ʟ)
-            if 'ʟ' in noun_form:
-               noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
-            # processing forms like akcenat/akcent (marked with Ъ)       
-            elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
-               noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
-            else:
-               noun_variants = [noun_form.replace('Ъ', 'ъ')]
+            # after that, iterating by ending variation
+            for ending_variation in ending:
 
-            # now iterating by stem (like, akcenat/akcent)
+               # processing words like bo / bol (marked with ʟ)
+               if 'ʟ' in noun_form:
+                  noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
+               # processing forms like akcenat/akcent (marked with Ъ)       
+               elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
+                  noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
+               else:
+                  noun_variants = [noun_form.replace('Ъ', 'ъ')]
 
-            for noun_variant in noun_variants:
-               if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
-                  ready_forms += self.process_one_form(i, noun_variant, ending_variation)
-         yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
+               # now iterating by stem (like, akcenat/akcent)
+
+               for noun_variant in noun_variants:
+                  if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
+                     ready_forms += self.process_one_form(i, noun_variant, ending_variation)
+            yield nice_name(label), \
+               list(
+                  OrderedSet(
+                     [self._expose(w_form, yat) for w_form in ready_forms]
+                     )
+                  )
 
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
       """decline"""

@@ -3,7 +3,7 @@ from collections import OrderedDict
 from itertools import repeat
 from re import compile as rcompile
 from .utils import insert, all_vowels
-from .charutils import cacute, cgrave, cdoublegrave, ccircumflex, cmacron, cring
+from .charutils import cacute, cgrave, cdoublegrave, ccircumflex, cmacron, cring, real_accent
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
 
@@ -16,7 +16,7 @@ def nice_name(name: str) -> str:
 
 
 def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditional accentuation
-   real_accent = {'`': cgrave, '´': cacute, '¨': cdoublegrave, '^': ccircumflex, '_': cmacron, '!': '!'}
+   
    if v:
       if r: # now we put the magic ring
          word = insert(word, r)

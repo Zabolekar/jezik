@@ -12,3 +12,4 @@ any_of_four_accents = f"[{cgrave}{cacute}{ccircumflex}{cdoublegrave}]"
 all_accent_marks =  [cring, cmacron, cstraight,
                     cacute, cgrave, cdoublegrave,
                     ccircumflex, cbreve, '!']
+real_accent = {'`': cgrave, '´': cacute, '¨': cdoublegrave, '^': ccircumflex, '_': cmacron, '!': '!'}

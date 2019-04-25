@@ -3,17 +3,23 @@ from copy import deepcopy
 import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech
-from ..utils import insert, garde, expose, last_vowel_index
+from ..utils import insert, garde, expose, last_vowel_index, expose_exception
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 from ..charutils import cmacron, cstraight
 
 class Adjective(PartOfSpeech):
-   def __init__(self, key: str, kind: str, info: str, yat:str="ekav") -> None:
+   def __init__(
+      self,
+      key: str,
+      kind: str,
+      info: str,
+      exceptions: Dict[str, List[str]],
+      yat:str="ekav") -> None:
       super().__init__(key, kind, info, yat)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
-
+      self.exceptions = exceptions
       self.trunk = self._trunk() #both but not separable
 
    # different
@@ -49,15 +55,24 @@ class Adjective(PartOfSpeech):
 
    # Adjective-specific. Verb has its own one
    def _adj_form_is_possible(self, adj_form: str) -> bool:
-      return re.search('[њљћђшжчџјṕ]œ.ме$', adj_form) is None
+      return re.search('[њљћђшжчџјʲ]œ.ме$', adj_form) is None
 
-   def process_one_form(self, current_AP: str, adj_variant: str, ending_variation: AccentedTuple) -> str:
+   def process_one_form(
+      self, 
+      current_AP: str, 
+      adj_variant: str, 
+      ending_variation: AccentedTuple) -> str:
       result = self._append_morpheme(current_AP, [adj_variant], ending_variation)[0] # no iterability in adjectives
       #result = self.accentize(current_AP, result) # TODO: why not? can we unify it somehow in future?
       return result
 
    # Adjective-only. Verb should have its own one 
-   def _paradigm_to_forms(self, paradigm: AdjParadigm, i: int, length_inconstant: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
+   def _paradigm_to_forms(
+      self,
+      paradigm: AdjParadigm,
+      i: int,
+      length_inconstant: bool,
+      yat:str="ekav") -> Iterator[LabeledMultiform]:
       """
       Current subparadigm: short or long AP (they behave differently)
       i: index of the variation (by variation we mean things like зу̑бнӣ зу́бнӣ)
@@ -66,19 +81,38 @@ class Adjective(PartOfSpeech):
       adj_form = self.swap(self.trunk[i], length_inconstant, current_AP, self.long_AP[i])
 
       for label, ending in zip(paradigm._fields, paradigm):
-         ready_forms = []
-         for variation in ending: # e.g. -om, -ome, -omu
-            if 'ʟ' in adj_form:
-               adj_variants = [adj_form.replace('ʟ', 'ʌ'), adj_form.replace('ʟ', 'л')]
-            else:
-               adj_variants = [adj_form]
-            for adj_variant in adj_variants:
-               if self._adj_form_is_possible(adj_variant):
-                  ready_forms.append(self.process_one_form(current_AP, adj_variant, variation))
-            
-         yield nice_name(label), list(OrderedSet([self._expose(w_form, yat) for w_form in ready_forms]))
 
-   def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
+         if label in self.exceptions:
+            yield nice_name(label), \
+               list(
+                  OrderedSet(
+                     [expose_exception(w_form, yat) for w_form in self.exceptions[label]]
+                     )
+                  )
+
+         else:
+            ready_forms = []
+            for variation in ending: # e.g. -om, -ome, -omu
+               if 'ʟ' in adj_form:
+                  adj_variants = [adj_form.replace('ʟ', 'ʌ'), adj_form.replace('ʟ', 'л')]
+               else:
+                  adj_variants = [adj_form]
+               for adj_variant in adj_variants:
+                  if self._adj_form_is_possible(adj_variant):
+                     ready_forms.append(self.process_one_form(current_AP, adj_variant, variation))
+               
+            yield nice_name(label), \
+               list(
+                  OrderedSet(
+                     [self._expose(w_form, yat) for w_form in ready_forms]
+                     )
+                  )
+
+   def multiforms(
+      self, 
+      *, 
+      variant: Optional[int] = None, 
+      yat:str="ekav") -> Iterator[LabeledMultiform]:
       """decline"""
       endings = self.gram.other[0]
       MPs: List[AdjParadigm]

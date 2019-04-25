@@ -25,7 +25,7 @@ class Multidict(Generic[KT, VT]):
    def __setitem__(self, key: KT, value: VT) -> None:
       if key in self._data:
          self._data[key].append(value)
-         self._data[key] = sorted(set(self._data[key]))
+         #self._data[key] = sorted(set(self._data[key]))
       else:
          self._data[key] = [value]
 
@@ -44,6 +44,7 @@ class Entry(NamedTuple):
    caption: str
    type: str
    info: str
+   exceptions: Dict[str, List[str]]
 
 def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    """

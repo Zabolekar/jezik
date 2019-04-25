@@ -269,18 +269,26 @@ def ungarde(form: str) -> str:
              .replace(f'{cgrave}{cmacron}', cacute) #long rising
              .replace(f'{cmacron}{cdoublegrave}', ccircumflex)) #long falling
 
+def je2ije(form: str) -> str:
+   return form.replace(
+         f'йје{cacute}', f'ије{cgrave}').replace(
+         f'йје{ccircumflex}', f'и{cdoublegrave}је').replace(
+         f'йје{cmacron}', 'ије')
+
 def expose(form: str, yat:str='ekav') -> str:
    """all transformations from internal to external representation;
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg"""
 
    result = ungarde(prettify(purify(zeroify(deyerify(form))), yat))
-
    if yat == 'ijekav':
-      result = result.replace(
-         f'йје{cacute}', f'ије{cgrave}').replace(
-         f'йје{ccircumflex}', f'и{cdoublegrave}је').replace(
-         f'йје{cmacron}', 'ије')
-         
+      result = je2ije(result)
    return result
 
+def expose_exception(form: str, yat:str='ekav') -> str:
+   result = prettify(purify(zeroify(deyerify(form))), yat)
+   for x in real_accent:
+      result = result.replace(x, real_accent[x])
+   if yat == 'ijekav':
+      result = je2ije(result)
+   return result
