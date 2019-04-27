@@ -1,4 +1,4 @@
-from typing import Dict, List, Iterator, Optional
+from typing import Dict, List, Iterator, Optional, Tuple
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index, expose_exception
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
@@ -18,12 +18,12 @@ class Verb(PartOfSpeech):
       key: str, 
       kind: str, 
       info: str,
-      exceptions: Dict[str, List[str]],
+      exceptions: Tuple[str, List[str]],
       yat:str="ekav") -> None:
       super().__init__(key, kind, info, exceptions, yat)
       #Verb-only
       self.is_reflexive = 'Refl' in self.gram.other
-      self.exceptions = exceptions
+      self.exceptions = dict(exceptions)
       self.trunk = self._trunk() #both but not separable
 
    # Verb-specific

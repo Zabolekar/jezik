@@ -31,4 +31,4 @@ with open(file_path, encoding="utf-8") as f:
       else:
          caption = disambiguator + comment
       raw_entry = raw_data[full_key]
-      data[key] = Entry(caption, raw_entry["t"], raw_entry["i"], exceptions)
+      data[key] = Entry(caption, raw_entry["t"], raw_entry["i"], tuple(exceptions.items()))

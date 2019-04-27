@@ -1,4 +1,4 @@
-from typing import Dict, List, Iterator, Optional
+from typing import Dict, List, Iterator, Optional, Tuple
 from copy import deepcopy
 from ..pos import PartOfSpeech
 from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index, expose_exception
@@ -13,7 +13,7 @@ class Noun(PartOfSpeech):
       key: str, 
       kind: str, 
       info: str, 
-      exceptions: Dict[str, List[str]],
+      exceptions: Tuple[str, List[str]],
       yat:str="ekav") -> None:
       super().__init__(key, kind, info, exceptions, yat)
 
@@ -33,7 +33,7 @@ class Noun(PartOfSpeech):
          else:
             self.anim.append('in')
 
-      self.exceptions = exceptions
+      self.exceptions = dict(exceptions)
 
    def _expose(self, form: str, yat:str="ekav") -> str:
       return expose(form, yat)

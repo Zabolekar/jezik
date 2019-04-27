@@ -1,4 +1,4 @@
-from typing import Dict, List, Iterator, Optional
+from typing import Dict, List, Iterator, Optional, Tuple
 from copy import deepcopy
 import re
 from ..table import LabeledMultiform
@@ -14,12 +14,12 @@ class Adjective(PartOfSpeech):
       key: str,
       kind: str,
       info: str,
-      exceptions: Dict[str, List[str]],
+      exceptions: Tuple[str, List[str]],
       yat:str="ekav") -> None:
       super().__init__(key, kind, info, yat)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
-      self.exceptions = exceptions
+      self.exceptions = dict(exceptions)
       self.trunk = self._trunk() #both but not separable
 
    # different

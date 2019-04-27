@@ -2,7 +2,7 @@ from typing import Dict, NamedTuple, List, Optional, Generic, Iterable, Tuple, T
 from collections import OrderedDict
 from itertools import repeat
 from re import compile as rcompile
-from .utils import insert, all_vowels
+from .utils import insert, all_vowels, expose
 from .charutils import cacute, cgrave, cdoublegrave, ccircumflex, cmacron, cring, real_accent
 
 # TODO: when 3.7 is out, make Accents and GramInfo dataclasses
@@ -23,6 +23,15 @@ def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditi
       # after that we create a dict with letter numbers representing vowels
       syllabic = 0
       position_to_accent: Dict[int, str] = {}
+
+      # a test
+      tmp = tmp = word + 'ø' if not word[-1] in all_vowels else word
+      exposed_word = expose(tmp)
+      a = len([letter for letter in exposed_word if letter in all_vowels])
+      for number in v:
+         if number > a:
+            raise ValueError(f"word {exposed_word} got less syllables than you assert")
+
       for i, letter in enumerate(word):
          if letter in all_vowels:
             syllabic += 1

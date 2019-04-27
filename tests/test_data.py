@@ -1,6 +1,7 @@
 import pytest # type: ignore
 from ..lookup import lookup, data
 
+
 @pytest.mark.slow
 def test_data():
    """
