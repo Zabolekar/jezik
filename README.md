@@ -58,3 +58,5 @@ The following commands might give you some useful hints, but don't trust them bl
 
 * `pylint ../jezik`
 * `flake8`
+
+We also have configured `pytest --quick` to skip the most time-consuming tests but still perform the quick ones; this is useful during development.
