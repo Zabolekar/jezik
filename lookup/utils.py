@@ -285,7 +285,7 @@ def expose(form: str, yat:str='ekav') -> str:
       result = je2ije(result)
    return result
 
-def expose_exception(form: str, yat:str='ekav') -> str:
+def expose_replacement(form: str, yat:str='ekav') -> str:
    result = prettify(purify(zeroify(deyerify(form))), yat)
    for x in real_accent:
       result = result.replace(x, real_accent[x])

@@ -2,6 +2,7 @@ from typing import Dict, List, Optional, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, oa
 from .utils import first_vowel_index, last_vowel_index, indices, insert, deyerify
 from .charutils import cstraight, cmacron
+from .data.multidict import Replacement
 
 def _swap(trunk_: str, AP: str) -> str:
    # this function swaps last vowel of given trunk
@@ -56,11 +57,11 @@ class PartOfSpeech():
       key: str, 
       kind: str, 
       info: str, 
-      exceptions: Dict[str, List[str]],
+      replacements: Tuple[Tuple[str, List[str]], ...],
       yat:str="ekav") -> None:
       self.key = key
       self.gram = GramInfo(kind, info.split(';'))
-      self.exceptions = exceptions
+      self.replacements: Dict[str, List[str]] = dict(replacements)
 
    def accentize(self, current_AP: str, word: str) -> str:
       if current_AP not in oa:

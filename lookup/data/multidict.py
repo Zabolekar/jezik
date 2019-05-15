@@ -3,6 +3,8 @@ import random
 from ..utils import all_vowels, deaccentize, expose, garde
 from ..paradigm_helpers import accentize, i_to_accents
 
+Replacement = Tuple[str, List[str]]
+
 KT = TypeVar("KT")
 VT = TypeVar("VT")
 
@@ -44,7 +46,7 @@ class Entry(NamedTuple):
    caption: str
    type: str
    info: str
-   exceptions: Tuple[str, List[str]]
+   replacements: Tuple[Replacement, ...]
 
 def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    """

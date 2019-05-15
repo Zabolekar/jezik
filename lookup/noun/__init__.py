@@ -1,7 +1,7 @@
 from typing import Dict, List, Iterator, Optional, Tuple
 from copy import deepcopy
-from ..pos import PartOfSpeech
-from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index, expose_exception
+from ..pos import PartOfSpeech, Replacement
+from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index, expose_replacement
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from ..table import LabeledMultiform
 from .paradigms import c_m
@@ -13,9 +13,9 @@ class Noun(PartOfSpeech):
       key: str, 
       kind: str, 
       info: str, 
-      exceptions: Tuple[str, List[str]],
+      replacements: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
-      super().__init__(key, kind, info, exceptions, yat)
+      super().__init__(key, kind, info, replacements, yat)
 
       self.trunk = self._trunk()
       self.anim: List[str] = []
@@ -32,8 +32,6 @@ class Noun(PartOfSpeech):
             self.anim.append('an')
          else:
             self.anim.append('in')
-
-      self.exceptions = dict(exceptions)
 
    def _expose(self, form: str, yat:str="ekav") -> str:
       return expose(form, yat)
@@ -111,11 +109,11 @@ class Noun(PartOfSpeech):
       
       for label, ending in c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
 
-         if label in self.exceptions:
+         if label in self.replacements:
             yield nice_name(label), \
                list(
                   OrderedSet(
-                     [expose_exception(w_form, yat) for w_form in self.exceptions[label]]
+                     [expose_replacement(w_form, yat) for w_form in self.replacements[label]]
                      )
                   )
          

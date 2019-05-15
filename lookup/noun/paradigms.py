@@ -66,10 +66,13 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
 
 def m_instr(stem: str) -> List[List[AccentedTuple]]:
    lvi = last_vowel_index(stem)
+   
    em = [AccentedTuple('е·м', 'b.b:e:q.')]
    om = [AccentedTuple('о·м', 'b.b:e:q.')]
 
-   if stem.endswith('ʲ') \
+   if lvi is None:
+      return [om]
+   elif stem.endswith('ʲ') \
       or stem.endswith('тељ'): # пријатељ
       return [em, om] # плашт, дажд, пут, нос, курс, појас, цар 
    elif stem.endswith('ъц'): # отац, палац
