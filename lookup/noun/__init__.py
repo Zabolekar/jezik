@@ -14,8 +14,9 @@ class Noun(PartOfSpeech):
       kind: str, 
       info: str, 
       replacements: Tuple[Replacement, ...],
+      amendments: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
-      super().__init__(key, kind, info, replacements, yat)
+      super().__init__(key, kind, info, replacements, amendments, yat)
 
       self.trunk = self._trunk()
       self.anim: List[str] = []
@@ -82,7 +83,7 @@ class Noun(PartOfSpeech):
       variation: List[AccentedTuple],
       paradigm: str) -> bool:
       return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
-               or all([x not in paradigm for x in 'cde'])
+               or all([x not in paradigm for x in 'cde0'])
                or (variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:')]
                and variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]))
                # this is the ā which is NOT accented in a. p. c
@@ -142,6 +143,10 @@ class Noun(PartOfSpeech):
                for noun_variant in noun_variants:
                   if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
                      ready_forms += self.process_one_form(i, noun_variant, ending_variation)
+
+            if label in self.amendments:
+               ready_forms += [expose_replacement(w_form, yat) for w_form in self.amendments[label]]
+
             yield nice_name(label), \
                list(
                   OrderedSet(

@@ -47,6 +47,7 @@ class Entry(NamedTuple):
    type: str
    info: str
    replacements: Tuple[Replacement, ...]
+   amendments: Tuple[Replacement, ...]
 
 def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    """

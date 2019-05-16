@@ -26,10 +26,19 @@ with open(file_path, encoding="utf-8") as f:
          replacements = raw_data[full_key]["except"]
       except KeyError:
          replacements = {}
-      # TODO: amendments (in the same way as replacements)
+      try: 
+         amendments = raw_data[full_key]["add"]
+      except KeyError:
+         amendments = {}
       if disambiguator and comment:
          caption = f"{disambiguator} ({comment})"
       else:
          caption = disambiguator + comment
       raw_entry = raw_data[full_key]
-      data[key] = Entry(caption, raw_entry["t"], raw_entry["i"], tuple(replacements.items()))
+      data[key] = Entry(
+         caption,
+         raw_entry["t"],
+         raw_entry["i"],
+         tuple(replacements.items()),
+         tuple(amendments.items())
+         )

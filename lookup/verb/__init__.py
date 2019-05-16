@@ -19,8 +19,9 @@ class Verb(PartOfSpeech):
       kind: str, 
       info: str,
       replacements: Tuple[Replacement, ...],
+      amendments: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
-      super().__init__(key, kind, info, replacements, yat)
+      super().__init__(key, kind, info, replacements, amendments, yat)
       #Verb-only
       self.is_reflexive = 'Refl' in self.gram.other
       self.trunk = self._trunk() #both but not separable
@@ -88,6 +89,10 @@ class Verb(PartOfSpeech):
                ready_forms: List[str] = [] 
                for variation in ending:
                   ready_forms += self.process_one_form(i, self.trunk[i], variation)
+
+               if label in self.amendments:
+                  ready_forms += [expose_replacement(w_form, yat) for w_form in self.amendments[label]]
+
                yield nice_name(label), \
                   list(
                      OrderedSet(

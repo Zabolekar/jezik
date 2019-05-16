@@ -57,11 +57,13 @@ class PartOfSpeech():
       key: str, 
       kind: str, 
       info: str, 
-      replacements: Tuple[Tuple[str, List[str]], ...],
+      replacements: Tuple[Replacement, ...],
+      amendments: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
       self.key = key
       self.gram = GramInfo(kind, info.split(';'))
       self.replacements: Dict[str, List[str]] = dict(replacements)
+      self.amendments: Dict[str, List[str]] = dict(amendments)
 
    def accentize(self, current_AP: str, word: str) -> str:
       if current_AP not in oa:

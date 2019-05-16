@@ -15,8 +15,9 @@ class Adjective(PartOfSpeech):
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
+      amendments: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
-      super().__init__(key, kind, info, replacements, yat)
+      super().__init__(key, kind, info, replacements, amendments, yat)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
       self.trunk = self._trunk() #both but not separable
@@ -99,7 +100,10 @@ class Adjective(PartOfSpeech):
                for adj_variant in adj_variants:
                   if self._adj_form_is_possible(adj_variant):
                      ready_forms.append(self.process_one_form(current_AP, adj_variant, variation))
-               
+
+            if label in self.amendments:
+               ready_forms += [expose_replacement(w_form, yat) for w_form in self.amendments[label]]
+
             yield nice_name(label), \
                list(
                   OrderedSet(

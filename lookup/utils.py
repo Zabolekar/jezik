@@ -167,7 +167,7 @@ def garde(word: str) -> str: # Garde's accentuation
       short_desc_index = result.rfind(cdoublegrave)
       long_desc_index = result.rfind(ccircumflex)
       real_fvi = first_vowel_index(result)
-      fvi = real_fvi if real_fvi is not None else -10
+      fvi = real_fvi if real_fvi is not None else -100
 
       # if not 'there is a falling accent and it is not of the first syllable'
       # then the word is garded the usual way
