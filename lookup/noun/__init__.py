@@ -53,7 +53,7 @@ class Noun(PartOfSpeech):
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
 
-         if 'c' in AP or 'd' in AP: # c, d are c-like paradigms
+         if any([x in AP for x in 'cdf']): # c, d, f (?) are c-like paradigms
             if not self.key.endswith('а'):
                trunk = accented_trunk_.replace(cstraight, '·')
             else:

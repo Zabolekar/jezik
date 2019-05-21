@@ -83,11 +83,6 @@ class PartOfSpeech():
          word_form = trunk_
       return word_form
 
-   def _delete_right_bracket(self, word_form: str, morpheme: str, current_AP: str) -> Tuple[str, str]:
-      if morpheme.startswith('>') and current_AP not in ['d:', 'e:']:
-         word_form = word_form.replace(cmacron, '')
-      morpheme = morpheme.replace('>', '')
-      return word_form, morpheme
 
    def _delete_left_bracket(self, word_form: str, morpheme: str, accent: str, current_AP: str) -> List[List[str]]:
       """
@@ -115,13 +110,13 @@ class PartOfSpeech():
 
          if 'ъ' in word_form \
             and current_AP in accent \
-            and ':' in current_AP \
+            and (':' in current_AP or 'f.' in current_AP) \
             and 'm' in self.gram.other:
-            retraction = [2] # Макѐдо̄на̄ца̄
+            retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
          elif ('m' in self.gram.other) \
             and ((pvi is not None and 'ъ' not in word_form \
             and current_AP not in accent \
-            and 'a' in current_AP) 
+            and 'a' in current_AP)
             or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form)):
             retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀це̄ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
@@ -193,7 +188,8 @@ class PartOfSpeech():
          # first we delete '>' (= delete all macrons in the word)
          # then we delete '<' (= lengthen the last vowel in the stem)
 
-         word_subform, morpheme = self._delete_right_bracket(word_subform, morpheme, current_AP)
+         if morpheme.startswith('>') and current_AP in ['d:', 'e:']:
+            morpheme = morpheme.replace('>', '')
          connectenda += self._delete_left_bracket(word_subform, morpheme, accent, current_AP)
 
       # if this ending_part IS ACCENTED in this AP,

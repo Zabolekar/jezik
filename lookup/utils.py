@@ -269,6 +269,16 @@ def ungarde(form: str) -> str:
              .replace(f'{cgrave}{cmacron}', cacute) #long rising
              .replace(f'{cmacron}{cdoublegrave}', ccircumflex)) #long falling
 
+def debracketify(form: str) -> str:
+      if '>' in form:
+         print(form)
+         barrier = form.find('>')
+         first_piece = form[:barrier]
+         first_piece = first_piece.replace(cmacron, '')
+         second_piece = form[barrier+1:]
+         form = first_piece + second_piece
+      return form
+
 def je2ije(form: str) -> str:
    return form.replace(
          f'йје{cacute}', f'ије{cgrave}').replace(
@@ -280,13 +290,21 @@ def expose(form: str, yat:str='ekav') -> str:
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg"""
 
-   result = ungarde(prettify(purify(zeroify(deyerify(form))), yat))
+   result = ungarde(
+      prettify(
+         purify(zeroify(debracketify(deyerify(form)))), 
+         yat
+      )
+   )
    if yat == 'ijekav':
       result = je2ije(result)
    return result
 
 def expose_replacement(form: str, yat:str='ekav') -> str:
-   result = prettify(purify(zeroify(deyerify(form))), yat)
+   result = prettify(
+      purify(zeroify(debracketify(deyerify(form)))),
+      yat
+   )
    for x in real_accent:
       result = result.replace(x, real_accent[x])
    if yat == 'ijekav':
