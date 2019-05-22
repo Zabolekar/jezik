@@ -8,13 +8,17 @@
       <th class="form-name">
          {{ case|capitalize }}
       </th>
-      {% set sg_form = table["%s %s" % ("sg", case)].multiform %}
-      <td class="forms">
-         {{ sg_form|join(', ') }}
-      </td>
-      {% set pl_form = table["%s %s" % ("pl", case)].multiform %}
-      <td class="forms">
-         {{ pl_form|join(', ') }}
-      </td>   
+      {% for nmbr in ["sg", "pl"] %}
+         {% set form = table["%s %s" % (nmbr, case)].multiform %}
+         {% set num = form|count %}
+         <td class="forms">
+         {% for i in range(num // 2) %}
+            {{ form[i*2]}}, {{ form[i*2+1]}}{% if i*2 + 2 < num %},{% endif%}</br>
+         {% endfor %}
+         {% if num % 2 == 1 %}
+            {{ form[-1]}}
+         {% endif %}
+         </td>
+      {% endfor %}
    </tr>
 {% endfor %}

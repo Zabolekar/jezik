@@ -55,7 +55,7 @@ class Adjective(PartOfSpeech):
 
    # Adjective-specific. Verb has its own one
    def _adj_form_is_possible(self, adj_form: str) -> bool:
-      return re.search('[њљћђшжчџјʲ]œ.ме$', adj_form) is None
+      return re.search('[њљћђшжчџјʲ]œ.+ме$', adj_form) is None
 
    def process_one_form(
       self, 
@@ -98,7 +98,7 @@ class Adjective(PartOfSpeech):
                else:
                   adj_variants = [adj_form]
                for adj_variant in adj_variants:
-                  if self._adj_form_is_possible(adj_variant):
+                  if self._adj_form_is_possible(adj_variant + variation.morpheme):
                      ready_forms.append(self.process_one_form(current_AP, adj_variant, variation))
 
             if label in self.amendments:

@@ -88,7 +88,7 @@ caption {
 
 th:not(.inner), td:not(.inner) {
    text-align: center;
-   padding: 15px 0px 15px 0px;
+   padding: 5px 0px 5px 0px;
 }
 
 th:not(.empty), td:not(emtpy) {

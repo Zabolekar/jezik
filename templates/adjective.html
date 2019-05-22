@@ -1,12 +1,12 @@
 {% for length in ["short", "long"] %}
    {% if table["%s" % length]|list|length %}
+      <tr>
+         <td colspan="4" class="form-name">{{ length|upper }}</td>
+      </tr>
       {% for number in ["sg", "pl"] %}
+
          <tr>
-            <th class="empty"></th>
-            <td colspan="3" class="form-name">{{ number|capitalize }}</td>
-         </tr>
-         <tr>
-            <th class="empty"></th>
+            <th class="form-name">{{ number|upper }}</th>
             {% for gender in "mfn" %}
                <td class="form-name">{{ gender }}</td>
             {% endfor %}
@@ -30,17 +30,37 @@
                      {% if cell|length == 0 %}
                         <td class="empty" rowspan="{{ rows }}"></td>
                      {% elif cell|length == 1 %}
-                        <td title="{{ cell[0][0] }}" rowspan="{{ rows }}">{{ cell[0][1]|join(", ") }}</td>
+                        {% set form = cell[0][1] %}
+                        {% set num = form|count %}
+                        <td title="{{ cell[0][0] }}" rowspan="{{ rows }}">
+                           {% for i in range(num-1) %}
+                              {{ form[i]}},<br>
+                           {% endfor %}
+                           {{ form[-1]}}
+                        </td>
                      {% else %} {# cell|length == 2, only happens when gender == "m" #}
                         {% set cell = mfn["m in"]|list %}
-                        <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
+                        {% set form = cell[0][1] %}
+                        {% set num = form|length %}
+                        <td title="{{ cell[0][0] }}">
+                           {% for i in range(num-1) %}
+                              {{ form[i] }}<br></td>
+                           {% endfor %}
+                           {{ form[-1] }}
                      {% endif %}
                   {% endfor %}
                </tr>
                {% if rows == 2 %}
                   <tr>
-                     {% set cell = mfn["m an"]|list %}
-                     <td title="{{ cell[0][0] }}">{{ cell[0][1]|join(", ") }}</td>
+                  {% set cell = mfn["m an"]|list %}
+                  {% set form = cell[0][1] %}
+                  {% set num = form|length %}
+                  <td title="{{ cell[0][0] }}">
+                  {% for i in range(num-1) %}
+                     {{ form[i] }}<br>
+                  {% endfor %}
+                  {{ form[-1] }}
+                  </td>
                   </tr>
                {% endif %}
             {% endif %}

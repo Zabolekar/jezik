@@ -125,3 +125,7 @@ def test_abang_paradigm():
    assert lookup("аманет")["gen pl"].multiform == ['а̀ма̄не̄та̄']
    assert lookup("анђео")["ins sg"].multiform == ['а̑нђелом']
    assert lookup("амбасадор")["pl nom"].multiform == ['амба̀са̄дори']
+
+def test_krnjeme():
+   a = lookup("крњ")["dat sg long m"].multiform
+   assert all([not x.endswith("ме") for x in a])

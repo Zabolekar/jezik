@@ -23,11 +23,11 @@ with open(file_path, encoding="utf-8") as f:
       except KeyError:
          comment = ""
       try: 
-         replacements = raw_data[full_key]["except"]
+         replacements = {x: y.split(", ") for x, y in raw_data[full_key]["except"].items()}
       except KeyError:
          replacements = {}
       try: 
-         amendments = raw_data[full_key]["add"]
+         amendments = {x: y.split(", ") for x, y in raw_data[full_key]["add"].items() }
       except KeyError:
          amendments = {}
       if disambiguator and comment:
