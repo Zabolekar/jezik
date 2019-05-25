@@ -125,3 +125,11 @@ th:not(.empty), td:not(emtpy) {
 td:hover:not(.empty):not(.multicell):not(.searchfield) {
    background-color: #eee;
 }
+
+input[type=button] {
+   width: 2em;
+   text-align: center;
+   font-size: 11pt;
+   font-family: 'Charis SIL Web';
+   border: 0px;  
+}
