@@ -1,14 +1,14 @@
 {% for length in ["short", "long"] %}
    {% if table["%s" % length]|list|length %}
       <tr>
-         <td colspan="4" class="form-name">{{ length|upper }}</td>
+         <th colspan="4" class="form-name">{{ length|upper }}</td>
       </tr>
       {% for number in ["sg", "pl"] %}
 
          <tr>
             <th class="form-name">{{ number|upper }}</th>
             {% for gender in "mfn" %}
-               <td class="form-name">{{ gender }}</td>
+               <th class="form-name">{{ gender }}</td>
             {% endfor %}
          </tr>
          
@@ -34,7 +34,7 @@
                         {% set num = form|count %}
                         <td title="{{ cell[0][0] }}" rowspan="{{ rows }}">
                            {% for i in range(num-1) %}
-                              {{ form[i]}},<br>
+                              {{ form[i]}}<br>
                            {% endfor %}
                            {{ form[-1]}}
                         </td>
@@ -44,9 +44,10 @@
                         {% set num = form|length %}
                         <td title="{{ cell[0][0] }}">
                            {% for i in range(num-1) %}
-                              {{ form[i] }}<br></td>
+                              {{ form[i] }}<br>
                            {% endfor %}
                            {{ form[-1] }}
+                        </td>
                      {% endif %}
                   {% endfor %}
                </tr>

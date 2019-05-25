@@ -12,12 +12,10 @@
          {% set form = table["%s %s" % (nmbr, case)].multiform %}
          {% set num = form|count %}
          <td class="forms">
-         {% for i in range(num // 2) %}
-            {{ form[i*2]}}, {{ form[i*2+1]}}{% if i*2 + 2 < num %},{% endif%}</br>
+         {% for i in range(num-1) %}
+            {{ form[i]}}<br>
          {% endfor %}
-         {% if num % 2 == 1 %}
-            {{ form[-1]}}
-         {% endif %}
+         {{ form[-1]}}
          </td>
       {% endfor %}
    </tr>

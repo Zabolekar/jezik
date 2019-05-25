@@ -2,31 +2,49 @@
 {% block body %}
 <form id="search">
    
-   <div id="searchBox">
-      <input type="text" id="word"/>
-      <input type="submit" id="button" value="Претрага"/>
-   </div>
-
-   <br>
-
-   <div id="options">
-      <fieldset>
-         <legend>Јат у упиту:</legend><br>
-         <input type="radio" id="inputYat1" name="inputYat" value="ekav" checked>
-         <label for="inputYat1">снег</label>
-         <input type="radio" id="inputYat2" name="inputYat" value="ijekav">
-         <label for="inputYat2">снијег</label>
-      </fieldset>
-
-      <fieldset>
-            <legend>Јат у резултату:</legend><br>
-            <input type="radio" id="outputYat1" name="outputYat" value="ekav" checked>
-            <label for="outputYat1">сне̑г</label>
-            <input type="radio" id="outputYat2" name="outputYat" value="ijekav">
-            <label for="outputYat2">сни̏јег</label>
-            <input type="radio" id="outputYat3" name="outputYat" value="jekav">
-            <label for="outputYat3">сније̑г</label>
-      </fieldset>
+   
+      <table id="search_table">
+         <tr>
+         <td id ="searchfield">
+         <div id="searchBox">
+         <input type="text" name ="inputfield" id="word"/>
+         <input type="submit" id="button" value="Претрага"/>
+         </div>
+         </td>
+         </tr>
+         <tr>
+         <td id ="searchfield">
+            <input type="button" value="ј" onclick='addString("ј", document.getElementById("word"));'>
+            <input type="button" value="ђ" onclick='addString("ђ", document.getElementById("word"));'>
+            <input type="button" value="љ" onclick='addString("љ", document.getElementById("word"));'>
+            <input type="button" value="њ" onclick='addString("њ", document.getElementById("word"));'>
+            <input type="button" value="ћ" onclick='addString("ћ", document.getElementById("word"));'>
+            <input type="button" value="џ" onclick='addString("џ", document.getElementById("word"));'>
+         </td>
+         </tr>
+         <tr>
+         <td id ="searchfield">
+            <div id="options">
+                  <fieldset>
+                     <legend>Јат у упиту:</legend><br>
+                     <input type="radio" id="inputYat1" name="inputYat" value="ekav" checked>
+                     <label for="inputYat1">снег</label>
+                     <input type="radio" id="inputYat2" name="inputYat" value="ijekav">
+                     <label for="inputYat2">снијег</label>
+                  </fieldset>
+                  <fieldset>
+                        <legend>Јат у резултату:</legend><br>
+                        <input type="radio" id="outputYat1" name="outputYat" value="ekav" checked>
+                        <label for="outputYat1">сне̑г</label>
+                        <input type="radio" id="outputYat2" name="outputYat" value="ijekav">
+                        <label for="outputYat2">сни̏јег</label>
+                        <input type="radio" id="outputYat3" name="outputYat" value="jekav">
+                        <label for="outputYat3">сније̑г</label>
+                  </fieldset>
+            </div>
+         </td>
+         </tr>
+      </table>
    </div>
 
 </form>

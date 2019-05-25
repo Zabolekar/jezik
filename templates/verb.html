@@ -25,9 +25,13 @@
          {{ person }}
       </th>
       {% for number in ("sg", "pl") %}
-         {% set forms = table["prs %s %s" % (person, number)].multiform %}
+         {% set form = table["prs %s %s" % (person, number)].multiform %}
+         {% set num = form|length %}
          <td class="forms">
-            {{ forms|join(", ") }}
+         {% for i in range(num-1) %}
+            {{ form[i]}}<br>
+         {% endfor %}
+         {{ form[-1]}}
          </td>
       {% endfor %}
    </tr>
@@ -51,10 +55,14 @@
          {{ person }}
       </th>
       {% for number in ("sg", "pl") %}
-         {% set forms = table["imv %s %s" % (person, number)].multiform %}
+         {% set form = table["imv %s %s" % (person, number)].multiform %}
+         {% set num = form|length %}
          <td class="forms">
-            {% if forms %} 
-               {{ forms|join(", ") }}
+            {% if form %} 
+               {% for i in range(num-1) %}
+                  {{ form[i]}}<br>
+               {% endfor %}
+               {{ form[-1]}}
             {% else %}
                —
             {% endif %}
@@ -81,9 +89,13 @@
          {{ gender }}
       </th>
       {% for number in ("sg", "pl") %}
-         {% set forms = table["pf %s %s" % (gender, number)].multiform %}
+         {% set form = table["pf %s %s" % (gender, number)].multiform %}
+         {% set num = form|length %}
          <td class="forms">
-         {{ forms|join(", ") }}
+         {% for i in range(num-1) %}
+            {{ form[i]}}<br>
+         {% endfor %}
+         {{ form[-1]}}
          </td>
       {% endfor %}
    </tr>
@@ -107,9 +119,13 @@
          {{ person }}
       </th>
    {% for number in ("sg", "pl") %}
-      {% set forms = table["aor %s %s" % (person, number)].multiform %}
+      {% set form = table["aor %s %s" % (person, number)].multiform %}
+      {% set num = form|length %}
       <td class="forms">
-         {{ forms|join(", ") }}
+      {% for i in range(num-1) %}
+         {{ form[i]}}<br>
+      {% endfor %}
+      {{ form[-1]}}
       </td>
    {% endfor %}
    </tr>
@@ -134,9 +150,13 @@
              {{ person }}
           </th>
        {% for number in ("sg", "pl") %}
-          {% set forms = table["ipf %s %s" % (person, number)].multiform %}
+          {% set form = table["ipf %s %s" % (person, number)].multiform %}
+          {% set num = form|length %}
           <td class="forms">
-             {{ forms|join(", ") }}
+         {% for i in range(num-1) %}
+            {{ form[i]}}<br>
+         {% endfor %}
+         {{ form[-1]}}
           </td>
        {% endfor %}
        </tr>

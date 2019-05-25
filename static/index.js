@@ -17,6 +17,15 @@ function onSubmit (event) {
    event.preventDefault();
 }
 
+function addString (s, input) {
+   var old_cursor = input.selectionStart;
+   var new_cursor = input.selectionStart + s.length;
+   var old_value = input.value;
+   input.value = old_value.substring(0, old_cursor) + s + old_value.substring(old_cursor);
+   input.selectionStart = input.selectionEnd = new_cursor;
+   input.focus();
+}
+
 var width;
 function setup () {
    $('#search').submit(onSubmit);
