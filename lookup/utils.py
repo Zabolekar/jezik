@@ -42,6 +42,18 @@ palatalization_modes: Dict[str, Dict[str, str]] = {
          'ʹ': '', 'ʺ': '', 'ȷ': ''}
 }
 
+cyr2lat_dict = {
+   'а':'a', 'б':'b', 'в':'v', 'г':'g', 'д':'d', 'ђ':'đ', 'е':'e', 'ж':'ž', 'з':'z', 'и':'i',
+   'ј':'j', 'к':'k', 'л':'l', 'љ':'lj', 'м':'m', 'н':'n', 'њ':'nj', 'о':'o', 'п':'p', 'р':'r',
+   'с':'s', 'т':'t', 'ћ':'ć', 'у':'u', 'ф':'f', 'х':'h', 'ц':'c', 'ч':'č', 'џ':'dž', 'ш':'š',
+   'А':'A', 'Б':'B', 'В':'V', 'Г':'G', 'Д':'D', 'Ђ':'Đ', 'Е':'E', 'Ж':'Ž', 'З':'Z', 'И':'I',
+   'Ј':'J', 'К':'K', 'Л':'L', 'Љ':'Lj', 'М':'M', 'Н':'N', 'Њ':'Nj', 'О':'O', 'П':'P', 'Р':'R',
+   'С':'S', 'Т':'T', 'Ћ':'Ć', 'У':'U', 'Ф':'F', 'Х':'H', 'Ц':'C', 'Ч':'Č', 'Џ':'Dž', 'Ш':'Š'
+   }
+
+def cyr2lat(lowertext: str) -> str:
+   return ''.join([cyr2lat_dict.get(letter, letter) for letter in lowertext])
+
 def last_vowel_index(trunk: str) -> Optional[int]:
    if re.search(any_vowel, trunk):
       *__, last_vowel = re.finditer(any_vowel, trunk)
@@ -285,7 +297,7 @@ def je2ije(form: str) -> str:
          f'йје{ccircumflex}', f'и{cdoublegrave}је').replace(
          f'йје{cmacron}', 'ије')
 
-def expose(form: str, yat:str='ekav') -> str:
+def expose(form: str, yat:str='ekav', latin:bool=False) -> str:
    """all transformations from internal to external representation;
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg"""
@@ -298,9 +310,11 @@ def expose(form: str, yat:str='ekav') -> str:
    )
    if yat == 'ijekav':
       result = je2ije(result)
+   if latin:
+      result = cyr2lat(result)
    return result
 
-def expose_replacement(form: str, yat:str='ekav') -> str:
+def expose_replacement(form: str, yat:str='ekav', latin:bool=False) -> str:
    result = prettify(
       purify(zeroify(debracketify(deyerify(form)))),
       yat
@@ -309,4 +323,6 @@ def expose_replacement(form: str, yat:str='ekav') -> str:
       result = result.replace(x, real_accent[x])
    if yat == 'ijekav':
       result = je2ije(result)
+   if latin:
+      result = cyr2lat(result)
    return result

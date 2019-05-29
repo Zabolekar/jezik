@@ -1,6 +1,6 @@
 from typing import Dict, Generic, List, NamedTuple, Iterator, Tuple, TypeVar
 import random
-from ..utils import all_vowels, deaccentize, expose, garde
+from ..utils import all_vowels, cyr2lat, deaccentize, expose, garde
 from ..paradigm_helpers import accentize, i_to_accents
 
 Replacement = Tuple[str, List[str]]
@@ -49,7 +49,8 @@ class Entry(NamedTuple):
    replacements: Tuple[Replacement, ...]
    amendments: Tuple[Replacement, ...]
 
-def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
+
+def inner_to_outer(s: str, accent: str) -> List[Tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
@@ -63,6 +64,9 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
       tmp_list = [tmp.replace('Ъ', ''), tmp.replace('Ъ', 'ъ')]
    else:
       tmp_list = [tmp]
+
+   result = []
+
    for input_yat in ["ekav", "jekav", "ijekav"]:
       for item in tmp_list:
          accented_token = garde(accentize(item, accent_dict.r, accent_dict.v))
@@ -70,7 +74,8 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
          # (and inner loop should be made outer loop before that)
          exposed_token = expose(accented_token, yat=input_yat)
          deaccentized_token = deaccentize(exposed_token).lower()
-         yield deaccentized_token, input_yat
+         result += [(deaccentized_token, input_yat), (cyr2lat(deaccentized_token), input_yat)]
+   return result
 
 class FancyLookup:
 

@@ -34,8 +34,8 @@ class Noun(PartOfSpeech):
          else:
             self.anim.append('in')
 
-   def _expose(self, form: str, yat:str="ekav") -> str:
-      return expose(form, yat)
+   def _expose(self, form: str, yat:str="ekav", latin:bool=False) -> str:
+      return expose(form, yat, latin)
 
    def _trunk(self) -> List[str]:
       result = []
@@ -102,9 +102,14 @@ class Noun(PartOfSpeech):
             nnv = self.accentize(current_AP, nnv)
       return iterable_noun_variant
 
-   def _paradigm_to_forms(self, i: int, length_inconstancy: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
-      # TODO: length inconstancy currently not used
-      # however, Svetozar says he will use it later
+   def _paradigm_to_forms(
+      self,
+      i: int,
+      length_inconstancy: bool,
+      yat:str="ekav",
+      latin:bool=False
+   ) -> Iterator[LabeledMultiform]:
+
       start_AP = self.gram.AP[i].replace('?', '.')
       target_AP = self.gram.AP[i].replace('?', '.')      
       
@@ -114,9 +119,9 @@ class Noun(PartOfSpeech):
             yield nice_name(label), \
                list(
                   OrderedSet(
-                     [expose_replacement(w_form, yat) for w_form in self.replacements[label]]
-                     )
+                     [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
                   )
+               )
          
          else:
 
@@ -145,17 +150,23 @@ class Noun(PartOfSpeech):
                      ready_forms += self.process_one_form(i, noun_variant, ending_variation)
 
             if label in self.amendments:
-               ready_forms += [expose_replacement(w_form, yat) for w_form in self.amendments[label]]
+               ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
 
             yield nice_name(label), \
                list(
                   OrderedSet(
-                     [self._expose(w_form, yat) for w_form in ready_forms]
-                     )
+                     [self._expose(w_form, yat, latin) for w_form in ready_forms]
                   )
+               )
 
-   def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
+   def multiforms(
+      self,
+      *,
+      variant: Optional[int] = None,
+      yat:str="ekav",
+      latin:bool=False
+   ) -> Iterator[LabeledMultiform]:
       """decline"""
       for i, AP in enumerate(self.gram.AP):
          if not (variant is not None and variant != i):
-            yield from self._paradigm_to_forms(i, False, yat)
+            yield from self._paradigm_to_forms(i, False, yat, latin)

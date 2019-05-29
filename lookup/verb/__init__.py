@@ -27,10 +27,13 @@ class Verb(PartOfSpeech):
       self.trunk = self._trunk() #both but not separable
 
    # Verb-specific
-   def _expose(self, form: str, yat:str="ekav") -> str:
-      form = expose(form, yat)
+   def _expose(self, form: str, yat:str="ekav", latin:bool=False) -> str:
+      form = expose(form, yat, latin)
       if self.is_reflexive:
-         form += ' се'
+         if latin:
+            form += ' se'
+         else:
+            form += ' се'
       return form
 
    # Verb-specific
@@ -61,7 +64,12 @@ class Verb(PartOfSpeech):
       else:
          return True
 
-   def process_one_form(self, i: int, verb_trunk: str, ending_variation: List[AccentedTuple]) -> List[str]:
+   def process_one_form(
+      self,
+      i: int, 
+      verb_trunk: str, 
+      ending_variation: List[AccentedTuple]
+   ) -> List[str]:
       verb_form = [verb_trunk]
       current_AP = self.gram.AP[i]
       for w in ending_variation:
@@ -70,9 +78,15 @@ class Verb(PartOfSpeech):
             x = self.accentize(current_AP, x)
       return verb_form
 
-   def _paradigm_to_forms(self, i: int, length_inconstancy: bool, yat:str="ekav") -> Iterator[LabeledMultiform]:
+   def _paradigm_to_forms(
+      self,
+      i: int,
+      length_inconstancy: bool,
+      yat:str="ekav",
+      latin:bool=False
+   ) -> Iterator[LabeledMultiform]:
       # TODO: length_inconstancy currently not used
-      # however, but Svetozar says he will use it later
+      # however, Svetozar says he will use it later
       # e.g. гри̏сти, гри́зе̄м
       for label, ending in MP_to_verb_stems[self.gram.MP[i]].labeled_endings:
 
@@ -80,9 +94,9 @@ class Verb(PartOfSpeech):
             yield nice_name(label), \
                list(
                   OrderedSet(
-                     [expose_replacement(w_form, yat) for w_form in self.replacements[label]]
-                     )
+                     [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
                   )
+               )
 
          else:
             if self._verb_form_is_possible(label, self.gram.other):
@@ -91,22 +105,22 @@ class Verb(PartOfSpeech):
                   ready_forms += self.process_one_form(i, self.trunk[i], variation)
 
                if label in self.amendments:
-                  ready_forms += [expose_replacement(w_form, yat) for w_form in self.amendments[label]]
+                  ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
 
                yield nice_name(label), \
                   list(
                      OrderedSet(
-                        [self._expose(w_form, yat) for w_form in ready_forms]
-                        )
+                        [self._expose(w_form, yat, latin) for w_form in ready_forms]
                      )
+                  )
 
 
-   def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav") -> Iterator[LabeledMultiform]:
+   def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav", latin:bool=False) -> Iterator[LabeledMultiform]:
       """conjugate"""
       for i, AP in enumerate(self.gram.AP):
          if self.gram.MP[i] in infinitive_dict:         
             if not (variant is not None and variant != i):
-               yield from self._paradigm_to_forms(i, False, yat)
+               yield from self._paradigm_to_forms(i, False, yat, latin)
   
          else:
             raise NotImplementedError(f'Type {self.gram.MP[i]} ({self.key}) does not exist or is not ready yet')

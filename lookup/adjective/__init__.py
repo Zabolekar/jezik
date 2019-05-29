@@ -23,8 +23,8 @@ class Adjective(PartOfSpeech):
       self.trunk = self._trunk() #both but not separable
 
    # different
-   def _expose(self, form: str, yat:str="ekav") -> str:
-      return expose(form, yat)
+   def _expose(self, form: str, yat:str="ekav", latin:bool=False) -> str:
+      return expose(form, yat, latin)
 
    # different for Verb and Adjective
    def _trunk(self) -> List[str]:
@@ -61,7 +61,8 @@ class Adjective(PartOfSpeech):
       self, 
       current_AP: str, 
       adj_variant: str, 
-      ending_variation: AccentedTuple) -> str:
+      ending_variation: AccentedTuple
+   ) -> str:
       result = self._append_morpheme(current_AP, [adj_variant], ending_variation)[0] # no iterability in adjectives
       #result = self.accentize(current_AP, result) # TODO: why not? can we unify it somehow in future?
       return result
@@ -72,7 +73,9 @@ class Adjective(PartOfSpeech):
       paradigm: AdjParadigm,
       i: int,
       length_inconstant: bool,
-      yat:str="ekav") -> Iterator[LabeledMultiform]:
+      yat:str="ekav",
+      latin:bool=False
+   ) -> Iterator[LabeledMultiform]:
       """
       Current subparadigm: short or long AP (they behave differently)
       i: index of the variation (by variation we mean things like зу̑бнӣ зу́бнӣ)
@@ -86,7 +89,7 @@ class Adjective(PartOfSpeech):
             yield nice_name(label), \
                list(
                   OrderedSet(
-                     [expose_replacement(w_form, yat) for w_form in self.replacements[label]]
+                     [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
                      )
                   )
 
@@ -102,12 +105,12 @@ class Adjective(PartOfSpeech):
                      ready_forms.append(self.process_one_form(current_AP, adj_variant, variation))
 
             if label in self.amendments:
-               ready_forms += [expose_replacement(w_form, yat) for w_form in self.amendments[label]]
+               ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
 
             yield nice_name(label), \
                list(
                   OrderedSet(
-                     [self._expose(w_form, yat) for w_form in ready_forms]
+                     [self._expose(w_form, yat, latin) for w_form in ready_forms]
                      )
                   )
 
@@ -115,7 +118,8 @@ class Adjective(PartOfSpeech):
       self, 
       *, 
       variant: Optional[int] = None, 
-      yat:str="ekav") -> Iterator[LabeledMultiform]:
+      yat:str="ekav",
+      latin:bool=False) -> Iterator[LabeledMultiform]:
       """decline"""
       endings = self.gram.other[0]
       MPs: List[AdjParadigm]
@@ -135,4 +139,4 @@ class Adjective(PartOfSpeech):
                if self.short_AP[i][-1] != self.long_AP[i][-1]:
                   length_inconstancy = True
             for paradigm in MPs:
-               yield from self._paradigm_to_forms(paradigm, i, length_inconstancy, yat)
+               yield from self._paradigm_to_forms(paradigm, i, length_inconstancy, yat, latin)

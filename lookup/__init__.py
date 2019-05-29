@@ -26,6 +26,8 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
    if with_se:
       key = key[:-3]
 
+   latin = any([x in key for x in 'abcčćdđefghijklmnoprsštuvzž'])
+
    for inner_key, (caption, kind, info, replacements, amendments) in data[key, input_yat]:
       POS = part_of_speech(kind, info) # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
@@ -36,7 +38,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          n_variants = len(verb.gram.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})" # TODO latin
-            yield Table("verb", full_caption, verb.multiforms(variant=i, yat=output_yat))
+            yield Table("verb", full_caption, verb.multiforms(variant=i, yat=output_yat, latin=latin))
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
       elif POS is Adjective:
@@ -44,13 +46,13 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          n_variants = len(adjective.gram.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
-            yield Table("adjective", full_caption, adjective.multiforms(variant=i, yat=output_yat))
+            yield Table("adjective", full_caption, adjective.multiforms(variant=i, yat=output_yat, latin=latin))
       elif POS is Noun:
          noun = Noun(inner_key, kind, info, replacements, amendments, output_yat)
          n_variants = len(noun.gram.accents)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
-            yield Table("noun", full_caption, noun.multiforms(variant=i, yat=output_yat))
+            yield Table("noun", full_caption, noun.multiforms(variant=i, yat=output_yat, latin=latin))
       else:
          yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO, and also sometimes ријеч and/or latin
 
