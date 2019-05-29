@@ -31,6 +31,7 @@ body {
 }
 
 #search {
+   width: 435px;
    text-align: center;
    margin-left: auto;
    margin-right: auto;
@@ -38,6 +39,7 @@ body {
 }
 
 #searchBox {
+   width: 395px;
    display: flex;
 }
 
@@ -45,17 +47,9 @@ body {
    width: 100%;
 }
 
-#search_table {
-   width: 435px;
-   border: none;
-   border-color: #eee;
-   cellpadding: 0;
-   cellspacing: 0;
-}
-
-
 #options {
    display: inline-block;
+   width: 395px;
 }
 
 #options input[type="radio"] {
@@ -83,7 +77,12 @@ body {
 }
 
 table {
+   width: 395px;
    border-collapse: collapse;
+   border: none;
+   border-color: #eee;
+   cellpadding: 0;
+   cellspacing: 0;
 }
 
 table:not(.inner) {
