@@ -65,7 +65,7 @@ def inner_to_outer(s: str, accent: str) -> List[Tuple[str, str]]:
    else:
       tmp_list = [tmp]
 
-   result = []
+   result : List[Tuple[str, str]] = []
 
    for input_yat in ["ekav", "jekav", "ijekav"]:
       for item in tmp_list:
