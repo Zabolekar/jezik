@@ -33,7 +33,7 @@ anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {'sg_acc': {'in': [[Accen
 
 
 def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
-   ov = AccentedTuple('>œ·в', 'b.b:c?d:e:')
+   ov = AccentedTuple('>œ·в', 'b.b:c?d:e:f.')
 
    suffixed_plurals = [
        [[AccentedTuple('ʹи·', '')]],
