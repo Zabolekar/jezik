@@ -147,3 +147,7 @@ def test_latin():
 
 def test_hmeljem_hmeljom():
    assert set(lookup("хмељ")["ins sg"].multiform) == set(["хмѐљем", "хмѐљом"])
+
+def test_boj_se():
+   assert lookup("бојати се")["imv 2 sg"].multiform == ['бо̑ј се']
+   assert lookup("дојити")["imv 2 sg"].multiform == ['до̑ј']

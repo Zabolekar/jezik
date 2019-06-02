@@ -8,7 +8,7 @@ from ..table import LabeledMultiform
 infinitive_dict: Dict[str, str] = {
    'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
    'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
-   'eta': 'ети', 'theta': 'ети', 'iota': 'ати',
+   'eta': 'ѣти', 'theta': 'ети', 'iota': 'ати',
    'kappa': 'ти', 'lambda': 'ти', 'mu': 'ати'
 }
 

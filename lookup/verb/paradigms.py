@@ -101,15 +101,15 @@ i_past = Past(
 )
 
 a_past = Past(
-   [[a_theme_past, AccentedTuple('ʌ0·', 'm.')]],
-   [[a_theme_past, AccentedTuple('ла0·', 'm.')]],
-   [[a_theme_past, AccentedTuple('ло0·', 'm.')]],
-   [[a_theme_past, AccentedTuple('ли0·', 'm.')]],
-   [[a_theme_past, AccentedTuple('ле0·', 'm.')]],
-   [[a_theme_past, AccentedTuple('ла0·', 'm.')]],
+   [[a_theme_past, AccentedTuple('ʌ0·', 'm.x.')]],
+   [[a_theme_past, AccentedTuple('ла0·', 'm.x.')]],
+   [[a_theme_past, AccentedTuple('ло0·', 'm.x.')]],
+   [[a_theme_past, AccentedTuple('ли0·', 'm.x.')]],
+   [[a_theme_past, AccentedTuple('ле0·', 'm.x.')]],
+   [[a_theme_past, AccentedTuple('ла0·', 'm.x.')]],
    [[a_theme_past, ending_x]],
-   [[AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.')]],
-   [[AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.')]],
+   [[AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.x.')]],
+   [[AccentedTuple('а·', 'l.p:x.y0'), AccentedTuple('0·~', 'o.k:m.n.t.x.')]],
    [[a_theme_past, ending_smo]],
    [[a_theme_past, ending_ste]],
    [[a_theme_past, ending_she]],
@@ -213,13 +213,13 @@ iva_past = Past(
 #("e", Present),   — todo later
 #("ne", Present) — todo after finishing the book
 
-i_theme_prs = AccentedTuple(f'и·{cmacron}', 'r.r:s0s.')
+i_theme_prs = AccentedTuple(f'и·{cmacron}', 'q:r.r:s0s.x.')
 je_theme_prs = AccentedTuple(f'ȷе·{cmacron}', 'z0')
 a_theme_prs = AccentedTuple(f'а·{cmacron}', 'm.n.y0')
 uje_theme_prs = AccentedTuple(f'у·је{cmacron}', 'k’m.')
 ie_theme_prs = AccentedTuple(f'ꙓ·{cmacron}', 's.')
 
-i_theme_imv = AccentedTuple('ӥ·', 'k.p.p:q:r.r:s0s.')
+i_theme_imv = AccentedTuple('ӥ·', 'k.p.p:q:r.r:s0s.x.')
 je_theme_imv = AccentedTuple('ȷӥ·', 'l.m.p:t.z0')
 a_theme_imv = AccentedTuple(f'а·{cmacron}ј', 'm.n.y0')
 uje_theme_imv = AccentedTuple(f'у·{cmacron}ј', 'k’m.')
@@ -234,11 +234,11 @@ i_present = Present(
    [[i_theme_prs, ending_m]],
    [[i_theme_prs, ending_sh]],
    [[i_theme_prs, ending_null]],
-   [[AccentedTuple(f'и·{cmacron}', 'r.r:'), AccentedTuple('мо·', 'r.s0s.')],
+   [[AccentedTuple(f'и·{cmacron}', 'q:r.r:'), AccentedTuple('мо·', 'r.s0s.x.')],
    [i_theme_prs, ending_mo]],
-   [[AccentedTuple(f'и·{cmacron}', 'r.r:'), AccentedTuple('те·', 'r.s0s.')],
+   [[AccentedTuple(f'и·{cmacron}', 'q:r.r:'), AccentedTuple('те·', 'r.s0s.x.')],
    [i_theme_prs, ending_te]],
-   [[AccentedTuple(f'е·{cmacron}', 'r.r:s0s.  '), ending_null]],
+   [[AccentedTuple(f'е·{cmacron}', 'q:r.r:s0s.x.'), ending_null]],
    [[i_theme_imv, ending_null]],
    [[i_theme_imv, ending_mo]],
    [[i_theme_imv, ending_te]]
@@ -306,4 +306,5 @@ MP_to_verb_stems: Dict[str, Stems] = dict(
    zeta=Stems(uje_present, iva_past),
    eta=Stems(i_present, ie_past),
    theta=Stems(ie_present, ie2_past),
+   mu=Stems(i_present,a_past)
 )

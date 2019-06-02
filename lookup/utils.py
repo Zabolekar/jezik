@@ -129,24 +129,30 @@ def deyerify(form: str) -> str:
 
 def prettify(text: str, yat:str='ekav') -> str:
    idict = palatalization_modes['ȷ']
-   replaces = [ ('јӥ', f'{cmacron}ј'), ('ӥ', 'и'),
-                (f'ʌ(а|е|и|о|у|р|œ|{cring})', 'л\\1'),
-                (f'{cmacron}{cstraight}ʌ', f'{cstraight}ʌ'),
-                (f'{cmacron}ʌ', 'ʌ'),
-                ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
-                (f'о{cstraight}ʌ', f'о{cmacron}{cstraight}'),
-                (f'о·{cmacron}ʌ', f'о·{cmacron}'), ('ʌ', 'о'),
-                ('цœ', 'че'),
-                ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
-                ('ʲ', '')]
-   yat_replaces = { 'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
-                    'jekav': [(f'ѣ({cstraight}?о)', 'и\\1'),
-                              ('лѣ', 'ље'), ('нѣ', 'ње'),
-                              (f'ѣ({cstraight}?[љјњ])', 'и\\1'),
-                              (f'ꙓ({cstraight}?[ој])', "и\\1"),
-                              (f'ꙓ{cmacron}', f'йје{cmacron}'),
-                              ('лꙓ', 'ље'), ('нꙓ', 'ње'),
-                              ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'), ('[ꙓѣ]', 'је')] }
+   replaces = [
+      ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
+      (f'јӥ{cstraight}', f'{cstraight}јӥ'), ('јӥ', f'{cmacron}ј'),
+      ('ӥ', 'и'), (f'{cstraight}{cmacron}', f'{cmacron}{cstraight}'),
+      (f'ʌ(а|е|и|о|у|р|œ|{cring})', 'л\\1'),
+      (f'{cmacron}{cstraight}ʌ', f'{cstraight}ʌ'),
+      (f'{cmacron}ʌ', 'ʌ'),
+      ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
+      (f'о{cstraight}ʌ', f'о{cmacron}{cstraight}'),
+      (f'о·{cmacron}ʌ', f'о·{cmacron}'), ('ʌ', 'о'),
+      ('цœ', 'че'),
+      ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
+      ('ʲ', '')]
+   yat_replaces = {
+      'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
+      'jekav': [
+         (f'ѣ({cstraight}?о)', 'и\\1'),
+         ('лѣ', 'ље'), ('нѣ', 'ње'),
+         (f'ѣ({cstraight}?[љјњ])', 'и\\1'),
+         (f'ꙓ({cstraight}?[ој])', "и\\1"),
+         (f'ꙓ{cmacron}', f'йје{cmacron}'),
+         ('лꙓ', 'ље'), ('нꙓ', 'ње'),
+         ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'),
+         ('[ꙓѣ]', 'је')] }
    yat_replaces['ijekav'] = yat_replaces['jekav'] 
 
    for key in idict:
