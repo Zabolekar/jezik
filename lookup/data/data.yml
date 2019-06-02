@@ -3185,11 +3185,11 @@
 
 зобени:
  t: A\ski
- i: \2`,3_\0,c.\;\1`,3_\0.,a.\
+ i: \2`,3_\0,c.\;\1`,3_\o.,a.\
 
 иглени:
  t: A\ski
- i: \2`,3_\0,c.\;\1`,3_\0.,a.\
+ i: \2`,3_\0,c.\;\1`,3_\o.,a.\
 
 јаспрени:
  t: A\ski
@@ -3205,7 +3205,7 @@
 
 лађени:
  t: A\ski
- i: \2`,3_\0,c.\;\1`,3_\0.,a.\
+ i: \2`,3_\0,c.\;\1`,3_\o.,a.\
 
 сунчан:
  t: A\all
@@ -8591,4 +8591,426 @@
  t: N\m
  i: \1`\b.\±,an;\1´\e:\±,an
 
+газити:
+ t: V\Tr\Ipf
+ i: \1¨\o.\alpha
 
+изгазити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+нагазити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+погазити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+прогазити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+прегазити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+згазити:
+ t: V\Tr\Pf
+ i: \1¨\o.\alpha
+
+искрити I:
+ t: V\Tr\Ipf
+ i: \1¨\o.\alpha
+
+искрити се:
+ t: V\Refl\Ipf
+ i: \1¨\o.\alpha
+
+грлити I:
+ t: V\Tr\Ipf
+ i: \2@1¨\o.\alpha
+
+грлити се:
+ t: V\Refl\Ipf
+ i: \2@1¨\o.\alpha
+
+загрлити I:
+ t: V\Tr\Pf
+ i: \2@1`\o.\alpha
+
+загрлити се:
+ t: V\Refl\Pf
+ i: \2@1`\o.\alpha
+
+обгрлити I:
+ t: V\Tr\Pf
+ i: \2@1`\o.\alpha
+
+обгрлити се:
+ t: V\Refl\Pf
+ i: \2@1`\o.\alpha
+
+огрлити I:
+ t: V\Tr\Pf
+ i: \2@1`\o.\alpha
+
+огрлити се:
+ t: V\Refl\Pf
+ i: \2@1`\o.\alpha
+
+прегрлити I:
+ t: V\Tr\Pf
+ i: \2@1`\o.\alpha
+
+прегрлити се:
+ t: V\Refl\Pf
+ i: \2@1`\o.\alpha
+
+мућкати:
+ t: V\Tr\Ipf
+ i: \1¨\o.\beta
+
+промућкати:
+ t: V\Tr\Pf
+ i: \1`\o.\beta
+
+мутити I:
+ t: V\Tr\Ipf
+ i: \1´\p:\alpha
+
+мутити се:
+ t: V\Refl\Ipf
+ i: \1´\p:\alpha
+
+замутити I:
+ t: V\Tr\Pf
+ i: \2´\p:\alpha
+
+замутити се:
+ t: V\Refl\Pf
+ i: \2´\p:\alpha
+
+помутити I:
+ t: V\Tr\Pf
+ i: \2´\p:\alpha
+
+помутити се:
+ t: V\Refl\Pf
+ i: \2´\p:\alpha
+
+хвалити I:
+ t: V\Tr\Ipf
+ i: \1´\p:\alpha
+
+хвалити се:
+ t: V\Refl\Ipf
+ i: \1´\p:\alpha
+
+нахвалити I:
+ t: V\Tr\Pf
+ i: \2´\p:\alpha
+
+нахвалити се:
+ t: V\Refl\Pf
+ i: \2´\p:\alpha
+
+похвалити I:
+ t: V\Tr\Pf
+ i: \2´\p:\alpha
+
+похвалити се:
+ t: V\Refl\Pf
+ i: \2´\p:\alpha
+
+захвалити I:
+ t: V\Tr\Pf
+ i: \2´\p:\alpha
+
+захвалити се:
+ t: V\Refl\Pf
+ i: \2´\p:\alpha
+
+хулити:
+ t: V\Tr\Ipf
+ i: \1´\p:\alpha
+
+богохулити:
+ t: V\Itr\Ipf
+ i: \3´\p:\alpha
+
+флертовати:
+ t: V\Itr\Ipf
+ i: \1¨\o.\epsilon
+
+флертати:
+ t: V\Itr\Ipf
+ i: \1¨\o.\beta
+
+трговати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+ашиковати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+бајрамовати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+бивовати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+бивствовати:
+ t: V\Itr\Ipf
+ i: \1¨\o.\epsilon
+
+дејствовати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+доликовати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+доручковати:
+ t: V\Itr\Dv
+ i: \1`\o.\epsilon
+
+обѣдовати:
+ t: V\Itr\Dv
+ i: \1`\o.\epsilon
+
+боловати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+благовати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+дѣловати:
+ t: V\Itr\Ipf
+ i: \1¨\o.\epsilon
+
+судѣловати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+гласовати:
+ t: V\Itr\Ipf
+ i: \1¨\o.\epsilon
+
+јадиковати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+лудовати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+мировати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+наликовати:
+ t: V\Itr\Ipf
+ i: \1´\a!\epsilon
+
+напредовати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+назадовати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+негодовати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+обиловати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+логоровати:
+ t: V\Itr\Ipf
+ i: \1^\a!\epsilon
+
+празновати:
+ t: V\Tr\Ipf
+ i: \1¨\o.\epsilon;\1^\a!\epsilon
+
+вѣровати:
+ t: V\Itr\Ipf
+ i: \1¨\o.\epsilon
+
+увѣровати:
+ t: V\Itr\Pf
+ i: \1`\o.\epsilon
+
+умовати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+туговати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+светковати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+страховати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+становати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+самовати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+саборовати:
+ t: V\Itr\Ipf
+ i: \1´\a!\epsilon
+
+руковати I:
+ t: V\Itr\Ipf
+ i: \1¨\o.\epsilon
+
+руковати се:
+ t: V\Refl\Ipf
+ i: \1¨\o.\epsilon
+
+ровати:
+ t: V\Tr\Ipf
+ i: \1`\m.\epsilon
+
+робовати:
+ t: V\Itr\Ipf
+ i: \1¨\m.\epsilon
+
+ратовати:
+ t: V\Itr\Ipf
+ i: \1¨\o.\epsilon
+
+путовати:
+ t: V\Itr\Ipf
+ i: \2`\m.\epsilon
+
+одпутовати:
+ t: V\Itr\Pf
+ i: \2`\m.\epsilon
+
+допутовати:
+ t: V\Itr\Pf
+ i: \2`\m.\epsilon
+
+пропутовати:
+ t: V\Tr\Pf
+ i: \2`\m.\epsilon
+
+псовати:
+ t: V\Tr\Ipf
+ i: \1`\m.\epsilon
+
+испсовати:
+ t: V\Tr\Pf
+ i: \2`\m.\epsilon
+
+опсовати:
+ t: V\Tr\Pf
+ i: \2`\m.\epsilon
+
+просвѣдовати:
+ t: V\Itr\Dv
+ i: \1`\o.\epsilon
+
+присуствовати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+одсуствовати:
+ t: V\Itr\Ipf
+ i: \1`\o.\epsilon
+
+казивати:
+ t: V\Tr\Ipf
+ i: \2´\k’\zeta
+
+доказивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+исказивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+показивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+потказивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+приказивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+проказивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+указивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+заказивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+очекивати:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+дочекивати I:
+ t: V\Tr\Ipf
+ i: \3´\k’\zeta
+
+дочекивати се:
+ t: V\Refl\Ipf
+ i: \3´\k’\zeta
+
+искорѣњивати:
+ t: V\Tr\Ipf
+ i: \4´\k’\zeta
+
+искорꙓнити:
+ t: V\Tr\Pf
+ i: \3´\p.\alpha
+
+њушити:
+ t: V\Tr\Ipf
+ i: \1¨\o.\alpha
+
+нањушити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+оњушити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+поњушити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha
+
+проњушити:
+ t: V\Tr\Pf
+ i: \1`\o.\alpha

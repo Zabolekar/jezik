@@ -48,6 +48,8 @@ class Verb(PartOfSpeech):
          else:
             if self.gram.MP[i] in ['kappa', 'lambda']:
                trunk = accented_verb[:-N]
+            elif self.gram.MP[i] == 'zeta':
+               trunk = accented_verb[:-N-2]
             else:
                trunk = accented_verb[:-N-1]
             lvi = last_vowel_index(trunk)
