@@ -22,11 +22,11 @@ def part_of_speech(kind: str, info: str) -> PartOfSpeech:
 
 def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
 
-   with_se = key[-3:] == " се" # TODO Latin
+   latin = any([x in key for x in 'abcčćdđefghijklmnoprsštuvzžABCČĆDĐEFGHIJKLMNOPRSŠTUVZŽ'])
+
+   with_se = (key[-3:] == " se") if latin else (key[-3:] == " се")
    if with_se:
       key = key[:-3]
-
-   latin = any([x in key for x in 'abcčćdđefghijklmnoprsštuvzž'])
 
    for inner_key, (caption, kind, info, replacements, amendments) in data[key, input_yat]:
       POS = part_of_speech(kind, info) # TODO: we have a rather different POS variable in part_of_speech, make it a dict there

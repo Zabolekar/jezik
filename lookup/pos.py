@@ -118,7 +118,7 @@ class PartOfSpeech():
             and current_AP not in accent \
             and 'a' in current_AP)
             or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form)):
-            retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀це̄ва̄
+            retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀че̄ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
             and 'c?' in current_AP:
             retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄

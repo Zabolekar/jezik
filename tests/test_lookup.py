@@ -83,9 +83,15 @@ def test_apB():
    assert lookup("грош")["pl gen"].multiform == ["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"]
    assert [a for _, [a] in lookup("аминаш")["nom"]] == ["амѝна̄ш", "амина́ши"]
 
-def test_neocirk():
+def test_gpl():
    assert lookup("језик")["pl gen"].multiform == ["је̏зӣка̄"]
-   # TODO: нѐпце : не̏ба̄ца̄ when neuter is ready?
+   assert set(lookup("грош")["pl gen"].multiform) == set(["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"])
+   assert set(lookup("бик")["pl gen"].multiform) == set(["би̏ко̄ва̄", "бѝко̄ва̄"])
+   assert lookup("аманет")["pl gen"].multiform == ["а̀ма̄не̄та̄"]
+   assert set(lookup("отац")["pl gen"].multiform) == set(["о̀че̄ва̄", "ота́ца̄"])
+   assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄"]
+   assert lookup("новац")["pl gen"].multiform == ["но̏ва̄ца̄"]
+   # TODO: нѐпце : не̏ба̄ца̄ when neuter is ready
 
 def test_snjegovi():
    l = lookup("снијег", input_yat="ijekav", output_yat="jekav")
@@ -122,10 +128,22 @@ def test_lll():
 
 def test_abang_paradigm():
    assert lookup("агитатор")["gen sg"].multiform == ['агѝта̄тора']
-   assert lookup("аманет")["gen pl"].multiform == ['а̀ма̄не̄та̄']
+   assert lookup("аманет")["gen sg"].multiform == ['ама́нета']
    assert lookup("анђео")["ins sg"].multiform == ['а̑нђелом']
    assert lookup("амбасадор")["pl nom"].multiform == ['амба̀са̄дори']
 
 def test_krnjeme():
    a = lookup("крњ")["dat sg long m"].multiform
    assert all([not x.endswith("ме") for x in a])
+
+def test_mo_mo():
+   assert lookup("знати")["prs 1 pl"][0].multiform == ["зна́мо", "зна̑мо"]
+   assert lookup("дознати")["prs 2 pl"].multiform == ["дозна́те", "до̀зна̄те"]
+
+def test_latin():
+   assert lookup("amanet")["gen pl"].multiform == ["àmānētā"]
+   assert lookup("ačiti se")["prs 3 pl"].multiform == ["ȃčē se"]
+   assert lookup("sudžuk")["acc pl"].multiform == ["sùdžuke"]
+
+def test_hmeljem_hmeljom():
+   assert set(lookup("хмељ")["ins sg"].multiform) == set(["хмѐљем", "хмѐљом"])

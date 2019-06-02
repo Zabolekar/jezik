@@ -77,7 +77,7 @@ def m_instr(stem: str) -> List[List[AccentedTuple]]:
       return [em, om] # плашт, дажд, пут, нос, курс, појас, цар 
    elif stem.endswith('ъц'): # отац, палац
       return [em]
-   elif stem[-1] in 'чџшжј':
+   elif stem[-1] in 'чџшжјљњ':
       if stem[lvi] == 'е':
          return [om, em] # лавеж, кеј, Беч
       else:
