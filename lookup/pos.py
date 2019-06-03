@@ -110,23 +110,28 @@ class PartOfSpeech():
 
          if 'ъ' in word_form \
             and current_AP in accent \
-            and (':' in current_AP or 'f.' in current_AP) \
+            and current_AP in ['a:', 'b:', 'c:', 'f.'] \
             and 'm' in self.gram.other:
+            #print('d')
             retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
          elif ('m' in self.gram.other) \
-            and ((pvi is not None and 'ъ' not in word_form \
+            and (('d' in current_AP and 'œв' in word_form)
+            or (pvi is not None and 'ъ' not in word_form \
             and current_AP not in accent \
-            and 'a' in current_AP)
-            or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form)):
+            and (current_AP in ['a.', 'a!']) \
+            or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form))):
+            #print('a')
             retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀че̄ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
             and 'c?' in current_AP:
             retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
-            and ('b' in current_AP or 'd' in current_AP) \
+            and 'b' in current_AP \
             and 'ъ' not in word_form:
+            #print('b')
             retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          else:
+            #print('c')
             retraction = [0]
 
          if not 'œ' in word_form: # TODO one day think about better condition

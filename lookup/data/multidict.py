@@ -50,7 +50,7 @@ class Entry(NamedTuple):
    amendments: Tuple[Replacement, ...]
 
 
-def inner_to_outer(s: str, accent: str) -> List[Tuple[str, str]]:
+def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
@@ -65,7 +65,6 @@ def inner_to_outer(s: str, accent: str) -> List[Tuple[str, str]]:
    else:
       tmp_list = [tmp]
 
-   result : List[Tuple[str, str]] = []
 
    for input_yat in ["ekav", "jekav", "ijekav"]:
       for item in tmp_list:
@@ -74,8 +73,9 @@ def inner_to_outer(s: str, accent: str) -> List[Tuple[str, str]]:
          # (and inner loop should be made outer loop before that)
          exposed_token = expose(accented_token, yat=input_yat)
          deaccentized_token = deaccentize(exposed_token).lower()
-         result += [(deaccentized_token, input_yat), (cyr2lat(deaccentized_token), input_yat)]
-   return result
+         yield deaccentized_token, input_yat
+         yield cyr2lat(deaccentized_token), input_yat
+
 
 class FancyLookup:
 

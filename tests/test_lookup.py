@@ -91,6 +91,7 @@ def test_gpl():
    assert set(lookup("отац")["pl gen"].multiform) == set(["о̀че̄ва̄", "ота́ца̄"])
    assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄"]
    assert lookup("новац")["pl gen"].multiform == ["но̏ва̄ца̄"]
+   assert lookup("пуж")["pl gen"].multiform == ["пу́же̄ва̄", "пу́жа̄"]
    # TODO: нѐпце : не̏ба̄ца̄ when neuter is ready
 
 def test_snjegovi():
@@ -151,3 +152,13 @@ def test_hmeljem_hmeljom():
 def test_boj_se():
    assert lookup("бојати се")["imv 2 sg"].multiform == ['бо̑ј се']
    assert lookup("дојити")["imv 2 sg"].multiform == ['до̑ј']
+
+def test_vocative():
+   assert lookup("јелен")["sg voc"].multiform == ["јѐлене"]
+   assert lookup("јелен")["pl voc"].multiform == ["јѐлени"]
+   assert lookup("орач")["sg voc"].multiform == ["о̏ра̄чу"]
+   assert lookup("орач")["pl voc"].multiform == ["о̏ра̄чи"]
+   assert lookup("пуж")["sg voc"].multiform == ["пу̑жу"]
+   assert lookup("пуж")["pl voc"].multiform == ["пу́жеви", "пу̑жи"]
+   assert lookup("град")["sg voc"].multiform == ["гра̑де"]
+   assert lookup("град")["pl voc"].multiform == ["гра̏дови", "гра̑ди"]

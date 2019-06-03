@@ -289,7 +289,6 @@ def ungarde(form: str) -> str:
 
 def debracketify(form: str) -> str:
       if '>' in form:
-         print(form)
          barrier = form.find('>')
          first_piece = form[:barrier]
          first_piece = first_piece.replace(cmacron, '')

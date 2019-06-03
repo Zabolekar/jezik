@@ -2,7 +2,7 @@
 {% block body %}
 <form id="search">
    
-   
+
       <table id="search_table">
          <tr>
          <td id ="searchfield">
@@ -20,7 +20,7 @@
             <input type="button" value="њ" onclick='addString("њ", document.getElementById("word"));'>
             <input type="button" value="ћ" onclick='addString("ћ", document.getElementById("word"));'>
             <input type="button" value="џ" onclick='addString("џ", document.getElementById("word"));'>
-            &nbsp;∘&nbsp;
+            &nbsp;<span style="color: lightgrey">•</span>&nbsp;
             <input type="button" value="č" onclick='addString("č", document.getElementById("word"));'>
             <input type="button" value="ć" onclick='addString("ć", document.getElementById("word"));'>
             <input type="button" value="đ" onclick='addString("đ", document.getElementById("word"));'>
@@ -51,8 +51,6 @@
          </td>
          </tr>
       </table>
-   </div>
-
 </form>
 <div id="results"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

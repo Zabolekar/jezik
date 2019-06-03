@@ -1723,7 +1723,7 @@
 
 радни:
  t: A\ski
- i: \2@1^,2_\0,a:\
+ i: \1^,2_\0,a:\
  
 Рађев:
  t: A\ov
@@ -6711,7 +6711,7 @@
 
 Васкрс:
  t: N\m
- i: \4@1`\a.\
+ i: \5@1`\a.\
  c: и Ускрс
 
 обѣд:
@@ -8645,35 +8645,35 @@
 
 загрлити I:
  t: V\Tr\Pf
- i: \2@1`\o.\alpha
+ i: \4@1`\o.\alpha
 
 загрлити се:
  t: V\Refl\Pf
- i: \2@1`\o.\alpha
+ i: \4@1`\o.\alpha
 
 обгрлити I:
  t: V\Tr\Pf
- i: \2@1`\o.\alpha
+ i: \4@1`\o.\alpha
 
 обгрлити се:
  t: V\Refl\Pf
- i: \2@1`\o.\alpha
+ i: \4@1`\o.\alpha
 
 огрлити I:
  t: V\Tr\Pf
- i: \2@1`\o.\alpha
+ i: \3@1`\o.\alpha
 
 огрлити се:
  t: V\Refl\Pf
- i: \2@1`\o.\alpha
+ i: \3@1`\o.\alpha
 
 прегрлити I:
  t: V\Tr\Pf
- i: \2@1`\o.\alpha
+ i: \5@1`\o.\alpha
 
 прегрлити се:
  t: V\Refl\Pf
- i: \2@1`\o.\alpha
+ i: \5@1`\o.\alpha
 
 мућкати:
  t: V\Tr\Ipf
@@ -9173,12 +9173,16 @@
 
 зврчѣти:
  t: V\Itr\Ipf
- i: \4@1´\q:\eta
+ i: \3@1´\q:\eta
 
 цврчѣти:
  t: V\Itr\Ipf
- i: \4@1´\q:\eta
+ i: \3@1´\q:\eta
 
 дојити:
  t: V\Tr\Ipf
  i: \1`\r.\alpha
+
+народ:
+ t: N\m
+ i: \1´\a:\

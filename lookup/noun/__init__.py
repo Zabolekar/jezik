@@ -128,7 +128,7 @@ class Noun(PartOfSpeech):
             ready_forms: List[str] = [] # TODO: better name
 
             # swapping length in case it is necessary
-            to_swap_or_not = ('ø' not in ending[0][0].morpheme)
+            to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)
             noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP) 
 
             # after that, iterating by ending variation
