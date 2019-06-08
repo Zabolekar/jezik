@@ -5736,11 +5736,11 @@
  t: V\Refl\Ipf
  i: \2´\p:\delta
 
-покретати:
+покретати I:
  t: V\Tr\Ipf
  i: \2´\p:\delta
 
-покретати се:
+покретати II:
  t: V\Refl\Ipf
  i: \2´\p:\delta
 
@@ -5752,7 +5752,7 @@
  t: V\Tr\Ipf
  i: \1´\k:\beta
 
-накупати се:
+накупати:
  t: V\Refl\Pf
  i: \2´\k:\beta
 
@@ -5760,11 +5760,11 @@
  t: V\Itr\Pf
  i: \2´\k:\beta
 
-прокупати се:
+прокупати:
  t: V\Refl\Pf
  i: \2´\k:\beta
 
-искупати се:
+искупати:
  t: V\Refl\Pf
  i: \2´\k:\beta
 
@@ -5792,7 +5792,7 @@
  t: V\Refl\Pf
  i: \2´\p:\delta
 
-нализати се:
+нализати:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
@@ -5816,7 +5816,7 @@
  t: V\Tr\Pf
  i: \2´\p:\delta
 
-слизати се:
+слизати:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
@@ -5844,11 +5844,11 @@
  t: V\Itr\Ipf
  i: \2´\p:\delta
 
-разлꙓгати се:
+разлꙓгати:
  t: V\Refl\Ipf
  i: \2´\p:\delta
 
-улꙓгати се:
+улꙓгати:
  t: V\Refl\Ipf
  i: \2´\p:\delta
 
@@ -7496,7 +7496,7 @@
  t: V\Tr\Pf
  i: \3`\p.\alpha
 
-јесенити се:
+јесенити:
  t: V\Tr\Ipf
  i: \2`\r.\alpha
 
@@ -8404,7 +8404,7 @@
 
 приучити:
  t: V\Tr\Pf
- i: \1`\r.\alpha
+ i: \2`\r.\alpha
 
 проучити:
  t: V\Tr\Pf
@@ -9186,3 +9186,11 @@
 народ:
  t: N\m
  i: \1´\a:\
+
+палъц:
+ t: N\m
+ i: \1¨\a.\±
+
+облик:
+ t: N\m
+ i: \1¨,2_\c:\
