@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block body %}
+
 <form id="search">
    
-
+      <table class="siteheader"><tr><td class="siteheader"><div align="right"><a href="about" class="aboutlink">Шта је овај сајт?</a></div></td></tr>
+      
       <table id="search_table">
          <tr>
-         <td id ="searchfield">
+         <td id="searchfield">
          <div id="searchBox">
          <input type="text" id="word"/>
          <input type="submit" id="button" value="Претрага"/>
@@ -14,6 +16,7 @@
          </tr>
          <tr>
          <td id ="searchfield">
+         <div id="options" align="center">
             <input type="button" value="ђ" onclick='addString("ђ", document.getElementById("word"));'>
             <input type="button" value="ј" onclick='addString("ј", document.getElementById("word"));'>
             <input type="button" value="љ" onclick='addString("љ", document.getElementById("word"));'>
@@ -26,11 +29,12 @@
             <input type="button" value="đ" onclick='addString("đ", document.getElementById("word"));'>
             <input type="button" value="š" onclick='addString("š", document.getElementById("word"));'>
             <input type="button" value="ž" onclick='addString("ž", document.getElementById("word"));'>
+         </div>
          </td>
          </tr>
          <tr>
          <td id ="searchfield">
-            <div id="options">
+            <div id="options" align="center">
                   <fieldset>
                      <legend>Јат у упиту:</legend><br>
                      <input type="radio" id="inputYat1" name="inputYat" value="ekav" checked>
