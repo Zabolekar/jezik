@@ -9073,7 +9073,7 @@
 
 убојати се:
  t: V\Refl\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 лежати:
  t: V\Itr\Ipf
@@ -9081,31 +9081,31 @@
 
 залежати се:
  t: V\Refl\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 излежати се:
  t: V\Refl\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 належати се:
  t: V\Refl\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 одлежати:
  t: V\Itr\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 полежати:
  t: V\Itr\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 прележати:
  t: V\Itr\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 разлежати се:
  t: V\Refl\Pf
- i: \1`\x.\mu
+ i: \2`\x.\mu
 
 трчати:
  t: V\Itr\Ipf
