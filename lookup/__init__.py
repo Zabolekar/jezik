@@ -59,6 +59,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
 def lookup(outer_key: str, input_yat:str="ekav", output_yat:Optional[str]=None) -> Multitable:
    if output_yat is None:
       output_yat = input_yat
+   outer_key = outer_key.strip() # space-word-space will produce a search error otherwise
    return Multitable(outer_key, lazy_lookup(outer_key, input_yat, output_yat))
 
 def random_lookup() -> Multitable:
