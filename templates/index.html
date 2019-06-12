@@ -3,7 +3,16 @@
 
 <form id="search">
    
-      <table class="siteheader"><tr><td class="siteheader"><div align="right"><a href="about" class="aboutlink">Шта је овај сајт?</a></div></td></tr>
+      <table class="siteheader">
+         <tr>
+            <td class="siteheader">
+               <div align="right" class="aboutlink">
+                  <a href="/about" class="aboutlink">Шта је овај сајт?</a>
+                  <span style="color: lightgrey">·</span>
+                  <a href="/random" class="aboutlink">Случајна реч</a>
+               </div>
+            </td>
+         </tr>
       
       <table id="search_table">
          <tr>
@@ -23,7 +32,7 @@
             <input type="button" value="њ" onclick='addString("њ", document.getElementById("word"));'>
             <input type="button" value="ћ" onclick='addString("ћ", document.getElementById("word"));'>
             <input type="button" value="џ" onclick='addString("џ", document.getElementById("word"));'>
-            &nbsp;<span style="color: lightgrey">•</span>&nbsp;
+            <span style="color: lightgrey">ː</span>
             <input type="button" value="č" onclick='addString("č", document.getElementById("word"));'>
             <input type="button" value="ć" onclick='addString("ć", document.getElementById("word"));'>
             <input type="button" value="đ" onclick='addString("đ", document.getElementById("word"));'>

@@ -26,10 +26,14 @@
    unicode-range: U+21-17E, U+300-325, U+409-45F;
 }*/
 
-a.aboutlink {
+div.aboutlink {
    font-size: 10pt;
    color: grey;
    font-style: italic;
+}
+
+a.aboutlink {
+   color: grey;
 }
 
 body {
