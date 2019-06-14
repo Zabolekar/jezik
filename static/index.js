@@ -17,19 +17,20 @@ function onSubmit (event) {
    event.preventDefault();
 }
 
-function addString (s, input) {
-   var old_cursor = input.selectionStart;
-   var new_cursor = input.selectionStart + s.length;
-   var old_value = input.value;
-   input.value = old_value.substring(0, old_cursor) + s + old_value.substring(old_cursor);
-   input.selectionStart = input.selectionEnd = new_cursor;
+function insertString (s) {
+   var input = document.getElementById("word"),
+       backup = { start: input.selectionStart, end: input.selectionEnd };
+   
+   input.value = input.value.substring(0, backup.start) + 
+                  s + input.value.substring(backup.start);
+   input.selectionStart = backup.start + s.length;
+   input.selectionEnd = backup.end + s.length;
    input.focus();
 }
 
 var width;
 function setup () {
    $('#search').submit(onSubmit);
-   //$('#searchBox').html(width/$(document).width());
    width = $('#options').width();
    $('#search').css('width', width+'px');
 }
