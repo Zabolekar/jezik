@@ -31,6 +31,9 @@ function insertString (s) {
 var width;
 function setup () {
    $('#search').submit(onSubmit);
+   $('#options :button').click(function () {
+      insertString(this.value);
+   });
    width = $('#options').width();
    $('#search').css('width', width+'px');
 }
