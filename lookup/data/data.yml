@@ -9355,22 +9355,19 @@
  t: N\m
  i: \1´\a:\
  add:
-  gen pl:
-   ла´вежи_
+  gen pl: ла´вежи_
 
 лупеж:
  t: N\m
  i: \1´\a:\an
  add:
-  gen pl:
-   лу´пежи_
+  gen pl: лу´пежи_
 
 ситнеж:
  t: N\m
  i: \1´\a:\
  add:
-  gen pl:
-   си´тнежи_
+  gen pl: си´тнежи_
 
 грабеж:
  t: N\m
@@ -9378,3 +9375,53 @@
  add:
   gen pl:
    гра´бежи_
+
+ја\ми:
+ t: N\0
+ i: \1^\0\
+ add:
+  nom sg: ја^
+  acc sg: ме¨не, ме
+  gen sg: ме¨не, ме
+  dat sg: ме¨ни, ми
+  loc sg: ме¨ни
+  ins sg: мно^м, мно´ме
+  voc sg: ''
+  nom pl: ми^
+  acc pl: на^с, нас
+  gen pl: на^с, нас
+  dat pl: на¨ма, нам
+  loc pl: на¨ма
+  ins pl: на¨ма
+  voc pl: ми^
+
+ти\ви:
+ t: N\0
+ i: \1^\0\
+ add:
+  nom sg: ти^
+  acc sg: те¨бе, те
+  gen sg: те¨бе, те
+  dat sg: те¨би, ти
+  loc sg: те¨би
+  ins sg: то¨бо_м
+  voc sg: ти^
+  nom pl: ви^
+  acc pl: ва^с, вас
+  gen pl: ва^с, вас
+  dat pl: ва¨ма, вам
+  loc pl: ва¨ма
+  ins pl: ва¨ма
+  voc pl: ви^
+
+шта\што:
+ t: N\0
+ i: \1¨\0\
+ add:
+  nom sg: шта¨, што¨
+  acc sg: шта¨, што¨
+  gen sg: че`га, че¨г
+  dat sg: че`му
+  loc sg: че`му, че¨м
+  ins sg: чи^м, чи´ме
+  voc sg: ''

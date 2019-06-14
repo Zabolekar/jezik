@@ -70,6 +70,8 @@ class Noun(PartOfSpeech):
                trunk = insert(trunk_, {lvi+1: '·'})
          elif 'a' in AP: # a is a-like paradigm; 'o' is unused in nouns
             trunk = accented_trunk_
+         elif '0' in AP:
+            trunk = accented_trunk_
          else:
             raise NotImplementedError
          trunk = trunk.replace(f'{cmacron}·', f'·{cmacron}')
@@ -113,51 +115,64 @@ class Noun(PartOfSpeech):
       start_AP = self.gram.AP[i].replace('?', '.')
       target_AP = self.gram.AP[i].replace('?', '.')      
       
-      for label, ending in c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
+      if 'm' in self.gram.other:
+         for label, ending in c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
 
-         if label in self.replacements:
+            if label in self.replacements:
+               yield nice_name(label), \
+                  list(
+                     OrderedSet(
+                        [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
+                     )
+                  )
+            
+            else:
+
+               ready_forms: List[str] = [] # TODO: better name
+
+               # swapping length in case it is necessary
+               to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)
+               noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP) 
+
+               # after that, iterating by ending variation
+               for ending_variation in ending:
+
+                  # processing words like bo / bol (marked with ʟ)
+                  if 'ʟ' in noun_form:
+                     noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
+                  # processing forms like akcenat/akcent (marked with Ъ)       
+                  elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
+                     noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
+                  else:
+                     noun_variants = [noun_form.replace('Ъ', 'ъ')]
+
+                  # now iterating by stem (like, akcenat/akcent)
+
+                  for noun_variant in noun_variants:
+                     if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
+                        ready_forms += self.process_one_form(i, noun_variant, ending_variation)
+
+               if label in self.amendments:
+                  ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
+
+               yield nice_name(label), \
+                  list(
+                     OrderedSet(
+                        [self._expose(w_form, yat, latin) for w_form in ready_forms]
+                     )
+                  )
+      else: # TODO Do we really need this christmas-tree output thrice in the code?
+         for label in self.amendments:
             yield nice_name(label), \
                list(
                   OrderedSet(
-                     [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
+                     [self._expose(w_form, yat, latin)
+                     for w_form in
+                     [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
+                     ]
                   )
                )
          
-         else:
-
-            ready_forms: List[str] = [] # TODO: better name
-
-            # swapping length in case it is necessary
-            to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)
-            noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP) 
-
-            # after that, iterating by ending variation
-            for ending_variation in ending:
-
-               # processing words like bo / bol (marked with ʟ)
-               if 'ʟ' in noun_form:
-                  noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
-               # processing forms like akcenat/akcent (marked with Ъ)       
-               elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
-                  noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
-               else:
-                  noun_variants = [noun_form.replace('Ъ', 'ъ')]
-
-               # now iterating by stem (like, akcenat/akcent)
-
-               for noun_variant in noun_variants:
-                  if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
-                     ready_forms += self.process_one_form(i, noun_variant, ending_variation)
-
-            if label in self.amendments:
-               ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
-
-            yield nice_name(label), \
-               list(
-                  OrderedSet(
-                     [self._expose(w_form, yat, latin) for w_form in ready_forms]
-                  )
-               )
 
    def multiforms(
       self,

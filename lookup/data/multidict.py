@@ -100,7 +100,9 @@ class FancyLookup:
          first_accent = ""
 
       for outer_key, input_yat in inner_to_outer(inner_key, first_accent):
-         self._outer_to_inner[(outer_key, input_yat)] = inner_key
+         outer_keys_ = inner_key.split('\\')
+         for outer_key_ in outer_keys_:
+            self._outer_to_inner[(outer_key_, input_yat)] = inner_key
 
    def random_key(self) -> Tuple[str, str]:
       return random.choice(list(self._outer_to_inner._data.keys()))
