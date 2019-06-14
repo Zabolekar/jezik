@@ -34,7 +34,8 @@ function setup () {
    $('#options :button').click(function () {
       insertString(this.value);
    });
-   width = $('#options').width();
+   width = $('#main').width();
+   $('#header').css('width', width+'px');
    $('#search').css('width', width+'px');
 }
 

@@ -2,47 +2,45 @@
 {% block body %}
 
 <form id="search">
-   
-      <table class="siteheader">
-         <tr>
-            <td class="siteheader">
-               <div align="right" class="aboutlink">
-                  <a href="/about" class="aboutlink">Шта је овај сајт?</a>
-                  <span style="color: lightgrey">·</span>
-                  <a href="/random" class="aboutlink">Случајна реч</a>
-               </div>
-            </td>
-         </tr>
-      
-      <table id="search_table">
-         <tr>
-         <td id="searchfield">
-         <div id="searchBox">
-         <input type="text" id="word"/>
-         <input type="submit" id="button" value="Претрага"/>
-         </div>
+   <table id="header">
+      <tr>
+         <td id="left">
+            <a href="/about">Шта је овај сајт?</a>
          </td>
-         </tr>
-         <tr>
-         <td id ="searchfield">
-         <div id="options" align="center">
-            <input type="button" value="ђ">
-            <input type="button" value="ј">
-            <input type="button" value="љ">
-            <input type="button" value="њ">
-            <input type="button" value="ћ">
-            <input type="button" value="џ">
-            <span style="color: lightgrey">ː</span>
-            <input type="button" value="č">
-            <input type="button" value="ć">
-            <input type="button" value="đ">
-            <input type="button" value="š">
-            <input type="button" value="ž">
-         </div>
+         <td id="right">
+            <a href="/random">Случајна реч</a>
+         </td>   
+      </tr>
+   </table>
+   <table id="main">
+      <tr>
+         <td>
+            <div id="searchBox">
+               <input type="text" id="word"/>
+               <input type="submit" id="button" value="Претрага"/>
+            </div>
          </td>
-         </tr>
-         <tr>
-         <td id ="searchfield">
+      </tr>
+      <tr>
+         <td>
+            <div id="options" align="center">
+               <input type="button" value="ђ">
+               <input type="button" value="ј">
+               <input type="button" value="љ">
+               <input type="button" value="њ">
+               <input type="button" value="ћ">
+               <input type="button" value="џ">
+               <span style="color: lightgrey">ː</span>
+               <input type="button" value="č">
+               <input type="button" value="ć">
+               <input type="button" value="đ">
+               <input type="button" value="š">
+               <input type="button" value="ž">
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>
             <div id="options" align="center">
                   <fieldset>
                      <legend>Јат у упиту:</legend><br>
@@ -52,18 +50,18 @@
                      <label for="inputYat2">снијег</label>
                   </fieldset>
                   <fieldset>
-                        <legend>Јат у резултату:</legend><br>
-                        <input type="radio" id="outputYat1" name="outputYat" value="ekav" checked>
-                        <label for="outputYat1">сне̑г</label>
-                        <input type="radio" id="outputYat2" name="outputYat" value="ijekav">
-                        <label for="outputYat2">сни̏јег</label>
-                        <input type="radio" id="outputYat3" name="outputYat" value="jekav">
-                        <label for="outputYat3">сније̑г</label>
+                     <legend>Јат у резултату:</legend><br>
+                     <input type="radio" id="outputYat1" name="outputYat" value="ekav" checked>
+                     <label for="outputYat1">сне̑г</label>
+                     <input type="radio" id="outputYat2" name="outputYat" value="ijekav">
+                     <label for="outputYat2">сни̏јег</label>
+                     <input type="radio" id="outputYat3" name="outputYat" value="jekav">
+                     <label for="outputYat3">сније̑г</label>
                   </fieldset>
             </div>
          </td>
-         </tr>
-      </table>
+      </tr>
+   </table>
 </form>
 <div id="results"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

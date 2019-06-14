@@ -24,47 +24,41 @@
 	font-style: italic;
 	src: url(CharisSIL-BI.woff);
    unicode-range: U+21-17E, U+300-325, U+409-45F;
-}*/
+}*/   
 
-div.aboutlink {
-   font-size: 10pt;
+#header * {
+   padding: 0 0 0 0;
+   border: 0px;
+   border-color: white;
+   white-space: nowrap;
    color: grey;
+   font-size: 10pt;
    font-style: italic;
 }
 
-a.aboutlink {
-   color: grey;
+#right {
+   text-align: right;
+}
+
+#left{
+   text-align: left;
 }
 
 body {
    font-family: "Charis SIL", Cambria, "Charis SIL Web", serif;
 }
 
-table.siteheader {
-   width: 100%;
-   box-align: right;
-   padding: 0 0 0 0;
-   border: 0px;
-   border-color: white;
+input, button {
+   font-family: inherit;
+   font-size: 12pt;
 }
 
-table.siteheader {
-   padding: 0 0 0 0;
-   border: 0px;
-   border-color: white;
-}
-
-td.siteheader {
-   border: 0px;
-}
-
-div.simpletext {
+div.simpleText {
    margin: auto;
    width: 450px;
    text-align: justify;
    font-size: 16pt;
 }
-
 
 #search {
    width: 430px;
@@ -112,14 +106,14 @@ div.simpletext {
    text-align:center;
 }
 
-table:not(.siteheader) {
+table {
    width: 430px;
    border-collapse: collapse;
    border: none;
    border-color: #eee;
 }
 
-table:not(.inner):not(.siteheader) {
+table:not(.inner):not(#header) {
    margin-left:auto;
    margin-right:auto;
    margin-bottom: 2em;
@@ -141,13 +135,12 @@ td:not(.inner) {
    font-size: 16pt;
 }
 
-th:not(.empty), td:not(emtpy) {
+th:not(.empty), td:not(.emtpy) {
    border: 1px solid #ccc;
 }
 
 .inner {
    width: 100%;
-   /*border: none;*/
    padding: 0px 0px 0px 0px;
    margin: 0 auto;
 }
@@ -157,14 +150,21 @@ th:not(.empty), td:not(emtpy) {
    font-weight: bold;
 }
 
-td:hover:not(.empty):not(.multicell):not(.siteheader) {
+td:hover:not(.empty):not(.multicell) {
    background-color: #eee;
+}
+
+#header:hover {
+   background-color: #fff;
+}
+
+#header * :hover {
+   background-color: #fff;
 }
 
 input[type=button] {
    width: 2em;
    text-align: center;
    font-size: 11pt;
-   font-family: 'Charis SIL Web';
-   border: 0px;  
+   border: 1px;  
 }
