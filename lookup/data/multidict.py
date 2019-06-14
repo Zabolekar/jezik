@@ -100,7 +100,7 @@ class FancyLookup:
          first_accent = ""
 
       for outer_key, input_yat in inner_to_outer(inner_key, first_accent):
-         outer_keys_ = inner_key.split('\\')
+         outer_keys_ = outer_key.split('\\')
          for outer_key_ in outer_keys_:
             self._outer_to_inner[(outer_key_, input_yat)] = inner_key
 

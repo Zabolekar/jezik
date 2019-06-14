@@ -60,7 +60,7 @@ class PartOfSpeech():
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
-      self.key = key
+      self.key = key.split('\\')[0]
       self.gram = GramInfo(kind, info.split(';'))
       self.replacements: Dict[str, List[str]] = dict(replacements)
       self.amendments: Dict[str, List[str]] = dict(amendments)
