@@ -93,7 +93,7 @@ class PartOfSpeech():
       connectenda = []
       if morpheme.startswith('<'): # so far only '-ā' is like that
          # 1. handling yers and defining if the word has neocircumflex:
-         # if morpheme is genitive -ā (so far the only one with '<'),
+         # if morpheme is genitive -ā,
          # stem has mobile vowel, ending is accented,
          # gender is not feminine (i.e. m/n),
          # and, at last, word is not komunizam-like exception (a.p. q),
@@ -107,6 +107,12 @@ class PartOfSpeech():
 
          # 2. finding vowel places that will be of importance
          lvi, fvi, pvi = indices(word_form)
+
+         # 2.5 handling óvca > ovácā
+         if cmacron in word_form and 'f' in self.gram.other and current_AP in ('c:', 'g:'):
+            word_form = word_form.replace(cmacron, '')
+
+         # 2.7 handling yers and predefining retractions
 
          if 'ъ' in word_form \
             and current_AP in accent \
@@ -186,6 +192,9 @@ class PartOfSpeech():
          morpheme = ending_part.morpheme
          accent = ending_part.accent
          
+         if current_AP not in ('c:', 'g:'):
+            morpheme = morpheme.replace('>>', '')
+
          # deleting the first of two accents (is it OK to have it here?)
          if current_AP in accent and cstraight in word_subform:
             word_subform = word_subform.replace(cstraight, '')

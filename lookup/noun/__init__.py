@@ -4,7 +4,7 @@ from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index, expose_replacement
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from ..table import LabeledMultiform
-from .paradigms import c_m
+from .paradigms import c_m, c_f
 from ..charutils import cmacron, cstraight
 
 class Noun(PartOfSpeech):
@@ -43,17 +43,22 @@ class Noun(PartOfSpeech):
       for i, AP in enumerate(self.gram.AP):
 
          accented_noun = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
-
          if 'm' in self.gram.other and not 'o' in self.gram.other:
             trunk_ = accented_noun.replace(cstraight, '')
             # self.key is useless here; accented_noun has not only stress place,
             # it has also all the lengths in the stem which surely are of importance
             accented_trunk_ = accented_noun
+         elif 'f' in self.gram.other and accented_noun.endswith('а'): # TODO How do we call zlost-like f ang sluga-like m?
+            trunk_ = accented_noun.replace(cstraight, '')[:-1]
+            accented_trunk_ = accented_noun[:-1]
+         elif 'f' in self.gram.other and accented_noun.endswith(cstraight):
+            trunk_ = accented_noun.replace(cstraight, '')[:-1]
+            accented_trunk_ = accented_noun[:-2]
          else:
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
 
-         if any([x in AP for x in 'cdf']): # c, d, f (?) are c-like paradigms
+         if any([x in AP for x in 'cdfg']): # c, d, f (?), g are c-like paradigms
             if not self.key.endswith('а'):
                trunk = accented_trunk_.replace(cstraight, '·')
             else:
@@ -70,7 +75,7 @@ class Noun(PartOfSpeech):
                trunk = insert(trunk_, {lvi+1: '·'})
          elif 'a' in AP: # a is a-like paradigm; 'o' is unused in nouns
             trunk = accented_trunk_
-         elif '0' in AP:
+         elif '0' in AP: # 0 means that all forms are prescribed, not generated
             trunk = accented_trunk_
          else:
             raise NotImplementedError
@@ -116,7 +121,12 @@ class Noun(PartOfSpeech):
       target_AP = self.gram.AP[i].replace('?', '.')      
       
       if 'm' in self.gram.other:
-         for label, ending in c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
+         declension_type = c_m
+      elif 'f' in self.gram.other:
+         declension_type = c_f
+
+      if 'm' in self.gram.other or 'f' in self.gram.other:
+         for label, ending in declension_type(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
 
             if label in self.replacements:
                yield nice_name(label), \
@@ -161,7 +171,7 @@ class Noun(PartOfSpeech):
                         [self._expose(w_form, yat, latin) for w_form in ready_forms]
                      )
                   )
-      else: # TODO Do we really need this christmas-tree output thrice in the code?
+      else: # TODO Do we really need this christmas-tree-like output thrice in the code?
          for label in self.amendments:
             yield nice_name(label), \
                list(
