@@ -125,19 +125,19 @@ def c_m(stem: str, suff: str, anim: str) -> NounStem:
 
 
 f_declension = [
-[[AccentedTuple('а·', 'b.b:c.c:g.g:')]],
-[[AccentedTuple('у·', 'b.b:g.g:')]],
-[[AccentedTuple(f'е·{cmacron}', 'b.b:c.c:g.g:')]],
-[[AccentedTuple('ʹи·', 'b.b:g.g:')]],
-[[AccentedTuple(f'о·{cmacron}м', 'b.b:c.c:g.g:')]],
-[[AccentedTuple('ʹи·', 'b.b:c.c:g.g:')]],
+[[AccentedTuple('а·', 'b.c.c:g.g:')]],
+[[AccentedTuple('у·', 'b.g.g:')]],
+[[AccentedTuple(f'е·{cmacron}', 'b.c.c:g.g:')]],
+[[AccentedTuple('ʹи·', 'b.g.g:')]],
+[[AccentedTuple(f'о·{cmacron}м', 'b.c.c:g.g:')]],
+[[AccentedTuple('ʹи·', 'b.c.c:g.g:')]],
 [[AccentedTuple('о·', '')]], # TODO: add o/u/e-rule
-[[AccentedTuple('е·', 'b.b:')]],
-[[AccentedTuple('e·', 'b.b:')]],
-[[AccentedTuple(f'<а·{cmacron}', 'b.b:c.c:g.g:')]],
-[[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
-[[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
-[[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
+[[AccentedTuple('е·', 'b.')]],
+[[AccentedTuple('e·', 'b.')]],
+[[AccentedTuple(f'<а·{cmacron}', 'b.c.c:g.g:')]],
+[[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
+[[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
+[[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
 [[AccentedTuple('е', '')]]
 ]
 
