@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import Iterable, Iterator, List, Tuple, Union
 
 Form = str
@@ -10,7 +11,7 @@ class Table:
       self.pos = pos
       self._data = list(data)
 
-   def __getitem__(self, query: str) -> "Table": # TODO: you know what to do when we switch to 3.7
+   def __getitem__(self, query: str) -> Table:
       result = []
       v = query.split()
       for form_name, forms in self._data:

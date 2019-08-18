@@ -1,11 +1,10 @@
-from typing import Dict, NamedTuple, List, Optional, Generic, Iterable, Tuple, TypeVar
+from typing import Dict, List, Optional, Generic, Iterable, Tuple, TypeVar
 from collections import OrderedDict
+from dataclasses import dataclass
 from itertools import repeat
 from re import compile as rcompile
 from .utils import insert, all_vowels, expose
 from .charutils import cring, real_accent
-
-# TODO: when we switch to 3.7, make Accents and GramInfo dataclasses
 
 oa = ['o.', 'o:', 'a.', 'a:', 'a!']
 T = TypeVar('T')
@@ -13,7 +12,6 @@ T = TypeVar('T')
 _r = rcompile(r"([a-z]+|[A-Z]|\d)")
 def nice_name(name: str) -> str:
    return " ".join(_r.findall(name))
-
 
 def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditional accentuation
 
@@ -41,10 +39,10 @@ def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditi
    else:
       return word
 
+@dataclass
 class Accents:
-   def __init__(self, r: Dict[int, str], v: Dict[int, str]) -> None:
-      self.r = r # syllabic r
-      self.v = v # any other vowel
+   r: Dict[int, str] # syllabic r
+   v: Dict[int, str] # any other vowel
 
 def i_to_accents(line_accents: str) -> Accents:
    if '@' in line_accents:
@@ -66,8 +64,6 @@ class GramInfo:
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
    def __init__(self, kind: str, infos: List[str]) -> None:
-      Rs: Optional[str] # circles below syllabic r's
-      Vs: str # accents above vowels AND above circles (see Rs)
       accents = []
       self.AP: List[str] = [] # accent paradigm
       self.MP: List[str] = [] # morphological paradigm
@@ -92,7 +88,8 @@ class GramInfo:
       self.POS: str = POS # part of speech
       self.other: List[str] = other
 
-class AccentedTuple(NamedTuple):
+@dataclass
+class AccentedTuple:
    morpheme: str
    accent: str
 
