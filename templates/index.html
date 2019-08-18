@@ -24,40 +24,30 @@
       <tr>
          <td>
             <div id="options" align="center">
-               <input type="button" value="ђ">
-               <input type="button" value="ј">
-               <input type="button" value="љ">
-               <input type="button" value="њ">
-               <input type="button" value="ћ">
-               <input type="button" value="џ">
+               {% for letter in "ђјљњћџ" %}
+                  <input type="button" value="{{ letter }}">
+               {% endfor %}
                <span style="color: lightgrey">ː</span>
-               <input type="button" value="č">
-               <input type="button" value="ć">
-               <input type="button" value="đ">
-               <input type="button" value="š">
-               <input type="button" value="ž">
+               {% for letter in "čćđšž" %}
+                  <input type="button" value="{{ letter }}">
+               {% endfor %}
             </div>
          </td>
       </tr>
       <tr>
          <td>
             <div id="options" align="center">
-                  <fieldset>
-                     <legend>Јат у упиту:</legend><br>
-                     <input type="radio" id="inputYat1" name="inputYat" value="ekav" checked>
-                     <label for="inputYat1">снег</label>
-                     <input type="radio" id="inputYat2" name="inputYat" value="ijekav">
-                     <label for="inputYat2">снијег</label>
-                  </fieldset>
-                  <fieldset>
-                     <legend>Јат у резултату:</legend><br>
-                     <input type="radio" id="outputYat1" name="outputYat" value="ekav" checked>
-                     <label for="outputYat1">сне̑г</label>
-                     <input type="radio" id="outputYat2" name="outputYat" value="ijekav">
-                     <label for="outputYat2">сни̏јег</label>
-                     <input type="radio" id="outputYat3" name="outputYat" value="jekav">
-                     <label for="outputYat3">сније̑г</label>
-                  </fieldset>
+               <fieldset>
+                  <legend>Јат у упиту:</legend><br>
+                  <label><input type="radio" name="inputYat" value="ekav" checked>снег</label>
+                  <label><input type="radio" name="inputYat" value="ijekav">снијег</label>
+               </fieldset>
+               <fieldset>
+                  <legend>Јат у резултату:</legend><br>
+                  <label><input type="radio" name="outputYat" value="ekav" checked>сне̑г</label>
+                  <label><input type="radio" name="outputYat" value="ijekav">сни̏јег</label>
+                  <label><input type="radio" name="outputYat" value="jekav">сније̑г</label>
+               </fieldset>
             </div>
          </td>
       </tr>
