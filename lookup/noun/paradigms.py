@@ -62,11 +62,11 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
       return [[[ov] + a for a in suffixed_plurals[i]] + [a for a in free_plurals[i]] for i in range(7)]
    else:
       raise NotImplementedError("Unknown paradigm")
-   
+
 
 def m_instr(stem: str) -> List[List[AccentedTuple]]:
    lvi = last_vowel_index(stem)
-   
+
    em = [AccentedTuple('е·м', 'b.b:e:f.q.')]
    om = [AccentedTuple('о·м', 'b.b:e:f.q.')]
 
@@ -74,7 +74,7 @@ def m_instr(stem: str) -> List[List[AccentedTuple]]:
       return [om]
    elif stem.endswith('ʲ') \
       or stem.endswith('тељ'): # пријатељ
-      return [em, om] # плашт, дажд, пут, нос, курс, појас, цар 
+      return [em, om] # плашт, дажд, пут, нос, курс, појас, цар
    elif stem.endswith('ъц'): # отац, палац
       return [em]
    elif stem[-1] in 'чџшжјљњ':

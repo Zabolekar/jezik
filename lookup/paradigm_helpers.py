@@ -3,20 +3,20 @@ from collections import OrderedDict
 from itertools import repeat
 from re import compile as rcompile
 from .utils import insert, all_vowels, expose
-from .charutils import cacute, cgrave, cdoublegrave, ccircumflex, cmacron, cring, real_accent
+from .charutils import cring, real_accent
 
-# TODO: when 3.7 is out, make Accents and GramInfo dataclasses
+# TODO: when we switch to 3.7, make Accents and GramInfo dataclasses
 
 oa = ['o.', 'o:', 'a.', 'a:', 'a!']
 T = TypeVar('T')
 
-_r = rcompile("([a-z]+|[A-Z]|\d)")
+_r = rcompile(r"([a-z]+|[A-Z]|\d)")
 def nice_name(name: str) -> str:
    return " ".join(_r.findall(name))
 
 
 def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditional accentuation
-   
+
    if v:
       if r: # now we put the magic ring
          word = insert(word, r)
@@ -88,7 +88,7 @@ class GramInfo:
          raise ValueError("Can't decipher empty t")
 
       self.accents: List[Accents] = accents
-      
+
       self.POS: str = POS # part of speech
       self.other: List[str] = other
 
@@ -99,9 +99,9 @@ class AccentedTuple(NamedTuple):
 MorphemeChain = List[AccentedTuple] # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
 LabeledEnding = Tuple[str, List[MorphemeChain]]
 
-class OrderedSet(OrderedDict, Generic[T]): 
-   def __init__(self, i: Iterable[T]) -> None: 
-      super().__init__(zip(i, repeat(None))) 
+class OrderedSet(OrderedDict, Generic[T]):
+   def __init__(self, i: Iterable[T]) -> None:
+      super().__init__(zip(i, repeat(None)))
 
-   def __repr__(self) -> str: 
+   def __repr__(self) -> str:
       return f"OrderedSet({list(self)})"

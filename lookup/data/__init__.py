@@ -22,11 +22,11 @@ with open(file_path, encoding="utf-8") as f:
          comment = raw_data[full_key]["c"]
       except KeyError:
          comment = ""
-      try: 
+      try:
          replacements = {x: y.split(", ") for x, y in raw_data[full_key]["except"].items()}
       except KeyError:
          replacements = {}
-      try: 
+      try:
          amendments = {x: y.split(", ") for x, y in raw_data[full_key]["add"].items() }
       except KeyError:
          amendments = {}

@@ -5,7 +5,10 @@
 
 import re
 from typing import Dict, Optional, Iterator, Tuple
-from .charutils import *
+from .charutils import (cring, cmacron, cstraight, cacute,
+                        cgrave, cdoublegrave, ccircumflex,
+                        all_vowels, any_vowel, any_of_four_accents,
+                        all_accent_marks, real_accent)
 
 palatalization_modes: Dict[str, Dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
@@ -60,15 +63,13 @@ def last_vowel_index(trunk: str) -> Optional[int]:
       *__, last_vowel = re.finditer(any_vowel, trunk)
       index, _ = last_vowel.span()
       return index
-   else:
-      return None
+   return None
 
 def first_vowel_index(trunk: str) -> Optional[int]:
    match = re.search(any_vowel, trunk)
    if match:
       return match.span()[0]
-   else:
-      return None
+   return None
 
 def indices(trunk: str) -> Tuple[Optional[int], Optional[int], Optional[int]]:
    lvi = last_vowel_index(trunk)
@@ -109,7 +110,7 @@ def deyerify(form: str) -> str:
                 "бъц": "пц", "ђъц": "ћц", "дъц": "ц", "тъц": "ц",
                 "жъц": "шц", "зц": "сц", "џц": "чц",
                 "бъч": "пч", "ђъч": "ћч", "дъч": "ч", "тъч": "ч",
-                "жъч": "шч", "зч": "шч", "сч": "шч", "џч": "ч"} 
+                "жъч": "шч", "зч": "шч", "сч": "шч", "џч": "ч"}
    if 'ø' in form:
       form = form.replace('ø', '').replace('ъ', 'а')
    else:
@@ -154,7 +155,7 @@ def prettify(text: str, yat:str='ekav') -> str:
          ('лꙓ', 'ље'), ('нꙓ', 'ње'),
          ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'),
          ('[ꙓѣ]', 'је')] }
-   yat_replaces['ijekav'] = yat_replaces['jekav'] 
+   yat_replaces['ijekav'] = yat_replaces['jekav']
 
    for key in idict:
       text = text.replace(key, idict[key])
@@ -179,7 +180,7 @@ def deaccentize(text: str) -> str:
    return text
 
 def garde(word: str) -> str: # Garde's accentuation
-   
+
    result = word
    while re.findall(any_of_four_accents, result): # while word is ungarded-like:
 
@@ -210,14 +211,14 @@ def garde(word: str) -> str: # Garde's accentuation
                      if result[i+1] == cgrave:
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
-                     elif result[i+1] == cacute: 
+                     elif result[i+1] == cacute:
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + cmacron, word2)
-                     elif result[i+1] == cdoublegrave: 
+                     elif result[i+1] == cdoublegrave:
                         word2 = re.sub("^(.{" + str(i+1) + "}).",
                                        r"\g<1>" + cstraight,
-                                       word2)  
-                     elif result[i+1] == ccircumflex: 
+                                       word2)
+                     elif result[i+1] == ccircumflex:
                         word2 = re.sub("^(.{" + str(i+1) + "}).",
                                        r"\g<1>" + cstraight,
                                        word2)
@@ -225,16 +226,19 @@ def garde(word: str) -> str: # Garde's accentuation
 
          word3 = insert(word2, insert_dict)
          word3 = re.sub('•', '', word3) # delete
-         word3 = re.sub(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}', word3) #swap length and accent
+         word3 = re.sub(f'{cstraight}{cmacron}',
+                        f'{cmacron}{cstraight}',
+                        word3) #swap length and accent
          result = word3
-      
+
       else:
          excl_index = max(short_desc_index, long_desc_index)
          result = insert(result, {excl_index-1: '!'})
-         result = result.replace(cdoublegrave, cstraight).replace(ccircumflex, f'{cmacron}{cstraight}')
-      
+         result = result.replace(cdoublegrave, cstraight)
+         result = result.replace(ccircumflex, f'{cmacron}{cstraight}')
+
    return result
-      
+
 def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
       form = (form
@@ -310,7 +314,7 @@ def expose(form: str, yat:str='ekav', latin:bool=False) -> str:
 
    result = ungarde(
       prettify(
-         purify(zeroify(debracketify(deyerify(form)))), 
+         purify(zeroify(debracketify(deyerify(form)))),
          yat
       )
    )

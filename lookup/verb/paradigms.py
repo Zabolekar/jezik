@@ -1,4 +1,4 @@
-from typing import Dict, Iterator, NamedTuple, Tuple, List
+from typing import Dict, Iterator, NamedTuple, List
 from ..paradigm_helpers import (AccentedTuple, nice_name,
                                 MorphemeChain, LabeledEnding)
 from ..charutils import cmacron

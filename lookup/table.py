@@ -1,5 +1,4 @@
 from typing import Iterable, Iterator, List, Tuple, Union
-#from pprint import pprint
 
 Form = str
 Multiform = List[Form]
@@ -44,15 +43,14 @@ class Table:
       return len(self._data)
 
 class Multitable:
-   def __init__(self, input: str, tables: Iterator[Table]) -> None:
+   def __init__(self, input_word: str, tables: Iterator[Table]) -> None:
       self._tables = list(tables)
-      self.input = input
-   
+      self.input = input_word
+
    def __repr__(self) -> str:
       if self._tables:
          return "\n".join(str(table) for table in self._tables)
-      else:
-         return "Word not found"
+      return "Word not found"
 
    def __getitem__(self, query: Union[int, str]) -> "Union[Multitable, Table]":
       if isinstance(query, int):

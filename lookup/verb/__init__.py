@@ -14,9 +14,9 @@ infinitive_dict: Dict[str, str] = {
 
 class Verb(PartOfSpeech):
    def __init__(
-      self, 
-      key: str, 
-      kind: str, 
+      self,
+      key: str,
+      kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...],
@@ -25,6 +25,13 @@ class Verb(PartOfSpeech):
       #Verb-only
       self.is_reflexive = 'Refl' in self.gram.other
       self.trunk = self._trunk() #both but not separable
+
+   # Verb-only
+   @staticmethod
+   def _verb_form_is_possible(label: str, aspect: List[str]) -> bool:
+      if label.startswith('ipf'):
+         return not 'Pf' in aspect
+      return True
 
    # Verb-specific
    def _expose(self, form: str, yat:str="ekav", latin:bool=False) -> str:
@@ -39,7 +46,7 @@ class Verb(PartOfSpeech):
    # Verb-specific
    def _trunk(self) -> List[str]:
       result = []
-      
+
       for i, AP in enumerate(self.gram.AP):
          accented_verb = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
          N = len(infinitive_dict[self.gram.MP[i]])
@@ -58,18 +65,11 @@ class Verb(PartOfSpeech):
             else:
                result.append(insert(trunk, {lvi + 1: '·'}))
       return result
-   
-   # Verb-only
-   def _verb_form_is_possible(self, label: str, aspect: List[str]) -> bool:
-      if label.startswith('ipf'):
-         return not 'Pf' in aspect
-      else:
-         return True
 
    def process_one_form(
       self,
-      i: int, 
-      verb_trunk: str, 
+      i: int,
+      verb_trunk: str,
       ending_variation: List[AccentedTuple]
    ) -> List[str]:
       verb_form = [verb_trunk]
@@ -102,7 +102,7 @@ class Verb(PartOfSpeech):
 
          else:
             if self._verb_form_is_possible(label, self.gram.other):
-               ready_forms: List[str] = [] 
+               ready_forms: List[str] = []
                for variation in ending:
                   ready_forms += self.process_one_form(i, self.trunk[i], variation)
 
@@ -120,9 +120,9 @@ class Verb(PartOfSpeech):
    def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav", latin:bool=False) -> Iterator[LabeledMultiform]:
       """conjugate"""
       for i, AP in enumerate(self.gram.AP):
-         if self.gram.MP[i] in infinitive_dict:         
+         if self.gram.MP[i] in infinitive_dict:
             if not (variant is not None and variant != i):
                yield from self._paradigm_to_forms(i, False, yat, latin)
-  
+
          else:
             raise NotImplementedError(f'Type {self.gram.MP[i]} ({self.key}) does not exist or is not ready yet')

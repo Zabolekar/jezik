@@ -104,7 +104,7 @@ def test_multiple_results():
    assert len(lookup("зор")) == 2
 
 def test_different_ije():
- 
+
    la1 = lookup("снијег", input_yat="ijekav")
    la2 = lookup("снијег", input_yat="ijekav", output_yat="jekav")
    assert la1["sg nom"].multiform == ['сни̏јег']

@@ -32,7 +32,6 @@ class ShortAdj(NamedTuple):
    f_sg_loc_short: List[AccentedTuple]
    m_f_n_pl_gen_short: List[AccentedTuple]
    m_f_n_pl_dat_loc_ins_short: List[AccentedTuple]
-   
 
 short_adj = ShortAdj(
    [AccentedTuple('ø·', 'b.b:b?')], # ø is 'zero ending' (which, however, can take stress, in a way)

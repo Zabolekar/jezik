@@ -31,6 +31,9 @@ class Multidict(Generic[KT, VT]):
       else:
          self._data[key] = [value]
 
+   def __iter__(self):
+      return iter(self._data)
+
 # This Multidict was good enough for some time, but it didn't allow us to
 # look a word up using more than one notation. Furthermore, the only supported
 # notation was the one we use to store words in the data.yml (see NOTATION.md),
@@ -105,4 +108,4 @@ class FancyLookup:
             self._outer_to_inner[(outer_key_, input_yat)] = inner_key
 
    def random_key(self) -> Tuple[str, str]:
-      return random.choice(list(self._outer_to_inner._data.keys()))
+      return random.choice(list(self._outer_to_inner))

@@ -1,18 +1,18 @@
-from typing import Dict, List, Iterator, Optional, Tuple
+from typing import Callable, Dict, List, Iterator, Optional, Tuple
 from copy import deepcopy
 from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index, expose_replacement
 from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
 from ..table import LabeledMultiform
-from .paradigms import c_m, c_f
+from .paradigms import c_m, c_f, NounStem
 from ..charutils import cmacron, cstraight
 
 class Noun(PartOfSpeech):
    def __init__(
       self,
-      key: str, 
-      kind: str, 
-      info: str, 
+      key: str,
+      kind: str,
+      info: str,
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
@@ -34,7 +34,8 @@ class Noun(PartOfSpeech):
          else:
             self.anim.append('in')
 
-   def _expose(self, form: str, yat:str="ekav", latin:bool=False) -> str:
+   @staticmethod
+   def _expose(form: str, yat:str="ekav", latin:bool=False) -> str:
       return expose(form, yat, latin)
 
    def _trunk(self) -> List[str]:
@@ -84,8 +85,8 @@ class Noun(PartOfSpeech):
          result.append(trunk)
       return result
 
+   @staticmethod
    def _noun_form_is_possible(
-      self,
       noun_form: str,
       variation: List[AccentedTuple],
       paradigm: str) -> bool:
@@ -97,7 +98,7 @@ class Noun(PartOfSpeech):
 
    def process_one_form(
       self,
-      i: int, 
+      i: int,
       noun_variant: str,
       ending_variation: List[AccentedTuple]) -> List[str]:
 
@@ -109,23 +110,24 @@ class Noun(PartOfSpeech):
             nnv = self.accentize(current_AP, nnv)
       return iterable_noun_variant
 
-   def _paradigm_to_forms(
-      self,
-      i: int,
-      length_inconstancy: bool,
-      yat:str="ekav",
-      latin:bool=False
-   ) -> Iterator[LabeledMultiform]:
+   def _paradigm_to_forms(self,
+                          i: int,
+                          length_inconstancy: bool,
+                          yat: str="ekav",
+                          latin: bool=False) -> Iterator[LabeledMultiform]:
 
       start_AP = self.gram.AP[i].replace('?', '.')
-      target_AP = self.gram.AP[i].replace('?', '.')      
-      
+      target_AP = self.gram.AP[i].replace('?', '.')
+
+      declension_type: Optional[Callable[[str, str, str], NounStem]]
       if 'm' in self.gram.other:
          declension_type = c_m
       elif 'f' in self.gram.other:
          declension_type = c_f
+      else:
+         declension_type = None
 
-      if 'm' in self.gram.other or 'f' in self.gram.other:
+      if declension_type is not None:
          for label, ending in declension_type(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
 
             if label in self.replacements:
@@ -135,14 +137,14 @@ class Noun(PartOfSpeech):
                         [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
                      )
                   )
-            
+
             else:
 
                ready_forms: List[str] = [] # TODO: better name
 
                # swapping length in case it is necessary
                to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)
-               noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP) 
+               noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP)
 
                # after that, iterating by ending variation
                for ending_variation in ending:
@@ -150,7 +152,7 @@ class Noun(PartOfSpeech):
                   # processing words like bo / bol (marked with ʟ)
                   if 'ʟ' in noun_form:
                      noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
-                  # processing forms like akcenat/akcent (marked with Ъ)       
+                  # processing forms like akcenat/akcent (marked with Ъ)
                   elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
                      noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
                   else:
@@ -182,7 +184,7 @@ class Noun(PartOfSpeech):
                      ]
                   )
                )
-         
+
 
    def multiforms(
       self,

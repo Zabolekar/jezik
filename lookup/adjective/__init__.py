@@ -23,7 +23,8 @@ class Adjective(PartOfSpeech):
       self.trunk = self._trunk() #both but not separable
 
    # different
-   def _expose(self, form: str, yat:str="ekav", latin:bool=False) -> str:
+   @staticmethod
+   def _expose(form: str, yat:str="ekav", latin:bool=False) -> str:
       return expose(form, yat, latin)
 
    # different for Verb and Adjective
@@ -53,21 +54,22 @@ class Adjective(PartOfSpeech):
          result.append(trunk)
       return result
 
-   # Adjective-specific. Verb has its own one
-   def _adj_form_is_possible(self, adj_form: str) -> bool:
+   # Adjective-specific. Verb has its own
+   @staticmethod
+   def _adj_form_is_possible(adj_form: str) -> bool:
       return re.search('[њљћђшжчџјʲ]œ.+ме$', adj_form) is None
 
    def process_one_form(
-      self, 
-      current_AP: str, 
-      adj_variant: str, 
+      self,
+      current_AP: str,
+      adj_variant: str,
       ending_variation: AccentedTuple
    ) -> str:
       result = self._append_morpheme(current_AP, [adj_variant], ending_variation)[0] # no iterability in adjectives
       #result = self.accentize(current_AP, result) # TODO: why not? can we unify it somehow in future?
       return result
 
-   # Adjective-only. Verb should have its own one 
+   # Adjective-only. Verb should have its own one
    def _paradigm_to_forms(
       self,
       paradigm: AdjParadigm,
@@ -115,9 +117,9 @@ class Adjective(PartOfSpeech):
                   )
 
    def multiforms(
-      self, 
-      *, 
-      variant: Optional[int] = None, 
+      self,
+      *,
+      variant: Optional[int] = None,
       yat:str="ekav",
       latin:bool=False) -> Iterator[LabeledMultiform]:
       """decline"""
@@ -134,7 +136,7 @@ class Adjective(PartOfSpeech):
          # variant = None means all variants
          if not(variant is not None and variant != i):
             length_inconstancy = False
-            
+
             if endings == "all":
                if self.short_AP[i][-1] != self.long_AP[i][-1]:
                   length_inconstancy = True

@@ -18,7 +18,7 @@ def _swap(trunk_: str, AP: str) -> str:
 
       elif AP.endswith('.') and trunk_lvi+1 != last_macron and last_macron != -1:
       # and vice versa, we delete macron from the last vowel in case it is there
-         word_form = trunk_[:last_macron] + trunk_[last_macron+1:] 
+         word_form = trunk_[:last_macron] + trunk_[last_macron+1:]
 
       else:
          word_form = trunk_
@@ -32,7 +32,7 @@ def _apply_neocirk(word_form: str,
                    fvi: Optional[int],
                    pvi: Optional[int],
                    morpheme: str,
-                   case: int) -> List[str]: 
+                   case: int) -> List[str]:
 
    # neocircumflex is accent retraction from a newly long vowel;
    # this function returns only one tuple, unlike _delete_left_bracket
@@ -45,7 +45,7 @@ def _apply_neocirk(word_form: str,
          #word_form = insert(word_form, {lvi+1: '\u0304'}) #macronize last vowel
          word_form = word_form.replace(cstraight, '') # delete accent mark
          word_form = insert(word_form, {pvi+1: cstraight}) # add accent mark after pvi
-         morpheme = morpheme.replace('·', '') 
+         morpheme = morpheme.replace('·', '')
       #else:
          #raise IndexError(f"{word_form} has not enough vowels for this operation")
    result = [word_form, morpheme]
@@ -53,10 +53,10 @@ def _apply_neocirk(word_form: str,
 
 class PartOfSpeech():
    def __init__(
-      self, 
-      key: str, 
-      kind: str, 
-      info: str, 
+      self,
+      key: str,
+      kind: str,
+      info: str,
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...],
       yat:str="ekav") -> None:
@@ -65,7 +65,8 @@ class PartOfSpeech():
       self.replacements: Dict[str, List[str]] = dict(replacements)
       self.amendments: Dict[str, List[str]] = dict(amendments)
 
-   def accentize(self, current_AP: str, word: str) -> str:
+   @staticmethod
+   def accentize(current_AP: str, word: str) -> str:
       if current_AP not in oa:
          word = word.replace(cstraight, '')
       if cstraight not in word: # straight
@@ -74,7 +75,8 @@ class PartOfSpeech():
          word = word.replace('·', '')
       return word
 
-   def swap(self, trunk_: str, length_inconstant: bool, AP: str, target_AP: str) -> str:
+   @staticmethod
+   def swap(trunk_: str, length_inconstant: bool, AP: str, target_AP: str) -> str:
       # at first we process words like boos ~ bosa
       if length_inconstant and AP == target_AP:
          word_form = _swap(trunk_, AP)
@@ -83,10 +85,12 @@ class PartOfSpeech():
          word_form = trunk_
       return word_form
 
-
-   def _delete_left_bracket(self, word_form: str, morpheme: str, accent: str, current_AP: str) -> List[List[str]]:
+   def _delete_left_bracket(self, word_form: str,
+                                  morpheme: str,
+                                  accent: str,
+                                  current_AP: str) -> List[List[str]]:
       """
-      This function is so far for nouns only. 
+      This function is so far for nouns only.
       It explicitly uses noun AP names.
       So it better be placed somewhere else.
       """
@@ -118,7 +122,6 @@ class PartOfSpeech():
             and current_AP in accent \
             and current_AP in ['a:', 'b:', 'c:', 'f.'] \
             and 'm' in self.gram.other:
-            #print('d')
             retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
          elif ('m' in self.gram.other) \
             and (('d' in current_AP and 'œв' in word_form)
@@ -126,7 +129,6 @@ class PartOfSpeech():
             and current_AP not in accent \
             and (current_AP in ['a.', 'a!']) \
             or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form))):
-            #print('a')
             retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀че̄ва̄
          elif 'm' in self.gram.other and 'œв' in word_form \
             and 'c?' in current_AP:
@@ -134,10 +136,8 @@ class PartOfSpeech():
          elif 'm' in self.gram.other and 'œв' in word_form \
             and 'b' in current_AP \
             and 'ъ' not in word_form:
-            #print('b')
             retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          else:
-            #print('c')
             retraction = [0]
 
          if not 'œ' in word_form: # TODO one day think about better condition
@@ -191,7 +191,7 @@ class PartOfSpeech():
 
          morpheme = ending_part.morpheme
          accent = ending_part.accent
-         
+
          if current_AP not in ('c:', 'g:'):
             morpheme = morpheme.replace('>>', '')
 
@@ -226,7 +226,7 @@ class PartOfSpeech():
                pair[1] = pair[1].replace('·', '')
             if 'q' in current_AP:
                pair[1] = pair[1].replace('0', '')
-            pair[1] = pair[1].replace('·', cstraight) 
+            pair[1] = pair[1].replace('·', cstraight)
             pair[0] = pair[0].replace('·', '')
          # accentizing non-enclinomical words (finally!)
          # this line of code also helped solving 'aludirati' bug
@@ -244,7 +244,7 @@ class PartOfSpeech():
                _fvi = result_word.find('ъ')
             if _fvi is not None:
                result_word = insert(result_word, {_fvi+1: cstraight})
-         
+
          result.append(result_word)
-         
+
       return result
