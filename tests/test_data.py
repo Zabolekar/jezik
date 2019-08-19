@@ -19,9 +19,9 @@ def test_data():
 def test_rings():
    """ Ensure that rings are placed below r's. """
    for outer_key, _ in data._outer_to_inner:
-      for inner_key, wrd in data[outer_key, 'ekav']:
-         if '@' in wrd.info:
-            accent_info = wrd.info.split('\\')[1]
+      for inner_key, word in data[outer_key, 'ekav']:
+         if '@' in word.info:
+            accent_info = word.info.split('\\')[1]
             r_info = int(accent_info.split('@')[0])
             if inner_key[r_info-1] not in ['р', 'Р']:
                raise ValueError(inner_key + ': ' + str(r_info))

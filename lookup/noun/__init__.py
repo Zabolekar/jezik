@@ -14,9 +14,8 @@ class Noun(PartOfSpeech):
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...],
-      yat:str="ekav") -> None:
-      super().__init__(key, kind, info, replacements, amendments, yat)
+      amendments: Tuple[Replacement, ...]) -> None:
+      super().__init__(key, kind, info, replacements, amendments)
 
       self.trunk = self._trunk()
       self.anim: List[str] = []

@@ -23,7 +23,7 @@ class NounStem(NamedTuple):
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
       yield from zip(map(nice_name, self._fields),
-                     super().__iter__())
+                     iter(self))
 
 m_anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {'sg_acc': {'in': [[AccentedTuple('ø·', 'b.b:e:f.q.')]],
                        'an': [[AccentedTuple('а·', 'b.b:e:f.q.')]]},
@@ -107,7 +107,6 @@ def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
    else:
       return [e]
 
-
 def c_m(stem: str, suff: str, anim: str) -> NounStem:
    m_singular_ = [
          [[AccentedTuple('ø·', 'b.b:e:f.q.')]],
@@ -125,20 +124,20 @@ def c_m(stem: str, suff: str, anim: str) -> NounStem:
 
 
 f_declension = [
-[[AccentedTuple('а·', 'b.c.c:g.g:')]],
-[[AccentedTuple('у·', 'b.g.g:')]],
-[[AccentedTuple(f'е·{cmacron}', 'b.c.c:g.g:')]],
-[[AccentedTuple('ʹи·', 'b.g.g:')]],
-[[AccentedTuple(f'о·{cmacron}м', 'b.c.c:g.g:')]],
-[[AccentedTuple('ʹи·', 'b.c.c:g.g:')]],
-[[AccentedTuple('о·', '')]], # TODO: add o/u/e-rule
-[[AccentedTuple('е·', 'b.')]],
-[[AccentedTuple('e·', 'b.')]],
-[[AccentedTuple(f'<а·{cmacron}', 'b.c.c:g.g:')]],
-[[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
-[[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
-[[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
-[[AccentedTuple('е', '')]]
+   [[AccentedTuple('а·', 'b.c.c:g.g:')]],
+   [[AccentedTuple('у·', 'b.g.g:')]],
+   [[AccentedTuple(f'е·{cmacron}', 'b.c.c:g.g:')]],
+   [[AccentedTuple('ʹи·', 'b.g.g:')]],
+   [[AccentedTuple(f'о·{cmacron}м', 'b.c.c:g.g:')]],
+   [[AccentedTuple('ʹи·', 'b.c.c:g.g:')]],
+   [[AccentedTuple('о·', '')]], # TODO: add o/u/e-rule
+   [[AccentedTuple('е·', 'b.')]],
+   [[AccentedTuple('e·', 'b.')]],
+   [[AccentedTuple(f'<а·{cmacron}', 'b.c.c:g.g:')]],
+   [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
+   [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
+   [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
+   [[AccentedTuple('е', '')]]
 ]
 
 def c_f(stem: str, suff: str, anim: str) -> NounStem:

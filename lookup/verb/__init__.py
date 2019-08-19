@@ -19,9 +19,8 @@ class Verb(PartOfSpeech):
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...],
-      yat:str="ekav") -> None:
-      super().__init__(key, kind, info, replacements, amendments, yat)
+      amendments: Tuple[Replacement, ...]) -> None:
+      super().__init__(key, kind, info, replacements, amendments)
       #Verb-only
       self.is_reflexive = 'Refl' in self.gram.other
       self.trunk = self._trunk() #both but not separable

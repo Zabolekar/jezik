@@ -17,7 +17,7 @@ class Present(NamedTuple):
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
       yield from zip(map(nice_name, self._fields),
-                     super().__iter__())
+                     iter(self))
 
 class Past(NamedTuple):
    pf_m_sg: List[MorphemeChain]
@@ -43,7 +43,7 @@ class Past(NamedTuple):
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
       yield from zip(map(nice_name, self._fields),
-                     super().__iter__())
+                     iter(self))
 
 
 class Stems(NamedTuple):

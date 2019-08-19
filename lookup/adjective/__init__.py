@@ -15,9 +15,8 @@ class Adjective(PartOfSpeech):
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...],
-      yat:str="ekav") -> None:
-      super().__init__(key, kind, info, replacements, amendments, yat)
+      amendments: Tuple[Replacement, ...]) -> None:
+      super().__init__(key, kind, info, replacements, amendments)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
       self.trunk = self._trunk() #both but not separable
