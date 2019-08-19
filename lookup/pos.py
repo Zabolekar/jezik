@@ -29,20 +29,18 @@ def _swap(trunk_: str, AP: str) -> str:
 
 def _apply_neocirk(word_form: str,
                    lvi: Optional[int],
-                   fvi: Optional[int],
                    pvi: Optional[int],
                    morpheme: str,
-                   case: int) -> List[str]:
+                   retraction: int) -> List[str]:
 
    # neocircumflex is accent retraction from a newly long vowel;
    # this function returns only one tuple, unlike _delete_left_bracket
-   for i in range(case):
+   for _ in range(retraction):
       if cstraight not in word_form:
          if lvi is not None:
             word_form = insert(word_form, {lvi+1: cstraight})
             morpheme = morpheme.replace('·', '') # no further possibilities to accentize it
       elif lvi is not None and pvi is not None:
-         #word_form = insert(word_form, {lvi+1: '\u0304'}) #macronize last vowel
          word_form = word_form.replace(cstraight, '') # delete accent mark
          word_form = insert(word_form, {pvi+1: cstraight}) # add accent mark after pvi
          morpheme = morpheme.replace('·', '')
@@ -157,7 +155,7 @@ class PartOfSpeech():
 
          # 5. if we have neocircumflex retraction, we apply it
          for case in retraction:
-            connectenda.append(_apply_neocirk(word_form, lvi, fvi, pvi, morpheme, case))
+            connectenda.append(_apply_neocirk(word_form, lvi, pvi, morpheme, case))
 
          if retraction == [0]:
             #pass

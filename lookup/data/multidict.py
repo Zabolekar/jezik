@@ -72,8 +72,6 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    for input_yat in ["ekav", "jekav", "ijekav"]:
       for item in tmp_list:
          accented_token = garde(accentize(item, accent_dict.r, accent_dict.v))
-         # TODO: this does not depend on yat, can be moved out of the loop
-         # (and inner loop should be made outer loop before that)
          exposed_token = expose(accented_token, yat=input_yat)
          deaccentized_token = deaccentize(exposed_token).lower()
          yield deaccentized_token, input_yat
