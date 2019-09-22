@@ -27,7 +27,7 @@ def page_not_found(_):
 
 @app.route("/random")
 def random():
-   return render_template("results.html", tables=random_lookup())
+   return render_template("random.html", tables=random_lookup())
 
 @app.route("/about")
 def about():

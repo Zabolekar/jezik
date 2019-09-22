@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
 
+<div id="innerContent">
 <form id="search">
    <table id="header">
       <tr>
@@ -57,4 +58,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 <script>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+</div>
 {% endblock %}
