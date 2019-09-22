@@ -1,5 +1,5 @@
 function displayResults (reply) {
-   $('#results').html($(reply));
+   $('#results').html($(reply).filter("#tables-or-not-found"));
    $('table').css('width', width+'px');
 }
 

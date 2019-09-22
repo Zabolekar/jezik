@@ -1,61 +1,62 @@
 {% extends "base.html" %}
 {% block body %}
+
 <div id="innerContent">
-   <form id="search">
-      <table id="header">
-         <tr>
-            <td id="left">
-               <a href="/about">Шта је овај сајт?</a>
-            </td>
-            <td id="right">
-               <a href="/random">Случајна реч</a>
-            </td>   
-         </tr>
-      </table>
-      <table id="main">
-         <tr>
-            <td>
-               <div id="searchBox">
-                  <input type="text" id="word"/>
-                  <input type="submit" id="button" value="Претрага"/>
-               </div>
-            </td>
-         </tr>
-         <tr>
-            <td>
-               <div id="options" align="center">
-                  {% for letter in "ђјљњћџ" %}
-                     <input type="button" value="{{ letter }}">
-                  {% endfor %}
-                  <span style="color: lightgrey">ː</span>
-                  {% for letter in "čćđšž" %}
-                     <input type="button" value="{{ letter }}">
-                  {% endfor %}
-               </div>
-            </td>
-         </tr>
-         <tr>
-            <td>
-               <div id="options" align="center">
-                  <fieldset>
-                     <legend>Јат у упиту:</legend><br>
-                     <label><input type="radio" name="inputYat" value="ekav" checked>снег</label>
-                     <label><input type="radio" name="inputYat" value="ijekav">снијег</label>
-                  </fieldset>
-                  <fieldset>
-                     <legend>Јат у резултату:</legend><br>
-                     <label><input type="radio" name="outputYat" value="ekav" checked>сне̑г</label>
-                     <label><input type="radio" name="outputYat" value="ijekav">сни̏јег</label>
-                     <label><input type="radio" name="outputYat" value="jekav">сније̑г</label>
-                  </fieldset>
-               </div>
-            </td>
-         </tr>
-      </table>
-   </form>
-   <div id="results"></div>
-</div>
+<form id="search">
+   <table id="header">
+      <tr>
+         <td id="left">
+            <a href="/about">Шта је овај сајт?</a>
+         </td>
+         <td id="right">
+            <a href="/random">Случајна реч</a>
+         </td>   
+      </tr>
+   </table>
+   <table id="main">
+      <tr>
+         <td>
+            <div id="searchBox">
+               <input type="text" id="word"/>
+               <input type="submit" id="button" value="Претрага"/>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <div id="options" align="center">
+               {% for letter in "ђјљњћџ" %}
+                  <input type="button" value="{{ letter }}">
+               {% endfor %}
+               <span style="color: lightgrey">ː</span>
+               {% for letter in "čćđšž" %}
+                  <input type="button" value="{{ letter }}">
+               {% endfor %}
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <div id="options" align="center">
+               <fieldset>
+                  <legend>Јат у упиту:</legend><br>
+                  <label><input type="radio" name="inputYat" value="ekav" checked>снег</label>
+                  <label><input type="radio" name="inputYat" value="ijekav">снијег</label>
+               </fieldset>
+               <fieldset>
+                  <legend>Јат у резултату:</legend><br>
+                  <label><input type="radio" name="outputYat" value="ekav" checked>сне̑г</label>
+                  <label><input type="radio" name="outputYat" value="ijekav">сни̏јег</label>
+                  <label><input type="radio" name="outputYat" value="jekav">сније̑г</label>
+               </fieldset>
+            </div>
+         </td>
+      </tr>
+   </table>
+</form>
+<div id="results"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 <script>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+</div>
 {% endblock %}

@@ -18,6 +18,14 @@
    unicode-range: U+21-17E, U+300-325, U+409-45F;
 }
 
+/*@font-face {
+	font-family: "Charis SIL Web";
+	font-weight: bold;
+	font-style: italic;
+	src: url(CharisSIL-BI.woff);
+   unicode-range: U+21-17E, U+300-325, U+409-45F;
+}*/   
+
 #header * {
    padding: 0 0 0 0;
    border: 0px;
@@ -37,18 +45,20 @@
 }
 
 /* this part removes blank spaces on top and bottom of everything; may be improved */
-*:not(h1):not(h2):not(p) {
+*:not{h1}:not{h2}:not{p} {
    margin-bottom: 0;
    margin-top: 0;
 }
 
 html {
+   /* min-height: 100vh; */
    height: max-content;
 }
 
 body {
    font-family: "Charis SIL", Cambria, "Charis SIL Web", serif;
    background-color: #ddd;
+   /* min-height: 100%; */
    height: max-content;
    padding: 0;
    margin: 0;
@@ -82,11 +92,17 @@ div.simpleText {
 
 #innerContent {
    min-height: 100vh; /* needed for main page */
+   /* height: 100vh; */
    width: min-content;
    padding-left: 10px;
    padding-right: 10px;
    margin: auto; /*means center alignment */
    background-color: #fff;
+}
+
+#tables-or-not-found {
+   background-color: #fff;
+   /* height: 100vh; - not needed */
 }
 
 #searchBox {
@@ -123,17 +139,8 @@ div.simpleText {
    padding: 0;
 }
 
-#word-not-found {
-   text-align: center;
-}
-
-#four-hundred-four { /* TODO */
-   text-align: center;
-   width: min-content;
-   padding-left: 10px;
-   padding-right: 10px;
-   margin: auto; /*means center alignment */
-   background-color: #ddd;
+#word-not-found, #four-hundred-four {
+   text-align:center;
 }
 
 table {
