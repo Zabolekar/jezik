@@ -45,7 +45,7 @@
 }
 
 /* this part removes blank spaces on top and bottom of everything; may be improved */
-*:not{h1}:not{h2}:not{p} {
+*:not(h1):not(h2):not(p) {
    margin-bottom: 0;
    margin-top: 0;
 }
@@ -57,7 +57,7 @@ html {
 
 body {
    font-family: "Charis SIL", Cambria, "Charis SIL Web", serif;
-   background-color: #ddd;
+   background-color: #fff; /* #ddd; */
    /* min-height: 100%; */
    height: max-content;
    padding: 0;
@@ -67,6 +67,13 @@ body {
 input, button {
    font-family: inherit;
    font-size: 12pt;
+}
+
+div.simpleText, #innerContent {
+   border-left: 10px solid #ddd;
+   border-right: 10px solid #ddd;
+   border-top: 0;
+   border-bottom: 0;
 }
 
 div.simpleText {
@@ -79,7 +86,6 @@ div.simpleText {
    text-align: justify;
    font-size: 16pt;
    background-color: #fff;
-   border: 0;
 }
 
 #search {
