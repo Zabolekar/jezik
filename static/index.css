@@ -81,8 +81,8 @@ div.simpleText {
    margin-right: auto;
    min-height: 100vh;
    width: 450px;
-   padding-left: 40px;
-   padding-right: 40px;
+   padding-left: 80px;
+   padding-right: 80px;
    text-align: justify;
    font-size: 16pt;
    background-color: #fff;
@@ -100,8 +100,8 @@ div.simpleText {
    min-height: 100vh; /* needed for main page */
    /* height: 100vh; */
    width: min-content;
-   padding-left: 20px;
-   padding-right: 20px;
+   padding-left: 40px;
+   padding-right: 40px;
    margin: auto; /*means center alignment */
    background-color: #fff;
 }
