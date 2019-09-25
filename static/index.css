@@ -57,7 +57,7 @@ html {
 
 body {
    font-family: "Charis SIL", Cambria, "Charis SIL Web", serif;
-   background-color: #fff; /* #ddd; */
+   background-color: #f5f5f5;
    /* min-height: 100%; */
    height: max-content;
    padding: 0;
@@ -193,16 +193,8 @@ th:not(.empty), td:not(.emtpy) {
    font-weight: bold;
 }
 
-td:hover:not(.empty):not(.multicell) {
+td.forms:hover:not(.empty):not(.multicell) {
    background-color: #eee;
-}
-
-#header:hover {
-   background-color: #fff;
-}
-
-#header * :hover {
-   background-color: #fff;
 }
 
 input[type=button] {
