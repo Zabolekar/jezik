@@ -8,11 +8,12 @@ function onSubmit (event) {
        inputYat = $('input[name=inputYat]:checked').val(),
        outputYat = $('input[name=outputYat]:checked').val();
    if (word) {
-      var url = $SCRIPT_ROOT + "lookup/" +
+      var url = $SCRIPT_ROOT + "/lookup/" +
                 encodeURIComponent(word) +
                 "?inputYat=" + inputYat +
                 "&outputYat=" + outputYat;
       $.ajax(url).done(displayResults);
+      window.history.pushState(null, word, url);
    }
    event.preventDefault();
 }
