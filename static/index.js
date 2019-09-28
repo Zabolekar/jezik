@@ -12,8 +12,7 @@ function onSubmit (event) {
                 encodeURIComponent(word) +
                 "?inputYat=" + inputYat +
                 "&outputYat=" + outputYat;
-      $.ajax(url).done(displayResults);
-      window.history.pushState(null, word, url);
+      location.href = url;
    }
    event.preventDefault();
 }
@@ -38,6 +37,12 @@ function setup () {
    width = $('#main').width();
    $('#header').css('width', width+'px');
    $('#search').css('width', width+'px');
+
+   var url = new URL(location.href);
+   var inputYat = url.searchParams.get("inputYat");
+   var outputYat = url.searchParams.get("outputYat");
+   $('input[name=inputYat]').val([inputYat]);
+   $('input[name=outputYat]').val([outputYat]);
 }
 
 $(document).ready(setup);
