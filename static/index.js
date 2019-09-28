@@ -41,6 +41,8 @@ function setup () {
    var url = new URL(location.href);
    var inputYat = url.searchParams.get("inputYat");
    var outputYat = url.searchParams.get("outputYat");
+   if (inputYat == undefined) inputYat = "ekav";
+   if (outputYat == undefined) outputYat = "ekav";
    $('input[name=inputYat]').val([inputYat]);
    $('input[name=outputYat]').val([outputYat]);
 }

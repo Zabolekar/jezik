@@ -1,4 +1,4 @@
-from typing import Dict, Iterator, Optional, Type, Union
+from typing import Dict, Iterator, Optional, Tuple, Type, Union
 from .table import Table, Multitable
 from .adjective import Adjective
 from .noun import Noun
@@ -62,5 +62,5 @@ def lookup(outer_key: str, input_yat:str="ekav", output_yat:Optional[str]=None) 
    outer_key = outer_key.strip() # space-word-space will produce a search error otherwise
    return Multitable(outer_key, lazy_lookup(outer_key, input_yat, output_yat))
 
-def random_lookup() -> Multitable:
-   return lookup(*data.random_key())
+def random_key() -> Tuple[str, str]:
+   return data.random_key()

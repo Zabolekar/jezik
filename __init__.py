@@ -1,7 +1,7 @@
 import os
 from werkzeug.routing import PathConverter
-from flask import Flask, render_template, request, send_from_directory # type: ignore
-from .lookup import lookup, random_lookup
+from flask import Flask, redirect, render_template, request, send_from_directory, url_for # type: ignore
+from .lookup import lookup, random_key
 
 class Query(PathConverter):
    regex = ".*?" # everything PathConverter accepts but also leading slashes
@@ -27,7 +27,12 @@ def page_not_found(_):
 
 @app.route("/random")
 def random():
-   return render_template("random.html", tables=random_lookup())
+   word, yat = random_key()
+   if yat == "jekav":
+      kwargs = {"word": word, "inputYat": "ijekav", "outputYat": "jekav"} # because there is no input jekav yat
+   else: # ekav or ijekav
+      kwargs = {"word": word, "inputYat": yat, "outputYat": yat}
+   return redirect(url_for("results", **kwargs))
 
 @app.route("/about")
 def about():
@@ -35,6 +40,6 @@ def about():
 
 @app.route("/favicon.ico")
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, "static"),
-                               "favicon.ico",
-                               mimetype="image/vnd.microsoft.icon")
+   return send_from_directory(os.path.join(app.root_path, "static"),
+                              "favicon.ico",
+                              mimetype="image/vnd.microsoft.icon")
