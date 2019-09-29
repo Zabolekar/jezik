@@ -63,9 +63,9 @@ def test_insert():
    ]
 
 def test_prettify():
-   assert [prettify(word, "jekav") for word in [
+   assert [prettify(word, "je") for word in [
        "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
    "цйје̄ље\u030dти", "биље\u030dжӣм", "ви\u030dдио"]
-   assert [prettify(word, "ekav") for word in [
+   assert [prettify(word, "e") for word in [
        "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
    "це̄ле\u030dти", "беле\u030dжӣм", "ви\u030dдео"]

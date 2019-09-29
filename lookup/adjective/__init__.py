@@ -23,7 +23,7 @@ class Adjective(PartOfSpeech):
 
    # different
    @staticmethod
-   def _expose(form: str, yat:str="ekav", latin:bool=False) -> str:
+   def _expose(form: str, yat:str="e", latin:bool=False) -> str:
       return expose(form, yat, latin)
 
    # different for Verb and Adjective
@@ -74,7 +74,7 @@ class Adjective(PartOfSpeech):
       paradigm: AdjParadigm,
       i: int,
       length_inconstant: bool,
-      yat:str="ekav",
+      yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
       """
@@ -119,7 +119,7 @@ class Adjective(PartOfSpeech):
       self,
       *,
       variant: Optional[int] = None,
-      yat:str="ekav",
+      yat:str="e",
       latin:bool=False) -> Iterator[LabeledMultiform]:
       """decline"""
       endings = self.gram.other[0]

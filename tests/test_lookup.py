@@ -9,7 +9,7 @@ def test_inner_notation():
    assert not lookup("свꙓтъʌ")
 
 def test_ije():
-   l = lookup("свет", input_yat="ekav", output_yat="ekav") # свет, свет
+   l = lookup("свет", input_yat="e", output_yat="e") # свет, свет
    assert len(l) == 3
    assert l[0].pos == "adjective"
    assert l[1].pos == "adjective"
@@ -18,37 +18,37 @@ def test_ije():
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
    assert l[2]["sg nom"].multiform == ['све̑т']
 
-   l = lookup("свет", input_yat="ekav", output_yat="jekav") # свет, свијет
+   l = lookup("свет", input_yat="e", output_yat="je") # свет, свијет
    assert len(l) == 3
    assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
    assert l[2]["sg nom"].multiform == ['свйје̑т']
 
-   l = lookup("свет", input_yat="jekav", output_yat="ekav") # свет (*svętъ)
+   l = lookup("свет", input_yat="je", output_yat="e") # свет (*svętъ)
    assert len(l) == 2
    assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
 
-   l = lookup("свет", input_yat="jekav", output_yat="jekav") # свет (*svętъ)
+   l = lookup("свет", input_yat="je", output_yat="je") # свет (*svętъ)
    assert len(l) == 2
    assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
    assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
 
-   l = lookup("свијет", input_yat="ekav", output_yat="ekav") # not found
+   l = lookup("свијет", input_yat="e", output_yat="e") # not found
    assert not l
 
-   l = lookup("свијет", input_yat="ekav", output_yat="jekav") # not found
+   l = lookup("свијет", input_yat="e", output_yat="je") # not found
    assert not l
 
-   l = lookup("свијет", input_yat="jekav", output_yat="ekav") # свет (*světъ)
+   l = lookup("свијет", input_yat="je", output_yat="e") # свет (*světъ)
    assert len(l) == 1
    assert l[0]["sg nom"].multiform == ['све̑т']
 
-   l = lookup("свијет", input_yat="jekav", output_yat="jekav") # свијет
+   l = lookup("свијет", input_yat="je", output_yat="je") # свијет
    assert len(l) == 1
    assert l[0]["sg nom"].multiform == ['свйје̑т']
 
-   l = lookup("свијет", input_yat="ijekav", output_yat="ijekav")
+   l = lookup("свијет", input_yat="ije", output_yat="ije")
    assert len(l) == 1
    assert l[0]["sg nom"].multiform == ['сви̏јет']
 
@@ -95,7 +95,7 @@ def test_gpl():
    # TODO: нѐпце : не̏ба̄ца̄ when neuter is ready
 
 def test_snjegovi():
-   l = lookup("снијег", input_yat="ijekav", output_yat="jekav")
+   l = lookup("снијег", input_yat="ije", output_yat="je")
    assert l["sg nom"].multiform == ['снйје̑г']
    assert l["pl nom"].multiform == ['сње̏гови', 'снйје̑зи']
 
@@ -105,13 +105,13 @@ def test_multiple_results():
 
 def test_different_ije():
 
-   la1 = lookup("снијег", input_yat="ijekav")
-   la2 = lookup("снијег", input_yat="ijekav", output_yat="jekav")
+   la1 = lookup("снијег", input_yat="ije")
+   la2 = lookup("снијег", input_yat="ije", output_yat="je")
    assert la1["sg nom"].multiform == ['сни̏јег']
    assert la2["sg nom"].multiform == ['снйје̑г']
 
-   lb1 = lookup("вијек", input_yat="ijekav")
-   lb2 = lookup("вијек", input_yat="ijekav", output_yat="jekav")
+   lb1 = lookup("вијек", input_yat="ije")
+   lb2 = lookup("вијек", input_yat="ije", output_yat="je")
    assert lb1["sg nom"].multiform == ['ви̏јек']
    assert lb2["sg nom"].multiform == ['вйје̑к']
 

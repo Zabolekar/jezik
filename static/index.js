@@ -5,13 +5,13 @@ function displayResults (reply) {
 
 function onSubmit (event) {
    var word = $('#word').val(),
-       inputYat = $('input[name=inputYat]:checked').val(),
-       outputYat = $('input[name=outputYat]:checked').val();
+       inputYat = $('input[name=in]:checked').val(),
+       outputYat = $('input[name=out]:checked').val();
    if (word) {
       var url = $SCRIPT_ROOT + "/lookup/" +
                 encodeURIComponent(word) +
-                "?inputYat=" + inputYat +
-                "&outputYat=" + outputYat;
+                "?in=" + inputYat +
+                "&out=" + outputYat;
       location.href = url;
    }
    event.preventDefault();
@@ -39,12 +39,10 @@ function setup () {
    $('#search').css('width', width+'px');
 
    var url = new URL(location.href);
-   var inputYat = url.searchParams.get("inputYat");
-   var outputYat = url.searchParams.get("outputYat");
-   if (inputYat == undefined) inputYat = "ekav";
-   if (outputYat == undefined) outputYat = "ekav";
-   $('input[name=inputYat]').val([inputYat]);
-   $('input[name=outputYat]').val([outputYat]);
+   var inputYat = url.searchParams.get("in") || "e";
+   var outputYat = url.searchParams.get("out") || "e";
+   $('input[name=in]').val([inputYat]);
+   $('input[name=out]').val([outputYat]);
 }
 
 $(document).ready(setup);

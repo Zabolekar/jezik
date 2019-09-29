@@ -56,7 +56,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
       else:
          yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])])) # TODO, and also sometimes ријеч and/or latin
 
-def lookup(outer_key: str, input_yat:str="ekav", output_yat:Optional[str]=None) -> Multitable:
+def lookup(outer_key: str, input_yat:str="e", output_yat:Optional[str]=None) -> Multitable:
    if output_yat is None:
       output_yat = input_yat
    outer_key = outer_key.strip() # space-word-space will produce a search error otherwise

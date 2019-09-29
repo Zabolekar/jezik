@@ -129,7 +129,7 @@ def deyerify(form: str) -> str:
          form = insert(form, {lvi+1: cstraight})
    return form
 
-def prettify(text: str, yat:str='ekav') -> str:
+def prettify(text: str, yat:str="e") -> str:
    idict = palatalization_modes['ȷ']
    replaces = [
       ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
@@ -145,8 +145,8 @@ def prettify(text: str, yat:str='ekav') -> str:
       ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
       ('ʲ', '')]
    yat_replaces = {
-      'ekav': [('ꙓ', 'е'), ('ѣ', 'е')],
-      'jekav': [
+      "e": [('ꙓ', 'е'), ('ѣ', 'е')],
+      "je": [
          (f'ѣ({cstraight}?о)', 'и\\1'),
          ('лѣ', 'ље'), ('нѣ', 'ње'),
          (f'ѣ({cstraight}?[љјњ])', 'и\\1'),
@@ -155,7 +155,7 @@ def prettify(text: str, yat:str='ekav') -> str:
          ('лꙓ', 'ље'), ('нꙓ', 'ње'),
          ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'),
          ('[ꙓѣ]', 'је')] }
-   yat_replaces['ijekav'] = yat_replaces['jekav']
+   yat_replaces["ije"] = yat_replaces["je"]
 
    for key in idict:
       text = text.replace(key, idict[key])
@@ -307,7 +307,7 @@ def je2ije(form: str) -> str:
          f'йје{ccircumflex}', f'и{cdoublegrave}је').replace(
          f'йје{cmacron}', 'ије')
 
-def expose(form: str, yat:str='ekav', latin:bool=False) -> str:
+def expose(form: str, yat:str="e", latin:bool=False) -> str:
    """all transformations from internal to external representation;
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg"""
@@ -318,20 +318,20 @@ def expose(form: str, yat:str='ekav', latin:bool=False) -> str:
          yat
       )
    )
-   if yat == 'ijekav':
+   if yat == "ije":
       result = je2ije(result)
    if latin:
       result = cyr2lat(result)
    return result
 
-def expose_replacement(form: str, yat:str='ekav', latin:bool=False) -> str:
+def expose_replacement(form: str, yat:str="e", latin:bool=False) -> str:
    result = prettify(
       purify(zeroify(debracketify(deyerify(form)))),
       yat
    )
    for x in real_accent:
       result = result.replace(x, real_accent[x])
-   if yat == 'ijekav':
+   if yat == "ije":
       result = je2ije(result)
    if latin:
       result = cyr2lat(result)

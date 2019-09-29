@@ -33,7 +33,7 @@ class Verb(PartOfSpeech):
       return True
 
    # Verb-specific
-   def _expose(self, form: str, yat:str="ekav", latin:bool=False) -> str:
+   def _expose(self, form: str, yat:str="e", latin:bool=False) -> str:
       form = expose(form, yat, latin)
       if self.is_reflexive:
          if latin:
@@ -83,7 +83,7 @@ class Verb(PartOfSpeech):
       self,
       i: int,
       length_inconstancy: bool,
-      yat:str="ekav",
+      yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
       # TODO: length_inconstancy currently not used
@@ -116,7 +116,7 @@ class Verb(PartOfSpeech):
                   )
 
 
-   def multiforms(self, *, variant: Optional[int] = None, yat:str="ekav", latin:bool=False) -> Iterator[LabeledMultiform]:
+   def multiforms(self, *, variant: Optional[int] = None, yat:str="e", latin:bool=False) -> Iterator[LabeledMultiform]:
       """conjugate"""
       for i, AP in enumerate(self.gram.AP):
          if self.gram.MP[i] in infinitive_dict:

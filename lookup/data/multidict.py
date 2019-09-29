@@ -69,7 +69,7 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
       tmp_list = [tmp]
 
 
-   for input_yat in ["ekav", "jekav", "ijekav"]:
+   for input_yat in ["e", "je", "ije"]:
       for item in tmp_list:
          accented_token = garde(accentize(item, accent_dict.r, accent_dict.v))
          exposed_token = expose(accented_token, yat=input_yat)

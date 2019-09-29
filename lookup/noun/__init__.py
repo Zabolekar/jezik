@@ -34,7 +34,7 @@ class Noun(PartOfSpeech):
             self.anim.append('in')
 
    @staticmethod
-   def _expose(form: str, yat:str="ekav", latin:bool=False) -> str:
+   def _expose(form: str, yat:str="e", latin:bool=False) -> str:
       return expose(form, yat, latin)
 
    def _trunk(self) -> List[str]:
@@ -112,7 +112,7 @@ class Noun(PartOfSpeech):
    def _paradigm_to_forms(self,
                           i: int,
                           length_inconstancy: bool,
-                          yat: str="ekav",
+                          yat: str="e",
                           latin: bool=False) -> Iterator[LabeledMultiform]:
 
       start_AP = self.gram.AP[i].replace('?', '.')
@@ -189,7 +189,7 @@ class Noun(PartOfSpeech):
       self,
       *,
       variant: Optional[int] = None,
-      yat:str="ekav",
+      yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
       """decline"""

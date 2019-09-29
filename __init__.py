@@ -16,8 +16,8 @@ def index():
 
 @app.route("/lookup/<query:word>")
 def results(word):
-   input_yat = request.args.get("inputYat") or "ekav"
-   output_yat = request.args.get("outputYat")
+   input_yat = request.args.get("in") or "e"
+   output_yat = request.args.get("out")
    tables = lookup(word, input_yat, output_yat)
    return render_template("results.html", tables=tables)
 
@@ -28,10 +28,10 @@ def page_not_found(_):
 @app.route("/random")
 def random():
    word, yat = random_key()
-   if yat == "jekav":
-      kwargs = {"word": word, "inputYat": "ijekav", "outputYat": "jekav"} # because there is no input jekav yat
-   else: # ekav or ijekav
-      kwargs = {"word": word, "inputYat": yat, "outputYat": yat}
+   if yat == "je":
+      kwargs = {"word": word, "in": "ije", "out": "je"} # because input doesn't differentiate between what we call jekav and ijekav
+   else: # e or ije
+      kwargs = {"word": word, "in": yat, "out": yat}
    return redirect(url_for("results", **kwargs))
 
 @app.route("/about")
