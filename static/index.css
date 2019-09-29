@@ -88,6 +88,10 @@ div.simpleText {
    background-color: #fff;
 }
 
+div#error {
+   text-align: center;
+}
+
 #search {
    width: 430px;
    text-align: center;
