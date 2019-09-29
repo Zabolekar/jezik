@@ -17,7 +17,7 @@ def index():
 @app.route("/lookup/<query:word>")
 def results(word):
    input_yat = request.args.get("in") or "e"
-   output_yat = request.args.get("out")
+   output_yat = request.args.get("out") or "e"
    tables = lookup(word, input_yat, output_yat)
    return render_template("results.html", tables=tables)
 

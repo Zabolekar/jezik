@@ -22,6 +22,9 @@ def part_of_speech(kind: str) -> PartOfSpeech:
 
 def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
 
+   if input_yat not in ["e", "ije"] or output_yat not in ["e", "je", "ije"]:
+      return # TODO: nice error message, this would only lead to "word not found"
+
    latin = any([x in key for x in 'abcčćdđefghijklmnoprsštuvzžABCČĆDĐEFGHIJKLMNOPRSŠTUVZŽ'])
 
    with_se = (key[-3:] == " se") if latin else (key[-3:] == " се")
