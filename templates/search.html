@@ -24,7 +24,7 @@
       </tr>
       <tr>
          <td>
-            <div id="options" align="center">
+            <div id="options">
                {% for letter in "ђјљњћџ" %}
                   <input type="button" value="{{ letter }}">
                {% endfor %}
@@ -37,7 +37,7 @@
       </tr>
       <tr>
          <td>
-            <div id="options" align="center">
+            <div id="options">
                <fieldset>
                   <legend>Јат у упиту:</legend><br>
                   <label><input type="radio" name="in" value="e" checked>снег</label>
@@ -58,7 +58,6 @@
    {% block results %}
    {% endblock %}
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 <script>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
 </div>

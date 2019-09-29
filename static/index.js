@@ -1,12 +1,7 @@
-function displayResults (reply) {
-   $('#results').html($(reply).filter("#tables-or-not-found"));
-   $('table').css('width', width+'px');
-}
-
 function onSubmit (event) {
-   var word = $('#word').val(),
-       inputYat = $('input[name=in]:checked').val(),
-       outputYat = $('input[name=out]:checked').val();
+   var word = input = document.getElementById("word").value,
+       inputYat = document.querySelector("input[name=in]:checked").value,
+       outputYat = document.querySelector("input[name=out]:checked").value;
    if (word) {
       var url = $SCRIPT_ROOT + "/lookup/" +
                 encodeURIComponent(word) +
@@ -30,19 +25,23 @@ function insertString (s) {
 
 var width;
 function setup () {
-   $('#search').submit(onSubmit);
-   $('#options :button').click(function () {
-      insertString(this.value);
-   });
-   width = $('#main').width();
-   $('#header').css('width', width+'px');
-   $('#search').css('width', width+'px');
+   document.getElementById("search").addEventListener("submit", onSubmit);
+   
+   for (button of document.querySelectorAll("#options [type=button]")) {
+      button.addEventListener("click", function () {
+         insertString(this.value);
+      });
+   }
+   
+   width = getComputedStyle(document.getElementById("main")).width;
+   document.getElementById("header").style.width = width;
+   document.getElementById("search").style.width = width;
 
    var url = new URL(location.href);
    var inputYat = url.searchParams.get("in") || "e";
    var outputYat = url.searchParams.get("out") || "e";
-   $('input[name=in]').val([inputYat]);
-   $('input[name=out]').val([outputYat]);
+   document.querySelector("input[name=in][value='" + inputYat + "']").checked = true;
+   document.querySelector("input[name=out][value='" + outputYat + "']").checked = true;
 }
 
-$(document).ready(setup);
+document.addEventListener("DOMContentLoaded", setup);

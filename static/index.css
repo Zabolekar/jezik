@@ -127,6 +127,7 @@ div#error {
 #options {
    display: inline-block;
    width: 430px;
+   text-align: center;
 }
 
 #options input[type="radio"] {
