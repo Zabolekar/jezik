@@ -1,5 +1,5 @@
 function onSubmit (event) {
-   var word = input = document.getElementById("word").value,
+   var word = document.getElementById("word").value,
        inputYat = document.querySelector("input[name=in]:checked").value,
        outputYat = document.querySelector("input[name=out]:checked").value;
    if (word) {
@@ -23,7 +23,6 @@ function insertString (s) {
    input.focus();
 }
 
-var width;
 function setup () {
    document.getElementById("search").addEventListener("submit", onSubmit);
    
@@ -33,11 +32,17 @@ function setup () {
       });
    }
    
-   width = getComputedStyle(document.getElementById("main")).width;
+   var width = getComputedStyle(document.getElementById("main")).width;
    document.getElementById("header").style.width = width;
    document.getElementById("search").style.width = width;
 
    var url = new URL(location.href);
+   var input = document.getElementById("word");
+
+   var match = url.pathname.match("/lookup/(.*)");
+   if (match) input.value = decodeURIComponent(match[1]);
+   input.focus();
+
    var inputYat = url.searchParams.get("in") || "e";
    var outputYat = url.searchParams.get("out") || "e";
    document.querySelector("input[name=in][value='" + inputYat + "']").checked = true;
