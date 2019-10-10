@@ -43,22 +43,22 @@ class Noun(PartOfSpeech):
       for i, AP in enumerate(self.gram.AP):
 
          accented_noun = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
-         if 'm' in self.gram.other and not 'o' in self.gram.other:
+         if self.label("m") and not 'o' in self.gram.other:
             trunk_ = accented_noun.replace(cstraight, '')
             # self.key is useless here; accented_noun has not only stress place,
             # it has also all the lengths in the stem which surely are of importance
             accented_trunk_ = accented_noun
-         elif 'f' in self.gram.other and accented_noun.endswith('а'): # TODO How do we call zlost-like f ang sluga-like m?
+         elif self.label("f") and accented_noun.endswith('а'): # TODO How do we call zlost-like f ang sluga-like m?
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
-         elif 'f' in self.gram.other and accented_noun.endswith(cstraight):
+         elif self.label("f") and accented_noun.endswith(cstraight):
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-2]
          else:
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
 
-         if any([x in AP for x in 'cdfg']): # c, d, f (?), g are c-like paradigms
+         if any(x in AP for x in 'cdfg'): # c, d, f (?), g are c-like paradigms
             if not self.key.endswith('а'):
                trunk = accented_trunk_.replace(cstraight, '·')
             else:
@@ -67,7 +67,7 @@ class Noun(PartOfSpeech):
                   trunk = trunk_
                else:
                   trunk = insert(trunk_, {fvi: '·'})
-         elif any([x in AP for x in 'beq']): # b, e, q are b-like paradigms
+         elif any(x in AP for x in 'beq'): # b, e, q are b-like paradigms
             lvi = last_vowel_index(trunk_)
             if lvi is None:
                trunk = trunk_
@@ -90,7 +90,7 @@ class Noun(PartOfSpeech):
       variation: List[AccentedTuple],
       paradigm: str) -> bool:
       return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
-               or all([x not in paradigm for x in 'cde0'])
+               or all(x not in paradigm for x in 'cde0')
                or (variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:')]
                and variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]))
                # this is the ā which is NOT accented in a. p. c
@@ -119,9 +119,9 @@ class Noun(PartOfSpeech):
       target_AP = self.gram.AP[i].replace('?', '.')
 
       declension_type: Optional[Callable[[str, str, str], NounStem]]
-      if 'm' in self.gram.other:
+      if self.label("m"):
          declension_type = c_m
-      elif 'f' in self.gram.other:
+      elif self.label("f"):
          declension_type = c_f
       else:
          declension_type = None

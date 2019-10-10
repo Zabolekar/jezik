@@ -135,7 +135,7 @@ def test_abang_paradigm():
 
 def test_krnjeme():
    a = lookup("крњ")["dat sg long m"].multiform
-   assert all([not x.endswith("ме") for x in a])
+   assert all(not x.endswith("ме") for x in a)
 
 def test_mo_mo():
    assert lookup("знати")["prs 1 pl"][0].multiform == ["зна́мо", "зна̑мо"]

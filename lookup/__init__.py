@@ -5,10 +5,12 @@ from .noun import Noun
 from .verb import Verb
 from .data import data
 
-PartOfSpeech = Union[Type[Verb],
-                     Type[Adjective],
-                     Type[Noun],
-                     Type[None]]
+PartOfSpeech = Union[
+   Type[Verb],
+   Type[Adjective],
+   Type[Noun],
+   Type[None]
+   ]
 
 def part_of_speech(kind: str) -> PartOfSpeech:
    POS = kind.split('\\')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink
@@ -25,7 +27,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
    if input_yat not in ["e", "ije"] or output_yat not in ["e", "je", "ije"]:
       return # TODO: nice error message, this would only lead to "word not found"
 
-   latin = any([x in key for x in 'abcčćdđefghijklmnoprsštuvzžABCČĆDĐEFGHIJKLMNOPRSŠTUVZŽ'])
+   latin = any(x in key for x in 'abcčćdđefghijklmnoprsštuvzžABCČĆDĐEFGHIJKLMNOPRSŠTUVZŽ')
 
    with_se = (key[-3:] == " se") if latin else (key[-3:] == " се")
    if with_se:
@@ -62,6 +64,8 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
 def lookup(outer_key: str, input_yat:str="e", output_yat:Optional[str]=None) -> Multitable:
    if output_yat is None:
       output_yat = input_yat
+   if input_yat == "je":
+      input_yat = "ije"
    outer_key = outer_key.strip() # space-word-space will produce a search error otherwise
    return Multitable(outer_key, lazy_lookup(outer_key, input_yat, output_yat))
 
