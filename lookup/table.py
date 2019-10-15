@@ -53,7 +53,7 @@ class Multitable:
          return "\n".join(str(table) for table in self._tables)
       return "Word not found"
 
-   def __getitem__(self, query: Union[int, str]) -> "Union[Multitable, Table]":
+   def __getitem__(self, query: Union[int, str]) -> Union[Multitable, Table]:
       if isinstance(query, int):
          return self._tables[query]
       else:
