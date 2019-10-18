@@ -31,6 +31,7 @@ m_anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {'sg_acc': {'in': [[Acc
                        'in': [[AccentedTuple('у·', 'b.b:c:c?d:e:f.q.')], [AccentedTuple('у·', 'b.b:e:f.q.')]]}
             }
 
+male_gen_pl_marked = [[AccentedTuple(f'<а·{cmacron}', 'b.b:')], [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]]
 
 def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    ov = AccentedTuple('>œ·в', 'b.b:c?d:e:f.')
@@ -38,7 +39,7 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    suffixed_plurals = [
        [[AccentedTuple('ʹи·', '')]],
        [[AccentedTuple('е·', '')]],
-       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?b0d:')], [AccentedTuple(f'<а·{cmacron}', 'b.b:')]],
+       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?b0d:')], male_gen_pl_marked[0]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
@@ -48,7 +49,7 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    free_plurals = [
        [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
        [[AccentedTuple('е·', 'b.b:e:q.')]],
-       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?b0d:e:')], [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]],
+       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?b0d:e:')], male_gen_pl_marked[1]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],

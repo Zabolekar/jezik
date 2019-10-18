@@ -1,11 +1,35 @@
 from typing import Callable, Dict, List, Iterator, Optional, Tuple
-from copy import deepcopy
 from ..pos import PartOfSpeech, Replacement
-from ..utils import insert, garde, expose, last_vowel_index, first_vowel_index, expose_replacement
-from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
+from ..utils import deyerify, indices, insert, garde, expose, last_vowel_index, first_vowel_index, expose_replacement
+from ..paradigm_helpers import AccentedTuple, MorphemeChain, OrderedSet, nice_name, oa, accentize, appendDef
 from ..table import LabeledMultiform
-from .paradigms import c_m, c_f, NounStem
+from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked
 from ..charutils import cmacron, cstraight
+
+def _apply_neocirk(
+   stem: str,
+   lvi: Optional[int],
+   pvi: Optional[int],
+   morpheme: str,
+   retraction: int
+) -> List[str]: # do not change to Tuple
+
+   """ neocircumflex is accent retraction from a newly long vowel;
+   this function returns only one tuple, unlike _delete_left_bracket"""
+
+   for _ in range(retraction):
+      # word unaccented, has vowels: accentize last vowel
+      if cstraight not in stem: 
+         if lvi is not None: 
+            stem = insert(stem, {lvi+1: cstraight})
+            morpheme = morpheme.replace('·', '') # no further possibilities to accentize it
+      elif lvi is not None and pvi is not None:
+         stem = stem.replace(cstraight, '') # delete accent mark
+         stem = insert(stem, {pvi+1: cstraight}) # add accent mark after pvi
+         morpheme = morpheme.replace('·', '')
+      #else:
+         #raise IndexError(f"{stem} has not enough vowels for this operation")
+   return [stem, morpheme]
 
 class Noun(PartOfSpeech):
    def __init__(
@@ -14,24 +38,17 @@ class Noun(PartOfSpeech):
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...]) -> None:
+      amendments: Tuple[Replacement, ...]
+   ) -> None:
       super().__init__(key, kind, info, replacements, amendments)
 
       self.trunk = self._trunk()
       self.anim: List[str] = []
       self.suff: List[str] = []
-      for x in self.gram.MP:
-         y = x.split(',')
-         if '+' in y:
-            self.suff.append('+')
-         elif '±' in y:
-            self.suff.append('±')
-         else:
-            self.suff.append('_')
-         if 'an' in y:
-            self.anim.append('an')
-         else:
-            self.anim.append('in')
+      for paramList in self.gram.MP:
+         params = paramList.split(',')
+         self.suff = appendDef(self.suff, params, ['+', '±'], '_')
+         self.anim = appendDef(self.anim, params, ['an'], 'in')
 
    @staticmethod
    def _expose(form: str, yat:str="e", latin:bool=False) -> str:
@@ -43,7 +60,7 @@ class Noun(PartOfSpeech):
       for i, AP in enumerate(self.gram.AP):
 
          accented_noun = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
-         if self.label("m") and not 'o' in self.gram.other:
+         if self.label("m") and not self.label('o'):
             trunk_ = accented_noun.replace(cstraight, '')
             # self.key is useless here; accented_noun has not only stress place,
             # it has also all the lengths in the stem which surely are of importance
@@ -88,32 +105,108 @@ class Noun(PartOfSpeech):
    def _noun_form_is_possible(
       noun_form: str,
       variation: List[AccentedTuple],
-      paradigm: str) -> bool:
+      paradigm: str
+   ) -> bool:
       return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
                or all(x not in paradigm for x in 'cde0')
-               or (variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:')]
-               and variation != [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]))
+               or (variation not in male_gen_pl_marked))
                # this is the ā which is NOT accented in a. p. c
+               # TODO better make it a variable in Paradigms and import it here
 
-   def process_one_form(
+   def _delete_left_bracket(
       self,
-      i: int,
-      noun_variant: str,
-      ending_variation: List[AccentedTuple]) -> List[str]:
+      stem: str,
+      morpheme: str,
+      accent: str,
+      current_AP: str
+   ) -> List[List[str]]:
+      """
+      This function is so far for nouns only.
+      It explicitly uses noun AP names.
+      handling yers and defining if the word has neocircumflex:
+       if morpheme is genitive -ā,
+       stem has mobile vowel, ending is accented,
+       gender is not feminine (i.e. m/n),
+       and, at last, word is not komunizam-like exception (a.p. q),
+       then word DOES have neocircumflex retraction
+       and yer is FORCEDLY clarified to an 'a' sound;
+       other yers will be handled afterwards by the common yer rule
+      
+       without yers, in cases like jèzik : jȅzīkā:
+       stem has no mobile vowel, stem is accented,
+       word is not feminine, accented vowel is not the first one
+      """
+      result = []
+      if morpheme.startswith('<'): # so far only '-ā' is like that
 
-      iterable_noun_variant = [deepcopy(noun_variant)]
-      current_AP = self.gram.AP[i]
-      for w in ending_variation: # w is submorph in ending, like -ov- and -i in bog-ov-i
-         iterable_noun_variant = self._append_morpheme(current_AP, iterable_noun_variant, w)
-         for nnv in iterable_noun_variant:
-            nnv = self.accentize(current_AP, nnv)
-      return iterable_noun_variant
+         # 1. finding vowel places that will be of importance
+         lvi, fvi, pvi = indices(stem)
 
-   def _paradigm_to_forms(self,
-                          i: int,
-                          length_inconstancy: bool,
-                          yat: str="e",
-                          latin: bool=False) -> Iterator[LabeledMultiform]:
+         # 2 handling óvca > ovácā
+         if cmacron in stem and self.label("f") and current_AP in ('c:', 'g:'):
+            stem = stem.replace(cmacron, '')
+
+         # 3 handling yers and predefining retractions
+         retraction = [0]
+         if self.label('m'):
+            if 'ъ' in stem and current_AP in accent \
+               and current_AP in ['a:', 'b:', 'c:', 'f.']:
+               retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
+            elif (('d' in current_AP and 'œв' in stem)
+               or (pvi is not None and 'ъ' not in stem \
+               and current_AP not in accent \
+               and (current_AP in ['a.', 'a!']) \
+               or ('b.' in current_AP and 'ъ' in stem and 'œ' in stem))):
+               retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀че̄ва̄
+            elif 'œв' in stem and 'c?' in current_AP:
+               retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
+            elif 'œв' in stem and 'b' in current_AP and not 'ъ' in stem:
+               retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
+
+         if not 'œ' in stem: # TODO one day think about better condition
+            stem = stem.replace('ъ', 'а')
+         else:
+            stem = deyerify(stem)
+
+         # 4. a renewed set of indices, since ъ has become а
+         lvi, fvi, pvi = indices(stem)
+
+         # 5. handling strange new exceptions like komunizam
+         if '·' in stem and current_AP == 'q.' and lvi is not None:
+            stem = insert(stem.replace('·', ''), {lvi: '·'})
+
+         # 6. we insert macron after lvi if last vowel is short
+         if not cmacron in stem[lvi:] and lvi is not None:
+            stem = insert(stem, {lvi+1: cmacron}).replace(f'{cmacron}·', f'·{cmacron}')
+
+         # 7. if we have neocircumflex retraction, we apply it
+         for case in retraction:
+            result.append(_apply_neocirk(stem, lvi, pvi, morpheme, case))
+
+         if retraction == [0]:
+
+            # 8. in some cases (TODO: when??) we delete all straight accents and reinsert a new one at pvi
+            if lvi != fvi and pvi is not None \
+               and f"{cmacron}{cstraight}" in stem[lvi:] \
+                  and not cmacron in stem[:lvi] \
+                  and not 'q' in current_AP \
+                  and not 'c?' in current_AP:
+
+               stem = stem.replace(cstraight, '')
+               stem = insert(stem, {pvi+1: cstraight})
+
+      else:
+         result = [[stem, morpheme]]
+
+      return [[x[0], x[1].replace('<', '')] for x in result]
+
+   def _paradigm_to_forms(
+      self,
+      i:int,
+      length_inconstancy:bool,
+      yat:str="e",
+      latin:bool=False
+   ) -> Iterator[LabeledMultiform]:
 
       start_AP = self.gram.AP[i].replace('?', '.')
       target_AP = self.gram.AP[i].replace('?', '.')
@@ -130,12 +223,8 @@ class Noun(PartOfSpeech):
          for label, ending in declension_type(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
 
             if label in self.replacements:
-               yield nice_name(label), \
-                  list(
-                     OrderedSet(
-                        [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
-                     )
-                  )
+               result = [expose_replacement(form, yat, latin) for form in self.replacements[label]]
+               yield nice_name(label), list(OrderedSet(result))
 
             else:
 
@@ -161,28 +250,22 @@ class Noun(PartOfSpeech):
 
                   for noun_variant in noun_variants:
                      if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
-                        ready_forms += self.process_one_form(i, noun_variant, ending_variation)
+                        ready_forms += self.process_one_form(self.gram.AP[i], noun_variant, ending_variation)
 
                if label in self.amendments:
                   ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
+               
+               result = [self._expose(form, yat, latin) for form in ready_forms]
+               yield nice_name(label), list(OrderedSet(result))
 
-               yield nice_name(label), \
-                  list(
-                     OrderedSet(
-                        [self._expose(w_form, yat, latin) for w_form in ready_forms]
-                     )
-                  )
-      else: # TODO Do we really need this christmas-tree-like output thrice in the code?
+      else: 
          for label in self.amendments:
-            yield nice_name(label), \
-               list(
-                  OrderedSet(
-                     [self._expose(w_form, yat, latin)
-                     for w_form in
-                     [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
-                     ]
-                  )
-               )
+            result = [
+               self._expose(form, yat, latin)
+               for form in
+               [expose_replacement(form, yat, latin) for form in self.amendments[label]]
+            ]
+            yield nice_name(label), list(OrderedSet(result))
 
 
    def multiforms(

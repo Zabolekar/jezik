@@ -13,6 +13,19 @@ _r = rcompile(r"([a-z]+|[A-Z]|\d)")
 def nice_name(name: str) -> str:
    return " ".join(_r.findall(name))
 
+def appendDef(
+   targetList: List[str],
+   inputList: List[str],
+   appendable: List[str],
+   defaultItem: str
+) -> List[str]:
+   for item in inputList:
+      if item in appendable:
+         targetList.append(item)
+      else:
+         targetList.append(defaultItem)
+   return targetList
+
 def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditional accentuation
 
    if v:
@@ -93,7 +106,8 @@ class AccentedTuple:
    morpheme: str
    accent: str
 
-MorphemeChain = List[AccentedTuple] # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
+MorphemeChain = List[AccentedTuple]
+# # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
 LabeledEnding = Tuple[str, List[MorphemeChain]]
 
 class OrderedSet(OrderedDict, Generic[T]):

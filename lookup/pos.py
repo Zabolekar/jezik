@@ -1,6 +1,6 @@
 from typing import Dict, List, Optional, Tuple
-from .paradigm_helpers import AccentedTuple, GramInfo, oa
-from .utils import first_vowel_index, last_vowel_index, indices, insert, deyerify
+from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
+from .utils import first_vowel_index, last_vowel_index, insert
 from .charutils import cstraight, cmacron
 from .data.multidict import Replacement
 
@@ -20,32 +20,6 @@ def _swap(trunk: str, AP: str) -> str:
          return trunk[:last_macron] + trunk[last_macron+1:]
 
    return trunk
-
-
-def _apply_neocirk(word_form: str,
-                   lvi: Optional[int],
-                   pvi: Optional[int],
-                   morpheme: str,
-                   retraction: int
-) -> List[str]: # do not change to Tuple
-
-   """ neocircumflex is accent retraction from a newly long vowel;
-   this function returns only one tuple, unlike _delete_left_bracket"""
-
-   for _ in range(retraction):
-      # word unaccented, has vowels: accentize last vowel
-      if cstraight not in word_form: 
-         if lvi is not None: 
-            word_form = insert(word_form, {lvi+1: cstraight})
-            morpheme = morpheme.replace('·', '') # no further possibilities to accentize it
-      elif lvi is not None and pvi is not None:
-         word_form = word_form.replace(cstraight, '') # delete accent mark
-         word_form = insert(word_form, {pvi+1: cstraight}) # add accent mark after pvi
-         morpheme = morpheme.replace('·', '')
-      #else:
-         #raise IndexError(f"{word_form} has not enough vowels for this operation")
-   return [word_form, morpheme]
-
 
 class PartOfSpeech():
    def __init__(
@@ -81,103 +55,24 @@ class PartOfSpeech():
 
    def _delete_left_bracket(
       self,
-      word_form: str,
+      stem: str,
       morpheme: str,
       accent: str,
       current_AP: str
    ) -> List[List[str]]:
-      """
-      This function is so far for nouns only.
-      It explicitly uses noun AP names.
-      So it better be placed somewhere else? TODO
-      """
-      result = []
-      if morpheme.startswith('<'): # so far only '-ā' is like that
-         # 1. handling yers and defining if the word has neocircumflex:
-         # if morpheme is genitive -ā,
-         # stem has mobile vowel, ending is accented,
-         # gender is not feminine (i.e. m/n),
-         # and, at last, word is not komunizam-like exception (a.p. q),
-         # then word DOES have neocircumflex retraction
-         # and yer is FORCEDLY clarified to an 'a' sound;
-         # other yers will be handled afterwards by the common yer rule
-         #
-         # without yers, in cases like jèzik : jȅzīkā:
-         # stem has no mobile vowel, stem is accented,
-         # word is not feminine, accented vowel is not the first one
-
-         # 2. finding vowel places that will be of importance
-         lvi, fvi, pvi = indices(word_form)
-
-         # 2.5 handling óvca > ovácā
-         if cmacron in word_form and self.label("f") and current_AP in ('c:', 'g:'):
-            word_form = word_form.replace(cmacron, '')
-
-         # 2.7 handling yers and predefining retractions
-         retraction = [0]
-         if self.label('m'):
-            if 'ъ' in word_form and current_AP in accent \
-               and current_AP in ['a:', 'b:', 'c:', 'f.']:
-               retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
-            elif (('d' in current_AP and 'œв' in word_form)
-               or (pvi is not None and 'ъ' not in word_form \
-               and current_AP not in accent \
-               and (current_AP in ['a.', 'a!']) \
-               or ('b.' in current_AP and 'ъ' in word_form and 'œ' in word_form))):
-               retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀че̄ва̄
-            elif 'œв' in word_form and 'c?' in current_AP:
-               retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
-            elif 'œв' in word_form and 'b' in current_AP and 'ъ' not in word_form:
-               retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
-
-         if not 'œ' in word_form: # TODO one day think about better condition
-            word_form = word_form.replace('ъ', 'а')
-         else:
-            word_form = deyerify(word_form)
-
-         # a renewed set of indices, since ъ has become а
-         lvi, fvi, pvi = indices(word_form)
-
-         # 3. handling strange new exceptions like komunizam
-         if '·' in word_form and current_AP == 'q.' and lvi is not None:
-            word_form = insert(word_form.replace('·', ''), {lvi: '·'})
-
-         # 4. we insert macron after lvi if last vowel is short
-         if not cmacron in word_form[lvi:] and lvi is not None:
-            word_form = insert(word_form, {lvi+1: cmacron}).replace(f'{cmacron}·', f'·{cmacron}')
-
-         # 5. if we have neocircumflex retraction, we apply it
-         for case in retraction:
-            result.append(_apply_neocirk(word_form, lvi, pvi, morpheme, case))
-
-         if retraction == [0]:
-
-            # 6. in some cases (TODO: when??) we delete all straight accents and reinsert a new one at pvi
-            if lvi != fvi and pvi is not None \
-               and f"{cmacron}{cstraight}" in word_form[lvi:] \
-                  and not cmacron in word_form[:lvi] \
-                  and not 'q' in current_AP \
-                  and not 'c?' in current_AP:
-
-               word_form = word_form.replace(cstraight, '')
-               word_form = insert(word_form, {pvi+1: cstraight})
-
-      else:
-         result = [[word_form, morpheme]]
-      for pair in result:
-         pair[1] = pair[1].replace('<', '')
-      return result
+      # see a huge algorithm with the same name in Noun
+      return [[stem, morpheme]]
 
    def _append_morpheme(
       self,
       current_AP: str,
-      word_form: List[str],
+      stems: List[str],
       ending_part: AccentedTuple
    ) -> List[str]:
 
       connectenda: List[List[str]] = []
 
-      for word_subform in word_form:
+      for stem in stems:
 
          morpheme, accent = ending_part.morpheme, ending_part.accent
 
@@ -185,15 +80,15 @@ class PartOfSpeech():
             morpheme = morpheme.replace('>>', '')
 
          # deleting the first of two accents (is it OK to have it here?)
-         if current_AP in accent and cstraight in word_subform:
-            word_subform = word_subform.replace(cstraight, '')
+         if current_AP in accent and cstraight in stem:
+            stem = stem.replace(cstraight, '')
 
          # first we delete '>' (= delete all macrons in the word)
          # then we delete '<' (= lengthen the last vowel in the stem)
 
          if morpheme.startswith('>') and current_AP in ['d:', 'e:', 'f.']:
             morpheme = morpheme.replace('>', '')
-         connectenda += self._delete_left_bracket(word_subform, morpheme, accent, current_AP)
+         connectenda += self._delete_left_bracket(stem, morpheme, accent, current_AP)
 
       # if this ending_part IS ACCENTED in this AP,
       # then first we delete the now unnecessary accent in the stem in case it is there;
@@ -208,10 +103,8 @@ class PartOfSpeech():
 
       for pair in connectenda:
          # accentizing endings (?)
-         if current_AP in ending_part.accent:
-            #if self.gram.AP[i] not in ['c?']:
-            #word_form = word_form.replace('\u030d', '')
-            if cstraight in word_form and not '0' in pair[1]: # TODO: provide example for this
+         if current_AP in accent:
+            if cstraight in pair[0] and not '0' in pair[1]: # TODO: provide example for this
                pair[1] = pair[1].replace('·', '')
             if 'q' in current_AP:
                pair[1] = pair[1].replace('0', '')
@@ -237,3 +130,21 @@ class PartOfSpeech():
          result.append(result_word)
 
       return result
+
+   def process_one_form(
+      self,
+      current_AP: str,
+      stem: str,
+      morphChain: MorphemeChain,
+      iterative:bool=True
+   ) -> List[str]:
+
+      if iterative:
+         iterable_form = [stem]
+         for submorph in morphChain: # w is submorph in ending, like -ov- and -i in bog-ov-i
+            iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
+            for form in iterable_form:
+               form = self.accentize(current_AP, form)
+         return iterable_form
+      else:
+         return self._append_morpheme(current_AP, [stem], morphChain[0])

@@ -23,7 +23,9 @@ class Table:
    @property
    def multiform(self) -> List[str]: # TODO: document in README, rethink
       if len(self._data) != 1:
-         raise AttributeError("A 'Table' object has an attribute 'multiform' if and only if it has exactly one cell")
+         raise AttributeError(
+            "A 'Table' object has an attribute 'multiform' if and only if it has exactly one cell"
+         )
       return self._data[0][1]
 
    def __repr__(self) -> str:

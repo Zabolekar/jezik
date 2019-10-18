@@ -1,5 +1,4 @@
 from typing import Dict, List, Iterator, Optional, Tuple
-from copy import deepcopy
 import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech, Replacement
@@ -15,7 +14,8 @@ class Adjective(PartOfSpeech):
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...]) -> None:
+      amendments: Tuple[Replacement, ...]
+   ) -> None:
       super().__init__(key, kind, info, replacements, amendments)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
@@ -31,15 +31,17 @@ class Adjective(PartOfSpeech):
       result = []
 
       for number, item in enumerate(self.gram.AP):
-         accented_adj = garde(accentize(self.key, self.gram.accents[number].r, self.gram.accents[number].v))
-         if 'ov' in self.gram.other:
+         accented_adj = garde(
+            accentize(self.key, self.gram.accents[number].r, self.gram.accents[number].v)
+         )
+         if self.label('ov'):
             trunk = accented_adj
-         elif 'all' in self.gram.other:
+         elif self.label('all'):
             if 'ъ\u030d' in accented_adj:
                trunk = accented_adj[:-2] + accented_adj[-1]
             else:
                trunk = accented_adj
-         elif 'ski' in self.gram.other:
+         elif self.label('ski'):
             trunk = re.sub(f'{cmacron}{cstraight}$', cmacron, accented_adj)[:-2]
          if not 'a' in self.gram.AP[number]:
             lvi = last_vowel_index(trunk)
@@ -57,16 +59,6 @@ class Adjective(PartOfSpeech):
    @staticmethod
    def _adj_form_is_possible(adj_form: str) -> bool:
       return re.search('[њљћђшжчџјʲ]œ.+ме$', adj_form) is None
-
-   def process_one_form(
-      self,
-      current_AP: str,
-      adj_variant: str,
-      ending_variation: AccentedTuple
-   ) -> str:
-      result = self._append_morpheme(current_AP, [adj_variant], ending_variation)[0] # no iterability in adjectives
-      #result = self.accentize(current_AP, result) # TODO: why not? can we unify it somehow in future?
-      return result
 
    # Adjective-only. Verb should have its own one
    def _paradigm_to_forms(
@@ -87,15 +79,14 @@ class Adjective(PartOfSpeech):
       for label, ending in zip(paradigm._fields, paradigm):
 
          if label in self.replacements:
-            yield nice_name(label), \
-               list(
-                  OrderedSet(
-                     [expose_replacement(w_form, yat, latin) for w_form in self.replacements[label]]
-                     )
-                  )
+            result = [
+               expose_replacement(w_form, yat, latin) 
+               for w_form in self.replacements[label]
+            ]
+            yield nice_name(label), list(OrderedSet(result))
 
          else:
-            ready_forms = []
+            ready_forms: List[str] = []
             for variation in ending: # e.g. -om, -ome, -omu
                if 'ʟ' in adj_form:
                   adj_variants = [adj_form.replace('ʟ', 'ʌ'), adj_form.replace('ʟ', 'л')]
@@ -103,24 +94,23 @@ class Adjective(PartOfSpeech):
                   adj_variants = [adj_form]
                for adj_variant in adj_variants:
                   if self._adj_form_is_possible(adj_variant + variation.morpheme):
-                     ready_forms.append(self.process_one_form(current_AP, adj_variant, variation))
+                     ready_forms += self.process_one_form(current_AP, adj_variant, [variation], False)
 
             if label in self.amendments:
-               ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
-
-            yield nice_name(label), \
-               list(
-                  OrderedSet(
-                     [self._expose(w_form, yat, latin) for w_form in ready_forms]
-                     )
-                  )
+               ready_forms += [
+                  expose_replacement(w_form, yat, latin) 
+                  for w_form in self.amendments[label]
+               ]
+            result = [self._expose(w_form, yat, latin) for w_form in ready_forms]
+            yield nice_name(label), list(OrderedSet(result))
 
    def multiforms(
       self,
       *,
       variant: Optional[int] = None,
       yat:str="e",
-      latin:bool=False) -> Iterator[LabeledMultiform]:
+      latin:bool=False
+   ) -> Iterator[LabeledMultiform]:
       """decline"""
       endings = self.gram.other[0]
       MPs: List[AdjParadigm]
