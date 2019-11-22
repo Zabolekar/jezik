@@ -1,5 +1,7 @@
 import pytest # type: ignore
 from ..lookup import lookup, data
+from ..lookup.charutils import four_accents, cmacron
+from ..lookup.table import LabeledMultiform
 
 @pytest.mark.slow
 def test_data():
@@ -7,6 +9,7 @@ def test_data():
    Iterate over entries in the database.
    Ensure that their lookup doesn't raise an exception.
    """
+   bad_multiforms : List[LabeledMultiform] = []
    for outer_key, yat_mode in data._outer_to_inner:
       try:
          multitable = lookup(outer_key, input_yat=yat_mode)
@@ -15,6 +18,16 @@ def test_data():
       except Exception:
          print(outer_key, yat_mode)
          raise
+      else:
+         for table in multitable._tables:
+            for labeled_multiform in table:
+               for form in labeled_multiform[1]:
+                  if any(form.startswith(x) for x in four_accents + cmacron):
+                     bad_multiforms.append(labeled_multiform)
+   if len(bad_multiforms):
+      print(bad_multiforms)
+      raise ValueError("impossible accentuation")
+
 
 def test_rings():
    """ Ensure that rings are placed below r's. """

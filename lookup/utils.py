@@ -180,7 +180,6 @@ def deaccentize(text: str) -> str:
    return text
 
 def garde(word: str) -> str: # Garde's accentuation
-
    result = word
    while re.findall(any_of_four_accents, result): # while word is ungarded-like:
 
@@ -236,7 +235,6 @@ def garde(word: str) -> str: # Garde's accentuation
          result = insert(result, {excl_index-1: '!'})
          result = result.replace(cdoublegrave, cstraight)
          result = result.replace(ccircumflex, f'{cmacron}{cstraight}')
-
    return result
 
 def zeroify(form: str) -> str:
@@ -261,7 +259,6 @@ def purify(form: str) -> str:
            )
 
 def ungarde(form: str) -> str:
-
    chars = list(form)
    while cstraight in chars:
       old_accent_index = chars.index(cstraight)
@@ -285,12 +282,15 @@ def ungarde(form: str) -> str:
 
       if shifted:
          chars.insert(new_accent_index, cgrave) #rising
+      elif old_accent_index == 0:
+         chars.insert(old_accent_index + 1, cdoublegrave) #falling
       else:
          chars.insert(old_accent_index, cdoublegrave) #falling
 
    return ("".join(chars)
              .replace(f'{cgrave}{cmacron}', cacute) #long rising
-             .replace(f'{cmacron}{cdoublegrave}', ccircumflex)) #long falling
+             .replace(f'{cmacron}{cdoublegrave}', ccircumflex)
+             .replace(f'{cdoublegrave}{cmacron}', ccircumflex)) #long falling
 
 def debracketify(form: str) -> str:
       if '>' in form:
@@ -311,7 +311,6 @@ def expose(form: str, yat:str="e", latin:bool=False) -> str:
    """all transformations from internal to external representation;
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg"""
-
    result = ungarde(
       prettify(
          purify(zeroify(debracketify(deyerify(form)))),

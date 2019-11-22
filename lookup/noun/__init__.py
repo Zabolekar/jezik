@@ -58,7 +58,6 @@ class Noun(PartOfSpeech):
       result = []
 
       for i, AP in enumerate(self.gram.AP):
-
          accented_noun = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
          if self.label("m") and not self.label('o'):
             trunk_ = accented_noun.replace(cstraight, '')
@@ -191,7 +190,6 @@ class Noun(PartOfSpeech):
                   and not cmacron in stem[:lvi] \
                   and not 'q' in current_AP \
                   and not 'c?' in current_AP:
-
                stem = stem.replace(cstraight, '')
                stem = insert(stem, {pvi+1: cstraight})
 

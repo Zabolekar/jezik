@@ -11,7 +11,7 @@ def _swap(trunk: str, AP: str) -> str:
    lvi = last_vowel_index(trunk)
    last_macron = trunk.rfind(cmacron)
 
-   if lvi: # if the word has vowels 
+   if lvi is not None: # if the word has vowels 
       if AP.endswith(':') and lvi+1 != last_macron and lvi+2 != last_macron:
          return insert(trunk, {lvi+1: cmacron}) # insert macron if needed
 
@@ -117,10 +117,10 @@ class PartOfSpeech():
             pair[0] = pair[0].replace('·', cstraight)
 
          result_word = pair[0] + pair[1]
-
          # accentizing enclinomena (words without accent)
          #if all(x not in current_AP for x in ['o', 'a', 'b', 'e']) and # TODO: is this line needed?
          if cstraight not in result_word:
+            # print("enclinomen: " + result_word) # do not delete, may be useful
             fvi = first_vowel_index(result_word)
             if fvi is None and 'ъ' in result_word and 'ø' in result_word: # сънø > сан etc.
                fvi = result_word.find('ъ')
@@ -143,8 +143,8 @@ class PartOfSpeech():
          iterable_form = [stem]
          for submorph in morphChain: # w is submorph in ending, like -ov- and -i in bog-ov-i
             iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
-            for form in iterable_form:
-               form = self.accentize(current_AP, form)
+            #for form in iterable_form:
+            #   form = self.accentize(current_AP, form)
          return iterable_form
       else:
          return self._append_morpheme(current_AP, [stem], morphChain[0])

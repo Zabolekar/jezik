@@ -29,7 +29,8 @@ def page_not_found(_):
 def random():
    word, yat = random_key()
    if yat == "je":
-      kwargs = {"word": word, "in": "ije", "out": "je"} # because input doesn't differentiate between what we call jekav and ijekav
+      kwargs = {"word": word, "in": "ije", "out": "je"} 
+      ## because input doesn't differentiate between what we call jekav and ijekav
    else: # e or ije
       kwargs = {"word": word, "in": yat, "out": yat}
    return redirect(url_for("results", **kwargs))
@@ -40,6 +41,8 @@ def about():
 
 @app.route("/favicon.ico")
 def favicon():
-   return send_from_directory(os.path.join(app.root_path, "static"),
-                              "favicon.ico",
-                              mimetype="image/vnd.microsoft.icon")
+   return send_from_directory(
+      os.path.join(app.root_path, "static"),
+      "favicon.ico",
+      mimetype="image/vnd.microsoft.icon"
+   )
