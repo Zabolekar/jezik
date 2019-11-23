@@ -162,3 +162,22 @@ def test_vocative():
    assert lookup("пуж")["pl voc"].multiform == ["пу́жеви", "пу̑жи"]
    assert lookup("град")["sg voc"].multiform == ["гра̑де"]
    assert lookup("град")["pl voc"].multiform == ["гра̏дови", "гра̑ди"]
+
+def test_igla():
+   """
+      Tests words that start with a pre-shift stressed vowel and end with a vowel.
+      They used to have a bug, we want to make sure it won't silently reappear.
+   """
+   igla = lookup("igla")
+   assert len(igla._tables) == 1
+   assert [form for name, form in igla._tables[0]] == [
+      ['ìgla'], ['ȉglu'], ['ìglē'], ['ȉgli'], ['ìglōm'], ['ìgli'], ['ȉglo'],
+      ['ȉgle'], ['ȉgle'], ['igálā'], ['ìglama'], ['ìglama'], ['ìglama'], ['ȉgle']
+   ]
+   ovca = lookup("овца")
+   assert len(igla._tables) == 1
+   assert [form for name, form in ovca._tables[0]] == [
+      ['о́вца'], ['о́вцу'], ['о́вце̄'], ['о́вци'], ['о́вцо̄м'], ['о́вци'], ['о̑вцо'],
+      ['о̑вце'], ['о̑вцe'], ['ова́ца̄'], ['о́вцама', 'о̀вцама'], ['о́вцама', 'о̀вцама'], ['о́вцама', 'о̀вцама'], ['о̑вце']
+   ]
+   # another similar word would be igra
