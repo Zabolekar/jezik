@@ -104,7 +104,8 @@ class PartOfSpeech():
       for pair in connectenda:
          # accentizing endings (?)
          if current_AP in accent:
-            if cstraight in pair[0] and not '0' in pair[1]: # TODO: provide example for this
+            if cstraight in pair[0] and not '0' in pair[1]:
+               # e.g. ['Аргенти̍·̄на̄ц', 'а̄'] or ['вр̥х>œ̍̄в', 'а̄']
                pair[1] = pair[1].replace('·', '')
             if 'q' in current_AP:
                pair[1] = pair[1].replace('0', '')

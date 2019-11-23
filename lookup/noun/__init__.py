@@ -182,17 +182,6 @@ class Noun(PartOfSpeech):
          for case in retraction:
             result.append(_apply_neocirk(stem, lvi, pvi, morpheme, case))
 
-         if retraction == [0]:
-
-            # 8. in some cases (TODO: when??) we delete all straight accents and reinsert a new one at pvi
-            if lvi != fvi and pvi is not None \
-               and f"{cmacron}{cstraight}" in stem[lvi:] \
-                  and not cmacron in stem[:lvi] \
-                  and not 'q' in current_AP \
-                  and not 'c?' in current_AP:
-               stem = stem.replace(cstraight, '')
-               stem = insert(stem, {pvi+1: cstraight})
-
       else:
          result = [[stem, morpheme]]
 

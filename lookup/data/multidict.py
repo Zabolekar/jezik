@@ -58,7 +58,6 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
    """
-   # TODO: Latin
    accent_dict = i_to_accents(accent)
    tmp = s + 'ø' if not s[-1] in all_vowels else s
    if 'ʟ' in tmp:
