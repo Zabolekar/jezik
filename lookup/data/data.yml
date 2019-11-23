@@ -5299,11 +5299,11 @@
  t: A\all
  i: \1¨\a.,a.\
 
-битанжити се:
+битанжити:
  t: V\Refl\Ipf
  i: \1`,2_\o.\alpha
 
-побитанжити се:
+побитанжити:
  t: V\Refl\Pf
  i: \2`,3_\o.\alpha
 
@@ -5312,31 +5312,31 @@
  i: \1`,2_\o.\alpha
  c: тешко радити
 
-дѣвојчити:
+дѣвојчити I:
  t: V\Tr\Ipf
  i: \1`,2_\o.\alpha
 
-дѣвојчити се:
+дѣвојчити II:
  t: V\Refl\Ipf
  i: \1`,2_\o.\alpha
 
-задѣвојчити се:
+задѣвојчити:
  t: V\Refl\Pf
  i: \2`,3_\o.\alpha
 
-магарчити:
+магарчити I:
  t: V\Tr\Ipf
  i: \1`,2_\o.\alpha;\2´\p:\alpha
 
-магарчити се:
+магарчити II:
  t: V\Refl\Ipf
  i: \1`,2_\o.\alpha;\2´\p:\alpha
 
-намагарчити:
+намагарчити I:
  t: V\Tr\Pf
  i: \2`,3_\o.\alpha;\3´\p:\alpha
 
-намагарчити се:
+намагарчити II:
  t: V\Refl\Pf
  i: \2`,3_\o.\alpha;\3´\p:\alpha
 
@@ -5376,19 +5376,19 @@
  t: V\Tr\Pf
  i: \1`,3_\o.\alpha;\2`,3_\o.\alpha
 
-циганчити:
+циганчити I:
  t: V\Tr\Ipf
  i: \1¨,2_\o.\alpha;\1`,2_\o.\alpha
 
-циганчити се:
+циганчити II:
  t: V\Refl\Ipf
  i: \1¨,2_\o.\alpha;\1`,2_\o.\alpha
 
-поциганчити:
+поциганчити I:
  t: V\Tr\Pf
  i: \1`,3_\o.\alpha;\2`,3_\o.\alpha
 
-поциганчити се:
+поциганчити II:
  t: V\Refl\Pf
  i: \1`,3_\o.\alpha;\2`,3_\o.\alpha
 
@@ -5409,7 +5409,7 @@
  t: V\Itr\Ipf
  i: \1´\p:\delta
 
-разбукати се:
+разбукати:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
@@ -5481,7 +5481,7 @@
  t: V\Tr\Pf
  i: \2´\p:\delta
 
-навикати се:
+навикати:
  t: V\Refl\Pf
  i: \2´\p:\delta
  c: издовољити се извикивањем
@@ -5503,7 +5503,7 @@
  t: V\Tr\Pf
  i: \2´\p:\delta
 
-развикати се:
+развикати:
  t: V\Refl\Pf
  i: \2´\p:\delta
  
@@ -5527,7 +5527,7 @@
  t: V\Tr\Ipf
  i: \1´\p:\delta
 
-задихати се:
+задихати:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
@@ -5724,15 +5724,15 @@
  t: V\Itr\Ipf
  i: \1´\p:\delta
 
-кретати се:
+кретати II:
  t: V\Refl\Ipf
  i: \1´\p:\delta
 
-окретати:
+окретати I:
  t: V\Tr\Ipf
  i: \2´\p:\delta
 
-окретати се:
+окретати II:
  t: V\Refl\Ipf
  i: \2´\p:\delta
 
@@ -5768,27 +5768,27 @@
  t: V\Refl\Pf
  i: \2´\k:\beta
 
-лизати:
+лизати I:
  t: V\Tr\Ipf
  i: \1´\p:\delta
 
-лизати се:
+лизати II:
  t: V\Refl\Ipf
  i: \1´\p:\delta
 
-зализати:
+зализати I:
  t: V\Tr\Pf
  i: \2´\p:\delta
 
-зализати се:
+зализати II:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
-излизати:
+излизати I:
  t: V\Tr\Pf
  i: \2´\p:\delta
 
-излизати се:
+излизати II:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
@@ -5820,11 +5820,11 @@
  t: V\Refl\Pf
  i: \2´\p:\delta
 
-улизати:
+улизати I:
  t: V\Tr\Pf
  i: \2´\p:\delta
 
-улизати се:
+улизати II:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
@@ -5868,11 +5868,11 @@
  t: V\Itr\Ipf
  i: \2´\p:\delta
 
-налꙓтати:
+налꙓтати I:
  t: V\Itr\Ipf
  i: \2´\p:\delta
 
-налꙓтати се:
+налꙓтати II:
  t: V\Refl\Ipf
  i: \2´\p:\delta
 
@@ -5900,7 +5900,7 @@
  t: V\Itr\Ipf
  i: \2´\p:\delta
 
-разлꙓтати се:
+разлꙓтати:
  t: V\Refl\Ipf
  i: \2´\p:\delta
 
@@ -5924,7 +5924,7 @@
  t: V\Itr\Pf
  i: \2´\p:\delta
 
-замахати се:
+замахати II:
  t: V\Refl\Pf
  i: \2´\p:\delta
 
@@ -5936,7 +5936,7 @@
  t: V\Tr\Ipf
  i: \2@1´\p:\delta;\2@1´\k:\beta
 
-мркати се:
+мркати II:
  t: V\Refl\Ipf
  i: \2@1´\p:\delta;\2@1´\k:\beta
 
@@ -5948,7 +5948,7 @@
  t: V\Tr\Ipf
  i: \1´\p:\delta
 
-низати се:
+низати II:
  t: V\Refl\Ipf
  i: \1´\p:\delta
 
@@ -5989,15 +5989,15 @@
  t: V\Tr\Ipf
  i: \1´\p:\delta;\1´\k:\beta
 
-њихати се:
+њихати II:
  t: V\Refl\Ipf
  i: \1´\p:\delta;\1´\k:\beta
 
-зањихати:
+зањихати I:
  t: V\Tr\Pf
  i: \2´\p:\delta;\1´\k:\beta
 
-зањихати се:
+зањихати II:
  t: V\Refl\Pf
  i: \2´\p:\delta;\1´\k:\beta
 
@@ -6210,7 +6210,7 @@
  t: V\Itr\Pf
  i: \2`\s.\eta
 
-убаздѣти се:
+убаздѣти:
  t: V\Refl\Pf
  i: \2`\s.\eta
 
@@ -6250,11 +6250,11 @@
  t: V\Tr\Pf
  i: \2`\s.\eta
 
-поболѣти се:
+поболѣти:
  t: V\Refl\Pf
  i: \2`\s.\eta
 
-разболѣти се:
+разболѣти:
  t: V\Refl\Pf
  i: \2`\s.\eta
 
@@ -6906,7 +6906,7 @@
  i: \1^\c?\+
  c: и ско̏к :(
   
-смех:
+смꙓх:
  t: N\m
  i: \1^\b:\+
 
@@ -7239,7 +7239,7 @@
  t: V\Tr\Pf
  i: \2´\q:\eta
 
-иживѣти се:
+иживѣти II:
  t: V\Refl\Pf
  i: \2´\q:\eta
 
@@ -7267,11 +7267,11 @@
  t: V\Tr\Pf
  i: \2´\q:\eta
 
-саживѣти се:
+саживѣти:
  t: V\Refl\Pf
  i: \2´\q:\eta
 
-уживѣти се:
+уживѣти:
  t: V\Refl\Pf
  i: \2´\q:\eta
 
@@ -7295,7 +7295,7 @@
  t: V\Tr\Ipf
  i: \2@1`\s.\eta
 
-вртѣти се:
+вртѣти II:
  t: V\Refl\Ipf
  i: \2@1`\s.\eta
 
@@ -7315,7 +7315,7 @@
  t: V\Tr\Pf
  i: \3@2`\s.\eta
  
-узвртѣти се:
+узвртѣти:
  t: V\Refl\Pf
  i: \4@2`\s.\eta
  
@@ -7323,7 +7323,7 @@
  t: V\Tr\Pf
  i: \4@2`\s.\eta
 
-завртѣти се:
+завртѣти II:
  t: V\Tr\Pf
  i: \4@2`\s.\eta
 
@@ -7343,7 +7343,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-носити се:
+носити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -7365,7 +7365,7 @@
  i: \2`\p.\alpha
  c: искористити, истрошити
 
-износити се:
+износити III:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
  c: изрицати се
@@ -7374,7 +7374,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-надносити се:
+надносити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7398,7 +7398,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-преносити се:
+преносити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7406,7 +7406,7 @@
  t: V\Tr\Ipf
  i: \3`\p.\alpha
 
-преузносити се:
+преузносити II:
  t: V\Refl\Ipf
  i: \3`\p.\alpha
 
@@ -7438,7 +7438,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-уносити се:
+уносити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7450,7 +7450,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-заносити се:
+заносити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7462,7 +7462,7 @@
  t: V\Tr\Pf
  i: \3`\p.\alpha
 
-изговорити се:
+изговорити II:
  t: V\Refl\Pf
  i: \3`\p.\alpha
 
@@ -7486,7 +7486,7 @@
  t: V\Tr\Pf
  i: \3`\p.\alpha
 
-заговорити се:
+заговорити:
  t: V\Refl\Pf
  i: \3`\p.\alpha
 
@@ -7506,11 +7506,11 @@
  t: V\Tr\Pf
  i: \3`\p.\alpha;\3`\r.\alpha
 
-пријатељити се:
+пријатељити II:
  t: V\Refl\Ipf
  i: \3`\p.\alpha;\3`\r.\alpha
 
-спријатељити се:
+спријатељити II:
  t: V\Refl\Pf
  i: \3`\p.\alpha;\3`\r.\alpha
 
@@ -7530,7 +7530,7 @@
  t: V\Tr\Ipf
  i: \1`\r.\alpha
 
-губити се:
+губити II:
  t: V\Refl\Ipf
  i: \1`\r.\alpha
 
@@ -7538,7 +7538,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-изгубити се:
+изгубити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7550,7 +7550,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-загубити се:
+загубити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7590,7 +7590,7 @@
  t: V\Itr\Ipf
  i: \1¨\y0\beta
 
-засјати се:
+засјати:
  t: V\Refl\Pf
  i: \1`\n.\beta
 
@@ -7598,7 +7598,7 @@
  t: V\Tr\Pf
  i: \2`\x.\beta
 
-разасјати се:
+разасјати:
  t: V\Refl\Pf
  i: \2`\x.\beta
 
@@ -7622,7 +7622,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-возити се:
+возити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -7638,7 +7638,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-навозити се:
+навозити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7646,7 +7646,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-превозити се:
+превозити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7654,11 +7654,11 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-увозити:
+увозити I:
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-увозити се:
+увозити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7702,7 +7702,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-проводити се:
+проводити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7710,7 +7710,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-сводити се:
+сводити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -7746,7 +7746,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-женити се:
+женити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -7754,7 +7754,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-оженити се:
+оженити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7762,7 +7762,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-поженити се:
+поженити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7770,7 +7770,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-приженити се:
+приженити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7778,7 +7778,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-козити се:
+козити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -7821,7 +7821,7 @@
  i: \1´\p:\alpha
  c: размицати, ширити (ноге)
 
-кречити се:
+кречити III:
  t: V\Refl\Ipf
  i: \1´\p:\alpha
  c: размицати, ширити ноге
@@ -7830,7 +7830,7 @@
  t: V\Tr\Ipf
  i: \2´\p:\alpha
 
-раскречити се:
+раскречити II:
  t: V\Refl\Ipf
  i: \2´\p:\alpha
 
@@ -7842,7 +7842,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-молити се:
+молити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -7851,7 +7851,7 @@
  i: \2`\p.\alpha
  c: показати (напр. нос)
 
-помолити се:
+помолити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
  c: показати се
@@ -7892,7 +7892,7 @@
  t: V\Tr\Pf
  i: \1`\p.\alpha
 
-пустити се:
+пустити II:
  t: V\Refl\Pf
  i: \1`\p.\alpha
 
@@ -7918,7 +7918,7 @@
  i: \2`\p.\alpha
  c: опустошити
 
-опустити се:
+опустити III:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7950,7 +7950,7 @@
  t: V\Tr\Pf
  i: \1`\p.\alpha
 
-спустити се:
+спустити II:
  t: V\Refl\Pf
  i: \1`\p.\alpha
 
@@ -7958,7 +7958,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-запустити се:
+запустити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7966,7 +7966,7 @@
  t: V\Tr\Pf
  i: \1`\p.\alpha;\1`\r.\alpha
 
-родити се:
+родити II:
  t: V\Refl\Pf
  i: \1`\p.\alpha;\1`\r.\alpha
 
@@ -7974,11 +7974,11 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-изродити се:
+изродити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
-народити се:
+народити:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7986,7 +7986,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-одродити се:
+одродити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -7994,11 +7994,11 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
  
-породити се:
+породити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
-сродити се:
+сродити:
  t: V\Refl\Pf
  i: \1`\p.\alpha
 
@@ -8006,7 +8006,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-селити се:
+селити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -8014,7 +8014,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-доселити се:
+доселити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -8022,7 +8022,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-иселити се:
+иселити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -8030,7 +8030,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-преселити се:
+преселити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -8038,7 +8038,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-раселити се:
+раселити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -8046,7 +8046,7 @@
  t: V\Tr\Pf
  i: \2`\p.\alpha
 
-уселити се:
+уселити II:
  t: V\Refl\Pf
  i: \2`\p.\alpha
 
@@ -8078,7 +8078,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-телити се:
+телити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -8086,7 +8086,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-отелити се:
+отелити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -8102,7 +8102,7 @@
  t: V\Itr\Ipf
  i: \2`\p.\alpha
 
-опходити се:
+опходити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -8130,7 +8130,7 @@
  t: V\Tr\Ipf
  i: \1`\p.\alpha
 
-штенити се:
+штенити II:
  t: V\Refl\Ipf
  i: \1`\p.\alpha
 
@@ -8138,7 +8138,7 @@
  t: V\Tr\Ipf
  i: \2`\p.\alpha
 
-оштенити се:
+оштенити II:
  t: V\Refl\Ipf
  i: \2`\p.\alpha
 
@@ -8175,7 +8175,7 @@
  t: V\Tr\Pf
  i: \2`\m.\epsilon
  
-напсовати се:
+напсовати II:
  t: V\Refl\Pf
  i: \2`\m.\epsilon
  
@@ -8183,7 +8183,7 @@
  t: V\Tr\Pf
  i: \2`\m.\epsilon
  
-испсовати се:
+испсовати II:
  t: V\Refl\Pf
  i: \2`\m.\epsilon
 
@@ -8293,7 +8293,7 @@
  t: V\Tr\Ipf
  i: \1¨\y0\beta
 
-знати се:
+знати II:
  t: V\Refl\Ipf
  i: \1¨\y0\beta
 
@@ -8377,7 +8377,7 @@
  t: V\Tr\Pf
  i: \2`\r.\alpha
 
-научити се:
+научити II:
  t: V\Refl\Pf
  i: \2`\r.\alpha
 
@@ -8385,7 +8385,7 @@
  t: V\Tr\Pf
  i: \2`\r.\alpha
 
-одучити се:
+одучити II:
  t: V\Refl\Pf
  i: \2`\r.\alpha
 
@@ -8613,7 +8613,7 @@
  t: V\Tr\Ipf
  i: \1¨\o.\alpha
 
-искрити се:
+искрити II:
  t: V\Refl\Ipf
  i: \1¨\o.\alpha
 
@@ -8621,7 +8621,7 @@
  t: V\Tr\Ipf
  i: \2@1¨\o.\alpha
 
-грлити се:
+грлити II:
  t: V\Refl\Ipf
  i: \2@1¨\o.\alpha
 
@@ -8629,7 +8629,7 @@
  t: V\Tr\Pf
  i: \4@1`\o.\alpha
 
-загрлити се:
+загрлити II:
  t: V\Refl\Pf
  i: \4@1`\o.\alpha
 
@@ -8637,7 +8637,7 @@
  t: V\Tr\Pf
  i: \4@1`\o.\alpha
 
-обгрлити се:
+обгрлити II:
  t: V\Refl\Pf
  i: \4@1`\o.\alpha
 
@@ -8645,7 +8645,7 @@
  t: V\Tr\Pf
  i: \3@1`\o.\alpha
 
-огрлити се:
+огрлити II:
  t: V\Refl\Pf
  i: \3@1`\o.\alpha
 
@@ -8653,7 +8653,7 @@
  t: V\Tr\Pf
  i: \5@1`\o.\alpha
 
-прегрлити се:
+прегрлити II:
  t: V\Refl\Pf
  i: \5@1`\o.\alpha
 
@@ -8669,7 +8669,7 @@
  t: V\Tr\Ipf
  i: \1´\p:\alpha
 
-мутити се:
+мутити II:
  t: V\Refl\Ipf
  i: \1´\p:\alpha
 
@@ -8677,7 +8677,7 @@
  t: V\Tr\Pf
  i: \2´\p:\alpha
 
-замутити се:
+замутити II:
  t: V\Refl\Pf
  i: \2´\p:\alpha
 
@@ -8685,7 +8685,7 @@
  t: V\Tr\Pf
  i: \2´\p:\alpha
 
-помутити се:
+помутити II:
  t: V\Refl\Pf
  i: \2´\p:\alpha
 
@@ -8693,7 +8693,7 @@
  t: V\Tr\Ipf
  i: \1´\p:\alpha
 
-хвалити се:
+хвалити II:
  t: V\Refl\Ipf
  i: \1´\p:\alpha
 
@@ -8701,7 +8701,7 @@
  t: V\Tr\Pf
  i: \2´\p:\alpha
 
-нахвалити се:
+нахвалити II:
  t: V\Refl\Pf
  i: \2´\p:\alpha
 
@@ -8709,7 +8709,7 @@
  t: V\Tr\Pf
  i: \2´\p:\alpha
 
-похвалити се:
+похвалити II:
  t: V\Refl\Pf
  i: \2´\p:\alpha
 
@@ -8717,7 +8717,7 @@
  t: V\Tr\Pf
  i: \2´\p:\alpha
 
-захвалити се:
+захвалити II:
  t: V\Refl\Pf
  i: \2´\p:\alpha
 
@@ -8873,7 +8873,7 @@
  t: V\Itr\Ipf
  i: \1¨\o.\epsilon
 
-руковати се:
+руковати II:
  t: V\Refl\Ipf
  i: \1¨\o.\epsilon
 
@@ -8973,7 +8973,7 @@
  t: V\Tr\Ipf
  i: \3´\k’\zeta
 
-дочекивати се:
+дочекивати II:
  t: V\Refl\Ipf
  i: \3´\k’\zeta
 
@@ -9009,7 +9009,7 @@
  t: V\Tr\Ipf
  i: \2@1`\x.\mu
 
-држати се:
+држати II:
  t: V\Refl\Ipf
  i: \2@1`\x.\mu
 
@@ -9021,7 +9021,7 @@
  t: V\Tr\Pf
  i: \3@2`\x.\mu
 
-одржати се:
+одржати II:
  t: V\Refl\Pf
  i: \3@2`\x.\mu
 
@@ -9041,19 +9041,19 @@
  t: V\Tr\Pf
  i: \4@2`\x.\mu
 
-задржати се:
+задржати II:
  t: V\Refl\Pf
  i: \4@2`\x.\mu
 
-бојати се:
+бојати:
  t: V\Refl\Ipf
  i: \1`\x.\mu
 
-побојати се:
+побојати:
  t: V\Refl\Pf
  i: \1`\x.\mu
 
-убојати се:
+убојати:
  t: V\Refl\Pf
  i: \2`\x.\mu
 
@@ -9061,15 +9061,15 @@
  t: V\Itr\Ipf
  i: \1`\x.\mu
 
-залежати се:
+залежати:
  t: V\Refl\Pf
  i: \2`\x.\mu
 
-излежати се:
+излежати:
  t: V\Refl\Pf
  i: \2`\x.\mu
 
-належати се:
+належати:
  t: V\Refl\Pf
  i: \2`\x.\mu
 
@@ -9085,7 +9085,7 @@
  t: V\Itr\Pf
  i: \2`\x.\mu
 
-разлежати се:
+разлежати:
  t: V\Refl\Pf
  i: \2`\x.\mu
 
@@ -9097,7 +9097,7 @@
  t: V\Itr\Pf
  i: \4@2`\x.\mu
 
-затрчати се:
+затрчати:
  t: V\Refl\Pf
  i: \4@2`\x.\mu
 
@@ -9105,7 +9105,7 @@
  t: V\Itr\Pf
  i: \4@2`\x.\mu
 
-истрчати се:
+истрчати II:
  t: V\Refl\Pf
  i: \4@2`\x.\mu
 
@@ -9113,7 +9113,7 @@
  t: V\Itr\Pf
  i: \4@2`\x.\mu
 
-натрчати се:
+натрчати II:
  t: V\Refl\Pf
  i: \4@2`\x.\mu
 
@@ -9137,15 +9137,15 @@
  t: V\Itr\Pf
  i: \5@2`\x.\mu
 
-стрчати се:
+стрчати:
  t: V\Refl\Pf
  i: \3@1`\x.\mu
 
-утрчати:
+утрчати I:
  t: V\Itr\Pf
  i: \3@2`\x.\mu
 
-устрчати се:
+устрчати II:
  t: V\Refl\Pf
  i: \4@2`\x.\mu
 

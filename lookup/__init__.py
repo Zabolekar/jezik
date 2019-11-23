@@ -10,7 +10,7 @@ PartOfSpeech = Union[
    Type[Adjective],
    Type[Noun],
    Type[None]
-   ]
+]
 
 def part_of_speech(kind: str) -> PartOfSpeech:
    POS = kind.split('\\')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink

@@ -1,18 +1,21 @@
 {% extends "search.html" %}
 {% block results %}
 <div id="tables-or-not-found">
+   {% if tables|length > 1 %}
+      Пронађено <b>{{ tables|length }}</b> резултата:<br><br>
+   {% endif %}
    {% for table in tables %}
       <table id="result_table">
          <caption>
             {{ table.caption }}
          </caption>
          {% include table.pos + ".html" %}
-      </table>
+      </table><br>
    {% else %}
       <div id="word-not-found">
          Реч&nbsp;„{{ tables.input }}”&nbsp;није&nbsp;пронађена 😞
       </div>
+      <br>
    {% endfor %}
-   <br>
 </div>
 {% endblock %}

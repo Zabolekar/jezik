@@ -2,6 +2,7 @@ from typing import Dict, Generic, List, NamedTuple, Iterator, Tuple, TypeVar
 import random
 from ..utils import all_vowels, cyr2lat, deaccentize, expose, garde
 from ..paradigm_helpers import accentize, i_to_accents
+from ..charutils import cmacron
 
 Replacement = Tuple[str, List[str]]
 
@@ -34,6 +35,9 @@ class Multidict(Generic[KT, VT]):
    def __iter__(self):
       return iter(self._data)
 
+   def __len__(self):
+      return len(self._data)
+
 # This Multidict was good enough for some time, but it didn't allow us to
 # look a word up using more than one notation. Furthermore, the only supported
 # notation was the one we use to store words in the data.yml (see NOTATION.md),
@@ -53,7 +57,9 @@ class Entry(NamedTuple):
    amendments: Tuple[Replacement, ...]
 
 
-def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
+def inner_to_outer(
+   s: str, accent: str, double_adj_form:bool=False
+) -> Iterator[Tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
@@ -67,7 +73,6 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
    else:
       tmp_list = [tmp]
 
-
    for input_yat in ["e", "je", "ije"]:
       for item in tmp_list:
          accented_token = garde(accentize(item, accent_dict.r, accent_dict.v))
@@ -75,6 +80,12 @@ def inner_to_outer(s: str, accent: str) -> Iterator[Tuple[str, str]]:
          deaccentized_token = deaccentize(exposed_token).lower()
          yield deaccentized_token, input_yat
          yield cyr2lat(deaccentized_token), input_yat
+         if double_adj_form:
+            deaccentized_token2 = deaccentize(expose(
+               accented_token.replace("ъ", "")+f"и{cmacron}"
+            )).lower()
+            yield deaccentized_token2, input_yat
+            yield cyr2lat(deaccentized_token2), input_yat
 
 
 class FancyLookup:
@@ -99,7 +110,8 @@ class FancyLookup:
       else:
          first_accent = ""
 
-      for outer_key, input_yat in inner_to_outer(inner_key, first_accent):
+      double_adj_form = ("all" in value.type) # bool: do we have dobar/dobri, zao/zli
+      for outer_key, input_yat in inner_to_outer(inner_key, first_accent, double_adj_form):
          outer_keys_ = outer_key.split('\\')
          for outer_key_ in outer_keys_:
             self._outer_to_inner[(outer_key_, input_yat)] = inner_key

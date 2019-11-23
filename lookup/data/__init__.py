@@ -7,6 +7,8 @@ data = FancyLookup()
 dir_path = path.dirname(path.realpath(__file__))
 file_path = path.join(dir_path, "data.yml")
 
+posdict = {"N": "именица", "V": "глагол", "A": "придев"}
+
 with open(file_path, encoding="utf-8") as f:
    raw_data = yaml.safe_load(f)
    for full_key in raw_data.keys():
@@ -14,7 +16,7 @@ with open(file_path, encoding="utf-8") as f:
       first_space = full_key.find(" ")
       if first_space != -1:
          key = full_key[:first_space]
-         disambiguator = full_key[first_space+1:]
+         disambiguator = full_key[first_space+1:] + ":"
       else:
          key = full_key
          disambiguator = ""
@@ -30,15 +32,19 @@ with open(file_path, encoding="utf-8") as f:
          amendments = {x: y.split(", ") for x, y in raw_data[full_key]["add"].items() }
       except KeyError:
          amendments = {}
-      if disambiguator and comment:
-         caption = f"{disambiguator} ({comment})"
-      else:
-         caption = disambiguator + comment
+      
       raw_entry = raw_data[full_key]
+      current_pos = posdict[raw_entry["t"][0]]
+      
+      if disambiguator and comment:
+         caption = f"{disambiguator} {current_pos} ({comment})"
+      else:
+         caption = f"{disambiguator} {current_pos} {comment}"
+      
       data[key] = Entry(
          caption,
          raw_entry["t"],
          raw_entry["i"],
          tuple(replacements.items()),
          tuple(amendments.items())
-         )
+      )
