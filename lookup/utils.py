@@ -119,7 +119,7 @@ def deyerify(form: str) -> str:
          form = form.replace(repl, repl_dict[repl])
       form = form.replace('ъ', '')
    match = re.search(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}', form)
-   if match: # if TODO what if?
+   if match: 
       wrong_acc_index = match.span()[0]
       form = form.replace(cstraight, '')
       lvi = last_vowel_index(form[:wrong_acc_index+2])
@@ -283,7 +283,7 @@ def ungarde(form: str) -> str:
       if shifted:
          chars.insert(new_accent_index, cgrave) #rising
       elif old_accent_index == 0:
-         chars.insert(old_accent_index + 1, cdoublegrave) #falling
+         chars.insert(1, cdoublegrave) #falling
       else:
          chars.insert(old_accent_index, cdoublegrave) #falling
 
