@@ -65,7 +65,7 @@ def test_magarciti():
    assert [a for _, [a] in lookup("магарчити се")["aor sg"][0]] == ["ма̀га̄рчих се", "ма̏га̄рчӣ се", "ма̏га̄рчӣ се"]
    assert [a for _, [a] in lookup("магарчити се")["pf f sg"][1]] == ["мага́рчила се"]
 
-@pytest.mark.xfail
+@pytest.mark.xfail # TODO: make it pass
 def test_dub():
    assert [a for _, a in lookup("дуб")["ins pl"]] == [["дубо̀вима", "ду̏бовима", "ду́бима", "ду̑бима"]]
    assert [a for _, a in lookup("дуб")["gen pl"]] == [["дубо́ва̄", "ду̏бо̄ва̄", "ду́ба̄"]]
@@ -181,3 +181,15 @@ def test_igla():
       ['о̑вце'], ['о̑вцe'], ['ова́ца̄'], ['о́вцама', 'о̀вцама'], ['о́вцама', 'о̀вцама'], ['о́вцама', 'о̀вцама'], ['о̑вце']
    ]
    # another similar word would be igra
+
+def test_multiple_accents():
+   assert lookup("жутомрк")["m sg nom short"].multiform == ['жу́томр̥̏к']
+   assert lookup("жутомрк")["f sg nom short"].multiform == ['жу́томр̥̏ка']
+   assert lookup("српскохрватски")["m sg nom"].multiform == ['ср̥̏пскохр̥̀ва̄тскӣ']
+   assert lookup("hrvatskosrpski")["m sg nom"].multiform == ['hr̥̀vātskosȑ̥pskī']
+
+@pytest.mark.xfail # TODO: make it pass
+def test_plavosiv():
+   "Similar to test_multiple_accents, but has its own peculiarities"
+   assert lookup("плавосив")["m sg nom short"].multiform == ['пла́воси̑в']
+   assert lookup("плавосив")["f sg nom short"].multiform == ['пла́воси́ва']

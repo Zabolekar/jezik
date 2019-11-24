@@ -19,6 +19,9 @@ def test_ungarde():
    "ср\u0325\u030fпскохр\u0325\u0300ва\u0304тски\u0304",
    "хр\u0325\u0300ва\u0304тскоср\u0325\u030fпски\u0304", "к"]
 
+def test_ungarde_additional_bang():
+   assert ungarde("пла̄во̍с!ӣва̍") == ungarde("пла̄во̍сӣва̍") == "пла́воси́ва"
+
 def test_garde():
    assert [garde(i) for i in [
    "do\u030fbar", "dȃn", "no\u0300ga",

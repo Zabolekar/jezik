@@ -290,7 +290,8 @@ def ungarde(form: str) -> str:
    return ("".join(chars)
              .replace(f'{cgrave}{cmacron}', cacute) #long rising
              .replace(f'{cmacron}{cdoublegrave}', ccircumflex)
-             .replace(f'{cdoublegrave}{cmacron}', ccircumflex)) #long falling
+             .replace(f'{cdoublegrave}{cmacron}', ccircumflex) #long falling
+             .replace('!', '')) # for cases where ! is not right before the accented syllable
 
 def debracketify(form: str) -> str:
       if '>' in form:
