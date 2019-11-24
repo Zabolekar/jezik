@@ -118,10 +118,8 @@ class PartOfSpeech():
             pair[0] = pair[0].replace('·', cstraight)
 
          result_word = pair[0] + pair[1]
-         # accentizing enclinomena (words without accent)
-         #if all(x not in current_AP for x in ['o', 'a', 'b', 'e']) and # TODO: is this line needed?
-         if cstraight not in result_word:
-            # print("enclinomen: " + result_word) # do not delete, may be useful
+         # accentizing enclinomena (words without accent that receive automatic accent on first syllable)
+         if cstraight not in result_word: # result_word is enclinomen
             fvi = first_vowel_index(result_word)
             if fvi is None and 'ъ' in result_word and 'ø' in result_word: # сънø > сан etc.
                fvi = result_word.find('ъ')
@@ -144,8 +142,6 @@ class PartOfSpeech():
          iterable_form = [stem]
          for submorph in morphChain: # w is submorph in ending, like -ov- and -i in bog-ov-i
             iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
-            #for form in iterable_form:
-            #   form = self.accentize(current_AP, form)
          return iterable_form
       else:
          return self._append_morpheme(current_AP, [stem], morphChain[0])

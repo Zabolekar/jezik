@@ -259,7 +259,7 @@ def purify(form: str) -> str:
            )
 
 def ungarde(form: str) -> str:
-   chars = list(form)
+   chars = list(form) # splitting string into characters
    while cstraight in chars:
       old_accent_index = chars.index(cstraight)
       chars.pop(old_accent_index)
