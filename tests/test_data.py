@@ -37,4 +37,19 @@ def test_rings():
             accent_info = word.info.split('\\')[1]
             r_info = int(accent_info.split('@')[0])
             if inner_key[r_info-1] not in ['р', 'Р']:
-               raise ValueError(inner_key + ': ' + str(r_info))
+               raise ValueError("Bad R: " + inner_key + ': ' + str(r_info))
+
+def test_paradigms():
+   """Ensure that accent paradigms are desribed well"""
+   for outer_key, _ in data._outer_to_inner:
+      for inner_key, word in data[outer_key, 'ekav']:
+         assert 0 == 1
+         paradigms = [x.split("\\")[2] for x in word.info.split(";")]
+         for paradigm in paradigms:
+            assert paradigm is str, type(paradigm)
+            if len(paradigm) == 2:
+               assert paradigm[0].isalpha and not paradigm[1].isalpha, paradigm
+            elif len(paradigm) in [4, 5]:
+               assert paradigm[-3] == ",", paradigm
+            else:
+               raise ValueError("bad paradigm len: " + paradigm)
