@@ -106,10 +106,10 @@ class Verb(PartOfSpeech):
 
 
    def multiforms(
-      self, 
-      *, 
-      variant: Optional[int] = None, 
-      yat:str="e", 
+      self,
+      *,
+      variant: Optional[int] = None,
+      yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
       """conjugate"""

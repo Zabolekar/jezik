@@ -34,7 +34,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
       key = key[:-3]
 
    for inner_key, (caption, kind, info, replacements, amendments) in data[key, input_yat]:
-      POS = part_of_speech(kind) 
+      POS = part_of_speech(kind)
       # # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
          verb = Verb(inner_key, kind, info, replacements, amendments)
@@ -68,8 +68,8 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table(
-               "noun", 
-               full_caption, 
+               "noun",
+               full_caption,
                noun.multiforms(variant=i, yat=output_yat, latin=latin)
             )
       else:

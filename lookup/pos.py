@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
 from .utils import first_vowel_index, last_vowel_index, insert
 from .charutils import cstraight, cmacron
@@ -11,7 +11,7 @@ def _swap(trunk: str, AP: str) -> str:
    lvi = last_vowel_index(trunk)
    last_macron = trunk.rfind(cmacron)
 
-   if lvi is not None: # if the word has vowels 
+   if lvi is not None: # if the word has vowels
       if AP.endswith(':') and lvi+1 != last_macron and lvi+2 != last_macron:
          return insert(trunk, {lvi+1: cmacron}) # insert macron if needed
 

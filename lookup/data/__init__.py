@@ -32,15 +32,15 @@ with open(file_path, encoding="utf-8") as f:
          amendments = {x: y.split(", ") for x, y in raw_data[full_key]["add"].items() }
       except KeyError:
          amendments = {}
-      
+
       raw_entry = raw_data[full_key]
       current_pos = posdict[raw_entry["t"][0]]
-      
+
       if disambiguator and comment:
          caption = f"{disambiguator} {current_pos} ({comment})"
       else:
          caption = f"{disambiguator} {current_pos} {comment}"
-      
+
       data[key] = Entry(
          caption,
          raw_entry["t"],

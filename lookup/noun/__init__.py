@@ -19,8 +19,8 @@ def _apply_neocirk(
 
    for _ in range(retraction):
       # word unaccented, has vowels: accentize last vowel
-      if cstraight not in stem: 
-         if lvi is not None: 
+      if cstraight not in stem:
+         if lvi is not None:
             stem = insert(stem, {lvi+1: cstraight})
             morpheme = morpheme.replace('·', '') # no further possibilities to accentize it
       elif lvi is not None and pvi is not None:
@@ -241,11 +241,11 @@ class Noun(PartOfSpeech):
 
                if label in self.amendments:
                   ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
-               
+
                result = [self._expose(form, yat, latin) for form in ready_forms]
                yield nice_name(label), list(OrderedSet(result))
 
-      else: 
+      else:
          for label in self.amendments:
             result = [
                self._expose(form, yat, latin)

@@ -119,7 +119,7 @@ def deyerify(form: str) -> str:
          form = form.replace(repl, repl_dict[repl])
       form = form.replace('ъ', '')
    match = re.search(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}', form)
-   if match: 
+   if match:
       wrong_acc_index = match.span()[0]
       form = form.replace(cstraight, '')
       lvi = last_vowel_index(form[:wrong_acc_index+2])
@@ -190,8 +190,8 @@ def garde(word: str) -> str: # Garde's accentuation
 
       # if not 'there is a falling accent and it is not of the first syllable'
       # then the word is garded the usual way
-      if not ((fvi + 1 != short_desc_index and short_desc_index != -1) \
-           or (fvi + 1 != long_desc_index and long_desc_index != -1)):
+      if short_desc_index in (fvi + 1, -1) \
+           and long_desc_index in (fvi + 1, -1):
          word2 = result
          insert_bool = False
          insert_dict = {}

@@ -24,7 +24,7 @@ def test_no_exceptions():
                for form in labeled_multiform[1]:
                   if any(form.startswith(x) for x in four_accents + cmacron):
                      bad_multiforms.append(labeled_multiform)
-   if len(bad_multiforms):
+   if bad_multiforms:
       print(bad_multiforms)
       raise ValueError("impossible accentuation")
 
@@ -34,21 +34,21 @@ def test_rings():
       for inner_key, word in data[outer_key, 'e']:
          if '@' in word.info:
             accent_info = word.info.split('\\')[1]
-            r_info = accent_info.split('@')[0]
+            r_info: str = accent_info.split('@')[0]
             # mostly there is only one index, but there are words like српскохрватски:
-            r_indices = [int(s) for s in r_info.split(",")]
+            r_indices = (int(s) for s in r_info.split(","))
             for i in r_indices:
-               if inner_key[i-1] not in ['р', 'Р']:
-                  raise ValueError("Bad R: " + inner_key + ': ' + str(r_info))
+               if inner_key[i - 1] not in ('р', 'Р'):
+                  raise ValueError("Bad R: " + inner_key + ': ' + r_info)
 
 @pytest.mark.xfail
 def test_paradigms():
    """Ensure that accent paradigms are desribed well"""
    for outer_key, _ in data._outer_to_inner:
-      for inner_key, word in data[outer_key, 'e']:
+      for _, word in data[outer_key, 'e']:
          paradigms = [x.split("\\")[2] for x in word.info.split(";")]
          for paradigm in paradigms:
-            assert type(paradigm) is str, paradigm
+            assert isinstance(paradigm, str), paradigm
             if len(paradigm) == 2:
                assert paradigm[0].isalpha() and not paradigm[1].isalpha(), paradigm
             elif len(paradigm) in [4, 5]:

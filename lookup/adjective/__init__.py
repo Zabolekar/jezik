@@ -98,7 +98,7 @@ class Adjective(PartOfSpeech):
 
             if label in self.amendments:
                ready_forms += [
-                  expose_replacement(w_form, yat, latin) 
+                  expose_replacement(w_form, yat, latin)
                   for w_form in self.amendments[label]
                ]
             result = [self._expose(w_form, yat, latin) for w_form in ready_forms]

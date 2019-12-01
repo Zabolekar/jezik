@@ -1,3 +1,3 @@
 [MESSAGES CONTROL]
-disable=W0311, C0103, C0326, C0330, R0903, C0111
-#, W0511, C0301
+disable=W0311, C0103, C0326, C0330, R0903, R1705, R1720, C0111
+#, W0511, C0301 # sometimes it's useful to quickly turn these two off and on
