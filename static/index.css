@@ -124,6 +124,10 @@ div#error {
    width: 100%;
 }
 
+.noselect {
+   user-select: none;
+}
+
 #options {
    display: inline-block;
    width: 430px;
