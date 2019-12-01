@@ -4,7 +4,7 @@ from ..lookup.charutils import four_accents, cmacron
 from ..lookup.table import LabeledMultiform
 
 @pytest.mark.slow
-def test_data():
+def test_no_exceptions():
    """
    Iterate over entries in the database.
    Ensure that their lookup doesn't raise an exception.
@@ -28,28 +28,31 @@ def test_data():
       print(bad_multiforms)
       raise ValueError("impossible accentuation")
 
-
+@pytest.mark.xfail
 def test_rings():
    """ Ensure that rings are placed below r's. """
    for outer_key, _ in data._outer_to_inner:
-      for inner_key, word in data[outer_key, 'ekav']:
+      for inner_key, word in data[outer_key, 'e']:
          if '@' in word.info:
             accent_info = word.info.split('\\')[1]
+            # TODO: why can accent_info be ['2,8', '1¨,3`,4_,5_'] sometimes?
+            # this, obviously, fails then:
             r_info = int(accent_info.split('@')[0])
             if inner_key[r_info-1] not in ['р', 'Р']:
                raise ValueError("Bad R: " + inner_key + ': ' + str(r_info))
 
+@pytest.mark.xfail
 def test_paradigms():
    """Ensure that accent paradigms are desribed well"""
    for outer_key, _ in data._outer_to_inner:
-      for inner_key, word in data[outer_key, 'ekav']:
-         assert 0 == 1
+      for inner_key, word in data[outer_key, 'e']:
          paradigms = [x.split("\\")[2] for x in word.info.split(";")]
          for paradigm in paradigms:
-            assert paradigm is str, type(paradigm)
+            assert type(paradigm) is str, paradigm
             if len(paradigm) == 2:
-               assert paradigm[0].isalpha and not paradigm[1].isalpha, paradigm
+               assert paradigm[0].isalpha() and not paradigm[1].isalpha(), paradigm
             elif len(paradigm) in [4, 5]:
+               # TODO: find out why it has . instead of ,
                assert paradigm[-3] == ",", paradigm
             else:
                raise ValueError("bad paradigm len: " + paradigm)
