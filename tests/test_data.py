@@ -41,18 +41,18 @@ def test_rings():
                if inner_key[i - 1] not in ('р', 'Р'):
                   raise ValueError("Bad R: " + inner_key + ': ' + r_info)
 
-@pytest.mark.xfail
 def test_paradigms():
    """Ensure that accent paradigms are desribed well"""
    for outer_key, _ in data._outer_to_inner:
       for _, word in data[outer_key, 'e']:
          paradigms = [x.split("\\")[2] for x in word.info.split(";")]
          for paradigm in paradigms:
-            assert isinstance(paradigm, str), paradigm
+            assert isinstance(paradigm, str), paradigm + " " + inner_key
             if len(paradigm) == 2:
-               assert paradigm[0].isalpha() and not paradigm[1].isalpha(), paradigm
+               assert paradigm[0].isalpha() and not paradigm[1].isalpha(), paradigm + " " + inner_key
             elif len(paradigm) in [4, 5]:
-               # TODO: find out why it has . instead of ,
-               assert paradigm[-3] == ",", paradigm
+               assert paradigm[-3] == ",", paradigm + " " + inner_key
+            elif len(paradigm) == 1:
+               assert paradigm == '0', paradigm + " " + inner_key
             else:
-               raise ValueError("bad paradigm len: " + paradigm)
+               raise ValueError("bad paradigm len: " + paradigm + " " + inner_key)
