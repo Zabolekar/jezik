@@ -11,3 +11,6 @@ htmlcov
 .coveragerc
 
 packages.png
+
+run-tests.bat
+.ipynb_checkpoints
