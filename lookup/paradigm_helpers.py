@@ -83,7 +83,14 @@ class GramInfo:
       self.comment: List[str] = []
       for info in infos:
          if info:
-            comment, line_accents, AP, MP = info.split('\\')
+            splitted_info = info.split('\\')
+            if len(splitted_info) == 4:
+               comment, line_accents, AP, MP = splitted_info
+            elif len(splitted_info) == 3:
+               comment, line_accents, AP = splitted_info
+               MP = ""
+            else:
+               raise ValueError("Can't decipher info of len ", len(splitted_info))
             accents.append(i_to_accents(line_accents))
             self.AP.append(AP)
             self.MP.append(MP)

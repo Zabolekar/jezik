@@ -1,6 +1,7 @@
 from typing import Dict, Iterator, Optional, Tuple, Type, Union
 from .table import Table, Multitable
 from .adjective import Adjective
+from .adverb import Adverb
 from .noun import Noun
 from .verb import Verb
 from .data import data
@@ -10,6 +11,7 @@ PartOfSpeech = Union[
    Type[Verb],
    Type[Adjective],
    Type[Noun],
+   Type[Adverb],
    Type[None]
 ]
 
@@ -21,6 +23,8 @@ def part_of_speech(kind: str) -> PartOfSpeech:
       return Adjective
    if POS == "N":
       return Noun
+   if POS == "B":
+      return Adverb
    return type(None) # TODO other parts of speech
 
 def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
@@ -72,6 +76,16 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
                "noun",
                full_caption,
                noun.multiforms(variant=i, yat=output_yat, latin=latin)
+            )
+      elif POS is Adverb:
+         adverb = Adverb(inner_key, kind, info)
+         n_variants = len(adverb.gram.accents)
+         for i in range(n_variants):
+            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
+            yield Table(
+               "adverb",
+               full_caption,
+               adverb.multiforms(variant=i, yat=output_yat, latin=latin)
             )
       else:
          yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])]))

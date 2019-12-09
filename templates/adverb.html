@@ -1,0 +1,10 @@
+<tr>
+<td class="singleform">
+{% set form = table.multiform %}
+{% set num = form|count %}
+   {% for i in range(num-1) %}
+   {{ form[i]}}<br>
+   {% endfor %}
+   {{ form[-1]}}
+</td>
+</tr>

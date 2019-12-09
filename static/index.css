@@ -181,7 +181,7 @@ th:not(.inner) {
    font-size: 16pt;
 }
 
-td:not(.inner) {
+td:not(.inner):not(.singleform) {
    text-align: left;
    padding: 5px 10px 5px 10px;
    font-size: 16pt;
@@ -202,8 +202,13 @@ th:not(.empty), td:not(.emtpy) {
    font-weight: bold;
 }
 
-td.forms:hover:not(.empty):not(.multicell) {
+td.forms:hover:not(.empty):not(.multicell), td.singleform:hover:not(.empty) {
    background-color: #eee;
+}
+
+td.singleform {
+   margin-left: 100;
+   font-size: 16pt;
 }
 
 input[type=button] {

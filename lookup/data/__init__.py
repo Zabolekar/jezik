@@ -7,7 +7,7 @@ data = FancyLookup()
 dir_path = path.dirname(path.realpath(__file__))
 file_path = path.join(dir_path, "data.yml")
 
-posdict = {"N": "именица", "V": "глагол", "A": "придев"}
+posdict = {"N": "именица", "V": "глагол", "A": "придев", "B": "прилог"}
 
 with open(file_path, encoding="utf-8") as f:
    raw_data = yaml.safe_load(f)
