@@ -19,3 +19,4 @@ real_accent = {
     '`': cgrave, '´': cacute, '¨': cdoublegrave,
     '^': ccircumflex, '_': cmacron, '!': '!'
 }
+all_latin = "abcčćdđefghijklmnoprsštuvzžABCČĆDĐEFGHIJKLMNOPRSŠTUVZŽ"
