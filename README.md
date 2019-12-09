@@ -6,13 +6,13 @@ This will be a Serbian dictionary with detailed information about accent.
 
 ## Screenshots
 
-![alt text](example.png "Example")
+![Example screenshot](example.png "Example")
 
 ## Requirements
 
-- Python 3.7 or later
-- Flask
-- PyYAML
+* Python 3.7 or later
+* Flask
+* PyYAML
 
 We also use pytest to run the tests and mypy for static type checking, but they are not necessary to run the code.
 
@@ -23,15 +23,19 @@ To run the app locally for development purposes, do the following:
 * Clone the repo to a directory named `jezik`
 * Create and activate a virtual environment in a way you prefer
 * Install the dependencies
-```bash
-pip install -r requirements.txt
-```
+  
+  ```bash
+  pip install -r requirements.txt
+  ```
+
 * Run the following script (it sets the needed environment variables and starts Flask):
-```bash
-./run.sh
-```
-(on Windows cmd, use `run.bat` instead)
-* Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+  
+  ```bash
+  ./run.sh
+  ```
+
+  (on Windows cmd, use `run.bat` instead)
+* Open <http://127.0.0.1:5000/>
 
 ## Using it without the web interface
 
