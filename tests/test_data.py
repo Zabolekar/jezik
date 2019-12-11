@@ -44,7 +44,7 @@ def test_rings():
 def test_paradigms():
    """Ensure that accent paradigms are desribed well"""
    for outer_key, _ in data._outer_to_inner:
-      for _, word in data[outer_key, 'e']:
+      for inner_key, word in data[outer_key, 'e']:
          paradigms = [x.split("\\")[2] for x in word.info.split(";")]
          for paradigm in paradigms:
             assert isinstance(paradigm, str), paradigm + " " + inner_key
@@ -54,5 +54,5 @@ def test_paradigms():
                assert paradigm[-3] == ",", paradigm + " " + inner_key
             elif len(paradigm) == 1:
                assert paradigm == '0', paradigm + " " + inner_key
-            else:
+            elif len(paradigm):
                raise ValueError("bad paradigm len: " + paradigm + " " + inner_key)
