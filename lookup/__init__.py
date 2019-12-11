@@ -6,6 +6,7 @@ from .noun import Noun
 from .verb import Verb
 from .data import data
 from .charutils import all_latin
+from .utils import strip_suffix
 
 PartOfSpeech = Union[
    Type[Verb],
@@ -34,9 +35,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
 
    latin = any(x in key for x in all_latin)
 
-   with_se = (key[-3:] == " se") if latin else (key[-3:] == " се")
-   if with_se:
-      key = key[:-3]
+   key, with_se = strip_suffix(key, (" se", " се"))
 
    for inner_key, (caption, kind, info, replacements, amendments) in data[key, input_yat]:
       POS = part_of_speech(kind)

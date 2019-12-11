@@ -1,4 +1,4 @@
-from ..lookup.utils import ungarde, garde, deyerify, insert, prettify
+from ..lookup.utils import ungarde, garde, deyerify, insert, prettify, strip_suffix
 
 def test_ungarde():
    assert [ungarde(i) for i in [
@@ -72,3 +72,11 @@ def test_prettify():
    assert [prettify(word, "e") for word in [
        "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
    "це̄ле\u030dти", "беле\u030dжӣм", "ви\u030dдео"]
+
+def test_strip_suffix():
+   s = "abcdefghi"
+   assert strip_suffix(s, ["fghi"]) == ("abcde", True)
+   assert strip_suffix(s, ["gggg"]) == (s, False)
+   assert strip_suffix(s, [""]) == (s, True)
+   assert strip_suffix(s, ["ggghi", "gghi", "ghi", "hi", "i"]) == ("abcdef", True)
+   assert strip_suffix(s, []) == (s, False)

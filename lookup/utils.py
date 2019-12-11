@@ -4,7 +4,7 @@
 # ----- think of better name for prettify(), like alternate() or assimilate()
 
 import re
-from typing import Dict, Optional, Iterator, Tuple
+from typing import Dict, Optional, Iterator, Iterable, Tuple
 from .charutils import (cring, cmacron, cstraight, cacute,
                         cgrave, cdoublegrave, ccircumflex,
                         all_vowels, any_vowel, any_of_four_accents,
@@ -336,3 +336,12 @@ def expose_replacement(form: str, yat:str="e", latin:bool=False) -> str:
    if latin:
       result = cyr2lat(result)
    return result
+
+def strip_suffix(value: str, suffixes: Iterable[str]) -> Tuple[str, bool]:
+   """Tries to strip one of the given suffixes, iterating over them.
+      If succesful, returns (stripped_value, True).
+      Otherwise, returns (value, False)."""
+   for suffix in suffixes:
+      if value.endswith(suffix):
+         return value[:len(value) - len(suffix)], True
+   return value, False
