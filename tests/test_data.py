@@ -1,3 +1,4 @@
+from typing import List
 import pytest # type: ignore
 from ..lookup import lookup, data
 from ..lookup.charutils import four_accents, cmacron
