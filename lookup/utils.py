@@ -12,6 +12,7 @@ from .charutils import (cring, cmacron, cstraight, cacute,
                         all_vowels, any_vowel, any_of_four_accents,
                         all_accent_marks, real_accent)
 
+# TODO: Recompose at least 'ȷ' mode to make less passes in at least `prettify`
 palatalization_modes: Dict[str, Dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
          'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
@@ -208,6 +209,9 @@ def deaccentize(text: str) -> str:
    return text.translate(_deaccentize_translator)
 
 _garde_four_accents_c: Pattern = re.compile(any_of_four_accents)
+_garde_translator = str.maketrans({
+   cdoublegrave: cstraight,
+   ccircumflex: f'{cmacron}{cstraight}'})
 
 def garde(word: str) -> str: # Garde's accentuation
    result = word
@@ -238,6 +242,7 @@ def garde(word: str) -> str: # Garde's accentuation
                   insert_bool = False
                else:
                   if len(result) > i+1:
+                     # TODO: May benefit from precompiling regexes (or from remaking the transformation in other terms?)
                      if result[i+1] == cgrave:
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
@@ -262,16 +267,17 @@ def garde(word: str) -> str: # Garde's accentuation
       else:
          excl_index = max(short_desc_index, long_desc_index)
          result = insert(result, {excl_index-1: '!'})
-         result = result.replace(cdoublegrave, cstraight)
-         result = result.replace(ccircumflex, f'{cmacron}{cstraight}')
+         result = result.translate(_garde_translator)
    return result
+
+_zeroify_translator = str.maketrans({
+   '0': None,
+   cstraight: None,
+   '~': cmacron})
 
 def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
-      form = (form
-              .replace('0', '')
-              .replace(cstraight, '')
-              .replace('~', cmacron))
+      form = form.translate(_zeroify_translator)
       fvi = first_vowel_index(form)
       if fvi is None:
          raise ValueError(f"{form} does not contain any vowels")
