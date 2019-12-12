@@ -4,7 +4,9 @@
 # ----- think of better name for prettify(), like alternate() or assimilate()
 
 import re
-from typing import Dict, Optional, Iterator, Iterable, Tuple
+from typing import (Dict, List, Optional, Iterator, Iterable, Tuple,
+                    Pattern)
+from itertools import chain
 from .charutils import (cring, cmacron, cstraight, cacute,
                         cgrave, cdoublegrave, ccircumflex,
                         all_vowels, any_vowel, any_of_four_accents,
@@ -45,7 +47,7 @@ palatalization_modes: Dict[str, Dict[str, str]] = {
          'ʹ': '', 'ʺ': '', 'ȷ': ''}
 }
 
-cyr2lat_dict = {
+cyr2lat_dict: Dict[str, str] = {
    'й':'ĭ', 'Й':'Ĭ',
    'а':'a', 'б':'b', 'в':'v', 'г':'g', 'д':'d', 'ђ':'đ', 'е':'e', 'ж':'ž', 'з':'z', 'и':'i',
    'ј':'j', 'к':'k', 'л':'l', 'љ':'lj', 'м':'m', 'н':'n', 'њ':'nj', 'о':'o', 'п':'p', 'р':'r',
@@ -55,18 +57,22 @@ cyr2lat_dict = {
    'С':'S', 'Т':'T', 'Ћ':'Ć', 'У':'U', 'Ф':'F', 'Х':'H', 'Ц':'C', 'Ч':'Č', 'Џ':'Dž', 'Ш':'Š'
    }
 
+cyr2lat_translator = str.maketrans(cyr2lat_dict)
+
 def cyr2lat(lowertext: str) -> str:
-   return ''.join([cyr2lat_dict.get(letter, letter) for letter in lowertext])
+   return lowertext.translate(cyr2lat_translator)
+
+_any_vowel_c: Pattern = re.compile(any_vowel)
 
 def last_vowel_index(trunk: str) -> Optional[int]:
-   if re.search(any_vowel, trunk):
-      *__, last_vowel = re.finditer(any_vowel, trunk)
+   if _any_vowel_c.search(trunk):
+      *__, last_vowel = _any_vowel_c.finditer(trunk)
       index, _ = last_vowel.span()
       return index
    return None
 
 def first_vowel_index(trunk: str) -> Optional[int]:
-   match = re.search(any_vowel, trunk)
+   match = _any_vowel_c.search(trunk)
    if match:
       return match.span()[0]
    return None
@@ -103,22 +109,32 @@ def palatalize(sequence: str, mode: str='') -> str:
 
    return sequence[:-1] + idict[sequence[-1]]
 
+_deyerify_repl_dict: Dict[str, str] = {
+   "стън": "сн",
+   "бък": "пк", "дък": "тк", "ђък": "ћк",
+   "жък": "шк", "зък": "ск", "џък": "чк",
+   "бъц": "пц", "ђъц": "ћц", "дъц": "ц", "тъц": "ц",
+   "жъц": "шц", "зц": "сц", "џц": "чц",
+   "бъч": "пч", "ђъч": "ћч", "дъч": "ч", "тъч": "ч",
+   "жъч": "шч", "зч": "шч", "сч": "шч", "џч": "ч"}
+
+# TODO: Name these two semantically:
+_deyerify_pat1_c: Pattern = re.compile(f'([аеиоу{cring}][{cstraight}·]?)([лљмнњрјв]ʲ?)ъ')
+_deyerify_pat2_c: Pattern = re.compile(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}')
+
 def deyerify(form: str) -> str:
-   repl_dict = {"стън": "сн",
-                "бък": "пк", "дък": "тк", "ђък": "ћк",
-                "жък": "шк", "зък": "ск", "џък": "чк",
-                "бъц": "пц", "ђъц": "ћц", "дъц": "ц", "тъц": "ц",
-                "жъц": "шц", "зц": "сц", "џц": "чц",
-                "бъч": "пч", "ђъч": "ћч", "дъч": "ч", "тъч": "ч",
-                "жъч": "шч", "зч": "шч", "сч": "шч", "џч": "ч"}
+   repl_dict = _deyerify_repl_dict
+   re1 = _deyerify_pat1_c
+   re2 = _deyerify_pat2_c
    if 'ø' in form:
       form = form.replace('ø', '').replace('ъ', 'а')
+      # TODO: maybe use `str.translate` too
    else:
-      form = re.sub(f'([аеиоу{cring}][{cstraight}·]?)([лљмнњрјв]ʲ?)ъ', f'\\1{cmacron}\\2ъ', form)
+      form = re1.sub(f'\\1{cmacron}\\2ъ', form)
       for repl in repl_dict:
          form = form.replace(repl, repl_dict[repl])
       form = form.replace('ъ', '')
-   match = re.search(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}', form)
+   match = re2.search(form)
    if match:
       wrong_acc_index = match.span()[0]
       form = form.replace(cstraight, '')
@@ -129,59 +145,74 @@ def deyerify(form: str) -> str:
          form = insert(form, {lvi+1: cstraight})
    return form
 
+_prettify_replaces: List[Tuple[str, str]] = [
+   ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
+   (f'јӥ{cstraight}', f'{cstraight}јӥ'), ('јӥ', f'{cmacron}ј'),
+   ('ӥ', 'и'), (f'{cstraight}{cmacron}', f'{cmacron}{cstraight}'),
+   (f'ʌ([аеиоурœ]|{cring})', 'л\\1'),
+   (f'{cmacron}{cstraight}ʌ', f'{cstraight}ʌ'),
+   (f'{cmacron}ʌ', 'ʌ'),
+   ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
+   (f'о{cstraight}ʌ', f'о{cmacron}{cstraight}'),
+   (f'о·{cmacron}ʌ', f'о·{cmacron}'), ('ʌ', 'о'),
+   ('цœ', 'че'),
+   ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
+   ('ʲ', '')]
+
+_prettify_replaces_c: List[Tuple[Pattern, str]]
+_prettify_replaces_c = [(re.compile(p), r) for p, r in _prettify_replaces]
+
+_prettify_yat_replaces: Dict[str, List[Tuple[str, str]]] = {
+   "e": [('ꙓ', 'е'), ('ѣ', 'е')],
+   "je": [
+      (f'ѣ({cstraight}?о)', 'и\\1'),
+      ('лѣ', 'ље'), ('нѣ', 'ње'),
+      (f'ѣ({cstraight}?[љјњ])', 'и\\1'),
+      (f'ꙓ({cstraight}?[ој])', "и\\1"),
+      (f'ꙓ{cmacron}', f'йје{cmacron}'),
+      ('лꙓ', 'ље'), ('нꙓ', 'ње'),
+      ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'),
+      ('[ꙓѣ]', 'је')] }
+_prettify_yat_replaces["ije"] = _prettify_yat_replaces["je"]
+
+_prettify_yat_replaces_c: Dict[str, List[Tuple[Pattern, str]]]
+_prettify_yat_replaces_c = {k: [(re.compile(p), r) for p, r in v] for k, v in _prettify_yat_replaces.items()}
+
 def prettify(text: str, yat:str="e") -> str:
    idict = palatalization_modes['ȷ']
-   replaces = [
-      ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
-      (f'јӥ{cstraight}', f'{cstraight}јӥ'), ('јӥ', f'{cmacron}ј'),
-      ('ӥ', 'и'), (f'{cstraight}{cmacron}', f'{cmacron}{cstraight}'),
-      (f'ʌ(а|е|и|о|у|р|œ|{cring})', 'л\\1'),
-      (f'{cmacron}{cstraight}ʌ', f'{cstraight}ʌ'),
-      (f'{cmacron}ʌ', 'ʌ'),
-      ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
-      (f'о{cstraight}ʌ', f'о{cmacron}{cstraight}'),
-      (f'о·{cmacron}ʌ', f'о·{cmacron}'), ('ʌ', 'о'),
-      ('цœ', 'че'),
-      ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
-      ('ʲ', '')]
-   yat_replaces = {
-      "e": [('ꙓ', 'е'), ('ѣ', 'е')],
-      "je": [
-         (f'ѣ({cstraight}?о)', 'и\\1'),
-         ('лѣ', 'ље'), ('нѣ', 'ње'),
-         (f'ѣ({cstraight}?[љјњ])', 'и\\1'),
-         (f'ꙓ({cstraight}?[ој])', "и\\1"),
-         (f'ꙓ{cmacron}', f'йје{cmacron}'),
-         ('лꙓ', 'ље'), ('нꙓ', 'ње'),
-         ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'),
-         ('[ꙓѣ]', 'је')] }
-   yat_replaces["ije"] = yat_replaces["je"]
+   replaces = _prettify_replaces_c
+   yat_replaces = _prettify_yat_replaces_c
 
    for key in idict:
       text = text.replace(key, idict[key])
    for entity in replaces:
-      text = re.sub(entity[0], entity[1], text)
+      text = entity[0].sub(entity[1], text)
    for entity in yat_replaces[yat]:
-      text = re.sub(entity[0], entity[1], text)
+      text = entity[0].sub(entity[1], text)
    return text
+
+_deaccentize_accented: Dict[str, str] = {
+   'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìīĭ': 'i',
+   'ȕȗûúùū': 'u', 'ȑȓŕ': 'r', 'ȀȂÂÁÀĀ': 'A',
+   'ȄȆÊÉÈĒ': 'E', 'ȈȊÎÍÌĪĬ': 'I', 'ȔȖÛÚÙŪ': 'U',
+   'ȐȒŔ': 'R', 'ȍȏôóòō': 'o', 'ȌȎÔÓÒŌ': 'O',
+   'ӣѝй': 'и', 'ѐ': 'е', 'ӢЍЙ': 'И', 'Ѐ': 'Е'}
+
+_deaccentize_translator = str.maketrans(dict(chain(
+   ((acc, deacc) for accs, deacc in _deaccentize_accented.items()
+                 for acc in accs),
+   ((mark, None) for mark in all_accent_marks)
+)))
 
 def deaccentize(text: str) -> str:
-   accented = {'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìīĭ': 'i',
-               'ȕȗûúùū': 'u', 'ȑȓŕ': 'r', 'ȀȂÂÁÀĀ': 'A',
-               'ȄȆÊÉÈĒ': 'E', 'ȈȊÎÍÌĪĬ': 'I', 'ȔȖÛÚÙŪ': 'U',
-               'ȐȒŔ': 'R', 'ȍȏôóòō': 'o', 'ȌȎÔÓÒŌ': 'O',
-               'ӣѝй': 'и', 'ѐ': 'е', 'ӢЍЙ': 'И', 'Ѐ': 'Е'}
-   for accent in all_accent_marks:
-      text = text.replace(accent, '')
-   for letters in accented:
-      for letter in letters:
-         text = text.replace(letter, accented[letters])
+   return text.translate(_deaccentize_translator)
 
-   return text
+_garde_four_accents_c: Pattern = re.compile(any_of_four_accents)
 
 def garde(word: str) -> str: # Garde's accentuation
    result = word
-   while re.findall(any_of_four_accents, result): # while word is ungarded-like:
+   accents_re = _garde_four_accents_c
+   while accents_re.findall(result): # while word is ungarded-like:
 
       short_desc_index = result.rfind(cdoublegrave)
       long_desc_index = result.rfind(ccircumflex)
@@ -224,10 +255,8 @@ def garde(word: str) -> str: # Garde's accentuation
                         insert_dict[i+1] = cmacron
 
          word3 = insert(word2, insert_dict)
-         word3 = re.sub('•', '', word3) # delete
-         word3 = re.sub(f'{cstraight}{cmacron}',
-                        f'{cmacron}{cstraight}',
-                        word3) #swap length and accent
+         word3 = (word3.replace('•', '') # delete
+                       .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')) # swap length and accent
          result = word3
 
       else:
@@ -251,10 +280,10 @@ def zeroify(form: str) -> str:
          form = insert(form, {to_insert: cstraight}) # straight accent
    return form
 
+_purify_translator = str.maketrans('', '', '~0·')
+
 def purify(form: str) -> str:
-   return (form.replace('~', '')
-               .replace('0', '')
-               .replace('·', '')
+   return (form.translate(_purify_translator)
                .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
            )
 
@@ -303,10 +332,9 @@ def debracketify(form: str) -> str:
       return form
 
 def je2ije(form: str) -> str:
-   return form.replace(
-         f'йје{cacute}', f'ије{cgrave}').replace(
-         f'йје{ccircumflex}', f'и{cdoublegrave}је').replace(
-         f'йје{cmacron}', 'ије')
+   return (form.replace(f'йје{cacute}', f'ије{cgrave}')
+               .replace(f'йје{ccircumflex}', f'и{cdoublegrave}је')
+               .replace(f'йје{cmacron}', 'ије'))
 
 def expose(form: str, yat:str="e", latin:bool=False) -> str:
    """all transformations from internal to external representation;
