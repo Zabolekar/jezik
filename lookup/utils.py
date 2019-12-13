@@ -34,18 +34,7 @@ palatalization_modes: Dict[str, Dict[str, str]] = {
         'к': 'ч', 'ц': 'ч', 'х': 'ш', 'г': 'ж',
         'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
         'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
-        'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'},
-   'ȷ': {'бȷ': 'бљ', 'мȷ': 'мљ', 'вȷ': 'вљ', 'фȷ': 'фљ', 'пȷ': 'пљ',
-         'стȷ': 'шт', 'здȷ': 'жд', 'слȷ': 'шљ', 'злȷ': 'жљ',
-         'штȷ': 'шт', 'ждȷ': 'жд',  'скȷ': 'шт', 'згȷ': 'жд',
-         'кȷ': 'ч', 'цȷ': 'ч', 'хȷ': 'ш', 'гȷ': 'ж',
-         'шȷ': 'ш', 'жȷ': 'ж', 'чȷ': 'ч', 'џȷ': 'џ',
-         'тȷ': 'ћ', 'дȷ': 'ђ', 'сȷ': 'ш', 'зȷ': 'ж',
-         'лȷ': 'љ', 'рȷ': 'р', 'нȷ': 'њ', 'јȷ': 'ј',
-         'љȷ': 'љ', 'њȷ': 'њ',
-         'кʹ': 'ц', 'гʹ': 'з', 'хʹ': 'с',
-         'кʺе': 'че', 'цʺе': 'че', 'гʺ': 'ж', 'хʺ': 'ш',
-         'ʹ': '', 'ʺ': '', 'ȷ': ''}
+        'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
 }
 
 cyr2lat_dict: Dict[str, str] = {
@@ -128,13 +117,13 @@ def deyerify(form: str) -> str:
    re1 = _deyerify_pat1_c
    re2 = _deyerify_pat2_c
    if 'ø' in form:
-      form = form.replace('ø', '').replace('ъ', 'а')
+      form = form.replace('ø', '').replace('ъ', 'а').replace('ꚜ', 'а')
       # TODO: maybe use `str.translate` too
    else:
       form = re1.sub(f'\\1{cmacron}\\2ъ', form)
       for repl in repl_dict:
          form = form.replace(repl, repl_dict[repl])
-      form = form.replace('ъ', '')
+      form = form.replace('ъ', '').replace('ꚜ', '')
    match = re2.search(form)
    if match:
       wrong_acc_index = match.span()[0]
@@ -179,17 +168,39 @@ _prettify_yat_replaces["ije"] = _prettify_yat_replaces["je"]
 _prettify_yat_replaces_c: Dict[str, List[Tuple[Pattern, str]]]
 _prettify_yat_replaces_c = {k: [(re.compile(p), r) for p, r in v] for k, v in _prettify_yat_replaces.items()}
 
-def prettify(text: str, yat:str="e") -> str:
-   idict = palatalization_modes['ȷ']
-   replaces = _prettify_replaces_c
-   yat_replaces = _prettify_yat_replaces_c
+_prettify_big_palatalization : List[Tuple[str, str]] = [
+   ("(ст|шт|ск)ȷ", "шт"), ("(зд|жд|зг)ȷ", "жд"),
+   ('слȷ', 'шљ'), ('злȷ', 'жљ'),
+   ('т?кʹ', 'ц'), ('гʹ', 'з'), ('хʹ', 'с'),
+   ('[кц]ʺе', 'че'), ('гʺ', 'ж'), ('хʺ', 'ш')
+]
 
-   for key in idict:
-      text = text.replace(key, idict[key])
-   for entity in replaces:
-      text = entity[0].sub(entity[1], text)
-   for entity in yat_replaces[yat]:
-      text = entity[0].sub(entity[1], text)
+_prettify_big_palatalization_c = [(re.compile(p), r) for p, r in _prettify_big_palatalization]
+
+_prettify_small_palatalization = [
+   ("([бмвфп])ȷ", "\\1љ"),
+   ("[кц]ȷ", "ч"),
+   ("[хс]ȷ", "ш"),
+   ("[гз]ȷ", "ж"),
+   ('тȷ', 'ћ'), ('дȷ', 'ђ'),
+   ('лȷ', 'љ'), ('нȷ', 'њ'),
+   ('[ʹʺȷ]', '')
+]
+
+_prettify_small_palatalization_c = [(re.compile(p), r) for p, r in _prettify_small_palatalization]
+
+
+def prettify(text: str, yat:str="e") -> str:
+   repl_modes = (
+      _prettify_big_palatalization_c,
+      _prettify_small_palatalization_c,
+      _prettify_replaces_c,
+     _prettify_yat_replaces_c[yat]
+   )
+
+   for repl_mode in repl_modes:
+      for entity in repl_mode:
+         text = entity[0].sub(entity[1], text)
    return text
 
 _deaccentize_accented: Dict[str, str] = {

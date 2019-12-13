@@ -148,26 +148,26 @@ class Noun(PartOfSpeech):
          # 3 handling yers and predefining retractions
          retraction = [0]
          if self.label('m'):
-            if 'ъ' in stem and current_AP in accent \
+            if ('ъ' in stem or 'ꚜ' in stem) and current_AP in accent \
                and current_AP in ['a:', 'b:', 'c:', 'f.']:
                retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
             elif (('d' in current_AP and 'œв' in stem)
-               or (pvi is not None and 'ъ' not in stem \
+               or (pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
                and current_AP not in accent \
                and (current_AP in ['a.', 'a!']) \
-               or ('b.' in current_AP and 'ъ' in stem and 'œ' in stem))):
+               or ('b.' in current_AP and ('ъ' in stem or 'ꚜ' in stem) and 'œ' in stem))):
                retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀че̄ва̄
             elif 'œв' in stem and 'c?' in current_AP:
                retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
-            elif 'œв' in stem and 'b' in current_AP and not 'ъ' in stem:
+            elif 'œв' in stem and 'b' in current_AP and 'ъ' not in stem and 'ꚜ' not in stem:
                retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
 
          if not 'œ' in stem: # TODO one day think about better condition
-            stem = stem.replace('ъ', 'а')
+            stem = stem.replace('ъ', 'а').replace('ꚜ', 'а')
          else:
             stem = deyerify(stem)
 
-         # 4. a renewed set of indices, since ъ has become а
+         # 4. a renewed set of indices, since ъ/ꚜ has become а
          lvi, fvi, pvi = indices(stem)
 
          # 5. handling strange new exceptions like komunizam
@@ -229,9 +229,9 @@ class Noun(PartOfSpeech):
                      noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
                   # processing forms like akcenat/akcent (marked with Ъ)
                   elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
-                     noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ъ')]
+                     noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ꚜ')]
                   else:
-                     noun_variants = [noun_form.replace('Ъ', 'ъ')]
+                     noun_variants = [noun_form.replace('Ъ', 'ꚜ')]
 
                   # now iterating by stem (like, akcenat/akcent)
 
