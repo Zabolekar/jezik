@@ -12,7 +12,12 @@ from .charutils import (cring, cmacron, cstraight, cacute,
                         all_vowels, any_vowel, any_of_four_accents,
                         all_accent_marks, real_accent)
 
-# TODO: Recompose at least 'ȷ' mode to make less passes in at least `prettify`
+# Naming of things added for optimization purposes:
+#   <name>_c − <name> but with compiled regexes
+#   <name>_translator — a translation table used by `str.translate`
+#   _<funcname>_<name> — a thing used by function `funcname`
+
+# TODO: Recompose at least 'ȷ' mode to make less passes in at least `prettify` (this one part seems done)
 palatalization_modes: Dict[str, Dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
          'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
@@ -112,13 +117,17 @@ _deyerify_repl_dict: Dict[str, str] = {
 _deyerify_pat1_c: Pattern = re.compile(f'([аеиоу{cring}][{cstraight}·]?)([лљмнњрјв]ʲ?)ъ')
 _deyerify_pat2_c: Pattern = re.compile(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}')
 
+_deyerify_translator = str.maketrans({
+   'ø': None,
+   'ъ': 'а',
+   'ꚜ': 'а'})
+
 def deyerify(form: str) -> str:
    repl_dict = _deyerify_repl_dict
    re1 = _deyerify_pat1_c
    re2 = _deyerify_pat2_c
    if 'ø' in form:
-      form = form.replace('ø', '').replace('ъ', 'а').replace('ꚜ', 'а')
-      # TODO: maybe use `str.translate` too
+      form = form.translate(_deyerify_translator)
    else:
       form = re1.sub(f'\\1{cmacron}\\2ъ', form)
       for repl in repl_dict:
@@ -168,39 +177,57 @@ _prettify_yat_replaces["ije"] = _prettify_yat_replaces["je"]
 _prettify_yat_replaces_c: Dict[str, List[Tuple[Pattern, str]]]
 _prettify_yat_replaces_c = {k: [(re.compile(p), r) for p, r in v] for k, v in _prettify_yat_replaces.items()}
 
-_prettify_big_palatalization : List[Tuple[str, str]] = [
+_prettify_big_palatalization: List[Tuple[str, str]] = [
    ("(ст|шт|ск)ȷ", "шт"), ("(зд|жд|зг)ȷ", "жд"),
-   ('слȷ', 'шљ'), ('злȷ', 'жљ'),
-   ('т?кʹ', 'ц'), ('гʹ', 'з'), ('хʹ', 'с'),
-   ('[кц]ʺе', 'че'), ('гʺ', 'ж'), ('хʺ', 'ш')
+   #('слȷ', 'шљ'), ('злȷ', 'жљ'),
+   # back into regular string replaces, see `_prettify_simple_palatalization`
+   ('т?кʹ', 'ц'), #('гʹ', 'з'), ('хʹ', 'с'),
+   ('[кц]ʺе', 'че') #, ('гʺ', 'ж'), ('хʺ', 'ш')
 ]
 
+_prettify_big_palatalization_c: List[Tuple[Pattern, str]]
 _prettify_big_palatalization_c = [(re.compile(p), r) for p, r in _prettify_big_palatalization]
 
-_prettify_small_palatalization = [
+_prettify_simple_palatalization: List[Tuple[str, str]]
+_prettify_simple_palatalization = [
+   ('слȷ', 'шљ'), ('злȷ', 'жљ'),
+   ('гʹ', 'з'), ('хʹ', 'с'),
+   ('гʺ', 'ж'), ('хʺ', 'ш'),
+   ('тȷ', 'ћ'), ('дȷ', 'ђ'),
+   ('лȷ', 'љ'), ('нȷ', 'њ')
+]
+
+_prettify_small_palatalization: List[Tuple[str, str]] = [
    ("([бмвфп])ȷ", "\\1љ"),
    ("[кц]ȷ", "ч"),
    ("[хс]ȷ", "ш"),
    ("[гз]ȷ", "ж"),
-   ('тȷ', 'ћ'), ('дȷ', 'ђ'),
-   ('лȷ', 'љ'), ('нȷ', 'њ'),
+   # back into regular string replaces, see `_prettify_simple_palatalization`
+   #('тȷ', 'ћ'), ('дȷ', 'ђ'),
+   #('лȷ', 'љ'), ('нȷ', 'њ'),
    ('[ʹʺȷ]', '')
 ]
 
+_prettify_small_palatalization_c: List[Tuple[Pattern, str]]
 _prettify_small_palatalization_c = [(re.compile(p), r) for p, r in _prettify_small_palatalization]
 
-
 def prettify(text: str, yat:str="e") -> str:
-   repl_modes = (
-      _prettify_big_palatalization_c,
+   other_repl_modes = (
       _prettify_small_palatalization_c,
       _prettify_replaces_c,
-     _prettify_yat_replaces_c[yat]
+      _prettify_yat_replaces_c[yat]
    )
 
-   for repl_mode in repl_modes:
+   for entity in _prettify_big_palatalization_c:
+      text = entity[0].sub(entity[1], text)
+
+   for old, new in _prettify_simple_palatalization:
+      text = text.replace(old, new)
+
+   for repl_mode in other_repl_modes:
       for entity in repl_mode:
          text = entity[0].sub(entity[1], text)
+
    return text
 
 _deaccentize_accented: Dict[str, str] = {
