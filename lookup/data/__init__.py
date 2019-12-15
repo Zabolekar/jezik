@@ -21,7 +21,7 @@ with open(file_path, encoding="utf-8") as f:
          key = full_key
          disambiguator = ""
       try:
-         comment = raw_data[full_key]["c"]
+         comment = "(" + raw_data[full_key]["c"] + ")"
       except KeyError:
          comment = ""
       try:
@@ -36,10 +36,7 @@ with open(file_path, encoding="utf-8") as f:
       raw_entry = raw_data[full_key]
       current_pos = posdict[raw_entry["t"][0]]
 
-      if disambiguator and comment:
-         caption = f"{disambiguator} {current_pos} ({comment})"
-      else:
-         caption = f"{disambiguator} {current_pos} {comment}"
+      caption = f"{disambiguator} {current_pos} {comment}"
 
       data[key] = Entry(
          caption,

@@ -1,5 +1,6 @@
 import pytest # type: ignore
 from ..lookup import lookup
+from ..lookup.charutils import cmacron
 
 def test_nonsense():
    assert not lookup("абырвалг")
@@ -51,6 +52,24 @@ def test_ije():
    l = lookup("свијет", input_yat="ije", output_yat="ije")
    assert len(l) == 1
    assert l[0]["sg nom"].multiform == ['сви̏јет']
+
+   l = lookup("белег", input_yat="e", output_yat="ije")
+   assert len(l) == 1
+   assert l[0]["sg nom"].multiform == ['бѝљег']
+
+   l = lookup("вијенац", input_yat="ije", output_yat="e")
+   assert len(l) == 1
+   assert l[0]["pl gen"].multiform == ["ве̑на̄ца̄"]
+
+@pytest.mark.xfail
+def test_ije2():
+   l = lookup("реч", input_yat="e", output_yat="ije")
+   assert len(l) == 1
+   assert l[0]["sg nom"].multiform == ['ри̏јеч']
+
+   l = lookup("повијест", input_yat="ije", output_yat="e")
+   assert len(l) == 1
+   assert l[0]["pl gen"].multiform == ["по̏ве̄стӣ"]
 
 def test_drven():
    assert lookup("дрвен")["m sg nom long"][0].multiform == ['др̥̏венӣ']
@@ -193,3 +212,31 @@ def test_plavosiv():
    "Similar to test_multiple_accents, but has its own peculiarities"
    assert lookup("плавосив")["m sg nom short"].multiform == ['пла́воси̑в']
    assert lookup("плавосив")["f sg nom short"].multiform == ['пла́воси́ва']
+
+def test_predci():
+   """covers issue #36"""
+   allforms_lists = [forms for name, forms in lookup("предак")._tables[0]]
+   allforms = [x for li in allforms_lists for x in li]
+   assert allforms, allforms
+   assert all('тц' not in y for y in allforms), allforms
+   assert all('дц' not in y for y in allforms), allforms
+
+def test_ambijeenat():
+   """covers issue #37"""
+   allforms_lists = [forms for name, forms in lookup("амбијент")._tables[0]]
+   allforms = [x for li in allforms_lists for x in li]
+   assert allforms, allforms
+   assert all('е' + cmacron not in y for y in allforms), allforms
+
+def test_gori_gore():
+   """covers issue #17 in a modernized way"""
+   form1 = lookup("гори")["sg n acc long"].multiform
+   form2 = lookup("шири")["sg n loc long"].multiform
+   assert form1, form1
+   assert form2, form2
+   assert all('ре' in x for x in form1), form1
+   assert all('ро' not in x for x in form1), form1
+   assert all('ре' in x for x in form2), form2
+   assert all('ро' not in x for x in form2), form2
+   assert all('ʲ' not in x for x in form1), form1
+   assert all('ʲ' not in x for x in form2), form2
