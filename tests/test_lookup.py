@@ -240,3 +240,19 @@ def test_gori_gore():
    assert all('ро' not in x for x in form2), form2
    assert all('ʲ' not in x for x in form1), form1
    assert all('ʲ' not in x for x in form2), form2
+
+def test_uzeti():
+   form = lookup("узети")["imv 2 sg"].multiform
+   assert form == ["у̀зми"], form
+   form = lookup("мрети")["prs 2 pl"].multiform
+   assert form == ["мре́те", "мре̑те"], form
+   form = lookup("обамрети")["prs 1 pl"].multiform
+   assert form == ["о̀бамре̄мо"], form
+   form = lookup("преотети")["aor 2 pl"].multiform
+   assert form == ["прео̀те̄сте"], form
+   form = lookup("изажети")["pf f sg"].multiform
+   assert form == ["и̏заже̄ла"], form
+   form = lookup("мрети")["pf m sg"].multiform
+   assert form == ["мр̥̏о"], form
+   form = lookup("мрети")["pf m pl"].multiform
+   assert form == ["мр̥́ли"], form

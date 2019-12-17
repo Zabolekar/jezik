@@ -9,7 +9,7 @@ infinitive_dict: Dict[str, str] = {
    'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
    'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
    'eta': 'ѣти', 'theta': 'ети', 'iota': 'ати',
-   'kappa': 'ти', 'lambda': 'ти', 'mu': 'ати'
+   'kappa': 'ти', 'kappa2': 'ти', 'lambda': 'ти', 'mu': 'ати'
 }
 
 class Verb(PartOfSpeech):
@@ -23,7 +23,8 @@ class Verb(PartOfSpeech):
       super().__init__(key, kind, info, replacements, amendments)
       #Verb-only
       self.is_reflexive = self.label('Refl')
-      self.trunk = self._trunk() #both but not separable
+      self.trunk = self._trunk()
+      self.trunk2 = self._trunk2()
 
    # Verb-only
    @staticmethod
@@ -54,18 +55,45 @@ class Verb(PartOfSpeech):
          if AP in oa:
             result.append(accented_verb[:-N])
          else:
-            if self.gram.MP[i] in ['kappa', 'lambda']:
+            if self.gram.MP[i] in ['lambda']:
                trunk = accented_verb[:-N]
             elif self.gram.MP[i] == 'zeta':
                trunk = accented_verb[:-N-2]
             else:
                trunk = accented_verb[:-N-1]
+
             lvi = last_vowel_index(trunk)
             if lvi is None:
                result.append(trunk)
             else:
                result.append(insert(trunk, {lvi + 1: '·'}))
       return result
+
+   def _trunk2(self) -> List[str]:
+      result = []
+      splitted_kind = self.kind.split("\\")
+      for i, AP in enumerate(self.gram.AP):
+         if self.gram.MP[i].startswith('kappa') and len(splitted_kind) > 3:
+            frm = splitted_kind[3]
+            lvi_ = last_vowel_index(frm)
+            if lvi_ is not None:
+               frm = insert(frm, {lvi_ + 1: '·'})
+            result.append(frm)
+         else:
+            result.append(self.trunk[i])
+
+      return result
+
+   def _current_trunk(self, i, label):
+      if self.gram.MP[i] == 'kappa':
+         formlist = ['prs', 'imv', 'pf', 'ipf']
+      elif self.gram.MP[i] == 'kappa2':
+         formlist = ['prs', 'imv', 'ipf']
+      else:
+         formlist = []
+      if any(label.startswith(x) for x in formlist):
+         return self.trunk2[i]
+      return self.trunk[i]
 
 
    def _paradigm_to_forms(
@@ -91,7 +119,7 @@ class Verb(PartOfSpeech):
             if self._verb_form_is_possible(label, self.gram.other):
                ready_forms: List[str] = []
                for variation in ending:
-                  ready_forms += self.process_one_form(self.gram.AP[i], self.trunk[i], variation)
+                  ready_forms += self.process_one_form(self.gram.AP[i], self._current_trunk(i, label), variation)
 
                if label in self.amendments:
                   ready_forms += [

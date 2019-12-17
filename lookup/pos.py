@@ -1,7 +1,7 @@
 from typing import Dict, List, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
 from .utils import first_vowel_index, last_vowel_index, insert
-from .charutils import cstraight, cmacron
+from .charutils import all_vowels, cstraight, cmacron, cring
 from .data.multidict import Replacement
 
 def _swap(trunk: str, AP: str) -> str:
@@ -30,6 +30,7 @@ class PartOfSpeech():
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...]
    ) -> None:
+      self.kind = kind
       self.key = key.split('\\')[0]
       self.gram = GramInfo(kind, info.split(';'))
       self.replacements: Dict[str, List[str]] = dict(replacements)
@@ -73,8 +74,25 @@ class PartOfSpeech():
       connectenda: List[List[str]] = []
 
       for stem in stems:
-
+         # syllable 'r'
          morpheme, accent = ending_part.morpheme, ending_part.accent
+         if self.kind.startswith('V'):
+            stem_ = stem.replace(cmacron, '')
+            morpheme_ = morpheme.replace('>', '').replace('ȷ', '')
+            if stem_[-1] == 'р' and stem_[-2] not in all_vowels and morpheme_:
+               if morpheme_[0] not in all_vowels:
+                  stem = stem + cring
+                  stem = stem.replace(cmacron + cring, cring + cmacron)
+
+            if stem.endswith('р' + cmacron) and morpheme_:
+               if morpheme_[0] in all_vowels:
+                  stem = stem[:-1]
+
+         # declickify (ʘ) -- special double '0' in nesti-verbs
+         if self.kind.startswith('V'):
+            if current_AP in ('x:'):
+               morpheme = morpheme.replace('ʘ', '')
+         morpheme = morpheme.replace('ʘ', '0')
 
          if current_AP not in ('c:', 'g:'):
             morpheme = morpheme.replace('>>', '')
