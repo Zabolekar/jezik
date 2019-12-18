@@ -76,7 +76,7 @@ class PartOfSpeech():
       for stem in stems:
          # syllable 'r'
          morpheme, accent = ending_part.morpheme, ending_part.accent
-         if self.kind.startswith('V'):
+         if self.kind.startswith('V') and len(self.kind.split("\\")) > 3:
             stem_ = stem.replace(cmacron, '')
             morpheme_ = morpheme.replace('>', '').replace('ȷ', '')
             if stem_[-1] == 'р' and stem_[-2] not in all_vowels and morpheme_:
@@ -90,7 +90,7 @@ class PartOfSpeech():
 
          # declickify (ʘ) -- special double '0' in nesti-verbs
          if self.kind.startswith('V'):
-            if current_AP in ('x:'):
+            if current_AP in ('xʺ'):
                morpheme = morpheme.replace('ʘ', '')
          morpheme = morpheme.replace('ʘ', '0')
 

@@ -50,7 +50,7 @@ def test_paradigms():
          for paradigm in paradigms:
             assert isinstance(paradigm, str), paradigm + " " + inner_key
             if len(paradigm) == 2:
-               assert paradigm[0].isalpha() and not paradigm[1].isalpha(), paradigm + " " + inner_key
+               assert paradigm[0].isalpha() and paradigm[1] in (".:!ʹʺ’?0"), paradigm + " " + inner_key
             elif len(paradigm) in [4, 5]:
                assert paradigm[-3] == ",", paradigm + " " + inner_key
             elif len(paradigm) == 1:

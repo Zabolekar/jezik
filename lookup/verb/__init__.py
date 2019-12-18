@@ -9,7 +9,7 @@ infinitive_dict: Dict[str, str] = {
    'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
    'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
    'eta': 'ѣти', 'theta': 'ети', 'iota': 'ати',
-   'kappa': 'ти', 'kappa2': 'ти', 'lambda': 'ти', 'mu': 'ати'
+   'kappa': 'ти', 'kappa2': 'ти', 'kappa3': 'ти', 'lambda': 'ти', 'mu': 'ати'
 }
 
 class Verb(PartOfSpeech):

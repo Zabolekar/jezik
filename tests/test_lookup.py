@@ -256,3 +256,11 @@ def test_uzeti():
    assert form == ["мр̥̏о"], form
    form = lookup("мрети")["pf m pl"].multiform
    assert form == ["мр̥́ли"], form
+   form = lookup("трести")["pf m sg"].multiform
+   assert form == ["тре̑сао"], form
+   form = lookup("нести")["pf m pl"].multiform
+   assert form == ["нѐсли"], form
+   form = lookup("плести")["prs 1 pl"].multiform
+   assert form == ["плете́мо", "плѐте̄мо"], form
+   form = lookup("плести")["aor 2 pl"].multiform
+   assert form == ["плѐтосте"], form

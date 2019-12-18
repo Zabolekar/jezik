@@ -380,13 +380,23 @@ def je2ije(form: str) -> str:
                .replace(f'йје{ccircumflex}', f'и{cdoublegrave}је')
                .replace(f'йје{cmacron}', 'ије'))
 
+deancientify_dict = {
+   'тˌт': 'ст', 'дˌт': 'ст', 'зˌт': 'ст', 'кˌт': 'ћ', 'гˌт': 'ћ', 'бˌт': 'пст',
+   'тˌꚜʌ': 'ʌ', 'дˌꚜʌ': 'ʌ', 'тˌʌ': 'ʌ', 'дˌʌ': 'ʌ', 'ˌ': ''
+}
+
+def deancientify(form: str) -> str:
+   for key, value in deancientify_dict.items():
+      form = form.replace(key, value)
+   return form
+
 def expose(form: str, yat:str="e", latin:bool=False) -> str:
    """all transformations from internal to external representation;
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg"""
    result = ungarde(
       prettify(
-         purify(zeroify(debracketify(deyerify(form)))),
+         purify(zeroify(debracketify(deyerify(deancientify(form))))),
          yat
       )
    )
@@ -398,7 +408,7 @@ def expose(form: str, yat:str="e", latin:bool=False) -> str:
 
 def expose_replacement(form: str, yat:str="e", latin:bool=False) -> str:
    result = prettify(
-      purify(zeroify(debracketify(deyerify(form)))),
+      purify(zeroify(debracketify(deyerify(deancientify(form))))),
       yat
    )
    for x in real_accent:
