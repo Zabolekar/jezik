@@ -18,7 +18,7 @@
 
 Headline (mandatory): ```човѣк\људи:```
 
-First, the lemma without accents: ```човѣк```
+First, the lemma without accents: ```човѣк```.
 Optional, after backslash: other forms to search by, without accents.
 
 **t** (type/kind) field (mandatory): basic word info pieces divided by backslashes. Here we se **N** (noun) and **m** (masculine).
@@ -28,7 +28,8 @@ Here we see three variants divided by two semicolons, so we get three possible d
 
 ```бошњ.\1¨\a.\an
 срп.\1`\a.\an
-хрв.\1`\b.\an```
+хрв.\1`\b.\an
+```
 
 It consists of four parts divided by backslashes.
 First, a comment (may be empty). Here the comment say that the first variant is Bosnian, the second one is Serbian, the third one is Croatian.
@@ -55,7 +56,8 @@ All these forms may contain yats, yers and other sofisticatedly treated symbols.
  адвокатирати:
  t: V\Itr\Ipf
  i: \4´\k:\beta
- v: адвокатисати```
+ v: адвокатисати
+ ```
 
 Actually, pretty much the same. BTW I forgot to mention that we also have an optional **c** (comment) field and an optional **v** (view) field. The comment field is for comments which concern the whole word, not one of its specific variants. The view field means: you may view some other word in this dictionary, which somehow relates to the current word. 
 
@@ -77,7 +79,8 @@ Fourth, the MP (set of verbal endings, like *-im -iš* or *-em -eš* or *-am -a�
  лꙓн:
  t: A\all
  i: \1^\b:,b:\
- v: лењ```
+ v: лењ
+ ```
 
 The **t** field contains 2 subfields. First, **A**, which means "Adjective". Then, **ski/ov/all** which means its set of possible forms.
 The ski-type adjectives have only long forms, like *advokatski*.
