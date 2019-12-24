@@ -11,12 +11,13 @@ class Adjective(PartOfSpeech):
    def __init__(
       self,
       key: str,
+      accented_keys: str,
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...]
    ) -> None:
-      super().__init__(key, kind, info, replacements, amendments)
+      super().__init__(key, accented_keys, kind, info, replacements, amendments)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
       self.trunk = self._trunk() #both but not separable
@@ -30,9 +31,9 @@ class Adjective(PartOfSpeech):
    def _trunk(self) -> List[str]:
       result = []
 
-      for number, item in enumerate(self.gram.AP):
+      for number, item in enumerate(self.accented_keys):
          accented_adj = garde(
-            accentize(self.key, self.gram.accents[number].r, self.gram.accents[number].v)
+            accentize(item)
          )
          if self.label('ov'):
             trunk = accented_adj
@@ -121,7 +122,7 @@ class Adjective(PartOfSpeech):
       elif endings == "ov":
          MPs = [mixed_adj]
 
-      for i, AP in enumerate(self.gram.accents):
+      for i, AP in enumerate(self.gram.AP):
          # variant = None means all variants
          if not(variant is not None and variant != i):
             length_inconstancy = False

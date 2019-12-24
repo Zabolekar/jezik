@@ -5,8 +5,8 @@ from ..paradigm_helpers import OrderedSet, nice_name, accentize
 from ..table import LabeledMultiform
 
 class Adverb(PartOfSpeech): #TODO majority of these can probably be moved to POS?
-   def __init__(self, key: str, kind: str, info: str) -> None:
-      super().__init__(key, kind, info, (), ())
+   def __init__(self, key: str, accented_keys: str, kind: str, info: str) -> None:
+      super().__init__(key, accented_keys, kind, info, (), ())
 
    @staticmethod
    def _expose(form: str, yat:str="e", latin:bool=False) -> str:
@@ -20,7 +20,7 @@ class Adverb(PartOfSpeech): #TODO majority of these can probably be moved to POS
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
       accented_adverbs = [
-         garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
-         for i in range(len(self.gram.accents))
+         garde(accentize(self.key))
+         for i in range(len(self.accented_keys))
          ]
       yield nice_name(""), list(OrderedSet(expose(form, yat, latin) for form in accented_adverbs))

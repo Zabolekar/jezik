@@ -16,11 +16,12 @@ class Verb(PartOfSpeech):
    def __init__(
       self,
       key: str,
+      accented_keys: str,
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...]) -> None:
-      super().__init__(key, kind, info, replacements, amendments)
+      super().__init__(key, accented_keys, kind, info, replacements, amendments)
       #Verb-only
       self.is_reflexive = self.label('Refl')
       self.trunk = self._trunk()
@@ -46,11 +47,9 @@ class Verb(PartOfSpeech):
    # Verb-specific
    def _trunk(self) -> List[str]:
       result = []
-
+      keys = self.accented_keys
       for i, AP in enumerate(self.gram.AP):
-         accented_verb = garde(
-            accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v)
-         )
+         accented_verb = garde(accentize(keys[i]))
          N = len(infinitive_dict[self.gram.MP[i]])
          if AP in oa:
             result.append(accented_verb[:-N])

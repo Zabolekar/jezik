@@ -26,31 +26,10 @@ def appendDef(
          targetList.append(defaultItem)
    return targetList
 
-def accentize(word: str, r: Dict[int, str], v: Dict[int, str]) -> str: # traditional accentuation
-
-   if v:
-      if r: # now we put the magic ring
-         word = insert(word, r)
-      # after that we create a dict with letter numbers representing vowels
-      syllabic = 0
-      position_to_accent: Dict[int, str] = {}
-
-      # a test
-      tmp = tmp = word + 'ø' if not word[-1] in all_vowels else word
-      exposed_word = expose(tmp)
-      a = len([letter for letter in exposed_word if letter in all_vowels])
-      for number in v:
-         if number > a:
-            raise ValueError(f"word {exposed_word} got less syllables than you assert")
-
-      for i, letter in enumerate(word):
-         if letter in all_vowels:
-            syllabic += 1
-            if syllabic in v:
-               position_to_accent[i+1] = real_accent[v[syllabic]]
-      return insert(word, position_to_accent) # then we insert accents into word!
-   else:
-      return word
+def accentize(word: str) -> str: # traditional accentuation
+   for k, v in real_accent.items():
+      word = word.replace(k, v)
+   return word
 
 @dataclass
 class Accents:
@@ -77,21 +56,21 @@ class GramInfo:
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
    def __init__(self, kind: str, infos: List[str]) -> None:
-      accents = []
+      # accents = []
       self.AP: List[str] = [] # accent paradigm
       self.MP: List[str] = [] # morphological paradigm
       self.comment: List[str] = []
       for info in infos:
          if info:
             splitted_info = info.split('\\')
-            if len(splitted_info) == 4:
-               comment, line_accents, AP, MP = splitted_info
-            elif len(splitted_info) == 3:
-               comment, line_accents, AP = splitted_info
+            if len(splitted_info) == 3:
+               comment, AP, MP = splitted_info
+            elif len(splitted_info) == 2:
+               comment, AP = splitted_info
                MP = ""
             else:
                raise ValueError("Can't decipher info of len ", len(splitted_info))
-            accents.append(i_to_accents(line_accents))
+            # accents.append(i_to_accents(line_accents))
             self.AP.append(AP)
             self.MP.append(MP)
             self.comment.append(comment)
@@ -103,7 +82,7 @@ class GramInfo:
       else:
          raise ValueError("Can't decipher empty t")
 
-      self.accents: List[Accents] = accents
+      #self.accents: List[Accents] = accents
 
       self.POS: str = POS # part of speech
       self.other: List[str] = other

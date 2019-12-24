@@ -37,16 +37,16 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
 
    key, with_se = strip_suffix(key, (" se", " се"))
 
-   for inner_key, (caption, kind, info, replacements, amendments) in data[key, input_yat]:
+   for inner_key, (caption, accented_keys, extra_key, kind, info, replacements, amendments) in data[key, input_yat]:
       POS = part_of_speech(kind)
       # # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if POS is Verb:
-         verb = Verb(inner_key, kind, info, replacements, amendments)
+         verb = Verb(inner_key, accented_keys, kind, info, replacements, amendments)
          # # TODO: can we avoid passing kind and info again? POS already knows
          if with_se and not verb.is_reflexive:
             continue
          # TODO: simplify duplicate code here and a few lines below
-         n_variants = len(verb.gram.accents)
+         n_variants = len(verb.accented_keys)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})" # TODO latin
             yield Table(
@@ -57,8 +57,8 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
       elif with_se: # for skipping meaningless queries like "адвокат се"
          continue
       elif POS is Adjective:
-         adjective = Adjective(inner_key, kind, info, replacements, amendments)
-         n_variants = len(adjective.gram.accents)
+         adjective = Adjective(inner_key, accented_keys, kind, info, replacements, amendments)
+         n_variants = len(adjective.accented_keys)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table(
@@ -67,8 +67,8 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
                adjective.multiforms(variant=i, yat=output_yat, latin=latin)
             )
       elif POS is Noun:
-         noun = Noun(inner_key, kind, info, replacements, amendments)
-         n_variants = len(noun.gram.accents)
+         noun = Noun(inner_key, accented_keys, kind, info, replacements, amendments)
+         n_variants = len(noun.accented_keys)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table(
@@ -77,8 +77,8 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
                noun.multiforms(variant=i, yat=output_yat, latin=latin)
             )
       elif POS is Adverb:
-         adverb = Adverb(inner_key, kind, info)
-         n_variants = len(adverb.gram.accents)
+         adverb = Adverb(inner_key, accented_keys, kind, info)
+         n_variants = len(adverb.accented_keys)
          for i in range(n_variants):
             full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
             yield Table(

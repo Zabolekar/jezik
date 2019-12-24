@@ -1,7 +1,7 @@
 from typing import Dict, Generic, List, NamedTuple, Iterator, Tuple, TypeVar
 import random
 from ..utils import all_vowels, cyr2lat, deaccentize, expose, garde
-from ..paradigm_helpers import accentize, i_to_accents
+from ..paradigm_helpers import accentize, i_to_accents, OrderedSet
 from ..charutils import cmacron
 
 Replacement = Tuple[str, List[str]]
@@ -51,41 +51,44 @@ class Multidict(Generic[KT, VT]):
 
 class Entry(NamedTuple):
    caption: str
+   accented_keys: str
+   extra_key: str
    type: str
    info: str
    replacements: Tuple[Replacement, ...]
    amendments: Tuple[Replacement, ...]
 
 
-def inner_to_outer(
-   s: str, accent: str, double_adj_form:bool=False
-) -> Iterator[Tuple[str, str]]:
+def inner_to_outer(accented_keys: str, extra_key: str) -> Iterator[Tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
    """
-   accent_dict = i_to_accents(accent)
-   tmp = s + 'ø' if not s[-1] in all_vowels else s
-   if 'ʟ' in tmp:
-      tmp_list = [tmp.replace('ʟ', 'л'), tmp.replace('ʟ', 'ʌ')]
-   elif 'Ъ' in tmp:
-      tmp_list = [tmp.replace('Ъ', ''), tmp.replace('Ъ', 'ъ')]
-   else:
-      tmp_list = [tmp]
+   keys = accented_keys.split(',')
+   big_tmp_list : List[str] = []
+   for k in keys:
+      tmp = k + 'ø' if not k[-1] in all_vowels + '_' else k
+      if 'ʟ' in tmp:
+         tmp_list = [tmp.replace('ʟ', 'л'), tmp.replace('ʟ', 'ʌ')]
+      elif 'Ъ' in tmp:
+         tmp_list = [tmp.replace('Ъ', ''), tmp.replace('Ъ', 'ъ')]
+      else:
+         tmp_list = [tmp]
+      big_tmp_list += tmp_list
+   ordered_set_of_keys = OrderedSet(big_tmp_list)
 
    for input_yat in ["e", "je", "ije"]:
-      for item in tmp_list:
-         accented_token = garde(accentize(item, accent_dict.r, accent_dict.v))
+      if extra_key:
+         extra_token = deaccentize(expose(garde(accentize(extra_key)), yat=input_yat).lower())
+         yield extra_token, input_yat
+         yield cyr2lat(extra_token), input_yat
+      for item in ordered_set_of_keys:
+         accented_token = garde(accentize(item))
+         assert accented_token != item, accented_token + " " + item
          exposed_token = expose(accented_token, yat=input_yat)
          deaccentized_token = deaccentize(exposed_token).lower()
          yield deaccentized_token, input_yat
          yield cyr2lat(deaccentized_token), input_yat
-         if double_adj_form:
-            deaccentized_token2 = deaccentize(expose(
-               accented_token.replace("ъ", "")+f"и{cmacron}"
-            )).lower()
-            yield deaccentized_token2, input_yat
-            yield cyr2lat(deaccentized_token2), input_yat
 
 
 class FancyLookup:
@@ -99,22 +102,15 @@ class FancyLookup:
       outer_key, input_yat = key_with_mode
       inner_keys = self._outer_to_inner[(outer_key.lower(), input_yat)]
       for key in inner_keys:
+         #print(key)
          for entry in self._inner_to_entries[key]:
             yield key, entry
 
    def __setitem__(self, inner_key: str, value: Entry) -> None:
       self._inner_to_entries[inner_key] = value
-      if '\\' in value.info:
-         first_substr = value.info.split(';')[0]
-         first_accent = first_substr.split('\\')[1]
-      else:
-         first_accent = ""
 
-      double_adj_form = ("all" in value.type) # bool: do we have dobar/dobri, zao/zli
-      for outer_key, input_yat in inner_to_outer(inner_key, first_accent, double_adj_form):
-         outer_keys_ = outer_key.split('\\')
-         for outer_key_ in outer_keys_:
-            self._outer_to_inner[(outer_key_, input_yat)] = inner_key
+      for outer_key, input_yat in inner_to_outer(value.accented_keys, value.extra_key):
+         self._outer_to_inner[(outer_key, input_yat)] = inner_key
 
    def random_key(self) -> Tuple[str, str]:
       return random.choice(list(self._outer_to_inner))

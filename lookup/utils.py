@@ -240,7 +240,8 @@ _deaccentize_accented: Dict[str, str] = {
 _deaccentize_translator = str.maketrans(dict(chain(
    ((acc, deacc) for accs, deacc in _deaccentize_accented.items()
                  for acc in accs),
-   ((mark, None) for mark in all_accent_marks)
+   ((mark, None) for mark in all_accent_marks),
+   ((mark, None) for mark in '`´_°¨^!') #TODO move this string somewhere
 )))
 
 def deaccentize(text: str) -> str:

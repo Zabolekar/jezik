@@ -35,12 +35,13 @@ class Noun(PartOfSpeech):
    def __init__(
       self,
       key: str,
+      accented_keys: str,
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...]
    ) -> None:
-      super().__init__(key, kind, info, replacements, amendments)
+      super().__init__(key, accented_keys, kind, info, replacements, amendments)
 
       self.trunk = self._trunk()
       self.anim: List[str] = []
@@ -56,9 +57,9 @@ class Noun(PartOfSpeech):
 
    def _trunk(self) -> List[str]:
       result = []
-
+      keys = self.accented_keys
       for i, AP in enumerate(self.gram.AP):
-         accented_noun = garde(accentize(self.key, self.gram.accents[i].r, self.gram.accents[i].v))
+         accented_noun = garde(accentize(keys[i]))
          if self.label("m") and not self.label('o'):
             trunk_ = accented_noun.replace(cstraight, '')
             # self.key is useless here; accented_noun has not only stress place,

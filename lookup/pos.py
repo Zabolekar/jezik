@@ -25,11 +25,13 @@ class PartOfSpeech():
    def __init__(
       self,
       key: str,
+      accented_keys: str,
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
       amendments: Tuple[Replacement, ...]
    ) -> None:
+      self.accented_keys = accented_keys.split(",")
       self.kind = kind
       self.key = key.split('\\')[0]
       self.gram = GramInfo(kind, info.split(';'))
@@ -78,7 +80,7 @@ class PartOfSpeech():
          morpheme, accent = ending_part.morpheme, ending_part.accent
          if self.kind.startswith('V') and len(self.kind.split("\\")) > 3:
             stem_ = stem.replace(cmacron, '')
-            morpheme_ = morpheme.replace('>', '').replace('ȷ', '')
+            morpheme_ = ''.join([x for x in morpheme if x.isalpha() and x not in "ʹʺ"])
             if stem_[-1] == 'р' and stem_[-2] not in all_vowels and morpheme_:
                if morpheme_[0] not in all_vowels:
                   stem = stem + cring
@@ -90,7 +92,7 @@ class PartOfSpeech():
 
          # declickify (ʘ) -- special double '0' in nesti-verbs
          if self.kind.startswith('V'):
-            if current_AP in ('xʺ'):
+            if current_AP in ('eʹxʺ'):
                morpheme = morpheme.replace('ʘ', '')
          morpheme = morpheme.replace('ʘ', '0')
 
