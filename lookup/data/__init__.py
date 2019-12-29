@@ -23,7 +23,7 @@ for full_key in raw_data.keys():
       accented_keys_with_extra_key : str = full_key[:first_space]
       disambiguator = full_key[first_space+1:] + ":"
    else:
-      accented_keys_with_extra_key : str = full_key
+      accented_keys_with_extra_key = full_key
       disambiguator = ""
    if '\\' in accented_keys_with_extra_key:
       accented_keys, extra_key = accented_keys_with_extra_key.split("\\", 1)

@@ -131,7 +131,7 @@ class Noun(PartOfSpeech):
        then word DOES have neocircumflex retraction
        and yer is FORCEDLY clarified to an 'a' sound;
        other yers will be handled afterwards by the common yer rule
-      
+       ...
        without yers, in cases like jèzik : jȅzīkā:
        stem has no mobile vowel, stem is accented,
        word is not feminine, accented vowel is not the first one
@@ -142,8 +142,9 @@ class Noun(PartOfSpeech):
          # 1. finding vowel places that will be of importance
          lvi, fvi, pvi = indices(stem)
 
-         # 2 handling óvca > ovácā
-         if cmacron in stem and self.label("f") and current_AP in ('c:', 'g:'):
+         # 2 handling óvca > ovácā and óvan > ovánā
+         if cmacron in stem and (self.label("f") and current_AP in ('c:', 'g:')
+               or self.label("m") and current_AP in ('e:')):
             stem = stem.replace(cmacron, '')
 
          # 3 handling yers and predefining retractions
