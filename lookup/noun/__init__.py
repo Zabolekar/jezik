@@ -46,10 +46,15 @@ class Noun(PartOfSpeech):
       self.trunk = self._trunk()
       self.anim: List[str] = []
       self.suff: List[str] = []
+
+      print(self.gram.MP)
       for paramList in self.gram.MP:
+         print(paramList)
          params = paramList.split(',')
          self.suff = appendDef(self.suff, params, ['+', '±'], '_')
          self.anim = appendDef(self.anim, params, ['an'], 'in')
+      print(self.anim)
+      print(self.suff)
 
    @staticmethod
    def _expose(form: str, yat:str="e", latin:bool=False) -> str:
@@ -107,11 +112,14 @@ class Noun(PartOfSpeech):
       variation: List[AccentedTuple],
       paradigm: str
    ) -> bool:
-      return (first_vowel_index(noun_form) != last_vowel_index(noun_form)
-               or all(x not in paradigm for x in 'cde0')
-               or (variation not in male_gen_pl_marked))
-               # this is the ā which is NOT accented in a. p. c
-               # TODO better make it a variable in Paradigms and import it here
+      if first_vowel_index(noun_form) != last_vowel_index(noun_form):
+         return True
+      if all(x not in paradigm for x in 'cde0'):
+         return True
+      if variation not in male_gen_pl_marked:
+         return True
+      #print(noun_form, " ", variation, " ", paradigm)
+      return False
 
    def _delete_left_bracket(
       self,
@@ -140,25 +148,28 @@ class Noun(PartOfSpeech):
       if morpheme.startswith('<'): # so far only '-ā' is like that
 
          # 1. finding vowel places that will be of importance
-         lvi, fvi, pvi = indices(stem)
+         lvi, _, pvi = indices(stem)
 
          # 2 handling óvca > ovácā and óvan > ovánā
-         if cmacron in stem and (self.label("f") and current_AP in ('c:', 'g:')
-               or self.label("m") and current_AP in ('e:')):
-            stem = stem.replace(cmacron, '')
+         if cmacron in stem:
+            if (self.label("f") and current_AP in ('c:', 'g:')) \
+               or (self.label("m") and current_AP in ('e:') and not 'œ' in stem):
+               stem = stem.replace(cmacron, '')
 
          # 3 handling yers and predefining retractions
          retraction = [0]
          if self.label('m'):
             if ('ъ' in stem or 'ꚜ' in stem) and current_AP in accent \
-               and current_AP in ['a:', 'b:', 'c:', 'f.']:
+               and current_AP in ('a:', 'b:', 'c:', 'f.'):
                retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
-            elif (('d' in current_AP and 'œв' in stem)
-               or (pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
-               and current_AP not in accent \
-               and (current_AP in ['a.', 'a!']) \
-               or ('b.' in current_AP and ('ъ' in stem or 'ꚜ' in stem) and 'œ' in stem))):
-               retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄, о̀че̄ва̄
+            elif 'd' in current_AP and 'œв' in stem: # у́до̄ва̄
+               retraction = [1]
+            elif pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
+               and current_AP not in accent:
+               if current_AP in ('a.', 'a!'):
+                  retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄
+            elif 'b.' in current_AP and ('ъ' in stem or 'ꚜ' in stem) and 'œ' in stem:
+                  retraction = [1] # о̀че̄ва̄
             elif 'œв' in stem and 'c?' in current_AP:
                retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
             elif 'œв' in stem and 'b' in current_AP and 'ъ' not in stem and 'ꚜ' not in stem:
@@ -209,8 +220,8 @@ class Noun(PartOfSpeech):
          declension_type = None
 
       if declension_type is not None:
-         for label, ending in declension_type(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings:
-
+         lbld_endings = declension_type(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
+         for label, ending in lbld_endings:
             if label in self.replacements:
                result = [expose_replacement(form, yat, latin) for form in self.replacements[label]]
                yield nice_name(label), list(OrderedSet(result))
@@ -225,7 +236,6 @@ class Noun(PartOfSpeech):
 
                # after that, iterating by ending variation
                for ending_variation in ending:
-
                   # processing words like bo / bol (marked with ʟ)
                   if 'ʟ' in noun_form:
                      noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
@@ -239,7 +249,8 @@ class Noun(PartOfSpeech):
 
                   for noun_variant in noun_variants:
                      if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
-                        ready_forms += self.process_one_form(self.gram.AP[i], noun_variant, ending_variation)
+                        new_ready_form = self.process_one_form(self.gram.AP[i], noun_variant, ending_variation)
+                        ready_forms += new_ready_form
 
                if label in self.amendments:
                   ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]

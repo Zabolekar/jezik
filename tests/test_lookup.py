@@ -264,3 +264,9 @@ def test_uzeti():
    assert form == ["плете́мо", "плѐте̄мо"], form
    form = lookup("плести")["aor 2 pl"].multiform
    assert form == ["плѐтосте"], form
+
+def test_elong_ov():
+   form = lookup("грех")["gen pl"].multiform
+   assert "гре́хо̄ва̄" in form, form
+   form = lookup("ован")["gen pl"][1].multiform
+   assert "о́вно̄ва̄" in form, form

@@ -19,11 +19,13 @@ def appendDef(
    appendable: List[str],
    defaultItem: str
 ) -> List[str]:
+   appended = False
    for item in inputList:
       if item in appendable:
          targetList.append(item)
-      else:
-         targetList.append(defaultItem)
+         appended = True
+   if not appended:
+      targetList.append(defaultItem)
    return targetList
 
 def accentize(word: str) -> str: # traditional accentuation

@@ -22,16 +22,23 @@ class NounStem(NamedTuple):
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
-      yield from zip(map(nice_name, self._fields),
-                     iter(self))
+      yield from zip(map(nice_name, self._fields), iter(self))
 
-m_anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {'sg_acc': {'in': [[AccentedTuple('ø·', 'b.b:e:f.q.')]],
-                       'an': [[AccentedTuple('а·', 'b.b:e:f.q.')]]},
-            'sg_loc': {'an': [[AccentedTuple('у·', 'b.b:e:f.q.')]],
-                       'in': [[AccentedTuple('у·', 'b.b:c:c?d:e:f.q.')], [AccentedTuple('у·', 'b.b:e:f.q.')]]}
-            }
+m_anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {
+   'sg_acc': {
+      'in': [[AccentedTuple('ø·', 'b.b:e:f.q.')]],
+      'an': [[AccentedTuple('а·', 'b.b:e:f.q.')]]
+   },
+   'sg_loc': {
+      'an': [[AccentedTuple('у·', 'b.b:e:f.q.')]],
+      'in': [[AccentedTuple('у·', 'b.b:c:c?d:e:f.q.')], [AccentedTuple('у·', 'b.b:e:f.q.')]]
+   }
+}
 
-male_gen_pl_marked = [[AccentedTuple(f'<а·{cmacron}', 'b.b:')], [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]]
+male_gen_pl_marked = [
+   [AccentedTuple(f'<а·{cmacron}', 'b.b:')],
+   [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]
+]
 
 def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    ov = AccentedTuple('>œ·в', 'b.b:c?d:e:f.')
@@ -44,7 +51,7 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи0·', 'b.b:c:c?b0q.')]]
-            ]
+   ]
 
    free_plurals = [
        [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
@@ -54,13 +61,16 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
        [[AccentedTuple('ʹи0·', 'b.b:c:c?b0q.')]]
-             ]
+   ]
    if suff == '+':
       return [[[ov] + a for a in plural] for plural in suffixed_plurals]
    elif suff == '_':
       return free_plurals
    elif suff == '±':
-      return [[[ov] + a for a in suffixed_plurals[i]] + [a for a in free_plurals[i]] for i in range(7)]
+      return [
+         [[ov] + a for a in suffixed_plurals[i]] + free_plurals[i]
+         for i in range(7)
+      ]
    else:
       raise NotImplementedError("Unknown paradigm")
 
@@ -72,21 +82,21 @@ def m_instr(stem: str) -> List[List[AccentedTuple]]:
    om = [AccentedTuple('о·м', 'b.b:e:f.q.')]
 
    if lvi is None:
-      return [om]
-   elif stem.endswith('ʲ') \
-      or stem.endswith('тељ'): # пријатељ
-      return [em, om] # плашт, дажд, пут, нос, курс, појас, цар
+      result = [om]
+   elif stem.endswith('ʲ') or stem.endswith('тељ'): # пријатељ
+      result = [em, om] # плашт, дажд, пут, нос, курс, појас, цар
    elif stem.endswith('ъц'): # отац, палац
-      return [em]
+      result = [em]
    elif stem[-1] in 'чџшжјљњ':
       if stem[lvi] == 'е':
-         return [om, em] # лавеж, кеј, Беч
+         result = [om, em] # лавеж, кеј, Беч
       else:
-         return [em] # кључ
+         result = [em] # кључ
    elif stem[-1] in 'њљћђ': # коњ
-      return [em]
+      result = [em]
    else:
-      return [om]
+      result = [om]
+   return result
 
 def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
    u = [AccentedTuple('у0·', 'b.b:c:c?b0d:e:f.q.')]
