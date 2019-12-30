@@ -2,6 +2,13 @@
 {% block results %}
 <div id="tables-or-not-found">
    {% if tables|length > 1 %}
+      {#
+         The following only works because:
+         1. the text is unaccented, so no need to distinguish
+         between rezultáta and rezultátā,
+         2. we probably won't have 21, 31 etc. results, so no
+         need to use rezùltāt
+      #}
       Пронађено <b>{{ tables|length }}</b> резултата:<br><br>
    {% endif %}
    {% for table in tables %}
