@@ -102,7 +102,6 @@ class FancyLookup:
       outer_key, input_yat = key_with_mode
       inner_keys = self._outer_to_inner[(outer_key.lower(), input_yat)]
       for key in inner_keys:
-         #print(key)
          for entry in self._inner_to_entries[key]:
             yield key, entry
 

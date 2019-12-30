@@ -47,14 +47,10 @@ class Noun(PartOfSpeech):
       self.anim: List[str] = []
       self.suff: List[str] = []
 
-      print(self.gram.MP)
       for paramList in self.gram.MP:
-         print(paramList)
          params = paramList.split(',')
          self.suff = appendDef(self.suff, params, ['+', '±'], '_')
          self.anim = appendDef(self.anim, params, ['an'], 'in')
-      print(self.anim)
-      print(self.suff)
 
    @staticmethod
    def _expose(form: str, yat:str="e", latin:bool=False) -> str:
@@ -118,7 +114,6 @@ class Noun(PartOfSpeech):
          return True
       if variation not in male_gen_pl_marked:
          return True
-      #print(noun_form, " ", variation, " ", paradigm)
       return False
 
    def _delete_left_bracket(
