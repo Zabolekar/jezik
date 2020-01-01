@@ -161,8 +161,8 @@ class Noun(PartOfSpeech):
                retraction = [1]
             elif pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
                and current_AP not in accent:
-               if current_AP in ('a.', 'a!'):
-                  retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄
+               if current_AP in ('a.'):
+                  retraction = [1] # је̏зӣка̄
             elif 'b.' in current_AP and ('ъ' in stem or 'ꚜ' in stem) and 'œ' in stem:
                   retraction = [1] # о̀че̄ва̄
             elif 'œв' in stem and 'c?' in current_AP:
