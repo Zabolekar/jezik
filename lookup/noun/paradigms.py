@@ -134,7 +134,7 @@ def c_m(stem: str, suff: str, anim: str) -> NounStem:
    return NounStem(*declension)
 
 
-f_declension = [
+f_declension_a = [
    [[AccentedTuple('а·', 'b.c.c:g.g:')]],
    [[AccentedTuple('у·', 'b.g.g:')]],
    [[AccentedTuple(f'е·{cmacron}', 'b.c.c:g.g:')]],
@@ -151,5 +151,25 @@ f_declension = [
    [[AccentedTuple('е', '')]]
 ]
 
-def c_f(stem: str, suff: str, anim: str) -> NounStem:
-   return NounStem(*f_declension)
+f_declension_yer = [
+   [[AccentedTuple('ø', '')]],
+   [[AccentedTuple('ø', '')]],
+   [[AccentedTuple('и', '')]],
+   [[AccentedTuple('и', '')]],
+   [[AccentedTuple('ĵу', '')], [AccentedTuple('и', '')]],
+   [[AccentedTuple('и·', 'c:c?')]],
+   [[AccentedTuple('и', '')]],
+   [[AccentedTuple('и', '')]],
+   [[AccentedTuple('и', '')]],
+   [[AccentedTuple(f'и·{cmacron}', 'c:c?')]],
+   [[AccentedTuple('и·ма', 'c:c?')]],
+   [[AccentedTuple('и·ма', 'c:c?')]],
+   [[AccentedTuple('и·ма', 'c:c?')]],
+   [[AccentedTuple('и', '')]]
+]
+
+def c_f(stem: str, a: bool) -> NounStem:
+   if a:
+      return NounStem(*f_declension_a)
+   else:
+      return NounStem(*f_declension_yer)

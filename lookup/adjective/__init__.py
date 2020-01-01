@@ -75,7 +75,8 @@ class Adjective(PartOfSpeech):
       i: index of the variation (by variation we mean things like зу̑бнӣ зу́бнӣ)
       """
       current_AP = self.short_AP[i] if paradigm is short_adj else self.long_AP[i]
-      adj_form = self.swap(self.trunk[i], length_inconstant, current_AP, self.long_AP[i])
+
+      adj_form = self.swap(self.trunk[i], length_inconstant, current_AP, self.short_AP[i])
 
       for label, ending in zip(paradigm._fields, paradigm):
 

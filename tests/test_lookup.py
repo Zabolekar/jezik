@@ -270,3 +270,9 @@ def test_elong_ov():
    assert "гре́хо̄ва̄" in form, form
    form = lookup("ован")["gen pl"][1].multiform
    assert "о́вно̄ва̄" in form, form
+
+def test_3decl():
+   assert lookup("реч")["gen pl"].multiform == ["ре́чӣ"]
+   assert lookup("болест")["ins sg"].multiform == ["бо̏лешћу", "бо̏лести"]
+   assert lookup("љубав")["ins sg"].multiform == ["љу́бављу", "љу́бави"]
+   assert lookup("лаж")["dat sg"].multiform == ["ла̏жи"]
