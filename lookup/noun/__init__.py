@@ -213,7 +213,7 @@ class Noun(PartOfSpeech):
       elif self.label("f"):
          lbld_endings = c_f(self.trunk[i], self.accented_keys[i].endswith('а')).labeled_endings
       else:
-         lbld_endings = []
+         lbld_endings = iter([])
          declension = False
 
       if declension:

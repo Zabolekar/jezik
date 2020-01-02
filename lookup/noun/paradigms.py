@@ -141,14 +141,14 @@ f_declension_a = [
    [[AccentedTuple('ʹи·', 'b.g.g:')]],
    [[AccentedTuple(f'о·{cmacron}м', 'b.c.c:g.g:')]],
    [[AccentedTuple('ʹи·', 'b.c.c:g.g:')]],
-   [[AccentedTuple('о·', '')]], # TODO: add o/u/e-rule
+   [[AccentedTuple('о0·', 'b.')]], # TODO: add o/u/e-rule
    [[AccentedTuple('е·', 'b.')]],
    [[AccentedTuple('e·', 'b.')]],
    [[AccentedTuple(f'<а·{cmacron}', 'b.c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
-   [[AccentedTuple('е', '')]]
+   [[AccentedTuple('е0·', 'b.')]]
 ]
 
 f_declension_yer = [
