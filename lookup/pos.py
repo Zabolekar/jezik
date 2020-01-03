@@ -157,10 +157,15 @@ class PartOfSpeech():
       iterative:bool=True
    ) -> List[str]:
 
-      if iterative:
+      if stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morphChain[0].morpheme:
+         iterable_form = [stem, stem[:-1]]
+      else:
          iterable_form = [stem]
+
+      if iterative:
+
          for submorph in morphChain: # w is submorph in ending, like -ov- and -i in bog-ov-i
             iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
          return iterable_form
       else:
-         return self._append_morpheme(current_AP, [stem], morphChain[0])
+         return self._append_morpheme(current_AP, iterable_form, morphChain[0])
