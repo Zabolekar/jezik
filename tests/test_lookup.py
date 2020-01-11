@@ -106,7 +106,7 @@ def test_gpl():
    assert lookup("језик")["pl gen"].multiform == ["је̏зӣка̄"]
    assert set(lookup("грош")["pl gen"].multiform) == set(["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"])
    assert set(lookup("бик")["pl gen"].multiform) == set(["би̏ко̄ва̄", "бѝко̄ва̄"])
-   assert lookup("аманет")["pl gen"].multiform == ["а̀ма̄не̄та̄"]
+   assert lookup("аманет")["pl gen"].multiform == ["ама́не̄та̄"]
    assert set(lookup("отац")["pl gen"].multiform) == set(["о̀че̄ва̄", "ота́ца̄"])
    assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄"]
    assert lookup("новац")["pl gen"].multiform == ["но̏ва̄ца̄"]
@@ -161,7 +161,7 @@ def test_mo_mo():
    assert lookup("дознати")["prs 2 pl"].multiform == ["дозна́те", "до̀зна̄те"]
 
 def test_latin():
-   assert lookup("amanet")["gen pl"].multiform == ["àmānētā"]
+   assert lookup("amanet")["gen pl"].multiform == ["amánētā"]
    assert lookup("ačiti se")["prs 3 pl"].multiform == ["ȃčē se"]
    assert lookup("sudžuk")["acc pl"].multiform == ["sùdžuke"]
 
@@ -270,3 +270,9 @@ def test_elong_ov():
    assert "гре́хо̄ва̄" in form, form
    form = lookup("ован")["gen pl"][1].multiform
    assert "о́вно̄ва̄" in form, form
+
+def test_3decl():
+   assert lookup("реч")["gen pl"].multiform == ["ре́чӣ"]
+   assert lookup("болест")["ins sg"].multiform == ["бо̏лешћу", "бо̏лести"]
+   assert lookup("љубав")["ins sg"].multiform == ["љу́бављу", "љу́бави"]
+   assert lookup("лаж")["dat sg"].multiform == ["ла̏жи"]

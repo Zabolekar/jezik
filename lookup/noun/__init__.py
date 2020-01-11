@@ -61,17 +61,18 @@ class Noun(PartOfSpeech):
       keys = self.accented_keys
       for i, AP in enumerate(self.gram.AP):
          accented_noun = garde(accentize(keys[i]))
-         if self.label("m") and not self.label('o'):
+         if self.label("m") and not self.label('o') and not self.label('a'): # TODO rethink
             trunk_ = accented_noun.replace(cstraight, '')
-            # self.key is useless here; accented_noun has not only stress place,
-            # it has also all the lengths in the stem which surely are of importance
             accented_trunk_ = accented_noun
-         elif self.label("f") and accented_noun.endswith('а'): # TODO How do we call zlost-like f ang sluga-like m?
+         elif self.label("f") and accented_noun.endswith('а'):
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
-         elif self.label("f") and accented_noun.endswith(cstraight):
+         elif self.label("f") and accented_noun.endswith('а' + cstraight):
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-2]
+         elif self.label("f"):
+            trunk_ = accented_noun.replace(cstraight, '')
+            accented_trunk_ = accented_noun
          else:
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
@@ -161,8 +162,8 @@ class Noun(PartOfSpeech):
                retraction = [1]
             elif pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
                and current_AP not in accent:
-               if current_AP in ('a.', 'a!'):
-                  retraction = [1] # је̏зӣка̄, а̀ма̄не̄та̄
+               if current_AP in ('a.'):
+                  retraction = [1] # је̏зӣка̄
             elif 'b.' in current_AP and ('ъ' in stem or 'ꚜ' in stem) and 'œ' in stem:
                   retraction = [1] # о̀че̄ва̄
             elif 'œв' in stem and 'c?' in current_AP:
@@ -206,28 +207,27 @@ class Noun(PartOfSpeech):
       start_AP = self.gram.AP[i].replace('?', '.')
       target_AP = self.gram.AP[i].replace('?', '.')
 
-      declension_type: Optional[Callable[[str, str, str], NounStem]]
+      declension: bool = True
       if self.label("m"):
-         declension_type = c_m
+         lbld_endings = c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
       elif self.label("f"):
-         declension_type = c_f
+         lbld_endings = c_f(self.trunk[i], self.accented_keys[i].endswith('а')).labeled_endings
       else:
-         declension_type = None
+         lbld_endings = iter([])
+         declension = False
 
-      if declension_type is not None:
-         lbld_endings = declension_type(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
+      if declension:
          for label, ending in lbld_endings:
             if label in self.replacements:
                result = [expose_replacement(form, yat, latin) for form in self.replacements[label]]
                yield nice_name(label), list(OrderedSet(result))
 
             else:
-
                ready_forms: List[str] = [] # TODO: better name
 
                # swapping length in case it is necessary
                to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)
-               noun_form = self.swap(self.trunk[i], to_swap_or_not, start_AP, target_AP)
+               noun_form = self.swap(self.trunk[i], to_swap_or_not, self.gram.AP[i], target_AP)
 
                # after that, iterating by ending variation
                for ending_variation in ending:

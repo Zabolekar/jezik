@@ -26,13 +26,6 @@ palatalization_modes: Dict[str, Dict[str, str]] = {
          'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
          'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
          'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'},
-   'ĵ': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
-         'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
-         'шт': 'шћ', 'жд': 'жђ', 'ск': 'шт', 'зг': 'жд',
-         'к': 'чј', 'ц': 'чј', 'х': 'шј', 'г': 'жј',
-         'ш': 'шј', 'ж': 'жј', 'ч': 'чј', 'џ': 'џј',
-         'т': 'ћ', 'д': 'ђ', 'с': 'сј', 'з': 'зј',
-         'л': 'љ', 'р': 'рј', 'н': 'њ', 'ј': 'ј'},
    '': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
         'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
         'шт': 'шћ', 'жд': 'жђ', 'ск': 'шт', 'зг': 'жд',
@@ -148,7 +141,7 @@ _prettify_replaces: List[Tuple[str, str]] = [
    ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
    (f'јӥ{cstraight}', f'{cstraight}јӥ'), ('јӥ', f'{cmacron}ј'),
    ('ӥ', 'и'), (f'{cstraight}{cmacron}', f'{cmacron}{cstraight}'),
-   (f'ʌ([аеиоурœ]|{cring})', 'л\\1'),
+   (f'ʌ([аеиоурœĵ]|{cring})', 'л\\1'),
    (f'{cmacron}{cstraight}ʌ', f'{cstraight}ʌ'),
    (f'{cmacron}ʌ', 'ʌ'),
    ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
@@ -211,6 +204,15 @@ _prettify_small_palatalization: List[Tuple[str, str]] = [
 _prettify_small_palatalization_c: List[Tuple[Pattern, str]]
 _prettify_small_palatalization_c = [(re.compile(p), r) for p, r in _prettify_small_palatalization]
 
+_prettify_yer_yot = (
+   ('бĵ', 'бљ'), ('мĵ', 'мљ'), ('вĵ', 'вљ'), ('фĵ', 'фљ'), ('пĵ', 'пљ'),
+   ('стĵ', 'шћ'), ('здĵ', 'жђ'), ('слĵ', 'шљ'), ('злĵ', 'жљ'),
+   ('штĵ', 'шћ'), ('ждĵ', 'жђ'), ('скĵ', 'шт'), ('згĵ', 'жд'),
+   ('кĵ', 'чј'), ('цĵ', 'чј'), ('хĵ', 'шј'), ('гĵ', 'жј'),
+   ('тĵ', 'ћ'), ('дĵ', 'ђ'), ('ћĵ', 'ћ'), ('ђĵ', 'ђ'),
+   ('лĵ', 'љ'),('нĵ', 'њ'), ('јĵ', 'ј'), ('ĵ', 'ј')
+)
+
 def prettify(text: str, yat:str="e") -> str:
    other_repl_modes = (
       _prettify_small_palatalization_c,
@@ -227,6 +229,9 @@ def prettify(text: str, yat:str="e") -> str:
    for repl_mode in other_repl_modes:
       for entity in repl_mode:
          text = entity[0].sub(entity[1], text)
+
+   for old, new in _prettify_yer_yot:
+      text = text.replace(old, new)
 
    return text
 

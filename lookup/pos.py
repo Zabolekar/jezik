@@ -4,18 +4,17 @@ from .utils import first_vowel_index, last_vowel_index, insert
 from .charutils import all_vowels, cstraight, cmacron, cring
 from .data.multidict import Replacement
 
-def _swap(trunk: str, AP: str) -> str:
+def _swap(trunk: str) -> str:
    """this function swaps last vowel of given trunk
    from long to short and vice versa"""
-
    lvi = last_vowel_index(trunk)
    last_macron = trunk.rfind(cmacron)
 
    if lvi is not None: # if the word has vowels
-      if AP.endswith(':') and lvi+1 != last_macron and lvi+2 != last_macron:
+      if last_macron not in (lvi+1, lvi+2):
          return insert(trunk, {lvi+1: cmacron}) # insert macron if needed
 
-      elif AP.endswith('.') and lvi+1 != last_macron and last_macron != -1:
+      elif last_macron != -1:
       # and vice versa, delete macron from the last vowel
          return trunk[:last_macron] + trunk[last_macron+1:]
 
@@ -52,8 +51,8 @@ class PartOfSpeech():
    @staticmethod
    def swap(trunk: str, length_inconstant: bool, AP: str, target_AP: str) -> str:
       """ swap words like boos ~ bosa, otherwise pass"""
-      if length_inconstant and AP == target_AP:
-         return _swap(trunk, AP)
+      if length_inconstant and AP != target_AP:
+         return _swap(trunk)
       return trunk
 
    def _delete_left_bracket(
@@ -158,10 +157,15 @@ class PartOfSpeech():
       iterative:bool=True
    ) -> List[str]:
 
-      if iterative:
+      if stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morphChain[0].morpheme:
+         iterable_form = [stem, stem[:-1]]
+      else:
          iterable_form = [stem]
+
+      if iterative:
+
          for submorph in morphChain: # w is submorph in ending, like -ov- and -i in bog-ov-i
             iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
          return iterable_form
       else:
-         return self._append_morpheme(current_AP, [stem], morphChain[0])
+         return self._append_morpheme(current_AP, iterable_form, morphChain[0])
