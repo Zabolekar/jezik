@@ -14,7 +14,7 @@ This will be a Serbian dictionary with detailed information about accent.
 * Flask
 * PyYAML
 
-We also use pytest to run the tests and mypy for static type checking, but they are not necessary to run the code.
+We also use `pytest` to run the tests, `mypy` for static type checking, and `coverage.py` to measure test coverage, but they are not necessary to run the code.
 
 ## Running it locally
 
@@ -64,3 +64,14 @@ The following commands might give you some useful hints, but don't trust them bl
 * `flake8`
 
 We also have configured `pytest --quick` to skip the most time-consuming tests but still perform the quick ones; this is useful during development.
+
+You can measure test coverage like this:
+
+```bash
+coverage run -m pytest
+# depending on what you want, add --branch after run and --quick after pytest
+coverage report # for seeing a short report
+coverage html # for generating a detailed report where you can browse files and see what wasn't executed
+```
+
+Don't let the results make you too optimistic. High coverage numbers can be reported even for files that don't have any automated tests at all (e.g. because some of their lines, like imports, class definitions, decorators etc. are executed during import).
