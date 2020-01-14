@@ -8,6 +8,10 @@ This will be a Serbian dictionary with detailed information about accent.
 
 ![Example screenshot](example.png "Example")
 
+## Web instance
+
+You can find a running instance of this thing at <https://jezik.pythonanywhere.com/>.
+
 ## Requirements
 
 * Python 3.7 or later
