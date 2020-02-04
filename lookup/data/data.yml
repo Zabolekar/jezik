@@ -3,8336 +3,8335 @@
 
 а¨бати:
  t: V\Tr\Ipf
- i: \o.\beta
+ i: o./beta
  
 абдици´рати:
  t: V\Itr\Dv
- i: \k:\beta
+ i: k:/beta
  
 абеце´дън,а¨беце_дън,абе`це_дън:
  t: A\all
- i: \b:,c:\;\a.,a.\;\a.,a.\
+ i: b:,c:;a.,a.;a.,a.
  
 а¨бнорма_лън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 абони´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
  
 а¨бонос,а`бонос,або`нос:
  t: N\m
- i: \a.\;\a.\;\a.\
+ i: a.;a.;a.
  
 або`ртус:
  t: N\m
- i: \a.\
+ i: a.
  
 а`ван:
  t: N\m
- i: \a.\
+ i: a.
  c: ступа
  
 аванзо`вати:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
  
 авантури`стички_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  
 а`вгуст:
  t: N\m
- i: \a.\
+ i: a.
  c: = а̀угуст, ау̀густ, ко̏лово̄з
 
 а`угуст,ау`густ:
  t: N\m
- i: \a.\;\a.\
+ i: a.;a.
 
 авија`тича_р:
  t: N\m
- i: \a.\an
+ i: a./an
 
 ави`о_н:
  t: N\m
- i: \b:\
+ i: b$
      
 ави`онски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`вли_јски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨ги_лан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 аги`та_тор:
  t: N\m
- i: \a!\an
+ i: a!/an
 
 агито`вати:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
 
 а`гра_рни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨греси_вън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а`гресор:
  t: N\m
- i: \a.\an
+ i: a./an
 
 агро`ном:
  t: N\m
- i: \a.\an
+ i: a./an
 
 агро`номски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 адво`ка_т:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 адвокати´рати:
  t: V\Itr\Ipf
- i: \k:\beta
+ i: k:/beta
  v: адвокатисати
 
 адвокати`сати:
  t: V\Itr\Ipf
- i: \t.\delta
+ i: t./delta
  v: адвокатирати
 
 адво`ка_тски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 а¨дминистрати_вън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 адми`ра_л:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 адми`ра_лски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 адре`са_р:
  t: N\m
- i: \b:\
+ i: b$
 
 адресо`вати:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
 
 а`ду_т:
  t: N\m
- i: \b:\
+ i: b$
 
 аеро`дром:
  t: N\m
- i: \a.\
+ i: a.
 
 а`збестни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`збучни_,а´збучни_:
  t: A\ski
- i: \0,a.\;\0,a.\
+ i: 0,a.;0,a.
 
 а`зи_јски_,а^зи_јски_,а´зи_јски_:
  t: A\ski
- i: \0,a:\;\0,a:\;\0,a:\
+ i: 0,a:;0,a:;0,a$
 
 а`зо_тни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 а`зу_рън,а¨зу_рън:
  t: A\all
- i: \a:,a:\;\a:,a:\
+ i: a:,a:;a:,a$
 
 ака`демски_,ака`де_мски_:
  t: A\ski
- i: \0,a.\;\0,a:\
+ i: 0,a.;0,a$
 
 акро`батски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨кти_вън: 
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а¨ктуе_лън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а¨кузати_в:
  t: N\m
- i: \a.\
+ i: a.
 
 акуму`ла_тор:
  t: N\m
- i: \a.\
+ i: a.
 
 акуму`ла_торски_: 
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 акумули´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 аку`стичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а`ку_тън,а¨ку_тън:
  t: A\all
- i: \a:,a:\;\a:,a:\
+ i: a:,a:;a:,a$
 
 акценто`вати:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
 
 акцио`на_рски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 ала´лити:
   t: V\Tr\Pf
-  i: \p:\alpha
+  i: p:/alpha
   v: халалити
 
 аларма`нтън:
  t: A\all
- i: \b.,c.\
+ i: b.,c.
 
 аларми´рају_ћи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 аларми´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 а`ла_тни_: 
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 а`лба_нски_: 
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 а`лгебарски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`лка_лни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 алкохоли`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 а`лкохолни_,а¨лкохолни_,а`лкохо_лни_,а¨лкохо_лни_:
  t: A\ski
- i: \0,a.\;\0,a.\;\0,a:\;\0,a.\
+ i: 0,a.;0,a.;0,a:;0,a.
 
 алпини`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 а^лпски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 а¨лтернати_вън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 алтруи`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 алтруи`стичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 алуди´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 алу`ми_нијумски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 а¨љкав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а`ма_м:
  t: N\m
- i: \b:\
+ i: b$
  c: и ха`ма_м
 
 ха`ма_м:
  t: N\m
- i: \b:\
+ i: b$
  c: и а`ма_м
 
 ама`ндма_н:
  t: N\m
- i: \b:\
+ i: b$
 
 ама´нет:
  t: N\m
- i: \a!\
+ i: a!
  s: rjecnik.hr/search/?q=amanet
 
 ама`те_р:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 ама`те_рски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 амба`са_дор:
  t: N\m
- i: \a!\an
+ i: a!/an
 
 амба`са_дорски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 амби`јенЪт:
  t: N\m
- i: \a.\
+ i: a.
  
 а`мбис:
  t: N\m
- i: \a.\
+ i: a.
 
 а¨мбицио_зън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 амбу`лантни_,амбула`нтни_:
  t: A\ski
- i: \0,a.\;\0,c.\
+ i: 0,a.;0,c.
 
 А¨мер:
  t: N\m
- i: \a.\an
+ i: a./an
 
 Америка´нъц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 аме`рички_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ами`на_ш:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 а´миновати:
   t: V\Tr\Dv
-  i: \a!\epsilon
+  i: a!/epsilon
 
 амнести´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 амо`нијак:
  t: N\m
- i: \a.\
+ i: a.
 
 а`мо_нијачън,амо`нијачън,амони`ја_чън:
  t: A\all
- i: \a.,a.\;\a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.;a.,a.
 
 амортизо`вати:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
 
 ампути´рати:
   t: V\Tr\Dv
-  i: \k:\beta
+  i: k:/beta
 
 анализи´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 а¨налогън,ана`логън:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 аналфа`бет,аналфа`бе_т:
  t: N\m
- i: \a.\an;\b:\an
+ i: a./an;b:/an
 
 аналфабети`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 а¨нанас:
  t: N\m
- i: \a.\
+ i: a.
 
 анархи`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 анархи`стичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 анатеми`сати:
  t: V\Tr\Dv
- i: \t.\delta
+ i: t./delta
 
 ана`томски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  
 анахрони`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 анга`жма_н:
  t: N\m
- i: \b:\
+ i: b$
 
 ангажо`вати:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
  
 а^нђеʟ:
  t: N\m
- i: \a!\an
+ i: a!/an
 
 ане`мичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а¨нони_ман,ано`ниман:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 антагони`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 анти`ква_р:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 анти`ква_рски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`нтимон:
  t: N\m
- i: \a.\
+ i: a.
 
 антипа`тичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 анти`по_д,анти`по_д:
  t: N\m
- i: \b:\an;\b:\
+ i: b:/an;b$
 
 а¨нтирелигио_зън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а¨нтисоција_лън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 антифа`шист:
  t: N\m
- i: \a.\an
+ i: a./an
 
 а`нтички_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ануи`те_т:
  t: N\m
- i: \b:\
+ i: b$
 
 анули´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 апа`ра_т:
  t: N\m
- i: \b:\
+ i: b$
 
 апа`тичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а`пелацио_ни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨пити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
  c: жарг.
 
 аплауди´рати:
  t: V\Itr\Dv
- i: \k:\beta
+ i: k:/beta
 
 апоте`ка_рски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 апсолви´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 а¨псолу_тън,апсо`лутън:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 апсолути`стичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 апсорбо`вати I:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
  
 апсорбо`вати II:
  t: V\Refl\Dv
- i: \m.\epsilon
+ i: m./epsilon
 
 а`пстрактън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а`псурдън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а^р:
  t: N\m
- i: \c:\
+ i: c$
 
 ара`би_јски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 аранжи´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 ара`нжма_н:
  t: N\m
- i: \b:\
+ i: b$
 
 а`рапски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨рбитра_жни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 Аргенти´нъц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 аргу`менЪт:
  t: N\m
- i: \a.\
+ i: a.
 
 аргументо`вати:
  t: V\Tr\Dv
- i: \m.\epsilon
+ i: m./epsilon
 
 аристо`кратски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 аритме`тички_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`рктични_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`рми_ра_ни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 арми´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 арога`нтън:
  t: A\all
- i: \b.,c.\
+ i: b.,c.
 
 арома`тичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 арсе`на_л:
  t: N\m
- i: \b:\
+ i: b$
 
 арсе`ни_к:
  t: N\m
- i: \b:\
+ i: b$
 
 арте`ри_јски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 артикули`сати:
  t: V\Tr\Dv
- i: \t.\delta
+ i: t./delta
 
 артиље´ръц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 артиље`ри_јски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`ртист:
  t: N\m
- i: \a.\an
+ i: a./an
 
 арха`ичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 архи`ва_р:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 а`рхи_вски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 архите`кто_нски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨с,а¨с:
  t: N\m
- i: \a.\+;\a.\+,an
+ i: a./+;a./+,an
 
 асимили´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 а`ске_т:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 асорти`ма_н:
  t: N\m
- i: \b:\
+ i: b$
 
 аспири´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 астро`номски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`сфалт:
  t: N\m
- i: \a.\
+ i: a.
 
 асфалти´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 а`сфалтни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨та_р:
  t: N\m
- i: \a!\
+ i: a!
  c: и ха̏та̄р
 
 ха¨та_р:
  t: N\m
- i: \a!\
+ i: a!
  c: и а̏та̄р
 
 атеи`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 ате`нта_т:
  t: N\m
- i: \b:\
+ i: b$
 
 ате`нта_тор:
  t: N\m
- i: \a!\an
+ i: a!/an
 
 атери´рати:
  t: V\Itr\Dv
- i: \k:\beta
+ i: k:/beta
 
 а`тла_нтски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`тлас:
  t: N\m
- i: \a.\
+ i: a.
 
 а`тле_тски_,а`тлетски_:
  t: A\ski
- i: \0,a.\;\0,a.\
+ i: 0,a.;0,a.
 
 атмо`сфе_рски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`то_м:
  t: N\m
- i: \b:\
+ i: b$
 
 а`то_мски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 Аустралија´нъц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 Аустрија´нъц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 а¨устроугарски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а¨ут,а`ут:
  t: N\m
- i: \a.\;\a.\
+ i: a.;a.
 
 ауте`нтичън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ауто`ма_т:
  t: N\m
- i: \b:\
+ i: b$
 
 ауто`матски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 аутомо`би_л:
  t: N\m
- i: \b:\
+ i: b$
 
 аутомо`би_лски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`утоно_мън,ауто`номън:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 а`утор:
  t: N\m
- i: \a.\an
+ i: a./an
 
 а¨уторитати_вън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 аутори`те_т:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 а`уторски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`фекЪт:
  t: N\m
- i: \a.\
+ i: a.
 
 афе`ра_ш:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 афиши´рати:
  t: V\Tr\Dv
- i: \k:\beta
+ i: k:/beta
 
 афори`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 Африка´нъц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 афри`ка_нски_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  v: афрички
 
 а`фрички_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  v: африкански
 
 а´чити:
  t: V\Refl\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 ба´бин I:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ба´бов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ба´кин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ба´нов,ба^нов:
  t: A\ov
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 ба^њи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  c: само у Ба̑ња̄ Лу́ка
  
 бꙓ^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 бꙓ^ʟ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 бꙓ´сън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 бла^г:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 бла´жен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 би´љин I:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од би́ља (бео бик)
 
 Би´љин II:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од Би́ља (име)
  
 блꙓ^д:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 блу^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 бо^јни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 бо^рън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 бо^с:
  t: A\all
- i: \b?,b.\
+ i: b?,b.
 
 бра´јин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 бра´јов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 бра´тин II:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од бра́то, бра́та
  
 бра´цин II:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од бра́цо
  
 бр°^з:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 бр°^чни_,бр°¨чни_,бр°´чни_:
  t: A\ski
- i: \0,a:\;\0,a.\;\0,c:\
+ i: 0,a:;0,a.;0,c$
  
 бу´дън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 бу^јън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 бу^рън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ве^љи_,ве¨љи_:
  t: A\ski
- i: \0,a:\;\0,a.\
+ i: 0,a:;0,a.
 
 вꙓ^чън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ви^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ви´лин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ви´љев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ви¨т,ви¨т:
  t: A\all
- i: \a.,a.\;\a.,c.\
+ i: a.,a.;a.,c.
 
 вла^стън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 во´јнов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 вра´жји_,вра¨жји_,вра`жји_:
  t: A\ski
- i: \0,c:\;\0,a.\;\0,c.\
+ i: 0,c:;0,a.;0,c.
  
 вра^н:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 вра´нчев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 вра´пчев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 вра´пчји_,вра`пчји_:
  t: A\ski
- i: \0,c:\;\0,c.\
+ i: 0,c:;0,c.
 
 вра`тни_,вра^тни_ I:
  t: A\ski
- i: \0,c.\;\0,a:\
+ i: 0,c.;0,a$
  c: који се односи на врат
  
 вра´тни_,вра`тни_ II:
  t: A\ski
- i: \0,c:\;\0,c.\
+ i: 0,c:;0,c.
  c: који се односи на врата
  
 вра´чев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 врꙓ´дън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 вре¨ʌ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 вр°¨ʌ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 вру^ћ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ву´чји_,ву^чји_,ву`чји_:
  t: A\ski
- i: \0,c.\;\0,a:\;\0,c.\
+ i: 0,c.;0,a:;0,c.
  
 га´рин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ги^бън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
 
 гла^вън,гла^вън:
  t: A\all
- i: \a:,a:\;\a:,c.\
+ i: a:,a:;a:,c.
  
 гла´дън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 глу^п:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 гње^вън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 гњи^ʌ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 го^јън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 го^ʟ I:
  t: A\all
- i: \b?,b.\
+ i: b?,b.
 
 го´рък:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 го^рњи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 го´спин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 гр°´дън,гр°^дън:
  t: A\all
- i: \b:,b:\;\a:,a:\
+ i: b:,b:;a:,a$
 
 гре¨з:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 грꙓ^шън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 гр°^к:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 гро^зън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 гру^б:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 гу^зни_,гу´зни_:
  t: A\ski
- i: \0,a:\;\0,c:\
+ i: 0,a:;0,c$
  
 гу^ст:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 да^љни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  v: даљњи
  
 да^љњи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  v: даљни 
  
 да^њи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 де^ран:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ди^вън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
 
 ди^чън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 до^љни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  v: доњи
  
 до^њи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  v: дољни
  
 дра^г:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 Дра´жев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ду¨г,ду¨г I:
  t: A\all
- i: \a.,a.\;\a.,c.\
+ i: a.,a.;a.,c.
 
 ду´жън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ду^рън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ђа´ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ђо´гин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Ђу^рђев:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 же´дън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 жи^в:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 жи´дък,жи´дък,жи¨дък:
  t: A\all
- i: \b:,b:\;\b:,c.\;\a.,a.\
+ i: b:,b:;b:,c.;a.,a.
 
 жу^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 жу´јин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 жу´њин:
  t: A\ov
- i: \a.,a.\ 
+ i: a.,a.
 
 жу^т:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 за^вин:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
 
 зъ¨ʌ:
  t: A\all
- i: \b.,c.\
+ i: b.,c.
 
 звꙓ^рин:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
 
 здра¨в,здра¨в:
  t: A\all
- i: \a.,a.\;\a.,a:\
+ i: a.,a.;a.,a$
 
 зе´љин,зе¨љин:
  t: A\ov
- i: од зе́ља, зе́љо\a.,a.\;од зе̏ља\a.,a.\
+ i: од зе́ља, зе́љо\a.,a.;од зе̏ља\a.,a.
 
 зе´чји_,зе¨чји_,зе`чји_:
  t: A\ski
- i: \0,c:\;\0,a.\;\0,c.\
+ i: 0,c:;0,a.;0,c.
 
 зи^мни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  v: зимњи
 
 зи^мњи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  v: зимни
  
 зла´тън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 зна¨н:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зо^рън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 зре¨ʌ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зу^бни_,зу´бни_,зу`бни_:
  t: A\ski
- i: \0,a:\;\0,c:\;\0,c.\
+ i: 0,a:;0,c:;0,c.
  
 ја^вън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ја^к:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ја^ри_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 ја^рки_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 ја^рчев:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 је´дък,је¨дък:
  t: A\all
- i: \b:,b:\;\a.,a.\
+ i: b:,b:;a.,a.
  c: и је̑дак??
 
 је^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 је´дър,је¨дър:
  t: A\all
- i: \b:,b:\;\a.,a.\
+ i: b:,b:;a.,a.
  
 је´жев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ка^лън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ква´рън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 ке´њчев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ке^ров:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
 
 ки^вън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 клꙓ^нит:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 кља¨ст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ко´кин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 Ко´чин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 кра^јњи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 кра´љев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 кра´сън,кра^сън:
  t: A\all
- i: \b:,b:\;\a:,a:\
+ i: b:,b:;a:,a$
  
 кра´тък,кра´тък,кра¨тък:
  t: A\all
- i: \b:,b:\;\b:,c.\;\a.,a.\ 
+ i: b:,b:;b:,c.;a.,a.
 
 кр°^вни_,кр°´вни_,кр°`вни_:
  t: A\ski
- i: \0,a:\;\0,c:\;\0,c.\
+ i: 0,a:;0,c:;0,c.
  
 кре´јин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 кри^в:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 кр°^њ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  c: облик кр̏њ у ХЈП сматрамо типфелером
 
 кр°¨т:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кру´пън,кру´пън:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
 
 кру^т:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ку´мин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ку^мов:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 ку´мрин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ку^њи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 ку^с:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ку^тњи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 ла¨к:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла^сън I:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  c: подобан
 
 ла´стън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 ла´стин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 лꙓ^ви_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 лꙓ^н:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  v: лењ
  
 ле^њ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  v: лꙓн
 
 лꙓ^п:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 Ли´мов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ли¨ст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 ло¨ш:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 лу^д:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 љу^т:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ма´зън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 ма´јин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ма´јкин,ма^јкин:
  t: A\ov
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 ма^јчин:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 ма^л I:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
 
 ма´мин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Ма^рков:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 ма´стън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 ма´чков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ме¨к,ме¨к:
  t: A\all
- i: \a.,a.\;\a.,c.\
+ i: a.,a.;a.,c.
 
 ме´сни_,ме^сни_ I:
  t: A\ski
- i: \0,c:\;\0,a:\
+ i: 0,c:;0,a$
  c: који се односи на месо
  
 ми´рън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 мла^д:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 мла^дин:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 ми¨ʌ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 мла^к:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 мле^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 млꙓ^чън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 мно¨ги_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  
 мра´чън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 мр°^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 мр°^зън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 мр°¨к,мр°¨к:
  t: A\all
- i: \a.,a.\;\a.,c.\
+ i: a.,a.;a.,c.
  
 мр°´сън,мр°´сън:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
 
 му´дър:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 му´тън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 на^г:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 на´гъʌ,на^гъʌ:
  t: A\all
- i: \b:,b:\;\d:,b:\
+ i: b:,b:;d:,b$
 
 нꙓ^м:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 не´нин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ни¨штʲ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 но¨в:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 о´внов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 о´рлов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 о´рън,о^рън:
  t: A\all
- i: \b:,b:\;\a:,a:\
+ i: b:,b:;a:,a$
  c: код Даничића и о̏рън
  
 о´цин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Па^влов:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 па´пин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 па´тков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 пе^рни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 пꙓ´тлов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 пе^тни_,пе´тни_,пе`тни_:
  t: A\ski
- i: \0,a:\;\0,c:\;\0,c.\
+ i: 0,a:;0,c:;0,c.
  
 пја¨н:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  v: пијан
  
 пла^в:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 пла¨х,пла^х:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 пли´тък,пли´тък:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
  
 пло^вчји_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 по´пин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 пра¨в:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: неискривљен
  
 пра^ви_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  c: истински
  
 пра´зън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 пра^љин:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 пра´шън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 прꙓ^к:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 прꙓ´сън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 пр°^зни_:
  t: A\ski
- i: \0,a:\ 
+ i: 0,a$
  
 пр°^ли_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 про¨ст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 про´тин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 про´хин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 про¨чи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  
 пру¨г:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 пу^ки_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 пу¨н:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 пу^ст:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ра´вън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ра¨д:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ра^дни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 Ра´ђев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ра^ни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 рꙓ´дък,рꙓ´дък I:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
 
 ре´дък II:
  t: N\m
- i: \b:\
+ i: b$
 
 ре^пни_,ре´пни_ I:
  t: A\ski
- i: \0,a:\;\0,c:\
+ i: 0,a:;0,c$
  c: који се односи на реп
  
 ре¨пни_ II:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  c: који се односи на репу
  
 рꙓ^чън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ри^ђ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ро´дин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ру^д:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ру^дни_,ру´дни_:
  t: A\ski
- i: \0,a:\;\0,c:\
+ i: 0,a:;0,c$
  
 ру´жън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 ру´жин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ру^јън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ру¨с:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 све^т,све^т:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
 
 свꙓ´тъʌ,свꙓ^тъʌ:
  t: A\all
- i: \b:,b:\;\d:,b:\
+ i: b:,b:;d:,b$
  
 сви´рчев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 сво^јтљив,сво`јтљив:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  
 сꙓ^д:
  t: A\all   
- i: \b:,b:\
+ i: b:,b$
 
 се´јин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 се´кин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 се´лин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 си^в:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 си^вчев:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
 
 си^нов:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
 
 си^њи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 си^рни_,си¨рни_,си´рни_:
  t: A\ski
- i: \0,a:\;\0,a.\;\0,c:\
+ i: 0,a:;0,a.;0,c$
  
 си¨т:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сја´јън,сја^јън:
  t: A\all
- i: \b:,b:\;\a:,a:\
+ i: b:,b:;a:,a$
 
 скр°^бън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ску^п:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 сла¨б:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сла^вън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 сла^н:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 слу´гин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 сме¨ђ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 смꙓ´шън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 сми´љев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 сна´жън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 сна´шин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 спо¨р:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сра^мън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ср°^чън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
 
 ста^лън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ста^мън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 ста¨р:
  t: A\all
- i: \a.,a:\
+ i: a.,a$
 
 ста^рчев:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 сти´дън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 сто^јни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 стра¨н:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 стра´шън,стра´шън:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
 
 стр°^вън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 стри´чев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 стри´ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 стр°¨м:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 стру¨н:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сту^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 су^в:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  v: сух
 
 су^дни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 су^дњи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 су^нчев:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
 
 су^р:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 су^х:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  v: сув
 
 су^шън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 су¨штʲи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 та^јков:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 та^јни_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 та^лов:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 та´мън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  c: и та̑ман??
  
 та^рни_,та´рни_:
  t: A\ski
- i: \0,a:\;\0,c:\
+ i: 0,a:;0,c$
  
 та´тин,та¨тин:
  t: A\ov
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
  
 та¨шт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: и "таштега"
  
 твр°^д:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 те´жък,те´жък:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
 
 тꙓ´сън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 те´тин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 те´тков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 те´чън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 ти^њи_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 ти¨х:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 то^вън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 трꙓ´зън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 тро¨м:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 тру^дън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 тру¨ʌ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 ту^ђ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ту^жън,ту´жън:
  t: A\all
- i: \a:,a:\;\b:,b:\
+ i: a:,a:;b:,b$
  
 ту^п:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ту¨ст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћа´тин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ћа´тов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ће´ркин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ћи´фтин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ћо^ри_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 ћо´рин II:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од ћо́ра, ћо́ро (човек без ока)
  
 ћо´ров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ћо´син:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ћу^ков:
  t: A\ov
- i: \a:,a:\
+ i: a:,a$
  
 ћу^рчји_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 у´јин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 у´јков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 у^мън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
 
 фи´љев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 фи^н:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
 
 фру¨г:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ха´рън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 хи^тън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  
 хла´дън:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 хра´бър:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 хр°^ʌ,хр°¨ʌ:
  t: A\all
- i: \b:,b:\;\a.,a.\
+ i: b:,b:;a.,a.
 
 хро¨м:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ху^д:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  
 цꙓ^ʟ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 цр°^н:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ча^вчји_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
  
 чвр°^ст:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 ча´јин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 ча´јов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 чво´рков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 че^ст,че^ст:
  t: A\all
- i: \b:,b:\;\b:,c.\
+ i: b:,b:;b:,c.
 
 чи´кин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 чи´ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 чи¨ʟ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чи¨ст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чи¨т:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ша´рчев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ше´вин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ше¨н:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шкр°^бън:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
 
 шкри´пов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  
 шту^р:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 шу´пъљ:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 шу¨т:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  
 сни¨ти:
  t: V\Tr\Ipf
- i: \s0\alpha
+ i: s0/alpha
 
 при`снити:
  t: V\Refl\Pf
- i: \s0\alpha
+ i: s0/alpha
 
 са`снити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
 
 у`снити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
 
 скли¨ти:
  t: V\Refl\Ipf
- i: \s0\alpha
+ i: s0/alpha
  v: цклити се
  
 цкли¨ти:
  t: V\Refl\Ipf
- i: \s0\alpha
+ i: s0/alpha
  v: склити се
 
 за`днити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
  c: ставити дно
 
 ода`днити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
 
 у`дрити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
 
 за`ждити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
  c: и за̏ждије̄м
 
 по`ждити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
 
 при`ждити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
  
 са`ждити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
  
 у`ждити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
  
 уза`ждити:
  t: V\Tr\Pf
- i: \s0\alpha
+ i: s0/alpha
  
 смѣ¨ти:
  t: V\Itr\Ipf
- i: \s.\theta
+ i: s./theta
  
 у`мѣти:
  t: V\Itr\Ipf
- i: \s.\theta
+ i: s./theta
  
 изу`мѣти:
  t: V\Tr\Pf
- i: \s.\theta
+ i: s./theta
  
 разу`мѣти:
  t: V\Tr\Dv
- i: \s.\theta
+ i: s./theta
 
 го¨рʲи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ши¨рʲи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 пољопри¨вредни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  
 ка´котати,како`тати:
  t: V\Tr\Ipf
- i: \a!\delta;\t.\delta
+ i: a!/delta;t./delta
  
 одка´котати,одкако`тати:
  t: V\Tr\Pf
- i: \a!\delta;\t.\delta
+ i: a!/delta;t./delta
  
 разка´котати,разкако`тати:
  t: V\Refl\Pf
- i: \a!\delta;\t.\delta
+ i: a!/delta;t./delta
  
 ма´нисати,ма`нисати:
  t: V\Tr\Ipf
- i: \a!\delta;\o.\delta
+ i: a!/delta;o./delta
  
 р°`ђав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кли`зав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу`кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 а`птов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ба`дњев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 бѣ`лов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 бо`бов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 бре`стов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ве`зов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ви`нов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ви¨шњев,ви`шњев:
  t: A\ov
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
  c: и ви̏шњов, вѝшњов
 
 вр°`бов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 гло`гов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 гра`бов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 гра`бров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 гр°`мов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 дре`нов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ду`бов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ду`дов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 је`лов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 јо`вов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  v: јохов
 
 јо`хов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  v: јовов
 
 кле`нов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ко`мов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 кр°`стов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ку`ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ку`нов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ку`рков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 лѣ`сков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 лу`чев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ма`ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 мо`мков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 о`чев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Пе`тров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 по`пов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ро`бов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ру`јев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 све`кров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 смр°`чев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 со`мов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ср°`чев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 стр°`жев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 тво`ров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 тре`слов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 тр°`нов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 хра`стов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 це`ров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ча`мов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 чи`гов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 је`зив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лѣ`нив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  v: лењив
 
 ле`њив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пла`шив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 стра`шив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба`гљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба`жљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бо`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бр°`вљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бри`жљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ва`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 га`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гнѣ`вљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гра`бљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ди`мљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 дре`мљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ду`рљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жи`жљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 је`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ка`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ко`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кра`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла`жљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ма`мљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ма`рљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 му`кљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 му`тљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пла`чљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пла`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пр°`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пу`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пу`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ра`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ро`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 са`нљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сва`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 свра`бљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 си`пљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 смѣ`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 смр°`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 снѣ`тљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 спа`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сти`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 стра`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ту`жљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћу`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћу`тљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 у`шљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ха`рчљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 цр°`вљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ша`љив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шка`кљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: и чка̀кљив
 
 шко`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шкра`пљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ште`дљив:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 о`бил:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 о`хол,о¨хол:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 пи`том:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пи`јан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 про`стран:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 је`чмен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 но`вчан,но`вчан:
  t: A\all
- i: \a.,a.\;\a.,c.\
+ i: a.,a.;a.,c.
 
 о`всен,о¨всен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 о`гњен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ста`клен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 хи`мбен,хи¨мбен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 о`гњан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 тр°`њан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бе`дрени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 бра`шнени_,брашне`ни_:
  t: A\ski
- i: \0,a.\;\0,c.\
+ i: 0,a.;0,c.
 
 ви`лени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 же`твени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 кле`твени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 о`цтени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 па`клени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 си`лени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ча`брени_,чабре`ни_:
  t: A\ski
- i: \0,a.\;\0,c.\
+ i: 0,a.;0,c.
 
 ча`пљани_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ши`пчани_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 све`чани_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ру`чани_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 а`гин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ба`шин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 же`нин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Лу`чин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Мра`тин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 мр°`цин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 му`лин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 се`стрин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 дѣ`тињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 бу`дињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 бу`хињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 гу`јињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 зми`јињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ја`дињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ја`јињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 мра`вињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 о`чињи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 са`дањи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  v: садашњи
 
 са`дашњи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  v: садањи
 
 ва`љаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бо`гат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бра`дат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бр°`кат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 вла`сат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гла`ват:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гра`нат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гр°`лат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гр°`љат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гу`зат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ду`хат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зу`бат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ју`хат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ко`сат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кри`лат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кра`кат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°`стат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 му`дат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 но`сат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 о`кат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пле`ћат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пр°`сат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ре`пат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 вѣ`чит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гла`сит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 љу`тит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ма`хнит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сно`пит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ср°`дит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ста`сит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 че`стит:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 и`вањ:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 го`веђи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 је`лењи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ко`биљи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ме`двѣђи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 бра`вљи_,бра¨вљи_:
  t: A\ski
- i: \0,a.\;\0,a.\
+ i: 0,a.;0,a.
 
 ди`вљи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ја`рчји_,ја¨рчји_:
  t: A\ski
- i: \0,a.\;\0,a.\
+ i: 0,a.;0,a.
 
 ју`нчји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 о`вчји_,о¨вчји_:
  t: A\ski
- i: \0,a.\;\0,a.\
+ i: 0,a.;0,a.
 
 о`шљи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 псе`ћи_,псе¨ћи_:
  t: A\ski
- i: \0,a.\;\0,a.\
+ i: 0,a.;0,a.
 
 со`мљи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 по`ган:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба`јат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 са`кат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 башче`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 вазме`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 зобе`ни_,зо`бени_:
  t: A\ski
- i: \0,c.\;\0,a.\
+ i: 0,c.;0,a.
 
 игле`ни_,и`глени_:
  t: A\ski
- i: \0,c.\;\0,a.\
+ i: 0,c.;0,a.
 
 јаспре`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 каве`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 кључа`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 лађе`ни_,ла`ђени_:
  t: A\ski
- i: \0,c.\;\o.,a.\
+ i: 0,c.;o.,a.
 
 су`нчан,су`нчан,су^нчан:
  t: A\all
- i: \a.,c.\;\a.,a.\;\a:,a:\
+ i: a.,c.;a.,a.;a:,a$
 
 цр°`квен,цр°`квен:
  t: A\all
- i: \a.,c.\;\a.,a.\
+ i: a.,c.;a.,a.
 
 зе`лен:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ма`вен:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ру`мен:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 сту`ден:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 цр°`вен:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 цр°`љен:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ша`рен:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 де`беʌ:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 го`лем:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ви`сок:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ду`бок:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ни`зок:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ши`рок:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 да`лек:
  t: A\all
- i: \b.,b.\
+ i: b.,b.
 
 ма`мен,ма¨мен:
  t: A\all
- i: \b.,b.\;\a.,a.\
+ i: b.,b.;a.,a.
 
 ми`лен,ми¨лен:
  t: A\all
- i: \b.,b.\;\a.,a.\
+ i: b.,b.;a.,a.
 
 мр°`тъв:
  t: A\all
- i: \b.,b:\
+ i: b.,b$
 
 ба`дър,ба¨дър:
  t: A\all
- i: \b.,с.\;\a.,a.\
+ i: b.,с.;a.,a.
 
 а¨тљав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба¨гав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба¨нгав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бе¨нав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бљу¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бра¨шнав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бр°¨бљав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бр°¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бу¨ђав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бу¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бу¨рлав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бу¨хав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бу¨шав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 вр°¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 га¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ге¨џав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ги¨здав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ги¨нгав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гли¨бав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гли¨нџав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гно¨јав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гње¨цав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 го¨внав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гр°¨бав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гу¨бав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гу¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гу¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гу¨шав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 дла¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 дра¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 др°¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 дро¨згав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 дро¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 е¨гав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 е¨рлав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жва¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жи¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жми¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жу¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жу¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зно¨јав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зра¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 и¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 је¨цав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ка¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кле¨мпав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кли¨чав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кло¨мпав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кло¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кља¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кра¨став:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кре¨цав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°¨жав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°¨жљав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°¨шљав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨драв:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨ждрав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨шљав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨штрав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла¨жав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла¨јав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла¨ндав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ли¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ло¨ћкав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 љо¨хав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ма¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ма¨ћав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мѣ¨став:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мла¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мли¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мра¨сав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мр°¨шав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 му¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 му¨цав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 на¨штав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пи¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пѣ¨гав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пла¨чкав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пр°¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пр°¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пу¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ра¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ре¨хав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ри¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 р°¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: који има зечју усну
  v: хрњав
 
 хр°¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: који има зечју усну
  v: рњав
 
 ро¨хав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ру¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ру¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 си¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 си¨њгав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сли¨нав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 слу¨зав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 смо¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 стро¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 стру¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 те¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ти¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 тра¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 тра¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 три¨чав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 тру¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ту¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ту¨тљав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ће¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћо¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћо¨сав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћу¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 у¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 у¨њкав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ха¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 хи¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 хра¨пан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ху¨бав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ца¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 цо¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: који цо̏та̄, хро̏м, ше̏пав
 
 ча¨ђав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чво¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чи¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чи¨тав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чу¨лав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чу¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ша¨нтав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ше¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шки¨љав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шко¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шко¨рљав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шкр°¨бав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шо¨гав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шо¨рав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 штро¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шу¨гав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шу¨кав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шу¨њав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шу¨шав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 тра¨пав:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бе¨гов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 бо¨гов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 боа¨тов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 бре¨зов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 бу¨ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Ви¨дов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 во¨ђев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 го¨стов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 гра¨хов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 дѣ¨дов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Дми¨тров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ду¨ждев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 жи¨дов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 жу¨ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 зе¨тов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 зма¨јев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 и¨вов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ја¨лов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 је¨лшов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ју¨гов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 кле¨ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 кме¨тов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 кру¨шков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ла¨вов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ли¨пов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 лу¨ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 му¨жев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 но¨јев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ра¨ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 си¨бов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 си¨ров:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 смре¨ков:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 Ср°¨ђев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 та¨стов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ти¨сов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 тре¨шњев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  v: трешњов
 
 тре¨шњов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  v: трешњев
 
 у¨дов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 хр°¨тов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ца¨рев:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 че¨сов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 џи¨нов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 шљи¨вов:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 плѣ¨снив,плѣ`снив:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ве¨лик,ве`лик:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 же¨сток,же`сток:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ве¨сеʌ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки¨сеʌ:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла¨ком:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 блѣ¨ђан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 же¨ђан,же`ђан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 зе¨љан,зе`љан,зе`љан:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 ко`штан,ко¨штан,ко`штан:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 ла¨ган:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу¨дан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ме¨кан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мла¨ђан,мла`ђан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 пу¨нан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 си¨ћан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 та¨нан,та`нан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 тѣ¨штан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 у¨зан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 хла¨ђан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чо`хан,чо¨хан,чо`хан:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 а¨бен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба¨крен,ба`крен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ва¨трен,ва`трен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 во¨ден,во`ден,во`ден:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 во`штан,во¨штан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ву¨нен,ву`нен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 гво¨зден,гво`зден,гво`зден:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 да`шчан,да¨шчан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 др°¨вен,др°`вен:
  t: A\all
- i: \a.,a.\;\b.,c.\
+ i: a.,a.;b.,c.
 
 зе¨мљан,зе`мљан,зе`мљан:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 ка¨мен,ка`мен II:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 кле¨чан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ко¨жан,ко`жан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ла¨нен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ле¨ден,ле`ден,ле`ден:
  t: A\all
- i: \a.,a.\;\b.,b.\;\b.,c.\
+ i: a.,a.;b.,b.;b.,c.
 
 ли¨сен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу¨ден:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу¨жън,лу^жън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 лу¨чан I:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: значење?? од лу́ка? од лу̏к?
 
 лу^чън II:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  c: који је у облику лу̑ка, полукружан
 
 ма¨рвен,ма¨рвен:
  t: A\all
- i: \a.,a.\;\a.,c.\
+ i: a.,a.;a.,c.
 
 ма¨слен,ма¨слен:
  t: A\all
- i: \a.,a.\;\a.,c.\
+ i: a.,a.;a.,c.
 
 ме¨ден,ме`ден I:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
  c: који садржи ме̑д, који је од меда, који је с медом
 
 мѣ¨ден II:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: који има својства мѣди, припада мѣди
 
 мла¨ђен,мла`ђен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 па¨прен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пи¨змен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 про¨сен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пр°¨тен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ра¨жан,ра`жан,ра`жан:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 р°¨жан:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ро¨жан,ро`жан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 сла¨мен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ср°¨чан,ср°^чан,ср°`чан:
  t: A\all
- i: \a.,a.\;\a:,a:\;\a.,a.\
+ i: a.,a.;a:,a:;a.,a.
 
 ста¨мен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 су¨кнен,су`кнен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 хи¨тлен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 хи¨трен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 хра¨брен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ци¨нен,ци`нен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ча¨збен,ча`збен:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ша¨јчан,ша`јчан:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 сви¨лен,сви`лен:
  t: A\all
- i: \a.,a.\;\b.,b.\
+ i: a.,a.;b.,b.
 
 снꙓ¨жън,снꙓ^жън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 стр°¨мен:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сре¨бр°н:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 во¨љани_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ма¨рчани_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ми¨лани_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 о¨пћени_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 сва¨дбени_,сва`дбени_:
  t: A\ski
- i: \0,a.\;\0,a.\
+ i: 0,a.;0,a.
 
 сѣ¨рчан,сѣ`рчан,сѣ`рчан:
  t: A\all
- i: \a.,a.\;\a.,a.\;\b.,c.\
+ i: a.,a.;a.,a.;b.,c.
 
 вѣ¨тр°ни_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ју¨трењи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 и¨скр°њи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ба¨бин II:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 би¨љин III:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од би¨ља (бела коза)
 
 бра¨тин I:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: = братов
 
 бра¨цин I:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од бра¨тац
 
 Ва¨рин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 вра¨нин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 га¨здин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 дѣ¨чин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 кра¨вин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 кће¨рин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 о¨чин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 па¨ткин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 па¨шин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 пи¨тин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 по¨штин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 сва¨стин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 со¨вин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 та¨штин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 те¨ткин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 тр°¨љин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ћа¨ћин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ћо¨рин I:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
  c: од ћора (кобила)
 
 хо¨џин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 цу¨рин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 ча¨пљин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 чи¨чин:
  t: A\ov
- i: \a.,a.\
+ i: a.,a.
 
 а¨ласт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ба¨љаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бе¨наст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: и бошњ. бѐнаст??
 
 бле¨саст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бр°¨њаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бро¨ћаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бу¨цмаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ви¨жласт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ви¨цкаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ву¨гаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гри¨васт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гро¨шаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 до¨раст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жа¨ркаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 жу¨ћкаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 звѣ¨здаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зе¨каст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ка¨баст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки¨таст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки¨тнаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кло¨паст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ко¨ласт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кри¨ласт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°¨њаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кро¨шњаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кру¨наст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨каст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨кмаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨ндаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨саст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла¨саст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ли¨браст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ли¨саст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу¨цкаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ма¨цаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мо¨раст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 му¨ргаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 на¨траст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 па¨саст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пѣ¨гаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пр°¨кнаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пру¨таст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пу¨пчаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пу¨таст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ра¨кљаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ра¨чваст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ра¨шљаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ре¨вкаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ре¨саст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ри¨ђаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ри¨ласт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ру¨даст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 се¨дласт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 си¨васт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 си¨вкаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 си¨њаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 су¨ркаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћа¨бласт:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћо¨саст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћо¨сат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ћу¨баст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 цвѣ¨таст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 цр°¨каст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чу¨браст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 џо¨раст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ша¨ркаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ши¨љаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ши`љат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ши¨љкаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 штр°¨кљаст:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бр°¨снат,бр°`снат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 вла¨снат,вла`снат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ву¨нат,ву`нат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 го¨рнат,го`рнат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 кљу¨нат,кљу`нат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ко`смат,ко¨смат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ко¨снат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кро¨внат,кро`внат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 кро¨шнат,кро`шнат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ли¨снат,ли`снат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ме¨сат,ме`сат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 пе¨рнат,пе`рнат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 пло¨снат,пло`снат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ре¨снат,ре`снат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ро¨снат,ро`снат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 ру¨њат,ру`њат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 тр°¨снат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 у¨снат,у`снат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 чво¨рнат:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 шу¨мнат,шу`мнат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 шу¨шњат,шу`шњат:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 гла`вит,гла¨вит:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 о`чит,о¨чит:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 рѣ`чит,рѣ¨чит:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 сѣ`нит,сѣ¨нит:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 бо¨жји_,бо`жји_:
  t: A\ski
- i: \0,a.\;\0,c.\
+ i: 0,a.;0,c.
 
 вра¨њи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 гу¨шчји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 кра¨вљи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ку¨чји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ма¨чји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ми¨шји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 па¨сји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 па¨чји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 пти¨чји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 ћу¨рји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 шту¨чји_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 блитве`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 брадве`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 бритве`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 ђаво`љи_,ђа¨вољи_:
  t: A\ski
- i: \0,c.\;\0,a.\
+ i: 0,c.;0,a.
 
 одре`ни_,о`дрени_,о¨дрени_:
  t: A\ski
- i: \0,c.\;\0,a.\;\0,a.\
+ i: 0,c.;0,a.;0,a.
 
 пушча`ни_,пу`шчани_:
  t: A\ski
- i: \0,c.\;\0,a.\
+ i: 0,c.;0,a.
 
 ребра`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 роткве`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 сола`ни_:
  t: A\ski
- i: \0,c.\
+ i: 0,c.
 
 тикве`ни_,ти`квени_:
  t: A\ski
- i: \0,c.\;\0,a.\
+ i: 0,c.;0,a.
 
 уља`ни_,у`љани_:
  t: A\ski
- i: \0,c.\;\0,a.\
+ i: 0,c.;0,a.
 
 бљу¨тък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ва¨рък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ви¨тък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 во¨зък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ги¨бък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гла¨дък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 же¨жък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кли¨зък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кре¨пък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кро¨тък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°¨шък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 љу¨бък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мле¨ћък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мр°¨зък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ни¨зък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пи¨тък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пру¨тък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 скли¨зък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сла¨дък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 та¨нък,та`нък:
  t: A\all
- i: \a.,a.\;\b.,c.\
+ i: a.,a.;b.,c.
 
 у¨зък,у¨зък:
  t: A\all
- i: \a.,a.\;\d.,c.\
+ i: a.,a.;d.,c.
 
 хо¨ћък:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: вољан, оран
 
 бо^лън I:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  v: боʌън II
 
 бо¨ʌън II:
  t: A\all
- i: \d.,b.\
+ i: d.,b.
  v: болън I
 
 бла¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бри¨жън,бри^жън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 ви¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 вѣ¨рън,вѣ^рън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 вѣ¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 вла¨жън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 во¨љън,во^љън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 га¨дън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гла¨сън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гло¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 гну¨сън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  v: гњусън
 
 гњу¨сън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  v: гнусън
 
 гре¨шън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 дро¨бън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ждре¨бън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 же¨љън,же^љън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 жи¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зло¨бън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 зно¨јън,зно^јън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 ја¨дън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ја¨сън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 је¨шън,је^шън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 ју¨жън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ки¨шън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 књи¨жън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ко¨жън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ко¨пън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 кр°¨шън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ку¨жън,ку^жън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 ла¨жън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ла¨сън II:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: (ла̏к, ла̏ган)
 
 ла¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ле¨дън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ло¨мън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 лу¨чън I:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: (од лу̏к)
 
 ме¨дън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: који је сладак као ме̑д, пун ме̏да
 
 мо¨ћън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 мр°¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 му¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пла¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пло¨дън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 пло¨сън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 по¨зън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 по¨стън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 по¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ро¨дън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ро¨сън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сви¨лън,сви^лън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 си¨лън,си^лън:
  t: A\all
- i: \a.,a.\;\a:,a:\
+ i: a.,a.;a:,a$
 
 си¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сѣ¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ско¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сла¨мън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 сло¨жън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 со¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 су¨зън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 тро¨шън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 у¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 три¨чън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 хлѣ¨бън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чи¨лън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чо¨шън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 чу¨дън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ше¨мън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 ште¨тън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 би`та_нжити:
  t: V\Refl\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 поби`та_нжити:
  t: V\Refl\Pf
- i: \o.\alpha
+ i: o./alpha
 
 ди`ри_нчити:
  t: V\Itr\Ipf
- i: \o.\alpha
+ i: o./alpha
  c: тешко радити
 
 дѣ`во_јчити I:
  t: V\Tr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 дѣ`во_јчити II:
  t: V\Refl\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 задѣ`во_јчити:
  t: V\Refl\Pf
- i: \o.\alpha
+ i: o./alpha
 
 ма`га_рчити,мага´рчити I:
  t: V\Tr\Ipf
- i: \o.\alpha;\p:\alpha
+ i: o./alpha;p:/alpha
 
 ма`га_рчити,мага´рчити II:
  t: V\Refl\Ipf
- i: \o.\alpha;\p:\alpha
+ i: o./alpha;p:/alpha
 
 нама`га_рчити,намага´рчити I:
  t: V\Tr\Pf
- i: \o.\alpha;\p:\alpha
+ i: o./alpha;p:/alpha
 
 нама`га_рчити,намага´рчити II:
  t: V\Refl\Pf
- i: \o.\alpha;\p:\alpha
+ i: o./alpha;p:/alpha
 
 на`ви_љчити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
  c: захватити вилама
 
 пи`ја_нчити:
  t: V\Itr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 уко`лѣ_нчити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 иско`ма_рдити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
  c: искома̀дати
 
 раско`ма_рдити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
  c: раскома̀дати
 
 бра¨бо_њчити:
  t: V\Itr\Ipf
- i: \o.\alpha
+ i: o./alpha
  c: брабо̀њати
 
 па¨би_рчити,па`би_рчити:
  t: V\Tr\Ipf
- i: \o.\alpha;\o.\alpha
+ i: o./alpha;o./alpha
 
 за`паби_рчити,запа`би_рчити:
  t: V\Tr\Pf
- i: \o.\alpha;\o.\alpha
+ i: o./alpha;o./alpha
 
 ци¨га_нчити,ци`га_нчити I:
  t: V\Tr\Ipf
- i: \o.\alpha;\o.\alpha
+ i: o./alpha;o./alpha
 
 ци¨га_нчити,ци`га_нчити II:
  t: V\Refl\Ipf
- i: \o.\alpha;\o.\alpha
+ i: o./alpha;o./alpha
 
 по`цига_нчити,поци`га_нчити I:
  t: V\Tr\Pf
- i: \o.\alpha;\o.\alpha
+ i: o./alpha;o./alpha
 
 по`цига_нчити,поци`га_нчити II:
  t: V\Refl\Pf
- i: \o.\alpha;\o.\alpha
+ i: o./alpha;o./alpha
 
 на¨поличити,на`поличити:
  t: V\Itr\Ipf
- i: \o.\alpha;\o.\alpha
+ i: o./alpha;o./alpha
  c: радити као на̏полича̄р (односно на̀полича̄р)
 
 би´скати,би´скати:
  t: V\Tr\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 поби´скати,поби´скати:
  t: V\Tr\Pf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 бу´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 разбу´кати:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 ве´зати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 заве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 изве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 наве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 надве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 обаве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 одве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 пове´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 подве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 приве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 све´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 саве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 уве´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 ви´кати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 дови´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 зави´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 изви´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 нави´кати:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
  c: издовољити се извикивањем
 
 надви´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
  c: надвладати некога виком
 
 одви´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 пови´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 прови´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 разви´кати:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
  
 сви´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 га´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 гра´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 гу´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 ди´сати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 зади´хати:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 ду´хати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 е´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 зи´дати,зи´дати:
  t: V\Tr\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 зу´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 зазу´кати:
  t: V\Itr\Pf
- i: \p:\delta
+ i: p:/delta
 
 пи´сати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 допи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 запи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 испи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 напи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 натпи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 опи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 отпи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 попи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 потпи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 препи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 распи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 спи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 упи´сати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 ма¨зати:
  t: V\Tr\Ipf
- i: \o.\delta
+ i: o./delta
 
 за`мазати:
  t: V\Tr\Pf
- i: \o.\delta
+ i: o./delta
 
 и`змазати:
  t: V\Tr\Pf
- i: \o.\delta
+ i: o./delta
 
 на`мазати:
  t: V\Tr\Pf
- i: \o.\delta
+ i: o./delta
 
 о`мазати:
  t: V\Tr\Pf
- i: \o.\delta
+ i: o./delta
 
 по`мазати:
  t: V\Tr\Pf
- i: \o.\delta
+ i: o./delta
 
 про`мазати:
  t: V\Tr\Pf
- i: \o.\delta
+ i: o./delta
 
 жва´кати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 пожва´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 прожва´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 сажва´кати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 жва´тати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 пожва´тати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 прожва´тати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 сажва´тати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 и`скати,и`скати:
  t: V\Tr\Ipf
- i: \l.\delta;\n.\beta
+ i: l./delta;n./beta
 
 пои`скати,пои`скати:
  t: V\Tr\Pf
- i: \m.\delta;\x.\beta
+ i: m./delta;x./beta
 
 ка´зати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 дока´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 зака´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 иска´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 отка´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 пока´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 потка´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 прика´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 прока´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 ука´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 кра´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
  c: корачати
 
 кре´тати I:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 кре´тати II:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 окре´тати I:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 окре´тати II:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 покре´тати I:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 покре´тати II:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 прекре´тати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 ку´пати:
  t: V\Tr\Ipf
- i: \k:\beta
+ i: k:/beta
 
 наку´пати:
  t: V\Refl\Pf
- i: \k:\beta
+ i: k:/beta
 
 оку´пати:
  t: V\Itr\Pf
- i: \k:\beta
+ i: k:/beta
 
 проку´пати:
  t: V\Refl\Pf
- i: \k:\beta
+ i: k:/beta
 
 иску´пати:
  t: V\Refl\Pf
- i: \k:\beta
+ i: k:/beta
 
 ли´зати I:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 ли´зати II:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 зали´зати I:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 зали´зати II:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 изли´зати I:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 изли´зати II:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 нали´зати:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 оли´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 обли´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 поли´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 проли´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 разли´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 сли´зати:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 ули´зати I:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 ули´зати II:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 лꙓ´гати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 залꙓ´гати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 полꙓ´гати:
  t: V\Itr\Pf
- i: \p:\delta
+ i: p:/delta
 
 прилꙓ´гати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 разлꙓ´гати:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 улꙓ´гати:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 лꙓ´тати,лꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 долꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 залꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 излꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 налꙓ´тати I:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 налꙓ´тати II:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 облꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 одлꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 полꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 прелꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 прилꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 пролꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 разлꙓ´тати:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 слꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 салꙓ´тати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 послꙓ´тати:
  t: V\Itr\Pf
- i: \p:\delta
+ i: p:/delta
 
 ма´хати: 
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 зама´хати I:
  t: V\Itr\Pf
- i: \p:\delta
+ i: p:/delta
 
 зама´хати II:
  t: V\Refl\Pf
- i: \p:\delta
+ i: p:/delta
 
 ума´хати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 мр°´кати,мр°´кати I:
  t: V\Tr\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 мр°´кати,мр°´кати II:
  t: V\Refl\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 му´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 ни´зати I:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 ни´зати II:
  t: V\Refl\Ipf
- i: \p:\delta
+ i: p:/delta
 
 нани´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 обни´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 подни´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 прени´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 разни´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 сни´зати:
  t: V\Tr\Pf
- i: \p:\delta
+ i: p:/delta
 
 нꙓ´кати,нꙓ´кати:
  t: V\Tr\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
  c: само јекавски
 
 ња´кати:
  t: V\Itr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 њи´хати,њи´хати I:
  t: V\Tr\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 њи´хати,њи´хати II:
  t: V\Refl\Ipf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 зањи´хати,зањи´хати I:
  t: V\Tr\Pf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 зањи´хати,зањи´хати II:
  t: V\Refl\Pf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 одњи´хати,одњи´хати:
  t: V\Tr\Pf
- i: \p:\delta;\k:\beta
+ i: p:/delta;k:/beta
 
 па´хати:
  t: V\Tr\Ipf
- i: \p:\delta
+ i: p:/delta
 
 сиро`машън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 бери`ћетън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: који доноси плода
 
 куку`рузън:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
  c: обично по сложеној деклинацији
 
 вазда`кадњи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  c: вѣ̏чан
 
 васи`они_,васи`о_ни_:
  t: A\ski
- i: \0,a.\;\0,a:\
+ i: 0,a.;0,a$
  
 васи`онски_,васи`о_нски_:
  t: A\ski
- i: \0,a.\;\0,a:\
+ i: 0,a.;0,a$
 
 вече`рашњи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  
 воде`нични_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 јуче`рашњи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  v: јучерањи
 
 јуче`рањи_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
  v: јучерашњи
 
 лубе`нични_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 гору`шични_:
  t: A\ski
- i: \0,a.\
+ i: 0,a.
 
 чу¨днова_т,чудно`ват:
   t: A\all
-  i: \a.,a.\;\a.,a.\
+  i: a.,a.;a.,a.
 
 кр°¨вав,кр°¨вав:
  t: A\all
- i: \a.,a.\;\a.,a.\
+ i: a.,a.;a.,a.
 
 го¨лца_т,го`лцат:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: голцит
 
 го¨лци_т,го`лцит:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: голцат
 
 но¨вца_т,но`вцат:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: новцит
 
 но¨вци_т,но`вцит:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: новцат
 
 пу¨нца_т,пу`нцат:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: пунцит
 
 пу¨нци_т,пу`нцит:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: пунцат
 
 здра¨вца_т,здра`вцат:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: здравцит
 
 здра¨вци_т,здра`вцит:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: здравцат
 
 са¨мца_т,са`мцат:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: самцит
 
 са¨мци_т,са`мцит:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: самцат
 
 пра¨вца_т,пра`вцат:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: правцит
 
 пра¨вци_т,пра`вцит:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: правцат
 
 цѣ¨лца_т,цѣ`лцат:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: цѣлцит
 
 цѣ¨лци_т,цѣ`лцит:
  t: A\all
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
  v: цѣлцат
 
 до`ма_ћи_ I:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 је`ди_ни_,је`дини_:
  t: A\ski
- i: \a:,a:\;\a.,a.\
+ i: a:,a:;a.,a.
 
 ва`ља_н I:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
  c: квалитетан
 
 ва^ља_н II:
  t: A\all
- i: \a:,a:\
+ i: a:,a$
  c: који су ваљали, изваљали
 
 и¨му_ћън,иму´ћън:
  t: A\all
- i: \a.,a.\;\b:,b:\
+ i: a.,a.;b:,b$
 
 ла¨гу_шън,лагу´шън:
  t: A\all
- i: \a.,a.\;\b:,b:\
+ i: a.,a.;b:,b$
 
 ма¨ју_шън,мају´шън:
  t: A\all
- i: \a.,a.\;\b:,b:\
+ i: a.,a.;b:,b$
 
 мо¨гу_ћън,могу´ћън:
  t: A\all
- i: \a.,a.\;\b:,b:\
+ i: a.,a.;b:,b$
 
 та¨ну_шън,тану´шън:
  t: A\all
- i: \a.,a.\;\b:,b:\
+ i: a.,a.;b:,b$
 
 окру´гъʌ,о`кру_гъʌ:
  t: A\all
- i: \b:,b:\;\a:,a:\
+ i: b:,b:;a:,a$
 
 подму´къʌ,по`дму_къʌ:
  t: A\all
- i: \b:,b:\;\a:,a:\
+ i: b:,b:;a:,a$
 
 во`лѣти:
  t: V\Tr\Ipf
- i: \k.\eta
+ i: k./eta
 
 изво`лѣти:
  t: V\Tr\Pf
- i: \k.\eta
+ i: k./eta
 
 приво`лѣти,приво`лѣти:
  t: V\Tr\Pf
- i: \k.\eta;\s.\eta
+ i: k./eta;s./eta
 
 заво`лѣти:
  t: V\Tr\Pf
- i: \k.\eta
+ i: k./eta
 
 ба`здѣти:
  t: V\Itr\Ipf
- i: \s.\eta
+ i: s./eta
 
 заба`здѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 уба`здѣти:
  t: V\Refl\Pf
- i: \s.\eta
+ i: s./eta
 
 бѣ`снѣти:
  t: V\Itr\Ipf
- i: \s.\eta
+ i: s./eta
 
 побѣ`снѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 бо`лѣти:
  t: V\Itr\Ipf
- i: \s.\eta
+ i: s./eta
 
 добо`лѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 забо`лѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 избо`лѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 обо`лѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 пребо`лѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 убо`лѣти:
  t: V\Tr\Pf
- i: \s.\eta
+ i: s./eta
 
 побо`лѣти:
  t: V\Refl\Pf
- i: \s.\eta
+ i: s./eta
 
 разбо`лѣти:
  t: V\Refl\Pf
- i: \s.\eta
+ i: s./eta
 
 бу`ктѣти:
  t: V\Itr\Ipf
- i: \s.\eta
+ i: s./eta
 
 бѣ`лѣжити:
  t: V\Tr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 забѣ`лѣжити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
  
 бꙓ´лѣти:
  t: V\Itr\Ipf
- i: \q:\eta
+ i: q:/eta
 
 забꙓ´лѣти:
  t: V\Itr\Pf
- i: \q:\eta
+ i: q:/eta
 
 избꙓ´лѣти:
  t: V\Itr\Pf
- i: \q:\eta
+ i: q:/eta
 
 побꙓ´лѣти:
  t: V\Itr\Pf
- i: \q:\eta
+ i: q:/eta
 
 обꙓ´лѣти:
  t: V\Itr\Pf
- i: \q:\eta
+ i: q:/eta
  
 зу^б:
  t: N\m
- i: \c:\
+ i: c$
  add:
   pl gen: зу´би_
 
 слу¨ча_ј:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 вра^г:
  t: N\m
- i: \c:\±,an
+ i: c:/±,an
 
 дру^г:
  t: N\m
- i: \c:\±,an
+ i: c:/±,an
 
 ћу^к:
  t: N\m
- i: \c:\±,an
+ i: c:/±,an
 
 је^ж,је^ж:
  t: N\m
- i: \d:\+,an;\b:\+,an
+ i: d:/+,an;b:/+,an
 
 свꙓ^т:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 ко¨њ:
  t: N\m
- i: \b.\an
+ i: b./an
 
 бо¨б:
  t: N\m
- i: \b.\+
+ i: b./+
 
 гро¨ш:
  t: N\m
- i: \b.\±
+ i: b./±
 
 би¨ч:
  t: N\m
- i: \b.\+
+ i: b./+
 
 гло¨г:
  t: N\m
- i: \b.\+
+ i: b./+
 
 бру^с:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 вꙓ^к:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 брꙓ^г:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 вра^т:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 гла^с:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 гра^д:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 да^р:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 ду^г II:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 зи^д:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 ја^з:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 ка^с:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 кљу^н:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 ли^к,ли^к:
  t: N\m
- i: \c:\+;\d:\+
+ i: c:/+;d:/+
 
 пу^ж:
  t: N\m
- i: \d:\±
+ i: d:/±
 
 бꙓ^с:
  t: N\m
- i: \c:\±,an
+ i: c:/±,an
 
 би^р:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 бо^ʟ:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 бр°^к:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 ве^з:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 ви^д:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 гли^б:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 гња^т:
  t: N\m
- i: \d:\±
+ i: d:/±
 
 да^н:
  t: N\m
- i: \c:\
+ i: c$
  add:
   pl nom: дне^ви
 
 жи^г:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 жи^р:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 жлꙓ^б:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 жу^љ:
  t: N\m
- i: \d:\±
+ i: d:/±
 
 зра^к:
  t: N\m
- i: \c:\
+ i: c$
 
 ка^р:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 кла^с:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 кљу^ч:
  t: N\m
- i: \e:\±
+ i: e:/±
 
 кру^г:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 лу^к:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 хра^ст:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: и раст
 
 ра^ст:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: и храст
 
 свра^б:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 снꙓ^г:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 смра^д:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 сра^м:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 ср°^п:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 ста^н:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 тра^к:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 тру^п:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 у^д:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 цвꙓ^т:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 чи^р:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 шмр°^к,шмр°^к:
  t: N\m
- i: \c:\+;\d:\+
+ i: c:/+;d:/+
 
 дꙓ^ʌ:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 ждра^ʟ:
  t: N\m
- i: \c:\+,an
+ i: c:/+,an
 
 ђа¨воʌ:
  t: N\m
- i: \a.\an
+ i: a./an
  c: и ђа̏вао
 
 ђа¨въʌ:
  t: N\m
- i: \a.\an
+ i: a./an
  c: и ђа̏во̄
 
 пи´љък:
  t: N\m
- i: \b:\
+ i: b$
 
 Македо´нъц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 Цр°ного´ръц,Цр°но`горъц:
  t: N\m
- i: \b:\an;\a.\an
+ i: b:/an;a./an
 
 Хр°`ва_т:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 Бо`шња_к:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 бирократи`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 комуни`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 социјали`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 мара`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 орга`зъм:
  t: N\m
- i: \q.\
+ i: q.
 
 ђа^к:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 је`зик:
  t: N\m
- i: \a.\
+ i: a.
 
 бѣ`лѣг:
  t: N\m
- i: \a.\
+ i: a.
 
 Бо`жић:
  t: N\m
- i: \a.\
+ i: a.
 
 бу`брег:
  t: N\m
- i: \a.\
+ i: a.
 
 је`лен:
  t: N\m
- i: \a.\an
+ i: a./an
 
 до`чек:
  t: N\m
- i: \a.\
+ i: a.
 
 о`ков:
  t: N\m
- i: \a.\
+ i: a.
 
 о`тров:
  t: N\m
- i: \a.\
+ i: a.
 
 по`мор:
  t: N\m
- i: \a.\
+ i: a.
 
 по`ток:
  t: N\m
- i: \a.\
+ i: a.
 
 пре`бѣг:
  t: N\m
- i: \a.\
+ i: a.
 
 ја`стук:
  t: N\m
- i: \a.\
+ i: a.
 
 вра`тић:
  t: N\m
- i: \a.\
+ i: a.
 
 и`звор:
  t: N\m
- i: \a.\
+ i: a.
 
 и`зрод:
  t: N\m
- i: \a.\an
+ i: a./an
 
 и`скуп:
  t: N\m
- i: \a.\
+ i: a.
 
 по`гон:
  t: N\m
- i: \a.\
+ i: a.
 
 по`кров:
  t: N\m
- i: \a.\
+ i: a.
 
 бре`шчић:
  t: N\m
- i: \a.\
+ i: a.
  c: = брежић
 
 бре`жић:
  t: N\m
- i: \a.\
+ i: a.
  c: = брешчић
 
 ко`жух:
  t: N\m
- i: \a.\
+ i: a.
 
 пе`чат:
  t: N\m
- i: \a.\
+ i: a.
 
 ко`вчег:
  t: N\m
- i: \a.\
+ i: a.
 
 ме`двѣд:
  t: N\m
- i: \a.\an
+ i: a./an
 
 ба`лван,ба`лван:
  t: N\m
- i: \a.\;\a.\an
+ i: a.;a./an
 
 У`скр°с:
  t: N\m
- i: \a.\
+ i: a.
  c: и Васкрс
 
 Ва`скр°с:
  t: N\m
- i: \a.\
+ i: a.
  c: и Ускрс
 
 о`бѣд:
  t: N\m
- i: \a.\
+ i: a.
 
 у`дес:
  t: N\m
- i: \a.\
+ i: a.
 
 бе`здан:
  t: N\m
- i: \a.\
+ i: a.
  c: и бѐздан, бѐздна
 
 не`вен:
  t: N\m
- i: \a.\
+ i: a.
 
 о`клоп:
  t: N\m
- i: \a.\
+ i: a.
 
 о`браз:
  t: N\m
- i: \a.\
+ i: a.
 
 о`рах:
  t: N\m
- i: \a.\
+ i: a.
 
 зу`бић:
  t: N\m
- i: \a.\
+ i: a.
 
 су`џук:
  t: N\m
- i: \a.\
+ i: a.
 
 та`ван:
  t: N\m
- i: \a.\
+ i: a.
 
 то`вар:
  t: N\m
- i: \a.\
+ i: a.
 
 у`нук:
  t: N\m
- i: \a.\an
+ i: a./an
 
 мо^ст:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 по^ст:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 сто^г:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 бро^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 бо^ј:
  t: N\m
- i: \c?\±
+ i: c?/±
 
 бо^к:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 бро^д:
  t: N\m
- i: \c?\±
+ i: c?/±
 
 гно^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 го^д:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 до^м:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 до^ст,до¨ст:
  t: N\m
- i: \c?\+,an;\a.\+,an
+ i: c?/+,an;a./+,an
 
 дро^б:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 збо^р:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 зма^ј,зма¨ј:
  t: N\m
- i: \c?\+,an;\a.\+,an
+ i: c?/+,an;a./+,an
 
 зно^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ко^в:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 кра^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
  c: и кра̏јеви краје́ва̄???
 
 кро^в:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 кро^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
  c: и кро̏јеви??
 
 ле^д:
  t: N\m
- i: \c?\+
+ i: c?/+
  c: и ле̏дови??
 
 ло^в:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ло^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ма^х,ма^х:
  t: N\m
- i: \c?\+;\d:\+
+ i: c?/+;d:/+
 
 ме^д:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 но^ј,но¨ј:
  t: N\m
- i: \c?\+,an;\a.\+,an
+ i: c?/+,an;a./+,an
 
 но^сʲ:
  t: N\m
- i: \c?\+
- c: и но̏сови
+ i: c?/+
 
 пло^д:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 пло^т I:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 по^т:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ра^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ро^в:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ро^д:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ро^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ро^к:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 ско^к:
  t: N\m
- i: \c?\+
+ i: c?/+
  c: и ско̏к :(
   
 смꙓ^х:
  t: N\m
- i: \b:\+
+ i: b:/+
 
 смо^к:
  t: N\m
- i: \c?\+
+ i: c?/+
  c: и смо̏к :(
 
 со^ј:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 со^к:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 сро^к:
  t: N\m
- i: \c?\+
+ i: c?/+
  c: и сро̏к :(
 
 ство^р:
  t: N\m
- i: \c?\+
+ i: c?/+
  c: и ство̏р
 
 стра^х,стра¨х:
  t: N\m
- i: \e:\+;\a.\+
+ i: e:/+;a./+
 
 та^ст:
  t: N\m
- i: \c?\+,an
+ i: c?/+,an
  c: и та̏ст
 
 то^в:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 то^р:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 хо^д:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 чво^р:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 бо^г:
  t: N\m
- i: \c?\±,an
+ i: c?/±,an
 
 стри^ц:
  t: N\m
- i: \e:\+,an
+ i: e:/+,an
 
 ја^л:
  t: N\m
- i: \e:\±
+ i: e:/±
  c: и ал, хал
 
 а^м:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: део коњске опреме
  v: хам
 
 ха^м:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: део коњске опреме
  v: ам
 
 ба^н:
  t: N\m
- i: \d:\±,an
+ i: d:/±,an
 
 би^к:
  t: N\m
- i: \b:\+,an
+ i: b:/+,an
 
 брꙓ^ст:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 бу^н:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: плурал?
 
 ва^љ:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: „још један ваљ“; плурал??
 
 вра^њ:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: чеп за бачву; акцент у плуралу??
 
 вра^ч:
  t: N\m
- i: \e:\+,an
+ i: e:/+,an
 
 га^ј:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 грꙓ^х:
  t: N\m
- i: \e:\±
+ i: e:/±
 
 гр°^м:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 гу^њ:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: капут до колена
 
 дрꙓ^м:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 дрꙓ^н:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 зли^ћ:
  t: N\m
- i: \b:\an
+ i: b:/an
  c: зашто у ХЈП зли̏ћ?
 
 зо^р  I:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: сила, снага
 
 зо^р  II:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: изглед
 
 ке^ц:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 ки^п:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 кли^п:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 кра^љ:
  t: N\m
- i: \e:\+,an
+ i: e:/+,an
 
 кри^ж:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 ку^т:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 лꙓ^к:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 ма^л II:
  t: N\m
- i: \e:\+
+ i: e:/+
  c: имање, имовина
 
 ма^љ:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 ми^р:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 ми^т:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 но^ж:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 па^њ:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 пла^ст:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 пла^штʲ:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 при^штʲ:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 су^д I:
  t: N\m
- i: \c:\+
+ i: c:/+
  c: мишљење; државни орган
 
 шта^п:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 шти^т:
  t: N\m
- i: \e:\+
+ i: e:/+
  
 бра¨тић:
  t: N\m
- i: \a.\
+ i: a.
 
 бу¨квић,бу`кви_ћ:
  t: N\m
- i: \a.\;\b:\
+ i: a.;b$
 
 вра¨нић:
  t: N\m
- i: \a.\
+ i: a.
 
 гро¨хот,гро¨хо_т:
  t: N\m
- i: \a.\;\c?\
+ i: a.;c?
 
 де¨спот,де`спот:
  t: N\m
- i: \a.\;\a.\
+ i: a.;a.
 
 жа¨бић,жа`би_ћ:
  t: N\m
- i: \a.\an;\b:\an
+ i: a./an;b:/an
 
 жу¨бор,жу`бо_р,жу`бор:
  t: N\m
- i: \a.\;\b:\;\a.\
+ i: a.;b:;a.
 
 и¨сток,и`сток:
  t: N\m
- i: \a.\;\a.\
+ i: a.;a.
 
 ја¨мић,ја`ми_ћ:
  t: N\m
- i: \a.\;\b:\
+ i: a.;b$
 
 ло¨кот:
  t: N\m
- i: \a.\
+ i: a.
 
 Ми¨лош,Ми`лош:
  t: N\m
- i: \a.\;\a.\
+ i: a.;a.
 
 Ми¨љен,Ми`љен:
  t: N\m
- i: \a.\an;\a.\an
+ i: a./an;a./an
 
 ми¨шић,ми`ши_ћ:
  t: N\m
- i: \a.\an;\b:\an
+ i: a./an;b:/an
 
 мла¨деж,мла`деж,мла´деж:
  t: N\m
- i: \a.\;\a.\;\a.\
+ i: a.;a.;a.
 
 Мла¨ден:
  t: N\m
- i: \a.\an
+ i: a./an
 
 Ње¨гош:
  t: N\m
- i: \a.\an
+ i: a./an
 
 о¨ток,о`ток I: 
  t: N\m
- i: \a.\;\a.\
+ i: a.;a.
  c: острво
 
 о¨то_к II: 
  t: N\m
- i: \c?\
+ i: c?
  c: отеклина
 
 пле¨мић,пле`ми_ћ:
  t: N\m
- i: \a.\an;\b:\an
+ i: a./an;b:/an
 
 ко`тлић,ко`тли_ћ:
  t: N\m
- i: \a.\;\b:\
+ i: a.;b$
 
 го^л II:
  t: N\m
- i: \d:\+
+ i: d:/+
 
 живота´рити:
  t: V\Itr\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 жи´вѣти:
  t: V\Itr\Ipf
- i: \q:\eta
+ i: q:/eta
 
 дожи´вѣти:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 ижи´вѣти I:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 ижи´вѣти II:
  t: V\Refl\Pf
- i: \q:\eta
+ i: q:/eta
 
 наджи´вѣти:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 оджи´вѣти:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 ожи´вѣти:
  t: V\Itr\Pf
- i: \q:\eta
+ i: q:/eta
 
 пожи´вѣти:
  t: V\Itr\Pf
- i: \q:\eta
+ i: q:/eta
 
 прежи´вѣти:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 прожи´вѣти:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 сажи´вѣти:
  t: V\Refl\Pf
- i: \q:\eta
+ i: q:/eta
 
 ужи´вѣти:
  t: V\Refl\Pf
- i: \q:\eta
+ i: q:/eta
 
 зажи´вѣти:
  t: V\Itr\Pf
- i: \q:\eta
+ i: q:/eta
 
 тр°´пѣти:
  t: V\Tr\Ipf
- i: \q:\eta
+ i: q:/eta
 
 отр°´пѣти:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 претр°´пѣти:
  t: V\Tr\Pf
- i: \q:\eta
+ i: q:/eta
 
 вр°`тѣти I:
  t: V\Tr\Ipf
- i: \s.\eta
+ i: s./eta
 
 вр°`тѣти II:
  t: V\Refl\Ipf
- i: \s.\eta
+ i: s./eta
 
 извр°`тѣти:
  t: V\Tr\Pf
- i: \s.\eta
+ i: s./eta
 
 одвр°`тѣти:
  t: V\Tr\Pf
- i: \s.\eta
+ i: s./eta
  
 провр°`тѣти:
  t: V\Tr\Pf
- i: \s.\eta
+ i: s./eta
  
 увр°`тѣти:
  t: V\Tr\Pf
- i: \s.\eta
+ i: s./eta
  
 узвр°`тѣти:
  t: V\Refl\Pf
- i: \s.\eta
+ i: s./eta
  
 завр°`тѣти I:
  t: V\Tr\Pf
- i: \s.\eta
+ i: s./eta
 
 завр°`тѣти II:
  t: V\Tr\Pf
- i: \s.\eta
+ i: s./eta
 
 гр°`мѣти:
  t: V\Itr\Ipf
- i: \s.\eta
+ i: s./eta
 
 загр°`мѣти:
  t: V\Itr\Pf
- i: \s.\eta
+ i: s./eta
 
 хме¨љ:
  t: N\m
- i: \b.\±
+ i: b./±
 
 но`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 но`сити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 доно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 доприно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 изно`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
  c: премештати ван; стајати, коштати; изрицати
 
 изно`сити II:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
  c: искористити, истрошити
 
 изно`сити III:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
  c: изрицати се
 
 надно`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 надно`сити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 нано`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 обно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 одно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 подно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прено`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прено`сити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 преузно`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 преузно`сити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 придоно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прино`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 проно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 разно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 сано`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 сно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 уно`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 уно`сити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 узно`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 зано`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 зано`сити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 гово`рити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 изгово`рити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 изгово`рити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 нагово`рити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 одгово`рити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 пригово`рити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 прогово`рити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 угово`рити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 загово`рити:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 благосло`вити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 јесе`нити:
  t: V\Tr\Ipf
- i: \r.\alpha
+ i: r./alpha
 
 пријате`љити,пријате`љити I:
  t: V\Tr\Ipf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 спријате`љити,спријате`љити I:
  t: V\Tr\Pf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 пријате`љити,пријате`љити II:
  t: V\Refl\Ipf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 спријате`љити,спријате`љити II:
  t: V\Refl\Pf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 трепе`рити:
  t: V\Itr\Ipf
- i: \r.\alpha
+ i: r./alpha
 
 затрепе`рити:
  t: V\Itr\Pf
- i: \r.\alpha 
+ i: r./alpha 
 
 буда`лити:
  t: V\Itr\Ipf
- i: \r.\alpha
+ i: r./alpha
 
 гу`бити I:
  t: V\Tr\Ipf
- i: \r.\alpha
+ i: r./alpha
 
 гу`бити II:
  t: V\Refl\Ipf
- i: \r.\alpha
+ i: r./alpha
 
 изгу`бити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 изгу`бити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 погу`бити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 загу`бити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 загу`бити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 да`нгубити:
  t: V\Itr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 прода`нгубити:
  t: V\Itr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 пи´љити:
  t: V\Itr\Ipf
- i: \r:\alpha
+ i: r:/alpha
 
 пи´здрити:
  t: V\Itr\Ipf
- i: \r:\alpha
+ i: r:/alpha
 
 пи´ждрити:
  t: V\Itr\Ipf
- i: \r:\alpha
+ i: r:/alpha
 
 бу´љити:
  t: V\Itr\Ipf
- i: \r:\alpha
+ i: r:/alpha
  
 зја¨ти:
  t: V\Itr\Ipf
- i: \y0\beta
+ i: y0/beta
 
 за`зјати:
  t: V\Itr\Pf
- i: \n.\beta
+ i: n./beta
 
 сја¨ти:
  t: V\Itr\Ipf
- i: \y0\beta
+ i: y0/beta
 
 за`сјати:
  t: V\Refl\Pf
- i: \n.\beta
+ i: n./beta
 
 оба`сјати:
  t: V\Tr\Pf
- i: \x.\beta
+ i: x./beta
 
 раза`сјати:
  t: V\Refl\Pf
- i: \x.\beta
+ i: x./beta
 
 са`здати:
  t: V\Tr\Pf
- i: \n.\beta
+ i: n./beta
 
 при`жгати:
  t: V\Tr\Pf
- i: \n.\beta
+ i: n./beta
 
 у`жгати:
  t: V\Tr\Pf
- i: \n.\beta
+ i: n./beta
 
 за`тљати:
  t: V\Itr\Pf
- i: \n.\beta
+ i: n./beta
 
 во`зити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 во`зити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 дово`зити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 изво`зити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 наво`зити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 наво`зити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прево`зити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прево`зити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 одво`зити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 уво`зити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 уво`зити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 во`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 изво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
  
 наво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 одво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 дово`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 подво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 приво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 произво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прево`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прово`дити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прово`дити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 сво`дити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 сво`дити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 уво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 заво`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 го`нити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 наго`нити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 заго`нити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 изго`нити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 прого`нити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 же`нити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 же`нити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 оже`нити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 оже`нити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 поже`нити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 поже`нити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 приже`нити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 приже`нити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 ко`зити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 ко`зити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 ко`сити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
  c: од ко̀са
 
 нако`сити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 поко`сити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 проко`сити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 ко`сити II:
  t: V\Itr\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 нако`сити II:
  t: V\Tr\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 уко`сити:
  t: V\Tr\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 кре`чити,кре¨чити I:
  t: V\Tr\Ipf
- i: \p.\alpha;\o.\alpha
+ i: p./alpha;o./alpha
  c: премазивати кречним раствором
 
 кре´чити II:
  t: V\Tr\Ipf
- i: \p:\alpha
+ i: p:/alpha
  c: размицати, ширити (ноге)
 
 кре´чити III:
  t: V\Refl\Ipf
- i: \p:\alpha
+ i: p:/alpha
  c: размицати, ширити ноге
 
 раскре´чити I:
  t: V\Tr\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 раскре´чити II:
  t: V\Refl\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 кро`чити:
  t: V\Ipf\Dv
- i: \p.\alpha
+ i: p./alpha
 
 мо`лити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 мо`лити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 помо`лити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
  c: показати (напр. нос)
 
 помо`лити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
  c: показати се
 
 измо`лити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 умо`лити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 замо`лити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 про`сити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 испро`сити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 запро`сити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 про`стити,про`стити:
  t: V\Tr\Pf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 опро`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 пу`стити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 пу`стити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 допу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 испу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 напу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 опу`стити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
  c: пустити да слободно виси
 
 опу`стити II:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
  c: опустошити
 
 опу`стити III:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 отпу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 попу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 препу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 припу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 пропу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 распу`стити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 спу`стити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 спу`стити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 запу`стити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 запу`стити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 ро`дити,ро`дити I:
  t: V\Tr\Pf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 ро`дити,ро`дити II:
  t: V\Refl\Pf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 изро`дити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 изро`дити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 наро`дити:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 одро`дити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 одро`дити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 поро`дити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
  
 поро`дити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 сро`дити:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 се`лити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 се`лити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 досе`лити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 досе`лити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 исе`лити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 исе`лити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 пресе`лити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 пресе`лити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 расе`лити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 расе`лити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 усе`лити I:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 усе`лити II:
  t: V\Refl\Pf
- i: \p.\alpha
+ i: p./alpha
 
 ско`чити:
  t: V\Itr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 одско`чити:
  t: V\Itr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 преско`чити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 наско`чити:
  t: V\Itr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 уско`чити:
  t: V\Itr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 заско`чити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 те`лити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 те`лити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 оте`лити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 оте`лити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 хо`дити:
  t: V\Itr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 исхо`дити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 опхо`дити I:
  t: V\Itr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 опхо`дити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 отхо`дити:
  t: V\Itr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 дохо`дити:
  t: V\Itr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 похо`дити:
  t: V\Tr\Dv
- i: \p.\alpha
+ i: p./alpha
 
 претхо`дити:
  t: V\Itr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 захо`дити:
  t: V\Itr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 ште`нити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 ште`нити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 оште`нити I:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 оште`нити II:
  t: V\Refl\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 поло`вити,поло`вити,по`ловити I:
  t: V\Tr\Dv
- i: \p.\alpha;\r.\alpha;\o.\alpha
+ i: p./alpha;r./alpha;o./alpha
  c: (по)делити напола
 
 пито`мити:
  t: V\Tr\Ipf
- i: \p.\alpha
+ i: p./alpha
 
 ромо`рити,ромо`рити:
  t: V\Itr\Ipf
- i: \p.\alpha;\r.\alpha
+ i: p./alpha;r./alpha
 
 што`вати:
  t: V\Tr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 псо`вати:
  t: V\Tr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 опсо`вати:
  t: V\Tr\Pf
- i: \m.\epsilon
+ i: m./epsilon
 
 запсо`вати:
  t: V\Itr\Pf
- i: \m.\epsilon
+ i: m./epsilon
  
 напсо`вати I:
  t: V\Tr\Pf
- i: \m.\epsilon
+ i: m./epsilon
  
 напсо`вати II:
  t: V\Refl\Pf
- i: \m.\epsilon
+ i: m./epsilon
  
 испсо`вати I:
  t: V\Tr\Pf
- i: \m.\epsilon
+ i: m./epsilon
  
 испсо`вати II:
  t: V\Refl\Pf
- i: \m.\epsilon
+ i: m./epsilon
 
 о`ра_ч:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 во`ди_ч:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 ви´шък:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 тро¨шък:
  t: N\m
- i: \a.\+
+ i: a./+
 
 са¨обраћа_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 за¨гр°ља_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 о¨сѣћа_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 у¨тѣца_ј:
  t: N\m
- i: \c:\
+ i: c$
  c: и утицај
 
 у¨тица_ј:
  t: N\m
- i: \c:\
+ i: c$
  c: и утѣцај
 
 до¨живља_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 у¨ређа_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 по¨ложа_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 по¨куша_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 са¨др°жа_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 о¨бича_ј:
  t: N\m
- i: \c:\
+ i: c$
 
 ста¨ръц:
  t: N\m
- i: \a.\an
+ i: a./an
 
 ро^г:
  t: N\m
- i: \c?\±
+ i: c?/±
 
 го^д:
  t: N\m
- i: \c?\+
+ i: c?/+
 
 по`љубъц:
  t: N\m
- i: \a.\
+ i: a.
 
 ре^д:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 зна^к:
  t: N\m
- i: \c:\±
+ i: c:/±
 
 о`тъц:
  t: N\m
- i: \b.\±,an
+ i: b./±,an
 
 ко`ʟъц:
  t: N\m
- i: \f.\±
+ i: f./±
 
 ку´къц:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 ро´жъц:
  t: N\m
- i: \b:\
+ i: b$
 
 зна¨ти I:
  t: V\Tr\Ipf
- i: \y0\beta
+ i: y0/beta
 
 зна¨ти II:
  t: V\Refl\Ipf
- i: \y0\beta
+ i: y0/beta
 
 до`знати:
  t: V\Tr\Pf
- i: \n.\beta
+ i: n./beta
 
 ца¨рʲ:
  t: N\m
- i: \a.\+,an
+ i: a./+,an
 
 пи`са_рʲ:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 ма´чък:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 па´тък:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 гу´сък:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 гра´шък:
  t: N\m
- i: \b:\
+ i: b$
 
 сму^ђ,сму¨ђ:
  t: N\m
- i: \e:\+,an;\a.\+,an
+ i: e:/+,an;a./+,an
 
 Ки`не_з:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 Е`нгле_з:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 му^ж:
  t: N\m
- i: \c:\±,an
+ i: c:/±,an
 
 си^н:
  t: N\m
- i: \c:\±,an
+ i: c:/±,an
 
 кне^з:
  t: N\m
- i: \c:\+,an
+ i: c:/+,an
  add:
   pl nom: кне¨жеви, кне´жеви
   pl acc: кне¨жеве, кне´жеве
@@ -8346,57 +8345,57 @@
 
 ди¨м:
  t: N\m
- i: \a.\+
+ i: a./+
 
 у`чити:
  t: V\Tr\Ipf
- i: \r.\alpha
+ i: r./alpha
 
 изу`чити:
  t: V\Tr\Pf
- i: \r.\alpha
+ i: r./alpha
 
 нау`чити I:
  t: V\Tr\Pf
- i: \r.\alpha
+ i: r./alpha
 
 нау`чити II:
  t: V\Refl\Pf
- i: \r.\alpha
+ i: r./alpha
 
 оду`чити I:
  t: V\Tr\Pf
- i: \r.\alpha
+ i: r./alpha
 
 оду`чити II:
  t: V\Refl\Pf
- i: \r.\alpha
+ i: r./alpha
 
 поду`чити:
  t: V\Tr\Pf
- i: \r.\alpha
+ i: r./alpha
 
 приу`чити:
  t: V\Tr\Pf
- i: \r.\alpha
+ i: r./alpha
 
 проу`чити:
  t: V\Tr\Pf
- i: \r.\alpha
+ i: r./alpha
 
 пъ¨с:
  t: N\m
- i: \b0\an
+ i: b0/an
 
 съ¨н:
  t: N\m
- i: \b0\±,an
+ i: b0/±,an
  except: 
   pl gen: сно^ва_
 
 чо¨вѣк,чо`вѣк,чо`вѣк\љу^ди:
  t: N\m
- i: бошњ.\a.\an;срп.\a.\an;хрв.\b.\an
+ i: бошњ.\a./an;срп.\a./an;хрв.\b./an
  except:
   pl nom: љу^ди
   pl acc: љу^де
@@ -8408,945 +8407,945 @@
 
 го^ст:
  t: N\m
- i: \c?\an
+ i: c?/an
  except:
   pl gen: го`стију_, го`сти_
 
 бољше`ви_к:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 ка´дър:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 дѣ`ча_к:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 ју`на_к:
  t: N\m
- i: \b:\an
+ i: b:/an
 
 по¨дви_г:
  t: N\m
- i: \a.\
+ i: a.
 
 бо`дъц:
  t: N\m
- i: \b.\
+ i: b.
 
 бр°`зъц:
  t: N\m
- i: \b.\
+ i: b.
 
 бр°`зац:
  t: N\m
- i: \b.\
+ i: b.
 
 во`зъц:
  t: N\m
- i: \b.\an
+ i: b./an
 
 вру`ћъц:
  t: N\m
- i: \b.\
+ i: b.
 
 гро`бък:
  t: N\m
- i: \b.\
+ i: b.
 
 дро`бъц:
  t: N\m
- i: \b.\
+ i: b.
 
 је`чъм:
  t: N\m
- i: \b.\
+ i: b.
 
 ка`пък:
  t: N\m
- i: \b.\
+ i: b.
 
 ко`бъц,ко´бъц:
  t: N\m
- i: \b.\an;\b:\an
+ i: b./an;b:/an
 
 ла`жъц:
  t: N\m
- i: \b.\an
+ i: b./an
 
 љу`тъц:
  t: N\m
- i: \b.\an
+ i: b./an
 
 о`дър:
  t: N\m
- i: \b.\
+ i: b.
 
 о`цът:
  t: N\m
- i: \b.\
+ i: b.
 
 про`съц:
  t: N\m
- i: \b.\
+ i: b.
 
 про`штъц:
  t: N\m
- i: \b.\
+ i: b.
  
 про`штац:
  t: N\m
- i: \b.\
+ i: b.
 
 то`чък:
  t: N\m
- i: \b.\+
+ i: b./+
 
 ча`бър:
  t: N\m
- i: \b.\+
+ i: b./+
 
 ка`бъʌ:
  t: N\m
- i: \b.\±
+ i: b./±
 
 ко`тъʌ:
  t: N\m
- i: \b.\+
+ i: b./+
 
 па`къʌ:
  t: N\m
- i: \b.\
+ i: b.
 
 по`съʌ:
  t: N\m
- i: \b.\±
+ i: b./±
 
 пру`гъʌ:
  t: N\m
- i: \b.\
+ i: b.
 
 бо`јък,бо´јък:
  t: N\m
- i: \b.\;\b:\
+ i: b.;b$
 
 мо`љъц,мо´љъц:
  t: N\m
- i: \b.\an;\b:\an
+ i: b./an;b:/an
 
 ро`нъц,ро´нъц:
  t: N\m
- i: \b.\an;\b:\an
+ i: b./an;b:/an
 
 бо`јъц:
  t: N\m
- i: \f.\an
+ i: f./an
 
 ко`нъц:
  t: N\m
- i: \f.\
+ i: f.
 
 ло`нъц:
  t: N\m
- i: \f.\
+ i: f.
 
 но`въц:
  t: N\m
- i: \f.\
+ i: f.
 
 ште`нъц,ште´нъц:
  t: N\m
- i: \f.\an;\b:\an
+ i: f./an;b:/an
 
 о`ръʌ:
  t: N\m
- i: \b.\±,an
+ i: b./±,an
 
 о`вън,о´вън:
  t: N\m
- i: \b.\±,an;\e:\±,an
+ i: b./±,an;e:/±,an
 
 га¨зити:
  t: V\Tr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 и`згазити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 на`газити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 по`газити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 про`газити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 пре`газити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 зга¨зити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 и¨скрити I:
  t: V\Tr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 и¨скрити II:
  t: V\Refl\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 гр°¨лити I:
  t: V\Tr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 гр°¨лити II:
  t: V\Refl\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 за`гр°лити I:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 за`гр°лити II:
  t: V\Refl\Pf
- i: \o.\alpha
+ i: o./alpha
 
 о`бгр°лити I:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 о`бгр°лити II:
  t: V\Refl\Pf
- i: \o.\alpha
+ i: o./alpha
 
 о`гр°лити I:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 о`гр°лити II:
  t: V\Refl\Pf
- i: \o.\alpha
+ i: o./alpha
 
 пре`гр°лити I:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 пре`гр°лити II:
  t: V\Refl\Pf
- i: \o.\alpha
+ i: o./alpha
 
 му¨ћкати:
  t: V\Tr\Ipf
- i: \o.\beta
+ i: o./beta
 
 про`мућкати:
  t: V\Tr\Pf
- i: \o.\beta
+ i: o./beta
 
 му´тити I:
  t: V\Tr\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 му´тити II:
  t: V\Refl\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 заму´тити I:
  t: V\Tr\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 заму´тити II:
  t: V\Refl\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 пому´тити I:
  t: V\Tr\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 пому´тити II:
  t: V\Refl\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 хва´лити I:
  t: V\Tr\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 хва´лити II:
  t: V\Refl\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 нахва´лити I:
  t: V\Tr\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 нахва´лити II:
  t: V\Refl\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 похва´лити I:
  t: V\Tr\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 похва´лити II:
  t: V\Refl\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 захва´лити I:
  t: V\Tr\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 захва´лити II:
  t: V\Refl\Pf
- i: \p:\alpha
+ i: p:/alpha
 
 ху´лити:
  t: V\Tr\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 богоху´лити:
  t: V\Itr\Ipf
- i: \p:\alpha
+ i: p:/alpha
 
 фле¨ртовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 фле¨ртати:
  t: V\Itr\Ipf
- i: \o.\beta
+ i: o./beta
 
 трго`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 а`шиковати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 ба`јрамовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 биво`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 би¨вствовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 дејство`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 до`ликовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 до`ручковати:
  t: V\Itr\Dv
- i: \o.\epsilon
+ i: o./epsilon
 
 о`бѣдовати:
  t: V\Itr\Dv
- i: \o.\epsilon
+ i: o./epsilon
 
 боло`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 благо`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 дѣ¨ловати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 су`дѣловати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 гла¨совати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 ја`диковати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 лудо`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 миро`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 на´ликовати:
  t: V\Itr\Ipf
- i: \a!\epsilon
+ i: a!/epsilon
 
 на`предовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 на`задовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 не`годовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 о`биловати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 ло^горовати:
  t: V\Itr\Ipf
- i: \a!\epsilon
+ i: a!/epsilon
 
 пра¨зновати,пра^зновати:
  t: V\Tr\Ipf
- i: \o.\epsilon;\a!\epsilon
+ i: o./epsilon;a!/epsilon
 
 вѣ¨ровати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 у`вѣровати:
  t: V\Itr\Pf
- i: \o.\epsilon
+ i: o./epsilon
 
 умо`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 туго`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 светко`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 страхо`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 стано`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 само`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 са´боровати:
  t: V\Itr\Ipf
- i: \a!\epsilon
+ i: a!/epsilon
 
 ру¨ковати I:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 ру¨ковати II:
  t: V\Refl\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 ро`вати:
  t: V\Tr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 ро¨бовати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 ра¨товати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 путо`вати:
  t: V\Itr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 одпуто`вати:
  t: V\Itr\Pf
- i: \m.\epsilon
+ i: m./epsilon
 
 допуто`вати:
  t: V\Itr\Pf
- i: \m.\epsilon
+ i: m./epsilon
 
 пропуто`вати:
  t: V\Tr\Pf
- i: \m.\epsilon
+ i: m./epsilon
 
 псо`вати:
  t: V\Tr\Ipf
- i: \m.\epsilon
+ i: m./epsilon
 
 испсо`вати:
  t: V\Tr\Pf
- i: \m.\epsilon
+ i: m./epsilon
 
 опсо`вати:
  t: V\Tr\Pf
- i: \m.\epsilon
+ i: m./epsilon
 
 про`свѣдовати:
  t: V\Itr\Dv
- i: \o.\epsilon
+ i: o./epsilon
 
 при`суствовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 о`дсуствовати:
  t: V\Itr\Ipf
- i: \o.\epsilon
+ i: o./epsilon
 
 кази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 докази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 искази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 покази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 поткази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 прикази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 прокази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 укази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 закази´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 очеки´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 дочеки´вати I:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 дочеки´вати II:
  t: V\Refl\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 искорѣњи´вати:
  t: V\Tr\Ipf
- i: \k’\zeta
+ i: k’/zeta
 
 искорꙓ´нити:
  t: V\Tr\Pf
- i: \p.\alpha
+ i: p./alpha
 
 њу¨шити:
  t: V\Tr\Ipf
- i: \o.\alpha
+ i: o./alpha
 
 на`њушити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 о`њушити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 по`њушити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 про`њушити:
  t: V\Tr\Pf
- i: \o.\alpha
+ i: o./alpha
 
 др°`жати I:
  t: V\Tr\Ipf
- i: \x.\mu
+ i: x./mu
 
 др°`жати II:
  t: V\Refl\Ipf
- i: \x.\mu
+ i: x./mu
 
 издр°`жати:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 одр°`жати I:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 одр°`жати II:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 подр°`жати:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 придр°`жати:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 садр°`жати:
  t: V\Tr\Dv
- i: \x.\mu
+ i: x./mu
 
 задр°`жати I:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 задр°`жати II:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 бо`јати:
  t: V\Refl\Ipf
- i: \x.\mu
+ i: x./mu
 
 побо`јати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 убо`јати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 ле`жати:
  t: V\Itr\Ipf
- i: \x.\mu
+ i: x./mu
 
 зале`жати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 изле`жати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 нале`жати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 одле`жати:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 поле`жати:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 преле`жати:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 разле`жати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 тр°`чати:
  t: V\Itr\Ipf
- i: \x.\mu
+ i: x./mu
 
 дотр°`чати:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 затр°`чати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 истр°`чати I:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 истр°`чати II:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 натр°`чати I:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 натр°`чати II:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 отр°`чати:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 оптр°`чати:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 претр°`чати:
  t: V\Tr\Pf
- i: \x.\mu
+ i: x./mu
 
 притр°`чати:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 протр°`чати:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 стр°`чати:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 утр°`чати I:
  t: V\Itr\Pf
- i: \x.\mu
+ i: x./mu
 
 устр°`чати II:
  t: V\Refl\Pf
- i: \x.\mu
+ i: x./mu
 
 је´чѣти:
  t: V\Itr\Ipf
- i: \q:\eta
+ i: q:/eta
 
 звр°´чѣти:
  t: V\Itr\Ipf
- i: \q:\eta
+ i: q:/eta
 
 цвр°´чѣти:
  t: V\Itr\Ipf
- i: \q:\eta
+ i: q:/eta
 
 до`јити:
  t: V\Tr\Ipf
- i: \r.\alpha
+ i: r./alpha
 
 на´род:
  t: N\m
- i: \a:\
+ i: a$
 
 па¨лъц:
  t: N\m
- i: \a.\±
+ i: a./±
 
 о¨бли_к:
  t: N\m
- i: \c:\
+ i: c$
 
 ба´рут:
  t: N\m
- i: \a:\
+ i: a$
 
 га´јтан:
  t: N\m
- i: \a:\
+ i: a$
 
 гре´дељ:
  t: N\m
- i: \a:\
+ i: a$
 
 за´бран:
  t: N\m
- i: \a:\
+ i: a$
 
 за´вѣт:
  t: N\m
- i: \a:\
+ i: a$
 
 за´зор:
  t: N\m
- i: \a:\
+ i: a$
 
 за´клон:
  t: N\m
- i: \a:\
+ i: a$
 
 за´лог:
  t: N\m
- i: \a:\
+ i: a$
 
 за´твор:
  t: N\m
- i: \a:\
+ i: a$
 
 на´бој:
  t: N\m
- i: \a:\
+ i: a$
 
 на´бор:
  t: N\m
- i: \a:\
+ i: a$
 
 на´гон:
  t: N\m
- i: \a:\
+ i: a$
 
 на´кит:
  t: N\m
- i: \a:\
+ i: a$
 
 на´мет:
  t: N\m
- i: \a:\
+ i: a$
 
 на´сад:
  t: N\m
- i: \a:\
+ i: a$
 
 на´чин:
  t: N\m
- i: \a:\
+ i: a$
 
 прꙓ´лаз:
  t: N\m
- i: \a:\
+ i: a$
 
 прꙓ´пис:
  t: N\m
- i: \a:\
+ i: a$
 
 при´лог:
  t: N\m
- i: \a:\
+ i: a$
 
 при´рез:
  t: N\m
- i: \a:\
+ i: a$
 
 ра´здор:
  t: N\m
- i: \a:\
+ i: a$
 
 ра´сад:
  t: N\m
- i: \a:\
+ i: a$
 
 са´бор:
  t: N\m
- i: \a:\
+ i: a$
 
 су´прет:
  t: N\m
- i: \a:\
+ i: a$
 
 су´сред:
  t: N\m
- i: \a:\
+ i: a$
 
 су´тон:
  t: N\m
- i: \a:\
+ i: a$
 
 та´лог:
  t: N\m
- i: \a:\
+ i: a$
 
 у´лом:
  t: N\m
- i: \a:\
+ i: a$
 
 у´лог:
  t: N\m
- i: \a:\
+ i: a$
 
 ра´здѣʟ:
  t: N\m
- i: \a:\
+ i: a$
 
 би´воʟ:
  t: N\m
- i: \a:\
+ i: a$
 
 па´ћеʟ,па`ћеʟ:
  t: N\m
- i: \a:\;\a.\
+ i: a:;a.
 
 про´рок,про`рок:
  t: N\m
- i: \a:\an;\a.\an
+ i: a:/an;a./an
 
 ру´цељ,ру`цељ:
  t: N\m
- i: \a:\;\a.\
+ i: a:;a.
 
 но´вчић,но`вчић,но`вчи_ћ:
  t: N\m
- i: \a:\;\a.\;\b:\
+ i: a:;a.;b$
 
 ко´нчић,ко`нчић:
  t: N\m
- i: \a:\;\a.\
+ i: a:;a.
 
 ко´ров,ко`ров:
  t: N\m
- i: \a:\;\a.\
+ i: a:;a.
 
 ку´ћер,ку`ћер:
  t: N\m
- i: \a:\;\a.\
+ i: a:;a.
 
 ма´јдан,ма`јдан:
  t: N\m
- i: \a:\;\a.\
+ i: a:;a.
 
 ла´веж:
  t: N\m
- i: \a:\
+ i: a$
  add:
   gen pl: ла´вежи_
 
 лу´пеж:
  t: N\m
- i: \a:\an
+ i: a:/an
  add:
   gen pl: лу´пежи_
 
 си´тнеж:
  t: N\m
- i: \a:\
+ i: a$
  add:
   gen pl: си´тнежи_
 
 гра´беж:
  t: N\m
- i: \a:\
+ i: a$
  add:
   gen pl: гра´бежи_
 
 ја^\ми:
  t: N\0
- i: \0\
+ i: "0"
  add:
   nom sg: ја^
   acc sg: ме¨не, ме
@@ -9364,7 +9363,7 @@
 
 ти^\ви:
  t: N\0
- i: \0\
+ i: "0"
  add:
   nom sg: ти^
   acc sg: те¨бе, те
@@ -9383,7 +9382,7 @@
 
 шта¨\што:
  t: N\0
- i: \0\
+ i: "0"
  add:
   nom sg: шта¨, што¨
   acc sg: шта¨, што¨
@@ -9394,7 +9393,7 @@
 
 ко¨\тко:
  t: N\0
- i: \0\
+ i: "0"
  add:
   nom sg: ко¨, тко¨
   acc sg: ко`га, ко¨г
@@ -9405,1180 +9404,1180 @@
 
 ла¨в:
  t: N\m
- i: \a.\
+ i: a.
 
 ру´ка:
  t: N\f
- i: \c:\
+ i: c$
  add:
   pl gen: ру`ку_, ру¨ку_
 
 но`га:
  t: N\f
- i: \c.\
+ i: c.
  add:
   pl gen: но¨гу_
 
 слу´га:
  t: N\f
- i: \g:\an
+ i: g:/an
  add:
   pl gen: слу´гу_, слу`гу_
 
 во´јска:
  t: N\f
- i: \c:\
+ i: c$
 
 гла´ва:
  t: N\f
- i: \c:\
+ i: c$
 
 гла´въња:
  t: N\f
- i: \c:\
+ i: c$
 
 гра´на:
  t: N\f
- i: \c:\
+ i: c$
 
 гре´да:
  t: N\f
- i: \c:\
+ i: c$
 
 ду´ша:
  t: N\f
- i: \c:\
+ i: c$
 
 зи´ма:
  t: N\f
- i: \c:\
+ i: c$
 
 пе´та:
  t: N\f
- i: \c:\
+ i: c$
 
 срꙓ´да:
  t: N\f
- i: \c:\
+ i: c$
 
 стра´на:
  t: N\f
- i: \c:\
+ i: c$
 
 бра´да,бра´да:
  t: N\f
- i: \c:\;\g:\
+ i: c:;g$
 
 вр°´ба,вр°´ба:
  t: N\f
- i: \c:\;\g:\
+ i: c:;g$
 
 клу´па,клу´па:
  t: N\f
- i: \c:\;\g:\
+ i: c:;g$
 
 стꙓ´на,стꙓ´на:
  t: N\f
- i: \c:\;\g:\
+ i: c:;g$
 
 ви´ла:
  t: N\f
- i: \g:\
+ i: g$
 
 гу´ја:
  t: N\f
- i: \g:\
+ i: g$
 
 је´ла:
  t: N\f
- i: \g:\
+ i: g$
 
 ку´ла:
  t: N\f
- i: \g:\
+ i: g$
 
 му´ња:
  t: N\f
- i: \g:\
+ i: g$
 
 о´въца:
  t: N\f
- i: \g:\
+ i: g$
 
 сви´ња:
  t: N\f
- i: \g:\
+ i: g$
 
 сла´на:
  t: N\f
- i: \g:\
+ i: g$
 
 ср°´на:
  t: N\f
- i: \g:\
+ i: g$
 
 стрꙓ´ла:
  t: N\f
- i: \g:\
+ i: g$
 
 то´рꚜба:
  t: N\f
- i: \g:\
+ i: g$
 
 тра´ва:
  t: N\f
- i: \g:\
+ i: g$
 
 ва`јда:
  t: N\f
- i: \c.\
+ i: c.
 
 во`да:
  t: N\f
- i: \c.\
+ i: c.
 
 гло`ба:
  t: N\f
- i: \c.\
+ i: c.
 
 го`ра:
  t: N\f
- i: \c.\
+ i: c.
 
 да`сꚜка:
  t: N\f
- i: \c.\
+ i: c.
 
 же`ља:
  t: N\f
- i: \c.\
+ i: c.
 
 зе`мꚜља:
  t: N\f
- i: \c.\
+ i: c.
 
 зо`ра:
  t: N\f
- i: \c.\
+ i: c.
 
 и`гꚜла:
  t: N\f
- i: \c.\
+ i: c.
 
 и`гꚜра:
  t: N\f
- i: \c.\
+ i: c.
 
 ја`гма:
  t: N\f
- i: \c.\
+ i: c.
  add:
   pl gen: ја`гми_
 
 ко`са:
  t: N\f
- i: \c.\
+ i: c.
 
 ло`за:
  t: N\f
- i: \c.\
+ i: c.
 
 ма`гла:
  t: N\f
- i: \c.\
+ i: c.
  except: 
   pl gen: ма`гли_
 
 ме`ђа:
  t: N\f
- i: \c.\
+ i: c.
 
 ме`ла:
  t: N\f
- i: \c.\
+ i: c.
 
 ме`тъла:
  t: N\f
- i: \c.\
+ i: c.
 
 р°`ђа:
  t: N\f
- i: \c.\
+ i: c.
 
 ро`са:
  t: N\f
- i: \c.\
+ i: c.
 
 смо`ла:
  t: N\f
- i: \c.\
+ i: c.
 
 со`ха:
  t: N\f
- i: \c.\
+ i: c.
 
 чо`ха:
  t: N\f
- i: \c.\
+ i: c.
 
 бу`ха:
  t: N\f
- i: \g.\an
+ i: g./an
 
 зми`ја:
  t: N\f
- i: \g.\an
+ i: g./an
 
 му`ха:
  t: N\f
- i: \g.\an
+ i: g./an
 
 сна`ха:
  t: N\f
- i: \g.\an
+ i: g./an
 
 су`за:
  t: N\f
- i: \g.\
+ i: g.
 
 кле^тꚜва:
  t: N\f
- i: \a!\
+ i: a!
 
 при^тъка:
  t: N\f
- i: \a!\
+ i: a!
 
 цр°^кꚜва:
  t: N\f
- i: \a!\
+ i: a!
 
 ба¨нъка:
  t: N\f
- i: \a.\
+ i: a.
 
 би¨ръка:
  t: N\f
- i: \a.\
+ i: a.
 
 вли¨нъта:
  t: N\f
- i: \a.\
+ i: a.
 
 гри¨въна:
  t: N\f
- i: \a.\
+ i: a.
 
 до¨јъка:
  t: N\f
- i: \a.\
+ i: a.
 
 жи¨ръка:
  t: N\f
- i: \a.\
+ i: a.
 
 ка¨ръта:
  t: N\f
- i: \a.\
+ i: a.
 
 ма¨јъка:
  t: N\f
- i: \a.\an
+ i: a./an
 
 пло¨въка:
  t: N\f
- i: \a.\
+ i: a.
 
 пу¨јъка:
  t: N\f
- i: \a.\
+ i: a.
 
 со¨јъка:
  t: N\f
- i: \a.\
+ i: a.
 
 тр°¨мъка:
  t: N\f
- i: \a.\
+ i: a.
 
 ћу¨ръка:
  t: N\f
- i: \a.\
+ i: a.
 
 ча¨въка:
  t: N\f
- i: \a.\
+ i: a.
 
 же`на:
  t: N\f
- i: \b.\
+ i: b.
 
 о`ловъка:
  t: N\f
- i: \a.\
+ i: a.
 
 до¨бър:
  t: A\all
- i: \d.,b.\
+ i: d.,b.
 
 гљи¨ва:
  t: N\f
- i: \a.\
+ i: a.
 
 гњи¨да:
  t: N\f
- i: \a.\
+ i: a.
 
 ди¨ња:
  t: N\f
- i: \a.\
+ i: a.
 
 жа¨ба:
  t: N\f
- i: \a.\
+ i: a.
 
 жи¨ла:
  t: N\f
- i: \a.\
+ i: a.
 
 жи¨ца:
  t: N\f
- i: \a.\
+ i: a.
 
 књи¨га:
  t: N\f
- i: \a.\
+ i: a.
 
 кра¨ва:
  t: N\f
- i: \a.\
+ i: a.
 
 ку¨ћа:
  t: N\f
- i: \a.\
+ i: a.
 
 пти¨ца:
  t: N\f
- i: \a.\
+ i: a.
 
 ра¨на:
  t: N\f
- i: \a.\
+ i: a.
 
 шљи¨ва:
  t: N\f
- i: \a.\
+ i: a.
 
 ба¨чъва:
  t: N\f
- i: \a.\
+ i: a.
 
 бра¨дъва:
  t: N\f
- i: \a.\
+ i: a.
 
 бу¨къва:
  t: N\f
- i: \a.\
+ i: a.
 
 ва¨търа:
  t: N\f
- i: \a.\
+ i: a.
 
 ви¨шъња:
  t: N\f
- i: \a.\
+ i: a.
 
 гу¨съка:
  t: N\f
- i: \a.\
+ i: a.
 
 ка¨пꚜља:
  t: N\f
- i: \a.\
+ i: a.
 
 кру¨шъка:
  t: N\f
- i: \a.\
+ i: a.
 
 ле¨тъва:
  t: N\f
- i: \a.\
+ i: a.
 
 ли¨тꚜра:
  t: N\f
- i: \a.\
+ i: a.
 
 на¨тꚜра:
  t: N\f
- i: \a.\
+ i: a.
 
 пѣ¨сꚜма:
  t: N\f
- i: \a.\
+ i: a.
 
 пу¨шъка:
  t: N\f
- i: \a.\
+ i: a.
 
 са¨бꚜља:
  t: N\f
- i: \a.\
+ i: a.
 
 смо¨къва:
  t: N\f
- i: \a.\
+ i: a.
 
 ти¨къва:
  t: N\f
- i: \a.\
+ i: a.
 
 тре¨шъња:
  t: N\f
- i: \a.\
+ i: a.
 
 пра^ља:
  t: N\f
- i: \a:\
+ i: a$
 
 бра´ница:
  t: N\f
- i: \a:\
+ i: a$
 
 ва´рница:
  t: N\f
- i: \a:\
+ i: a$
 
 ка´јсија:
  t: N\f
- i: \a:\
+ i: a$
 
 ко´кица:
  t: N\f
- i: \a:\
+ i: a$
 
 на´лога:
  t: N\f
- i: \a:\
+ i: a$
 
 за´друга:
  t: N\f
- i: \a:\
+ i: a$
 
 на´зеба:
  t: N\f
- i: \a:\
+ i: a$
 
 за´бава,за^бава:
  t: N\f
- i: \a:\;\a:\
+ i: a:;a$
 
 жи^рчица:
  t: N\f
- i: \a:\
+ i: a$
 
 но^жица:
  t: N\f
- i: \a:\
+ i: a$
 
 сла^мчица:
  t: N\f
- i: \a:\
+ i: a$
 
 ци^поръка:
  t: N\f
- i: \a:\
+ i: a$
 
 за^тр°ка:
  t: N\f
- i: \a:\
+ i: a$
 
 гро^ница:
  t: N\f
- i: \a:\
+ i: a$
 
 цр°^квица:
  t: N\f
- i: \a:\
+ i: a$
 
 ка^рлица:
  t: N\f
- i: \a:\
+ i: a$
 
 гре¨шъка:
  t: N\f
- i: \a.\
+ i: a.
 
 ја¨бука:
  t: N\f
- i: \a.\
+ i: a.
 
 ја¨года:
  t: N\f
- i: \a.\
+ i: a.
 
 лѣ¨сица:
  t: N\f
- i: \a.\
+ i: a.
 
 пче`ла,пче`ла:
  t: N\f
- i: \c.\;\g.\
+ i: c.;g.
 
 црꙓ^п:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 дрꙓ^н,дрꙓ^н:
  t: N\m
- i: \b:\+;\e:\+
+ i: b:/+;e:/+
 
 мꙓ^х:
  t: N\m
- i: \c:\
+ i: c$
 
 звꙓ^р:
  t: N\m
- i: \c:\±
+ i: c:/±
  add:
   pl gen: звꙓ´ри_
 
 жлꙓ^б:
  t: N\m
- i: \c:\+
+ i: c:/+
 
 хра^м:
  t: N\m
- i: \e:\+
+ i: e:/+
 
 дво^р:
  t: N\m
- i: \e:\±
+ i: e:/±
 
 пу^тʲ:
  t: N\m
- i: \e:\±
+ i: e:/±
 
 су^д:
  t: N\m
- i: \b:\+
+ i: b:/+
 
 тка^ч:
  t: N\m
- i: \e:\+,an
+ i: e:/+,an
 
 сто^ʟ:
  t: N\m
- i: \b?\+
+ i: b?/+
 
 гро^м,гро¨м:
  t: N\m
- i: \b?\+;\b.\+
+ i: b?/+;b./+
 
 ру^ј:
  t: N\m
- i: \b?\+
+ i: b?/+
 
 сто^г:
  t: N\m
- i: \b?\+
+ i: b?/+
 
 во^ʟ:
  t: N\m
- i: \b?\+,an
+ i: b?/+,an
 
 вр°^х,вр°¨х:
  t: N\m
- i: \b?\±;\b.\±
+ i: b?/±;b./±
 
 до´пуст:
  t: N\m
- i: \a:\
+ i: a$
 
 ра´спуст:
  t: N\m
- i: \a:\
+ i: a$
 
 на´клон:
  t: N\m
- i: \a:\
+ i: a$
 
 на´слон:
  t: N\m
- i: \a:\
+ i: a$
 
 при´мѣр:
  t: N\m
- i: \a:\
+ i: a$
 
 ра´зред:
  t: N\m
- i: \a:\
+ i: a$
 
 са´вез:
  t: N\m
- i: \a:\
+ i: a$
 
 са´вѣт:
  t: N\m
- i: \a:\
+ i: a$
 
 су´сѣд:
  t: N\m
- i: \a:\an
+ i: a:/an
 
 у´ред:
  t: N\m
- i: \a:\
+ i: a$
 
 ва´шар:
  t: N\m
- i: \a:\
+ i: a$
 
 За´греб:
  t: N\m
- i: \a:\
+ i: a$
 
 за´кон:
  t: N\m
- i: \a:\
+ i: a$
 
 за´пис:
  t: N\m
- i: \a:\
+ i: a$
 
 до^бош:
  t: N\m
- i: \a!\
+ i: a!
 
 ја^рбол:
  t: N\m
- i: \a!\
+ i: a!
 
 ка^мфор:
  t: N\m
- i: \a!\
+ i: a!
 
 ки^цош:
  t: N\m
- i: \a!\an
+ i: a!/an
 
 ло^гор:
  t: N\m
- i: \a!\
+ i: a!
 
 пе^нџер:
  t: N\m
- i: \a!\
+ i: a!
 
 су^мпор:
  t: N\m
- i: \a!\
+ i: a!
 
 та^бор:
  t: N\m
- i: \a!\
+ i: a!
 
 жа^мор:
  t: N\m
- i: \a!\
+ i: a!
 
 ла^кът,ла¨кът:
  t: N\m
- i: \a!\±;\c.\±
+ i: a!/±;c./±
 
 пљу^сък:
  t: N\m
- i: \a!\
+ i: a!
 
 це¨сар: 
  t: N\m
- i: \a.\
+ i: a.
 
 до¨ктор: 
  t: N\m
- i: \a.\
+ i: a.
 
 Ду¨нав: 
  t: N\m
- i: \a.\
+ i: a.
 
 ђа¨кон: 
  t: N\m
- i: \a.\
+ i: a.
 
 Кра¨ков: 
  t: N\m
- i: \a.\
+ i: a.
 
 Ми¨лош: 
  t: N\m
- i: \a.\
+ i: a.
 
 се¨стрић: 
  t: N\m
- i: \a.\
+ i: a.
 
 по`рез:
  t: N\m
- i: \a.\
+ i: a.
 
 пра¨дѣд,пра`дѣд:
  t: N\m
- i: \a.\an;\a.\an
+ i: a./an;a./an
 
 у¨ток,у`ток: 
  t: N\m
- i: \a.\;\a.\
+ i: a.;a.
 
 бра¨тъц:
  t: N\m
- i: \a.\an
+ i: a./an
 
 че¨шъљ:
  t: N\m
- i: \a.\+
+ i: a./+
 
 хлѣ¨бъц:
  t: N\m
- i: \a.\
+ i: a.
 
 ме¨тър:
  t: N\m
- i: \a.\
+ i: a.
 
 пре¨дък:
  t: N\m
- i: \a.\an
+ i: a./an
 
 ср°¨пскохр°`ва_тски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 хр°`ва_тскоср°¨пски_:
  t: A\ski
- i: \0,a:\
+ i: 0,a$
 
 ја¨сножу^т:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 пла´воси^в:
  t: A\all
- i: \b:,b:\
+ i: b:,b$
 
 жу´томр°¨к:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 цр°`веномр°¨к:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 цр°´номр°¨к:
  t: A\all
- i: \a.,a.\
+ i: a.,a.
 
 у¨залу_д:
-  t: B\
-  i: \
+  t: B
+  i: "0"
 
 вꙓ´нъц:
  t: N\m
- i: \b:\
+ i: b$
 
 тѣ¨дън:
  t: N\m
- i: \a.\
+ i: a.
  c: само јекавски
 
 мрꙓ´ти:
  t: V\Itr\Ipf\мр̄
- i: \xʺ\kappa
+ i: xʺ/kappa
 
 у`мрꙓ_ти:
  t: V\Itr\Pf\умр̄
- i: \i:\kappa
+ i: i:/kappa
 
 за`мрꙓ_ти:
  t: V\Itr\Pf\замр̄
- i: \i:\kappa
+ i: i:/kappa
 
 по`мрꙓ_ти:
  t: V\Itr\Pf\помр̄
- i: \i:\kappa
+ i: i:/kappa
 
 са`мрꙓ_ти:
  t: V\Itr\Pf\самр̄
- i: \i:\kappa
+ i: i:/kappa
 
 изу`мрꙓ_ти:
  t: V\Itr\Pf\изумр̄
- i: \i:\kappa
+ i: i:/kappa
 
 оба`мрꙓ_ти:
  t: V\Itr\Pf\обамр̄
- i: \i:\kappa
+ i: i:/kappa
 
 обу`мрꙓ_ти:
  t: V\Itr\Pf\обумр̄
- i: \i:\kappa
+ i: i:/kappa
 
 разу`мрꙓ_ти:
  t: V\Refl\Pf\разумр̄
- i: \i:\kappa
+ i: i:/kappa
 
 на`су_ти:
  t: V\Tr\Pf\насп
- i: \i:\kappa2
+ i: i:/kappa2
 
 за`су_ти:
  t: V\Tr\Pf\засп
- i: \i:\kappa2
+ i: i:/kappa2
 
 о`су_ти:
  t: V\Tr\Pf\осп
- i: \i:\kappa2
+ i: i:/kappa2
 
 о`псу_ти:
  t: V\Tr\Pf\опсп
- i: \i:\kappa2
+ i: i:/kappa2
 
 о`дсу_ти:
  t: V\Tr\Pf\одсп
- i: \i:\kappa2
+ i: i:/kappa2
 
 по`су_ти:
  t: V\Tr\Pf\посп
- i: \i:\kappa2
+ i: i:/kappa2
 
 при`су_ти:
  t: V\Tr\Pf\присп
- i: \i:\kappa2
+ i: i:/kappa2
 
 пре`су_ти:
  t: V\Tr\Pf\пресп
- i: \i:\kappa2
+ i: i:/kappa2
 
 про`су_ти:
  t: V\Tr\Pf\просп
- i: \i:\kappa2
+ i: i:/kappa2
 
 ра`су_ти:
  t: V\Tr\Pf\расп
- i: \i:\kappa2
+ i: i:/kappa2
 
 са`су_ти:
  t: V\Tr\Pf\сасп
- i: \i:\kappa2
+ i: i:/kappa2
 
 у`су_ти:
  t: V\Tr\Pf\усп
- i: \i:\kappa2
+ i: i:/kappa2
 
 иза`су_ти:
  t: V\Tr\Pf\изасп
- i: \i:\kappa2
+ i: i:/kappa2
 
 оба`су_ти:
  t: V\Tr\Pf\обасп
- i: \i:\kappa2
+ i: i:/kappa2
 
 ода`су_ти:
  t: V\Tr\Pf\одасп
- i: \i:\kappa2
+ i: i:/kappa2
 
 пода`су_ти:
  t: V\Tr\Pf\подасп
- i: \i:\kappa2
+ i: i:/kappa2
 
 раза`су_ти:
  t: V\Tr\Pf\разасп
- i: \i:\kappa2
+ i: i:/kappa2
 
 распро`су_ти:
  t: V\Tr\Pf\распросп
- i: \i:\kappa2
+ i: i:/kappa2
 
 же´ти I:
  t: V\Tr\Ipf\жм
- i: \xʺ\kappa2
+ i: xʺ/kappa2
 
 за`же_ти:
  t: V\Tr\Pf\зажм
- i: \i:\kappa2
+ i: i:/kappa2
 
 и`же_ти:
  t: V\Tr\Pf\ижм
- i: \i:\kappa2
+ i: i:/kappa2
 
 о`же_ти:
  t: V\Tr\Pf\ожм
- i: \i:\kappa2
+ i: i:/kappa2
 
 пре`же_ти:
  t: V\Tr\Pf\прежм
- i: \i:\kappa2
+ i: i:/kappa2
 
 про`же_ти:
  t: V\Tr\Pf\прожм
- i: \i:\kappa2
+ i: i:/kappa2
 
 са`же_ти:
  t: V\Tr\Pf\сажм
- i: \i:\kappa2
+ i: i:/kappa2
 
 иза`же_ти:
  t: V\Tr\Pf\изажм
- i: \i:\kappa2
+ i: i:/kappa2
 
 о`те_ти:
  t: V\Tr\Pf\отм
- i: \i:\kappa2
+ i: i:/kappa2
 
 у`зе_ти:
  t: V\Tr\Pf\узм
- i: \i:\kappa2
+ i: i:/kappa2
 
 зау`зе_ти:
  t: V\Tr\Pf\заузм
- i: \i:\kappa2
+ i: i:/kappa2
 
 прео`те_ти:
  t: V\Tr\Pf\преотм
- i: \i:\kappa2
+ i: i:/kappa2
 
 изу`зе_ти:
  t: V\Refl\Pf\изузм
- i: \i:\kappa2
+ i: i:/kappa2
 
 нау`зе_ти:
  t: V\Refl\Pf\наузм
- i: \i:\kappa2
+ i: i:/kappa2
 
 обу`зе_ти:
  t: V\Tr\Pf\обузм
- i: \i:\kappa2
+ i: i:/kappa2
 
 оду`зе_ти:
  t: V\Tr\Pf\одузм
- i: \i:\kappa2
+ i: i:/kappa2
 
 поду`зе_ти:
  t: V\Tr\Pf\подузм
- i: \i:\kappa2
+ i: i:/kappa2
 
 преу`зе_ти:
  t: V\Tr\Pf\преузм
- i: \i:\kappa2
+ i: i:/kappa2
 
 за`пе_ти:
  t: V\Tr\Pf\запн
- i: \i:\kappa2
+ i: i:/kappa2
 
 и`спе_ти:
  t: V\Tr\Pf\испн
- i: \i:\kappa2
+ i: i:/kappa2
 
 на`пе_ти:
  t: V\Tr\Pf\напн
- i: \i:\kappa2
+ i: i:/kappa2
 
 по`пе_ти:
  t: V\Tr\Pf\попн
- i: \i:\kappa2
+ i: i:/kappa2
 
 при`пе_ти:
  t: V\Tr\Pf\припн
- i: \i:\kappa2
+ i: i:/kappa2
 
 про`пе_ти:
  t: V\Tr\Pf\пропн
- i: \i:\kappa2
+ i: i:/kappa2
 
 ра`спе_ти:
  t: V\Tr\Pf\распн
- i: \i:\kappa2
+ i: i:/kappa2
 
 са`пе_ти:
  t: V\Tr\Pf\сапн
- i: \i:\kappa2
+ i: i:/kappa2
 
 у`пе_ти:
  t: V\Refl\Pf\упн
- i: \i:\kappa2
+ i: i:/kappa2
 
 оба`пе_ти:
  t: V\Tr\Pf\обапн
- i: \i:\kappa2
+ i: i:/kappa2
 
 ода`пе_ти:
  t: V\Tr\Pf\одапн
- i: \i:\kappa2
+ i: i:/kappa2
 
 пода`пе_ти:
  t: V\Tr\Pf\подапн
- i: \i:\kappa2
+ i: i:/kappa2
 
 раза`пе_ти:
  t: V\Tr\Pf\разапн
- i: \i:\kappa2
+ i: i:/kappa2
 
 до`че_ти:
  t: V\Tr\Pf\дочн
- i: \i:\kappa2
+ i: i:/kappa2
 
 за`че_ти:
  t: V\Tr\Pf\зачн
- i: \i:\kappa2
+ i: i:/kappa2
 
 на`че_ти:
  t: V\Tr\Pf\начн
- i: \i:\kappa2
+ i: i:/kappa2
 
 по`че_ти:
  t: V\Tr\Pf\почн
- i: \i:\kappa2
+ i: i:/kappa2
 
 при`че_ти:
  t: V\Tr\Pf\причн
- i: \i:\kappa2
+ i: i:/kappa2
 
 запо`че_ти:
  t: V\Tr\Pf\започн
- i: \i:\kappa2
+ i: i:/kappa2
 
 отпо`че_ти:
  t: V\Tr\Pf\отпочн
- i: \i:\kappa2
+ i: i:/kappa2
 
 препо`че_ти:
  t: V\Tr\Pf\препочн
- i: \i:\kappa2
+ i: i:/kappa2
 
 за`дрꙓ_ти:
  t: V\Tr\Pf\задр̄
- i: \i:\kappa
+ i: i:/kappa
 
 и`здрꙓ_ти:
  t: V\Tr\Pf\издр̄
- i: \i:\kappa
+ i: i:/kappa
 
 на`дрꙓ_ти:
  t: V\Tr\Pf\надр̄
- i: \i:\kappa
+ i: i:/kappa
 
 о`дрꙓ_ти:
  t: V\Tr\Pf\одр̄
- i: \i:\kappa
+ i: i:/kappa
 
 пре`дрꙓ_ти:
  t: V\Tr\Pf\предр̄
- i: \i:\kappa
+ i: i:/kappa
 
 про`дрꙓ_ти:
  t: V\Tr\Pf\продр̄
- i: \i:\kappa
+ i: i:/kappa
 
 ра`здрꙓ_ти:
  t: V\Tr\Pf\раздр̄
- i: \i:\kappa
+ i: i:/kappa
 
 са`дрꙓ_ти:
  t: V\Tr\Pf\садр̄
- i: \i:\kappa
+ i: i:/kappa
 
 иза`дрꙓ_ти:
  t: V\Tr\Pf\изадр̄
- i: \i:\kappa
+ i: i:/kappa
 
 ода`дрꙓ_ти:
  t: V\Tr\Pf\одадр̄
- i: \i:\kappa
+ i: i:/kappa
 
 пода`дрꙓ_ти:
  t: V\Tr\Pf\подадр̄
- i: \i:\kappa
+ i: i:/kappa
 
 про`ждрꙓ_ти:
  t: V\Tr\Pf\прождр̄
- i: \i:\kappa
+ i: i:/kappa
 
 до`прꙓ_ти:
  t: V\Tr\Pf\допр̄
- i: \i:\kappa
+ i: i:/kappa
 
 за`прꙓ_ти:
  t: V\Tr\Pf\запр̄
- i: \i:\kappa
+ i: i:/kappa
 
 о`прꙓ_ти:
  t: V\Tr\Pf\опр̄
- i: \i:\kappa
+ i: i:/kappa
 
 по`прꙓ_ти:
  t: V\Tr\Pf\попр̄
- i: \i:\kappa
+ i: i:/kappa
 
 при`прꙓ_ти:
  t: V\Tr\Pf\припр̄
- i: \i:\kappa
+ i: i:/kappa
 
 у`прꙓ_ти:
  t: V\Tr\Pf\упр̄
- i: \i:\kappa
+ i: i:/kappa
 
 ода`прꙓ_ти:
  t: V\Tr\Pf\одапр̄
- i: \i:\kappa
+ i: i:/kappa
 
 оду`прꙓ_ти:
  t: V\Tr\Pf\одупр̄
- i: \i:\kappa
+ i: i:/kappa
 
 поду`прꙓ_ти:
  t: V\Tr\Pf\подупр̄
- i: \i:\kappa
+ i: i:/kappa
 
 за`стрꙓ_ти:
  t: V\Tr\Pf\застр̄
- i: \i:\kappa
+ i: i:/kappa
 
 на`стрꙓ_ти:
  t: V\Tr\Pf\настр̄
- i: \i:\kappa
+ i: i:/kappa
 
 про`стрꙓ_ти:
  t: V\Tr\Pf\простр̄
- i: \i:\kappa
+ i: i:/kappa
 
 оба`стрꙓ_ти:
  t: V\Tr\Pf\обастр̄
- i: \i:\kappa
+ i: i:/kappa
 
 ода`стрꙓ_ти:
  t: V\Tr\Pf\одастр̄
- i: \i:\kappa
+ i: i:/kappa
 
 раза`стрꙓ_ти:
  t: V\Tr\Pf\разастр̄
- i: \i:\kappa
+ i: i:/kappa
 
 не`сˌти:
  t: V\Tr\Ipf
- i: \rʹ\kappa3
+ i: rʹ/kappa3
 
 пле`тˌти:
  t: V\Tr\Ipf
- i: \rʹ\kappa3
+ i: rʹ/kappa3
 
 тре´сˌти:
  t: V\Tr\Ipf
- i: \rʺ\kappa3
+ i: rʺ/kappa3
 
 мо`гˌти:
  t: V\Itr\Ipf
- i: \eʹ\kappa3
+ i: eʹ/kappa3
  except:
   prs 1 sg: мо`гу
  add:
@@ -10589,90 +10588,99 @@
 
 смр°¨т:
  t: N\f
- i: \a.\
+ i: a.
 
 љу´бав:
  t: N\f
- i: \a!\
+ i: a!
 
 че¨твр°_т:
  t: N\f
- i: \a:\
+ i: a$
 
 ко^б:
  t: N\f
- i: \a:\
+ i: a$
 
 не¨мо_ћ:
  t: N\f
- i: \a?\
+ i: a?
 
 бла´го_ст:
  t: N\f
- i: \a?\
+ i: a?
 
 о`холо_ст:
  t: N\f
- i: \a?\
+ i: a?
 
 ства^р:
  t: N\f
- i: \c:\
+ i: c$
 
 рꙓ^ч:
  t: N\f
- i: \c:\
+ i: c$
 
 по¨вꙓ_ст:
  t: N\f
- i: \a:\
+ i: a$
  c: екавско ретко
 
 ми^съʌ:
  t: N\f
- i: \c:\
+ i: c$
 
 па¨ме_т:
  t: N\f
- i: \c:\
+ i: c$
 
 ла^ж:
  t: N\f
- i: \c?\
+ i: c?
 
 но^ћ:
  t: N\f
- i: \c?\
+ i: c?
 
 бо¨ле_ст:
  t: N\f
- i: \c?\
+ i: c?
 
 лѣпо`та:
  t: N\f
- i: \b.\
+ i: b.
 
 ко¨жа:
  t: N\f
- i: \a.\
+ i: a.
 
 ла^ђа:
  t: N\f
- i: \a:\
+ i: a$
 
 ста¨рица:
  t: N\f
- i: \a.\
+ i: a.
 
 го¨во_р:
  t: N\m
- i: \c?\
+ i: c?
 
 ра^д,ра^д:
  t: N\m
- i: \c:\+;\d:\+
+ i: c:/+;d:/+
  s: akz
 
 ву^к:
  t: N\m
- i: \c:\±,an
+ i: c:/±,an
+
+р°^т,р°¨т:
+ t: N\m
+ i: c:/±;b./±
+ s: akz; https://www.academia.edu/11329385
+
+хр°¨т:
+ t: N\m
+ i: b./+,an

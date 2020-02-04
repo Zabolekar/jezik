@@ -49,6 +49,13 @@ def i_to_accents(line_accents: str) -> Accents:
    Vs_dict = {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
    return Accents(Rs_dict, Vs_dict)
 
+def cut_AP (x: str) -> str:
+   start = x.find('\\') + 1
+   finish = x.find('/') 
+   if finish == -1:
+      finish = None
+   return x[start:finish].replace('$', ':')
+
 class GramInfo:
    """
    How to read the field `other`:
@@ -63,16 +70,19 @@ class GramInfo:
       self.MP: List[str] = [] # morphological paradigm
       self.comment: List[str] = []
       for info in infos:
+         info = info.replace('$', ':') # a line cannot end with :, so we use $, too
          if info:
-            splitted_info = info.split('\\')
-            if len(splitted_info) == 3:
-               comment, AP, MP = splitted_info
-            elif len(splitted_info) == 2:
-               comment, AP = splitted_info
-               MP = ""
+            if '\\' in info:
+               comment, restinfo = info.split('\\') # automatically falls when too much \\?
             else:
-               raise ValueError("Can't decipher info of len ", len(splitted_info))
-            # accents.append(i_to_accents(line_accents))
+               comment = ''
+               restinfo = info
+            if '/' in restinfo:
+               AP, MP = restinfo.split('/') # automatically falls ?
+            else:
+               AP = restinfo
+               MP = ''
+
             self.AP.append(AP)
             self.MP.append(MP)
             self.comment.append(comment)

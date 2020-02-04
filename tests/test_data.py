@@ -2,6 +2,7 @@ from typing import List
 import pytest # type: ignore
 from ..lookup import lookup, data
 from ..lookup.charutils import four_accents, cmacron
+from ..lookup.paradigm_helpers import cut_AP
 from ..lookup.table import LabeledMultiform
 
 def str_find(word: str, substr: str) -> int:
@@ -52,11 +53,12 @@ def test_no_exceptions():
       print(bad_multiforms)
       raise ValueError("impossible accentuation")
 
+
 def test_paradigms():
    """Ensure that accent paradigms are desribed well"""
    for outer_key, _ in data._outer_to_inner:
       for inner_key, word in data[outer_key, 'e']:
-         paradigms = [x.split("\\")[1] for x in word.info.split(";")]
+         paradigms = [cut_AP(x) for x in word.info.split(";")]
          for paradigm in paradigms:
             assert isinstance(paradigm, str), paradigm + " " + inner_key
             if len(paradigm) == 2:
