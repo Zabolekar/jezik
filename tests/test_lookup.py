@@ -61,7 +61,6 @@ def test_ije():
    assert len(l) == 1
    assert l[0]["pl gen"].multiform == ["ве̑на̄ца̄"]
 
-@pytest.mark.xfail
 def test_ije2():
    l = lookup("реч", input_yat="e", output_yat="ije")
    assert len(l) == 1

@@ -51,7 +51,7 @@ def i_to_accents(line_accents: str) -> Accents:
 
 def cut_AP (x: str) -> str:
    start = x.find('\\') + 1
-   finish = x.find('/') 
+   finish : Optional[int] = x.find('/')
    if finish == -1:
       finish = None
    return x[start:finish].replace('$', ':')
