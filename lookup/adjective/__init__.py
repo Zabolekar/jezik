@@ -7,6 +7,32 @@ from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accenti
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 from ..charutils import cmacron, cstraight
 
+adj_AP_pairs = (
+   ('a.,a.', 'A.'),
+   ('0,a.', 'a.'),
+   ('a:,a:', 'A:'),
+   ('b:,b:', 'B:'),
+   ('0,a:', 'a:'),
+   ('0,c.', 'c.'),
+   ('b.,b.', 'B.'),
+   ('b.,c.', 'K.'),
+   ('0,c:', 'c:'),
+   ('b:,c.', 'K:.'),
+   ('a.,c.', 'L.'),
+   ('b?,b.', 'B?.'),
+   ('a.,a:', 'A.:'),
+   ('d:,b:', 'M:'),
+   ('d.,b.', 'M.'),
+   ('b:,c:', 'K:'),
+   ('a:,c.', 'L:.'),
+   ('b.,b:', 'B.:'),
+   ('d.,c.', 'N.')
+)  # rules: 0,x is x; x,x is X; bc ac db dc become KLMN;
+   # leave one length mark if they are the same,
+   # two length marks if they are different
+
+adj_AP_to_inner_AP = {b:a for a,b in adj_AP_pairs}
+
 class Adjective(PartOfSpeech):
    def __init__(
       self,
@@ -19,7 +45,7 @@ class Adjective(PartOfSpeech):
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
-      self.short_AP, self.long_AP = list(zip(*[AP.split(',') for AP in self.gram.AP]))
+      self.short_AP, self.long_AP = list(zip(*[adj_AP_to_inner_AP[AP].split(',') for AP in self.gram.AP]))
       self.trunk = self._trunk() #both but not separable
 
    # different

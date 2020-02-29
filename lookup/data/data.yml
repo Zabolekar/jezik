@@ -11,11 +11,11 @@
  
 абеце´дън,а¨беце_дън,абе`це_дън:
  t: A\all
- i: b:,c:;a.,a.;a.,a.
+ i: K$;A.;A.
  
 а¨бнорма_лън:
  t: A\all
- i: a.,a.
+ i: A.
  
 абони´рати:
  t: V\Tr\Dv
@@ -40,7 +40,7 @@
  
 авантури`стички_:
  t: A\ski
- i: 0,a.
+ i: a.
  
 а`вгуст:
  t: N\m
@@ -61,15 +61,15 @@
      
 ави`онски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`вли_јски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨ги_лан:
  t: A\all
- i: a.,a.
+ i: A.
 
 аги`та_тор:
  t: N\m
@@ -81,11 +81,11 @@
 
 а`гра_рни_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨греси_вън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а`гресор:
  t: N\m
@@ -97,7 +97,7 @@
 
 агро`номски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 адво`ка_т:
  t: N\m
@@ -115,11 +115,11 @@
 
 адво`ка_тски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 а¨дминистрати_вън:
  t: A\all
- i: a.,a.
+ i: A.
 
 адми`ра_л:
  t: N\m
@@ -127,7 +127,7 @@
 
 адми`ра_лски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 адре`са_р:
  t: N\m
@@ -147,39 +147,39 @@
 
 а`збестни_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`збучни_,а´збучни_:
  t: A\ski
- i: 0,a.;0,a.
+ i: a.;a.
 
 а`зи_јски_,а^зи_јски_,а´зи_јски_:
  t: A\ski
- i: 0,a:;0,a:;0,a$
+ i: a$;a$;a$
 
 а`зо_тни_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 а`зу_рън,а¨зу_рън:
  t: A\all
- i: a:,a:;a:,a$
+ i: A:;A$
 
 ака`демски_,ака`де_мски_:
  t: A\ski
- i: 0,a.;0,a$
+ i: a.;a$
 
 акро`батски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨кти_вън: 
  t: A\all
- i: a.,a.
+ i: A.
 
 а¨ктуе_лън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а¨кузати_в:
  t: N\m
@@ -191,7 +191,7 @@
 
 акуму`ла_торски_: 
  t: A\ski
- i: 0,a$
+ i: a$
 
 акумули´рати:
  t: V\Tr\Dv
@@ -199,11 +199,11 @@
 
 аку`стичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а`ку_тън,а¨ку_тън:
  t: A\all
- i: a:,a:;a:,a$
+ i: A:;A$
 
 акценто`вати:
  t: V\Tr\Dv
@@ -211,7 +211,7 @@
 
 акцио`на_рски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 ала´лити:
   t: V\Tr\Pf
@@ -220,11 +220,11 @@
 
 аларма`нтън:
  t: A\all
- i: b.,c.
+ i: K.
 
 аларми´рају_ћи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 аларми´рати:
  t: V\Tr\Dv
@@ -232,19 +232,19 @@
 
 а`ла_тни_: 
  t: A\ski
- i: 0,a$
+ i: a$
 
 а`лба_нски_: 
  t: A\ski
- i: 0,a$
+ i: a$
 
 а`лгебарски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`лка_лни_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 алкохоли`зъм:
  t: N\m
@@ -252,7 +252,7 @@
 
 а`лкохолни_,а¨лкохолни_,а`лкохо_лни_,а¨лкохо_лни_:
  t: A\ski
- i: 0,a.;0,a.;0,a:;0,a.
+ i: a.;a.;a$;a.
 
 алпини`зъм:
  t: N\m
@@ -260,11 +260,11 @@
 
 а^лпски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 а¨лтернати_вън:
  t: A\all
- i: a.,a.
+ i: A.
 
 алтруи`зъм:
  t: N\m
@@ -272,7 +272,7 @@
 
 алтруи`стичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 алуди´рати:
  t: V\Tr\Dv
@@ -280,11 +280,11 @@
 
 алу`ми_нијумски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 а¨љкав:
  t: A\all
- i: a.,a.
+ i: A.
 
 а`ма_м:
  t: N\m
@@ -311,7 +311,7 @@
 
 ама`те_рски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 амба`са_дор:
  t: N\m
@@ -319,7 +319,7 @@
 
 амба`са_дорски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 амби`јенЪт:
  t: N\m
@@ -331,11 +331,11 @@
 
 а¨мбицио_зън:
  t: A\all
- i: a.,a.
+ i: A.
 
 амбу`лантни_,амбула`нтни_:
  t: A\ski
- i: 0,a.;0,c.
+ i: a.;c.
 
 А¨мер:
  t: N\m
@@ -347,7 +347,7 @@
 
 аме`рички_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ами`на_ш:
  t: N\m
@@ -367,7 +367,7 @@
 
 а`мо_нијачън,амо`нијачън,амони`ја_чън:
  t: A\all
- i: a.,a.;a.,a.;a.,a.
+ i: A.;A.;A.
 
 амортизо`вати:
  t: V\Tr\Dv
@@ -383,7 +383,7 @@
 
 а¨налогън,ана`логън:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 аналфа`бет,аналфа`бе_т:
  t: N\m
@@ -403,7 +403,7 @@
 
 анархи`стичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 анатеми`сати:
  t: V\Tr\Dv
@@ -411,7 +411,7 @@
 
 ана`томски_:
  t: A\ski
- i: 0,a.
+ i: a.
  
 анахрони`зъм:
  t: N\m
@@ -431,11 +431,11 @@
 
 ане`мичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а¨нони_ман,ано`ниман:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 антагони`зъм:
  t: N\m
@@ -447,7 +447,7 @@
 
 анти`ква_рски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`нтимон:
  t: N\m
@@ -455,7 +455,7 @@
 
 антипа`тичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 анти`по_д,анти`по_д:
  t: N\m
@@ -463,11 +463,11 @@
 
 а¨нтирелигио_зън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а¨нтисоција_лън:
  t: A\all
- i: a.,a.
+ i: A.
 
 антифа`шист:
  t: N\m
@@ -475,7 +475,7 @@
 
 а`нтички_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ануи`те_т:
  t: N\m
@@ -491,11 +491,11 @@
 
 апа`тичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а`пелацио_ни_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨пити:
  t: V\Tr\Pf
@@ -508,7 +508,7 @@
 
 апоте`ка_рски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 апсолви´рати:
  t: V\Tr\Dv
@@ -516,11 +516,11 @@
 
 а¨псолу_тън,апсо`лутън:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 апсолути`стичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 апсорбо`вати I:
  t: V\Tr\Dv
@@ -532,11 +532,11 @@
 
 а`пстрактън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а`псурдън:
  t: A\all
- i: a.,a.
+ i: A.
 
 а^р:
  t: N\m
@@ -544,7 +544,7 @@
 
 ара`би_јски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 аранжи´рати:
  t: V\Tr\Dv
@@ -556,11 +556,11 @@
 
 а`рапски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨рбитра_жни_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 Аргенти´нъц:
  t: N\m
@@ -576,19 +576,19 @@
 
 аристо`кратски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 аритме`тички_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`рктични_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`рми_ра_ни_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 арми´рати:
  t: V\Tr\Dv
@@ -596,11 +596,11 @@
 
 арога`нтън:
  t: A\all
- i: b.,c.
+ i: K.
 
 арома`тичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 арсе`на_л:
  t: N\m
@@ -612,7 +612,7 @@
 
 арте`ри_јски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 артикули`сати:
  t: V\Tr\Dv
@@ -624,7 +624,7 @@
 
 артиље`ри_јски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`ртист:
  t: N\m
@@ -632,7 +632,7 @@
 
 арха`ичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 архи`ва_р:
  t: N\m
@@ -640,11 +640,11 @@
 
 а`рхи_вски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 архите`кто_нски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨с,а¨с:
  t: N\m
@@ -668,7 +668,7 @@
 
 астро`номски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`сфалт:
  t: N\m
@@ -680,7 +680,7 @@
 
 а`сфалтни_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨та_р:
  t: N\m
@@ -710,7 +710,7 @@
 
 а`тла_нтски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`тлас:
  t: N\m
@@ -718,11 +718,11 @@
 
 а`тле_тски_,а`тлетски_:
  t: A\ski
- i: 0,a.;0,a.
+ i: a.;a.
 
 атмо`сфе_рски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`то_м:
  t: N\m
@@ -730,7 +730,7 @@
 
 а`то_мски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 Аустралија´нъц:
  t: N\m
@@ -742,7 +742,7 @@
 
 а¨устроугарски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а¨ут,а`ут:
  t: N\m
@@ -750,7 +750,7 @@
 
 ауте`нтичън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ауто`ма_т:
  t: N\m
@@ -758,7 +758,7 @@
 
 ауто`матски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 аутомо`би_л:
  t: N\m
@@ -766,11 +766,11 @@
 
 аутомо`би_лски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`утоно_мън,ауто`номън:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 а`утор:
  t: N\m
@@ -778,7 +778,7 @@
 
 а¨уторитати_вън:
  t: A\all
- i: a.,a.
+ i: A.
 
 аутори`те_т:
  t: N\m
@@ -786,7 +786,7 @@
 
 а`уторски_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`фекЪт:
  t: N\m
@@ -810,12 +810,12 @@
 
 афри`ка_нски_:
  t: A\ski
- i: 0,a.
+ i: a.
  v: афрички
 
 а`фрички_:
  t: A\ski
- i: 0,a.
+ i: a.
  v: африкански
 
 а´чити:
@@ -824,914 +824,914 @@
 
 ба´бин I:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ба´бов:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ба´кин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ба´нов,ба^нов:
  t: A\ov
- i: a.,a.;a:,a$
+ i: A.;A$
 
 ба^њи_:
  t: A\ski
- i: 0,a$
+ i: a$
  c: само у Ба̑ња̄ Лу́ка
  
 бꙓ^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 бꙓ^ʟ:
  t: A\all
- i: b:,b$
+ i: B$
  
 бꙓ´сън:
  t: A\all
- i: b:,b$
+ i: B$
  
 бла^г:
  t: A\all
- i: b:,b$
+ i: B$
 
 бла´жен:
  t: A\all
- i: a.,a.
+ i: A.
  
 би´љин I:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од би́ља (бео бик)
 
 Би´љин II:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од Би́ља (име)
  
 блꙓ^д:
  t: A\all
- i: b:,b$
+ i: B$
 
 блу^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 бо^јни_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 бо^рън:
  t: A\all
- i: a:,a$
+ i: A$
  
 бо^с:
  t: A\all
- i: b?,b.
+ i: B?.
 
 бра´јин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 бра´јов:
  t: A\ov
- i: a.,a.
+ i: A.
  
 бра´тин II:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од бра́то, бра́та
  
 бра´цин II:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од бра́цо
  
 бр°^з:
  t: A\all
- i: b:,b$
+ i: B$
 
 бр°^чни_,бр°¨чни_,бр°´чни_:
  t: A\ski
- i: 0,a:;0,a.;0,c$
+ i: a$;a.;c$
  
 бу´дън:
  t: A\all
- i: b:,b$
+ i: B$
 
 бу^јън:
  t: A\all
- i: a:,a$
+ i: A$
  
 бу^рън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ве^љи_,ве¨љи_:
  t: A\ski
- i: 0,a:;0,a.
+ i: a$;a.
 
 вꙓ^чън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ви^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ви´лин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ви´љев:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ви¨т,ви¨т:
  t: A\all
- i: a.,a.;a.,c.
+ i: A.;L.
 
 вла^стън:
  t: A\all
- i: a:,a$
+ i: A$
  
 во´јнов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 вра´жји_,вра¨жји_,вра`жји_:
  t: A\ski
- i: 0,c:;0,a.;0,c.
+ i: c$;a.;c.
  
 вра^н:
  t: A\all
- i: b:,b$
+ i: B$
 
 вра´нчев:
  t: A\ov
- i: a.,a.
+ i: A.
  
 вра´пчев:
  t: A\ov
- i: a.,a.
+ i: A.
  
 вра´пчји_,вра`пчји_:
  t: A\ski
- i: 0,c:;0,c.
+ i: c$;c.
 
 вра`тни_,вра^тни_ I:
  t: A\ski
- i: 0,c.;0,a$
+ i: c.;a$
  c: који се односи на врат
  
 вра´тни_,вра`тни_ II:
  t: A\ski
- i: 0,c:;0,c.
+ i: c$;c.
  c: који се односи на врата
  
 вра´чев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 врꙓ´дън:
  t: A\all
- i: b:,b$
+ i: B$
  
 вре¨ʌ:
  t: A\all
- i: a.,a.
+ i: A.
 
 вр°¨ʌ:
  t: A\all
- i: a.,a.
+ i: A.
  
 вру^ћ:
  t: A\all
- i: b:,b$
+ i: B$
 
 ву´чји_,ву^чји_,ву`чји_:
  t: A\ski
- i: 0,c.;0,a:;0,c.
+ i: c.;a$;c.
  
 га´рин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ги^бън:
  t: A\all
- i: a:,a$
+ i: A$
 
 гла^вън,гла^вън:
  t: A\all
- i: a:,a:;a:,c.
+ i: A:;L:.
  
 гла´дън:
  t: A\all
- i: b:,b$
+ i: B$
  
 глу^п:
  t: A\all
- i: b:,b$
+ i: B$
 
 гње^вън:
  t: A\all
- i: a:,a$
+ i: A$
  
 гњи^ʌ:
  t: A\all
- i: b:,b$
+ i: B$
 
 го^јън:
  t: A\all
- i: a:,a$
+ i: A$
  
 го^ʟ I:
  t: A\all
- i: b?,b.
+ i: B?.
 
 го´рък:
  t: A\all
- i: b:,b$
+ i: B$
 
 го^рњи_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 го´спин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 гр°´дън,гр°^дън:
  t: A\all
- i: b:,b:;a:,a$
+ i: B$;A$
 
 гре¨з:
  t: A\all
- i: a.,a.
+ i: A.
 
 грꙓ^шън:
  t: A\all
- i: a:,a$
+ i: A$
  
 гр°^к:
  t: A\all
- i: b:,b$
+ i: B$
 
 гро^зън:
  t: A\all
- i: a:,a$
+ i: A$
  
 гру^б:
  t: A\all
- i: b:,b$
+ i: B$
 
 гу^зни_,гу´зни_:
  t: A\ski
- i: 0,a:;0,c$
+ i: a$;c$
  
 гу^ст:
  t: A\all
- i: b:,b$
+ i: B$
 
 да^љни_:
  t: A\ski
- i: 0,a$
+ i: a$
  v: даљњи
  
 да^љњи_:
  t: A\ski
- i: 0,a$
+ i: a$
  v: даљни 
  
 да^њи_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 де^ран:
  t: A\all
- i: a:,a$
+ i: A$
  
 ди^вън:
  t: A\all
- i: a:,a$
+ i: A$
 
 ди^чън:
  t: A\all
- i: a:,a$
+ i: A$
  
 до^љни_:
  t: A\ski
- i: 0,a$
+ i: a$
  v: доњи
  
 до^њи_:
  t: A\ski
- i: 0,a$
+ i: a$
  v: дољни
  
 дра^г:
  t: A\all
- i: b:,b$
+ i: B$
 
 Дра´жев:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ду¨г,ду¨г I:
  t: A\all
- i: a.,a.;a.,c.
+ i: A.;L.
 
 ду´жън:
  t: A\all
- i: b:,b$
+ i: B$
 
 ду^рън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ђа´ков:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ђо´гин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Ђу^рђев:
  t: A\ov
- i: a:,a$
+ i: A$
  
 же´дън:
  t: A\all
- i: b:,b$
+ i: B$
  
 жи^в:
  t: A\all
- i: b:,b$
+ i: B$
 
 жи´дък,жи´дък,жи¨дък:
  t: A\all
- i: b:,b:;b:,c.;a.,a.
+ i: B$;K:.;A.
 
 жу^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 жу´јин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 жу´њин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 жу^т:
  t: A\all
- i: b:,b$
+ i: B$
 
 за^вин:
  t: A\ov
- i: a:,a$
+ i: A$
 
 зъ¨ʌ:
  t: A\all
- i: b.,c.
+ i: K.
 
 звꙓ^рин:
  t: A\ov
- i: a:,a$
+ i: A$
 
 здра¨в,здра¨в:
  t: A\all
- i: a.,a.;a.,a$
+ i: A.;A.$
 
 зе´љин,зе¨љин:
  t: A\ov
- i: од зе́ља, зе́љо\a.,a.;од зе̏ља\a.,a.
+ i: од зе́ља, зе́љо\A.;од зе̏ља\A.
 
 зе´чји_,зе¨чји_,зе`чји_:
  t: A\ski
- i: 0,c:;0,a.;0,c.
+ i: c$;a.;c.
 
 зи^мни_:
  t: A\ski
- i: 0,a$
+ i: a$
  v: зимњи
 
 зи^мњи_:
  t: A\ski
- i: 0,a$
+ i: a$
  v: зимни
  
 зла´тън:
  t: A\all
- i: b:,b$
+ i: B$
  
 зна¨н:
  t: A\all
- i: a.,a.
+ i: A.
 
 зо^рън:
  t: A\all
- i: a:,a$
+ i: A$
  
 зре¨ʌ:
  t: A\all
- i: a.,a.
+ i: A.
 
 зу^бни_,зу´бни_,зу`бни_:
  t: A\ski
- i: 0,a:;0,c:;0,c.
+ i: a$;c$;c.
  
 ја^вън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ја^к:
  t: A\all
- i: b:,b$
+ i: B$
 
 ја^ри_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 ја^рки_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 ја^рчев:
  t: A\ov
- i: a:,a$
+ i: A$
  
 је´дък,је¨дък:
  t: A\all
- i: b:,b:;a.,a.
+ i: B$;A.
  c: и је̑дак??
 
 је^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 је´дър,је¨дър:
  t: A\all
- i: b:,b:;a.,a.
+ i: B$;A.
  
 је´жев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ка^лън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ква´рън:
  t: A\all
- i: b:,b$
+ i: B$
  
 ке´њчев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ке^ров:
  t: A\ov
- i: a:,a$
+ i: A$
 
 ки^вън:
  t: A\all
- i: a:,a$
+ i: A$
  
 клꙓ^нит:
  t: A\all
- i: a:,a$
+ i: A$
  
 кља¨ст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ко´кин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 Ко´чин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 кра^јњи_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 кра´љев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 кра´сън,кра^сън:
  t: A\all
- i: b:,b:;a:,a$
+ i: B$;A$
  
 кра´тък,кра´тък,кра¨тък:
  t: A\all
- i: b:,b:;b:,c.;a.,a.
+ i: B$;K:.;A.
 
 кр°^вни_,кр°´вни_,кр°`вни_:
  t: A\ski
- i: 0,a:;0,c:;0,c.
+ i: a$;c$;c.
  
 кре´јин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 кри^в:
  t: A\all
- i: b:,b$
+ i: B$
  
 кр°^њ:
  t: A\all
- i: b:,b$
+ i: B$
  c: облик кр̏њ у ХЈП сматрамо типфелером
 
 кр°¨т:
  t: A\all
- i: a.,a.
+ i: A.
 
 кру´пън,кру´пън:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
 
 кру^т:
  t: A\all
- i: b:,b$
+ i: B$
 
 ку´мин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ку^мов:
  t: A\ov
- i: a:,a$
+ i: A$
  
 ку´мрин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ку^њи_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 ку^с:
  t: A\all
- i: b:,b$
+ i: B$
 
 ку^тњи_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 ла¨к:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла^сън I:
  t: A\all
- i: a:,a$
+ i: A$
  c: подобан
 
 ла´стън:
  t: A\all
- i: b:,b$
+ i: B$
  
 ла´стин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 лꙓ^ви_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 лꙓ^н:
  t: A\all
- i: b:,b$
+ i: B$
  v: лењ
  
 ле^њ:
  t: A\all
- i: b:,b$
+ i: B$
  v: лꙓн
 
 лꙓ^п:
  t: A\all
- i: b:,b$
+ i: B$
 
 Ли´мов:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ли¨ст:
  t: A\all
- i: a.,a.
+ i: A.
  
 ло¨ш:
  t: A\all
- i: a.,a.
+ i: A.
  
 лу^д:
  t: A\all
- i: b:,b$
+ i: B$
  
 љу^т:
  t: A\all
- i: b:,b$
+ i: B$
 
 ма´зън:
  t: A\all
- i: b:,b$
+ i: B$
  
 ма´јин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ма´јкин,ма^јкин:
  t: A\ov
- i: a.,a.;a:,a$
+ i: A.;A$
 
 ма^јчин:
  t: A\ov
- i: a:,a$
+ i: A$
  
 ма^л I:
  t: A\all
- i: a:,a$
+ i: A$
 
 ма´мин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Ма^рков:
  t: A\ov
- i: a:,a$
+ i: A$
  
 ма´стън:
  t: A\all
- i: b:,b$
+ i: B$
  
 ма´чков:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ме¨к,ме¨к:
  t: A\all
- i: a.,a.;a.,c.
+ i: A.;L.
 
 ме´сни_,ме^сни_ I:
  t: A\ski
- i: 0,c:;0,a$
+ i: c$;a$
  c: који се односи на месо
  
 ми´рън:
  t: A\all
- i: b:,b$
+ i: B$
  
 мла^д:
  t: A\all
- i: b:,b$
+ i: B$
 
 мла^дин:
  t: A\ov
- i: a:,a$
+ i: A$
  
 ми¨ʌ:
  t: A\all
- i: a.,a.
+ i: A.
  
 мла^к:
  t: A\all
- i: b:,b$
+ i: B$
 
 мле^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 млꙓ^чън:
  t: A\all
- i: a:,a$
+ i: A$
  
 мно¨ги_:
  t: A\ski
- i: 0,a.
+ i: a.
  
 мра´чън:
  t: A\all
- i: b:,b$
+ i: B$
 
 мр°^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 мр°^зън:
  t: A\all
- i: a:,a$
+ i: A$
  
 мр°¨к,мр°¨к:
  t: A\all
- i: a.,a.;a.,c.
+ i: A.;L.
  
 мр°´сън,мр°´сън:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
 
 му´дър:
  t: A\all
- i: b:,b$
+ i: B$
  
 му´тън:
  t: A\all
- i: b:,b$
+ i: B$
  
 на^г:
  t: A\all
- i: b:,b$
+ i: B$
 
 на´гъʌ,на^гъʌ:
  t: A\all
- i: b:,b:;d:,b$
+ i: B$;M$
 
 нꙓ^м:
  t: A\all
- i: b:,b$
+ i: B$
 
 не´нин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ни¨штʲ:
  t: A\all
- i: a.,a.
+ i: A.
 
 но¨в:
  t: A\all
- i: a.,a.
+ i: A.
 
 о´внов:
  t: A\ov
- i: a.,a.
+ i: A.
  
 о´рлов:
  t: A\ov
- i: a.,a.
+ i: A.
  
 о´рън,о^рън:
  t: A\all
- i: b:,b:;a:,a$
+ i: B$;A$
  c: код Даничића и о̏рън
  
 о´цин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Па^влов:
  t: A\ov
- i: a:,a$
+ i: A$
  
 па´пин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 па´тков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 пе^рни_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 пꙓ´тлов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 пе^тни_,пе´тни_,пе`тни_:
  t: A\ski
- i: 0,a:;0,c:;0,c.
+ i: a$;c$;c.
  
 пја¨н:
  t: A\all
- i: a.,a.
+ i: A.
  v: пијан
  
 пла^в:
  t: A\all
- i: b:,b$
+ i: B$
 
 пла¨х,пла^х:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 пли´тък,пли´тък:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
  
 пло^вчји_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 по´пин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 пра¨в:
  t: A\all
- i: a.,a.
+ i: A.
  c: неискривљен
  
 пра^ви_:
  t: A\ski
- i: 0,a$
+ i: a$
  c: истински
  
 пра´зън:
  t: A\all
- i: b:,b$
+ i: B$
 
 пра^љин:
  t: A\ov
- i: a:,a$
+ i: A$
  
 пра´шън:
  t: A\all
- i: b:,b$
+ i: B$
  
 прꙓ^к:
  t: A\all
- i: b:,b$
+ i: B$
 
 прꙓ´сън:
  t: A\all
- i: b:,b$
+ i: B$
  
 пр°^зни_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 пр°^ли_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 про¨ст:
  t: A\all
- i: a.,a.
+ i: A.
 
 про´тин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 про´хин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 про¨чи_:
  t: A\ski
- i: 0,a.
+ i: a.
  
 пру¨г:
  t: A\all
- i: a.,a.
+ i: A.
  
 пу^ки_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 пу¨н:
  t: A\all
- i: a.,a.
+ i: A.
  
 пу^ст:
  t: A\all
- i: b:,b$
+ i: B$
 
 ра´вън:
  t: A\all
- i: b:,b$
+ i: B$
 
 ра¨д:
  t: A\all
- i: a.,a.
+ i: A.
 
 ра^дни_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 Ра´ђев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ра^ни_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 рꙓ´дък,рꙓ´дък I:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
 
 ре´дък II:
  t: N\m
@@ -1739,530 +1739,530 @@
 
 ре^пни_,ре´пни_ I:
  t: A\ski
- i: 0,a:;0,c$
+ i: a$;c$
  c: који се односи на реп
  
 ре¨пни_ II:
  t: A\ski
- i: 0,a.
+ i: a.
  c: који се односи на репу
  
 рꙓ^чън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ри^ђ:
  t: A\all
- i: b:,b$
+ i: B$
 
 ро´дин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ру^д:
  t: A\all
- i: b:,b$
+ i: B$
 
 ру^дни_,ру´дни_:
  t: A\ski
- i: 0,a:;0,c$
+ i: a$;c$
  
 ру´жън:
  t: A\all
- i: b:,b$
+ i: B$
  
 ру´жин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ру^јън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ру¨с:
  t: A\all
- i: a.,a.
+ i: A.
  
 све^т,све^т:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
 
 свꙓ´тъʌ,свꙓ^тъʌ:
  t: A\all
- i: b:,b:;d:,b$
+ i: B$;M$
  
 сви´рчев:
  t: A\ov
- i: a.,a.
+ i: A.
  
 сво^јтљив,сво`јтљив:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  
 сꙓ^д:
  t: A\all   
- i: b:,b$
+ i: B$
 
 се´јин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 се´кин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 се´лин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 си^в:
  t: A\all
- i: b:,b$
+ i: B$
 
 си^вчев:
  t: A\ov
- i: a:,a$
+ i: A$
 
 си^нов:
  t: A\ov
- i: a:,a$
+ i: A$
 
 си^њи_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 си^рни_,си¨рни_,си´рни_:
  t: A\ski
- i: 0,a:;0,a.;0,c$
+ i: a$;a.;c$
  
 си¨т:
  t: A\all
- i: a.,a.
+ i: A.
 
 сја´јън,сја^јън:
  t: A\all
- i: b:,b:;a:,a$
+ i: B$;A$
 
 скр°^бън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ску^п:
  t: A\all
- i: b:,b$
+ i: B$
 
 сла¨б:
  t: A\all
- i: a.,a.
+ i: A.
 
 сла^вън:
  t: A\all
- i: a:,a$
+ i: A$
  
 сла^н:
  t: A\all
- i: b:,b$
+ i: B$
 
 слу´гин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 сме¨ђ:
  t: A\all
- i: a.,a.
+ i: A.
 
 смꙓ´шън:
  t: A\all
- i: b:,b$
+ i: B$
  
 сми´љев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 сна´жън:
  t: A\all
- i: b:,b$
+ i: B$
  
 сна´шин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 спо¨р:
  t: A\all
- i: a.,a.
+ i: A.
 
 сра^мън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ср°^чън:
  t: A\all
- i: a:,a$
+ i: A$
 
 ста^лън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ста^мън:
  t: A\all
- i: a:,a$
+ i: A$
  
 ста¨р:
  t: A\all
- i: a.,a$
+ i: A.$
 
 ста^рчев:
  t: A\ov
- i: a:,a$
+ i: A$
  
 сти´дън:
  t: A\all
- i: b:,b$
+ i: B$
 
 сто^јни_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 стра¨н:
  t: A\all
- i: a.,a.
+ i: A.
 
 стра´шън,стра´шън:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
 
 стр°^вън:
  t: A\all
- i: a:,a$
+ i: A$
  
 стри´чев:
  t: A\ov
- i: a.,a.
+ i: A.
  
 стри´ков:
  t: A\ov
- i: a.,a.
+ i: A.
  
 стр°¨м:
  t: A\all
- i: a.,a.
+ i: A.
 
 стру¨н:
  t: A\all
- i: a.,a.
+ i: A.
 
 сту^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 су^в:
  t: A\all
- i: b:,b$
+ i: B$
  v: сух
 
 су^дни_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 су^дњи_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 су^нчев:
  t: A\ov
- i: a:,a$
+ i: A$
 
 су^р:
  t: A\all
- i: b:,b$
+ i: B$
  
 су^х:
  t: A\all
- i: b:,b$
+ i: B$
  v: сув
 
 су^шън:
  t: A\all
- i: a:,a$
+ i: A$
  
 су¨штʲи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 та^јков:
  t: A\ov
- i: a:,a$
+ i: A$
  
 та^јни_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 та^лов:
  t: A\ov
- i: a:,a$
+ i: A$
  
 та´мън:
  t: A\all
- i: b:,b$
+ i: B$
  c: и та̑ман??
  
 та^рни_,та´рни_:
  t: A\ski
- i: 0,a:;0,c$
+ i: a$;c$
  
 та´тин,та¨тин:
  t: A\ov
- i: a.,a.;a.,a.
+ i: A.;A.
  
 та¨шт:
  t: A\all
- i: a.,a.
+ i: A.
  c: и "таштега"
  
 твр°^д:
  t: A\all
- i: b:,b$
+ i: B$
 
 те´жък,те´жък:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
 
 тꙓ´сън:
  t: A\all
- i: b:,b$
+ i: B$
  
 те´тин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 те´тков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 те´чън:
  t: A\all
- i: b:,b$
+ i: B$
  
 ти^њи_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 ти¨х:
  t: A\all
- i: a.,a.
+ i: A.
 
 то^вън:
  t: A\all
- i: a:,a$
+ i: A$
  
 трꙓ´зън:
  t: A\all
- i: b:,b$
+ i: B$
  
 тро¨м:
  t: A\all
- i: a.,a.
+ i: A.
 
 тру^дън:
  t: A\all
- i: a:,a$
+ i: A$
  
 тру¨ʌ:
  t: A\all
- i: a.,a.
+ i: A.
  
 ту^ђ:
  t: A\all
- i: b:,b$
+ i: B$
 
 ту^жън,ту´жън:
  t: A\all
- i: a:,a:;b:,b$
+ i: A:;B$
  
 ту^п:
  t: A\all
- i: b:,b$
+ i: B$
 
 ту¨ст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћа´тин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ћа´тов:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ће´ркин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ћи´фтин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ћо^ри_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 ћо´рин II:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од ћо́ра, ћо́ро (човек без ока)
  
 ћо´ров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ћо´син:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ћу^ков:
  t: A\ov
- i: a:,a$
+ i: A$
  
 ћу^рчји_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 у´јин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 у´јков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 у^мън:
  t: A\all
- i: a:,a$
+ i: A$
 
 фи´љев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 фи^н:
  t: A\all
- i: a:,a$
+ i: A$
 
 фру¨г:
  t: A\all
- i: a.,a.
+ i: A.
 
 ха´рън:
  t: A\all
- i: b:,b$
+ i: B$
 
 хи^тън:
  t: A\all
- i: a:,a$
+ i: A$
  
 хла´дън:
  t: A\all
- i: b:,b$
+ i: B$
 
 хра´бър:
  t: A\all
- i: b:,b$
+ i: B$
  
 хр°^ʌ,хр°¨ʌ:
  t: A\all
- i: b:,b:;a.,a.
+ i: B$;A.
 
 хро¨м:
  t: A\all
- i: a.,a.
+ i: A.
 
 ху^д:
  t: A\all
- i: b:,b$
+ i: B$
  
 цꙓ^ʟ:
  t: A\all
- i: b:,b$
+ i: B$
 
 цр°^н:
  t: A\all
- i: b:,b$
+ i: B$
 
 ча^вчји_:
  t: A\ski
- i: 0,a$
+ i: a$
  
 чвр°^ст:
  t: A\all
- i: b:,b$
+ i: B$
 
 ча´јин:
  t: A\ov
- i: a.,a.
+ i: A.
  
 ча´јов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 чво´рков:
  t: A\ov
- i: a.,a.
+ i: A.
  
 че^ст,че^ст:
  t: A\all
- i: b:,b:;b:,c.
+ i: B$;K:.
 
 чи´кин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 чи´ков:
  t: A\ov
- i: a.,a.
+ i: A.
  
 чи¨ʟ:
  t: A\all
- i: a.,a.
+ i: A.
 
 чи¨ст:
  t: A\all
- i: a.,a.
+ i: A.
 
 чи¨т:
  t: A\all
- i: a.,a.
+ i: A.
 
 ша´рчев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ше´вин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ше¨н:
  t: A\all
- i: a.,a.
+ i: A.
 
 шкр°^бън:
  t: A\all
- i: a:,a$
+ i: A$
 
 шкри´пов:
  t: A\ov
- i: a.,a.
+ i: A.
  
 шту^р:
  t: A\all
- i: b:,b$
+ i: B$
 
 шу´пъљ:
  t: A\all
- i: b:,b$
+ i: B$
 
 шу¨т:
  t: A\all
- i: a.,a.
+ i: A.
  
 сни¨ти:
  t: V\Tr\Ipf
@@ -2346,15 +2346,15 @@
 
 го¨рʲи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ши¨рʲи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 пољопри¨вредни_:
  t: A\ski
- i: 0,a.
+ i: a.
  
 ка´котати,како`тати:
  t: V\Tr\Ipf
@@ -2374,2926 +2374,2926 @@
  
 р°`ђав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кли`зав:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу`кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 а`птов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ба`дњев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 бѣ`лов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 бо`бов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 бре`стов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ве`зов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ви`нов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ви¨шњев,ви`шњев:
  t: A\ov
- i: a.,a.;a.,a.
+ i: A.;A.
  c: и ви̏шњов, вѝшњов
 
 вр°`бов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 гло`гов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 гра`бов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 гра`бров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 гр°`мов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 дре`нов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ду`бов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ду`дов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 је`лов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 јо`вов:
  t: A\ov
- i: a.,a.
+ i: A.
  v: јохов
 
 јо`хов:
  t: A\ov
- i: a.,a.
+ i: A.
  v: јовов
 
 кле`нов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ко`мов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 кр°`стов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ку`ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ку`нов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ку`рков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 лѣ`сков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 лу`чев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ма`ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 мо`мков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 о`чев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Пе`тров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 по`пов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ро`бов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ру`јев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 све`кров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 смр°`чев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 со`мов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ср°`чев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 стр°`жев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 тво`ров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 тре`слов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 тр°`нов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 хра`стов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 це`ров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ча`мов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 чи`гов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 је`зив:
  t: A\all
- i: a.,a.
+ i: A.
 
 лѣ`нив:
  t: A\all
- i: a.,a.
+ i: A.
  v: лењив
 
 ле`њив:
  t: A\all
- i: a.,a.
+ i: A.
 
 пла`шив:
  t: A\all
- i: a.,a.
+ i: A.
 
 стра`шив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба`гљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба`жљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 бо`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 бр°`вљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 бри`жљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ва`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 га`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 гнѣ`вљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 гра`бљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ди`мљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 дре`мљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ду`рљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 жи`жљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 је`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ка`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ко`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 кра`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла`жљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ма`мљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ма`рљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 му`кљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 му`тљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 пла`чљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 пла`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 пр°`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 пу`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 пу`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ра`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ро`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 са`нљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 сва`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 свра`бљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 си`пљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 смѣ`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 смр°`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 снѣ`тљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 спа`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 сти`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 стра`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ту`жљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћу`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћу`тљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 у`шљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ха`рчљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 цр°`вљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ша`љив:
  t: A\all
- i: a.,a.
+ i: A.
 
 шка`кљив:
  t: A\all
- i: a.,a.
+ i: A.
  c: и чка̀кљив
 
 шко`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 шкра`пљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 ште`дљив:
  t: A\all
- i: a.,a.
+ i: A.
 
 о`бил:
  t: A\all
- i: a.,a.
+ i: A.
 
 о`хол,о¨хол:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 пи`том:
  t: A\all
- i: a.,a.
+ i: A.
 
 пи`јан:
  t: A\all
- i: a.,a.
+ i: A.
 
 про`стран:
  t: A\all
- i: a.,a.
+ i: A.
 
 је`чмен:
  t: A\all
- i: a.,a.
+ i: A.
 
 но`вчан,но`вчан:
  t: A\all
- i: a.,a.;a.,c.
+ i: A.;L.
 
 о`всен,о¨всен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 о`гњен:
  t: A\all
- i: a.,a.
+ i: A.
 
 ста`клен:
  t: A\all
- i: a.,a.
+ i: A.
 
 хи`мбен,хи¨мбен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 о`гњан:
  t: A\all
- i: a.,a.
+ i: A.
 
 тр°`њан:
  t: A\all
- i: a.,a.
+ i: A.
 
 бе`дрени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 бра`шнени_,брашне`ни_:
  t: A\ski
- i: 0,a.;0,c.
+ i: a.;c.
 
 ви`лени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 же`твени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 кле`твени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 о`цтени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 па`клени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 си`лени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ча`брени_,чабре`ни_:
  t: A\ski
- i: 0,a.;0,c.
+ i: a.;c.
 
 ча`пљани_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ши`пчани_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 све`чани_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ру`чани_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 а`гин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ба`шин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 же`нин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Лу`чин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Мра`тин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 мр°`цин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 му`лин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 се`стрин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 дѣ`тињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 бу`дињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 бу`хињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 гу`јињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 зми`јињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ја`дињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ја`јињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 мра`вињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 о`чињи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 са`дањи_:
  t: A\ski
- i: 0,a.
+ i: a.
  v: садашњи
 
 са`дашњи_:
  t: A\ski
- i: 0,a.
+ i: a.
  v: садањи
 
 ва`љаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 бо`гат:
  t: A\all
- i: a.,a.
+ i: A.
 
 бра`дат:
  t: A\all
- i: a.,a.
+ i: A.
 
 бр°`кат:
  t: A\all
- i: a.,a.
+ i: A.
 
 вла`сат:
  t: A\all
- i: a.,a.
+ i: A.
 
 гла`ват:
  t: A\all
- i: a.,a.
+ i: A.
 
 гра`нат:
  t: A\all
- i: a.,a.
+ i: A.
 
 гр°`лат:
  t: A\all
- i: a.,a.
+ i: A.
 
 гр°`љат:
  t: A\all
- i: a.,a.
+ i: A.
 
 гу`зат:
  t: A\all
- i: a.,a.
+ i: A.
 
 ду`хат:
  t: A\all
- i: a.,a.
+ i: A.
 
 зу`бат:
  t: A\all
- i: a.,a.
+ i: A.
 
 ју`хат:
  t: A\all
- i: a.,a.
+ i: A.
 
 ко`сат:
  t: A\all
- i: a.,a.
+ i: A.
 
 кри`лат:
  t: A\all
- i: a.,a.
+ i: A.
 
 кра`кат:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°`стат:
  t: A\all
- i: a.,a.
+ i: A.
 
 му`дат:
  t: A\all
- i: a.,a.
+ i: A.
 
 но`сат:
  t: A\all
- i: a.,a.
+ i: A.
 
 о`кат:
  t: A\all
- i: a.,a.
+ i: A.
 
 пле`ћат:
  t: A\all
- i: a.,a.
+ i: A.
 
 пр°`сат:
  t: A\all
- i: a.,a.
+ i: A.
 
 ре`пат:
  t: A\all
- i: a.,a.
+ i: A.
 
 вѣ`чит:
  t: A\all
- i: a.,a.
+ i: A.
 
 гла`сит:
  t: A\all
- i: a.,a.
+ i: A.
 
 љу`тит:
  t: A\all
- i: a.,a.
+ i: A.
 
 ма`хнит:
  t: A\all
- i: a.,a.
+ i: A.
 
 сно`пит:
  t: A\all
- i: a.,a.
+ i: A.
 
 ср°`дит:
  t: A\all
- i: a.,a.
+ i: A.
 
 ста`сит:
  t: A\all
- i: a.,a.
+ i: A.
 
 че`стит:
  t: A\all
- i: a.,a.
+ i: A.
 
 и`вањ:
  t: A\ov
- i: a.,a.
+ i: A.
 
 го`веђи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 је`лењи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ко`биљи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ме`двѣђи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 бра`вљи_,бра¨вљи_:
  t: A\ski
- i: 0,a.;0,a.
+ i: a.;a.
 
 ди`вљи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ја`рчји_,ја¨рчји_:
  t: A\ski
- i: 0,a.;0,a.
+ i: a.;a.
 
 ју`нчји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 о`вчји_,о¨вчји_:
  t: A\ski
- i: 0,a.;0,a.
+ i: a.;a.
 
 о`шљи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 псе`ћи_,псе¨ћи_:
  t: A\ski
- i: 0,a.;0,a.
+ i: a.;a.
 
 со`мљи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 по`ган:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба`јат:
  t: A\all
- i: a.,a.
+ i: A.
 
 са`кат:
  t: A\all
- i: a.,a.
+ i: A.
 
 башче`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 вазме`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 зобе`ни_,зо`бени_:
  t: A\ski
- i: 0,c.;0,a.
+ i: c.;a.
 
 игле`ни_,и`глени_:
  t: A\ski
- i: 0,c.;0,a.
+ i: c.;a.
 
 јаспре`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 каве`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 кључа`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 лађе`ни_,ла`ђени_:
  t: A\ski
- i: 0,c.;o.,a.
+ i: c.;a.
 
 су`нчан,су`нчан,су^нчан:
  t: A\all
- i: a.,c.;a.,a.;a:,a$
+ i: L.;A.;A$
 
 цр°`квен,цр°`квен:
  t: A\all
- i: a.,c.;a.,a.
+ i: L.;A.
 
 зе`лен:
  t: A\all
- i: b.,b.
+ i: B.
 
 ма`вен:
  t: A\all
- i: b.,b.
+ i: B.
 
 ру`мен:
  t: A\all
- i: b.,b.
+ i: B.
 
 сту`ден:
  t: A\all
- i: b.,b.
+ i: B.
 
 цр°`вен:
  t: A\all
- i: b.,b.
+ i: B.
 
 цр°`љен:
  t: A\all
- i: b.,b.
+ i: B.
 
 ша`рен:
  t: A\all
- i: b.,b.
+ i: B.
 
 де`беʌ:
  t: A\all
- i: b.,b.
+ i: B.
 
 го`лем:
  t: A\all
- i: b.,b.
+ i: B.
 
 ви`сок:
  t: A\all
- i: b.,b.
+ i: B.
 
 ду`бок:
  t: A\all
- i: b.,b.
+ i: B.
 
 ни`зок:
  t: A\all
- i: b.,b.
+ i: B.
 
 ши`рок:
  t: A\all
- i: b.,b.
+ i: B.
 
 да`лек:
  t: A\all
- i: b.,b.
+ i: B.
 
 ма`мен,ма¨мен:
  t: A\all
- i: b.,b.;a.,a.
+ i: B.;A.
 
 ми`лен,ми¨лен:
  t: A\all
- i: b.,b.;a.,a.
+ i: B.;A.
 
 мр°`тъв:
  t: A\all
- i: b.,b$
+ i: B.$
 
 ба`дър,ба¨дър:
  t: A\all
- i: b.,с.;a.,a.
+ i: K.;A.
 
 а¨тљав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба¨гав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба¨нгав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бе¨нав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бљу¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бра¨шнав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бр°¨бљав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бр°¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бу¨ђав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бу¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бу¨рлав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бу¨хав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бу¨шав:
  t: A\all
- i: a.,a.
+ i: A.
 
 вр°¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 га¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ге¨џав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ги¨здав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ги¨нгав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гли¨бав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гли¨нџав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гно¨јав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гње¨цав:
  t: A\all
- i: a.,a.
+ i: A.
 
 го¨внав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гр°¨бав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гу¨бав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гу¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гу¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 гу¨шав:
  t: A\all
- i: a.,a.
+ i: A.
 
 дла¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 дра¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 др°¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 дро¨згав:
  t: A\all
- i: a.,a.
+ i: A.
 
 дро¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 е¨гав:
  t: A\all
- i: a.,a.
+ i: A.
 
 е¨рлав:
  t: A\all
- i: a.,a.
+ i: A.
 
 жва¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 жи¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 жми¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 жу¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 жу¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 зно¨јав:
  t: A\all
- i: a.,a.
+ i: A.
 
 зра¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 и¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 је¨цав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ка¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кле¨мпав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кли¨чав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кло¨мпав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кло¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кља¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кра¨став:
  t: A\all
- i: a.,a.
+ i: A.
 
 кре¨цав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°¨жав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°¨жљав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°¨шљав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨драв:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨ждрав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨шљав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨штрав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла¨жав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла¨јав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла¨ндав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ли¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ло¨ћкав:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 љо¨хав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ма¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ма¨ћав:
  t: A\all
- i: a.,a.
+ i: A.
 
 мѣ¨став:
  t: A\all
- i: a.,a.
+ i: A.
 
 мла¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 мли¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 мра¨сав:
  t: A\all
- i: a.,a.
+ i: A.
 
 мр°¨шав:
  t: A\all
- i: a.,a.
+ i: A.
 
 му¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 му¨цав:
  t: A\all
- i: a.,a.
+ i: A.
 
 на¨штав:
  t: A\all
- i: a.,a.
+ i: A.
 
 пи¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 пѣ¨гав:
  t: A\all
- i: a.,a.
+ i: A.
 
 пла¨чкав:
  t: A\all
- i: a.,a.
+ i: A.
 
 пр°¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 пр°¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 пу¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ра¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ре¨хав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ри¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 р°¨њав:
  t: A\all
- i: a.,a.
+ i: A.
  c: који има зечју усну
  v: хрњав
 
 хр°¨њав:
  t: A\all
- i: a.,a.
+ i: A.
  c: који има зечју усну
  v: рњав
 
 ро¨хав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ру¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ру¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 си¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 си¨њгав:
  t: A\all
- i: a.,a.
+ i: A.
 
 сли¨нав:
  t: A\all
- i: a.,a.
+ i: A.
 
 слу¨зав:
  t: A\all
- i: a.,a.
+ i: A.
 
 смо¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 стро¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 стру¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 те¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ти¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 тра¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 тра¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 три¨чав:
  t: A\all
- i: a.,a.
+ i: A.
 
 тру¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ту¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ту¨тљав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ће¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћо¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћо¨сав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћу¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 у¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 у¨њкав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ха¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 хи¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 хра¨пан:
  t: A\all
- i: a.,a.
+ i: A.
 
 ху¨бав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ца¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 цо¨тав:
  t: A\all
- i: a.,a.
+ i: A.
  c: који цо̏та̄, хро̏м, ше̏пав
 
 ча¨ђав:
  t: A\all
- i: a.,a.
+ i: A.
 
 чво¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 чи¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 чи¨тав:
  t: A\all
- i: a.,a.
+ i: A.
 
 чу¨лав:
  t: A\all
- i: a.,a.
+ i: A.
 
 чу¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ша¨нтав:
  t: A\all
- i: a.,a.
+ i: A.
 
 ше¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шки¨љав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шко¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шко¨рљав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шкр°¨бав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шо¨гав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шо¨рав:
  t: A\all
- i: a.,a.
+ i: A.
 
 штро¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шу¨гав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шу¨кав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шу¨њав:
  t: A\all
- i: a.,a.
+ i: A.
 
 шу¨шав:
  t: A\all
- i: a.,a.
+ i: A.
 
 тра¨пав:
  t: A\all
- i: a.,a.
+ i: A.
 
 бе¨гов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 бо¨гов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 боа¨тов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 бре¨зов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 бу¨ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Ви¨дов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 во¨ђев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 го¨стов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 гра¨хов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 дѣ¨дов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Дми¨тров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ду¨ждев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 жи¨дов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 жу¨ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 зе¨тов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 зма¨јев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 и¨вов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ја¨лов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 је¨лшов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ју¨гов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 кле¨ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 кме¨тов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 кру¨шков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ла¨вов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ли¨пов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 лу¨ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 му¨жев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 но¨јев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ра¨ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 си¨бов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 си¨ров:
  t: A\ov
- i: a.,a.
+ i: A.
 
 смре¨ков:
  t: A\ov
- i: a.,a.
+ i: A.
 
 Ср°¨ђев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 та¨стов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ти¨сов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 тре¨шњев:
  t: A\ov
- i: a.,a.
+ i: A.
  v: трешњов
 
 тре¨шњов:
  t: A\ov
- i: a.,a.
+ i: A.
  v: трешњев
 
 у¨дов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 хр°¨тов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ца¨рев:
  t: A\ov
- i: a.,a.
+ i: A.
 
 че¨сов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 џи¨нов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 шљи¨вов:
  t: A\ov
- i: a.,a.
+ i: A.
 
 плѣ¨снив,плѣ`снив:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ве¨лик,ве`лик:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 же¨сток,же`сток:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ве¨сеʌ:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки¨сеʌ:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла¨ком:
  t: A\all
- i: a.,a.
+ i: A.
 
 блѣ¨ђан:
  t: A\all
- i: a.,a.
+ i: A.
 
 же¨ђан,же`ђан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 зе¨љан,зе`љан,зе`љан:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 ко`штан,ко¨штан,ко`штан:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 ла¨ган:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу¨дан:
  t: A\all
- i: a.,a.
+ i: A.
 
 ме¨кан:
  t: A\all
- i: a.,a.
+ i: A.
 
 мла¨ђан,мла`ђан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 пу¨нан:
  t: A\all
- i: a.,a.
+ i: A.
 
 си¨ћан:
  t: A\all
- i: a.,a.
+ i: A.
 
 та¨нан,та`нан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 тѣ¨штан:
  t: A\all
- i: a.,a.
+ i: A.
 
 у¨зан:
  t: A\all
- i: a.,a.
+ i: A.
 
 хла¨ђан:
  t: A\all
- i: a.,a.
+ i: A.
 
 чо`хан,чо¨хан,чо`хан:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 а¨бен:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба¨крен,ба`крен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ва¨трен,ва`трен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 во¨ден,во`ден,во`ден:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 во`штан,во¨штан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ву¨нен,ву`нен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 гво¨зден,гво`зден,гво`зден:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 да`шчан,да¨шчан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 др°¨вен,др°`вен:
  t: A\all
- i: a.,a.;b.,c.
+ i: A.;K.
 
 зе¨мљан,зе`мљан,зе`мљан:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 ка¨мен,ка`мен II:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 кле¨чан:
  t: A\all
- i: a.,a.
+ i: A.
 
 ко¨жан,ко`жан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ла¨нен:
  t: A\all
- i: a.,a.
+ i: A.
 
 ле¨ден,ле`ден,ле`ден:
  t: A\all
- i: a.,a.;b.,b.;b.,c.
+ i: A.;B.;K.
 
 ли¨сен:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу¨ден:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу¨жън,лу^жън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 лу¨чан I:
  t: A\all
- i: a.,a.
+ i: A.
  c: значење?? од лу́ка? од лу̏к?
 
 лу^чън II:
  t: A\all
- i: a:,a$
+ i: A$
  c: који је у облику лу̑ка, полукружан
 
 ма¨рвен,ма¨рвен:
  t: A\all
- i: a.,a.;a.,c.
+ i: A.;L.
 
 ма¨слен,ма¨слен:
  t: A\all
- i: a.,a.;a.,c.
+ i: A.;L.
 
 ме¨ден,ме`ден I:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
  c: који садржи ме̑д, који је од меда, који је с медом
 
 мѣ¨ден II:
  t: A\all
- i: a.,a.
+ i: A.
  c: који има својства мѣди, припада мѣди
 
 мла¨ђен,мла`ђен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 па¨прен:
  t: A\all
- i: a.,a.
+ i: A.
 
 пи¨змен:
  t: A\all
- i: a.,a.
+ i: A.
 
 про¨сен:
  t: A\all
- i: a.,a.
+ i: A.
 
 пр°¨тен:
  t: A\all
- i: a.,a.
+ i: A.
 
 ра¨жан,ра`жан,ра`жан:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 р°¨жан:
  t: A\all
- i: a.,a.
+ i: A.
 
 ро¨жан,ро`жан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 сла¨мен:
  t: A\all
- i: a.,a.
+ i: A.
 
 ср°¨чан,ср°^чан,ср°`чан:
  t: A\all
- i: a.,a.;a:,a:;a.,a.
+ i: A.;A:;A.
 
 ста¨мен:
  t: A\all
- i: a.,a.
+ i: A.
 
 су¨кнен,су`кнен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 хи¨тлен:
  t: A\all
- i: a.,a.
+ i: A.
 
 хи¨трен:
  t: A\all
- i: a.,a.
+ i: A.
 
 хра¨брен:
  t: A\all
- i: a.,a.
+ i: A.
 
 ци¨нен,ци`нен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ча¨збен,ча`збен:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ша¨јчан,ша`јчан:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 сви¨лен,сви`лен:
  t: A\all
- i: a.,a.;b.,b.
+ i: A.;B.
 
 снꙓ¨жън,снꙓ^жън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 стр°¨мен:
  t: A\all
- i: a.,a.
+ i: A.
 
 сре¨бр°н:
  t: A\all
- i: a.,a.
+ i: A.
 
 во¨љани_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ма¨рчани_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ми¨лани_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 о¨пћени_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 сва¨дбени_,сва`дбени_:
  t: A\ski
- i: 0,a.;0,a.
+ i: a.;a.
 
 сѣ¨рчан,сѣ`рчан,сѣ`рчан:
  t: A\all
- i: a.,a.;a.,a.;b.,c.
+ i: A.;A.;K.
 
 вѣ¨тр°ни_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ју¨трењи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 и¨скр°њи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ба¨бин II:
  t: A\ov
- i: a.,a.
+ i: A.
 
 би¨љин III:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од би¨ља (бела коза)
 
 бра¨тин I:
  t: A\ov
- i: a.,a.
+ i: A.
  c: = братов
 
 бра¨цин I:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од бра¨тац
 
 Ва¨рин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 вра¨нин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 га¨здин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 дѣ¨чин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 кра¨вин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 кће¨рин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 о¨чин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 па¨ткин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 па¨шин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 пи¨тин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 по¨штин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 сва¨стин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 со¨вин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 та¨штин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 те¨ткин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 тр°¨љин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ћа¨ћин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ћо¨рин I:
  t: A\ov
- i: a.,a.
+ i: A.
  c: од ћора (кобила)
 
 хо¨џин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 цу¨рин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 ча¨пљин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 чи¨чин:
  t: A\ov
- i: a.,a.
+ i: A.
 
 а¨ласт:
  t: A\all
- i: a.,a.
+ i: A.
 
 ба¨љаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 бе¨наст:
  t: A\all
- i: a.,a.
+ i: A.
  c: и бошњ. бѐнаст??
 
 бле¨саст:
  t: A\all
- i: a.,a.
+ i: A.
 
 бр°¨њаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 бро¨ћаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 бу¨цмаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ви¨жласт:
  t: A\all
- i: a.,a.
+ i: A.
 
 ви¨цкаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ву¨гаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 гри¨васт:
  t: A\all
- i: a.,a.
+ i: A.
 
 гро¨шаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 до¨раст:
  t: A\all
- i: a.,a.
+ i: A.
 
 жа¨ркаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 жу¨ћкаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 звѣ¨здаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 зе¨каст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ка¨баст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки¨таст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки¨тнаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 кло¨паст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ко¨ласт:
  t: A\all
- i: a.,a.
+ i: A.
 
 кри¨ласт:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°¨њаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 кро¨шњаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 кру¨наст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨каст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨кмаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨ндаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨саст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла¨саст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ли¨браст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ли¨саст:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу¨цкаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ма¨цаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 мо¨раст:
  t: A\all
- i: a.,a.
+ i: A.
 
 му¨ргаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 на¨траст:
  t: A\all
- i: a.,a.
+ i: A.
 
 па¨саст:
  t: A\all
- i: a.,a.
+ i: A.
 
 пѣ¨гаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 пр°¨кнаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 пру¨таст:
  t: A\all
- i: a.,a.
+ i: A.
 
 пу¨пчаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 пу¨таст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ра¨кљаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ра¨чваст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ра¨шљаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ре¨вкаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ре¨саст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ри¨ђаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ри¨ласт:
  t: A\all
- i: a.,a.
+ i: A.
 
 ру¨даст:
  t: A\all
- i: a.,a.
+ i: A.
 
 се¨дласт:
  t: A\all
- i: a.,a.
+ i: A.
 
 си¨васт:
  t: A\all
- i: a.,a.
+ i: A.
 
 си¨вкаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 си¨њаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 су¨ркаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћа¨бласт:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћо¨саст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћо¨сат:
  t: A\all
- i: a.,a.
+ i: A.
 
 ћу¨баст:
  t: A\all
- i: a.,a.
+ i: A.
 
 цвѣ¨таст:
  t: A\all
- i: a.,a.
+ i: A.
 
 цр°¨каст:
  t: A\all
- i: a.,a.
+ i: A.
 
 чу¨браст:
  t: A\all
- i: a.,a.
+ i: A.
 
 џо¨раст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ша¨ркаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ши¨љаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 ши`љат:
  t: A\all
- i: a.,a.
+ i: A.
 
 ши¨љкаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 штр°¨кљаст:
  t: A\all
- i: a.,a.
+ i: A.
 
 бр°¨снат,бр°`снат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 вла¨снат,вла`снат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ву¨нат,ву`нат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 го¨рнат,го`рнат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 кљу¨нат,кљу`нат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ко`смат,ко¨смат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ко¨снат:
  t: A\all
- i: a.,a.
+ i: A.
 
 кро¨внат,кро`внат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 кро¨шнат,кро`шнат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ли¨снат,ли`снат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ме¨сат,ме`сат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 пе¨рнат,пе`рнат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 пло¨снат,пло`снат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ре¨снат,ре`снат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ро¨снат,ро`снат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 ру¨њат,ру`њат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 тр°¨снат:
  t: A\all
- i: a.,a.
+ i: A.
 
 у¨снат,у`снат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 чво¨рнат:
  t: A\all
- i: a.,a.
+ i: A.
 
 шу¨мнат,шу`мнат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 шу¨шњат,шу`шњат:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 гла`вит,гла¨вит:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 о`чит,о¨чит:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 рѣ`чит,рѣ¨чит:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 сѣ`нит,сѣ¨нит:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 бо¨жји_,бо`жји_:
  t: A\ski
- i: 0,a.;0,c.
+ i: a.;c.
 
 вра¨њи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 гу¨шчји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 кра¨вљи_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ку¨чји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ма¨чји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ми¨шји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 па¨сји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 па¨чји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 пти¨чји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 ћу¨рји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 шту¨чји_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 блитве`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 брадве`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 бритве`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 ђаво`љи_,ђа¨вољи_:
  t: A\ski
- i: 0,c.;0,a.
+ i: c.;a.
 
 одре`ни_,о`дрени_,о¨дрени_:
  t: A\ski
- i: 0,c.;0,a.;0,a.
+ i: c.;a.;a.
 
 пушча`ни_,пу`шчани_:
  t: A\ski
- i: 0,c.;0,a.
+ i: c.;a.
 
 ребра`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 роткве`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 сола`ни_:
  t: A\ski
- i: 0,c.
+ i: c.
 
 тикве`ни_,ти`квени_:
  t: A\ski
- i: 0,c.;0,a.
+ i: c.;a.
 
 уља`ни_,у`љани_:
  t: A\ski
- i: 0,c.;0,a.
+ i: c.;a.
 
 бљу¨тък:
  t: A\all
- i: a.,a.
+ i: A.
 
 ва¨рък:
  t: A\all
- i: a.,a.
+ i: A.
 
 ви¨тък:
  t: A\all
- i: a.,a.
+ i: A.
 
 во¨зък:
  t: A\all
- i: a.,a.
+ i: A.
 
 ги¨бък:
  t: A\all
- i: a.,a.
+ i: A.
 
 гла¨дък:
  t: A\all
- i: a.,a.
+ i: A.
 
 же¨жък:
  t: A\all
- i: a.,a.
+ i: A.
 
 кли¨зък:
  t: A\all
- i: a.,a.
+ i: A.
 
 кре¨пък:
  t: A\all
- i: a.,a.
+ i: A.
 
 кро¨тък:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°¨шък:
  t: A\all
- i: a.,a.
+ i: A.
 
 љу¨бък:
  t: A\all
- i: a.,a.
+ i: A.
 
 мле¨ћък:
  t: A\all
- i: a.,a.
+ i: A.
 
 мр°¨зък:
  t: A\all
- i: a.,a.
+ i: A.
 
 ни¨зък:
  t: A\all
- i: a.,a.
+ i: A.
 
 пи¨тък:
  t: A\all
- i: a.,a.
+ i: A.
 
 пру¨тък:
  t: A\all
- i: a.,a.
+ i: A.
 
 скли¨зък:
  t: A\all
- i: a.,a.
+ i: A.
 
 сла¨дък:
  t: A\all
- i: a.,a.
+ i: A.
 
 та¨нък,та`нък:
  t: A\all
- i: a.,a.;b.,c.
+ i: A.;K.
 
 у¨зък,у¨зък:
  t: A\all
- i: a.,a.;d.,c.
+ i: A.;N.
 
 хо¨ћък:
  t: A\all
- i: a.,a.
+ i: A.
  c: вољан, оран
 
 бо^лън I:
  t: A\all
- i: a:,a$
+ i: A$
  v: боʌън II
 
 бо¨ʌън II:
  t: A\all
- i: d.,b.
+ i: M.
  v: болън I
 
 бла¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 бри¨жън,бри^жън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 ви¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 вѣ¨рън,вѣ^рън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 вѣ¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 вла¨жън:
  t: A\all
- i: a.,a.
+ i: A.
 
 во¨љън,во^љън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 га¨дън:
  t: A\all
- i: a.,a.
+ i: A.
 
 гла¨сън:
  t: A\all
- i: a.,a.
+ i: A.
 
 гло¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 гну¨сън:
  t: A\all
- i: a.,a.
+ i: A.
  v: гњусън
 
 гњу¨сън:
  t: A\all
- i: a.,a.
+ i: A.
  v: гнусън
 
 гре¨шън:
  t: A\all
- i: a.,a.
+ i: A.
 
 дро¨бън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ждре¨бън:
  t: A\all
- i: a.,a.
+ i: A.
 
 же¨љън,же^љън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 жи¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 зло¨бън:
  t: A\all
- i: a.,a.
+ i: A.
 
 зно¨јън,зно^јън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 ја¨дън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ја¨сън:
  t: A\all
- i: a.,a.
+ i: A.
 
 је¨шън,је^шън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 ју¨жън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ки¨шън:
  t: A\all
- i: a.,a.
+ i: A.
 
 књи¨жън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ко¨жън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ко¨пън:
  t: A\all
- i: a.,a.
+ i: A.
 
 кр°¨шън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ку¨жън,ку^жън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 ла¨жън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ла¨сън II:
  t: A\all
- i: a.,a.
+ i: A.
  c: (ла̏к, ла̏ган)
 
 ла¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ле¨дън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ло¨мън:
  t: A\all
- i: a.,a.
+ i: A.
 
 лу¨чън I:
  t: A\all
- i: a.,a.
+ i: A.
  c: (од лу̏к)
 
 ме¨дън:
  t: A\all
- i: a.,a.
+ i: A.
  c: који је сладак као ме̑д, пун ме̏да
 
 мо¨ћън:
  t: A\all
- i: a.,a.
+ i: A.
 
 мр°¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 му¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 пла¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 пло¨дън:
  t: A\all
- i: a.,a.
+ i: A.
 
 пло¨сън:
  t: A\all
- i: a.,a.
+ i: A.
 
 по¨зън:
  t: A\all
- i: a.,a.
+ i: A.
 
 по¨стън:
  t: A\all
- i: a.,a.
+ i: A.
 
 по¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ро¨дън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ро¨сън:
  t: A\all
- i: a.,a.
+ i: A.
 
 сви¨лън,сви^лън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 си¨лън,си^лън:
  t: A\all
- i: a.,a.;a:,a$
+ i: A.;A$
 
 си¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 сѣ¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ско¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 сла¨мън:
  t: A\all
- i: a.,a.
+ i: A.
 
 сло¨жън:
  t: A\all
- i: a.,a.
+ i: A.
 
 со¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 су¨зън:
  t: A\all
- i: a.,a.
+ i: A.
 
 тро¨шън:
  t: A\all
- i: a.,a.
+ i: A.
 
 у¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 три¨чън:
  t: A\all
- i: a.,a.
+ i: A.
 
 хлѣ¨бън:
  t: A\all
- i: a.,a.
+ i: A.
 
 чи¨лън:
  t: A\all
- i: a.,a.
+ i: A.
 
 чо¨шън:
  t: A\all
- i: a.,a.
+ i: A.
 
 чу¨дън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ше¨мън:
  t: A\all
- i: a.,a.
+ i: A.
 
 ште¨тън:
  t: A\all
- i: a.,a.
+ i: A.
 
 би`та_нжити:
  t: V\Refl\Ipf
@@ -6007,180 +6007,180 @@
 
 сиро`машън:
  t: A\all
- i: a.,a.
+ i: A.
 
 бери`ћетън:
  t: A\all
- i: a.,a.
+ i: A.
  c: који доноси плода
 
 куку`рузън:
  t: A\all
- i: a.,a.
+ i: A.
  c: обично по сложеној деклинацији
 
 вазда`кадњи_:
  t: A\ski
- i: 0,a.
+ i: a.
  c: вѣ̏чан
 
 васи`они_,васи`о_ни_:
  t: A\ski
- i: 0,a.;0,a$
+ i: a.;a$
  
 васи`онски_,васи`о_нски_:
  t: A\ski
- i: 0,a.;0,a$
+ i: a.;a$
 
 вече`рашњи_:
  t: A\ski
- i: 0,a.
+ i: a.
  
 воде`нични_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 јуче`рашњи_:
  t: A\ski
- i: 0,a.
+ i: a.
  v: јучерањи
 
 јуче`рањи_:
  t: A\ski
- i: 0,a.
+ i: a.
  v: јучерашњи
 
 лубе`нични_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 гору`шични_:
  t: A\ski
- i: 0,a.
+ i: a.
 
 чу¨днова_т,чудно`ват:
   t: A\all
-  i: a.,a.;a.,a.
+  i: A.;A.
 
 кр°¨вав,кр°¨вав:
  t: A\all
- i: a.,a.;a.,a.
+ i: A.;A.
 
 го¨лца_т,го`лцат:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: голцит
 
 го¨лци_т,го`лцит:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: голцат
 
 но¨вца_т,но`вцат:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: новцит
 
 но¨вци_т,но`вцит:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: новцат
 
 пу¨нца_т,пу`нцат:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: пунцит
 
 пу¨нци_т,пу`нцит:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: пунцат
 
 здра¨вца_т,здра`вцат:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: здравцит
 
 здра¨вци_т,здра`вцит:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: здравцат
 
 са¨мца_т,са`мцат:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: самцит
 
 са¨мци_т,са`мцит:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: самцат
 
 пра¨вца_т,пра`вцат:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: правцит
 
 пра¨вци_т,пра`вцит:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: правцат
 
 цѣ¨лца_т,цѣ`лцат:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: цѣлцит
 
 цѣ¨лци_т,цѣ`лцит:
  t: A\all
- i: a:,a:;a.,a.
+ i: A:;A.
  v: цѣлцат
 
 до`ма_ћи_ I:
  t: A\ski
- i: 0,a$
+ i: a$
 
 је`ди_ни_,је`дини_:
  t: A\ski
- i: a:,a:;a.,a.
+ i: A:;A.
 
 ва`ља_н I:
  t: A\all
- i: b:,b$
+ i: B$
  c: квалитетан
 
 ва^ља_н II:
  t: A\all
- i: a:,a$
+ i: A$
  c: који су ваљали, изваљали
 
 и¨му_ћън,иму´ћън:
  t: A\all
- i: a.,a.;b:,b$
+ i: A.;B$
 
 ла¨гу_шън,лагу´шън:
  t: A\all
- i: a.,a.;b:,b$
+ i: A.;B$
 
 ма¨ју_шън,мају´шън:
  t: A\all
- i: a.,a.;b:,b$
+ i: A.;B$
 
 мо¨гу_ћън,могу´ћън:
  t: A\all
- i: a.,a.;b:,b$
+ i: A.;B$
 
 та¨ну_шън,тану´шън:
  t: A\all
- i: a.,a.;b:,b$
+ i: A.;B$
 
 окру´гъʌ,о`кру_гъʌ:
  t: A\all
- i: b:,b:;a:,a$
+ i: B$;A$
 
 подму´къʌ,по`дму_къʌ:
  t: A\all
- i: b:,b:;a:,a$
+ i: B$;A$
 
 во`лѣти:
  t: V\Tr\Ipf
@@ -9718,7 +9718,7 @@
 
 до¨бър:
  t: A\all
- i: d.,b.
+ i: M.
 
 гљи¨ва:
  t: N\f
@@ -10152,31 +10152,31 @@
 
 ср°¨пскохр°`ва_тски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 хр°`ва_тскоср°¨пски_:
  t: A\ski
- i: 0,a$
+ i: a$
 
 ја¨сножу^т:
  t: A\all
- i: b:,b$
+ i: B$
 
 пла´воси^в:
  t: A\all
- i: b:,b$
+ i: B$
 
 жу´томр°¨к:
  t: A\all
- i: a.,a.
+ i: A.
 
 цр°`веномр°¨к:
  t: A\all
- i: a.,a.
+ i: A.
 
 цр°´номр°¨к:
  t: A\all
- i: a.,a.
+ i: A.
 
 у¨залу_д:
   t: B
