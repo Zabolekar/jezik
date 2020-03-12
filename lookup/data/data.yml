@@ -9870,7 +9870,7 @@
 
 за´бава,за^бава:
  t: N\f
- i: a:;a$
+ i: a$;a$
 
 жи^рчица:
  t: N\f
@@ -10684,3 +10684,207 @@
 хр°¨т:
  t: N\m
  i: b./+,an
+
+су`ров:
+ t: A\all
+ i: A.
+
+зби¨ръка:
+ t: N\f
+ i: a.
+ add:
+  pl gen: зби^рки_
+
+посвѣћи´вати:
+ t: V\Tr\Ipf
+ i: k’/zeta
+
+у¨жи_:
+ t: A\ski
+ i: a.
+
+до`мовина:
+ t: N\f
+ i: a.
+
+шко^ла:
+ t: N\f
+ i: a$
+
+ра¨т:
+ t: N\m
+ i: a./+
+
+одга´јати:
+ t: V\Tr\Ipf
+ i: k:/beta
+
+за^става:
+ t: N\f
+ i: a$
+
+па`ртија:
+ t: N\f
+ i: a.
+
+Југосло`ве_н:
+ t: N\m
+ i: b:/an
+
+ја¨так:
+ t: N\m
+ i: a.
+
+мѣ¨се_ц:
+ t: N\m
+ i: c$
+ add:
+  pl gen: мѣсе´ци_
+
+гру¨па:
+ t: N\f
+ i: a.
+
+ка^вг¦а:
+ t: N\f
+ i: a$
+ add:
+  pl gen: ка^вги_
+
+че¨тни_к:
+ t: N\m
+ i: a$/an
+
+пра`вац:
+ t: N\0
+ i: "0"
+ add:
+  nom sg: пра`вац
+  acc sg: пра`вац
+  gen sg: пра`вца
+  dat sg: пра`вцу
+  loc sg: пра`вцу
+  ins sg: пра`вцем
+  voc sg: пра¨вче
+  nom pl: пра`вци
+  acc pl: пра`вце
+  gen pl: пра¨ва_ца_
+  dat pl: пра`вцима
+  loc pl: пра`вцима
+  ins pl: пра`вцима
+  voc pl: пра¨вци
+
+пра´въц II:
+ t: N\m
+ i: b$/an
+
+мо`мак:
+ t: N\0
+ i: "0"
+ add:
+  nom sg: мо`мак
+  acc sg: мо`мка
+  gen sg: мо`мка
+  dat sg: мо`мку
+  loc sg: мо`мку
+  ins sg: мо`мком
+  voc sg: мо^мче
+  nom pl: мо`мци, мо^мци
+  acc pl: мо`мке, мо^мке
+  gen pl: мома´ка_
+  dat pl: мо`мцима
+  loc pl: мо`мцима
+  ins pl: мо`мцима
+  voc pl: мо^мци
+
+ма`јо_р:
+ t: N\m
+ i: b$/an
+
+жа¨ба:
+ t: N\f
+ i: a.
+
+жа´бъц:
+ t: N\m
+ i: b$/an
+
+жа¨ба_р:
+ t: N\m
+ i: a$/an
+
+жа¨нда_р:
+ t: N\m
+ i: a$/an
+
+жа¨бица:
+ t: N\f
+ i: a.
+
+жа^гор:
+ t: N\m
+ i: a$
+
+жа^мор:
+ t: N\m
+ i: a$
+
+жа^горити,жаго`рити:
+ t: V\Itr\Ipf
+ i: a$/alpha;r./alpha
+
+жа¨лъц:
+ t: N\m
+ i: a.
+
+жа`лба:
+ t: N\f
+ i: b.
+ add:
+  gen pl: жа`лби_
+
+жа`лфија:
+ t: N\f
+ i: a.
+
+жа`литељ:
+ t: N\m
+ i: a./an
+
+жа¨лити I:
+ t: V\Tr\Ipf
+ i: o./alpha
+
+жа¨лити II:
+ t: V\Refl\Ipf
+ i: o./alpha
+
+жа¨лобън:
+ t: A\all
+ i: A.
+
+жало`по_јка:
+ t: N\f
+ i: a!
+ except:
+  gen pl: жало`по_јки_
+
+жа¨ло_ст:
+ t: N\f
+ i: a?
+
+жало`стити:
+ t: V\Tr\Ipf
+ i: r./alpha
+
+жа`нда_рски_:
+ t: A\ski
+ i: a$
+
+жа`рго_н:
+ t: N\m
+ i: b$
+
+же`лудъц:
+ t: N\m
+ i: a.

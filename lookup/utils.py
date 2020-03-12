@@ -101,10 +101,10 @@ _deyerify_repl_dict: Dict[str, str] = {
    "стън": "сн",
    "бък": "пк", "дък": "тк", "ђък": "ћк",
    "жък": "шк", "зък": "ск", "џък": "чк",
-   "бъц": "пц", "ђъц": "ћц", "дъц": "ц", "тъц": "ц",
-   "жъц": "шц", "зц": "сц", "џц": "чц",
+   "бъц": "пц", "ђъц": "ћц", "дъц": "дц", "тъц": "ц",
+   "жъц": "шц", "зъц": "сц", "џъц": "чц",
    "бъч": "пч", "ђъч": "ћч", "дъч": "ч", "тъч": "ч",
-   "жъч": "шч", "зч": "шч", "сч": "шч", "џч": "ч"}
+   "жъч": "шч", "зъч": "шч", "съч": "шч", "џъч": "ч"}
 
 # TODO: Name these two semantically:
 _deyerify_pat1_c: Pattern = re.compile(f'([аеиоу{cring}][{cstraight}·]?)([лљмнњрјв]ʲ?)ъ')
@@ -175,6 +175,7 @@ _prettify_big_palatalization: List[Tuple[str, str]] = [
    #('слȷ', 'шљ'), ('злȷ', 'жљ'),
    # back into regular string replaces, see `_prettify_simple_palatalization`
    ('т?кʹ', 'ц'), #('гʹ', 'з'), ('хʹ', 'с'),
+   ('с[кц]ʺе', 'шче'),
    ('[кц]ʺе', 'че') #, ('гʺ', 'ж'), ('хʺ', 'ш')
 ]
 
@@ -198,7 +199,7 @@ _prettify_small_palatalization: List[Tuple[str, str]] = [
    # back into regular string replaces, see `_prettify_simple_palatalization`
    #('тȷ', 'ћ'), ('дȷ', 'ђ'),
    #('лȷ', 'љ'), ('нȷ', 'њ'),
-   ('[ʹʺȷ]', '')
+   ('[ʹʺ¦ȷ]', '')
 ]
 
 _prettify_small_palatalization_c: List[Tuple[Pattern, str]]

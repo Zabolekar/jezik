@@ -170,6 +170,10 @@ class Noun(PartOfSpeech):
                retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
             elif 'œв' in stem and 'b' in current_AP and 'ъ' not in stem and 'ꚜ' not in stem:
                retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
+         elif self.label('f'):
+            if pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
+               and current_AP not in accent:
+               retraction = [1] # па̏ртӣја̄
 
          if not 'œ' in stem: # TODO one day think about better condition
             stem = stem.replace('ъ', 'а').replace('ꚜ', 'а')
