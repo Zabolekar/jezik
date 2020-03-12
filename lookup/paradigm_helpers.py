@@ -73,12 +73,12 @@ class GramInfo:
          info = info.replace('$', ':') # a line cannot end with :, so we use $, too
          if info:
             if '\\' in info:
-               comment, restinfo = info.split('\\') # automatically falls when too much \\?
+               comment, restinfo = info.split('\\') # automatically fails when too much \\?
             else:
                comment = ''
                restinfo = info
             if '/' in restinfo:
-               AP, MP = restinfo.split('/') # automatically falls ?
+               AP, MP = restinfo.split('/') # automatically fails ?
             else:
                AP = restinfo
                MP = ''

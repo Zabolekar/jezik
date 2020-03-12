@@ -17,7 +17,6 @@ from .charutils import (cring, cmacron, cstraight, cacute,
 #   <name>_translator — a translation table used by `str.translate`
 #   _<funcname>_<name> — a thing used by function `funcname`
 
-# TODO: Recompose at least 'ȷ' mode to make less passes in at least `prettify` (this one part seems done)
 palatalization_modes: Dict[str, Dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
          'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
@@ -168,7 +167,10 @@ _prettify_yat_replaces: Dict[str, List[Tuple[str, str]]] = {
 _prettify_yat_replaces["ije"] = _prettify_yat_replaces["je"]
 
 _prettify_yat_replaces_c: Dict[str, List[Tuple[Pattern, str]]]
-_prettify_yat_replaces_c = {k: [(re.compile(p), r) for p, r in v] for k, v in _prettify_yat_replaces.items()}
+_prettify_yat_replaces_c = {
+   k: [(re.compile(p), r) for p, r in v]
+   for k, v in _prettify_yat_replaces.items()
+}
 
 _prettify_big_palatalization: List[Tuple[str, str]] = [
    ("(ст|шт|ск)ȷ", "шт"), ("(зд|жд|зг)ȷ", "жд"),
@@ -287,7 +289,8 @@ def garde(word: str) -> str: # Garde's accentuation
                   insert_bool = False
                else:
                   if len(result) > i+1:
-                     # TODO: May benefit from precompiling regexes (or from remaking the transformation in other terms?)
+                     # TODO: May benefit from precompiling regexes
+                     # (or from remaking the transformation in other terms?)
                      if result[i+1] == cgrave:
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
@@ -306,7 +309,8 @@ def garde(word: str) -> str: # Garde's accentuation
 
          word3 = insert(word2, insert_dict)
          word3 = (word3.replace('•', '') # delete
-                       .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')) # swap length and accent
+                       .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}'))
+                       # swap length and accent
          result = word3
 
       else:
@@ -371,7 +375,8 @@ def ungarde(form: str) -> str:
              .replace(f'{cgrave}{cmacron}', cacute) #long rising
              .replace(f'{cmacron}{cdoublegrave}', ccircumflex)
              .replace(f'{cdoublegrave}{cmacron}', ccircumflex) #long falling
-             .replace('!', '')) # for cases where ! is not right before the accented syllable
+             .replace('!', '')) # for cases where ! is not
+                                # right before the accented syllable
 
 def debracketify(form: str) -> str:
       if '>' in form:

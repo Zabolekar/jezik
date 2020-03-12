@@ -118,7 +118,8 @@ class Verb(PartOfSpeech):
             if self._verb_form_is_possible(label, self.gram.other):
                ready_forms: List[str] = []
                for variation in ending:
-                  ready_forms += self.process_one_form(self.gram.AP[i], self._current_trunk(i, label), variation)
+                  ready_forms += self.process_one_form(
+                     self.gram.AP[i], self._current_trunk(i, label), variation)
 
                if label in self.amendments:
                   ready_forms += [

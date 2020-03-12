@@ -1,7 +1,12 @@
 from typing import Callable, Dict, List, Iterator, Optional, Tuple
 from ..pos import PartOfSpeech, Replacement
-from ..utils import deyerify, indices, insert, garde, expose, last_vowel_index, first_vowel_index, expose_replacement
-from ..paradigm_helpers import AccentedTuple, MorphemeChain, OrderedSet, nice_name, oa, accentize, appendDef
+from ..utils import (
+   deyerify, indices, insert, garde, expose,
+   last_vowel_index, first_vowel_index, expose_replacement
+   )
+from ..paradigm_helpers import (
+   AccentedTuple, MorphemeChain, OrderedSet, nice_name, oa, accentize, appendDef
+   )
 from ..table import LabeledMultiform
 from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked
 from ..charutils import cmacron, cstraight
@@ -162,7 +167,7 @@ class Noun(PartOfSpeech):
                retraction = [1]
             elif pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
                and current_AP not in accent:
-               if current_AP in ('a.'):
+               if current_AP == 'a.':
                   retraction = [1] # је̏зӣка̄
             elif 'b.' in current_AP and ('ъ' in stem or 'ꚜ' in stem) and 'œ' in stem:
                   retraction = [1] # о̀че̄ва̄
@@ -181,7 +186,7 @@ class Noun(PartOfSpeech):
             stem = deyerify(stem)
 
          # 4. a renewed set of indices, since ъ/ꚜ has become а
-         lvi, fvi, pvi = indices(stem)
+         lvi, _, pvi = indices(stem)
 
          # 5. handling strange new exceptions like komunizam
          if '·' in stem and current_AP == 'q.' and lvi is not None:
@@ -247,12 +252,17 @@ class Noun(PartOfSpeech):
                   # now iterating by stem (like, akcenat/akcent)
 
                   for noun_variant in noun_variants:
-                     if self._noun_form_is_possible(noun_variant, ending_variation, self.gram.AP[i]):
-                        new_ready_form = self.process_one_form(self.gram.AP[i], noun_variant, ending_variation)
+                     if self._noun_form_is_possible(
+                        noun_variant, ending_variation, self.gram.AP[i]):
+                        new_ready_form = self.process_one_form(
+                           self.gram.AP[i], noun_variant, ending_variation)
                         ready_forms += new_ready_form
 
                if label in self.amendments:
-                  ready_forms += [expose_replacement(w_form, yat, latin) for w_form in self.amendments[label]]
+                  ready_forms += [
+                     expose_replacement(w_form, yat, latin)
+                     for w_form in self.amendments[label]
+                  ]
 
                result = [self._expose(form, yat, latin) for form in ready_forms]
                yield nice_name(label), list(OrderedSet(result))
@@ -275,6 +285,6 @@ class Noun(PartOfSpeech):
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
       """decline"""
-      for i, AP in enumerate(self.gram.AP):
+      for i, _ in enumerate(self.gram.AP):
          if not (variant is not None and variant != i):
             yield from self._paradigm_to_forms(i, False, yat, latin)

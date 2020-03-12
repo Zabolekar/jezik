@@ -91,7 +91,7 @@ class PartOfSpeech():
 
          # declickify (ʘ) -- special double '0' in nesti-verbs
          if self.kind.startswith('V'):
-            if current_AP in ('eʹxʺ'):
+            if current_AP in 'eʹxʺ':
                morpheme = morpheme.replace('ʘ', '')
          morpheme = morpheme.replace('ʘ', '0')
 
@@ -137,7 +137,8 @@ class PartOfSpeech():
             pair[0] = pair[0].replace('·', cstraight)
 
          result_word = pair[0] + pair[1]
-         # accentizing enclinomena (words without accent that receive automatic accent on first syllable)
+         # accentizing enclinomena (words without accent
+         # that receive automatic accent on first syllable)
          if cstraight not in result_word: # result_word is enclinomen
             fvi = first_vowel_index(result_word)
             if fvi is None and 'ъ' in result_word and 'ø' in result_word: # сънø > сан etc.
