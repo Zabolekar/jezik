@@ -1,4 +1,9 @@
 {% extends "search.html" %}
+{% block tytle %}
+{{ tables.input }} – 
+{% endblock %}
+
+
 {% block results %}
 <div id="tables-or-not-found">
    {% if tables|length > 1 %}
