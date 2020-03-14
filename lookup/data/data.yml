@@ -10606,6 +10606,10 @@
  t: N\f
  i: a?
 
+не¨мо_ћ:
+ t: N\f
+ i: a?
+
 бла´го_ст:
  t: N\f
  i: a?
@@ -10695,7 +10699,7 @@
  add:
   pl gen: зби^рки_
 
-посвѣћи´вати:
+посвећи´вати:
  t: V\Tr\Ipf
  i: k’/zeta
 
@@ -10755,28 +10759,30 @@
  t: N\m
  i: a$/an
 
-пра`вац:
+пра`вац I:
  t: N\0
  i: "0"
+ c: смер; дуги нагласак чешћи у Хрватској
  add:
-  nom sg: пра`вац
-  acc sg: пра`вац
-  gen sg: пра`вца
-  dat sg: пра`вцу
-  loc sg: пра`вцу
-  ins sg: пра`вцем
-  voc sg: пра¨вче
-  nom pl: пра`вци
-  acc pl: пра`вце
-  gen pl: пра¨ва_ца_
-  dat pl: пра`вцима
-  loc pl: пра`вцима
-  ins pl: пра`вцима
-  voc pl: пра¨вци
+  nom sg: пра`вац, пра´вац
+  acc sg: пра`вац, пра´вац
+  gen sg: пра`вца, пра´вца
+  dat sg: пра`вцу, пра´вцу
+  loc sg: пра`вцу, пра´вцу
+  ins sg: пра`вцем, пра´вцем
+  voc sg: пра¨вче, пра^вче
+  nom pl: пра`вци, пра´вци
+  acc pl: пра`вце, пра´вце
+  gen pl: пра¨ва_ца_, пра^ва_ца_
+  dat pl: пра`вцима, пра´вцима
+  loc pl: пра`вцима, пра´вцима
+  ins pl: пра`вцима, пра´вцима
+  voc pl: пра¨вци, пра^вци
 
 пра´въц II:
  t: N\m
  i: b$/an
+ c: човек
 
 мо`мак:
  t: N\0
@@ -10888,3 +10894,214 @@
 же`лудъц:
  t: N\m
  i: a.
+
+си¨сати,си¨сати:
+ t: V\Tr\Ipf
+ i: o./delta;o./beta
+
+у`сисати,у`сисати:
+ t: V\Tr\Pf
+ i: o./delta;o./beta
+
+о`сисати,о`сисати:
+ t: V\Tr\Pf
+ i: o./delta;o./beta
+
+по`сисати,по`сисати:
+ t: V\Tr\Pf
+ i: o./delta;o./beta
+
+ши´шати:
+ t: V\Tr\Ipf
+ i: p:/delta
+
+оши´шати:
+ t: V\Tr\Pf
+ i: p:/delta
+
+подши´шати:
+ t: V\Tr\Pf
+ i: p:/delta
+
+проши´шати:
+ t: V\Tr\Pf
+ i: p:/delta
+
+вра´нити I:
+ t: V\Refl\Ipf
+ i: r:/alpha
+ c: вранети се
+
+вра´нити II:
+ t: V\Refl\Ipf
+ i: p:/alpha
+ c: постајати вран
+
+вра¨нити III:
+ t: V\Refl\Ipf
+ i: o./alpha
+ c: кружити као вране
+
+вра´нѣти:
+ t: V\Refl\Ipf
+ i: q:/eta
+
+ви¨дѣти I:
+ t: V\Tr\Dv
+ i: a./eta
+
+ви¨дѣти II:
+ t: V\Refl\Dv
+ i: a./eta
+
+ви`ди_к:
+ t: N\m
+ i: b$
+
+у`видѣти:
+ t: V\Tr\Pf
+ i: a./eta
+
+и`звидѣти:
+ t: V\Tr\Pf
+ i: a./eta
+
+пре`двидѣти:
+ t: V\Tr\Pf
+ i: a./eta
+
+сви¨дѣти:
+ t: V\Refl\Pf
+ i: a./eta
+
+сви´ђати:
+ t: V\Refl\Ipf
+ i: p:/beta
+
+пре`видѣти:
+ t: V\Tr\Pf
+ i: a./eta
+
+про`видѣти I:
+ t: V\Tr\Pf
+ i: a./eta
+
+про`видѣти II:
+ t: V\Refl\Pf
+ i: a./eta
+
+пу¨цати I:
+ t: V\Itr\Ipf
+ i: o./beta
+ c: гађати из оруђа и сл.
+
+пу¨цати II:
+ t: V\Tr\Ipf
+ i: o./beta
+ c: чистити
+
+и`спуцати I:
+ t: V\Tr\Pf
+ i: o./beta
+
+и`спуцати II:
+ t: V\Refl\Pf
+ i: o./beta
+
+на`спуцати I:
+ t: V\Tr\Pf
+ i: o./beta
+
+на`спуцати II:
+ t: V\Refl\Pf
+ i: o./beta
+
+ту¨цати I:
+ t: V\Tr\Ipf
+ i: o./beta
+
+ту¨цати II:
+ t: V\Refl\Ipf
+ i: o./beta
+ 
+ку¨цати I:
+ t: V\Ttr\Ipf
+ i: o./beta
+
+ку¨цати II:
+ t: V\Refl\Ipf
+ i: o./beta
+
+тра´жити I:
+ t: V\Tr\Ipf
+ i: p./alpha
+
+тра´жити II:
+ t: V\Refl\Ipf
+ i: p./alpha
+
+тра^г:
+ t: N\m
+ i: c$/+
+
+сја^ј:
+ t: N\m
+ i: c$/±
+
+свѣ¨тло_ст:
+ t: N\f
+ i: a?
+
+ка`пија:
+ t: N\f
+ i: a.
+
+ку¨ца_ј:
+ t: N\m
+ i: c$/±
+
+о¨ткуца_ј:
+ t: N\m
+ i: c$
+
+по¨тпора:
+ t: N\f
+ i: a.
+
+о`слонъц:
+ t: N\m
+ i: a.
+
+подупи`ра_ч:
+ t: N\m
+ i: b$
+
+др°`жа_ч:
+ t: N\m
+ i: b$
+
+бо^лта:
+ t: N\f
+ i: a$
+ add:
+  gen pl: бо^лти_
+
+поче´тък:
+ t: N\m
+ i: b$
+
+то¨чък¦а:
+ t: N\f
+ i: a.
+
+та¨чък¦а:
+ t: N\f
+ i: a.
+
+еле`менЪт:
+ t: N\m
+ i: a.
+
+по´јъм:
+ t: N\m
+ i: e:/+
