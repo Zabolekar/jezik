@@ -154,7 +154,7 @@ class Noun(PartOfSpeech):
          # 2 handling óvca > ovácā and óvan > ovánā
          if cmacron in stem:
             if (self.label("f") and current_AP in ('c:', 'g:')) \
-               or (self.label("m") and current_AP in ('e:') and not 'œ' in stem):
+               or (self.label("m") and current_AP in ('e:', 'a¿') and not 'œ' in stem):
                stem = stem.replace(cmacron, '')
 
          # 3 handling yers and predefining retractions
