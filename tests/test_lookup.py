@@ -275,3 +275,10 @@ def test_3decl():
    assert lookup("болест")["ins sg"].multiform == ["бо̏лешћу", "бо̏лести"]
    assert lookup("љубав")["ins sg"].multiform == ["љу́бављу", "љу́бави"]
    assert lookup("лаж")["dat sg"].multiform == ["ла̏жи"]
+
+def test_gen_pl_i():
+   assert "ка̑вгӣ" in lookup("кавга")["gen pl"].multiform
+   assert "жало̀по̄јкӣ" in lookup("жалопојка")["gen pl"].multiform
+   assert "жа̀лбӣ" in lookup("жалба")["gen pl"].multiform
+   assert "ја̀гмӣ" in lookup("јагма")["gen pl"].multiform
+#TODO ADD all 4 forms for metla

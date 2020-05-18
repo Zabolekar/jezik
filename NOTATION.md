@@ -45,3 +45,5 @@
 * **ʌ** = **о** before a fallen yer, **л** elsewhere
 
 * **ʟ** = **ʌ** or **л** (two variants)
+
+* **¦** = barrier to NOT palatalize k,g,h in declension; **¦¦** for optional palatalizing *kavgi/kavzi*

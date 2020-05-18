@@ -1,14 +1,14 @@
 from typing import Callable, Dict, List, Iterator, Optional, Tuple
 from ..pos import PartOfSpeech, Replacement
 from ..utils import (
-   deyerify, indices, insert, garde, expose,
+   deyerify, indices, insert, garde, ungarde, expose,
    last_vowel_index, first_vowel_index, expose_replacement
    )
 from ..paradigm_helpers import (
    AccentedTuple, MorphemeChain, OrderedSet, nice_name, oa, accentize, appendDef
    )
 from ..table import LabeledMultiform
-from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked
+from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked, female_gen_pl_i
 from ..charutils import cmacron, cstraight
 
 def _apply_neocirk(
@@ -216,16 +216,25 @@ class Noun(PartOfSpeech):
       start_AP = self.gram.AP[i].replace('?', '.')
       target_AP = self.gram.AP[i].replace('?', '.')
 
-      declension: bool = True
+      declension_is_regular: bool = True
       if self.label("m"):
          lbld_endings = c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
       elif self.label("f"):
          lbld_endings = c_f(self.trunk[i], self.accented_keys[i].endswith('а')).labeled_endings
       else:
          lbld_endings = iter([])
-         declension = False
+         declension_is_regular = False
 
-      if declension:
+      if self.label("f") and self.gram.MP[i]: # processing GPl like magli (not **magala)
+         form_with_i = [ungarde(deyerify(x)) for x in
+            self.process_one_form(self.gram.AP[i], self.trunk[i], female_gen_pl_i)
+         ]
+         if "i" in self.gram.MP[i]:
+            self.replacements["pl gen"] = form_with_i
+         elif "j" in self.gram.MP[i]:
+            self.amendments["pl gen"] = form_with_i
+
+      if declension_is_regular:
          for label, ending in lbld_endings:
             if label in self.replacements:
                result = [expose_replacement(form, yat, latin) for form in self.replacements[label]]
@@ -243,6 +252,9 @@ class Noun(PartOfSpeech):
                   # processing words like bo / bol (marked with ʟ)
                   if 'ʟ' in noun_form:
                      noun_variants = [noun_form.replace('ʟ', 'ʌ'), noun_form.replace('ʟ', 'л')]
+                  # processing kavga : kavgi ~ kavzi (marked with ¦¦)
+                  elif '¦¦' in noun_form:
+                     noun_variants = [noun_form.replace('¦¦', '¦'), noun_form.replace('¦¦', '')]
                   # processing forms like akcenat/akcent (marked with Ъ)
                   elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
                      noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ꚜ')]
@@ -268,11 +280,11 @@ class Noun(PartOfSpeech):
                yield nice_name(label), list(OrderedSet(result))
 
       else:
-         for label in self.amendments:
+         for label, am_forms in self.amendments.items():
             result = [
                self._expose(form, yat, latin)
                for form in
-               [expose_replacement(form, yat, latin) for form in self.amendments[label]]
+               [expose_replacement(form, yat, latin) for form in am_forms]
             ]
             yield nice_name(label), list(OrderedSet(result))
 
