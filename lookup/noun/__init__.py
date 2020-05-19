@@ -160,16 +160,17 @@ class Noun(PartOfSpeech):
          # 3 handling yers and predefining retractions
          retraction = [0]
          if self.label('m'):
-            if ('ъ' in stem or 'ꚜ' in stem) and current_AP in accent \
-               and current_AP in ('a:', 'b:', 'c:', 'f.'):
-               retraction = [2] # Макѐдо̄на̄ца̄, но̏ва̄ца̄
+            if ('ъ' in stem or 'ꚜ' in stem) and current_AP in accent and current_AP == 'b:':
+               retraction = [2, 1] #  Макѐдо̄на̄ца̄ & Македóна̄ца̄
+            elif ('ъ' in stem or 'ꚜ' in stem) and current_AP in accent and current_AP in ('a:',  'c:', 'f.'):
+               retraction = [2] # но̏ва̄ца̄
             elif 'd' in current_AP and 'œв' in stem: # у́до̄ва̄
                retraction = [1]
             elif pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
                and current_AP not in accent:
                if current_AP == 'a.':
                   retraction = [1] # је̏зӣка̄
-            elif 'b.' in current_AP and ('ъц' in stem) and 'œ' in stem:
+            elif 'b.' in current_AP and 'ъц' in stem and 'œ' in stem:
                   retraction = [1] # о̀че̄ва̄
             elif 'œв' in stem and 'c?' in current_AP:
                retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄

@@ -59,7 +59,7 @@ def test_ije():
 
    l = lookup("вијенац", input_yat="ije", output_yat="e")
    assert len(l) == 1
-   assert l[0]["pl gen"].multiform == ["ве̑на̄ца̄"]
+   assert l[0]["pl gen"].multiform == ["ве̑на̄ца̄", "ве́на̄ца̄"]
 
 def test_ije2():
    l = lookup("реч", input_yat="e", output_yat="ije")
@@ -97,7 +97,8 @@ def test_sluchaj():
    assert lookup("случај")["pl dat"].multiform == ['случајѐвима', 'слу̏чајевима', 'случа́јима', 'слу̏ча̄јима']
 
 def test_apB():
-   assert [a for _, [a] in lookup("пиљак")["gen"]] == ["пи́љка", "пи̑ља̄ка̄"]
+   assert lookup("пиљак")["sg gen"].multiform == ["пи́љка"]
+   assert lookup("пиљак")["pl gen"].multiform == ["пи̑ља̄ка̄", "пи́ља̄ка̄"]
    assert lookup("грош")["pl gen"].multiform == ["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"]
    assert [a for _, [a] in lookup("аминаш")["nom"]] == ["амѝна̄ш", "амина́ши"]
 
@@ -106,7 +107,7 @@ def test_gpl():
    assert set(lookup("грош")["pl gen"].multiform) == set(["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"])
    assert set(lookup("бик")["pl gen"].multiform) == set(["би̏ко̄ва̄", "бѝко̄ва̄"])
    assert lookup("аманет")["pl gen"].multiform == ["ама́не̄та̄"]
-   assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄"]
+   assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄", "Македо́на̄ца̄"]
    assert lookup("новац")["pl gen"].multiform == ["но̏ва̄ца̄"]
    assert lookup("пуж")["pl gen"].multiform == ["пу́же̄ва̄", "пу́жа̄"]
    # TODO: нѐпце : не̏ба̄ца̄ when neuter is ready
