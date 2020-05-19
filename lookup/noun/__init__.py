@@ -169,11 +169,11 @@ class Noun(PartOfSpeech):
                and current_AP not in accent:
                if current_AP == 'a.':
                   retraction = [1] # је̏зӣка̄
-            elif 'b.' in current_AP and ('ъ' in stem or 'ꚜ' in stem) and 'œ' in stem:
+            elif 'b.' in current_AP and ('ъц' in stem) and 'œ' in stem:
                   retraction = [1] # о̀че̄ва̄
             elif 'œв' in stem and 'c?' in current_AP:
                retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
-            elif 'œв' in stem and 'b' in current_AP and 'ъ' not in stem and 'ꚜ' not in stem:
+            elif 'œв' in stem and 'b' in current_AP: #and 'ъ' not in stem and 'ꚜ' not in stem:
                retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          elif self.label('f'):
             if pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \

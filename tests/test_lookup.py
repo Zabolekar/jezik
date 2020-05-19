@@ -106,7 +106,6 @@ def test_gpl():
    assert set(lookup("грош")["pl gen"].multiform) == set(["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"])
    assert set(lookup("бик")["pl gen"].multiform) == set(["би̏ко̄ва̄", "бѝко̄ва̄"])
    assert lookup("аманет")["pl gen"].multiform == ["ама́не̄та̄"]
-   assert set(lookup("отац")["pl gen"].multiform) == set(["о̀че̄ва̄", "ота́ца̄"])
    assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄"]
    assert lookup("новац")["pl gen"].multiform == ["но̏ва̄ца̄"]
    assert lookup("пуж")["pl gen"].multiform == ["пу́же̄ва̄", "пу́жа̄"]
@@ -282,3 +281,18 @@ def test_gen_pl_i():
    assert "жа̀лбӣ" in lookup("жалба")["gen pl"].multiform
    assert "ја̀гмӣ" in lookup("јагма")["gen pl"].multiform
 #TODO ADD all 4 forms for metla
+
+def test_vol():
+   assert lookup("вол")["gen sg"].multiform == ["во̀ла"]
+   assert lookup("вол")["dat sg"].multiform == ["во̀лу"]
+   assert lookup("вол")["voc sg"].multiform == ["во̏ле"]
+   assert lookup("вол")["acc pl"].multiform == ["во̀лове"]
+   assert lookup("вол")["gen pl"].multiform == ["во̏ло̄ва̄", "во̀ло̄ва̄"]
+   assert lookup("вол")["ins pl"].multiform == ["во̀ловима"]
+
+def test_poslova():
+   assert {"по̏сло̄ва̄", "по̀сло̄ва̄"}.issubset(set(lookup("посао")["gen pl"].multiform))
+   assert {"ко̏тло̄ва̄", "ко̀тло̄ва̄"}.issubset(set(lookup("котао")["gen pl"].multiform))
+   assert {"о̏гње̄ва̄", "о̀гње̄ва̄"}.issubset(set(lookup("огањ")["gen pl"].multiform))
+   assert "хр̥̏пто̄ва̄" not in set(lookup("хрбат")["gen pl"].multiform)
+   assert {"о̀че̄ва̄", "ота́ца̄", "о̀та̄ца̄"} == set(lookup("отац")["gen pl"].multiform)

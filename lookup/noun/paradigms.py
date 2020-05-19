@@ -26,43 +26,43 @@ class NounStem(NamedTuple):
 
 m_anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {
    'sg_acc': {
-      'in': [[AccentedTuple('ø·', 'b.b:e:f.q.')]],
-      'an': [[AccentedTuple('а·', 'b.b:e:f.q.')]]
+      'in': [[AccentedTuple('ø·', 'b.b:b?e:f.q.')]],
+      'an': [[AccentedTuple('а·', 'b.b:b?e:f.q.')]]
    },
    'sg_loc': {
-      'an': [[AccentedTuple('у·', 'b.b:e:f.q.')]],
-      'in': [[AccentedTuple('у·', 'b.b:c:c?d:e:f.q.')], [AccentedTuple('у·', 'b.b:e:f.q.')]]
+      'an': [[AccentedTuple('у·', 'b.b:b?e:f.q.')]],
+      'in': [[AccentedTuple('у·', 'b.b:b?c:c?d:e:f.q.')], [AccentedTuple('у·', 'b.b:b?e:f.q.')]]
    }
 }
 
 male_gen_pl_marked = [
-   [AccentedTuple(f'<а·{cmacron}', 'b.b:')],
-   [AccentedTuple(f'<а·{cmacron}', 'b.b:e:')]
+   [AccentedTuple(f'<а·{cmacron}', 'b.b:b?')],
+   [AccentedTuple(f'<а·{cmacron}', 'b.b:b?e:')]
 ]
 
 female_gen_pl_i = [AccentedTuple(f'и·{cmacron}', 'b.c.c:g.g:')]
 
 def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
-   ov = AccentedTuple('>œ·в', 'b.b:c?d:e:f.')
+   ov = AccentedTuple('>œ·в', 'b.b:b?c?d:e:f.')
 
    suffixed_plurals = [
        [[AccentedTuple('ʹи·', '')]],
        [[AccentedTuple('е·', '')]],
-       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?b0d:')], male_gen_pl_marked[0]],
+       [[AccentedTuple(f'<а·{cmacron}', 'b.b:b?c:c?b0d:')], male_gen_pl_marked[0]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
-       [[AccentedTuple('ʹи0·', 'b.b:c:c?b0q.')]]
+       [[AccentedTuple('ʹи0·', 'b.b:b?c:c?b0q.')]]
    ]
 
    free_plurals = [
-       [[AccentedTuple('ʹи·', 'b.b:e:q.')]],
-       [[AccentedTuple('е·', 'b.b:e:q.')]],
-       [[AccentedTuple(f'<а·{cmacron}', 'b.b:c:c?b0d:e:')], male_gen_pl_marked[1]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
-       [[AccentedTuple('ʹи·ма', 'b.b:c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:e:q.')]],
-       [[AccentedTuple('ʹи0·', 'b.b:c:c?b0q.')]]
+       [[AccentedTuple('ʹи·', 'b.b:b?e:q.')]],
+       [[AccentedTuple('е·', 'b.b:b?e:q.')]],
+       [[AccentedTuple(f'<а·{cmacron}', 'b.b:b?c:c?b0d:e:')], male_gen_pl_marked[1]],
+       [[AccentedTuple('ʹи·ма', 'b.b:b?c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:b?e:q.')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:b?c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:b?e:q.')]],
+       [[AccentedTuple('ʹи·ма', 'b.b:b?c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:b?e:q.')]],
+       [[AccentedTuple('ʹи0·', 'b.b:b?c:c?b0q.')]]
    ]
    if suff == '+':
       return [[[ov] + a for a in plural] for plural in suffixed_plurals]
@@ -80,8 +80,8 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
 def m_instr(stem: str) -> List[List[AccentedTuple]]:
    lvi = last_vowel_index(stem)
 
-   em = [AccentedTuple('е·м', 'b.b:e:f.q.')]
-   om = [AccentedTuple('о·м', 'b.b:e:f.q.')]
+   em = [AccentedTuple('е·м', 'b.b:b?e:f.q.')]
+   om = [AccentedTuple('о·м', 'b.b:b?e:f.q.')]
 
    if lvi is None:
       result = [om]
@@ -101,8 +101,8 @@ def m_instr(stem: str) -> List[List[AccentedTuple]]:
    return result
 
 def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
-   u = [AccentedTuple('у0·', 'b.b:c:c?b0d:e:f.q.')]
-   e = [AccentedTuple('ʺе0·', 'b.b:c:c?b0d:e:f.q.')]
+   u = [AccentedTuple('у0·', 'b.b:b?c:c?b0d:e:f.q.')]
+   e = [AccentedTuple('ʺе0·', 'b.b:b?c:c?b0d:e:f.q.')]
 
    if stem.endswith('рʲ'): # цар
       return [u, e]
@@ -122,10 +122,10 @@ def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
 
 def c_m(stem: str, suff: str, anim: str) -> NounStem:
    m_singular_ = [
-         [[AccentedTuple('ø·', 'b.b:e:f.q.')]],
+         [[AccentedTuple('ø·', 'b.b:b?e:f.q.')]],
    m_anim_dict['sg_acc'][anim],
-   [[AccentedTuple('а·', 'b.b:e:f.q.')]],
-   [[AccentedTuple('у·', 'b.b:e:f.q.')]],
+   [[AccentedTuple('а·', 'b.b:b?e:f.q.')]],
+   [[AccentedTuple('у·', 'b.b:b?e:f.q.')]],
    m_instr(stem),
    m_anim_dict['sg_loc'][anim],
    m_voc(stem, anim)
