@@ -104,8 +104,7 @@ class PartOfSpeech():
 
          # first we delete '>' (= delete all macrons in the word)
          # then we delete '<' (= lengthen the last vowel in the stem)
-
-         if morpheme.startswith('>') and current_AP in ['d:', 'e:', 'f.']:
+         if morpheme.startswith('>') and current_AP in ['d:', 'b:', 'f.']:
             morpheme = morpheme.replace('>', '')
          connectenda += self._delete_left_bracket(stem, morpheme, accent, current_AP)
 

@@ -104,8 +104,9 @@ def test_apB():
 
 def test_gpl():
    assert lookup("језик")["pl gen"].multiform == ["је̏зӣка̄"]
-   assert set(lookup("грош")["pl gen"].multiform) == set(["гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"])
-   assert set(lookup("бик")["pl gen"].multiform) == set(["би̏ко̄ва̄", "бѝко̄ва̄"])
+   assert set(lookup("грош")["pl gen"].multiform) == {"гро̏ше̄ва̄", "гро̀ше̄ва̄", "гро́ша̄"}
+   assert set(lookup("бик")["pl gen"][0].multiform) == {"би̑ко̄ва̄", "би́ко̄ва̄"}
+   assert set(lookup("бик")["pl gen"][1].multiform) == set(["би̏ко̄ва̄", "бѝко̄ва̄"])
    assert lookup("аманет")["pl gen"].multiform == ["ама́не̄та̄"]
    assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄", "Македо́на̄ца̄"]
    assert lookup("новац")["pl gen"].multiform == ["но̏ва̄ца̄"]
