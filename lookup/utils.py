@@ -179,8 +179,8 @@ _prettify_big_palatalization: List[Tuple[str, str]] = [
    #('слȷ', 'шљ'), ('злȷ', 'жљ'),
    # back into regular string replaces, see `_prettify_simple_palatalization`
    ('т?кʹ', 'ц'), #('гʹ', 'з'), ('хʹ', 'с'),
-   ('с[кц]ʺе', 'шче'),
-   ('[кц]ʺе', 'че') #, ('гʺ', 'ж'), ('хʺ', 'ш')
+   ('с[кц]¦?ʺе', 'шче'),
+   ('[кц]¦?ʺе', 'че') #, ('гʺ', 'ж'), ('хʺ', 'ш')
 ]
 
 _prettify_big_palatalization_c: List[Tuple[Pattern, str]]

@@ -85,7 +85,7 @@ def m_instr(stem: str) -> List[List[AccentedTuple]]:
 
    if lvi is None:
       result = [om]
-   elif stem.endswith('ʲ') or stem.endswith('тељ'): # пријатељ
+   elif stem.endswith('ʲ') or stem.endswith('тељ') and not stem.endswith('ирʲ'): # пријатељ, сир
       result = [em, om] # плашт, дажд, пут, нос, курс, појас, цар
    elif stem.endswith('ъц'): # отац, палац
       result = [em]
@@ -137,20 +137,20 @@ def c_m(stem: str, suff: str, anim: str) -> NounStem:
 
 
 f_declension_a = [
-   [[AccentedTuple('а·', 'b.c.c:g.g:')]],
-   [[AccentedTuple('у·', 'b.g.g:')]],
-   [[AccentedTuple(f'е·{cmacron}', 'b.c.c:g.g:')]],
-   [[AccentedTuple('ʹи·', 'b.g.g:')]],
-   [[AccentedTuple(f'о·{cmacron}м', 'b.c.c:g.g:')]],
-   [[AccentedTuple('ʹи·', 'b.c.c:g.g:')]],
-   [[AccentedTuple('о0·', 'b.')]], # TODO: add o/u/e-rule
-   [[AccentedTuple('е·', 'b.')]],
-   [[AccentedTuple('e·', 'b.')]],
-   [[AccentedTuple(f'<а·{cmacron}', 'b.c.c:g.g:')]],
-   [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
-   [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
-   [[AccentedTuple('а·ма', 'b.c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.c.c:g.g:')]],
-   [[AccentedTuple('е0·', 'b.')]]
+   [[AccentedTuple('а·', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('у·', 'b.b:g.g:')]],
+   [[AccentedTuple(f'е·{cmacron}', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('ʹи·', 'b.b:g.g:')]],
+   [[AccentedTuple(f'о·{cmacron}м', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('ʹи·', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('о0·', 'b.b:')]], # TODO: add o/u/e-rule
+   [[AccentedTuple('е·', 'b.b:')]],
+   [[AccentedTuple('e·', 'b.b:')]],
+   [[AccentedTuple(f'<а·{cmacron}', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple('е·', 'b.b:')]]
 ]
 
 f_declension_yer = [
