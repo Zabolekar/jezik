@@ -71,3 +71,18 @@ def test_paradigms():
                assert paradigm == '0', paradigm + " " + inner_key
             elif len(paradigm) > 0:
                raise ValueError("bad paradigm len: " + paradigm + " " + inner_key)
+
+def test_yaml_suffixes():
+   """
+   Ensure that every ambiguous word has a suffix
+   and that the suffixes are Roman numerals only.
+   Also good for findind possible duplicates.
+   """
+   roman = ('I', 'II', 'III', 'IV', 'V', 'VI', 'VII')
+   for outer_key, yat_mode in data._outer_to_inner:
+      myentries = list(data[(outer_key.lower(), yat_mode)])
+      if len(myentries) > 1:
+         for _, entry in myentries:
+            cpt = entry.caption
+            assert ':' in cpt, [x[1].accented_keys for x in myentries]
+            assert cpt[:cpt.find(':')] in roman, cpt + " " + entry.accented_keys

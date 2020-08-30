@@ -114,19 +114,28 @@ _deyerify_pat2_c: Pattern = re.compile(f'[бвгдђжзјклʌљмнњпрṕ�
 _deyerify_translator = str.maketrans({
    'ø': None,
    'ъ': 'а',
-   'ꚜ': 'а'})
+   'ꚜ': 'а',
+   'ꙏ': 'а'
+})
 
 def deyerify(form: str) -> str:
    repl_dict = _deyerify_repl_dict
    re1 = _deyerify_pat1_c
    re2 = _deyerify_pat2_c
+
+   two_yers = form.count('ъ') == 2 # зајутрак, зајутарка; probably not the best place to do it
+
    if 'ø' in form:
+      if two_yers and not '>' in form:
+         form = form.replace('ъ', '', 1)
       form = form.translate(_deyerify_translator)
    else:
+      if two_yers:
+         form = form.replace('ъ', f'а{cmacron}', 1).replace('ъ', '')
       form = re1.sub(f'\\1{cmacron}\\2ъ', form)
       for repl in repl_dict:
          form = form.replace(repl, repl_dict[repl])
-      form = form.replace('ъ', '').replace('ꚜ', '')
+      form = form.replace('ъ', '').replace('ꚜ', '').replace('ꙏ', '')
    match = re2.search(form)
    if match:
       wrong_acc_index = match.span()[0]

@@ -1,3 +1,4 @@
+from re import sub as rsub
 from typing import Callable, Dict, List, Iterator, Optional, Tuple
 from ..pos import PartOfSpeech, Replacement
 from ..utils import (
@@ -258,7 +259,10 @@ class Noun(PartOfSpeech):
                      noun_variants = [noun_form.replace('¦¦', '¦'), noun_form.replace('¦¦', '')]
                   # processing forms like žet(a)va
                   elif 'ꙏ' in noun_form:
-                     noun_variants = [noun_form.replace('ꙏ', 'ъ'), noun_form.replace('ꙏ', '')]
+                     noun_variants = [
+                        noun_form.replace('ꙏ', 'ъ'),
+                        rsub('([лмнрјв]ꙏ)', f'{cmacron}\\1', noun_form).replace('ꙏ', '')
+                     ]
                   # processing forms like akcenat/akcent (marked with Ъ)
                   elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
                      noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ꚜ')]

@@ -58,4 +58,5 @@ for full_key in raw_data.keys():
       tuple(replacements.items()),
       tuple(amendments.items())
    )
+
    data[unaccented_keys[0]] = new_entry
