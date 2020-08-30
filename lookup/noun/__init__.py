@@ -178,7 +178,7 @@ class Noun(PartOfSpeech):
                retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          elif self.label('f'):
             if pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
-               and current_AP not in accent:
+               and current_AP not in accent and current_AP not in ('a¡'):
                retraction = [1] # па̏ртӣја̄
 
          if not 'œ' in stem: # TODO one day think about better condition
@@ -256,6 +256,9 @@ class Noun(PartOfSpeech):
                   # processing kavga : kavgi ~ kavzi (marked with ¦¦)
                   elif '¦¦' in noun_form:
                      noun_variants = [noun_form.replace('¦¦', '¦'), noun_form.replace('¦¦', '')]
+                  # processing forms like žet(a)va
+                  elif 'ꙏ' in noun_form:
+                     noun_variants = [noun_form.replace('ꙏ', 'ъ'), noun_form.replace('ꙏ', '')]
                   # processing forms like akcenat/akcent (marked with Ъ)
                   elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
                      noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ꚜ')]

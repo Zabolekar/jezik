@@ -40,6 +40,8 @@
 
 * **Ъ** = **ъ** or zero (two variants) before an ending containing **ø**, else **ъ**
 
+* **ꙏ** = **ъ** or zero (two variants) in Gen Pl
+
 * **!** = marker of non-initial falling tone
 
 * **ʌ** = **о** before a fallen yer, **л** elsewhere
