@@ -65,6 +65,47 @@ class PartOfSpeech():
       # see a huge algorithm with the same name in Noun
       return [[stem, morpheme]]
 
+   def _connectendum(
+      self,
+      current_AP: str,
+      stem: str,
+      ending_part: AccentedTuple
+   ) -> List[List[str]]:
+      # processing syllable 'r'
+      morpheme, accent = ending_part.morpheme, ending_part.accent
+      if self.kind.startswith('V') and len(self.kind.split("\\")) > 3:
+         stem_ = stem.replace(cmacron, '')
+         morpheme_ = ''.join([x for x in morpheme if x.isalpha() and x not in "ʹʺ"])
+         if stem_[-1] == 'р' and stem_[-2] not in all_vowels and morpheme_:
+            if morpheme_[0] not in all_vowels:
+               stem = stem + cring
+               stem = stem.replace(cmacron + cring, cring + cmacron)
+
+         if stem.endswith('р' + cmacron) and morpheme_:
+            if morpheme_[0] in all_vowels:
+               stem = stem[:-1]
+
+      # declickify (ʘ) -- special double '0' in nesti-verbs
+      if self.kind.startswith('V'):
+         if current_AP in 'eʹxʺ':
+            morpheme = morpheme.replace('ʘ', '')
+      morpheme = morpheme.replace('ʘ', '0')
+
+      # TODO de...WHAT?...ify
+      if current_AP not in ('c:', 'g:'):
+         morpheme = morpheme.replace('>>', '')
+
+      # deleting the first of two accents (is it OK to have it here?)
+      if current_AP in accent and cstraight in stem:
+         stem = stem.replace(cstraight, '')
+
+      # first we delete '>' (= delete all macrons in the word)
+      if morpheme.startswith('>') and current_AP in ['d:', 'b:', 'f.']:
+         morpheme = morpheme.replace('>', '')
+
+      # then we delete '<' (= lengthen the last vowel in the stem)
+      return self._delete_left_bracket(stem, morpheme, accent, current_AP)
+
    def _append_morpheme(
       self,
       current_AP: str,
@@ -73,40 +114,8 @@ class PartOfSpeech():
    ) -> List[str]:
 
       connectenda: List[List[str]] = []
-
       for stem in stems:
-         # syllable 'r'
-         morpheme, accent = ending_part.morpheme, ending_part.accent
-         if self.kind.startswith('V') and len(self.kind.split("\\")) > 3:
-            stem_ = stem.replace(cmacron, '')
-            morpheme_ = ''.join([x for x in morpheme if x.isalpha() and x not in "ʹʺ"])
-            if stem_[-1] == 'р' and stem_[-2] not in all_vowels and morpheme_:
-               if morpheme_[0] not in all_vowels:
-                  stem = stem + cring
-                  stem = stem.replace(cmacron + cring, cring + cmacron)
-
-            if stem.endswith('р' + cmacron) and morpheme_:
-               if morpheme_[0] in all_vowels:
-                  stem = stem[:-1]
-
-         # declickify (ʘ) -- special double '0' in nesti-verbs
-         if self.kind.startswith('V'):
-            if current_AP in 'eʹxʺ':
-               morpheme = morpheme.replace('ʘ', '')
-         morpheme = morpheme.replace('ʘ', '0')
-
-         if current_AP not in ('c:', 'g:'):
-            morpheme = morpheme.replace('>>', '')
-
-         # deleting the first of two accents (is it OK to have it here?)
-         if current_AP in accent and cstraight in stem:
-            stem = stem.replace(cstraight, '')
-
-         # first we delete '>' (= delete all macrons in the word)
-         # then we delete '<' (= lengthen the last vowel in the stem)
-         if morpheme.startswith('>') and current_AP in ['d:', 'b:', 'f.']:
-            morpheme = morpheme.replace('>', '')
-         connectenda += self._delete_left_bracket(stem, morpheme, accent, current_AP)
+         connectenda += self._connectendum(current_AP, stem, ending_part)
 
       # if this ending_part IS ACCENTED in this AP,
       # then first we delete the now unnecessary accent in the stem in case it is there;
@@ -121,7 +130,7 @@ class PartOfSpeech():
 
       for pair in connectenda:
          # accentizing endings (?)
-         if current_AP in accent:
+         if current_AP in ending_part.accent:
             if cstraight in pair[0] and not '0' in pair[1]:
                # e.g. ['Аргенти̍·̄на̄ц', 'а̄'] or ['вр̥х>œ̍̄в', 'а̄']
                pair[1] = pair[1].replace('·', '')
@@ -157,15 +166,17 @@ class PartOfSpeech():
       iterative:bool=True
    ) -> List[str]:
 
+       # all ʲ-stems except рʲ-stems have two variants of œ-endings:
+       # one of them is soft (nosem, putevi), the other hard (nosom, putovi)
       if stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morphChain[0].morpheme:
-         iterable_form = [stem, stem[:-1]]
+         iterable_form = [stem, stem[:-1]] # putʲ, put
       else:
          iterable_form = [stem]
 
-      if iterative:
-
-         for submorph in morphChain: # w is submorph in ending, like -ov- and -i in bog-ov-i
+      if iterative: # TODO write here WHEN iterative is True
+         for submorph in morphChain: # -ov- and -i in bog-ov-i are submorphs
             iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
          return iterable_form
-      else:
+      else: # TODO when?
          return self._append_morpheme(current_AP, iterable_form, morphChain[0])
+      # TODO apparently morphChain is of len 1, but what if it's not?

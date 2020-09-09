@@ -6,7 +6,7 @@ from re import compile as rcompile
 from .utils import insert, all_vowels, expose
 from .charutils import cring, real_accent
 
-oa = ['o.', 'o:', 'a.', 'a:', 'a!']
+oa = ['o.', 'o:', 'a.', 'a:', 'a!', 'a¡']
 T = TypeVar('T')
 
 _r = rcompile(r"([a-z]+|[A-Z]|\d)")

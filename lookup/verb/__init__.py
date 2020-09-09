@@ -20,7 +20,8 @@ class Verb(PartOfSpeech):
       kind: str,
       info: str,
       replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...]) -> None:
+      amendments: Tuple[Replacement, ...]
+   ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
       #Verb-only
       self.is_reflexive = self.label('Refl')
@@ -83,7 +84,11 @@ class Verb(PartOfSpeech):
 
       return result
 
-   def _current_trunk(self, i, label):
+   def _current_trunk(
+      self,
+      i: int,
+      label: str
+   ) -> str:
       if self.gram.MP[i] == 'kappa':
          formlist = ['prs', 'imv', 'pf', 'ipf']
       elif self.gram.MP[i] == 'kappa2':

@@ -76,7 +76,7 @@ def test_yaml_suffixes():
    """
    Ensure that every ambiguous word has a suffix
    and that the suffixes are Roman numerals only.
-   Also good for findind possible duplicates.
+   Also good for finding possible duplicates.
    """
    roman = ('I', 'II', 'III', 'IV', 'V', 'VI', 'VII')
    for outer_key, yat_mode in data._outer_to_inner:

@@ -103,7 +103,7 @@ class Noun(PartOfSpeech):
          elif '0' in AP: # 0 means that all forms are prescribed, not generated
             trunk = accented_trunk_
          else:
-            raise NotImplementedError
+            raise NotImplementedError(trunk_ + " " + accented_trunk_ + " " + AP)
          trunk = trunk.replace(f'{cmacron}·', f'·{cmacron}')
          trunk = trunk.replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
          result.append(trunk)
