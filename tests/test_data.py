@@ -2,10 +2,10 @@ from typing import List
 import pytest # type: ignore
 from ..lookup import lookup, data
 from ..lookup.charutils import four_accents, cmacron
-from ..lookup.paradigm_helpers import cut_AP
+from ..lookup.paradigm_helpers import cut_AP, has
 from ..lookup.table import LabeledMultiform
 
-def str_find(word: str, substr: str) -> int:
+def str_find(word:str, substr:str) -> int:
    found = word.find(substr)
    if found == -1:
       return len(word)
@@ -65,6 +65,7 @@ def test_paradigms():
          paradigms = [cut_AP(x) for x in word.info.split(";")]
          for paradigm in paradigms:
             assert isinstance(paradigm, str), paradigm + " " + inner_key
+            assert not has(paradigm, *tuple("абвгдеёжзийклмнопрстуфхцчшщъыьэюяљњјџћђ"))
             if len(paradigm) in (2, 3):
                assert paradigm[0].isalpha() and paradigm[1] in (".:!ʹʺ’¿¡?0"), paradigm+" "+inner_key
             elif len(paradigm) == 1:

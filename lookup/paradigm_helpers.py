@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Generic, Iterable, Tuple, TypeVar
+from typing import Dict, List, Optional, Generic, Iterable, Tuple, TypeVar, Union
 from collections import OrderedDict
 from dataclasses import dataclass
 from itertools import repeat
@@ -6,18 +6,28 @@ from re import compile as rcompile
 from .utils import insert, all_vowels, expose
 from .charutils import cring, real_accent
 
-oa = ['o.', 'o:', 'a.', 'a:', 'a!', 'a¡']
+oa = ['o.', 'o:', 'a.', 'a:', 'a!', 'a¡', 'a?', 'a¿']
 T = TypeVar('T')
 
 _r = rcompile(r"([a-z]+|[A-Z]|\d)")
-def nice_name(name: str) -> str:
+def nice_name(name:str) -> str:
    return " ".join(_r.findall(name))
 
+def has(word:Union[str, List[str]], *args:Tuple[str, ...]) -> bool:
+   """
+   Actually could've been called smth like "contains_any"
+   but we need some brevity here.
+   """
+   for arg in args:
+      if arg in word:
+         return True
+   return False
+
 def appendDef(
-   targetList: List[str],
-   inputList: List[str],
-   appendable: List[str],
-   defaultItem: str
+   targetList:List[str],
+   inputList:List[str],
+   appendable:List[str],
+   defaultItem:str
 ) -> List[str]:
    appended = False
    for item in inputList:
@@ -28,7 +38,7 @@ def appendDef(
       targetList.append(defaultItem)
    return targetList
 
-def accentize(word: str) -> str: # traditional accentuation
+def accentize(word:str) -> str: # traditional accentuation
    for k, v in real_accent.items():
       word = word.replace(k, v)
    return word
@@ -38,7 +48,7 @@ class Accents:
    r: Dict[int, str] # syllabic r
    v: Dict[int, str] # any other vowel
 
-def i_to_accents(line_accents: str) -> Accents:
+def i_to_accents(line_accents:str) -> Accents:
    if '@' in line_accents:
       Rs: Optional[str]
       Vs: str
@@ -49,7 +59,7 @@ def i_to_accents(line_accents: str) -> Accents:
    Vs_dict = {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
    return Accents(Rs_dict, Vs_dict)
 
-def cut_AP (x: str) -> str:
+def cut_AP (x:str) -> str:
    start = x.find('\\') + 1
    finish : Optional[int] = x.find('/')
    if finish == -1:
@@ -64,7 +74,7 @@ class GramInfo:
    reflexive) and one of "Pf", "Ipf", "Dv" (perfective, imperfective,
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
-   def __init__(self, kind: str, infos: List[str]) -> None:
+   def __init__(self, kind:str, infos:List[str]) -> None:
       # accents = []
       self.AP: List[str] = [] # accent paradigm
       self.MP: List[str] = [] # morphological paradigm
@@ -109,7 +119,7 @@ MorphemeChain = List[AccentedTuple]
 LabeledEnding = Tuple[str, List[MorphemeChain]]
 
 class OrderedSet(OrderedDict, Generic[T]):
-   def __init__(self, i: Iterable[T]) -> None:
+   def __init__(self, i:Iterable[T]) -> None:
       super().__init__(zip(i, repeat(None)))
 
    def __repr__(self) -> str:

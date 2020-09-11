@@ -1,23 +1,26 @@
 from re import sub as rsub
 from typing import Callable, Dict, List, Iterator, Optional, Tuple
+
+from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked, female_gen_pl_i
+from ..charutils import cmacron, cstraight
+from ..paradigm_helpers import (
+   AccentedTuple, MorphemeChain, OrderedSet, nice_name, oa,
+   accentize, appendDef, has
+)
 from ..pos import PartOfSpeech, Replacement
+from ..table import LabeledMultiform
 from ..utils import (
    deyerify, indices, insert, garde, ungarde, expose,
    last_vowel_index, first_vowel_index, expose_replacement
-   )
-from ..paradigm_helpers import (
-   AccentedTuple, MorphemeChain, OrderedSet, nice_name, oa, accentize, appendDef
-   )
-from ..table import LabeledMultiform
-from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked, female_gen_pl_i
-from ..charutils import cmacron, cstraight
+)
+
 
 def _apply_neocirk(
-   stem: str,
-   lvi: Optional[int],
-   pvi: Optional[int],
-   morpheme: str,
-   retraction: int
+   stem:str,
+   lvi:Optional[int],
+   pvi:Optional[int],
+   morpheme:str,
+   retraction:int
 ) -> List[str]: # do not change to Tuple
 
    """ neocircumflex is accent retraction from a newly long vowel;
@@ -33,19 +36,18 @@ def _apply_neocirk(
          stem = stem.replace(cstraight, '') # delete accent mark
          stem = insert(stem, {pvi+1: cstraight}) # add accent mark after pvi
          morpheme = morpheme.replace('·', '')
-      #else:
-         #raise IndexError(f"{stem} has not enough vowels for this operation")
    return [stem, morpheme]
+
 
 class Noun(PartOfSpeech):
    def __init__(
       self,
-      key: str,
-      accented_keys: str,
-      kind: str,
-      info: str,
-      replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...]
+      key:str,
+      accented_keys:str,
+      kind:str,
+      info:str,
+      replacements:Tuple[Replacement, ...],
+      amendments:Tuple[Replacement, ...]
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
 
@@ -59,7 +61,7 @@ class Noun(PartOfSpeech):
          self.anim = appendDef(self.anim, params, ['an'], 'in')
 
    @staticmethod
-   def _expose(form: str, yat:str="e", latin:bool=False) -> str:
+   def _expose(form:str, yat:str="e", latin:bool=False) -> str:
       return expose(form, yat, latin)
 
    def _trunk(self) -> List[str]:
@@ -67,6 +69,7 @@ class Noun(PartOfSpeech):
       keys = self.accented_keys
       for i, AP in enumerate(self.gram.AP):
          accented_noun = garde(accentize(keys[i]))
+
          if self.label("m") and not self.label('o') and not self.label('a'): # TODO rethink
             trunk_ = accented_noun.replace(cstraight, '')
             accented_trunk_ = accented_noun
@@ -83,7 +86,7 @@ class Noun(PartOfSpeech):
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
             accented_trunk_ = accented_noun[:-1]
 
-         if any(x in AP for x in 'cdfg'): # c, d, f (?), g are c-like paradigms
+         if has(AP, *tuple("cdfg")): # c, d, f (?), g are c-like paradigms
             if not self.key.endswith('а'):
                trunk = accented_trunk_.replace(cstraight, '·')
             else:
@@ -92,7 +95,7 @@ class Noun(PartOfSpeech):
                   trunk = trunk_
                else:
                   trunk = insert(trunk_, {fvi: '·'})
-         elif any(x in AP for x in 'beq'): # b, e, q are b-like paradigms
+         elif has(AP, 'b', 'e', 'q'): # b, e, q are b-like paradigms
             lvi = last_vowel_index(trunk_)
             if lvi is None:
                trunk = trunk_
@@ -104,20 +107,22 @@ class Noun(PartOfSpeech):
             trunk = accented_trunk_
          else:
             raise NotImplementedError(trunk_ + " " + accented_trunk_ + " " + AP)
+
          trunk = trunk.replace(f'{cmacron}·', f'·{cmacron}')
          trunk = trunk.replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
          result.append(trunk)
+
       return result
 
    @staticmethod
    def _noun_form_is_possible(
-      noun_form: str,
-      variation: List[AccentedTuple],
-      paradigm: str
+      noun_form:str,
+      variation:List[AccentedTuple],
+      paradigm:str
    ) -> bool:
       if first_vowel_index(noun_form) != last_vowel_index(noun_form):
          return True
-      if all(x not in paradigm for x in 'cde0'):
+      if not has(paradigm, 'c', 'd', 'e', '0'):
          return True
       if variation not in male_gen_pl_marked:
          return True
@@ -125,10 +130,10 @@ class Noun(PartOfSpeech):
 
    def _delete_left_bracket(
       self,
-      stem: str,
-      morpheme: str,
-      accent: str,
-      current_AP: str
+      stem:str,
+      morpheme:str,
+      accent:str,
+      current_AP:str
    ) -> List[List[str]]:
       """
       This function is so far for nouns only.
@@ -154,21 +159,22 @@ class Noun(PartOfSpeech):
 
          # 2 handling óvca > ovácā and óvan > ovánā
          if cmacron in stem:
-            if (self.label("f") and current_AP in ('c:', 'g:')) \
-               or (self.label("m") and current_AP in ('a¿') and not 'œ' in stem):
+            if (
+               (self.label("f") and current_AP in ('c:', 'g:')) or
+               (self.label("m") and current_AP in ('a¿') and not 'œ' in stem)
+            ):
                stem = stem.replace(cmacron, '')
 
          # 3 handling yers and predefining retractions
          retraction = [0]
          if self.label('m'):
-            if ('ъ' in stem or 'ꚜ' in stem) and current_AP in accent and current_AP == 'b:':
+            if has(stem, 'ъ', 'ꚜ') and current_AP in accent and current_AP == 'b:':
                retraction = [2, 1] #  Макѐдо̄на̄ца̄ & Македóна̄ца̄
-            elif ('ъ' in stem or 'ꚜ' in stem) and current_AP in accent and current_AP in ('a:',  'c:', 'f.'):
+            elif has(stem, 'ъ', 'ꚜ') and current_AP in accent and current_AP in ('a:', 'c:', 'f.'):
                retraction = [2] # но̏ва̄ца̄
             elif 'd' in current_AP and 'œв' in stem: # у́до̄ва̄
                retraction = [1]
-            elif pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
-               and current_AP not in accent:
+            elif pvi is not None and not has(stem, 'ъ', 'ꚜ') and current_AP not in accent:
                if current_AP == 'a.':
                   retraction = [1] # је̏зӣка̄
             elif 'b.' in current_AP and 'ъц' in stem and 'œ' in stem:
@@ -178,7 +184,7 @@ class Noun(PartOfSpeech):
             elif 'œв' in stem and 'b' in current_AP: #and 'ъ' not in stem and 'ꚜ' not in stem:
                retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          elif self.label('f'):
-            if pvi is not None and 'ъ' not in stem and 'ꚜ' not in stem \
+            if pvi is not None and not has(stem, 'ъ', 'ꚜ') \
                and current_AP not in accent and current_AP not in ('a¡'):
                retraction = [1] # па̏ртӣја̄
 
@@ -205,7 +211,7 @@ class Noun(PartOfSpeech):
       else:
          result = [[stem, morpheme]]
 
-      return [[x[0], x[1].replace('<', '')] for x in result]
+      return [[base, aff.replace('<', '')] for (base, aff) in result]
 
    def _paradigm_to_forms(
       self,
@@ -214,6 +220,11 @@ class Noun(PartOfSpeech):
       yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
+      """
+      Takes the SELF (i.e. whole info about the word) with additional parameters
+      and produces the whole inflection table, yielding form by form.
+      Still, only one paradigm at a time is produced.
+      """
 
       start_AP = self.gram.AP[i].replace('?', '.')
       target_AP = self.gram.AP[i].replace('?', '.')
@@ -257,7 +268,7 @@ class Noun(PartOfSpeech):
                   # processing kavga : kavgi ~ kavzi (marked with ¦¦)
                   elif '¦¦' in noun_form:
                      noun_variants = [noun_form.replace('¦¦', '¦'), noun_form.replace('¦¦', '')]
-                  # processing forms like žet(a)va
+                  # processing forms like žet(a)va (marked with ꙏ)
                   elif 'ꙏ' in noun_form:
                      noun_variants = [
                         noun_form.replace('ꙏ', 'ъ'),
@@ -273,9 +284,11 @@ class Noun(PartOfSpeech):
 
                   for noun_variant in noun_variants:
                      if self._noun_form_is_possible(
-                        noun_variant, ending_variation, self.gram.AP[i]):
+                        noun_variant, ending_variation, self.gram.AP[i]
+                     ):
                         new_ready_form = self.process_one_form(
-                           self.gram.AP[i], noun_variant, ending_variation)
+                           self.gram.AP[i], noun_variant, ending_variation
+                        )
                         ready_forms += new_ready_form
 
                if label in self.amendments:
@@ -300,11 +313,14 @@ class Noun(PartOfSpeech):
    def multiforms(
       self,
       *,
-      variant: Optional[int] = None,
+      variant:Optional[int]=None,
       yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
-      """decline"""
+      """decline
+      Launch _paradigm_to_forms as many times as needed,
+      i.e. as many different accentuations a word has.
+      """
       for i, _ in enumerate(self.gram.AP):
          if not (variant is not None and variant != i):
             yield from self._paradigm_to_forms(i, False, yat, latin)

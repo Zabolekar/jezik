@@ -15,12 +15,12 @@ infinitive_dict: Dict[str, str] = {
 class Verb(PartOfSpeech):
    def __init__(
       self,
-      key: str,
-      accented_keys: str,
-      kind: str,
-      info: str,
-      replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...]
+      key:str,
+      accented_keys:str,
+      kind:str,
+      info:str,
+      replacements:Tuple[Replacement, ...],
+      amendments:Tuple[Replacement, ...]
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
       #Verb-only
@@ -30,13 +30,13 @@ class Verb(PartOfSpeech):
 
    # Verb-only
    @staticmethod
-   def _verb_form_is_possible(label: str, aspect: List[str]) -> bool:
+   def _verb_form_is_possible(label:str, aspect:List[str]) -> bool:
       if label.startswith('ipf'):
          return not 'Pf' in aspect
       return True
 
    # Verb-specific
-   def _expose(self, form: str, yat:str="e", latin:bool=False) -> str:
+   def _expose(self, form:str, yat:str="e", latin:bool=False) -> str:
       form = expose(form, yat, latin)
       if self.is_reflexive:
          if latin:
@@ -86,8 +86,8 @@ class Verb(PartOfSpeech):
 
    def _current_trunk(
       self,
-      i: int,
-      label: str
+      i:int,
+      label:str
    ) -> str:
       if self.gram.MP[i] == 'kappa':
          formlist = ['prs', 'imv', 'pf', 'ipf']
@@ -102,8 +102,8 @@ class Verb(PartOfSpeech):
 
    def _paradigm_to_forms(
       self,
-      i: int,
-      length_inconstancy: bool,
+      i:int,
+      length_inconstancy:bool,
       yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
@@ -141,7 +141,7 @@ class Verb(PartOfSpeech):
    def multiforms(
       self,
       *,
-      variant: Optional[int] = None,
+      variant:Optional[int]=None,
       yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:

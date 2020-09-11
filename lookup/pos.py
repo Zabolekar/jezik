@@ -4,7 +4,7 @@ from .utils import first_vowel_index, last_vowel_index, insert
 from .charutils import all_vowels, cstraight, cmacron, cring
 from .data.multidict import Replacement
 
-def _swap(trunk: str) -> str:
+def _swap(trunk:str) -> str:
    """this function swaps last vowel of given trunk
    from long to short and vice versa"""
    lvi = last_vowel_index(trunk)
@@ -23,12 +23,12 @@ def _swap(trunk: str) -> str:
 class PartOfSpeech():
    def __init__(
       self,
-      key: str,
-      accented_keys: str,
-      kind: str,
-      info: str,
-      replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...]
+      key:str,
+      accented_keys:str,
+      kind:str,
+      info:str,
+      replacements:Tuple[Replacement, ...],
+      amendments:Tuple[Replacement, ...]
    ) -> None:
       self.accented_keys = accented_keys.split(",")
       self.kind = kind
@@ -41,7 +41,7 @@ class PartOfSpeech():
       return lbl in self.gram.other
 
    @staticmethod
-   def accentize(current_AP: str, word: str) -> str:
+   def accentize(current_AP:str, word:str) -> str:
       if current_AP not in oa:
          word = word.replace(cstraight, '')
       if cstraight not in word: # straight
@@ -49,7 +49,12 @@ class PartOfSpeech():
       return word.replace('·', '')
 
    @staticmethod
-   def swap(trunk: str, length_inconstant: bool, AP: str, target_AP: str) -> str:
+   def swap(
+      trunk:str,
+      length_inconstant:bool,
+      AP:str,
+      target_AP:str
+   ) -> str:
       """ swap words like boos ~ bosa, otherwise pass"""
       if length_inconstant and AP != target_AP:
          return _swap(trunk)
@@ -57,20 +62,30 @@ class PartOfSpeech():
 
    def _delete_left_bracket(
       self,
-      stem: str,
-      morpheme: str,
-      accent: str,
-      current_AP: str
+      stem:str,
+      morpheme:str,
+      accent:str,
+      current_AP:str
    ) -> List[List[str]]:
-      # see a huge algorithm with the same name in Noun
+      """
+      This function is a stub by default, e.g. in Adj and Verb.
+      See a huge algorithm with the same name in Noun, though.
+      """
       return [[stem, morpheme]]
 
    def _connectendum(
       self,
-      current_AP: str,
-      stem: str,
-      ending_part: AccentedTuple
+      current_AP:str,
+      stem:str,
+      ending_part:AccentedTuple
    ) -> List[List[str]]:
+
+      """
+      Prepairs a list of morpheme pairs to be glued together.
+      All of them are different possible variants of the same pair,
+      with different morphological rules applied.
+      """
+
       # processing syllable 'r'
       morpheme, accent = ending_part.morpheme, ending_part.accent
       if self.kind.startswith('V') and len(self.kind.split("\\")) > 3:
@@ -108,9 +123,9 @@ class PartOfSpeech():
 
    def _append_morpheme(
       self,
-      current_AP: str,
-      stems: List[str],
-      ending_part: AccentedTuple
+      current_AP:str,
+      stems:List[str],
+      ending_part:AccentedTuple
    ) -> List[str]:
 
       connectenda: List[List[str]] = []
@@ -128,29 +143,32 @@ class PartOfSpeech():
 
       result = []
 
-      for pair in connectenda:
+      for (base, aff) in connectenda:
          # accentizing endings (?)
          if current_AP in ending_part.accent:
-            if cstraight in pair[0] and not '0' in pair[1]:
+            if cstraight in base and not '0' in aff:
                # e.g. ['Аргенти̍·̄на̄ц', 'а̄'] or ['вр̥х>œ̍̄в', 'а̄']
-               pair[1] = pair[1].replace('·', '')
+               aff = aff.replace('·', '')
             if 'q' in current_AP:
-               pair[1] = pair[1].replace('0', '')
-            pair[1] = pair[1].replace('·', cstraight)
-            pair[0] = pair[0].replace('·', '')
+               # q is a very strict AP, no '0'-morpheme has right to act
+               aff = aff.replace('0', '')
+            aff = aff.replace('·', cstraight)
+            base = base.replace('·', '')
+
          # accentizing non-enclinomical words (finally!)
          # this line of code also helped solving 'aludirati' bug
          # (when too many enclinomena appear, like **ȁludīrām)
-         elif cstraight not in pair[0]:
-            pair[0] = pair[0].replace('·', cstraight)
+         elif cstraight not in base:
+            base = base.replace('·', cstraight)
 
-         result_word = pair[0] + pair[1]
+         result_word = base + aff
+
          # accentizing enclinomena (words without accent
          # that receive automatic accent on first syllable)
          if cstraight not in result_word: # result_word is enclinomen
             fvi = first_vowel_index(result_word)
-            if fvi is None and 'ъ' in result_word and 'ø' in result_word: # сънø > сан etc.
-               fvi = result_word.find('ъ')
+            if fvi is None and 'ъ' in result_word and 'ø' in result_word:
+               fvi = result_word.find('ъ') # e.g. сънø (future сан)
             if fvi is not None:
                result_word = insert(result_word, {fvi+1: cstraight})
 
@@ -160,9 +178,9 @@ class PartOfSpeech():
 
    def process_one_form(
       self,
-      current_AP: str,
-      stem: str,
-      morphChain: MorphemeChain,
+      current_AP:str,
+      stem:str,
+      morphChain:MorphemeChain,
       iterative:bool=True
    ) -> List[str]:
 
