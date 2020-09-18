@@ -13,7 +13,13 @@ _r = rcompile(r"([a-z]+|[A-Z]|\d)")
 def nice_name(name:str) -> str:
    return " ".join(_r.findall(name))
 
-def has(word:Union[str, List[str]], *args:Tuple[str, ...]) -> bool:
+def str_find(word:str, substr:str) -> int:
+   found = word.find(substr)
+   if found == -1:
+      return len(word)
+   return found
+
+def has(word:Union[str, List[str]], *args:str) -> bool:
    """
    Actually could've been called smth like "contains_any"
    but we need some brevity here.
@@ -115,7 +121,7 @@ class AccentedTuple:
    accent: str
 
 MorphemeChain = List[AccentedTuple]
-# # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
+# the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
 LabeledEnding = Tuple[str, List[MorphemeChain]]
 
 class OrderedSet(OrderedDict, Generic[T]):
@@ -124,3 +130,6 @@ class OrderedSet(OrderedDict, Generic[T]):
 
    def __repr__(self) -> str:
       return f"OrderedSet({list(self)})"
+
+def uniq(i:Iterable[T]) -> List[T]:
+   return list(OrderedSet(i))

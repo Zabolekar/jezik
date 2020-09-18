@@ -1,7 +1,7 @@
 from typing import Dict, List, Iterator, Optional, Tuple
 from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
-from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
+from ..paradigm_helpers import AccentedTuple, uniq, nice_name, oa, accentize
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
 
@@ -117,7 +117,7 @@ class Verb(PartOfSpeech):
                expose_replacement(w_form, yat, latin)
                for w_form in self.replacements[label]
             ]
-            yield nice_name(label), list(OrderedSet(result))
+            yield nice_name(label), uniq(result)
 
          else:
             if self._verb_form_is_possible(label, self.gram.other):
@@ -135,7 +135,7 @@ class Verb(PartOfSpeech):
                   self._expose(w_form, yat, latin)
                   for w_form in ready_forms
                ]
-               yield nice_name(label), list(OrderedSet(result))
+               yield nice_name(label), uniq(result)
 
 
    def multiforms(

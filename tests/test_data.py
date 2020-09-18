@@ -2,14 +2,9 @@ from typing import List
 import pytest # type: ignore
 from ..lookup import lookup, data
 from ..lookup.charutils import four_accents, cmacron
-from ..lookup.paradigm_helpers import cut_AP, has
+from ..lookup.paradigm_helpers import cut_AP, has, str_find
 from ..lookup.table import LabeledMultiform
 
-def str_find(word:str, substr:str) -> int:
-   found = word.find(substr)
-   if found == -1:
-      return len(word)
-   return found
 
 first_form = {
    "adjective": "m sg nom", # short or long, we take the 0st one
@@ -65,13 +60,13 @@ def test_paradigms():
          paradigms = [cut_AP(x) for x in word.info.split(";")]
          for paradigm in paradigms:
             assert isinstance(paradigm, str), paradigm + " " + inner_key
-            assert not has(paradigm, *tuple("абвгдеёжзийклмнопрстуфхцчшщъыьэюяљњјџћђ"))
+            assert not has(paradigm, *tuple("АВСКМНабвгдеёжзийклмнопрстуфхцчшщъыьэюяљњјџћђ"))
             if len(paradigm) in (2, 3):
-               assert paradigm[0].isalpha() and paradigm[1] in (".:!ʹʺ’¿¡?0"), paradigm+" "+inner_key
+               assert paradigm[0].isalpha() and paradigm[1] in ".:!ʹʺ’¿¡?0", paradigm+" "+inner_key
             elif len(paradigm) == 1:
-               assert paradigm == '0', paradigm + " " + inner_key
+               assert paradigm == '0', paradigm+" "+inner_key
             elif len(paradigm) > 0:
-               raise ValueError("bad paradigm len: " + paradigm + " " + inner_key)
+               raise ValueError(f"bad paradigm len: {paradigm} {inner_key}")
 
 def test_yaml_suffixes():
    """
@@ -86,4 +81,4 @@ def test_yaml_suffixes():
          for _, entry in myentries:
             cpt = entry.caption
             assert ':' in cpt, [x[1].accented_keys for x in myentries]
-            assert cpt[:cpt.find(':')] in roman, cpt + " " + entry.accented_keys
+            assert cpt[:cpt.find(':')] in roman, cpt+" "+entry.accented_keys

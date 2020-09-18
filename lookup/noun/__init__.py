@@ -4,7 +4,7 @@ from typing import Callable, Dict, List, Iterator, Optional, Tuple
 from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked, female_gen_pl_i
 from ..charutils import cmacron, cstraight
 from ..paradigm_helpers import (
-   AccentedTuple, MorphemeChain, OrderedSet, nice_name, oa,
+   AccentedTuple, MorphemeChain, uniq, nice_name, oa,
    accentize, appendDef, has
 )
 from ..pos import PartOfSpeech, Replacement
@@ -122,7 +122,7 @@ class Noun(PartOfSpeech):
    ) -> bool:
       if first_vowel_index(noun_form) != last_vowel_index(noun_form):
          return True
-      if not has(paradigm, 'c', 'd', 'e', '0'):
+      if not has(paradigm, *tuple('cde0')):
          return True
       if variation not in male_gen_pl_marked:
          return True
@@ -185,7 +185,7 @@ class Noun(PartOfSpeech):
                retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          elif self.label('f'):
             if pvi is not None and not has(stem, 'ъ', 'ꚜ') \
-               and current_AP not in accent and current_AP not in ('a¡'):
+               and current_AP not in accent and current_AP not in ('a¡',):
                retraction = [1] # па̏ртӣја̄
 
          if not 'œ' in stem: # TODO one day think about better condition
@@ -216,7 +216,7 @@ class Noun(PartOfSpeech):
    def _paradigm_to_forms(
       self,
       i:int,
-      length_inconstancy:bool,
+      length_inconstant:bool,
       yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
@@ -227,7 +227,6 @@ class Noun(PartOfSpeech):
       """
 
       start_AP = self.gram.AP[i].replace('?', '.')
-      target_AP = self.gram.AP[i].replace('?', '.')
 
       declension_is_regular: bool = True
       if self.label("m"):
@@ -251,14 +250,14 @@ class Noun(PartOfSpeech):
          for label, ending in lbld_endings:
             if label in self.replacements:
                result = [expose_replacement(form, yat, latin) for form in self.replacements[label]]
-               yield nice_name(label), list(OrderedSet(result))
+               yield nice_name(label), uniq(result)
 
             else:
                ready_forms: List[str] = [] # TODO: better name
 
                # swapping length in case it is necessary
                to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)
-               noun_form = self.swap(self.trunk[i], to_swap_or_not, self.gram.AP[i], target_AP)
+               noun_form = self.swap(self.trunk[i], to_swap_or_not, self.gram.AP[i], start_AP)
 
                # after that, iterating by ending variation
                for ending_variation in ending:
@@ -298,7 +297,7 @@ class Noun(PartOfSpeech):
                   ]
 
                result = [self._expose(form, yat, latin) for form in ready_forms]
-               yield nice_name(label), list(OrderedSet(result))
+               yield nice_name(label), uniq(result)
 
       else:
          for label, am_forms in self.amendments.items():
@@ -307,7 +306,7 @@ class Noun(PartOfSpeech):
                for form in
                [expose_replacement(form, yat, latin) for form in am_forms]
             ]
-            yield nice_name(label), list(OrderedSet(result))
+            yield nice_name(label), uniq(result)
 
 
    def multiforms(
@@ -323,4 +322,9 @@ class Noun(PartOfSpeech):
       """
       for i, _ in enumerate(self.gram.AP):
          if not (variant is not None and variant != i):
-            yield from self._paradigm_to_forms(i, False, yat, latin)
+            yield from self._paradigm_to_forms(
+               i=i,
+               length_inconstant=False,
+               yat=yat,
+               latin=latin
+            )

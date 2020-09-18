@@ -3,7 +3,7 @@ import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
-from ..paradigm_helpers import AccentedTuple, OrderedSet, nice_name, oa, accentize
+from ..paradigm_helpers import AccentedTuple, nice_name, oa, accentize, uniq
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 from ..charutils import cmacron, cstraight
 
@@ -44,8 +44,11 @@ class Adjective(PartOfSpeech):
       amendments: Tuple[Replacement, ...]
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
+      
       # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
-      self.short_AP, self.long_AP = list(zip(*[adj_AP_to_inner_AP[AP].split(',') for AP in self.gram.AP]))
+      inner_APs = [adj_AP_to_inner_AP[AP].split(',') for AP in self.gram.AP]
+      self.short_AP, self.long_AP = zip(*inner_APs)
+
       self.trunk = self._trunk() #both but not separable
 
    # different
@@ -102,7 +105,12 @@ class Adjective(PartOfSpeech):
       """
       current_AP = self.short_AP[i] if paradigm is short_adj else self.long_AP[i]
 
-      adj_form = self.swap(self.trunk[i], length_inconstant, current_AP, self.short_AP[i])
+      adj_form = self.swap(
+         trunk=self.trunk[i],
+         length_inconstant=length_inconstant,
+         AP=current_AP,
+         target_AP=self.short_AP[i]
+      )
 
       for label, ending in zip(paradigm._fields, paradigm):
 
@@ -111,7 +119,7 @@ class Adjective(PartOfSpeech):
                expose_replacement(w_form, yat, latin) 
                for w_form in self.replacements[label]
             ]
-            yield nice_name(label), list(OrderedSet(result))
+            yield nice_name(label), uniq(result)
 
          else:
             ready_forms: List[str] = []
@@ -122,7 +130,12 @@ class Adjective(PartOfSpeech):
                   adj_variants = [adj_form]
                for adj_variant in adj_variants:
                   if self._adj_form_is_possible(adj_variant + variation.morpheme):
-                     ready_forms += self.process_one_form(current_AP, adj_variant, [variation], False)
+                     ready_forms += self.process_one_form(
+                        current_AP=current_AP,
+                        stem=adj_variant,
+                        morphChain=[variation],
+                        iterative=False
+                     )
 
             if label in self.amendments:
                ready_forms += [
@@ -130,7 +143,7 @@ class Adjective(PartOfSpeech):
                   for w_form in self.amendments[label]
                ]
             result = [self._expose(w_form, yat, latin) for w_form in ready_forms]
-            yield nice_name(label), list(OrderedSet(result))
+            yield nice_name(label), uniq(result)
 
    def multiforms(
       self,
@@ -152,10 +165,16 @@ class Adjective(PartOfSpeech):
       for i, AP in enumerate(self.gram.AP):
          # variant = None means all variants
          if not(variant is not None and variant != i):
-            length_inconstancy = False
+            length_inconstant = False
 
             if endings == "all":
                if self.short_AP[i][-1] != self.long_AP[i][-1]:
-                  length_inconstancy = True
+                  length_inconstant = True
             for paradigm in MPs:
-               yield from self._paradigm_to_forms(paradigm, i, length_inconstancy, yat, latin)
+               yield from self._paradigm_to_forms(
+                  paradigm,
+                  i, 
+                  length_inconstant,
+                  yat,
+                  latin
+               )

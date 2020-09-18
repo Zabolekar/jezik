@@ -1,7 +1,7 @@
 from typing import Dict, Generic, List, NamedTuple, Iterator, Tuple, TypeVar
 import random
 from ..utils import all_vowels, cyr2lat, deaccentize, expose, garde
-from ..paradigm_helpers import accentize, i_to_accents, OrderedSet
+from ..paradigm_helpers import accentize, i_to_accents, uniq
 from ..charutils import cmacron
 
 Replacement = Tuple[str, List[str]]
@@ -59,7 +59,7 @@ class Entry(NamedTuple):
    amendments: Tuple[Replacement, ...]
 
 
-def inner_to_outer(accented_keys: str, extra_key: str) -> Iterator[Tuple[str, str]]:
+def inner_to_outer(accented_keys:str, extra_key:str) -> Iterator[Tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
@@ -75,14 +75,19 @@ def inner_to_outer(accented_keys: str, extra_key: str) -> Iterator[Tuple[str, st
       else:
          tmp_list = [tmp]
       big_tmp_list += tmp_list
-   ordered_set_of_keys = OrderedSet(big_tmp_list)
+   unique_keys = uniq(big_tmp_list)
 
    for input_yat in ["e", "je", "ije"]:
       if extra_key:
-         extra_token = deaccentize(expose(garde(accentize(extra_key)), yat=input_yat).lower())
+         extra_token = deaccentize(
+            expose(
+               form=garde(accentize(extra_key)),
+               yat=input_yat
+            ).lower()
+         )
          yield extra_token, input_yat
          yield cyr2lat(extra_token), input_yat
-      for item in ordered_set_of_keys:
+      for item in unique_keys:
          accented_token = garde(accentize(item))
          assert accented_token != item, accented_token + " " + item
          exposed_token = expose(accented_token, yat=input_yat)

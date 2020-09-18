@@ -177,8 +177,7 @@ _prettify_yat_replaces: Dict[str, List[Tuple[str, str]]] = {
       ('[ꙓѣ]', 'је')] }
 _prettify_yat_replaces["ije"] = _prettify_yat_replaces["je"]
 
-_prettify_yat_replaces_c: Dict[str, List[Tuple[Pattern, str]]]
-_prettify_yat_replaces_c = {
+_prettify_yat_replaces_c: Dict[str, List[Tuple[Pattern, str]]] = {
    k: [(re.compile(p), r) for p, r in v]
    for k, v in _prettify_yat_replaces.items()
 }
@@ -192,11 +191,11 @@ _prettify_big_palatalization: List[Tuple[str, str]] = [
    ('[кц]¦?ʺе', 'че') #, ('гʺ', 'ж'), ('хʺ', 'ш')
 ]
 
-_prettify_big_palatalization_c: List[Tuple[Pattern, str]]
-_prettify_big_palatalization_c = [(re.compile(p), r) for p, r in _prettify_big_palatalization]
+_prettify_big_palatalization_c: List[Tuple[Pattern, str]] = [
+   (re.compile(p), r) for p, r in _prettify_big_palatalization
+]
 
-_prettify_simple_palatalization: List[Tuple[str, str]]
-_prettify_simple_palatalization = [
+_prettify_simple_palatalization: List[Tuple[str, str]] = [
    ('слȷ', 'шљ'), ('злȷ', 'жљ'),
    ('гʹ', 'з'), ('хʹ', 'с'),
    ('гʺ', 'ж'), ('хʺ', 'ш'),
@@ -215,8 +214,9 @@ _prettify_small_palatalization: List[Tuple[str, str]] = [
    ('[ʹʺ¦ȷ]', '')
 ]
 
-_prettify_small_palatalization_c: List[Tuple[Pattern, str]]
-_prettify_small_palatalization_c = [(re.compile(p), r) for p, r in _prettify_small_palatalization]
+_prettify_small_palatalization_c: List[Tuple[Pattern, str]] = [
+   (re.compile(p), r) for p, r in _prettify_small_palatalization
+]
 
 _prettify_yer_yot = (
    ('бĵ', 'бљ'), ('мĵ', 'мљ'), ('вĵ', 'вљ'), ('фĵ', 'фљ'), ('пĵ', 'пљ'),
@@ -320,7 +320,8 @@ def garde(word: str) -> str: # Garde's accentuation
 
          word3 = insert(word2, insert_dict)
          word3 = (word3.replace('•', '') # delete
-                       .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}'))
+            .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
+         )
                        # swap length and accent
          result = word3
 
@@ -333,7 +334,8 @@ def garde(word: str) -> str: # Garde's accentuation
 _zeroify_translator = str.maketrans({
    '0': None,
    cstraight: None,
-   '~': cmacron})
+   '~': cmacron
+})
 
 def zeroify(form: str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
@@ -350,8 +352,8 @@ _purify_translator = str.maketrans('', '', '~0·')
 
 def purify(form: str) -> str:
    return (form.translate(_purify_translator)
-               .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
-           )
+      .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
+   )
 
 def ungarde(form: str) -> str:
    chars = list(form) # splitting string into characters
@@ -386,8 +388,8 @@ def ungarde(form: str) -> str:
              .replace(f'{cgrave}{cmacron}', cacute) #long rising
              .replace(f'{cmacron}{cdoublegrave}', ccircumflex)
              .replace(f'{cdoublegrave}{cmacron}', ccircumflex) #long falling
-             .replace('!', '')) # for cases where ! is not
-                                # right before the accented syllable
+             .replace('!', '') # for cases where ! is not
+   )                           # right before the accented syllable
 
 def debracketify(form: str) -> str:
       if '>' in form:
