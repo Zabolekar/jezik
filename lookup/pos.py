@@ -196,5 +196,6 @@ class PartOfSpeech():
             iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
          return iterable_form
       else: # TODO when?
-         return self._append_morpheme(current_AP, iterable_form, morphChain[0])
+         result = self._append_morpheme(current_AP, iterable_form, morphChain[0])
+         return result
       # TODO apparently morphChain is of len 1, but what if it's not?

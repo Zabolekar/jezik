@@ -118,7 +118,10 @@ _deyerify_translator = str.maketrans({
    'ꙏ': 'а'
 })
 
-def deyerify(form: str) -> str:
+def decurlyerify(form:str) -> str:
+   return re.sub('([лмнрјв]ꙏ)', f'{cmacron}\\1', form).replace('ꙏ', '')
+
+def deyerify(form:str) -> str:
    repl_dict = _deyerify_repl_dict
    re1 = _deyerify_pat1_c
    re2 = _deyerify_pat2_c

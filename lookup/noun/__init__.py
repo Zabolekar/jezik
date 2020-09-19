@@ -10,7 +10,7 @@ from ..paradigm_helpers import (
 from ..pos import PartOfSpeech, Replacement
 from ..table import LabeledMultiform
 from ..utils import (
-   deyerify, indices, insert, garde, ungarde, expose,
+   deyerify, decurlyerify, indices, insert, garde, ungarde, expose,
    last_vowel_index, first_vowel_index, expose_replacement
 )
 
@@ -232,15 +232,18 @@ class Noun(PartOfSpeech):
       if self.label("m"):
          lbld_endings = c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
       elif self.label("f"):
-         lbld_endings = c_f(self.trunk[i], self.accented_keys[i].endswith('а')).labeled_endings
+         is_feminine = self.accented_keys[i].endswith('а')
+         lbld_endings = c_f(self.trunk[i], is_feminine).labeled_endings
       else:
          lbld_endings = iter([])
          declension_is_regular = False
 
       if self.label("f") and self.gram.MP[i]: # processing GPl like magli (not **magala)
-         form_with_i = [ungarde(deyerify(x)) for x in
+         form_with_i = [
+            ungarde(deyerify(decurlyerify(x)))
+            for x in
             self.process_one_form(self.gram.AP[i], self.trunk[i], female_gen_pl_i)
-         ]
+         ] # curly yer must be deleted BEFORE general deyerifying, so mind the order
          if "i" in self.gram.MP[i]:
             self.replacements["pl gen"] = form_with_i
          elif "j" in self.gram.MP[i]:
@@ -249,7 +252,11 @@ class Noun(PartOfSpeech):
       if declension_is_regular:
          for label, ending in lbld_endings:
             if label in self.replacements:
-               result = [expose_replacement(form, yat, latin) for form in self.replacements[label]]
+               result = [
+                  expose_replacement(form, yat, latin)
+                  for form in
+                  self.replacements[label]
+               ]
                yield nice_name(label), uniq(result)
 
             else:
@@ -269,10 +276,7 @@ class Noun(PartOfSpeech):
                      noun_variants = [noun_form.replace('¦¦', '¦'), noun_form.replace('¦¦', '')]
                   # processing forms like žet(a)va (marked with ꙏ)
                   elif 'ꙏ' in noun_form:
-                     noun_variants = [
-                        noun_form.replace('ꙏ', 'ъ'),
-                        rsub('([лмнрјв]ꙏ)', f'{cmacron}\\1', noun_form).replace('ꙏ', '')
-                     ]
+                     noun_variants = [noun_form.replace('ꙏ', 'ъ'), decurlyerify(noun_form)]
                   # processing forms like akcenat/akcent (marked with Ъ)
                   elif 'Ъ' in noun_form and 'ø' in ending_variation[0].morpheme:
                      noun_variants = [noun_form.replace('Ъ', ''), noun_form.replace('Ъ', 'ꚜ')]
