@@ -30,8 +30,11 @@ for full_key in raw_data.keys():
    else:
       accented_keys = accented_keys_with_extra_key
       extra_key = ''
+
    unaccented_keys = deaccentize(accented_keys).split(',')
-   assert len(set(unaccented_keys)) == 1, unaccented_keys
+   if len(set(unaccented_keys)) != 1:
+      raise ValueError(f"{unaccented_keys} do not match")
+
    try:
       comment = "(" + raw_data[full_key]["c"] + ")"
    except KeyError:

@@ -6,12 +6,12 @@ Multiform = List[Form]
 LabeledMultiform = Tuple[str, Multiform]
 
 class Table:
-   def __init__(self, pos: str, caption: str, data: Iterable[LabeledMultiform]) -> None:
+   def __init__(self, pos:str, caption:str, data:Iterable[LabeledMultiform]) -> None:
       self.caption = caption
       self.pos = pos
       self._data = list(data)
 
-   def __getitem__(self, query: str) -> Table:
+   def __getitem__(self, query:str) -> Table:
       result = []
       v = query.split()
       for form_name, forms in self._data:
@@ -46,7 +46,7 @@ class Table:
       return len(self._data)
 
 class Multitable:
-   def __init__(self, input_word: str, tables: Iterator[Table]) -> None:
+   def __init__(self, input_word:str, tables:Iterator[Table]) -> None:
       self._tables = list(tables)
       self.input = input_word
 
@@ -55,7 +55,7 @@ class Multitable:
          return "\n".join(str(table) for table in self._tables)
       return "Word not found"
 
-   def __getitem__(self, query: Union[int, str]) -> Union[Multitable, Table]:
+   def __getitem__(self, query:Union[int, str]) -> Union[Multitable, Table]:
       if isinstance(query, int):
          return self._tables[query]
       else:

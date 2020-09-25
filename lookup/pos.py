@@ -5,8 +5,10 @@ from .charutils import all_vowels, cstraight, cmacron, cring
 from .data.multidict import Replacement
 
 def _swap(trunk:str) -> str:
-   """this function swaps last vowel of given trunk
-   from long to short and vice versa"""
+   """
+   this function swaps last vowel of given trunk
+   from long to short and vice versa
+   """
    lvi = last_vowel_index(trunk)
    last_macron = trunk.rfind(cmacron)
 
@@ -44,8 +46,8 @@ class PartOfSpeech():
    def accentize(current_AP:str, word:str) -> str:
       if current_AP not in oa:
          word = word.replace(cstraight, '')
-      if cstraight not in word: # straight
-         return word.replace('·', cstraight, 1) # to straight
+      if cstraight not in word:
+         return word.replace('·', cstraight, 1)
       return word.replace('·', '')
 
    @staticmethod

@@ -89,7 +89,9 @@ def inner_to_outer(accented_keys:str, extra_key:str) -> Iterator[Tuple[str, str]
          yield cyr2lat(extra_token), input_yat
       for item in unique_keys:
          accented_token = garde(accentize(item))
-         assert accented_token != item, accented_token + " " + item
+         if accented_token == item:
+            raise ValueError(f"accented token {accented_token} shouldn't be equal to {item}")
+         # TODO add {=} when updating to 3.8
          exposed_token = expose(accented_token, yat=input_yat)
          deaccentized_token = deaccentize(exposed_token).lower()
          yield deaccentized_token, input_yat

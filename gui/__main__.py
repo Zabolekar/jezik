@@ -1,8 +1,10 @@
 import sys
 from os.path import dirname, join, realpath
 import jinja2
-from PySide2.QtWidgets import (QApplication, QPushButton, QLabel,
-                               QLineEdit, QVBoxLayout, QWidget)
+from PySide2.QtWidgets import (
+   QApplication, QPushButton, QLabel,
+   QLineEdit, QVBoxLayout, QWidget
+)
 from PySide2.QtGui import QTextDocument, QPixmap, QPainter, QColor
 from ..lookup import lookup
 
@@ -22,8 +24,10 @@ if __name__ == "__main__":
    def f():
       doc = QTextDocument()
       tables = lookup(line.text())
-      doc.setHtml(template.render(tables=tables,
-                                  url_for=lambda *_, **__: None))
+      doc.setHtml(template.render(
+         tables=tables,
+         url_for=lambda *_, **__: None
+      ))
       doc.setTextWidth(doc.size().width())
       pixmap = QPixmap(doc.size().width(), doc.size().height())
       pixmap.fill(QColor(0, 0, 0, 0))

@@ -5,13 +5,13 @@ from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked, female_gen_pl_i
 from ..charutils import cmacron, cstraight
 from ..paradigm_helpers import (
    AccentedTuple, MorphemeChain, uniq, nice_name, oa,
-   accentize, appendDef, has
+   accentize, append_def, has
 )
 from ..pos import PartOfSpeech, Replacement
 from ..table import LabeledMultiform
 from ..utils import (
    deyerify, decurlyerify, indices, insert, garde, ungarde, expose,
-   last_vowel_index, first_vowel_index, expose_replacement
+   last_vowel_index, first_vowel_index, expose_replacement, swap
 )
 
 
@@ -23,8 +23,10 @@ def _apply_neocirk(
    retraction:int
 ) -> List[str]: # do not change to Tuple
 
-   """ neocircumflex is accent retraction from a newly long vowel;
-   this function returns only one tuple, unlike _delete_left_bracket"""
+   """
+   neocircumflex is accent retraction from a newly long vowel;
+   this function returns only one tuple, unlike _delete_left_bracket
+   """
 
    for _ in range(retraction):
       # word unaccented, has vowels: accentize last vowel
@@ -57,8 +59,8 @@ class Noun(PartOfSpeech):
 
       for paramList in self.gram.MP:
          params = paramList.split(',')
-         self.suff = appendDef(self.suff, params, ['+', '±'], '_')
-         self.anim = appendDef(self.anim, params, ['an'], 'in')
+         self.suff = append_def(self.suff, params, ['+', '±'], '_')
+         self.anim = append_def(self.anim, params, ['an'], 'in')
 
    @staticmethod
    def _expose(form:str, yat:str="e", latin:bool=False) -> str:
@@ -108,8 +110,8 @@ class Noun(PartOfSpeech):
          else:
             raise NotImplementedError(trunk_ + " " + accented_trunk_ + " " + AP)
 
-         trunk = trunk.replace(f'{cmacron}·', f'·{cmacron}')
-         trunk = trunk.replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
+         trunk = swap(trunk, cmacron, '·')
+         trunk = swap(trunk, cstraight, cmacron)
          result.append(trunk)
 
       return result
@@ -161,31 +163,47 @@ class Noun(PartOfSpeech):
          if cmacron in stem:
             if (
                (self.label("f") and current_AP in ('c:', 'g:')) or
-               (self.label("m") and current_AP in ('a¿') and not 'œ' in stem)
+               (self.label("m") and current_AP in ('a¿',) and not 'œ' in stem)
             ):
                stem = stem.replace(cmacron, '')
 
          # 3 handling yers and predefining retractions
          retraction = [0]
          if self.label('m'):
-            if has(stem, 'ъ', 'ꚜ') and current_AP in accent and current_AP == 'b:':
+            if (
+               has(stem, 'ъ', 'ꚜ') and
+               current_AP in accent and
+               current_AP == 'b:'
+            ):
                retraction = [2, 1] #  Макѐдо̄на̄ца̄ & Македóна̄ца̄
-            elif has(stem, 'ъ', 'ꚜ') and current_AP in accent and current_AP in ('a:', 'c:', 'f.'):
+            elif (
+               has(stem, 'ъ', 'ꚜ') and
+               current_AP in accent and
+               current_AP in ('a:', 'c:', 'f.')
+            ):
                retraction = [2] # но̏ва̄ца̄
             elif 'd' in current_AP and 'œв' in stem: # у́до̄ва̄
                retraction = [1]
-            elif pvi is not None and not has(stem, 'ъ', 'ꚜ') and current_AP not in accent:
+            elif (
+               pvi is not None and
+               not has(stem, 'ъ', 'ꚜ') and
+               current_AP not in accent
+            ):
                if current_AP == 'a.':
                   retraction = [1] # је̏зӣка̄
             elif 'b.' in current_AP and 'ъц' in stem and 'œ' in stem:
                   retraction = [1] # о̀че̄ва̄
             elif 'œв' in stem and 'c?' in current_AP:
                retraction = [2, 1, 0] # бо̏го̄ва̄, бо̀го̄ва̄, бого́ва̄
-            elif 'œв' in stem and 'b' in current_AP: #and 'ъ' not in stem and 'ꚜ' not in stem:
+            elif 'œв' in stem and 'b' in current_AP:
                retraction = [2, 1] # гро̏ше̄ва̄ & гро̀ше̄ва̄, би̏ко̄ва̄ & бѝко̄ва̄
          elif self.label('f'):
-            if pvi is not None and not has(stem, 'ъ', 'ꚜ') \
-               and current_AP not in accent and current_AP not in ('a¡',):
+            if (
+               pvi is not None and
+               not has(stem, 'ъ', 'ꚜ') and
+               current_AP not in accent and
+               current_AP not in ('a¡',)
+            ):
                retraction = [1] # па̏ртӣја̄
 
          if not 'œ' in stem: # TODO one day think about better condition
@@ -202,7 +220,7 @@ class Noun(PartOfSpeech):
 
          # 6. we insert macron after lvi if last vowel is short
          if not cmacron in stem[lvi:] and lvi is not None:
-            stem = insert(stem, {lvi+1: cmacron}).replace(f'{cmacron}·', f'·{cmacron}')
+            stem = swap(insert(stem, {lvi+1: cmacron}), cmacron, '·')
 
          # 7. if we have neocircumflex retraction, we apply it
          for case in retraction:
@@ -232,8 +250,8 @@ class Noun(PartOfSpeech):
       if self.label("m"):
          lbld_endings = c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
       elif self.label("f"):
-         is_feminine = self.accented_keys[i].endswith('а')
-         lbld_endings = c_f(self.trunk[i], is_feminine).labeled_endings
+         ends_with_a = self.accented_keys[i].endswith('а')
+         lbld_endings = c_f(self.trunk[i], ends_with_a).labeled_endings
       else:
          lbld_endings = iter([])
          declension_is_regular = False

@@ -29,20 +29,20 @@ def has(word:Union[str, List[str]], *args:str) -> bool:
          return True
    return False
 
-def appendDef(
-   targetList:List[str],
-   inputList:List[str],
+def append_def(
+   target_list:List[str],
+   input_list:List[str],
    appendable:List[str],
-   defaultItem:str
+   default_item:str
 ) -> List[str]:
    appended = False
-   for item in inputList:
+   for item in input_list:
       if item in appendable:
-         targetList.append(item)
+         target_list.append(item)
          appended = True
    if not appended:
-      targetList.append(defaultItem)
-   return targetList
+      target_list.append(default_item)
+   return target_list
 
 def accentize(word:str) -> str: # traditional accentuation
    for k, v in real_accent.items():
@@ -89,12 +89,12 @@ class GramInfo:
          info = info.replace('$', ':') # a line cannot end with :, so we use $, too
          if info:
             if '\\' in info:
-               comment, restinfo = info.split('\\') # automatically fails when too much \\?
+               comment, restinfo = info.split('\\') # TODO automatically fails when too much \\?
             else:
                comment = ''
                restinfo = info
             if '/' in restinfo:
-               AP, MP = restinfo.split('/') # automatically fails ?
+               AP, MP = restinfo.split('/') # TODO automatically fails ?
             else:
                AP = restinfo
                MP = ''

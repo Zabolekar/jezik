@@ -4,13 +4,16 @@
 # ----- think of better name for prettify(), like alternate() or assimilate()
 
 import re
-from typing import (Dict, List, Optional, Iterator, Iterable, Tuple,
-                    Pattern)
+from typing import (
+   Dict, List, Optional, Iterator, Iterable, Tuple, Pattern
+)
 from itertools import chain
-from .charutils import (cring, cmacron, cstraight, cacute,
-                        cgrave, cdoublegrave, ccircumflex,
-                        all_vowels, any_vowel, any_of_four_accents,
-                        all_accent_marks, real_accent)
+from .charutils import (
+   cring, cmacron, cstraight, cacute,
+   cgrave, cdoublegrave, ccircumflex,
+   all_vowels, any_vowel, any_of_four_accents,
+   all_accent_marks, real_accent
+)
 
 # Naming of things added for optimization purposes:
 #   <name>_c − <name> but with compiled regexes
@@ -46,31 +49,35 @@ cyr2lat_dict: Dict[str, str] = {
 
 cyr2lat_translator = str.maketrans(cyr2lat_dict)
 
-def cyr2lat(lowertext: str) -> str:
+def cyr2lat(lowertext:str) -> str:
    return lowertext.translate(cyr2lat_translator)
 
 _any_vowel_c: Pattern = re.compile(any_vowel)
 
-def last_vowel_index(trunk: str) -> Optional[int]:
+def last_vowel_index(trunk:str) -> Optional[int]:
    if _any_vowel_c.search(trunk):
       *__, last_vowel = _any_vowel_c.finditer(trunk)
       index, _ = last_vowel.span()
       return index
    return None
 
-def first_vowel_index(trunk: str) -> Optional[int]:
+def first_vowel_index(trunk:str) -> Optional[int]:
    match = _any_vowel_c.search(trunk)
    if match:
       return match.span()[0]
    return None
 
-def indices(trunk: str) -> Tuple[Optional[int], Optional[int], Optional[int]]:
+def indices(trunk:str) -> Tuple[Optional[int], Optional[int], Optional[int]]:
    lvi = last_vowel_index(trunk)
    fvi = first_vowel_index(trunk)
    pvi = last_vowel_index(trunk[:lvi])
    return lvi, fvi, pvi
 
-def insert(word: str, position_to_accent: Dict[int, str]) -> str:
+def swap(word:str, c1:str, c2:str) -> str:
+   return word.replace(c1+c2, c2+c1)
+
+
+def insert(word:str, position_to_accent:Dict[int, str]) -> str:
    if not position_to_accent:
       return word
 
@@ -88,7 +95,7 @@ def insert(word: str, position_to_accent: Dict[int, str]) -> str:
 
    return ''.join(pieces())
 
-def palatalize(sequence: str, mode: str='') -> str:
+def palatalize(sequence:str, mode: str='') -> str:
    idict = palatalization_modes[mode]
    digraphs = ['ст', 'зд', 'сл', 'зл', 'шт', 'жд', 'ск', 'зг']
    if sequence[-2:] in digraphs:
@@ -119,7 +126,7 @@ _deyerify_translator = str.maketrans({
 })
 
 def decurlyerify(form:str) -> str:
-   return re.sub('([лмнрјв]ꙏ)', f'{cmacron}\\1', form).replace('ꙏ', '')
+   return re.sub('([лљмнњрјв]ꙏ)', f'{cmacron}\\1', form).replace('ꙏ', '')
 
 def deyerify(form:str) -> str:
    repl_dict = _deyerify_repl_dict
@@ -230,7 +237,7 @@ _prettify_yer_yot = (
    ('лĵ', 'љ'),('нĵ', 'њ'), ('јĵ', 'ј'), ('ĵ', 'ј')
 )
 
-def prettify(text: str, yat:str="e") -> str:
+def prettify(text:str, yat:str="e") -> str:
    other_repl_modes = (
       _prettify_small_palatalization_c,
       _prettify_replaces_c,
@@ -266,13 +273,14 @@ _deaccentize_translator = str.maketrans(dict(chain(
    ((mark, None) for mark in '`´_°¨^!') #TODO move this string somewhere
 )))
 
-def deaccentize(text: str) -> str:
+def deaccentize(text:str) -> str:
    return text.translate(_deaccentize_translator)
 
 _garde_four_accents_c: Pattern = re.compile(any_of_four_accents)
 _garde_translator = str.maketrans({
    cdoublegrave: cstraight,
-   ccircumflex: f'{cmacron}{cstraight}'})
+   ccircumflex: f'{cmacron}{cstraight}'
+})
 
 def garde(word: str) -> str: # Garde's accentuation
    result = word
@@ -286,8 +294,10 @@ def garde(word: str) -> str: # Garde's accentuation
 
       # if not 'there is a falling accent and it is not of the first syllable'
       # then the word is garded the usual way
-      if short_desc_index in (fvi + 1, -1) \
-           and long_desc_index in (fvi + 1, -1):
+      if (
+         short_desc_index in (fvi + 1, -1) and
+         long_desc_index in (fvi + 1, -1)
+      ):
          word2 = result
          insert_bool = False
          insert_dict = {}
@@ -322,10 +332,7 @@ def garde(word: str) -> str: # Garde's accentuation
                         insert_dict[i+1] = cmacron
 
          word3 = insert(word2, insert_dict)
-         word3 = (word3.replace('•', '') # delete
-            .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
-         )
-                       # swap length and accent
+         word3 = swap(word3.replace('•', ''), cstraight, cmacron)
          result = word3
 
       else:
@@ -340,7 +347,7 @@ _zeroify_translator = str.maketrans({
    '~': cmacron
 })
 
-def zeroify(form: str) -> str:
+def zeroify(form:str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
       form = form.translate(_zeroify_translator)
       fvi = first_vowel_index(form)
@@ -348,17 +355,15 @@ def zeroify(form: str) -> str:
          raise ValueError(f"{form} does not contain any vowels")
       else:
          to_insert = fvi + 1
-         form = insert(form, {to_insert: cstraight}) # straight accent
+         form = insert(form, {to_insert: cstraight})
    return form
 
 _purify_translator = str.maketrans('', '', '~0·')
 
-def purify(form: str) -> str:
-   return (form.translate(_purify_translator)
-      .replace(f'{cstraight}{cmacron}', f'{cmacron}{cstraight}')
-   )
+def purify(form:str) -> str:
+   return swap(form.translate(_purify_translator), cstraight, cmacron)
 
-def ungarde(form: str) -> str:
+def ungarde(form:str) -> str:
    chars = list(form) # splitting string into characters
    while cstraight in chars:
       old_accent_index = chars.index(cstraight)
@@ -394,7 +399,7 @@ def ungarde(form: str) -> str:
              .replace('!', '') # for cases where ! is not
    )                           # right before the accented syllable
 
-def debracketify(form: str) -> str:
+def debracketify(form:str) -> str:
       if '>' in form:
          barrier = form.find('>')
          first_piece = form[:barrier]
@@ -403,25 +408,28 @@ def debracketify(form: str) -> str:
          form = first_piece + second_piece
       return form
 
-def je2ije(form: str) -> str:
+def je2ije(form:str) -> str:
    return (form.replace(f'йје{cacute}', f'ије{cgrave}')
                .replace(f'йје{ccircumflex}', f'и{cdoublegrave}је')
-               .replace(f'йје{cmacron}', 'ије'))
+               .replace(f'йје{cmacron}', 'ије')
+   )
 
 deancientify_dict = {
    'тˌт': 'ст', 'дˌт': 'ст', 'зˌт': 'ст', 'кˌт': 'ћ', 'гˌт': 'ћ', 'бˌт': 'пст',
    'тˌꚜʌ': 'ʌ', 'дˌꚜʌ': 'ʌ', 'тˌʌ': 'ʌ', 'дˌʌ': 'ʌ', 'ˌ': ''
 }
 
-def deancientify(form: str) -> str:
+def deancientify(form:str) -> str:
    for key, value in deancientify_dict.items():
       form = form.replace(key, value)
    return form
 
-def expose(form: str, yat:str="e", latin:bool=False) -> str:
-   """all transformations from internal to external representation;
+def expose(form:str, yat:str="e", latin:bool=False) -> str:
+   """
+   all transformations from internal to external representation;
    ijekavian two-syllable yat appears only here, not in yat_replaces,
-   otherwise ungarde() produces wrong results, i.e. **snìjeg"""
+   otherwise ungarde() produces wrong results, i.e. **snìjeg
+   """
    result = ungarde(
       prettify(
          purify(zeroify(debracketify(deyerify(deancientify(form))))),
@@ -434,7 +442,7 @@ def expose(form: str, yat:str="e", latin:bool=False) -> str:
       result = cyr2lat(result)
    return result
 
-def expose_replacement(form: str, yat:str="e", latin:bool=False) -> str:
+def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
    result = prettify(
       purify(zeroify(debracketify(deyerify(deancientify(form))))),
       yat
@@ -447,10 +455,12 @@ def expose_replacement(form: str, yat:str="e", latin:bool=False) -> str:
       result = cyr2lat(result)
    return result
 
-def strip_suffix(value: str, suffixes: Iterable[str]) -> Tuple[str, bool]:
-   """Tries to strip one of the given suffixes, iterating over them.
-      If succesful, returns (stripped_value, True).
-      Otherwise, returns (value, False)."""
+def strip_suffix(value:str, suffixes:Iterable[str]) -> Tuple[str, bool]:
+   """
+   Tries to strip one of the given suffixes, iterating over them.
+   If succesful, returns (stripped_value, True).
+   Otherwise, returns (value, False).
+   """
    for suffix in suffixes:
       if value.endswith(suffix):
          return value[:len(value) - len(suffix)], True

@@ -36,12 +36,12 @@ adj_AP_to_inner_AP = {b:a for a,b in adj_AP_pairs}
 class Adjective(PartOfSpeech):
    def __init__(
       self,
-      key: str,
-      accented_keys: str,
-      kind: str,
-      info: str,
-      replacements: Tuple[Replacement, ...],
-      amendments: Tuple[Replacement, ...]
+      key:str,
+      accented_keys:str,
+      kind:str,
+      info:str,
+      replacements:Tuple[Replacement, ...],
+      amendments:Tuple[Replacement, ...]
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
       
@@ -53,7 +53,7 @@ class Adjective(PartOfSpeech):
 
    # different
    @staticmethod
-   def _expose(form: str, yat:str="e", latin:bool=False) -> str:
+   def _expose(form:str, yat:str="e", latin:bool=False) -> str:
       return expose(form, yat, latin)
 
    # different for Verb and Adjective
@@ -61,13 +61,12 @@ class Adjective(PartOfSpeech):
       result = []
 
       for number, item in enumerate(self.accented_keys):
-         accented_adj = garde(
-            accentize(item)
-         )
+         accented_adj = garde(accentize(item))
+
          if self.label('ov'):
             trunk = accented_adj
          elif self.label('all'):
-            if 'ъ\u030d' in accented_adj:
+            if 'ъ' + cstraight in accented_adj:
                trunk = accented_adj[:-2] + accented_adj[-1]
             else:
                trunk = accented_adj
@@ -80,22 +79,21 @@ class Adjective(PartOfSpeech):
                pass
             else:
                if lvi > -1:
-                  to_insert = lvi + 1
-                  trunk = insert(trunk, {to_insert: '·'})
+                  trunk = insert(trunk, {lvi + 1: '·'})
          result.append(trunk)
       return result
 
    # Adjective-specific. Verb has its own
    @staticmethod
-   def _adj_form_is_possible(adj_form: str) -> bool:
+   def _adj_form_is_possible(adj_form:str) -> bool:
       return re.search('[њљћђшжчџјʲ]œ.+ме$', adj_form) is None
 
    # Adjective-only. Verb should have its own one
    def _paradigm_to_forms(
       self,
-      paradigm: AdjParadigm,
-      i: int,
-      length_inconstant: bool,
+      paradigm:AdjParadigm,
+      i:int,
+      length_inconstant:bool,
       yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
@@ -148,7 +146,7 @@ class Adjective(PartOfSpeech):
    def multiforms(
       self,
       *,
-      variant: Optional[int] = None,
+      variant:Optional[int]=None,
       yat:str="e",
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:

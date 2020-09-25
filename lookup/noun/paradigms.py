@@ -108,14 +108,18 @@ def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
       return [u, e]
    if stem[-1] in 'јљњђћчшжџ': # гај
       return [u]
-   elif stem.endswith('ък') \
-      and stem[-3] in 'тдчсшзж': # редак
+   elif (
+      stem.endswith('ък') and
+      stem[-3] in 'тдчсшзж'
+   ): # редак
       return [u]
    elif stem.endswith(f'е·{cmacron}з'): # Кинез
       return [u]
-   elif stem[-1] in 'кгх' \
-       and stem[-2] != 'ъ' \
-       and anim == 'in': # ковчег, лек, смех, прах
+   elif (
+      stem[-1] in 'кгх' and 
+      stem[-2] != 'ъ' and
+      anim == 'in'
+   ): # ковчег, лек, смех, прах
       return [u, e]
    else:
       return [e]
