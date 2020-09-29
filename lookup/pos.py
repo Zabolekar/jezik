@@ -38,6 +38,8 @@ class PartOfSpeech():
       self.gram = GramInfo(kind, info.split(';'))
       self.replacements: Dict[str, List[str]] = dict(replacements)
       self.amendments: Dict[str, List[str]] = dict(amendments)
+      if len(self.accented_keys) == 1 and len(self.gram.AP) > 1:
+         self.accented_keys *= len(self.gram.AP)
 
    def label(self, lbl: str) -> bool:
       return lbl in self.gram.other

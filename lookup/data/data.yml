@@ -7,7 +7,7 @@
  
 абдици´рати:
  t: V\Itr\Dv
- i: k:/beta
+ i: k$/beta
  
 абеце´дън,а¨беце_дън,абе`це_дън:
  t: A\all
@@ -19,7 +19,7 @@
  
 абони´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
  
 а¨бонос,а`бонос,або`нос:
  t: N\m
@@ -101,11 +101,11 @@
 
 адво`ка_т:
  t: N\m
- i: b:/an
+ i: b$/an
 
 адвокати´рати:
  t: V\Itr\Ipf
- i: k:/beta
+ i: k$/beta
  v: адвокатисати
 
 адвокати`сати:
@@ -123,7 +123,7 @@
 
 адми`ра_л:
  t: N\m
- i: b:/an
+ i: b$/an
 
 адми`ра_лски_:
  t: A\ski
@@ -195,7 +195,7 @@
 
 акумули´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 аку`стичън:
  t: A\all
@@ -215,7 +215,7 @@
 
 ала´лити:
   t: V\Tr\Pf
-  i: p:/alpha
+  i: p$/alpha
   v: халалити
 
 аларма`нтън:
@@ -228,7 +228,7 @@
 
 аларми´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 а`ла_тни_: 
  t: A\ski
@@ -276,7 +276,7 @@
 
 алуди´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 алу`ми_нијумски_:
  t: A\ski
@@ -307,7 +307,7 @@
 
 ама`те_р:
  t: N\m
- i: b:/an
+ i: b$/an
 
 ама`те_рски_:
  t: A\ski
@@ -343,7 +343,7 @@
 
 Америка´нъц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 аме`рички_:
  t: A\ski
@@ -351,7 +351,7 @@
 
 ами`на_ш:
  t: N\m
- i: b:/an
+ i: b$/an
 
 а´миновати:
   t: V\Tr\Dv
@@ -359,7 +359,7 @@
 
 амнести´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 амо`нијак:
  t: N\m
@@ -375,11 +375,11 @@
 
 ампути´рати:
   t: V\Tr\Dv
-  i: k:/beta
+  i: k$/beta
 
 анализи´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 а¨налогън,ана`логън:
  t: A\all
@@ -387,7 +387,7 @@
 
 аналфа`бет,аналфа`бе_т:
  t: N\m
- i: a./an;b:/an
+ i: a./an;b$/an
 
 аналфабети`зъм:
  t: N\m
@@ -443,7 +443,7 @@
 
 анти`ква_р:
  t: N\m
- i: b:/an
+ i: b$/an
 
 анти`ква_рски_:
  t: A\ski
@@ -457,9 +457,9 @@
  t: A\all
  i: A.
 
-анти`по_д,анти`по_д:
+анти`по_д:
  t: N\m
- i: b:/an;b$
+ i: b$/an;b$
 
 а¨нтирелигио_зън:
  t: A\all
@@ -483,7 +483,7 @@
 
 анули´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 апа`ра_т:
  t: N\m
@@ -504,7 +504,7 @@
 
 аплауди´рати:
  t: V\Itr\Dv
- i: k:/beta
+ i: k$/beta
 
 апоте`ка_рски_:
  t: A\ski
@@ -512,7 +512,7 @@
 
 апсолви´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 а¨псолу_тън,апсо`лутън:
  t: A\all
@@ -548,7 +548,7 @@
 
 аранжи´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 ара`нжма_н:
  t: N\m
@@ -564,7 +564,7 @@
 
 Аргенти´нъц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 аргу`менЪт:
  t: N\m
@@ -592,7 +592,7 @@
 
 арми´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 арога`нтън:
  t: A\all
@@ -620,7 +620,7 @@
 
 артиље´ръц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 артиље`ри_јски_:
  t: A\ski
@@ -636,7 +636,7 @@
 
 архи`ва_р:
  t: N\m
- i: b:/an
+ i: b$/an
 
 а`рхи_вски_:
  t: A\ski
@@ -646,17 +646,17 @@
  t: A\ski
  i: a.
 
-а¨с,а¨с:
+а¨с:
  t: N\m
  i: a./+;a./+,an
 
 асимили´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 а`ске_т:
  t: N\m
- i: b:/an
+ i: b$/an
 
 асорти`ма_н:
  t: N\m
@@ -664,7 +664,7 @@
 
 аспири´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 астро`номски_:
  t: A\ski
@@ -676,7 +676,7 @@
 
 асфалти´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 а`сфалтни_:
  t: A\ski
@@ -706,7 +706,7 @@
 
 атери´рати:
  t: V\Itr\Dv
- i: k:/beta
+ i: k$/beta
 
 а`тла_нтски_:
  t: A\ski
@@ -734,11 +734,11 @@
 
 Аустралија´нъц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 Аустрија´нъц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 а¨устроугарски_:
  t: A\ski
@@ -782,7 +782,7 @@
 
 аутори`те_т:
  t: N\m
- i: b:/an
+ i: b$/an
 
 а`уторски_:
  t: A\ski
@@ -794,11 +794,11 @@
 
 афе`ра_ш:
  t: N\m
- i: b:/an
+ i: b$/an
 
 афиши´рати:
  t: V\Tr\Dv
- i: k:/beta
+ i: k$/beta
 
 афори`зъм:
  t: N\m
@@ -806,7 +806,7 @@
 
 Африка´нъц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 афри`ка_нски_:
  t: A\ski
@@ -820,7 +820,7 @@
 
 а´чити:
  t: V\Refl\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 ба´бин I:
  t: A\ov
@@ -947,7 +947,7 @@
  t: A\ov
  i: A.
  
-ви¨т,ви¨т:
+ви¨т:
  t: A\all
  i: A.;L.
 
@@ -1021,7 +1021,7 @@
  t: A\all
  i: A$
 
-гла^вън,гла^вън:
+гла^вън:
  t: A\all
  i: A:;L:.
  
@@ -1133,7 +1133,7 @@
  t: A\ov
  i: A.
  
-ду¨г,ду¨г I:
+ду¨г I:
  t: A\all
  i: A.;L.
 
@@ -1197,7 +1197,7 @@
  t: A\ov
  i: A$
 
-здра¨в,здра¨в:
+здра¨в:
  t: A\all
  i: A.;A.$
 
@@ -1348,7 +1348,7 @@
  t: A\all
  i: A.
 
-кру´пън,кру´пън:
+кру´пън:
  t: A\all
  i: B$;K:.
 
@@ -1471,7 +1471,7 @@
  t: A\ov
  i: A.
  
-ме¨к,ме¨к:
+ме¨к:
  t: A\all
  i: A.;L.
 
@@ -1524,11 +1524,11 @@
  t: A\all
  i: A$
  
-мр°¨к,мр°¨к:
+мр°¨к:
  t: A\all
  i: A.;L.
  
-мр°´сън,мр°´сън:
+мр°´сън:
  t: A\all
  i: B$;K:.
 
@@ -1618,7 +1618,7 @@
  t: A\all
  i: A.;A$
 
-пли´тък,пли´тък:
+пли´тък:
  t: A\all
  i: B$;K:.
  
@@ -1720,7 +1720,7 @@
  t: A\ski
  i: a$
 
-рꙓ´дък,рꙓ´дък I:
+рꙓ´дък I:
  t: A\all
  i: B$;K:.
 
@@ -1774,7 +1774,7 @@
  t: A\all
  i: A.
  
-све^т,све^т I:
+све^т I:
  t: A\all
  i: B$;K:.
 
@@ -1918,7 +1918,7 @@
  t: A\all
  i: A.
 
-стра´шън,стра´шън:
+стра´шън:
  t: A\all
  i: B$;K:.
 
@@ -2014,7 +2014,7 @@
  t: A\all
  i: B$
 
-те´жък,те´жък:
+те´жък:
  t: A\all
  i: B$;K:.
 
@@ -2199,7 +2199,7 @@
  t: A\ov
  i: A.
  
-че^ст,че^ст:
+че^ст:
  t: A\all
  i: B$;K:.
 
@@ -2816,7 +2816,7 @@
  t: A\all
  i: A.
 
-но`вчан,но`вчан:
+но`вчан:
  t: A\all
  i: A.;L.
 
@@ -3198,7 +3198,7 @@
  t: A\all
  i: L.;A.;A$
 
-цр°`квен,цр°`квен:
+цр°`квен:
  t: A\all
  i: L.;A.
 
@@ -4195,11 +4195,11 @@
  i: A$
  c: који је у облику лу̑ка, полукружан
 
-ма¨рвен,ма¨рвен:
+ма¨рвен:
  t: A\all
  i: A.;L.
 
-ма¨слен,ма¨слен:
+ма¨слен:
  t: A\all
  i: A.;L.
 
@@ -4998,7 +4998,7 @@
  t: A\all
  i: A.;K.
 
-у¨зък,у¨зък:
+у¨зък:
  t: A\all
  i: A.;N.
 
@@ -5313,19 +5313,19 @@
 
 ма`га_рчити,мага´рчити I:
  t: V\Tr\Ipf
- i: o./alpha;p:/alpha
+ i: o./alpha;p$/alpha
 
 ма`га_рчити,мага´рчити II:
  t: V\Refl\Ipf
- i: o./alpha;p:/alpha
+ i: o./alpha;p$/alpha
 
 нама`га_рчити,намага´рчити I:
  t: V\Tr\Pf
- i: o./alpha;p:/alpha
+ i: o./alpha;p$/alpha
 
 нама`га_рчити,намага´рчити II:
  t: V\Refl\Pf
- i: o./alpha;p:/alpha
+ i: o./alpha;p$/alpha
 
 на`ви_љчити:
  t: V\Tr\Pf
@@ -5384,215 +5384,215 @@
  i: o./alpha;o./alpha
  c: радити као на̏полича̄р (односно на̀полича̄р)
 
-би´скати,би´скати:
+би´скати:
  t: V\Tr\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
-поби´скати,поби´скати:
+поби´скати:
  t: V\Tr\Pf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
 бу´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 разбу´кати:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 ве´зати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 заве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 изве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 наве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 надве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 обаве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 одве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 пове´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 подве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 приве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 све´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 саве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 уве´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 ви´кати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 дови´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 зави´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 изви´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 нави´кати:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
  c: издовољити се извикивањем
 
 надви´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
  c: надвладати некога виком
 
 одви´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 пови´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 прови´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 разви´кати:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
  
 сви´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 га´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 гра´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 гу´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 ди´сати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 зади´хати:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 ду´хати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 е´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
-зи´дати,зи´дати:
+зи´дати:
  t: V\Tr\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
 зу´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 зазу´кати:
  t: V\Itr\Pf
- i: p:/delta
+ i: p$/delta
 
 пи´сати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 допи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 запи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 испи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 напи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 натпи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 опи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 отпи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 попи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 потпи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 препи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 распи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 спи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 упи´сати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 ма¨зати:
  t: V\Tr\Ipf
@@ -5624,377 +5624,377 @@
 
 жва´кати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 пожва´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 прожва´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 сажва´кати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 жва´тати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 пожва´тати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 прожва´тати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 сажва´тати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
-и`скати,и`скати:
+и`скати:
  t: V\Tr\Ipf
  i: l./delta;n./beta
 
-пои`скати,пои`скати:
+пои`скати:
  t: V\Tr\Pf
  i: m./delta;x./beta
 
 ка´зати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 дока´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 зака´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 иска´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 отка´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 пока´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 потка´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 прика´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 прока´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 ука´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 кра´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
  c: корачати
 
 кре´тати I:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 кре´тати II:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 окре´тати I:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 окре´тати II:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 покре´тати I:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 покре´тати II:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 прекре´тати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 ку´пати:
  t: V\Tr\Ipf
- i: k:/beta
+ i: k$/beta
 
 наку´пати:
  t: V\Refl\Pf
- i: k:/beta
+ i: k$/beta
 
 оку´пати:
  t: V\Itr\Pf
- i: k:/beta
+ i: k$/beta
 
 проку´пати:
  t: V\Refl\Pf
- i: k:/beta
+ i: k$/beta
 
 иску´пати:
  t: V\Refl\Pf
- i: k:/beta
+ i: k$/beta
 
 ли´зати I:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 ли´зати II:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 зали´зати I:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 зали´зати II:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 изли´зати I:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 изли´зати II:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 нали´зати:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 оли´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 обли´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 поли´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 проли´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 разли´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 сли´зати:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 ули´зати I:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 ули´зати II:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 лꙓ´гати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 залꙓ´гати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 полꙓ´гати:
  t: V\Itr\Pf
- i: p:/delta
+ i: p$/delta
 
 прилꙓ´гати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 разлꙓ´гати:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 улꙓ´гати:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
-лꙓ´тати,лꙓ´тати:
+лꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
 долꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 залꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 излꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 налꙓ´тати I:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 налꙓ´тати II:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 облꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 одлꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 полꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 прелꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 прилꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 пролꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 разлꙓ´тати:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 слꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 салꙓ´тати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 послꙓ´тати:
  t: V\Itr\Pf
- i: p:/delta
+ i: p$/delta
 
 ма´хати: 
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 зама´хати I:
  t: V\Itr\Pf
- i: p:/delta
+ i: p$/delta
 
 зама´хати II:
  t: V\Refl\Pf
- i: p:/delta
+ i: p$/delta
 
 ума´хати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
-мр°´кати,мр°´кати I:
+мр°´кати I:
  t: V\Tr\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
-мр°´кати,мр°´кати II:
+мр°´кати II:
  t: V\Refl\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
 му´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
 ни´зати I:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 ни´зати II:
  t: V\Refl\Ipf
- i: p:/delta
+ i: p$/delta
 
 нани´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 обни´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 подни´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 прени´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 разни´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 сни´зати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
-нꙓ´кати,нꙓ´кати:
+нꙓ´кати:
  t: V\Tr\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
  c: само јекавски
 
 ња´кати:
  t: V\Itr\Ipf
- i: p:/delta
+ i: p$/delta
 
-њи´хати,њи´хати I:
+њи´хати I:
  t: V\Tr\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
-њи´хати,њи´хати II:
+њи´хати II:
  t: V\Refl\Ipf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
-зањи´хати,зањи´хати I:
+зањи´хати I:
  t: V\Tr\Pf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
-зањи´хати,зањи´хати II:
+зањи´хати II:
  t: V\Refl\Pf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
-одњи´хати,одњи´хати:
+одњи´хати:
  t: V\Tr\Pf
- i: p:/delta;k:/beta
+ i: p$/delta;k$/beta
 
 па´хати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 сиро`машън:
  t: A\all
@@ -6053,7 +6053,7 @@
   t: A\all
   i: A.;A.
 
-кр°¨вав,кр°¨вав:
+кр°¨вав:
  t: A\all
  i: A.;A.
 
@@ -6181,7 +6181,7 @@
  t: V\Tr\Pf
  i: k./eta
 
-приво`лѣти,приво`лѣти:
+приво`лѣти:
  t: V\Tr\Pf
  i: k./eta;s./eta
 
@@ -6259,23 +6259,23 @@
  
 бꙓ´лѣти:
  t: V\Itr\Ipf
- i: q:/eta
+ i: q$/eta
 
 забꙓ´лѣти:
  t: V\Itr\Pf
- i: q:/eta
+ i: q$/eta
 
 избꙓ´лѣти:
  t: V\Itr\Pf
- i: q:/eta
+ i: q$/eta
 
 побꙓ´лѣти:
  t: V\Itr\Pf
- i: q:/eta
+ i: q$/eta
 
 обꙓ´лѣти:
  t: V\Itr\Pf
- i: q:/eta
+ i: q$/eta
  
 зу^б:
  t: N\m
@@ -6285,27 +6285,27 @@
 
 слу¨ча_ј:
  t: N\m
- i: c:/±
+ i: c$/±
 
 вра^г:
  t: N\m
- i: c:/±,an
+ i: c$/±,an
 
 дру^г:
  t: N\m
- i: c:/±,an
+ i: c$/±,an
 
 ћу^к:
  t: N\m
- i: c:/±,an
+ i: c$/±,an
 
-је^ж,је^ж:
+је^ж:
  t: N\m
- i: d:/+,an;b:/+,an
+ i: d$/+,an;b$/+,an
 
 свꙓ^т II:
  t: N\m
- i: c:/+
+ i: c$/+
 
 ко¨њ:
  t: N\m
@@ -6329,91 +6329,91 @@
 
 бру^с:
  t: N\m
- i: c:/+
+ i: c$/+
 
 вꙓ^к:
  t: N\m
- i: c:/±
+ i: c$/±
 
 брꙓ^г:
  t: N\m
- i: c:/+
+ i: c$/+
 
 вра^т:
  t: N\m
- i: c:/+
+ i: c$/+
 
 гла^с:
  t: N\m
- i: c:/±
+ i: c$/±
 
 гра^д:
  t: N\m
- i: c:/±
+ i: c$/±
 
 да^р:
  t: N\m
- i: c:/±
+ i: c$/±
 
 ду^г II:
  t: N\m
- i: c:/+
+ i: c$/+
 
 зи^д:
  t: N\m
- i: c:/+
+ i: c$/+
 
 ја^з:
  t: N\m
- i: c:/+
+ i: c$/+
 
 ка^с:
  t: N\m
- i: c:/+
+ i: c$/+
 
 кљу^н:
  t: N\m
- i: c:/+
+ i: c$/+
 
-ли^к,ли^к:
+ли^к:
  t: N\m
- i: c:/+;d:/+
+ i: c$/+;d$/+
 
 пу^ж:
  t: N\m
- i: d:/±
+ i: d$/±
 
 бꙓ^с:
  t: N\m
- i: c:/±,an
+ i: c$/±,an
 
 би^р:
  t: N\m
- i: d:/+
+ i: d$/+
 
 бо^ʟ:
  t: N\m
- i: d:/+
+ i: d$/+
 
 бр°^к:
  t: N\m
- i: c:/±
+ i: c$/±
 
 ве^з:
  t: N\m
- i: d:/+
+ i: d$/+
 
 ви^д:
  t: N\m
- i: d:/+
+ i: d$/+
 
 гли^б:
  t: N\m
- i: d:/+
+ i: d$/+
 
 гња^т:
  t: N\m
- i: d:/±
+ i: d$/±
 
 да^н:
  t: N\m
@@ -6423,19 +6423,19 @@
 
 жи^г:
  t: N\m
- i: c:/+
+ i: c$/+
 
 жи^р:
  t: N\m
- i: d:/+
+ i: d$/+
 
 жлꙓ^б:
  t: N\m
- i: c:/+
+ i: c$/+
 
 жу^љ:
  t: N\m
- i: d:/±
+ i: d$/±
 
 зра^к:
  t: N\m
@@ -6443,11 +6443,11 @@
 
 ка^р:
  t: N\m
- i: d:/+
+ i: d$/+
 
 кла^с:
  t: N\m
- i: c:/+
+ i: c$/+
 
 кљу^ч:
  t: N\m
@@ -6455,11 +6455,11 @@
 
 кру^г:
  t: N\m
- i: c:/+
+ i: c$/+
 
 лу^к:
  t: N\m
- i: d:/+
+ i: d$/+
 
 хра^ст:
  t: N\m
@@ -6473,51 +6473,51 @@
 
 свра^б:
  t: N\m
- i: c:/+
+ i: c$/+
 
 снꙓ^г:
  t: N\m
- i: c:/±
+ i: c$/±
 
 смра^д:
  t: N\m
- i: c:/+
+ i: c$/+
 
 сра^м:
  t: N\m
- i: c:/+
+ i: c$/+
 
 ср°^п:
  t: N\m
- i: c:/±
+ i: c$/±
 
 ста^н:
  t: N\m
- i: c:/+
+ i: c$/+
 
 тра^к:
  t: N\m
- i: d:/+
+ i: d$/+
 
 тру^п:
  t: N\m
- i: d:/+
+ i: d$/+
 
 у^д:
  t: N\m
- i: d:/+
+ i: d$/+
 
 цвꙓ^т:
  t: N\m
- i: c:/+
+ i: c$/+
 
 чи^р:
  t: N\m
- i: c:/+
+ i: c$/+
 
-шмр°^к,шмр°^к:
+шмр°^к:
  t: N\m
- i: c:/+;d:/+
+ i: c$/+;d$/+
 
 дꙓ^ʌ:
  t: N\m
@@ -6525,7 +6525,7 @@
 
 ждра^ʟ:
  t: N\m
- i: c:/+,an
+ i: c$/+,an
 
 ђа¨воʌ:
  t: N\m
@@ -6543,19 +6543,19 @@
 
 Македо´нъц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 Цр°ного´ръц,Цр°но`горъц:
  t: N\m
- i: b:/an;a./an
+ i: b$/an;a./an
 
 Хр°`ва_т:
  t: N\m
- i: b:/an
+ i: b$/an
 
 Бо`шња_к:
  t: N\m
- i: b:/an
+ i: b$/an
 
 бирократи`зъм:
  t: N\m
@@ -6579,7 +6579,7 @@
 
 ђа^к:
  t: N\m
- i: b:/an
+ i: b$/an
 
 је`зик:
  t: N\m
@@ -6679,7 +6679,7 @@
  t: N\m
  i: a./an
 
-ба`лван,ба`лван:
+ба`лван:
  t: N\m
  i: a.;a./an
 
@@ -6829,9 +6829,9 @@
  t: N\m
  i: c?/+
 
-ма^х,ма^х:
+ма^х:
  t: N\m
- i: c?/+;d:/+
+ i: c?/+;d$/+
 
 ме^д:
  t: N\m
@@ -6884,7 +6884,7 @@
   
 смꙓ^х:
  t: N\m
- i: b:/+
+ i: b$/+
 
 смо^к:
  t: N\m
@@ -6961,11 +6961,11 @@
 
 ба^н:
  t: N\m
- i: d:/±,an
+ i: d$/±,an
 
 би^к,би¨к:
  t: N\m
- i: b:/+,an;b./+,an
+ i: b$/+,an;b./+,an
  s: akz Nikolić 2007
 
 брꙓ^ст:
@@ -7018,7 +7018,7 @@
 
 зли^ћ:
  t: N\m
- i: b:/an
+ i: b$/an
  c: зашто у ХЈП зли̏ћ?
 
 зо^р I:
@@ -7126,7 +7126,7 @@
 
 жа¨бић,жа`би_ћ:
  t: N\m
- i: a./an;b:/an
+ i: a./an;b$/an
 
 жу¨бор,жу`бо_р,жу`бор:
  t: N\m
@@ -7154,7 +7154,7 @@
 
 ми¨шић,ми`ши_ћ:
  t: N\m
- i: a./an;b:/an
+ i: a./an;b$/an
 
 мла¨деж,мла`деж,мла´деж:
  t: N\m
@@ -7180,7 +7180,7 @@
 
 пле¨мић,пле`ми_ћ:
  t: N\m
- i: a./an;b:/an
+ i: a./an;b$/an
 
 ко`тлић,ко`тли_ћ:
  t: N\m
@@ -7188,75 +7188,75 @@
 
 го^л II:
  t: N\m
- i: d:/+
+ i: d$/+
 
 живота´рити:
  t: V\Itr\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 жи´вѣти:
  t: V\Itr\Ipf
- i: q:/eta
+ i: q$/eta
 
 дожи´вѣти:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 ижи´вѣти I:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 ижи´вѣти II:
  t: V\Refl\Pf
- i: q:/eta
+ i: q$/eta
 
 наджи´вѣти:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 оджи´вѣти:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 ожи´вѣти:
  t: V\Itr\Pf
- i: q:/eta
+ i: q$/eta
 
 пожи´вѣти:
  t: V\Itr\Pf
- i: q:/eta
+ i: q$/eta
 
 прежи´вѣти:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 прожи´вѣти:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 сажи´вѣти:
  t: V\Refl\Pf
- i: q:/eta
+ i: q$/eta
 
 ужи´вѣти:
  t: V\Refl\Pf
- i: q:/eta
+ i: q$/eta
 
 зажи´вѣти:
  t: V\Itr\Pf
- i: q:/eta
+ i: q$/eta
 
 тр°´пѣти:
  t: V\Tr\Ipf
- i: q:/eta
+ i: q$/eta
 
 отр°´пѣти:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 претр°´пѣти:
  t: V\Tr\Pf
- i: q:/eta
+ i: q$/eta
 
 вр°`тѣти I:
  t: V\Tr\Ipf
@@ -7465,19 +7465,19 @@
  t: V\Tr\Ipf
  i: r./alpha
 
-пријате`љити,пријате`љити I:
+пријате`љити I:
  t: V\Tr\Ipf
  i: p./alpha;r./alpha
 
-спријате`љити,спријате`љити I:
+спријате`љити I:
  t: V\Tr\Pf
  i: p./alpha;r./alpha
 
-пријате`љити,пријате`љити II:
+пријате`љити II:
  t: V\Refl\Ipf
  i: p./alpha;r./alpha
 
-спријате`љити,спријате`љити II:
+спријате`љити II:
  t: V\Refl\Pf
  i: p./alpha;r./alpha
 
@@ -7531,19 +7531,19 @@
 
 пи´љити:
  t: V\Itr\Ipf
- i: r:/alpha
+ i: r$/alpha
 
 пи´здрити:
  t: V\Itr\Ipf
- i: r:/alpha
+ i: r$/alpha
 
 пи´ждрити:
  t: V\Itr\Ipf
- i: r:/alpha
+ i: r$/alpha
 
 бу´љити:
  t: V\Itr\Ipf
- i: r:/alpha
+ i: r$/alpha
  
 зја¨ти:
  t: V\Itr\Ipf
@@ -7768,15 +7768,15 @@
 
 ко`сити II:
  t: V\Itr\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 нако`сити II:
  t: V\Tr\Pf
- i: p:/alpha
+ i: p$/alpha
 
 уко`сити:
  t: V\Tr\Pf
- i: p:/alpha
+ i: p$/alpha
 
 кре`чити,кре¨чити I:
  t: V\Tr\Ipf
@@ -7785,21 +7785,21 @@
 
 кре´чити II:
  t: V\Tr\Ipf
- i: p:/alpha
+ i: p$/alpha
  c: размицати, ширити (ноге)
 
 кре´чити III:
  t: V\Refl\Ipf
- i: p:/alpha
+ i: p$/alpha
  c: размицати, ширити ноге
 
 раскре´чити I:
  t: V\Tr\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 раскре´чити II:
  t: V\Refl\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 кро`чити:
  t: V\Ipf\Dv
@@ -7847,7 +7847,7 @@
  t: V\Tr\Pf
  i: p./alpha
 
-про`стити,про`стити:
+про`стити:
  t: V\Tr\Pf
  i: p./alpha;r./alpha
 
@@ -7929,11 +7929,11 @@
  t: V\Refl\Pf
  i: p./alpha
 
-ро`дити,ро`дити I:
+ро`дити I:
  t: V\Tr\Pf
  i: p./alpha;r./alpha
 
-ро`дити,ро`дити II:
+ро`дити II:
  t: V\Refl\Pf
  i: p./alpha;r./alpha
 
@@ -8118,7 +8118,7 @@
  t: V\Tr\Ipf
  i: p./alpha
 
-ромо`рити,ромо`рити:
+ромо`рити:
  t: V\Itr\Ipf
  i: p./alpha;r./alpha
 
@@ -8156,11 +8156,11 @@
 
 о`ра_ч:
  t: N\m
- i: b:/an
+ i: b$/an
 
 во`ди_ч:
  t: N\m
- i: b:/an
+ i: b$/an
 
 ви´шък:
  t: N\m
@@ -8234,11 +8234,11 @@
 
 ре^д:
  t: N\m
- i: c:/+
+ i: c$/+
 
 зна^к:
  t: N\m
- i: c:/±
+ i: c$/±
 
 о`тъц:
  t: N\m
@@ -8252,7 +8252,7 @@
 
 ку´къц:
  t: N\m
- i: b:/an
+ i: b$/an
 
 ро´жъц:
  t: N\m
@@ -8276,19 +8276,19 @@
 
 пи`са_рʲ:
  t: N\m
- i: b:/an
+ i: b$/an
 
 ма´чък:
  t: N\m
- i: b:/an
+ i: b$/an
 
 па´тък:
  t: N\m
- i: b:/an
+ i: b$/an
 
 гу´сък:
  t: N\m
- i: b:/an
+ i: b$/an
 
 гра´шък:
  t: N\m
@@ -8300,23 +8300,23 @@
 
 Ки`не_з:
  t: N\m
- i: b:/an
+ i: b$/an
 
 Е`нгле_з:
  t: N\m
- i: b:/an
+ i: b$/an
 
 му^ж:
  t: N\m
- i: c:/±,an
+ i: c$/±,an
 
 си^н:
  t: N\m
- i: c:/±,an
+ i: c$/±,an
 
 кне^з:
  t: N\m
- i: c:/+,an
+ i: c$/+,an
  add:
   pl nom: кне¨жеви, кне´жеви
   pl acc: кне¨жеве, кне´жеве
@@ -8398,7 +8398,7 @@
 
 бољше`ви_к:
  t: N\m
- i: b:/an
+ i: b$/an
 
 ка´дър:
  t: N\m
@@ -8406,11 +8406,11 @@
 
 дѣ`ча_к:
  t: N\m
- i: b:/an
+ i: b$/an
 
 ју`на_к:
  t: N\m
- i: b:/an
+ i: b$/an
 
 по¨дви_г:
  t: N\m
@@ -8454,7 +8454,7 @@
 
 ко`бъц,ко´бъц:
  t: N\m
- i: b./an;b:/an
+ i: b./an;b$/an
 
 ла`жъц:
  t: N\m
@@ -8518,11 +8518,11 @@
 
 мо`љъц,мо´љъц:
  t: N\m
- i: b./an;b:/an
+ i: b./an;b$/an
 
 ро`нъц,ро´нъц:
  t: N\m
- i: b./an;b:/an
+ i: b./an;b$/an
 
 бо`јъц:
  t: N\m
@@ -8542,7 +8542,7 @@
 
 ште`нъц,ште´нъц:
  t: N\m
- i: f./an;b:/an
+ i: f./an;b$/an
 
 о`ръʌ:
  t: N\m
@@ -8638,67 +8638,67 @@
 
 му´тити I:
  t: V\Tr\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 му´тити II:
  t: V\Refl\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 заму´тити I:
  t: V\Tr\Pf
- i: p:/alpha
+ i: p$/alpha
 
 заму´тити II:
  t: V\Refl\Pf
- i: p:/alpha
+ i: p$/alpha
 
 пому´тити I:
  t: V\Tr\Pf
- i: p:/alpha
+ i: p$/alpha
 
 пому´тити II:
  t: V\Refl\Pf
- i: p:/alpha
+ i: p$/alpha
 
 хва´лити I:
  t: V\Tr\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 хва´лити II:
  t: V\Refl\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 нахва´лити I:
  t: V\Tr\Pf
- i: p:/alpha
+ i: p$/alpha
 
 нахва´лити II:
  t: V\Refl\Pf
- i: p:/alpha
+ i: p$/alpha
 
 похва´лити I:
  t: V\Tr\Pf
- i: p:/alpha
+ i: p$/alpha
 
 похва´лити II:
  t: V\Refl\Pf
- i: p:/alpha
+ i: p$/alpha
 
 захва´лити I:
  t: V\Tr\Pf
- i: p:/alpha
+ i: p$/alpha
 
 захва´лити II:
  t: V\Refl\Pf
- i: p:/alpha
+ i: p$/alpha
 
 ху´лити:
  t: V\Tr\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 богоху´лити:
  t: V\Itr\Ipf
- i: p:/alpha
+ i: p$/alpha
 
 фле¨ртовати:
  t: V\Itr\Ipf
@@ -9118,15 +9118,15 @@
 
 је´чѣти:
  t: V\Itr\Ipf
- i: q:/eta
+ i: q$/eta
 
 звр°´чѣти:
  t: V\Itr\Ipf
- i: q:/eta
+ i: q$/eta
 
 цвр°´чѣти:
  t: V\Itr\Ipf
- i: q:/eta
+ i: q$/eta
 
 до`јити:
  t: V\Tr\Ipf
@@ -9274,7 +9274,7 @@
 
 про´рок,про`рок:
  t: N\m
- i: a:/an;a./an
+ i: a$/an;a./an
 
 ру´цељ,ру`цељ:
  t: N\m
@@ -9308,7 +9308,7 @@
 
 лу´пеж:
  t: N\m
- i: a:/an
+ i: a$/an
  add:
   gen pl: лу´пежи_
 
@@ -9401,7 +9401,7 @@
 
 слу´га:
  t: N\f
- i: g:/an
+ i: g$/an
  add:
   pl gen: слу´гу_, слу`гу_
 
@@ -9445,21 +9445,21 @@
  t: N\f
  i: c$
 
-бра´да,бра´да:
+бра´да:
  t: N\f
- i: c:;g$
+ i: c$;g$
 
-вр°´ба,вр°´ба:
+вр°´ба:
  t: N\f
- i: c:;g$
+ i: c$;g$
 
-клу´па,клу´па:
+клу´па:
  t: N\f
- i: c:;g$
+ i: c$;g$
 
-стꙓ´на,стꙓ´на:
+стꙓ´на:
  t: N\f
- i: c:;g$
+ i: c$;g$
 
 ви´ла:
  t: N\f
@@ -9898,13 +9898,13 @@
  t: N\f
  i: a.
 
-пче`ла,пче`ла:
+пче`ла:
  t: N\f
  i: c.;g.
 
 црꙓ^п:
  t: N\m
- i: c:/+
+ i: c$/+
 
 мꙓ^х:
  t: N\m
@@ -9912,13 +9912,13 @@
 
 звꙓ^р:
  t: N\m
- i: c:/±
+ i: c$/±
  add:
   pl gen: звꙓ´ри_
 
 жлꙓ^б:
  t: N\m
- i: c:/+
+ i: c$/+
 
 хра^м:
  t: N\m
@@ -10013,7 +10013,7 @@
 
 су´сѣд:
  t: N\m
- i: a:/an
+ i: a$/an
 
 у´ред:
  t: N\m
@@ -10182,107 +10182,107 @@
 
 у`мрꙓ_ти:
  t: V\Itr\Pf\умр̄
- i: i:/kappa
+ i: i$/kappa
 
 за`мрꙓ_ти:
  t: V\Itr\Pf\замр̄
- i: i:/kappa
+ i: i$/kappa
 
 по`мрꙓ_ти:
  t: V\Itr\Pf\помр̄
- i: i:/kappa
+ i: i$/kappa
 
 са`мрꙓ_ти:
  t: V\Itr\Pf\самр̄
- i: i:/kappa
+ i: i$/kappa
 
 изу`мрꙓ_ти:
  t: V\Itr\Pf\изумр̄
- i: i:/kappa
+ i: i$/kappa
 
 оба`мрꙓ_ти:
  t: V\Itr\Pf\обамр̄
- i: i:/kappa
+ i: i$/kappa
 
 обу`мрꙓ_ти:
  t: V\Itr\Pf\обумр̄
- i: i:/kappa
+ i: i$/kappa
 
 разу`мрꙓ_ти:
  t: V\Refl\Pf\разумр̄
- i: i:/kappa
+ i: i$/kappa
 
 на`су_ти:
  t: V\Tr\Pf\насп
- i: i:/kappa2
+ i: i$/kappa2
 
 за`су_ти:
  t: V\Tr\Pf\засп
- i: i:/kappa2
+ i: i$/kappa2
 
 о`су_ти:
  t: V\Tr\Pf\осп
- i: i:/kappa2
+ i: i$/kappa2
 
 о`псу_ти:
  t: V\Tr\Pf\опсп
- i: i:/kappa2
+ i: i$/kappa2
 
 о`дсу_ти:
  t: V\Tr\Pf\одсп
- i: i:/kappa2
+ i: i$/kappa2
 
 по`су_ти:
  t: V\Tr\Pf\посп
- i: i:/kappa2
+ i: i$/kappa2
 
 при`су_ти:
  t: V\Tr\Pf\присп
- i: i:/kappa2
+ i: i$/kappa2
 
 пре`су_ти:
  t: V\Tr\Pf\пресп
- i: i:/kappa2
+ i: i$/kappa2
 
 про`су_ти:
  t: V\Tr\Pf\просп
- i: i:/kappa2
+ i: i$/kappa2
 
 ра`су_ти:
  t: V\Tr\Pf\расп
- i: i:/kappa2
+ i: i$/kappa2
 
 са`су_ти:
  t: V\Tr\Pf\сасп
- i: i:/kappa2
+ i: i$/kappa2
 
 у`су_ти:
  t: V\Tr\Pf\усп
- i: i:/kappa2
+ i: i$/kappa2
 
 иза`су_ти:
  t: V\Tr\Pf\изасп
- i: i:/kappa2
+ i: i$/kappa2
 
 оба`су_ти:
  t: V\Tr\Pf\обасп
- i: i:/kappa2
+ i: i$/kappa2
 
 ода`су_ти:
  t: V\Tr\Pf\одасп
- i: i:/kappa2
+ i: i$/kappa2
 
 пода`су_ти:
  t: V\Tr\Pf\подасп
- i: i:/kappa2
+ i: i$/kappa2
 
 раза`су_ти:
  t: V\Tr\Pf\разасп
- i: i:/kappa2
+ i: i$/kappa2
 
 распро`су_ти:
  t: V\Tr\Pf\распросп
- i: i:/kappa2
+ i: i$/kappa2
 
 же´ти I:
  t: V\Tr\Ipf\жм
@@ -10290,263 +10290,263 @@
 
 за`же_ти:
  t: V\Tr\Pf\зажм
- i: i:/kappa2
+ i: i$/kappa2
 
 и`же_ти:
  t: V\Tr\Pf\ижм
- i: i:/kappa2
+ i: i$/kappa2
 
 о`же_ти:
  t: V\Tr\Pf\ожм
- i: i:/kappa2
+ i: i$/kappa2
 
 пре`же_ти:
  t: V\Tr\Pf\прежм
- i: i:/kappa2
+ i: i$/kappa2
 
 про`же_ти:
  t: V\Tr\Pf\прожм
- i: i:/kappa2
+ i: i$/kappa2
 
 са`же_ти:
  t: V\Tr\Pf\сажм
- i: i:/kappa2
+ i: i$/kappa2
 
 иза`же_ти:
  t: V\Tr\Pf\изажм
- i: i:/kappa2
+ i: i$/kappa2
 
 о`те_ти:
  t: V\Tr\Pf\отм
- i: i:/kappa2
+ i: i$/kappa2
 
 у`зе_ти:
  t: V\Tr\Pf\узм
- i: i:/kappa2
+ i: i$/kappa2
 
 зау`зе_ти:
  t: V\Tr\Pf\заузм
- i: i:/kappa2
+ i: i$/kappa2
 
 прео`те_ти:
  t: V\Tr\Pf\преотм
- i: i:/kappa2
+ i: i$/kappa2
 
 изу`зе_ти:
  t: V\Refl\Pf\изузм
- i: i:/kappa2
+ i: i$/kappa2
 
 нау`зе_ти:
  t: V\Refl\Pf\наузм
- i: i:/kappa2
+ i: i$/kappa2
 
 обу`зе_ти:
  t: V\Tr\Pf\обузм
- i: i:/kappa2
+ i: i$/kappa2
 
 оду`зе_ти:
  t: V\Tr\Pf\одузм
- i: i:/kappa2
+ i: i$/kappa2
 
 поду`зе_ти:
  t: V\Tr\Pf\подузм
- i: i:/kappa2
+ i: i$/kappa2
 
 преу`зе_ти:
  t: V\Tr\Pf\преузм
- i: i:/kappa2
+ i: i$/kappa2
 
 за`пе_ти:
  t: V\Tr\Pf\запн
- i: i:/kappa2
+ i: i$/kappa2
 
 и`спе_ти:
  t: V\Tr\Pf\испн
- i: i:/kappa2
+ i: i$/kappa2
 
 на`пе_ти:
  t: V\Tr\Pf\напн
- i: i:/kappa2
+ i: i$/kappa2
 
 по`пе_ти:
  t: V\Tr\Pf\попн
- i: i:/kappa2
+ i: i$/kappa2
 
 при`пе_ти:
  t: V\Tr\Pf\припн
- i: i:/kappa2
+ i: i$/kappa2
 
 про`пе_ти:
  t: V\Tr\Pf\пропн
- i: i:/kappa2
+ i: i$/kappa2
 
 ра`спе_ти:
  t: V\Tr\Pf\распн
- i: i:/kappa2
+ i: i$/kappa2
 
 са`пе_ти:
  t: V\Tr\Pf\сапн
- i: i:/kappa2
+ i: i$/kappa2
 
 у`пе_ти:
  t: V\Refl\Pf\упн
- i: i:/kappa2
+ i: i$/kappa2
 
 оба`пе_ти:
  t: V\Tr\Pf\обапн
- i: i:/kappa2
+ i: i$/kappa2
 
 ода`пе_ти:
  t: V\Tr\Pf\одапн
- i: i:/kappa2
+ i: i$/kappa2
 
 пода`пе_ти:
  t: V\Tr\Pf\подапн
- i: i:/kappa2
+ i: i$/kappa2
 
 раза`пе_ти:
  t: V\Tr\Pf\разапн
- i: i:/kappa2
+ i: i$/kappa2
 
 до`че_ти:
  t: V\Tr\Pf\дочн
- i: i:/kappa2
+ i: i$/kappa2
 
 за`че_ти:
  t: V\Tr\Pf\зачн
- i: i:/kappa2
+ i: i$/kappa2
 
 на`че_ти:
  t: V\Tr\Pf\начн
- i: i:/kappa2
+ i: i$/kappa2
 
 по`че_ти:
  t: V\Tr\Pf\почн
- i: i:/kappa2
+ i: i$/kappa2
 
 при`че_ти:
  t: V\Tr\Pf\причн
- i: i:/kappa2
+ i: i$/kappa2
 
 запо`че_ти:
  t: V\Tr\Pf\започн
- i: i:/kappa2
+ i: i$/kappa2
 
 отпо`че_ти:
  t: V\Tr\Pf\отпочн
- i: i:/kappa2
+ i: i$/kappa2
 
 препо`че_ти:
  t: V\Tr\Pf\препочн
- i: i:/kappa2
+ i: i$/kappa2
 
 за`дрꙓ_ти:
  t: V\Tr\Pf\задр̄
- i: i:/kappa
+ i: i$/kappa
 
 и`здрꙓ_ти:
  t: V\Tr\Pf\издр̄
- i: i:/kappa
+ i: i$/kappa
 
 на`дрꙓ_ти:
  t: V\Tr\Pf\надр̄
- i: i:/kappa
+ i: i$/kappa
 
 о`дрꙓ_ти:
  t: V\Tr\Pf\одр̄
- i: i:/kappa
+ i: i$/kappa
 
 пре`дрꙓ_ти:
  t: V\Tr\Pf\предр̄
- i: i:/kappa
+ i: i$/kappa
 
 про`дрꙓ_ти:
  t: V\Tr\Pf\продр̄
- i: i:/kappa
+ i: i$/kappa
 
 ра`здрꙓ_ти:
  t: V\Tr\Pf\раздр̄
- i: i:/kappa
+ i: i$/kappa
 
 са`дрꙓ_ти:
  t: V\Tr\Pf\садр̄
- i: i:/kappa
+ i: i$/kappa
 
 иза`дрꙓ_ти:
  t: V\Tr\Pf\изадр̄
- i: i:/kappa
+ i: i$/kappa
 
 ода`дрꙓ_ти:
  t: V\Tr\Pf\одадр̄
- i: i:/kappa
+ i: i$/kappa
 
 пода`дрꙓ_ти:
  t: V\Tr\Pf\подадр̄
- i: i:/kappa
+ i: i$/kappa
 
 про`ждрꙓ_ти:
  t: V\Tr\Pf\прождр̄
- i: i:/kappa
+ i: i$/kappa
 
 до`прꙓ_ти:
  t: V\Tr\Pf\допр̄
- i: i:/kappa
+ i: i$/kappa
 
 за`прꙓ_ти:
  t: V\Tr\Pf\запр̄
- i: i:/kappa
+ i: i$/kappa
 
 о`прꙓ_ти:
  t: V\Tr\Pf\опр̄
- i: i:/kappa
+ i: i$/kappa
 
 по`прꙓ_ти:
  t: V\Tr\Pf\попр̄
- i: i:/kappa
+ i: i$/kappa
 
 при`прꙓ_ти:
  t: V\Tr\Pf\припр̄
- i: i:/kappa
+ i: i$/kappa
 
 у`прꙓ_ти:
  t: V\Tr\Pf\упр̄
- i: i:/kappa
+ i: i$/kappa
 
 ода`прꙓ_ти:
  t: V\Tr\Pf\одапр̄
- i: i:/kappa
+ i: i$/kappa
 
 оду`прꙓ_ти:
  t: V\Tr\Pf\одупр̄
- i: i:/kappa
+ i: i$/kappa
 
 поду`прꙓ_ти:
  t: V\Tr\Pf\подупр̄
- i: i:/kappa
+ i: i$/kappa
 
 за`стрꙓ_ти:
  t: V\Tr\Pf\застр̄
- i: i:/kappa
+ i: i$/kappa
 
 на`стрꙓ_ти:
  t: V\Tr\Pf\настр̄
- i: i:/kappa
+ i: i$/kappa
 
 про`стрꙓ_ти:
  t: V\Tr\Pf\простр̄
- i: i:/kappa
+ i: i$/kappa
 
 оба`стрꙓ_ти:
  t: V\Tr\Pf\обастр̄
- i: i:/kappa
+ i: i$/kappa
 
 ода`стрꙓ_ти:
  t: V\Tr\Pf\одастр̄
- i: i:/kappa
+ i: i$/kappa
 
 раза`стрꙓ_ти:
  t: V\Tr\Pf\разастр̄
- i: i:/kappa
+ i: i$/kappa
 
 не`сˌти:
  t: V\Tr\Ipf
@@ -10586,10 +10586,6 @@
 ко^б:
  t: N\f
  i: a$
-
-не¨мо_ћ:
- t: N\f
- i: a?
 
 не¨мо_ћ:
  t: N\f
@@ -10656,19 +10652,19 @@
  t: N\m
  i: c?
 
-ра^д,ра^д II:
+ра^д II:
  t: N\m
- i: c:/+;d:/+
+ i: c$/+;d$/+
  s: akz
 
 ву^к:
  t: N\m
- i: c:/±,an
+ i: c$/±,an
 
 р°^т,р°¨т:
  t: N\m
- i: c:/±;b./±
- s: akz; https://www.academia.edu/11329385
+ i: c$/±;b./±
+ s: akz; https$//www.academia.edu/11329385
 
 хр°¨т:
  t: N\m
@@ -10706,7 +10702,7 @@
 
 одга´јати:
  t: V\Tr\Ipf
- i: k:/beta
+ i: k$/beta
 
 за^става:
  t: N\f
@@ -10718,7 +10714,7 @@
 
 Југосло`ве_н:
  t: N\m
- i: b:/an
+ i: b$/an
 
 ја¨так:
  t: N\m
@@ -10850,7 +10846,7 @@
  t: N\f
  i: a!/i
 
-жа¨ло_ст,жа¨ло_ст:
+жа¨ло_ст:
  t: N\f
  i: a?;c?
 
@@ -10870,46 +10866,46 @@
  t: N\m
  i: a.
 
-си¨сати,си¨сати:
+си¨сати:
  t: V\Tr\Ipf
  i: o./delta;o./beta
 
-у`сисати,у`сисати:
+у`сисати:
  t: V\Tr\Pf
  i: o./delta;o./beta
 
-о`сисати,о`сисати:
+о`сисати:
  t: V\Tr\Pf
  i: o./delta;o./beta
 
-по`сисати,по`сисати:
+по`сисати:
  t: V\Tr\Pf
  i: o./delta;o./beta
 
 ши´шати:
  t: V\Tr\Ipf
- i: p:/delta
+ i: p$/delta
 
 оши´шати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 подши´шати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 проши´шати:
  t: V\Tr\Pf
- i: p:/delta
+ i: p$/delta
 
 вра´нити I:
  t: V\Refl\Ipf
- i: r:/alpha
+ i: r$/alpha
  c: вранети се
 
 вра´нити II:
  t: V\Refl\Ipf
- i: p:/alpha
+ i: p$/alpha
  c: постајати вран
 
 вра¨нити III:
@@ -10919,7 +10915,7 @@
 
 вра´нѣти:
  t: V\Refl\Ipf
- i: q:/eta
+ i: q$/eta
 
 ви¨дѣти I:
  t: V\Tr\Dv
@@ -10951,7 +10947,7 @@
 
 сви´ђати:
  t: V\Refl\Ipf
- i: p:/beta
+ i: p$/beta
 
 пре`видѣти:
  t: V\Tr\Pf
@@ -11542,7 +11538,7 @@
  t: N\m
  i: a.
 
-за¨повꙓ_д,за¨повꙓ_д:
+за¨повꙓ_д:
  t: N\f
  i: a$;c$
 
