@@ -50,7 +50,7 @@ class Multidict(Generic[KT, VT]):
 # coincide (e.g. свет can be an outer representation of both свет and свꙓт).
 
 class Entry(NamedTuple):
-   caption: str
+   caption: Tuple[str, str]
    accented_keys: str
    extra_key: str
    type: str

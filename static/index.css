@@ -217,3 +217,8 @@ input[type=button] {
    font-size: 11pt;
    border: 1px;  
 }
+
+a.captionlink {
+   color: black;
+   text-decoration: none;
+}

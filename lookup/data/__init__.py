@@ -51,7 +51,7 @@ for full_key in raw_data.keys():
    raw_entry = raw_data[full_key]
    current_pos = posdict[raw_entry["t"][0]]
 
-   caption = f"{disambiguator} {current_pos} {comment}"
+   caption = (f"{disambiguator} {current_pos} {comment}", disambiguator)
    new_entry = Entry(
       caption,
       accented_keys,

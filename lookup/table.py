@@ -1,12 +1,13 @@
 from __future__ import annotations
-from typing import Iterable, Iterator, List, Tuple, Union
+from typing import Iterable, Iterator, List, Optional, Tuple, Union
+from .paradigm_helpers import TableCaption, make_caption
 
 Form = str
 Multiform = List[Form]
 LabeledMultiform = Tuple[str, Multiform]
 
 class Table:
-   def __init__(self, pos:str, caption:str, data:Iterable[LabeledMultiform]) -> None:
+   def __init__(self, pos:str, caption:TableCaption, data:Iterable[LabeledMultiform]) -> None:
       self.caption = caption
       self.pos = pos
       self._data = list(data)
@@ -18,7 +19,16 @@ class Table:
          w = form_name.split()
          if all(s in w for s in v):
             result.append((form_name, forms))
-      return Table(f"partial {self.pos}", f"{self.caption} [{query}]", result)
+      return Table(
+         f"partial {self.pos}",
+         TableCaption(
+            self.caption.caption,
+            self.caption.par,
+            self.caption.subpar,
+            f"{self.caption.caption} [{query}]"
+         ),
+         result
+      )
 
    @property
    def multiform(self) -> List[str]: # TODO: document in README, rethink
@@ -29,7 +39,7 @@ class Table:
       return self._data[0][1]
 
    def __repr__(self) -> str:
-      result = self.caption + "\n"
+      result = self.caption.full_caption + "\n"
       name_widths = (len(form_name) for form_name, _ in self._data)
       column_width = max(name_widths, default=0) + 5
       if self._data:

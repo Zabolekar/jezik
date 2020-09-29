@@ -1,12 +1,15 @@
+
 from typing import Dict, Iterator, Optional, Tuple, Type, Union
-from .table import Table, Multitable
 from .adjective import Adjective
 from .adverb import Adverb
-from .noun import Noun
-from .verb import Verb
-from .data import data
 from .charutils import all_latin
+from .data import data
+from .noun import Noun
+from .table import Table, Multitable
+from .paradigm_helpers import make_caption
 from .utils import strip_suffix
+from .verb import Verb
+
 
 PartOfSpeech = Union[
    Type[Verb],
@@ -48,7 +51,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          # TODO: simplify duplicate code here and a few lines below
          n_variants = len(verb.accented_keys)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})" # TODO latin
+            full_caption = make_caption(caption, n_variants, i)
             yield Table(
                "verb",
                full_caption,
@@ -60,7 +63,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          adjective = Adjective(inner_key, accented_keys, kind, info, replacements, amendments)
          n_variants = len(adjective.accented_keys)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
+            full_caption = make_caption(caption, n_variants, i)
             yield Table(
                "adjective",
                full_caption,
@@ -70,7 +73,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          noun = Noun(inner_key, accented_keys, kind, info, replacements, amendments)
          n_variants = len(noun.accented_keys)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
+            full_caption = make_caption(caption, n_variants, i)
             yield Table(
                "noun",
                full_caption,
@@ -80,14 +83,18 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          adverb = Adverb(inner_key, accented_keys, kind, info)
          n_variants = len(adverb.accented_keys)
          for i in range(n_variants):
-            full_caption = caption if n_variants == 1 else f"{caption} (вар. {i+1})"
+            full_caption = make_caption(caption, n_variants, i)
             yield Table(
                "adverb",
                full_caption,
                adverb.multiforms(variant=i, yat=output_yat, latin=latin)
             )
       else:
-         yield Table("", "", iter([("😞", ["Још не знамо како се акцентује ова реч"])]))
+         yield Table(
+            "",
+            make_caption(("", ""), 1, 1),
+            iter([("😞", ["Још не знамо како се акцентује ова реч"])])
+         )
          # # TODO, and also sometimes ријеч and/or latin
 
 def lookup(outer_key: str, input_yat:str="e", output_yat:Optional[str]=None) -> Multitable:

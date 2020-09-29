@@ -133,3 +133,24 @@ class OrderedSet(OrderedDict, Generic[T]):
 
 def uniq(i:Iterable[T]) -> List[T]:
    return list(OrderedSet(i))
+
+
+@dataclass
+class TableCaption:
+   caption: str
+   par: str
+   subpar: str
+   full_caption: str
+
+
+def make_caption(
+   caption:Tuple[str, str],
+   n:int,
+   i:int
+) -> TableCaption:
+   capt = caption[0]
+   dis = caption[1].replace(":", "")
+   if n == 1:
+      return TableCaption(capt, dis, "1", capt)
+   else:
+      return TableCaption(capt, dis, str(i+1), f"{capt} (вар. {i+1})") # TODO latin

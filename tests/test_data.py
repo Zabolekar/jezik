@@ -1,7 +1,7 @@
 from typing import List
 import pytest # type: ignore
 from ..lookup import lookup, data
-from ..lookup.charutils import four_accents, cmacron
+from ..lookup.charutils import four_accents, cmacron, roman
 from ..lookup.paradigm_helpers import cut_AP, has, str_find
 from ..lookup.table import LabeledMultiform
 
@@ -74,11 +74,10 @@ def test_yaml_suffixes():
    and that the suffixes are Roman numerals only.
    Also good for finding possible duplicates.
    """
-   roman = ('I', 'II', 'III', 'IV', 'V', 'VI', 'VII')
    for outer_key, yat_mode in data._outer_to_inner:
       myentries = list(data[(outer_key.lower(), yat_mode)])
       if len(myentries) > 1:
          for _, entry in myentries:
-            cpt = entry.caption
+            cpt = entry.caption[0]
             assert ':' in cpt, [x[1].accented_keys for x in myentries]
             assert cpt[:cpt.find(':')] in roman, cpt+" "+entry.accented_keys
