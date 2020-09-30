@@ -15,11 +15,10 @@ PartOfSpeech = Union[
    Type[Verb],
    Type[Adjective],
    Type[Noun],
-   Type[Adverb],
-   Type[None]
+   Type[Adverb]
 ]
 
-def part_of_speech(kind:str) -> PartOfSpeech:
+def part_of_speech(kind:str) -> Optional[PartOfSpeech]:
    POS = kind.split('\\')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink
    if POS == "V":
       return Verb
@@ -29,7 +28,7 @@ def part_of_speech(kind:str) -> PartOfSpeech:
       return Noun
    if POS == "B":
       return Adverb
-   return type(None) # TODO other parts of speech
+   return None # TODO other parts of speech
 
 def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
 
