@@ -59,13 +59,13 @@ def last_vowel_index(trunk:str) -> Optional[int]:
       *__, last_vowel = _any_vowel_c.finditer(trunk)
       index, _ = last_vowel.span()
       return index
-   return None
+   return
 
 def first_vowel_index(trunk:str) -> Optional[int]:
    match = _any_vowel_c.search(trunk)
    if match:
       return match.span()[0]
-   return None
+   return
 
 def indices(trunk:str) -> Tuple[Optional[int], Optional[int], Optional[int]]:
    lvi = last_vowel_index(trunk)

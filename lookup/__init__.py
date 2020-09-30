@@ -6,7 +6,7 @@ from .charutils import all_latin
 from .data import data
 from .noun import Noun
 from .table import Table, Multitable
-from .paradigm_helpers import make_caption
+from .paradigm_helpers import has, make_caption
 from .utils import strip_suffix
 from .verb import Verb
 
@@ -19,7 +19,7 @@ PartOfSpeech = Union[
    Type[None]
 ]
 
-def part_of_speech(kind: str) -> PartOfSpeech:
+def part_of_speech(kind:str) -> PartOfSpeech:
    POS = kind.split('\\')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink
    if POS == "V":
       return Verb
@@ -31,63 +31,30 @@ def part_of_speech(kind: str) -> PartOfSpeech:
       return Adverb
    return type(None) # TODO other parts of speech
 
-def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
+def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
 
    if input_yat not in ["e", "ije"] or output_yat not in ["e", "je", "ije"]:
       return # TODO: nice error message, this would only lead to "word not found"
 
-   latin = any(x in key for x in all_latin)
+   latin = has(key, *tuple(all_latin))
 
    key, with_se = strip_suffix(key, (" se", " се"))
 
    for inner_key, (caption, accented_keys, extra_key, kind, info, replacements, amendments) in data[key, input_yat]:
       POS = part_of_speech(kind)
       # # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
-      if POS is Verb:
-         verb = Verb(inner_key, accented_keys, kind, info, replacements, amendments)
+      if with_se and ((POS is not Verb) or (POS is Verb and not 'Refl' in kind)):
+         continue # for skipping meaningless queries like "адвокат се"
+      elif POS:
+         word = POS(inner_key, accented_keys, kind, info, replacements, amendments)
          # # TODO: can we avoid passing kind and info again? POS already knows
-         if with_se and not verb.is_reflexive:
-            continue
-         # TODO: simplify duplicate code here and a few lines below
-         n_variants = len(verb.accented_keys)
+         n_variants = len(word.accented_keys)
          for i in range(n_variants):
             full_caption = make_caption(caption, n_variants, i)
             yield Table(
-               "verb",
+               POS.__name__.lower(),
                full_caption,
-               verb.multiforms(variant=i, yat=output_yat, latin=latin)
-            )
-      elif with_se: # for skipping meaningless queries like "адвокат се"
-         continue
-      elif POS is Adjective:
-         adjective = Adjective(inner_key, accented_keys, kind, info, replacements, amendments)
-         n_variants = len(adjective.accented_keys)
-         for i in range(n_variants):
-            full_caption = make_caption(caption, n_variants, i)
-            yield Table(
-               "adjective",
-               full_caption,
-               adjective.multiforms(variant=i, yat=output_yat, latin=latin)
-            )
-      elif POS is Noun:
-         noun = Noun(inner_key, accented_keys, kind, info, replacements, amendments)
-         n_variants = len(noun.accented_keys)
-         for i in range(n_variants):
-            full_caption = make_caption(caption, n_variants, i)
-            yield Table(
-               "noun",
-               full_caption,
-               noun.multiforms(variant=i, yat=output_yat, latin=latin)
-            )
-      elif POS is Adverb:
-         adverb = Adverb(inner_key, accented_keys, kind, info)
-         n_variants = len(adverb.accented_keys)
-         for i in range(n_variants):
-            full_caption = make_caption(caption, n_variants, i)
-            yield Table(
-               "adverb",
-               full_caption,
-               adverb.multiforms(variant=i, yat=output_yat, latin=latin)
+               word.multiforms(variant=i, yat=output_yat, latin=latin)
             )
       else:
          yield Table(
@@ -97,7 +64,7 @@ def lazy_lookup(key: str, input_yat: str, output_yat: str) -> Iterator[Table]:
          )
          # # TODO, and also sometimes ријеч and/or latin
 
-def lookup(outer_key: str, input_yat:str="e", output_yat:Optional[str]=None) -> Multitable:
+def lookup(outer_key:str, input_yat:str="e", output_yat:Optional[str]=None) -> Multitable:
    if output_yat is None:
       output_yat = input_yat
    if input_yat == "je":
