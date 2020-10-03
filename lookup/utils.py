@@ -135,6 +135,8 @@ def deyerify(form:str) -> str:
 
    two_yers = form.count('ъ') == 2 # зајутрак, зајутарка; probably not the best place to do it
 
+   if form.endswith(cstraight+'ø'):
+      form = form.replace('ø', '')
    if 'ø' in form:
       if two_yers and not '>' in form:
          form = form.replace('ъ', '', 1)
@@ -146,6 +148,7 @@ def deyerify(form:str) -> str:
       for repl in repl_dict:
          form = form.replace(repl, repl_dict[repl])
       form = form.replace('ъ', '').replace('ꚜ', '').replace('ꙏ', '')
+
    match = re2.search(form)
    if match:
       wrong_acc_index = match.span()[0]
@@ -221,6 +224,7 @@ _prettify_small_palatalization: List[Tuple[str, str]] = [
    # back into regular string replaces, see `_prettify_simple_palatalization`
    #('тȷ', 'ћ'), ('дȷ', 'ђ'),
    #('лȷ', 'љ'), ('нȷ', 'њ'),
+   ('ц¦œ', 'це'),
    ('[ʹʺ¦ȷ]', '')
 ]
 

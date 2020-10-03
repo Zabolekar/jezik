@@ -174,8 +174,27 @@ f_declension_yer = [
    [[AccentedTuple('и', '')]]
 ]
 
-def c_f(stem: str, a: bool) -> NounStem:
+def c_f(stem:str, a:bool) -> NounStem:
    if a:
       return NounStem(*f_declension_a)
    else:
       return NounStem(*f_declension_yer)
+
+def c_n(stem:str) -> NounStem:
+   # TODO: it is 'selo' only, add 'ime'
+   return NounStem(
+      [[AccentedTuple('¦œ·', 'b.b:b0g.')]],
+      [[AccentedTuple('¦œ·', 'b.b:b0g.')]],
+      [[AccentedTuple('а·', 'b.b:b0g.')]],
+      [[AccentedTuple('у·', 'b.b:b0g.')]],
+      [[AccentedTuple('¦œ·м', 'b.b:b0g.')]],
+      [[AccentedTuple('у·', 'b.b:b0g.')]],
+      [[AccentedTuple('¦œ·', 'b.b:b0g.')]],
+      [[AccentedTuple('а·', 'b.c.c:')]],
+      [[AccentedTuple('а·', 'b.c.c:')]],
+      [[AccentedTuple(f'<а·{cmacron}', 'b.b:b0c.c:g.')]],
+      [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
+      [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
+      [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
+      [[AccentedTuple('а·', 'c.c:')]]
+   )

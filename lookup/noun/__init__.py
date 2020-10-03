@@ -1,7 +1,7 @@
-from re import sub as rsub
+from re import sub as rsub, search as rsearch
 from typing import Callable, Dict, List, Iterator, Optional, Tuple
 
-from .paradigms import c_m, c_f, NounStem, male_gen_pl_marked, female_gen_pl_i
+from .paradigms import c_m, c_f, c_n, NounStem, male_gen_pl_marked, female_gen_pl_i
 from ..charutils import cmacron, cstraight
 from ..paradigm_helpers import (
    AccentedTuple, MorphemeChain, uniq, nice_name, oa,
@@ -84,9 +84,12 @@ class Noun(PartOfSpeech):
          elif self.label("f"):
             trunk_ = accented_noun.replace(cstraight, '')
             accented_trunk_ = accented_noun
-         else:
+         else: # TODO add ime-podne-...
             trunk_ = accented_noun.replace(cstraight, '')[:-1]
-            accented_trunk_ = accented_noun[:-1]
+            if accented_noun.endswith(cstraight): # zlo
+               accented_trunk_ = accented_noun.replace(cstraight, '')[:-1]
+            else:
+               accented_trunk_ = accented_noun[:-1]
 
          if has(AP, *tuple("cdfg")): # c, d, f (?), g are c-like paradigms
             if not self.key.endswith('а'):
@@ -205,6 +208,20 @@ class Noun(PartOfSpeech):
                current_AP not in ('a¡',)
             ):
                retraction = [1] # па̏ртӣја̄
+         elif self.label('n'):
+            if (
+               (current_AP in ('g.', 'b:', 'a.')) or
+               # sèlo:sêlа̄, písmo:pîsа̄mа̄, kòleno:kо̏lе̄nа̄
+               (
+                  current_AP in ('b.','b:') and
+                  has(stem, 'ъ', 'ꚜ') and
+                  rsearch('[лрмнвјљњ][ъꚜ]', stem) # NB vesálа̄!
+               )
+               # bŕvno: bȑvа̄nа̄, pisàmce:pìsamа̄cа̄, písmo:pîsа̄mа̄
+            ): 
+               retraction = [2]
+
+
 
          if not 'œ' in stem: # TODO one day think about better condition
             stem = stem.replace('ъ', 'а').replace('ꚜ', 'а')
@@ -249,6 +266,8 @@ class Noun(PartOfSpeech):
       declension_is_regular: bool = True
       if self.label("m"):
          lbld_endings = c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
+      elif self.label("n"): # TODO vreme-ime
+         lbld_endings = c_n(self.trunk[i]).labeled_endings
       elif self.label("f"):
          ends_with_a = self.accented_keys[i].endswith('а')
          lbld_endings = c_f(self.trunk[i], ends_with_a).labeled_endings
