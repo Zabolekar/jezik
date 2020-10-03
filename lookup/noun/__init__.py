@@ -267,10 +267,10 @@ class Noun(PartOfSpeech):
       if self.label("m"):
          lbld_endings = c_m(self.trunk[i], self.suff[i], self.anim[i]).labeled_endings
       elif self.label("n"): # TODO vreme-ime
-         lbld_endings = c_n(self.trunk[i]).labeled_endings
+         lbld_endings = c_n().labeled_endings
       elif self.label("f"):
          ends_with_a = self.accented_keys[i].endswith('а')
-         lbld_endings = c_f(self.trunk[i], ends_with_a).labeled_endings
+         lbld_endings = c_f(ends_with_a).labeled_endings
       else:
          lbld_endings = iter([])
          declension_is_regular = False

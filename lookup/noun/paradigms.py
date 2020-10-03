@@ -1,6 +1,7 @@
 from typing import Dict, NamedTuple, List, Iterator
-from ..paradigm_helpers import (AccentedTuple, nice_name,
-                                MorphemeChain, LabeledEnding)
+from ..paradigm_helpers import (
+   AccentedTuple, nice_name, MorphemeChain, LabeledEnding
+)
 from ..charutils import cmacron
 from ..utils import last_vowel_index
 
@@ -174,13 +175,13 @@ f_declension_yer = [
    [[AccentedTuple('и', '')]]
 ]
 
-def c_f(stem:str, a:bool) -> NounStem:
+def c_f(a:bool) -> NounStem:
    if a:
       return NounStem(*f_declension_a)
    else:
       return NounStem(*f_declension_yer)
 
-def c_n(stem:str) -> NounStem:
+def c_n() -> NounStem:
    # TODO: it is 'selo' only, add 'ime'
    return NounStem(
       [[AccentedTuple('¦œ·', 'b.b:b0g.')]],
@@ -196,5 +197,5 @@ def c_n(stem:str) -> NounStem:
       [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
       [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
       [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
-      [[AccentedTuple('а·', 'c.c:')]]
+      [[AccentedTuple('а·', 'b.c.c:')]]
    )

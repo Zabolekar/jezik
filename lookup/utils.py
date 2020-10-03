@@ -110,6 +110,7 @@ _deyerify_repl_dict: Dict[str, str] = {
    "бът": "пт", "дът": "т", "ђт": "ћт",
    "жът": "шт", "зът": "ст", "џът": "чт",
    "бъц": "пц", "ђъц": "ћц", "дъц": "дц", "тъц": "ц",
+   "дц": "ц", "тц": "ц",
    "жъц": "шц", "зъц": "сц", "џъц": "чц",
    "бъч": "пч", "ђъч": "ћч", "дъч": "ч", "тъч": "ч",
    "жъч": "шч", "зъч": "шч", "съч": "шч", "џъч": "ч"}
@@ -436,7 +437,7 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
    """
    result = ungarde(
       prettify(
-         purify(zeroify(debracketify(deyerify(deancientify(form))))),
+         purify(zeroify(debracketify(deyerify(decurlyerify(deancientify(form)))))),
          yat
       )
    )
