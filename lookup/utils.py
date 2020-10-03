@@ -5,7 +5,8 @@
 
 import re
 from typing import (
-   Dict, List, Optional, Iterator, Iterable, Tuple, Pattern
+   Dict, List, Optional, Iterator, Iterable,
+   Tuple, Pattern, Callable, TypeVar
 )
 from itertools import chain
 from .charutils import (
@@ -429,6 +430,44 @@ def deancientify(form:str) -> str:
       form = form.replace(key, value)
    return form
 
+T = TypeVar('T')
+
+# TODO: A function of such generality (and maybe others like it) may need a module of its own, like `fun_utils` or `gen_utils` outside `lookup`
+def compose1(*functions: Callable[[T], T]) -> Callable[[T], T]:
+   """Composes a sequence of functions T -> T.
+
+      `compose1(f, g, h)(x) == f(g(h(x)))`"""
+   def composition(arg):
+      for f in reversed(functions):
+         arg = f(arg)
+      return arg
+   return composition
+
+expose_transform: Callable[[str], str] = compose1(
+   purify,
+   zeroify,
+   debracketify,
+   deyerify,
+   decurlyerify,
+   deancientify
+)
+
+expose_replacement_transform: Callable[[str], str] = compose1(
+   purify,
+   zeroify,
+   debracketify,
+   #deyerify,
+   #deancientify
+)
+# if this commented-out version works as expected, we can then define:
+#expose_transform: Callable[[str], str] = compose1(
+#   expose_replacement_transform,
+#   deyerify,
+#   decurlyerify,
+#   deancientify
+#)
+# or something like that, you lost me −a.
+
 def expose(form:str, yat:str="e", latin:bool=False) -> str:
    """
    all transformations from internal to external representation;
@@ -436,10 +475,7 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
    otherwise ungarde() produces wrong results, i.e. **snìjeg
    """
    result = ungarde(
-      prettify(
-         purify(zeroify(debracketify(deyerify(decurlyerify(deancientify(form)))))),
-         yat
-      )
+      prettify(expose_transform(form), yat)
    )
    if yat == "ije":
       result = je2ije(result)
@@ -448,10 +484,7 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
    return result
 
 def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
-   result = prettify(
-      purify(zeroify(debracketify(deyerify(deancientify(form))))),
-      yat
-   )
+   result = prettify(expose_replacement_transform(form), yat)
    for x in real_accent:
       result = result.replace(x, real_accent[x])
    if yat == "ije":
