@@ -452,22 +452,6 @@ expose_transform: Callable[[str], str] = compose1(
    deancientify
 )
 
-expose_replacement_transform: Callable[[str], str] = compose1(
-   purify,
-   zeroify,
-   debracketify,
-   #deyerify,
-   #deancientify
-)
-# if this commented-out version works as expected, we can then define:
-#expose_transform: Callable[[str], str] = compose1(
-#   expose_replacement_transform,
-#   deyerify,
-#   decurlyerify,
-#   deancientify
-#)
-# or something like that, you lost me −a.
-
 def expose(form:str, yat:str="e", latin:bool=False) -> str:
    """
    all transformations from internal to external representation;
@@ -484,14 +468,15 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
    return result
 
 def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
-   result = prettify(expose_replacement_transform(form), yat)
-   for x in real_accent:
-      result = result.replace(x, real_accent[x])
+   for k, v in _prettify_yat_replaces_c[yat]:
+      form = k.sub(v, form)
+   for q, w in real_accent.items():
+      form = form.replace(q, w)
    if yat == "ije":
-      result = je2ije(result)
+      form = je2ije(form)
    if latin:
-      result = cyr2lat(result)
-   return result
+      form = cyr2lat(form)
+   return form
 
 def strip_suffix(value:str, suffixes:Iterable[str]) -> Tuple[str, bool]:
    """

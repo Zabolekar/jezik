@@ -10,8 +10,8 @@ from ..paradigm_helpers import (
 from ..pos import PartOfSpeech, Replacement
 from ..table import LabeledMultiform
 from ..utils import (
-   deyerify, decurlyerify, indices, insert, garde, ungarde, expose,
-   last_vowel_index, first_vowel_index, expose_replacement, swap
+   deyerify, decurlyerify, purify, indices, insert, garde, ungarde,
+   expose, last_vowel_index, first_vowel_index, expose_replacement, swap
 )
 
 
@@ -215,7 +215,10 @@ class Noun(PartOfSpeech):
                (
                   current_AP in ('b.','b:') and
                   has(stem, 'ъ', 'ꚜ') and
-                  rsearch('[лрмнвјљњ][ъꚜ]', stem) # NB vesálа̄!
+                  (
+                     rsearch('[лрмнвјљњ][ъꚜ]', stem) # NB vesálа̄!
+                     or stem.endswith('ц') # nе̏bа̄cа̄
+                  )
                )
                # bŕvno: bȑvа̄nа̄, pisàmce:pìsamа̄cа̄, písmo:pîsа̄mа̄
             ): 
@@ -277,7 +280,7 @@ class Noun(PartOfSpeech):
 
       if self.label("f") and self.gram.MP[i]: # processing GPl like magli (not **magala)
          form_with_i = [
-            ungarde(deyerify(decurlyerify(x)))
+            ungarde(purify(deyerify(decurlyerify(x))))
             for x in
             self.process_one_form(self.gram.AP[i], self.trunk[i], female_gen_pl_i)
          ] # curly yer must be deleted BEFORE general deyerifying, so mind the order
