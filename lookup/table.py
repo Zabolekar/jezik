@@ -1,6 +1,6 @@
 from __future__ import annotations
-from typing import Iterable, Iterator, List, Optional, Tuple, Union
-from .paradigm_helpers import TableCaption, make_caption
+from typing import Iterable, Iterator, List, Tuple, Union
+from .paradigm_helpers import TableCaption
 
 Form = str
 Multiform = List[Form]

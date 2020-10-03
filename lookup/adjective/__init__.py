@@ -45,11 +45,10 @@ class Adjective(PartOfSpeech):
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
       
-      # TODO: Adjective-only: zipping the APs to 2 lists. But is it really necessary?
       inner_APs = [adj_AP_to_inner_AP[AP].split(',') for AP in self.gram.AP]
       self.short_AP, self.long_AP = zip(*inner_APs)
 
-      self.trunk = self._trunk() #both but not separable
+      self.trunk = self._trunk()
 
    # different
    @staticmethod

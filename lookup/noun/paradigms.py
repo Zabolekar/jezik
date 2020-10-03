@@ -40,7 +40,7 @@ male_gen_pl_marked = [
    [AccentedTuple(f'<а·{cmacron}', 'b.b:b?e:')]
 ]
 
-female_gen_pl_i = [AccentedTuple(f'и·{cmacron}', 'b.c.c:g.g:')]
+female_gen_pl_i = [AccentedTuple(f'и·{cmacron}', 'b.b:c.c:g.g:')]
 
 def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    ov = AccentedTuple('>œ·в', 'b.b:b?c?d:e:f.')
@@ -154,7 +154,7 @@ f_declension_a = [
    [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
-   [[AccentedTuple('е·', 'b.b:')]]
+   [[AccentedTuple('е0·', 'b.b:')]]
 ]
 
 f_declension_yer = [

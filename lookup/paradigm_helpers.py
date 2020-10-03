@@ -3,7 +3,6 @@ from collections import OrderedDict
 from dataclasses import dataclass
 from itertools import repeat
 from re import compile as rcompile
-from .utils import insert, all_vowels, expose
 from .charutils import cring, real_accent
 
 oa = ['o.', 'o:', 'a.', 'a:', 'a!', 'a¡', 'a?', 'a¿']
@@ -88,16 +87,22 @@ class GramInfo:
       for info in infos:
          info = info.replace('$', ':') # a line cannot end with :, so we use $, too
          if info:
-            if '\\' in info:
-               comment, restinfo = info.split('\\') # TODO automatically fails when too much \\?
-            else:
-               comment = ''
-               restinfo = info
-            if '/' in restinfo:
-               AP, MP = restinfo.split('/') # TODO automatically fails ?
-            else:
-               AP = restinfo
-               MP = ''
+            try:
+               if '\\' in info:
+                  comment, restinfo = info.split('\\')
+               else:
+                  comment = ''
+                  restinfo = info
+            except ValueError:
+               raise ValueError(f"too much backslashes in {info}")
+            try:
+               if '/' in restinfo:
+                  AP, MP = restinfo.split('/')
+               else:
+                  AP = restinfo
+                  MP = ''
+            except ValueError:
+               raise ValueError(f"too much slashes in {info}")
 
             self.AP.append(AP)
             self.MP.append(MP)

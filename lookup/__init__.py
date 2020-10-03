@@ -19,7 +19,9 @@ PartOfSpeech = Union[
 ]
 
 def part_of_speech(kind:str) -> Optional[PartOfSpeech]:
-   POS = kind.split('\\')[0] # TODO: it gets calculated doubly here and inside concrete classes, rethink
+   POS = kind.split('\\')[0]
+   # TODO: it gets calculated doubly here and inside concrete classes, rethink
+
    if POS == "V":
       return Verb
    if POS == "A":
@@ -39,7 +41,8 @@ def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
 
    key, with_se = strip_suffix(key, (" se", " се"))
 
-   for inner_key, (caption, accented_keys, extra_key, kind, info, replacements, amendments) in data[key, input_yat]:
+   for inner_key, values in data[key, input_yat]:
+      caption, accented_keys, _, kind, info, replacements, amendments = values
       POS = part_of_speech(kind)
       # # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if with_se and ((POS is not Verb) or (POS is Verb and not 'Refl' in kind)):
