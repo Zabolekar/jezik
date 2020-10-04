@@ -473,9 +473,11 @@ def apply_yat_and_latin(form: str, yat: str, latin: bool) -> str:
       form = je2ije(form)
    if latin:
       form = cyr2lat(form)
+   print(f'{form = }, {yat = }, {latin = }')
    return form
 
 expose_transform: _Transform[str] = compose1(
+   (apply_yat_and_latin, ('yat', 'latin')), # fails somehow
    ungarde,
    (prettify, ('yat',)),
    purify,
@@ -484,7 +486,6 @@ expose_transform: _Transform[str] = compose1(
    deyerify,
    decurlyerify,
    deancientify
-   #, (apply_yat_and_latin, ('yat', 'latin')) # fails somehow
 )
 
 def expose(form:str, yat:str="e", latin:bool=False) -> str:
@@ -493,8 +494,7 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg
    """
-   form = expose_transform(form, yat=yat)
-   return apply_yat_and_latin(form, yat, latin)
+   return expose_transform(form, yat=yat, latin=latin)
 
 def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
    for k, v in _prettify_yat_replaces_c[yat]:
