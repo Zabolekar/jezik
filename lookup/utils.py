@@ -436,6 +436,7 @@ def deancientify(form:str) -> str:
       form = form.replace(key, value)
    return form
 
+
 T = TypeVar('T')
 
 # TODO: A function of such generality (and maybe others like it) may need a module of its own, like `fun_utils` or `gen_utils` outside `lookup`
@@ -448,6 +449,7 @@ def compose1(*functions: Callable[[T], T]) -> Callable[[T], T]:
          arg = f(arg)
       return arg
    return composition
+
 
 expose_transform: Callable[[str], str] = compose1(
    purify,

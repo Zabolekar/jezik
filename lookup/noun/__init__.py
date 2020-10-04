@@ -10,7 +10,7 @@ from ..paradigm_helpers import (
 from ..pos import PartOfSpeech, Replacement
 from ..table import LabeledMultiform
 from ..utils import (
-   deyerify, decurlyerify, purify, indices, insert, garde, ungarde,
+   deyerify, decurlyerify, purify, ungarde, compose1, indices, insert, garde,
    expose, last_vowel_index, first_vowel_index, expose_replacement, swap
 )
 
@@ -39,6 +39,14 @@ def _apply_neocirk(
          stem = insert(stem, {pvi+1: cstraight}) # add accent mark after pvi
          morpheme = morpheme.replace('·', '')
    return [stem, morpheme]
+
+
+noun_gpl_transform: Callable[[str], str] = compose1(
+   ungarde,
+   purify,
+   deyerify,
+   decurlyerify
+)
 
 
 class Noun(PartOfSpeech):
@@ -221,7 +229,7 @@ class Noun(PartOfSpeech):
                   )
                )
                # bŕvno: bȑvа̄nа̄, pisàmce:pìsamа̄cа̄, písmo:pîsа̄mа̄
-            ): 
+            ):
                retraction = [2]
 
 
@@ -280,7 +288,7 @@ class Noun(PartOfSpeech):
 
       if self.label("f") and self.gram.MP[i]: # processing GPl like magli (not **magala)
          form_with_i = [
-            ungarde(purify(deyerify(decurlyerify(x))))
+            noun_gpl_transform(x)
             for x in
             self.process_one_form(self.gram.AP[i], self.trunk[i], female_gen_pl_i)
          ] # curly yer must be deleted BEFORE general deyerifying, so mind the order
