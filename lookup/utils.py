@@ -473,7 +473,6 @@ def apply_yat_and_latin(form: str, yat: str, latin: bool) -> str:
       form = je2ije(form)
    if latin:
       form = cyr2lat(form)
-   print(f'{form = }, {yat = }, {latin = }')
    return form
 
 expose_transform: _Transform[str] = compose1(
