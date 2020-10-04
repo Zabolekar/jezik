@@ -5,8 +5,9 @@
 
 import re
 from typing import (
-   Dict, List, Optional, Iterator, Iterable,
-   Tuple, Pattern, Callable, TypeVar
+   Union, Optional, Callable, TypeVar,
+   Iterator, Iterable, Sequence,
+   Pattern, Dict, List, Tuple
 )
 from itertools import chain
 from .charutils import (
@@ -437,27 +438,53 @@ def deancientify(form:str) -> str:
    return form
 
 
-T = TypeVar('T')
+_T = TypeVar('_T')
+
+_Transform = Callable[..., _T] # this is too liberal but at least works nice
+
+_ComposeArg = Union[
+   Callable[[_T], _T],
+   Tuple[_Transform[_T], Sequence[str]]
+]
 
 # TODO: A function of such generality (and maybe others like it) may need a module of its own, like `fun_utils` or `gen_utils` outside `lookup`
-def compose1(*functions: Callable[[T], T]) -> Callable[[T], T]:
+def compose1(*functions: _ComposeArg[_T]) -> _Transform[_T]:
    """Composes a sequence of functions T -> T.
 
-      `compose1(f, g, h)(x) == f(g(h(x)))`"""
-   def composition(arg):
+      `compose1(f, g, h)(x) == f(g(h(x)))`
+
+      If kwargs are given, they can be supplied to these functions by
+      specifying which ones to give:
+
+      `compose1(f, (g, ('a')), h)(x, a=1, b=2) = f(g(h(x), a=1))`"""
+   def composition(arg, **kwargs):
       for f in reversed(functions):
-         arg = f(arg)
+         if isinstance(f, tuple):
+            f, kws = f
+            arg = f(arg, **{kw: kwargs[kw] for kw in kws})
+         else:
+            arg = f(arg)
       return arg
    return composition
 
 
-expose_transform: Callable[[str], str] = compose1(
+def apply_yat_and_latin(form: str, yat: str, latin: bool) -> str:
+   if yat == "ije":
+      form = je2ije(form)
+   if latin:
+      form = cyr2lat(form)
+   return form
+
+expose_transform: _Transform[str] = compose1(
+   ungarde,
+   (prettify, ('yat',)),
    purify,
    zeroify,
    debracketify,
    deyerify,
    decurlyerify,
    deancientify
+   #, (apply_yat_and_latin, ('yat', 'latin')) # fails somehow
 )
 
 def expose(form:str, yat:str="e", latin:bool=False) -> str:
@@ -466,25 +493,16 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
    ijekavian two-syllable yat appears only here, not in yat_replaces,
    otherwise ungarde() produces wrong results, i.e. **snìjeg
    """
-   result = ungarde(
-      prettify(expose_transform(form), yat)
-   )
-   if yat == "ije":
-      result = je2ije(result)
-   if latin:
-      result = cyr2lat(result)
-   return result
+   form = expose_transform(form, yat=yat)
+   return apply_yat_and_latin(form, yat, latin)
 
 def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
    for k, v in _prettify_yat_replaces_c[yat]:
       form = k.sub(v, form)
    for q, w in real_accent.items():
       form = form.replace(q, w)
-   if yat == "ije":
-      form = je2ije(form)
-   if latin:
-      form = cyr2lat(form)
-   return form
+   return apply_yat_and_latin(form, yat, latin)
+
 
 def strip_suffix(value:str, suffixes:Iterable[str]) -> Tuple[str, bool]:
    """
