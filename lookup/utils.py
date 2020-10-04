@@ -111,10 +111,10 @@ _deyerify_repl_dict: Dict[str, str] = {
    "бът": "пт", "дът": "т", "ђт": "ћт",
    "жът": "шт", "зът": "ст", "џът": "чт",
    "бъц": "пц", "ђъц": "ћц", "дъц": "дц", "тъц": "ц",
-   "дц": "ц", "тц": "ц",
    "жъц": "шц", "зъц": "сц", "џъц": "чц",
    "бъч": "пч", "ђъч": "ћч", "дъч": "ч", "тъч": "ч",
-   "жъч": "шч", "зъч": "шч", "съч": "шч", "џъч": "ч"}
+   "жъч": "шч", "зъч": "шч", "съч": "шч", "џъч": "ч"
+}
 
 # TODO: Name these two semantically:
 _deyerify_pat1_c: Pattern = re.compile(f'([аеиоу{cring}][{cstraight}·]?)([лљмнњрјв]ʲ?)ъ')
@@ -127,7 +127,13 @@ _deyerify_translator = str.maketrans({
    'ꙏ': 'а'
 })
 
+_decurlyerify_repl_dict: Dict[str, str] = {
+   k.replace('ъ', 'ꙏ') : v for k,v  in _deyerify_repl_dict.items()
+}
+
 def decurlyerify(form:str) -> str:
+   for k, v in _decurlyerify_repl_dict.items():
+      form = form.replace(k, v)
    return re.sub('([лљмнњрјв]ꙏ)', f'{cmacron}\\1', form).replace('ꙏ', '')
 
 def deyerify(form:str) -> str:
@@ -147,8 +153,8 @@ def deyerify(form:str) -> str:
       if two_yers:
          form = form.replace('ъ', f'а{cmacron}', 1).replace('ъ', '')
       form = re1.sub(f'\\1{cmacron}\\2ъ', form)
-      for repl in repl_dict:
-         form = form.replace(repl, repl_dict[repl])
+      for k, v in repl_dict.items():
+         form = form.replace(k, v)
       form = form.replace('ъ', '').replace('ꚜ', '').replace('ꙏ', '')
 
    match = re2.search(form)

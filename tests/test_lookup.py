@@ -111,7 +111,7 @@ def test_gpl():
    assert lookup("Македонац")["pl gen"].multiform == ["Макѐдо̄на̄ца̄", "Македо́на̄ца̄"]
    assert lookup("новац")["pl gen"].multiform == ["но̏ва̄ца̄"]
    assert lookup("пуж")["pl gen"].multiform == ["пу́же̄ва̄", "пу́жа̄"]
-   # TODO: нѐпце : не̏ба̄ца̄ when neuter is ready
+   assert lookup("непце")["pl gen"].multiform == ["не̏ба̄ца̄", "не́пца̄"]
 
 def test_snjegovi():
    l = lookup("снијег", input_yat="ije", output_yat="je")
@@ -282,7 +282,7 @@ def test_gen_pl_i():
    assert "жало̀по̄јкӣ" in lookup("жалопојка")["gen pl"].multiform
    assert "жа̀лбӣ" in lookup("жалба")["gen pl"].multiform
    assert "ја̀гмӣ" in lookup("јагма")["gen pl"].multiform
-#TODO ADD all 4 forms for metla
+#TODO ADD all forms for metla?
 
 def test_vol():
    assert lookup("вол")["gen sg"].multiform == ["во̀ла"]
