@@ -30,13 +30,13 @@ def results(word):
    tables = lookup(word, input_yat, output_yat)
 
    if par:
-      the_tables = [t for t in tables if t.caption.par == par]
-      if subpar:
-         the_tables = [t for t in the_tables if t.caption.subpar == subpar]
+      tables = [t for t in tables if t.caption.par == par]
+   if subpar:
+      tables = [t for t in tables if t.caption.subpar == subpar]
 
       return render_template(
          "results.html",
-         tables=Multitable(word, the_tables),
+         tables=Multitable(word, tables),
          input_yat=input_yat,
          output_yat=output_yat
       )
