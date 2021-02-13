@@ -98,6 +98,10 @@ class Noun(PartOfSpeech):
                accented_trunk_ = accented_noun.replace(cstraight, '')[:-1]
             else:
                accented_trunk_ = accented_noun[:-1]
+            if accented_noun.endswith('е') and accented_noun[-2] not in 'ђјљњћџчшж':
+               trunk_ += 'ʲ'
+               accented_trunk_ += 'ʲ'
+
 
          if has(AP, *tuple("cdfg")): # c, d, f (?), g are c-like paradigms
             if not self.key.endswith('а'):
@@ -124,7 +128,6 @@ class Noun(PartOfSpeech):
          trunk = swap(trunk, cmacron, '·')
          trunk = swap(trunk, cstraight, cmacron)
          result.append(trunk)
-
       return result
 
    @staticmethod

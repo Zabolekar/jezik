@@ -188,9 +188,12 @@ class PartOfSpeech():
       iterative:bool=True
    ) -> List[str]:
 
-       # all ʲ-stems except рʲ-stems have two variants of œ-endings:
+       # all ʲ-stems except рʲ-stems and штʲе-stems have two variants of œ-endings:
        # one of them is soft (nosem, putevi), the other hard (nosom, putovi)
-      if stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morphChain[0].morpheme:
+      if (
+         stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morphChain[0].morpheme
+         and not (stem.endswith('штʲ') and self.label("n"))
+      ):
          iterable_form = [stem, stem[:-1]] # putʲ, put
       else:
          iterable_form = [stem]
