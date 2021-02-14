@@ -55,6 +55,10 @@ n sg nom            а̀уторско̄
 
 However, the output may be incorrect depending on your console font. We've found Noto Mono and Fira Code to work well.
 
+### Experimental GUI
+
+A very incomplete GUI exists and can be started with `python -m jezik.gui` from outside the `jezik` directory.
+
 ## Testing it locally
 
 If the following commands give you errors, don't commit:
