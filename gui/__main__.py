@@ -25,6 +25,7 @@ if __name__ == "__main__":
       doc = QTextDocument()
       tables = lookup(line.text())
       doc.setHtml(template.render(
+         request={"script_root":""},
          tables=tables,
          url_for=lambda *_, **__: None
       ))
