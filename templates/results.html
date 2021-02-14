@@ -1,5 +1,5 @@
 {% extends "search.html" %}
-{% block tytle %}{{ tables.input }} – {% endblock %}
+{% block title %}{{ tables.input }} – {% endblock %}
 
 {% block results %}
 <div id="tables-or-not-found">
@@ -16,7 +16,10 @@
    {% for table in tables %}
       <table id="result_table">
          <caption>
-            <a class="captionlink" href="{{ tables.input }}?in={{ input_yat }}&out={{ output_yat }}&par={{ table.caption.par }}&subpar={{ table.caption.subpar }}">{{ table.caption.full_caption }}</a>
+            <a class="captionlink"
+               href="{{ tables.input }}?in={{ input_yat }}&out={{ output_yat }}&par={{ table.caption.par }}&subpar={{ table.caption.subpar }}">
+               {{ table.caption.full_caption }}
+            </a>
          </caption>
          {% include table.pos + ".html" %}
       </table><br>
