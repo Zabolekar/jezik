@@ -1,12 +1,12 @@
 import sys
 from os.path import dirname, join, realpath
 import jinja2
-from PySide2.QtWidgets import (
+from PySide2.QtWidgets import ( # type: ignore
    QApplication, QPushButton, QLabel,
    QLineEdit, QVBoxLayout, QWidget
 )
-from PySide2.QtGui import QTextDocument, QPixmap, QPainter, QColor
-from ..lookup import lookup
+from PySide2.QtGui import QTextDocument, QPixmap, QPainter, QColor # type: ignore
+from .. import lookup
 
 if __name__ == "__main__":
 

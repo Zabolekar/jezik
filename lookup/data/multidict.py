@@ -28,7 +28,8 @@ class Multidict(Generic[KT, VT]):
    def __setitem__(self, key: KT, value: VT) -> None:
       if key in self._data:
          self._data[key].append(value)
-         self._data[key] = sorted(set(self._data[key]))
+         self._data[key] = list(set(self._data[key]))
+         self._data[key].sort()
       else:
          self._data[key] = [value]
 

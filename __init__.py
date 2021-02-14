@@ -3,7 +3,7 @@ from werkzeug.routing import PathConverter
 from flask import (
    Flask, redirect, render_template,
    request, send_from_directory, url_for
-) # type: ignore
+)
 from .lookup import lookup, random_key
 from .lookup.charutils import roman
 from .lookup.table import Multitable
