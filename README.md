@@ -14,12 +14,11 @@ You can find a running instance of this thing at <https://jezik.pythonanywhere.c
 
 ## Requirements
 
-* Python 3.9 or later (we recently upgraded from 3.7 to 3.9)
+* Python 3.7 or later
 * Flask
 * PyYAML
-* pyOpenSSL
 
-We also use `pytest` to run the tests, `mypy` with `types-PyYAML` for static type checking, and `coverage.py` to measure test coverage, but they are not necessary to run the code.
+We also use `pytest` to run the tests, `mypy` for static type checking, and `coverage.py` to measure test coverage, but they are not necessary to run the code.
 
 ## Running it locally
 
@@ -64,12 +63,12 @@ A very incomplete GUI exists and can be started with `python -m jezik.gui` from 
 
 If the following commands give you errors, don't commit:
 
-* `mypy .`
+* `mypy ../jezik`
 * `pytest`
 
 The following commands might give you some useful hints, but don't trust them blindly:
 
-* `pylint .`
+* `pylint ../jezik`
 * `flake8`
 
 We also have configured `pytest --quick` to skip the most time-consuming tests but still perform the quick ones; this is useful during development.
