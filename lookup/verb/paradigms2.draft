@@ -1,0 +1,126 @@
+from typing import Dict, Iterator, NamedTuple, List
+from ..paradigm_helpers import (
+   AccentedTuple, nice_name, MorphemeChain, LabeledEnding
+)
+from ..charutils import cmacron
+
+class Subpar(NamedTuple):
+   @property
+   def labeled_endings(self) -> Iterator[LabeledEnding]:
+      yield from zip(map(nice_name, self._fields), iter(self))
+
+
+class Subpar1(Subpar):
+   infinitive: List[MorphemeChain]
+   imv_2_sg: List[MorphemeChain]
+   imv_1_pl: List[MorphemeChain]
+   imv_2_pl: List[MorphemeChain]
+   aor_1_sg: List[MorphemeChain]
+   aor_1_pl: List[MorphemeChain]
+   aor_2_pl: List[MorphemeChain]
+   aor_3_pl: List[MorphemeChain]
+
+
+class Subpar2(Subpar):
+   prs_1_sg: List[MorphemeChain]
+   prs_2_sg: List[MorphemeChain]
+   prs_3_sg: List[MorphemeChain]
+   prs_1_pl: List[MorphemeChain]
+   prs_2_pl: List[MorphemeChain]
+   prs_3_pl: List[MorphemeChain]
+   ipf_1_sg: List[MorphemeChain]
+   ipf_2_sg: List[MorphemeChain]
+   ipf_3_sg: List[MorphemeChain]
+   ipf_1_pl: List[MorphemeChain]
+   ipf_2_pl: List[MorphemeChain]
+   ipf_3_pl: List[MorphemeChain]
+
+
+class Subpar3(Subpar):
+   aor_2_sg: List[MorphemeChain]
+   aor_3_sg: List[MorphemeChain]
+
+
+class Subpar4(Subpar):
+   pf_m_sg: List[MorphemeChain]
+   pf_f_sg: List[MorphemeChain]
+   pf_n_sg: List[MorphemeChain]
+   pf_m_pl: List[MorphemeChain]
+   pf_f_pl: List[MorphemeChain]
+   pf_n_pl: List[MorphemeChain]
+
+
+class Subpars(NamedTuple):
+   subpar1: Subpar1
+   subpar2: Subpar2
+   subpar3: Subpar3
+   subpar4: Subpar4
+
+   @property
+   def labeled_endings(self) -> Iterator[LabeledEnding]:
+      yield from self.subpar1.labeled_endings
+      yield from self.subpar2.labeled_endings
+      yield from self.subpar3.labeled_endings
+      yield from self.subpar4.labeled_endings
+
+
+
+alpha_1 = Subpar1(
+   [[AccentedTuple('', ''), AccentedTuple('', '')]],
+   [[AccentedTuple('', ''), AccentedTuple('', '')]],
+   [[AccentedTuple('', ''), AccentedTuple('', '')]],
+   [[AccentedTuple('', ''), AccentedTuple('', '')]],
+   [[AccentedTuple('', ''), AccentedTuple('', '')]],
+   [[AccentedTuple('', ''), AccentedTuple('', '')]],
+   [[AccentedTuple('', ''), AccentedTuple('', '')]],
+   [[AccentedTuple('', ''), AccentedTuple('', '')]]
+)
+
+alpha_2 = Subpar2(
+   [[i_theme_prs, ending_m]],
+   [[i_theme_prs, ending_sh]],
+   [[i_theme_prs, ending_null]],
+   [
+      [AccentedTuple(f'и·{cmacron}', 'q:r.r:'), AccentedTuple('мо·', 'r.s0s.x.')],
+      [i_theme_prs, ending_mo]
+   ],
+   [
+      [AccentedTuple(f'и·{cmacron}', 'q:r.r:'), AccentedTuple('те·', 'r.s0s.x.')],
+      [i_theme_prs, ending_te]
+   ],
+   [[AccentedTuple(f'е·{cmacron}', 'q:r.r:s0s.x.'), AccentedTuple('', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('х', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ше', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ше', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('смо', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('сте', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ху', '')]]
+)
+
+alpha_3 = Subpar3(
+   [[AccentedTuple('и·', 'e0'), AccentedTuple('0·~', 'i.i:i0')]],
+   [[AccentedTuple('и·', 'e0'), AccentedTuple('0·~', 'i.i:i0')]],
+)
+
+alpha_4 = Subpar4(
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ʌ', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ла', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ло', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ли', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ле', '')]],
+   [[AccentedTuple('и·', 'e.e:e0'), AccentedTuple('ла', '')]]
+)
+
+MP_to_verb_stems: Dict[str, Subpars] = dict(
+   alpha=Subpars(alpha_1, alpha_2, alpha_3, alpha_4),
+   beta=Subpars(beta_1, beta_2, beta_3, beta_4),
+   delta=Subpars(delta_1, delta_2, delta_3, delta_4),
+   epsilon=Subpars(epsilon_1, epsilon_2, epsilon_3, epsilon_4),
+   zeta=Subpars(zeta_1, zeta_2, zeta_3, zeta_4),
+   eta=Subpars(eta_1, eta_2, eta_3, eta_4),
+   theta=Subpars(theta_1, theta_2, theta_3, theta_4),
+   mu=Subpars(mu_1, mu_2, mu_3, mu_4),
+   kappa=Subpars(kappa_1, kappa_2, kappa_3, kappa_4),
+   kappa2=Subpars(kappa2_1, kappa2_2, kappa2_3, kappa2_4),
+   kappa3=Subpars(kappa3_1, kappa3_2, kappa3_3, kappa3_4)
+)
