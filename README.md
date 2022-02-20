@@ -14,11 +14,11 @@ You can find a running instance of this thing at <https://jezik.pythonanywhere.c
 
 ## Requirements
 
-* Python 3.7 or later
+* Python 3.9 or later
 * Flask
 * PyYAML
 
-We also use `pytest` to run the tests, `mypy` for static type checking, and `coverage.py` to measure test coverage, but they are not necessary to run the code.
+We also use `pytest` to run the tests, `mypy` with `types-PyYAML` for static type checking, and `coverage.py` to measure test coverage, but they are not necessary to run the code.
 
 ## Running it locally
 
