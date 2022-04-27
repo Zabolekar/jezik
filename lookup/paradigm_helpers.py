@@ -3,7 +3,7 @@ from collections import OrderedDict
 from dataclasses import dataclass
 from itertools import repeat
 from re import compile as rcompile
-from .charutils import cring, real_accent
+from .charutils import real_accent
 
 oa = ['o.', 'o:', 'a.', 'a:', 'a!', 'a¡', 'a?', 'a¿']
 T = TypeVar('T')
@@ -52,17 +52,6 @@ def accentize(word:str) -> str: # traditional accentuation
 class Accents:
    r: Dict[int, str] # syllabic r
    v: Dict[int, str] # any other vowel
-
-def i_to_accents(line_accents:str) -> Accents:
-   if '@' in line_accents:
-      Rs: Optional[str]
-      Vs: str
-      Rs, Vs = line_accents.split('@')
-   else:
-      Rs, Vs = None, line_accents
-   Rs_dict = {int(i): cring for i in Rs[0:].split(',')} if Rs else {}
-   Vs_dict = {int(i[:-1]): i[-1] for i in Vs.split(',')} if line_accents else {}
-   return Accents(Rs_dict, Vs_dict)
 
 def cut_AP (x:str) -> str:
    start = x.find('\\') + 1

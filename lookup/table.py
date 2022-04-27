@@ -14,10 +14,10 @@ class Table:
 
    def __getitem__(self, query:str) -> Table:
       result = []
-      v = query.split()
+      query_grammemes = query.split()
       for form_name, forms in self._data:
-         w = form_name.split()
-         if all(s in w for s in v):
+         target_grammemes = form_name.split()
+         if all(s in target_grammemes for s in query_grammemes):
             result.append((form_name, forms))
       return Table(
          f"partial {self.pos}",

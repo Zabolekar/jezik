@@ -1,6 +1,6 @@
 import pytest # type: ignore
 from ..lookup import lookup
-from ..lookup.charutils import cmacron
+from ..lookup.charutils import c
 
 def test_nonsense():
    assert not lookup("абырвалг")
@@ -226,7 +226,7 @@ def test_ambijeenat():
    allforms_lists = [forms for name, forms in lookup("амбијент")._tables[0]]
    allforms = [x for li in allforms_lists for x in li]
    assert allforms, allforms
-   assert all('е' + cmacron not in y for y in allforms), allforms
+   assert all('е' + c.macron not in y for y in allforms), allforms
 
 def test_gori_gore():
    """covers issue #17 in a modernized way"""

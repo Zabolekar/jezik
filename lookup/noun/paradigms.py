@@ -2,7 +2,7 @@ from typing import Dict, NamedTuple, List, Iterator
 from ..paradigm_helpers import (
    AccentedTuple, nice_name, MorphemeChain, LabeledEnding
 )
-from ..charutils import cmacron
+from ..charutils import c
 from ..utils import last_vowel_index
 
 class NounStem(NamedTuple):
@@ -37,11 +37,11 @@ m_anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {
 }
 
 male_gen_pl_marked = [
-   [AccentedTuple(f'<а·{cmacron}', 'b.b:b?')],
-   [AccentedTuple(f'<а·{cmacron}', 'b.b:b?e:')]
+   [AccentedTuple(f'<а·{c.macron}', 'b.b:b?')],
+   [AccentedTuple(f'<а·{c.macron}', 'b.b:b?e:')]
 ]
 
-female_gen_pl_i = [AccentedTuple(f'и·{cmacron}', 'b.b:c.c:g.g:')]
+female_gen_pl_i = [AccentedTuple(f'и·{c.macron}', 'b.b:c.c:g.g:')]
 
 def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    ov = AccentedTuple('>œ·в', 'b.b:b?c?d:e:f.')
@@ -49,7 +49,7 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    suffixed_plurals = [
        [[AccentedTuple('ʹи·', '')]],
        [[AccentedTuple('е·', '')]],
-       [[AccentedTuple(f'<а·{cmacron}', 'b.b:b?c:c?b0d:')], male_gen_pl_marked[0]],
+       [[AccentedTuple(f'<а·{c.macron}', 'b.b:b?c:c?b0d:')], male_gen_pl_marked[0]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
        [[AccentedTuple('ʹи·ма', 'c:c?b0')], [AccentedTuple('ʹи·ма', '')]],
@@ -59,7 +59,7 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
    free_plurals = [
        [[AccentedTuple('ʹи·', 'b.b:b?e:q.')]],
        [[AccentedTuple('е·', 'b.b:b?e:q.')]],
-       [[AccentedTuple(f'<а·{cmacron}', 'b.b:b?c:c?b0d:e:')], male_gen_pl_marked[1]],
+       [[AccentedTuple(f'<а·{c.macron}', 'b.b:b?c:c?b0d:e:')], male_gen_pl_marked[1]],
        [[AccentedTuple('ʹи·ма', 'b.b:b?c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:b?e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:b?c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:b?e:q.')]],
        [[AccentedTuple('ʹи·ма', 'b.b:b?c:c?b0e:q.')], [AccentedTuple('ʹи·ма', 'b.b:b?e:q.')]],
@@ -114,7 +114,7 @@ def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
       stem[-3] in 'тдчсшзж'
    ): # редак
       return [u]
-   elif stem.endswith(f'е·{cmacron}з'): # Кинез
+   elif stem.endswith(f'е·{c.macron}з'): # Кинез
       return [u]
    elif (
       stem[-1] in 'кгх' and 
@@ -125,7 +125,7 @@ def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
    else:
       return [e]
 
-def c_m(stem: str, suff: str, anim: str) -> NounStem:
+def stem_male(stem: str, suff: str, anim: str) -> NounStem:
    m_singular_ = [
          [[AccentedTuple('ø·', 'b.b:b?e:f.q.')]],
    m_anim_dict['sg_acc'][anim],
@@ -144,14 +144,14 @@ def c_m(stem: str, suff: str, anim: str) -> NounStem:
 f_declension_a = [
    [[AccentedTuple('а·', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('у·', 'b.b:g.g:')]],
-   [[AccentedTuple(f'е·{cmacron}', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple(f'е·{c.macron}', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('ʹи·', 'b.b:g.g:')]],
-   [[AccentedTuple(f'о·{cmacron}м', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple(f'о·{c.macron}м', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('ʹи·', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('о0·', 'b.b:')]], # TODO: add o/u/e-rule
    [[AccentedTuple('е·', 'b.b:')]],
    [[AccentedTuple('e·', 'b.b:')]],
-   [[AccentedTuple(f'<а·{cmacron}', 'b.b:c.c:g.g:')]],
+   [[AccentedTuple(f'<а·{c.macron}', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
    [[AccentedTuple('а·ма', 'b.b:c.c:g.g:')], [AccentedTuple('>>а·ма', 'b.b:c.c:g.g:')]],
@@ -168,20 +168,20 @@ f_declension_yer = [
    [[AccentedTuple('и', '')]],
    [[AccentedTuple('и', '')]],
    [[AccentedTuple('и', '')]],
-   [[AccentedTuple(f'и·{cmacron}', 'c:c?')]],
+   [[AccentedTuple(f'и·{c.macron}', 'c:c?')]],
    [[AccentedTuple('и·ма', 'c:c?')]],
    [[AccentedTuple('и·ма', 'c:c?')]],
    [[AccentedTuple('и·ма', 'c:c?')]],
    [[AccentedTuple('и', '')]]
 ]
 
-def c_f(a:bool) -> NounStem:
+def stem_female(a:bool) -> NounStem:
    if a:
       return NounStem(*f_declension_a)
    else:
       return NounStem(*f_declension_yer)
 
-def c_n() -> NounStem:
+def stem_neutral() -> NounStem:
    # TODO: it is 'selo' only, add 'ime'
    return NounStem(
       [[AccentedTuple('¦œ·', 'b.b:b0g.')]],
@@ -193,7 +193,7 @@ def c_n() -> NounStem:
       [[AccentedTuple('¦œ·', 'b.b:b0g.')]],
       [[AccentedTuple('а·', 'b.c.c:')]],
       [[AccentedTuple('а·', 'b.c.c:')]],
-      [[AccentedTuple(f'<а·{cmacron}', 'b.b:b0c.c:g.')]],
+      [[AccentedTuple(f'<а·{c.macron}', 'b.b:b0c.c:g.')]],
       [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
       [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],
       [[AccentedTuple('ʹи·ма', 'b.b:b0c.c:')]],

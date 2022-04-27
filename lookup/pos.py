@@ -1,7 +1,7 @@
 from typing import Dict, List, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
 from .utils import first_vowel_index, last_vowel_index, insert
-from .charutils import all_vowels, cstraight, cmacron, cring
+from .charutils import all_vowels, c
 from .data.multidict import Replacement
 
 def _swap(trunk:str) -> str:
@@ -10,11 +10,11 @@ def _swap(trunk:str) -> str:
    from long to short and vice versa
    """
    lvi = last_vowel_index(trunk)
-   last_macron = trunk.rfind(cmacron)
+   last_macron = trunk.rfind(c.macron)
 
    if lvi is not None: # if the word has vowels
       if last_macron not in (lvi+1, lvi+2):
-         return insert(trunk, {lvi+1: cmacron}) # insert macron if needed
+         return insert(trunk, {lvi+1: c.macron}) # insert macron if needed
 
       elif last_macron != -1:
       # and vice versa, delete macron from the last vowel
@@ -47,9 +47,9 @@ class PartOfSpeech():
    @staticmethod
    def accentize(current_AP:str, word:str) -> str:
       if current_AP not in oa:
-         word = word.replace(cstraight, '')
-      if cstraight not in word:
-         return word.replace('·', cstraight, 1)
+         word = word.replace(c.straight, '')
+      if c.straight not in word:
+         return word.replace('·', c.straight, 1)
       return word.replace('·', '')
 
    @staticmethod
@@ -93,14 +93,14 @@ class PartOfSpeech():
       # processing syllable 'r'
       morpheme, accent = ending_part.morpheme, ending_part.accent
       if self.kind.startswith('V') and len(self.kind.split("\\")) > 3:
-         stem_ = stem.replace(cmacron, '')
+         stem_ = stem.replace(c.macron, '')
          morpheme_ = ''.join([x for x in morpheme if x.isalpha() and x not in "ʹʺ"])
          if stem_[-1] == 'р' and stem_[-2] not in all_vowels and morpheme_:
             if morpheme_[0] not in all_vowels:
-               stem = stem + cring
-               stem = stem.replace(cmacron + cring, cring + cmacron)
+               stem = stem + c.ring
+               stem = stem.replace(c.macron + c.ring, c.ring + c.macron)
 
-         if stem.endswith('р' + cmacron) and morpheme_:
+         if stem.endswith('р' + c.macron) and morpheme_:
             if morpheme_[0] in all_vowels:
                stem = stem[:-1]
 
@@ -115,8 +115,8 @@ class PartOfSpeech():
          morpheme = morpheme.replace('>>', '')
 
       # deleting the first of two accents (is it OK to have it here?)
-      if current_AP in accent and cstraight in stem:
-         stem = stem.replace(cstraight, '')
+      if current_AP in accent and c.straight in stem:
+         stem = stem.replace(c.straight, '')
 
       # first we delete '>' (= delete all macrons in the word)
       if morpheme.startswith('>') and current_AP in ['d:', 'b:', 'f.']:
@@ -150,31 +150,31 @@ class PartOfSpeech():
       for (base, aff) in connectenda:
          # accentizing endings (?)
          if current_AP in ending_part.accent:
-            if cstraight in base and not '0' in aff:
+            if c.straight in base and not '0' in aff:
                # e.g. ['Аргенти̍·̄на̄ц', 'а̄'] or ['вр̥х>œ̍̄в', 'а̄']
                aff = aff.replace('·', '')
             if 'q' in current_AP:
                # q is a very strict AP, no '0'-morpheme has right to act
                aff = aff.replace('0', '')
-            aff = aff.replace('·', cstraight)
+            aff = aff.replace('·', c.straight)
             base = base.replace('·', '')
 
          # accentizing non-enclinomical words (finally!)
          # this line of code also helped solving 'aludirati' bug
          # (when too many enclinomena appear, like **ȁludīrām)
-         elif cstraight not in base:
-            base = base.replace('·', cstraight)
+         elif c.straight not in base:
+            base = base.replace('·', c.straight)
 
          result_word = base + aff
 
          # accentizing enclinomena (words without accent
          # that receive automatic accent on first syllable)
-         if cstraight not in result_word: # result_word is enclinomen
+         if c.straight not in result_word: # result_word is enclinomen
             fvi = first_vowel_index(result_word)
             if fvi is None and 'ъ' in result_word and 'ø' in result_word:
                fvi = result_word.find('ъ') # e.g. сънø (future сан)
             if fvi is not None:
-               result_word = insert(result_word, {fvi+1: cstraight})
+               result_word = insert(result_word, {fvi+1: c.straight})
 
          result.append(result_word)
 
@@ -184,14 +184,14 @@ class PartOfSpeech():
       self,
       current_AP:str,
       stem:str,
-      morphChain:MorphemeChain,
+      morph_chain:MorphemeChain,
       iterative:bool=True
    ) -> List[str]:
 
        # all ʲ-stems except рʲ-stems and штʲе-stems have two variants of œ-endings:
        # one of them is soft (nosem, putevi), the other hard (nosom, putovi)
       if (
-         stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morphChain[0].morpheme
+         stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morph_chain[0].morpheme
          and not (stem.endswith('штʲ') and self.label("n"))
       ):
          iterable_form = [stem, stem[:-1]] # putʲ, put
@@ -199,10 +199,10 @@ class PartOfSpeech():
          iterable_form = [stem]
 
       if iterative: # TODO write here WHEN iterative is True
-         for submorph in morphChain: # -ov- and -i in bog-ov-i are submorphs
-            iterable_form = self._append_morpheme(current_AP, iterable_form, submorph)
+         for morph in morph_chain: # -ov- and -i in bog-ov-i are morphs
+            iterable_form = self._append_morpheme(current_AP, iterable_form, morph)
          return iterable_form
       else: # TODO when?
-         result = self._append_morpheme(current_AP, iterable_form, morphChain[0])
+         result = self._append_morpheme(current_AP, iterable_form, morph_chain[0])
          return result
-      # TODO apparently morphChain is of len 1, but what if it's not?
+      # TODO apparently morph_chain is of len 1, but what if it's not?

@@ -10,12 +10,8 @@ from typing import (
    Pattern, Dict, List, Tuple
 )
 from itertools import chain
-from .charutils import (
-   cring, cmacron, cstraight, cacute,
-   cgrave, cdoublegrave, ccircumflex,
-   all_vowels, any_vowel, any_of_four_accents,
-   all_accent_marks, real_accent
-)
+from .charutils import *
+
 
 # Naming of things added for optimization purposes:
 #   <name>_c − <name> but with compiled regexes
@@ -118,8 +114,8 @@ _deyerify_repl_dict: Dict[str, str] = {
 }
 
 # TODO: Name these two semantically:
-_deyerify_pat1_c: Pattern = re.compile(f'([аеиоу{cring}][{cstraight}·]?)([лљмнњрјв]ʲ?)ъ')
-_deyerify_pat2_c: Pattern = re.compile(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{cstraight}')
+_deyerify_pat1_c: Pattern = re.compile(f'([аеиоу{c.ring}][{c.straight}·]?)([лљмнњрјв]ʲ?)ъ')
+_deyerify_pat2_c: Pattern = re.compile(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{c.straight}')
 
 _deyerify_translator = str.maketrans({
    'ø': None,
@@ -135,7 +131,7 @@ _decurlyerify_repl_dict: Dict[str, str] = {
 def decurlyerify(form:str) -> str:
    for k, v in _decurlyerify_repl_dict.items():
       form = form.replace(k, v)
-   return re.sub('([лљмнњрјв]ꙏ)', f'{cmacron}\\1', form).replace('ꙏ', '')
+   return re.sub('([лљмнњрјв]ꙏ)', f'{c.macron}\\1', form).replace('ꙏ', '')
 
 def deyerify(form:str) -> str:
    repl_dict = _deyerify_repl_dict
@@ -144,7 +140,7 @@ def deyerify(form:str) -> str:
 
    two_yers = form.count('ъ') == 2 # зајутрак, зајутарка; probably not the best place to do it
 
-   if form.endswith(cstraight+'ø'):
+   if form.endswith(c.straight+'ø'):
       form = form.replace('ø', '')
    if 'ø' in form:
       if two_yers and not '>' in form:
@@ -152,8 +148,8 @@ def deyerify(form:str) -> str:
       form = form.translate(_deyerify_translator)
    else:
       if two_yers:
-         form = form.replace('ъ', f'а{cmacron}', 1).replace('ъ', '')
-      form = re1.sub(f'\\1{cmacron}\\2ъ', form)
+         form = form.replace('ъ', f'а{c.macron}', 1).replace('ъ', '')
+      form = re1.sub(f'\\1{c.macron}\\2ъ', form)
       for k, v in repl_dict.items():
          form = form.replace(k, v)
       form = form.replace('ъ', '').replace('ꚜ', '').replace('ꙏ', '')
@@ -161,24 +157,24 @@ def deyerify(form:str) -> str:
    match = re2.search(form)
    if match:
       wrong_acc_index = match.span()[0]
-      form = form.replace(cstraight, '')
+      form = form.replace(c.straight, '')
       lvi = last_vowel_index(form[:wrong_acc_index+2])
       if lvi is None:
          raise ValueError(f"_{form[:wrong_acc_index+2]}_ does not contain any vowels")
       else:
-         form = insert(form, {lvi+1: cstraight})
+         form = insert(form, {lvi+1: c.straight})
    return form
 
 _prettify_replaces: List[Tuple[str, str]] = [
    ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
-   (f'јӥ{cstraight}', f'{cstraight}јӥ'), ('јӥ', f'{cmacron}ј'),
-   ('ӥ', 'и'), (f'{cstraight}{cmacron}', f'{cmacron}{cstraight}'),
-   (f'ʌ([аеиоурœĵ]|{cring})', 'л\\1'),
-   (f'{cmacron}{cstraight}ʌ', f'{cstraight}ʌ'),
-   (f'{cmacron}ʌ', 'ʌ'),
-   ('о·ʌ', f'о{cmacron}·'), ('оʌ', f'о{cmacron}'),
-   (f'о{cstraight}ʌ', f'о{cmacron}{cstraight}'),
-   (f'о·{cmacron}ʌ', f'о·{cmacron}'), ('ʌ', 'о'),
+   (f'јӥ{c.straight}', f'{c.straight}јӥ'), ('јӥ', f'{c.macron}ј'),
+   ('ӥ', 'и'), (f'{c.straight}{c.macron}', f'{c.macron}{c.straight}'),
+   (f'ʌ([аеиоурœĵ]|{c.ring})', 'л\\1'),
+   (f'{c.macron}{c.straight}ʌ', f'{c.straight}ʌ'),
+   (f'{c.macron}ʌ', 'ʌ'),
+   ('о·ʌ', f'о{c.macron}·'), ('оʌ', f'о{c.macron}'),
+   (f'о{c.straight}ʌ', f'о{c.macron}{c.straight}'),
+   (f'о·{c.macron}ʌ', f'о·{c.macron}'), ('ʌ', 'о'),
    ('цœ', 'че'),
    ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
    ('ʲ', '')]
@@ -189,11 +185,11 @@ _prettify_replaces_c = [(re.compile(p), r) for p, r in _prettify_replaces]
 _prettify_yat_replaces: Dict[str, List[Tuple[str, str]]] = {
    "e": [('ꙓ', 'е'), ('ѣ', 'е')],
    "je": [
-      (f'ѣ({cstraight}?о)', 'и\\1'),
+      (f'ѣ({c.straight}?о)', 'и\\1'),
       ('лѣ', 'ље'), ('нѣ', 'ње'),
-      (f'ѣ({cstraight}?[љјњ])', 'и\\1'),
-      (f'ꙓ({cstraight}?[ој])', "и\\1"),
-      (f'ꙓ{cmacron}', f'йје{cmacron}'),
+      (f'ѣ({c.straight}?[љјњ])', 'и\\1'),
+      (f'ꙓ({c.straight}?[ој])', "и\\1"),
+      (f'ꙓ{c.macron}', f'йје{c.macron}'),
       ('лꙓ', 'ље'), ('нꙓ', 'ње'),
       ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'),
       ('[ꙓѣ]', 'је')] }
@@ -282,7 +278,7 @@ _deaccentize_accented: Dict[str, str] = {
 _deaccentize_translator = str.maketrans(dict(chain(
    ((acc, deacc) for accs, deacc in _deaccentize_accented.items()
                  for acc in accs),
-   ((mark, None) for mark in all_accent_marks),
+   ((mark, None) for mark in c.items()),
    ((mark, None) for mark in '`´_°¨^!') #TODO move this string somewhere
 )))
 
@@ -291,8 +287,8 @@ def deaccentize(text:str) -> str:
 
 _garde_four_accents_c: Pattern = re.compile(any_of_four_accents)
 _garde_translator = str.maketrans({
-   cdoublegrave: cstraight,
-   ccircumflex: f'{cmacron}{cstraight}'
+   c.doublegrave: c.straight,
+   c.circumflex: f'{c.macron}{c.straight}'
 })
 
 def garde(word: str) -> str: # Garde's accentuation
@@ -300,8 +296,8 @@ def garde(word: str) -> str: # Garde's accentuation
    accents_re = _garde_four_accents_c
    while accents_re.findall(result): # while word is ungarded-like:
 
-      short_desc_index = result.rfind(cdoublegrave)
-      long_desc_index = result.rfind(ccircumflex)
+      short_desc_index = result.rfind(c.doublegrave)
+      long_desc_index = result.rfind(c.circumflex)
       real_fvi = first_vowel_index(result)
       fvi = real_fvi if real_fvi is not None else -100
 
@@ -322,30 +318,30 @@ def garde(word: str) -> str: # Garde's accentuation
 
             if letter in all_vowels:
                if insert_bool:
-                  insert_dict[i+1] = cstraight
+                  insert_dict[i+1] = c.straight
                   insert_bool = False
                else:
                   if len(result) > i+1:
                      # TODO: May benefit from precompiling regexes
                      # (or from remaking the transformation in other terms?)
-                     if result[i+1] == cgrave:
+                     if result[i+1] == c.grave:
                         insert_bool = True
                         word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
-                     elif result[i+1] == cacute:
+                     elif result[i+1] == c.acute:
                         insert_bool = True
-                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + cmacron, word2)
-                     elif result[i+1] == cdoublegrave:
+                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + c.macron, word2)
+                     elif result[i+1] == c.doublegrave:
                         word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                       r"\g<1>" + cstraight,
+                                       r"\g<1>" + c.straight,
                                        word2)
-                     elif result[i+1] == ccircumflex:
+                     elif result[i+1] == c.circumflex:
                         word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                       r"\g<1>" + cstraight,
+                                       r"\g<1>" + c.straight,
                                        word2)
-                        insert_dict[i+1] = cmacron
+                        insert_dict[i+1] = c.macron
 
          word3 = insert(word2, insert_dict)
-         word3 = swap(word3.replace('•', ''), cstraight, cmacron)
+         word3 = swap(word3.replace('•', ''), c.straight, c.macron)
          result = word3
 
       else:
@@ -356,8 +352,8 @@ def garde(word: str) -> str: # Garde's accentuation
 
 _zeroify_translator = str.maketrans({
    '0': None,
-   cstraight: None,
-   '~': cmacron
+   c.straight: None,
+   '~': c.macron
 })
 
 def zeroify(form:str) -> str:
@@ -368,18 +364,18 @@ def zeroify(form:str) -> str:
          raise ValueError(f"{form} does not contain any vowels")
       else:
          to_insert = fvi + 1
-         form = insert(form, {to_insert: cstraight})
+         form = insert(form, {to_insert: c.straight})
    return form
 
 _purify_translator = str.maketrans('', '', '~0·')
 
 def purify(form:str) -> str:
-   return swap(form.translate(_purify_translator), cstraight, cmacron)
+   return swap(form.translate(_purify_translator), c.straight, c.macron)
 
 def ungarde(form:str) -> str:
    chars = list(form) # splitting string into characters
-   while cstraight in chars:
-      old_accent_index = chars.index(cstraight)
+   while c.straight in chars:
+      old_accent_index = chars.index(c.straight)
       chars.pop(old_accent_index)
 
       new_accent_index = old_accent_index - 1
@@ -399,16 +395,16 @@ def ungarde(form:str) -> str:
          new_accent_index -= 1
 
       if shifted:
-         chars.insert(new_accent_index, cgrave) #rising
+         chars.insert(new_accent_index, c.grave) #rising
       elif old_accent_index == 0:
-         chars.insert(1, cdoublegrave) #falling
+         chars.insert(1, c.doublegrave) #falling
       else:
-         chars.insert(old_accent_index, cdoublegrave) #falling
+         chars.insert(old_accent_index, c.doublegrave) #falling
 
    return ("".join(chars)
-             .replace(f'{cgrave}{cmacron}', cacute) #long rising
-             .replace(f'{cmacron}{cdoublegrave}', ccircumflex)
-             .replace(f'{cdoublegrave}{cmacron}', ccircumflex) #long falling
+             .replace(f'{c.grave}{c.macron}', c.acute) #long rising
+             .replace(f'{c.macron}{c.doublegrave}', c.circumflex)
+             .replace(f'{c.doublegrave}{c.macron}', c.circumflex) #long falling
              .replace('!', '') # for cases where ! is not
    )                           # right before the accented syllable
 
@@ -416,15 +412,15 @@ def debracketify(form:str) -> str:
       if '>' in form:
          barrier = form.find('>')
          first_piece = form[:barrier]
-         first_piece = first_piece.replace(cmacron, '')
+         first_piece = first_piece.replace(c.macron, '')
          second_piece = form[barrier:].replace('>', '')
          form = first_piece + second_piece
       return form
 
 def je2ije(form:str) -> str:
-   return (form.replace(f'йје{cacute}', f'ије{cgrave}')
-               .replace(f'йје{ccircumflex}', f'и{cdoublegrave}је')
-               .replace(f'йје{cmacron}', 'ије')
+   return (form.replace(f'йје{c.acute}', f'ије{c.grave}')
+               .replace(f'йје{c.circumflex}', f'и{c.doublegrave}је')
+               .replace(f'йје{c.macron}', 'ије')
    )
 
 deancientify_dict = {
@@ -447,7 +443,8 @@ _ComposeArg = Union[
    Tuple[_Transform[_T], Sequence[str]]
 ]
 
-# TODO: A function of such generality (and maybe others like it) may need a module of its own, like `fun_utils` or `gen_utils` outside `lookup`
+# TODO: A function of such generality (and maybe others like it) may need a module of its own,
+# like `fun_utils` or `gen_utils` outside `lookup`
 def compose1(*functions: _ComposeArg[_T]) -> _Transform[_T]:
    """Composes a sequence of functions T -> T.
 

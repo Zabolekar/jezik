@@ -1,21 +1,21 @@
-from os import path
-from re import search as rsearch
+from os import path as p
+from re import search
 import yaml
 from ..charutils import all_vowels, plain_accents
 from .multidict import Entry, FancyLookup
-from ..utils import deaccentize, cyr2lat
+from ..utils import deaccentize
 
 data = FancyLookup()
 
-dir_path = path.dirname(path.realpath(__file__))
-file_path = path.join(dir_path, "data.yml")
+dir_path = p.dirname(p.realpath(__file__))
+file_path = p.join(dir_path, "data.yml")
 
 posdict = {"N": "именица", "V": "глагол", "A": "придев", "B": "прилог"}
 
 with open(file_path, encoding="utf-8") as f:
    raw_data = yaml.safe_load(f)
 for full_key in raw_data.keys():
-   if rsearch(f"[^{all_vowels}ъ][{plain_accents}]", full_key):
+   if search(f"[^{all_vowels}ъ][{plain_accents}]", full_key):
       raise ValueError(full_key) # TODO WHY doesn't it work??
    # full_key is with disambiguator, key is without
    first_space = full_key.find(" ")

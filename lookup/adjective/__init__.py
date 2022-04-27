@@ -1,11 +1,11 @@
-from typing import Dict, List, Iterator, Optional, Tuple
+from typing import List, Iterator, Optional, Tuple
 import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
-from ..paradigm_helpers import AccentedTuple, nice_name, oa, accentize, uniq
+from ..paradigm_helpers import nice_name, accentize, uniq
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
-from ..charutils import cmacron, cstraight
+from ..charutils import c
 
 adj_AP_pairs = (
    ('a.,a.', 'A.'),
@@ -65,12 +65,12 @@ class Adjective(PartOfSpeech):
          if self.label('ov'):
             trunk = accented_adj
          elif self.label('all'):
-            if 'ъ' + cstraight in accented_adj:
+            if 'ъ' + c.straight in accented_adj:
                trunk = accented_adj[:-2] + accented_adj[-1]
             else:
                trunk = accented_adj
          elif self.label('ski'):
-            trunk = re.sub(f'{cmacron}{cstraight}$', cmacron, accented_adj)[:-2]
+            trunk = re.sub(f'{c.macron}{c.straight}$', c.macron, accented_adj)[:-2]
          if not 'a' in self.gram.AP[number]:
             lvi = last_vowel_index(trunk)
             if lvi is None:
@@ -130,7 +130,7 @@ class Adjective(PartOfSpeech):
                      ready_forms += self.process_one_form(
                         current_AP=current_AP,
                         stem=adj_variant,
-                        morphChain=[variation],
+                        morph_chain=[variation],
                         iterative=False
                      )
 

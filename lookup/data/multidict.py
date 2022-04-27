@@ -1,8 +1,8 @@
 from typing import Dict, Generic, List, NamedTuple, Iterator, Tuple, TypeVar
 import random
-from ..utils import all_vowels, cyr2lat, deaccentize, expose, garde
-from ..paradigm_helpers import accentize, i_to_accents, uniq
-from ..charutils import cmacron
+from ..utils import cyr2lat, deaccentize, expose, garde
+from ..paradigm_helpers import accentize, uniq
+from ..charutils import all_vowels, c
 
 Replacement = Tuple[str, List[str]]
 
@@ -89,10 +89,8 @@ def inner_to_outer(accented_keys:str, extra_key:str) -> Iterator[Tuple[str, str]
          yield extra_token, input_yat
          yield cyr2lat(extra_token), input_yat
       for item in unique_keys:
-         accented_token = garde(accentize(item))
-         if accented_token == item:
+         if (accented_token := garde(accentize(item))) == item:
             raise ValueError(f"accented token {accented_token} shouldn't be equal to {item}")
-         # TODO add {=} when updating to 3.8
          exposed_token = expose(accented_token, yat=input_yat)
          deaccentized_token = deaccentize(exposed_token).lower()
          yield deaccentized_token, input_yat

@@ -1,6 +1,6 @@
 from typing import NamedTuple, List, Union
 from ..paradigm_helpers import AccentedTuple
-from ..charutils import cmacron
+from ..charutils import c
 
 # TODO: why is this organized so differently from nouns and verbs? unify and/or document
 
@@ -53,15 +53,15 @@ short_adj = ShortAdj(
    [AccentedTuple('у·', 'b.b:b?d.d:')], # = m_sg_dat
    [AccentedTuple('ø·', 'b.b:b?')], #; = m_sg_nom
    [AccentedTuple('а·', 'b.b:b?d.d:')], #; = m_sg_gen
-   [AccentedTuple(f'и·{cmacron}м', 'b.b:b?d.d:')],
-   [AccentedTuple(f'о·{cmacron}м', 'b.b:b?d.d:')],
-   [AccentedTuple(f'и·{cmacron}м', 'b.b:b?d.d:')],
-   [AccentedTuple(f'е·{cmacron}', 'b.b:b?d.d:')],
-   [AccentedTuple(f'о·{cmacron}ј', 'b.b:b?d.d:')],
-   [AccentedTuple(f'о·{cmacron}ј', 'b.b:b?d.d:')],
-   [AccentedTuple(f'и·{cmacron}х', 'b.b:b?d.d:')],
-   [AccentedTuple(f'и·{cmacron}м', 'b.b:b?d.d:'),
-    AccentedTuple(f'и·{cmacron}ма', 'b.b:b?d.d:')]
+   [AccentedTuple(f'и·{c.macron}м', 'b.b:b?d.d:')],
+   [AccentedTuple(f'о·{c.macron}м', 'b.b:b?d.d:')],
+   [AccentedTuple(f'и·{c.macron}м', 'b.b:b?d.d:')],
+   [AccentedTuple(f'е·{c.macron}', 'b.b:b?d.d:')],
+   [AccentedTuple(f'о·{c.macron}ј', 'b.b:b?d.d:')],
+   [AccentedTuple(f'о·{c.macron}ј', 'b.b:b?d.d:')],
+   [AccentedTuple(f'и·{c.macron}х', 'b.b:b?d.d:')],
+   [AccentedTuple(f'и·{c.macron}м', 'b.b:b?d.d:'),
+    AccentedTuple(f'и·{c.macron}ма', 'b.b:b?d.d:')]
    )
 
 class LongAdj(NamedTuple):
@@ -94,45 +94,45 @@ class LongAdj(NamedTuple):
    m_f_n_pl_dat_loc_ins_long: List[AccentedTuple] # ! 2
 
 long_adj = LongAdj(
-  [AccentedTuple(f'и·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'œ·{cmacron}г', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}га', 'c.c:')],
-  [AccentedTuple(f'œ·{cmacron}м', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}ме', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}му', 'c.c:')],
-  [AccentedTuple(f'и·{cmacron}м', 'c.c:')],
-  [AccentedTuple(f'œ·{cmacron}м', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}ме', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}му', 'c.c:')],
-  [AccentedTuple(f'œ·{cmacron}г', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}га', 'c.c:')],
-  [AccentedTuple(f'и·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'а·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'е·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'о·{cmacron}ј', 'c.c:')],
-  [AccentedTuple(f'у·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'о·{cmacron}м', 'c.c:')],
-  [AccentedTuple(f'о·{cmacron}ј', 'c.c:')],
-  [AccentedTuple(f'œ·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'œ·{cmacron}г', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}га', 'c.c:')], # = m_sg_gen
-  [AccentedTuple(f'œ·{cmacron}м', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}ме', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}му', 'c.c:')], # = m_sg_dat
-  [AccentedTuple(f'œ·{cmacron}', 'c.c:')], # = n_sg_nom
-  [AccentedTuple(f'и·{cmacron}м', 'c.c:')], # = m_sg_ins
-  [AccentedTuple(f'œ·{cmacron}м', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}ме', 'c.c:'),
-   AccentedTuple(f'œ·{cmacron}му', 'c.c:')], # = m_sg_loc
-  [AccentedTuple(f'и·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'е·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'а·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'е·{cmacron}', 'c.c:')],
-  [AccentedTuple(f'е·{cmacron}', 'c.c:')], #  = f_pl_nom
-  [AccentedTuple(f'а·{cmacron}', 'c.c:')], #  = n_pl_nom
-  [AccentedTuple(f'и·{cmacron}х', 'c.c:')],
-  [AccentedTuple(f'и·{cmacron}м', 'c.c:'),
-   AccentedTuple(f'и·{cmacron}ма', 'c.c:')]
+  [AccentedTuple(f'и·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'œ·{c.macron}г', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}га', 'c.c:')],
+  [AccentedTuple(f'œ·{c.macron}м', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}ме', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}му', 'c.c:')],
+  [AccentedTuple(f'и·{c.macron}м', 'c.c:')],
+  [AccentedTuple(f'œ·{c.macron}м', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}ме', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}му', 'c.c:')],
+  [AccentedTuple(f'œ·{c.macron}г', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}га', 'c.c:')],
+  [AccentedTuple(f'и·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'а·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'е·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'о·{c.macron}ј', 'c.c:')],
+  [AccentedTuple(f'у·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'о·{c.macron}м', 'c.c:')],
+  [AccentedTuple(f'о·{c.macron}ј', 'c.c:')],
+  [AccentedTuple(f'œ·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'œ·{c.macron}г', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}га', 'c.c:')], # = m_sg_gen
+  [AccentedTuple(f'œ·{c.macron}м', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}ме', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}му', 'c.c:')], # = m_sg_dat
+  [AccentedTuple(f'œ·{c.macron}', 'c.c:')], # = n_sg_nom
+  [AccentedTuple(f'и·{c.macron}м', 'c.c:')], # = m_sg_ins
+  [AccentedTuple(f'œ·{c.macron}м', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}ме', 'c.c:'),
+   AccentedTuple(f'œ·{c.macron}му', 'c.c:')], # = m_sg_loc
+  [AccentedTuple(f'и·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'е·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'а·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'е·{c.macron}', 'c.c:')],
+  [AccentedTuple(f'е·{c.macron}', 'c.c:')], #  = f_pl_nom
+  [AccentedTuple(f'а·{c.macron}', 'c.c:')], #  = n_pl_nom
+  [AccentedTuple(f'и·{c.macron}х', 'c.c:')],
+  [AccentedTuple(f'и·{c.macron}м', 'c.c:'),
+   AccentedTuple(f'и·{c.macron}ма', 'c.c:')]
   )
 
 class MixedAdj(NamedTuple):

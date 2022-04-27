@@ -1,7 +1,7 @@
 from typing import List
 import pytest # type: ignore
 from ..lookup import lookup, data
-from ..lookup.charutils import four_accents, cmacron, roman
+from ..lookup.charutils import four_accents, c, roman
 from ..lookup.paradigm_helpers import cut_AP, has, str_find
 from ..lookup.table import LabeledMultiform
 
@@ -38,15 +38,15 @@ def test_no_exceptions():
                raise
             first_acc_main = min(str_find(main_form, x) for x in four_accents)
             last_acc_main = max(main_form.rfind(x) for x in four_accents)
-            compound = last_acc_main == first_acc_main > str_find(main_form, cmacron)
+            compound = last_acc_main == first_acc_main > str_find(main_form, c.macron)
             for labeled_multiform in table:
                for form in labeled_multiform[1]:
-                  if any(form.startswith(x) for x in four_accents + cmacron):
+                  if any(form.startswith(x) for x in four_accents + c.macron):
                      bad_multiforms.append(labeled_multiform)
                   if not compound: # eg not plāvosȋv
                      first_acc = min(str_find(form, x) for x in four_accents)
                      last_acc = max(form.rfind(x) for x in four_accents)
-                     if last_acc == first_acc > str_find(form, cmacron): # eg ōvánā
+                     if last_acc == first_acc > str_find(form, c.macron): # eg ōvánā
                         bad_multiforms.append(labeled_multiform)
    if bad_multiforms:
       print(bad_multiforms)
