@@ -28,7 +28,7 @@ class Adverb(PartOfSpeech): #TODO majority of these can probably be moved to POS
       latin:bool=False
    ) -> Iterator[LabeledMultiform]:
       accented_adverbs = [
-         garde(accentize(self.key))
-         for i in range(len(self.accented_keys))
+         garde(accentize(key))
+         for key in self.accented_keys
       ]
       yield nice_name(""), uniq(expose(form, yat, latin) for form in accented_adverbs)

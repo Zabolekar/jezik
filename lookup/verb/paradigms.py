@@ -164,7 +164,7 @@ a_past = Past(
    [[a_theme_ipf, ending_she]],
    [[a_theme_ipf, ending_she]],
    [[a_theme_ipf, ending_smo]],
-   [[a_theme_ipf, ending_smo]],
+   [[a_theme_ipf, ending_ste]],
    [[a_theme_ipf, ending_xu]]
 )
 
