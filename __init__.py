@@ -34,19 +34,15 @@ def results(word):
    if subpar:
       tables = [t for t in tables if t.caption.subpar == subpar]
 
-      return render_template(
-         "results.html",
-         tables=Multitable(word, tables),
-         input_yat=input_yat,
-         output_yat=output_yat
-      )
-   else:
-      return render_template(
-         "results.html",
-         tables=tables,
-         input_yat=input_yat,
-         output_yat=output_yat
-      )
+   if par or subpar:
+      tables = Multitable(word.strip(), iter(tables))
+
+   return render_template(
+      "results.html",
+      tables=tables,
+      input_yat=input_yat,
+      output_yat=output_yat,
+   )
 
 @app.errorhandler(404)
 def page_not_found(_):
