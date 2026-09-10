@@ -1,4 +1,4 @@
-from ..lookup.utils import ungarde, garde, deyerify, insert, prettify, strip_suffix
+from ...lookup.utils import ungarde, garde, deyerify, insert, prettify, strip_suffix
 
 def test_ungarde():
    assert [ungarde(i) for i in [

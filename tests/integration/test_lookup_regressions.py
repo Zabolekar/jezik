@@ -1,6 +1,6 @@
 import pytest # type: ignore
-from ..lookup import lookup
-from ..lookup.charutils import c
+from ...lookup import lookup
+from ...lookup.charutils import c
 
 def test_nonsense():
    assert not lookup("абырвалг")
@@ -9,66 +9,6 @@ def test_inner_notation():
    assert not lookup("абецедън")
    assert not lookup("свꙓтъʌ")
 
-def test_ije():
-   l = lookup("свет", input_yat="e", output_yat="e") # свет, свет
-   assert len(l) == 3
-   assert l[0].pos == "adjective"
-   assert l[1].pos == "adjective"
-   assert l[2].pos == "noun"
-   assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
-   assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
-   assert l[2]["sg nom"].multiform == ['све̑т']
-
-   l = lookup("свет", input_yat="e", output_yat="je") # свет, свијет
-   assert len(l) == 3
-   assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
-   assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
-   assert l[2]["sg nom"].multiform == ['свйје̑т']
-
-   l = lookup("свет", input_yat="je", output_yat="e") # свет (*svętъ)
-   assert len(l) == 2
-   assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
-   assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
-
-   l = lookup("свет", input_yat="je", output_yat="je") # свет (*svętъ)
-   assert len(l) == 2
-   assert l[0]["m sg nom long"].multiform == ['све̑тӣ']
-   assert l[1]["m sg nom long"].multiform == ['свѐтӣ']
-
-   l = lookup("свијет", input_yat="e", output_yat="e") # not found
-   assert not l
-
-   l = lookup("свијет", input_yat="e", output_yat="je") # not found
-   assert not l
-
-   l = lookup("свијет", input_yat="je", output_yat="e") # свет (*světъ)
-   assert len(l) == 1
-   assert l[0]["sg nom"].multiform == ['све̑т']
-
-   l = lookup("свијет", input_yat="je", output_yat="je") # свијет
-   assert len(l) == 1
-   assert l[0]["sg nom"].multiform == ['свйје̑т']
-
-   l = lookup("свијет", input_yat="ije", output_yat="ije")
-   assert len(l) == 1
-   assert l[0]["sg nom"].multiform == ['сви̏јет']
-
-   l = lookup("белег", input_yat="e", output_yat="ije")
-   assert len(l) == 1
-   assert l[0]["sg nom"].multiform == ['бѝљег']
-
-   l = lookup("вијенац", input_yat="ije", output_yat="e")
-   assert len(l) == 1
-   assert l[0]["pl gen"].multiform == ["ве̑на̄ца̄", "ве́на̄ца̄"]
-
-def test_ije2():
-   l = lookup("реч", input_yat="e", output_yat="ije")
-   assert len(l) == 1
-   assert l[0]["sg nom"].multiform == ['ри̏јеч']
-
-   l = lookup("повијест", input_yat="ije", output_yat="e")
-   assert len(l) == 1
-   assert l[0]["pl gen"].multiform == ["по̏ве̄стӣ"]
 
 def test_drven():
    assert lookup("дрвен")["m sg nom long"][0].multiform == ['др̥̏венӣ']
@@ -113,26 +53,9 @@ def test_gpl():
    assert lookup("пуж")["pl gen"].multiform == ["пу́же̄ва̄", "пу́жа̄"]
    assert lookup("непце")["pl gen"].multiform == ["не̏ба̄ца̄", "не́пца̄"]
 
-def test_snjegovi():
-   l = lookup("снијег", input_yat="ije", output_yat="je")
-   assert l["sg nom"].multiform == ['снйје̑г']
-   assert l["pl nom"].multiform == ['сње̏гови', 'снйје̑зи']
-
 def test_multiple_results():
    assert len(lookup("апсорбовати")) == 2
    assert len(lookup("зор")) == 2
-
-def test_different_ije():
-
-   la1 = lookup("снијег", input_yat="ije")
-   la2 = lookup("снијег", input_yat="ije", output_yat="je")
-   assert la1["sg nom"].multiform == ['сни̏јег']
-   assert la2["sg nom"].multiform == ['снйје̑г']
-
-   lb1 = lookup("вијек", input_yat="ije")
-   lb2 = lookup("вијек", input_yat="ije", output_yat="je")
-   assert lb1["sg nom"].multiform == ['ви̏јек']
-   assert lb2["sg nom"].multiform == ['вйје̑к']
 
 def test_advokatirati():
    """

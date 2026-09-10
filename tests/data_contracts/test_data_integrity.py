@@ -1,9 +1,9 @@
 from typing import List
 import pytest # type: ignore
-from ..lookup import lookup, data
-from ..lookup.charutils import four_accents, c, roman
-from ..lookup.paradigm_helpers import cut_AP, has, str_find
-from ..lookup.table import LabeledMultiform
+from ...lookup import lookup, data
+from ...lookup.charutils import four_accents, c, roman
+from ...lookup.paradigm_helpers import cut_AP, has, str_find
+from ...lookup.table import LabeledMultiform
 
 
 first_form = {
