@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Iterable, Iterator, List, Tuple, Union
+from typing import Iterable, Iterator, List, Optional, Tuple, Union
 from .paradigm_helpers import TableCaption
 
 Form = str
@@ -7,10 +7,17 @@ Multiform = List[Form]
 LabeledMultiform = Tuple[str, Multiform]
 
 class Table:
-   def __init__(self, pos:str, caption:TableCaption, data:Iterable[LabeledMultiform]) -> None:
+   def __init__(
+      self,
+      pos:str,
+      caption:TableCaption,
+      data:Iterable[LabeledMultiform],
+      view:Optional[str]=None
+   ) -> None:
       self.caption = caption
       self.pos = pos
       self._data = list(data)
+      self.view = view
 
    def __getitem__(self, query:str) -> Table:
       result = []
@@ -27,7 +34,8 @@ class Table:
             self.caption.subpar,
             f"{self.caption.caption} [{query}]"
          ),
-         result
+         result,
+         self.view
       )
 
    @property
@@ -75,8 +83,10 @@ class Multitable:
          elif n_tables == 1:
             return self[0][query]
          else:
-            print("There's more than one table, consider using explicit indexing!", end="\n\n")
-            return Multitable(self.input, (table[query] for table in self._tables))
+            return Multitable(
+               self.input,
+               (filtered for table in self._tables if len(filtered := table[query]))
+            )
 
    def __len__(self) -> int:
       return len(self._tables)
