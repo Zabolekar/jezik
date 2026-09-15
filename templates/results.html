@@ -20,6 +20,9 @@
                href="{{ tables.input }}?in={{ input_yat }}&out={{ output_yat }}&par={{ table.caption.par }}&subpar={{ table.caption.subpar }}">
                {{ table.caption.full_caption }}
             </a>
+            {% if table.view %}
+               <small>Види такође: <a href="{{ url_for('results', word=table.view) }}">{{ table.view }}</a></small>
+            {% endif %}
          </caption>
          {% include table.pos + ".html" %}
       </table><br>

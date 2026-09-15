@@ -42,7 +42,7 @@ def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
    key, with_se = strip_suffix(key, (" se", " се"))
 
    for inner_key, values in data[key, input_yat]:
-      caption, accented_keys, _, kind, info, replacements, amendments = values
+      caption, accented_keys, _, kind, info, replacements, amendments, view = values
       POS = part_of_speech(kind)
       # # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if with_se and ((POS is not Verb) or (POS is Verb and not 'Refl' in kind)):
@@ -56,13 +56,15 @@ def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
             yield Table(
                POS.__name__.lower(),
                full_caption,
-               word.multiforms(variant=i, yat=output_yat, latin=latin)
+               word.multiforms(variant=i, yat=output_yat, latin=latin),
+               view
             )
       else:
          yield Table(
             "",
             make_caption(("", ""), 1, 1),
-            iter([("😞", ["Још не знамо како се акцентује ова реч"])])
+            iter([("😞", ["Још не знамо како се акцентује ова реч"])]),
+            view
          )
          # # TODO, and also sometimes ријеч and/or latin
 
