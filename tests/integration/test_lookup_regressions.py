@@ -117,7 +117,7 @@ def test_igla():
       ['ȉgle'], ['ȉgle'], ['igálā'], ['ìglama'], ['ìglama'], ['ìglama'], ['ȉgle']
    ]
    ovca = lookup("овца")
-   assert len(igla._tables) == 1
+   assert len(ovca._tables) == 1
    assert [form for name, form in ovca._tables[0]] == [
       ['о́вца'], ['о́вцу'], ['о́вце̄'], ['о́вци'], ['о́вцо̄м'], ['о́вци'], ['о̑вцо'],
       ['о̑вце'], ['о̑вце'], ['ова́ца̄'], ['о́вцама', 'о̀вцама'], ['о́вцама', 'о̀вцама'], ['о́вцама', 'о̀вцама'], ['о̑вце']
