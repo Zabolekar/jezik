@@ -1,4 +1,4 @@
-from typing import Dict, Generic, List, NamedTuple, Iterator, Tuple, TypeVar
+from typing import Dict, Generic, List, NamedTuple, Iterator, Optional, Tuple, TypeVar
 import random
 from ..utils import cyr2lat, deaccentize, expose, garde
 from ..paradigm_helpers import accentize, uniq
@@ -58,6 +58,7 @@ class Entry(NamedTuple):
    info: str
    replacements: Tuple[Replacement, ...]
    amendments: Tuple[Replacement, ...]
+   view: Optional[str] = None
 
 
 def inner_to_outer(accented_keys:str, extra_key:str) -> Iterator[Tuple[str, str]]:

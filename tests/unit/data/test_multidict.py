@@ -5,11 +5,11 @@ def test_accepts_unhashable_entries_and_removes_duplicates():
    """Entries contain replacement lists, so they deliberately are unhashable."""
    entry = Entry(
       ("caption", ""), "key", "", "N\\f", "a.",
-      (("sg gen", ["форме"]),), ()
+      (("sg gen", ["форме"]),), (), None
    )
    other_entry = Entry(
       ("other", ""), "other", "", "N\\f", "a.",
-      (("sg gen", ["друге форме"]),), ()
+      (("sg gen", ["друге форме"]),), (), None
    )
    values = Multidict[str, Entry]()
 
@@ -18,4 +18,3 @@ def test_accepts_unhashable_entries_and_removes_duplicates():
    values["word"] = other_entry
 
    assert values["word"] == [entry, other_entry]
-
