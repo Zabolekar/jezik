@@ -1,5 +1,5 @@
 from re import search as rsearch
-from typing import Callable, List, Iterator, Optional, Tuple
+from typing import Callable, Iterator, Optional
 
 from .paradigms import stem_male, stem_female, stem_neutral, male_gen_pl_marked, female_gen_pl_i
 from ..charutils import c
@@ -18,7 +18,7 @@ def _apply_neocirk(
    pvi:Optional[int],
    morpheme:str,
    retraction:int
-) -> List[str]: # do not change to Tuple
+) -> list[str]: # do not change to Tuple
 
    """
    neocircumflex is accent retraction from a newly long vowel;
@@ -53,14 +53,14 @@ class Noun(PartOfSpeech):
       accented_keys:str,
       kind:str,
       info:str,
-      replacements:Tuple[Replacement, ...],
-      amendments:Tuple[Replacement, ...]
+      replacements:tuple[Replacement, ...],
+      amendments:tuple[Replacement, ...]
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
 
       self.trunk = self._trunk()
-      self.anim: List[str] = []
-      self.suff: List[str] = []
+      self.anim: list[str] = []
+      self.suff: list[str] = []
 
       for paramList in self.gram.MP:
          params = paramList.split(',')
@@ -71,7 +71,7 @@ class Noun(PartOfSpeech):
    def _expose(form:str, yat:str="e", latin:bool=False) -> str:
       return expose(form, yat, latin)
 
-   def _trunk(self) -> List[str]:
+   def _trunk(self) -> list[str]:
       result = []
       keys = self.accented_keys
       for i, AP in enumerate(self.gram.AP):
@@ -130,7 +130,7 @@ class Noun(PartOfSpeech):
    @staticmethod
    def _noun_form_is_possible(
       noun_form:str,
-      variation:List[AccentedTuple],
+      variation:list[AccentedTuple],
       paradigm:str
    ) -> bool:
       if first_vowel_index(noun_form) != last_vowel_index(noun_form):
@@ -147,7 +147,7 @@ class Noun(PartOfSpeech):
       morpheme:str,
       accent:str,
       current_AP:str
-   ) -> List[List[str]]:
+   ) -> list[list[str]]:
       """
       This function is so far for nouns only.
       It explicitly uses noun AP names.
@@ -308,7 +308,7 @@ class Noun(PartOfSpeech):
                yield nice_name(label), uniq(result)
 
             else:
-               ready_forms: List[str] = [] # TODO: better name
+               ready_forms: list[str] = [] # TODO: better name
 
                # swapping length in case it is necessary
                to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)

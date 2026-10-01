@@ -1,4 +1,4 @@
-from typing import Iterator, Optional, Tuple
+from typing import Iterator, Optional
 from ..pos import PartOfSpeech, Replacement
 from ..utils import garde, expose
 from ..paradigm_helpers import uniq, nice_name, accentize
@@ -11,8 +11,8 @@ class Adverb(PartOfSpeech): #TODO majority of these can probably be moved to POS
       accented_keys:str,
       kind:str,
       info:str,
-      replacements:Tuple[Replacement, ...]=(),
-      amendments:Tuple[Replacement, ...]=()
+      replacements:tuple[Replacement, ...]=(),
+      amendments:tuple[Replacement, ...]=()
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
 

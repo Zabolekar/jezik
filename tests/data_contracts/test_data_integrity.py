@@ -1,7 +1,6 @@
-from typing import List
 import pytest # type: ignore
 from ...lookup import lookup, data
-from ...lookup.charutils import four_accents, c, roman
+from ...lookup.charutils import c, four_accents, roman
 from ...lookup.paradigm_helpers import cut_AP, has, str_find
 from ...lookup.table import LabeledMultiform
 
@@ -20,7 +19,7 @@ def test_no_exceptions():
    Iterate over entries in the database.
    Ensure that their lookup doesn't raise an exception.
    """
-   bad_multiforms : List[LabeledMultiform] = []
+   bad_multiforms : list[LabeledMultiform] = []
    for outer_key, yat_mode in data._outer_to_inner:
       try:
          multitable = lookup(outer_key, input_yat=yat_mode)

@@ -1,18 +1,18 @@
-from typing import Dict, Iterator, NamedTuple, List
+from typing import Iterator, NamedTuple
 from ..paradigm_helpers import (AccentedTuple, nice_name,
                                 MorphemeChain, LabeledEnding)
 from ..charutils import c
 
 class Present(NamedTuple):
-   prs_1_sg: List[MorphemeChain]
-   prs_2_sg: List[MorphemeChain]
-   prs_3_sg: List[MorphemeChain]
-   prs_1_pl: List[MorphemeChain]
-   prs_2_pl: List[MorphemeChain]
-   prs_3_pl: List[MorphemeChain]
-   imv_2_sg: List[MorphemeChain]
-   imv_1_pl: List[MorphemeChain]
-   imv_2_pl: List[MorphemeChain]
+   prs_1_sg: list[MorphemeChain]
+   prs_2_sg: list[MorphemeChain]
+   prs_3_sg: list[MorphemeChain]
+   prs_1_pl: list[MorphemeChain]
+   prs_2_pl: list[MorphemeChain]
+   prs_3_pl: list[MorphemeChain]
+   imv_2_sg: list[MorphemeChain]
+   imv_1_pl: list[MorphemeChain]
+   imv_2_pl: list[MorphemeChain]
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
@@ -20,25 +20,25 @@ class Present(NamedTuple):
                      iter(self))
 
 class Past(NamedTuple):
-   pf_m_sg: List[MorphemeChain]
-   pf_f_sg: List[MorphemeChain]
-   pf_n_sg: List[MorphemeChain]
-   pf_m_pl: List[MorphemeChain]
-   pf_f_pl: List[MorphemeChain]
-   pf_n_pl: List[MorphemeChain]
-   aor_1_sg: List[MorphemeChain]
-   aor_2_sg: List[MorphemeChain]
-   aor_3_sg: List[MorphemeChain]
-   aor_1_pl: List[MorphemeChain]
-   aor_2_pl: List[MorphemeChain]
-   aor_3_pl: List[MorphemeChain]
-   infinitive: List[MorphemeChain]
-   ipf_1_sg: List[MorphemeChain]
-   ipf_2_sg: List[MorphemeChain]
-   ipf_3_sg: List[MorphemeChain]
-   ipf_1_pl: List[MorphemeChain]
-   ipf_2_pl: List[MorphemeChain]
-   ipf_3_pl: List[MorphemeChain]
+   pf_m_sg: list[MorphemeChain]
+   pf_f_sg: list[MorphemeChain]
+   pf_n_sg: list[MorphemeChain]
+   pf_m_pl: list[MorphemeChain]
+   pf_f_pl: list[MorphemeChain]
+   pf_n_pl: list[MorphemeChain]
+   aor_1_sg: list[MorphemeChain]
+   aor_2_sg: list[MorphemeChain]
+   aor_3_sg: list[MorphemeChain]
+   aor_1_pl: list[MorphemeChain]
+   aor_2_pl: list[MorphemeChain]
+   aor_3_pl: list[MorphemeChain]
+   infinitive: list[MorphemeChain]
+   ipf_1_sg: list[MorphemeChain]
+   ipf_2_sg: list[MorphemeChain]
+   ipf_3_sg: list[MorphemeChain]
+   ipf_1_pl: list[MorphemeChain]
+   ipf_2_pl: list[MorphemeChain]
+   ipf_3_pl: list[MorphemeChain]
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
@@ -373,7 +373,7 @@ ie_present = Present(
    [[ie_theme_imv, ending_te]]
 )
 
-MP_to_verb_stems: Dict[str, Stems] = dict(
+MP_to_verb_stems: dict[str, Stems] = dict(
    alpha=Stems(i_present, i_past),
    beta=Stems(a_present, a_past),
    delta=Stems(je_present, a_past),

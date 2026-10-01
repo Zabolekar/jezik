@@ -7,7 +7,7 @@ import re
 from typing import (
    Union, Optional, Callable, TypeVar,
    Iterator, Iterable, Sequence,
-   Pattern, Dict, List, Tuple
+   Pattern
 )
 from itertools import chain
 from .charutils import *
@@ -18,7 +18,7 @@ from .charutils import *
 #   <name>_translator — a translation table used by `str.translate`
 #   _<funcname>_<name> — a thing used by function `funcname`
 
-palatalization_modes: Dict[str, Dict[str, str]] = {
+palatalization_modes: dict[str, dict[str, str]] = {
    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
          'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
          'шт': 'шт', 'жд': 'жд', 'ск': 'шт', 'зг': 'жд',
@@ -35,7 +35,7 @@ palatalization_modes: Dict[str, Dict[str, str]] = {
         'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
 }
 
-cyr2lat_dict: Dict[str, str] = {
+cyr2lat_dict: dict[str, str] = {
    'й':'ĭ', 'Й':'Ĭ',
    'а':'a', 'б':'b', 'в':'v', 'г':'g', 'д':'d', 'ђ':'đ', 'е':'e', 'ж':'ž', 'з':'z', 'и':'i',
    'ј':'j', 'к':'k', 'л':'l', 'љ':'lj', 'м':'m', 'н':'n', 'њ':'nj', 'о':'o', 'п':'p', 'р':'r',
@@ -65,7 +65,7 @@ def first_vowel_index(trunk:str) -> Optional[int]:
       return match.span()[0]
    return None
 
-def indices(trunk:str) -> Tuple[Optional[int], Optional[int], Optional[int]]:
+def indices(trunk:str) -> tuple[Optional[int], Optional[int], Optional[int]]:
    lvi = last_vowel_index(trunk)
    fvi = first_vowel_index(trunk)
    pvi = last_vowel_index(trunk[:lvi])
@@ -75,7 +75,7 @@ def swap(word:str, c1:str, c2:str) -> str:
    return word.replace(c1+c2, c2+c1)
 
 
-def insert(word:str, position_to_accent:Dict[int, str]) -> str:
+def insert(word:str, position_to_accent:dict[int, str]) -> str:
    if not position_to_accent:
       return word
 
@@ -101,7 +101,7 @@ def palatalize(sequence:str, mode: str='') -> str:
 
    return sequence[:-1] + idict[sequence[-1]]
 
-_deyerify_repl_dict: Dict[str, str] = {
+_deyerify_repl_dict: dict[str, str] = {
    "стън": "сн",
    "бък": "пк", "дък": "тк", "ђък": "ћк",
    "жък": "шк", "зък": "ск", "џък": "чк",
@@ -124,7 +124,7 @@ _deyerify_translator = str.maketrans({
    'ꙏ': 'а'
 })
 
-_decurlyerify_repl_dict: Dict[str, str] = {
+_decurlyerify_repl_dict: dict[str, str] = {
    k.replace('ъ', 'ꙏ') : v for k,v  in _deyerify_repl_dict.items()
 }
 
@@ -165,7 +165,7 @@ def deyerify(form:str) -> str:
          form = insert(form, {lvi+1: c.straight})
    return form
 
-_prettify_replaces: List[Tuple[str, str]] = [
+_prettify_replaces: list[tuple[str, str]] = [
    ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
    (f'јӥ{c.straight}', f'{c.straight}јӥ'), ('јӥ', f'{c.macron}ј'),
    ('ӥ', 'и'), (f'{c.straight}{c.macron}', f'{c.macron}{c.straight}'),
@@ -179,10 +179,10 @@ _prettify_replaces: List[Tuple[str, str]] = [
    ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
    ('ʲ', '')]
 
-_prettify_replaces_c: List[Tuple[Pattern, str]]
+_prettify_replaces_c: list[tuple[Pattern, str]]
 _prettify_replaces_c = [(re.compile(p), r) for p, r in _prettify_replaces]
 
-_prettify_yat_replaces: Dict[str, List[Tuple[str, str]]] = {
+_prettify_yat_replaces: dict[str, list[tuple[str, str]]] = {
    "e": [('ꙓ', 'е'), ('ѣ', 'е')],
    "je": [
       (f'ѣ({c.straight}?о)', 'и\\1'),
@@ -195,12 +195,12 @@ _prettify_yat_replaces: Dict[str, List[Tuple[str, str]]] = {
       ('[ꙓѣ]', 'је')] }
 _prettify_yat_replaces["ije"] = _prettify_yat_replaces["je"]
 
-_prettify_yat_replaces_c: Dict[str, List[Tuple[Pattern, str]]] = {
+_prettify_yat_replaces_c: dict[str, list[tuple[Pattern, str]]] = {
    k: [(re.compile(p), r) for p, r in v]
    for k, v in _prettify_yat_replaces.items()
 }
 
-_prettify_big_palatalization: List[Tuple[str, str]] = [
+_prettify_big_palatalization: list[tuple[str, str]] = [
    ("(ст|шт|ск)ȷ", "шт"), ("(зд|жд|зг)ȷ", "жд"),
    #('слȷ', 'шљ'), ('злȷ', 'жљ'),
    # back into regular string replaces, see `_prettify_simple_palatalization`
@@ -209,11 +209,11 @@ _prettify_big_palatalization: List[Tuple[str, str]] = [
    ('[кц]¦?ʺе', 'че') #, ('гʺ', 'ж'), ('хʺ', 'ш')
 ]
 
-_prettify_big_palatalization_c: List[Tuple[Pattern, str]] = [
+_prettify_big_palatalization_c: list[tuple[Pattern, str]] = [
    (re.compile(p), r) for p, r in _prettify_big_palatalization
 ]
 
-_prettify_simple_palatalization: List[Tuple[str, str]] = [
+_prettify_simple_palatalization: list[tuple[str, str]] = [
    ('слȷ', 'шљ'), ('злȷ', 'жљ'),
    ('гʹ', 'з'), ('хʹ', 'с'),
    ('гʺ', 'ж'), ('хʺ', 'ш'),
@@ -221,7 +221,7 @@ _prettify_simple_palatalization: List[Tuple[str, str]] = [
    ('лȷ', 'љ'), ('нȷ', 'њ')
 ]
 
-_prettify_small_palatalization: List[Tuple[str, str]] = [
+_prettify_small_palatalization: list[tuple[str, str]] = [
    ("([бмвфп])ȷ", "\\1љ"),
    ("[кц]ȷ", "ч"),
    ("[хс]ȷ", "ш"),
@@ -233,7 +233,7 @@ _prettify_small_palatalization: List[Tuple[str, str]] = [
    ('[ʹʺ¦ȷ]', '')
 ]
 
-_prettify_small_palatalization_c: List[Tuple[Pattern, str]] = [
+_prettify_small_palatalization_c: list[tuple[Pattern, str]] = [
    (re.compile(p), r) for p, r in _prettify_small_palatalization
 ]
 
@@ -268,7 +268,7 @@ def prettify(text:str, yat:str="e") -> str:
 
    return text
 
-_deaccentize_accented: Dict[str, str] = {
+_deaccentize_accented: dict[str, str] = {
    'ȁȃâáàā': 'a', 'ȅȇêéèē': 'e', 'ȉȋîíìīĭ': 'i',
    'ȕȗûúùū': 'u', 'ȑȓŕ': 'r', 'ȀȂÂÁÀĀ': 'A',
    'ȄȆÊÉÈĒ': 'E', 'ȈȊÎÍÌĪĬ': 'I', 'ȔȖÛÚÙŪ': 'U',
@@ -440,7 +440,7 @@ _Transform = Callable[..., _T] # this is too liberal but at least works nice
 
 _ComposeArg = Union[
    Callable[[_T], _T],
-   Tuple[_Transform[_T], Sequence[str]]
+   tuple[_Transform[_T], Sequence[str]]
 ]
 
 # TODO: A function of such generality (and maybe others like it) may need a module of its own,
@@ -500,7 +500,7 @@ def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
    return apply_yat_and_latin(form, yat, latin)
 
 
-def strip_suffix(value:str, suffixes:Iterable[str]) -> Tuple[str, bool]:
+def strip_suffix(value:str, suffixes:Iterable[str]) -> tuple[str, bool]:
    """
    Tries to strip one of the given suffixes, iterating over them.
    If succesful, returns (stripped_value, True).

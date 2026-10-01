@@ -1,11 +1,11 @@
-from typing import Dict, List, Iterator, Optional, Tuple
+from typing import Iterator, Optional
 from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
-from ..paradigm_helpers import AccentedTuple, uniq, nice_name, oa, accentize
+from ..paradigm_helpers import uniq, nice_name, oa, accentize
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
 
-infinitive_dict: Dict[str, str] = {
+infinitive_dict: dict[str, str] = {
    'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
    'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
    'eta': 'ѣти', 'theta': 'ети', 'iota': 'ати',
@@ -19,8 +19,8 @@ class Verb(PartOfSpeech):
       accented_keys:str,
       kind:str,
       info:str,
-      replacements:Tuple[Replacement, ...],
-      amendments:Tuple[Replacement, ...]
+      replacements:tuple[Replacement, ...],
+      amendments:tuple[Replacement, ...]
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
       #Verb-only
@@ -30,7 +30,7 @@ class Verb(PartOfSpeech):
 
    # Verb-only
    @staticmethod
-   def _verb_form_is_possible(label:str, aspect:List[str]) -> bool:
+   def _verb_form_is_possible(label:str, aspect:list[str]) -> bool:
       if label.startswith('ipf'):
          return not 'Pf' in aspect
       return True
@@ -46,7 +46,7 @@ class Verb(PartOfSpeech):
       return form
 
    # Verb-specific
-   def _trunk(self) -> List[str]:
+   def _trunk(self) -> list[str]:
       result = []
       keys = self.accented_keys
       for i, AP in enumerate(self.gram.AP):
@@ -69,7 +69,7 @@ class Verb(PartOfSpeech):
                result.append(insert(trunk, {lvi + 1: '·'}))
       return result
 
-   def _trunk2(self) -> List[str]:
+   def _trunk2(self) -> list[str]:
       result = []
       splitted_kind = self.kind.split("\\")
       for i, AP in enumerate(self.gram.AP):
@@ -121,7 +121,7 @@ class Verb(PartOfSpeech):
 
          else:
             if self._verb_form_is_possible(label, self.gram.other):
-               ready_forms: List[str] = []
+               ready_forms: list[str] = []
                for variation in ending:
                   ready_forms += self.process_one_form(
                      self.gram.AP[i], self._current_trunk(i, label), variation)

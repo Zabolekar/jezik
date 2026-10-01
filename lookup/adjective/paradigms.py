@@ -1,37 +1,37 @@
-from typing import NamedTuple, List, Union
+from typing import NamedTuple, Union
 from ..paradigm_helpers import AccentedTuple
 from ..charutils import c
 
 # TODO: why is this organized so differently from nouns and verbs? unify and/or document
 
 class ShortAdj(NamedTuple):
-   m_sg_nom_short: List[AccentedTuple] # len 1
-   f_sg_nom_short: List[AccentedTuple] # 1
-   n_sg_nom_short: List[AccentedTuple] # 1
-   m_pl_nom_short: List[AccentedTuple] # 1
-   f_pl_nom_short: List[AccentedTuple] # 1
-   n_pl_nom_short: List[AccentedTuple] # 1
-   m_pl_acc_short: List[AccentedTuple] # 1
-   f_pl_acc_short: List[AccentedTuple] # 1; = f_pl_nom
-   n_pl_acc_short: List[AccentedTuple] # 1; = n_pl_nom
-   m_sg_gen_short: List[AccentedTuple] # 1
-   m_sg_dat_short: List[AccentedTuple] # 1
-   m_sg_loc_short: List[AccentedTuple] # 1
-   f_sg_acc_short: List[AccentedTuple] # 1
-   n_sg_acc_short: List[AccentedTuple] # 1; = n_sg_nom
-   n_sg_gen_short: List[AccentedTuple] # 1; = m_sg_gen
-   n_sg_dat_short: List[AccentedTuple] # 1; = m_sg_dat
-   n_sg_loc_short: List[AccentedTuple] # 1; = m_sg_dat
-   m_sg_acc_in_short: List[AccentedTuple] #; 1 = m_sg_nom
-   m_sg_acc_an_short: List[AccentedTuple] #; 1 = m_sg_gen
-   m_sg_ins_short: List[AccentedTuple]
-   f_sg_ins_short: List[AccentedTuple]
-   n_sg_ins_short: List[AccentedTuple]
-   f_sg_gen_short: List[AccentedTuple]
-   f_sg_dat_short: List[AccentedTuple]
-   f_sg_loc_short: List[AccentedTuple]
-   m_f_n_pl_gen_short: List[AccentedTuple]
-   m_f_n_pl_dat_loc_ins_short: List[AccentedTuple]
+   m_sg_nom_short: list[AccentedTuple] # len 1
+   f_sg_nom_short: list[AccentedTuple] # 1
+   n_sg_nom_short: list[AccentedTuple] # 1
+   m_pl_nom_short: list[AccentedTuple] # 1
+   f_pl_nom_short: list[AccentedTuple] # 1
+   n_pl_nom_short: list[AccentedTuple] # 1
+   m_pl_acc_short: list[AccentedTuple] # 1
+   f_pl_acc_short: list[AccentedTuple] # 1; = f_pl_nom
+   n_pl_acc_short: list[AccentedTuple] # 1; = n_pl_nom
+   m_sg_gen_short: list[AccentedTuple] # 1
+   m_sg_dat_short: list[AccentedTuple] # 1
+   m_sg_loc_short: list[AccentedTuple] # 1
+   f_sg_acc_short: list[AccentedTuple] # 1
+   n_sg_acc_short: list[AccentedTuple] # 1; = n_sg_nom
+   n_sg_gen_short: list[AccentedTuple] # 1; = m_sg_gen
+   n_sg_dat_short: list[AccentedTuple] # 1; = m_sg_dat
+   n_sg_loc_short: list[AccentedTuple] # 1; = m_sg_dat
+   m_sg_acc_in_short: list[AccentedTuple] #; 1 = m_sg_nom
+   m_sg_acc_an_short: list[AccentedTuple] #; 1 = m_sg_gen
+   m_sg_ins_short: list[AccentedTuple]
+   f_sg_ins_short: list[AccentedTuple]
+   n_sg_ins_short: list[AccentedTuple]
+   f_sg_gen_short: list[AccentedTuple]
+   f_sg_dat_short: list[AccentedTuple]
+   f_sg_loc_short: list[AccentedTuple]
+   m_f_n_pl_gen_short: list[AccentedTuple]
+   m_f_n_pl_dat_loc_ins_short: list[AccentedTuple]
 
 short_adj = ShortAdj(
    [AccentedTuple('ø·', 'b.b:b?')], # ø is 'zero ending' (which, however, can take stress, in a way)
@@ -65,33 +65,33 @@ short_adj = ShortAdj(
    )
 
 class LongAdj(NamedTuple):
-   m_sg_nom_long: List[AccentedTuple] # len 1
-   m_sg_gen_long: List[AccentedTuple] # ! len 2
-   m_sg_dat_long: List[AccentedTuple] # ! len 3
-   m_sg_ins_long: List[AccentedTuple] # 1
-   m_sg_loc_long: List[AccentedTuple] # ! 3
-   m_sg_acc_an_long: List[AccentedTuple] # ! 2; = m_sg_gen
-   m_sg_acc_in_long: List[AccentedTuple] # 1; = m_sg_nom
-   f_sg_nom_long: List[AccentedTuple] # 1
-   f_sg_gen_long: List[AccentedTuple] # 1
-   f_sg_dat_long: List[AccentedTuple] # 1
-   f_sg_acc_long: List[AccentedTuple] # 1
-   f_sg_ins_long: List[AccentedTuple] # 1
-   f_sg_loc_long: List[AccentedTuple] # 1
-   n_sg_nom_long: List[AccentedTuple] # 1
-   n_sg_gen_long: List[AccentedTuple] # ! 2; = m_sg_gen
-   n_sg_dat_long: List[AccentedTuple] # ! 3; = m_sg_dat
-   n_sg_acc_long: List[AccentedTuple] # 1; = n_sg_nom
-   n_sg_ins_long: List[AccentedTuple] # 1; = m_sg_ins
-   n_sg_loc_long: List[AccentedTuple] # ! 3; = m_sg_loc
-   m_pl_nom_long: List[AccentedTuple] # 1
-   f_pl_nom_long: List[AccentedTuple] # 1
-   n_pl_nom_long: List[AccentedTuple] # 1
-   m_pl_acc_long: List[AccentedTuple] # 1
-   f_pl_acc_long: List[AccentedTuple] # 1; = f_pl_nom
-   n_pl_acc_long: List[AccentedTuple] # 1; = n_pl_nom
-   m_f_n_pl_gen_long: List[AccentedTuple] # 1
-   m_f_n_pl_dat_loc_ins_long: List[AccentedTuple] # ! 2
+   m_sg_nom_long: list[AccentedTuple] # len 1
+   m_sg_gen_long: list[AccentedTuple] # ! len 2
+   m_sg_dat_long: list[AccentedTuple] # ! len 3
+   m_sg_ins_long: list[AccentedTuple] # 1
+   m_sg_loc_long: list[AccentedTuple] # ! 3
+   m_sg_acc_an_long: list[AccentedTuple] # ! 2; = m_sg_gen
+   m_sg_acc_in_long: list[AccentedTuple] # 1; = m_sg_nom
+   f_sg_nom_long: list[AccentedTuple] # 1
+   f_sg_gen_long: list[AccentedTuple] # 1
+   f_sg_dat_long: list[AccentedTuple] # 1
+   f_sg_acc_long: list[AccentedTuple] # 1
+   f_sg_ins_long: list[AccentedTuple] # 1
+   f_sg_loc_long: list[AccentedTuple] # 1
+   n_sg_nom_long: list[AccentedTuple] # 1
+   n_sg_gen_long: list[AccentedTuple] # ! 2; = m_sg_gen
+   n_sg_dat_long: list[AccentedTuple] # ! 3; = m_sg_dat
+   n_sg_acc_long: list[AccentedTuple] # 1; = n_sg_nom
+   n_sg_ins_long: list[AccentedTuple] # 1; = m_sg_ins
+   n_sg_loc_long: list[AccentedTuple] # ! 3; = m_sg_loc
+   m_pl_nom_long: list[AccentedTuple] # 1
+   f_pl_nom_long: list[AccentedTuple] # 1
+   n_pl_nom_long: list[AccentedTuple] # 1
+   m_pl_acc_long: list[AccentedTuple] # 1
+   f_pl_acc_long: list[AccentedTuple] # 1; = f_pl_nom
+   n_pl_acc_long: list[AccentedTuple] # 1; = n_pl_nom
+   m_f_n_pl_gen_long: list[AccentedTuple] # 1
+   m_f_n_pl_dat_loc_ins_long: list[AccentedTuple] # ! 2
 
 long_adj = LongAdj(
   [AccentedTuple(f'и·{c.macron}', 'c.c:')],
@@ -137,40 +137,40 @@ long_adj = LongAdj(
 
 class MixedAdj(NamedTuple):
    # TODO: sveto: document
-   m_sg_nom_short: List[AccentedTuple]
-   m_sg_gen_long: List[AccentedTuple]
-   m_sg_gen_short: List[AccentedTuple]
-   m_sg_dat_long: List[AccentedTuple]
-   m_sg_dat_short: List[AccentedTuple]
-   m_sg_ins_long: List[AccentedTuple]
-   m_sg_loc_long: List[AccentedTuple]
-   m_sg_loc_short: List[AccentedTuple]
-   m_sg_acc_in_short: List[AccentedTuple]
-   m_sg_acc_an_long: List[AccentedTuple]
-   m_sg_acc_an_short: List[AccentedTuple]
-   f_sg_nom_short: List[AccentedTuple]
-   f_sg_gen_long: List[AccentedTuple]
-   f_sg_dat_long: List[AccentedTuple]
-   f_sg_acc_short: List[AccentedTuple]
-   f_sg_ins_long: List[AccentedTuple]
-   f_sg_loc_long: List[AccentedTuple]
-   n_sg_nom_short: List[AccentedTuple]
-   n_sg_gen_long: List[AccentedTuple]
-   n_sg_gen_short: List[AccentedTuple]
-   n_sg_dat_long: List[AccentedTuple]
-   n_sg_dat_short: List[AccentedTuple]
-   n_sg_acc_short: List[AccentedTuple]
-   n_sg_ins_long: List[AccentedTuple]
-   n_sg_loc_long: List[AccentedTuple]
-   n_sg_loc_short: List[AccentedTuple]
-   m_pl_nom_short: List[AccentedTuple]
-   f_pl_nom_short: List[AccentedTuple]
-   n_pl_nom_short: List[AccentedTuple]
-   m_pl_acc_short: List[AccentedTuple]
-   f_pl_acc_short: List[AccentedTuple]
-   n_pl_acc_short: List[AccentedTuple]
-   m_f_n_pl_gen_long: List[AccentedTuple]
-   m_f_n_pl_dat_loc_ins_long: List[AccentedTuple]
+   m_sg_nom_short: list[AccentedTuple]
+   m_sg_gen_long: list[AccentedTuple]
+   m_sg_gen_short: list[AccentedTuple]
+   m_sg_dat_long: list[AccentedTuple]
+   m_sg_dat_short: list[AccentedTuple]
+   m_sg_ins_long: list[AccentedTuple]
+   m_sg_loc_long: list[AccentedTuple]
+   m_sg_loc_short: list[AccentedTuple]
+   m_sg_acc_in_short: list[AccentedTuple]
+   m_sg_acc_an_long: list[AccentedTuple]
+   m_sg_acc_an_short: list[AccentedTuple]
+   f_sg_nom_short: list[AccentedTuple]
+   f_sg_gen_long: list[AccentedTuple]
+   f_sg_dat_long: list[AccentedTuple]
+   f_sg_acc_short: list[AccentedTuple]
+   f_sg_ins_long: list[AccentedTuple]
+   f_sg_loc_long: list[AccentedTuple]
+   n_sg_nom_short: list[AccentedTuple]
+   n_sg_gen_long: list[AccentedTuple]
+   n_sg_gen_short: list[AccentedTuple]
+   n_sg_dat_long: list[AccentedTuple]
+   n_sg_dat_short: list[AccentedTuple]
+   n_sg_acc_short: list[AccentedTuple]
+   n_sg_ins_long: list[AccentedTuple]
+   n_sg_loc_long: list[AccentedTuple]
+   n_sg_loc_short: list[AccentedTuple]
+   m_pl_nom_short: list[AccentedTuple]
+   f_pl_nom_short: list[AccentedTuple]
+   n_pl_nom_short: list[AccentedTuple]
+   m_pl_acc_short: list[AccentedTuple]
+   f_pl_acc_short: list[AccentedTuple]
+   n_pl_acc_short: list[AccentedTuple]
+   m_f_n_pl_gen_long: list[AccentedTuple]
+   m_f_n_pl_dat_loc_ins_long: list[AccentedTuple]
 
 mixed_adj = MixedAdj(
   m_sg_nom_short = short_adj.m_sg_nom_short,

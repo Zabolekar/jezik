@@ -1,5 +1,5 @@
 
-from typing import Dict, Iterator, Optional, Tuple, Type, Union
+from typing import Iterator, Optional, Type, Union
 from .adjective import Adjective
 from .adverb import Adverb
 from .charutils import all_latin
@@ -76,5 +76,5 @@ def lookup(outer_key:str, input_yat:str="e", output_yat:Optional[str]=None) -> M
    outer_key = outer_key.strip() # space-word-space will produce a search error otherwise
    return Multitable(outer_key, lazy_lookup(outer_key, input_yat, output_yat))
 
-def random_key() -> Tuple[str, str]:
+def random_key() -> tuple[str, str]:
    return data.random_key()

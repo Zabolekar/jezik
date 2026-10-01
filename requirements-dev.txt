@@ -1,6 +1,6 @@
-Flask>=2.0.3
-pyyaml>=6.0
-mypy>=0.931
-pytest>=7.0.1
-types-PyYAML>=6.0.4
-coverage>=6.3.1
+-r requirements.txt
+
+mypy>=1.13
+pytest>=8.2.1
+types-PyYAML>=6.0.12.20260906
+coverage>=7.6

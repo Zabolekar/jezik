@@ -1,4 +1,3 @@
-from typing import Dict, List, Tuple
 from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
 from .utils import first_vowel_index, last_vowel_index, insert
 from .charutils import all_vowels, c
@@ -29,15 +28,15 @@ class PartOfSpeech():
       accented_keys:str,
       kind:str,
       info:str,
-      replacements:Tuple[Replacement, ...],
-      amendments:Tuple[Replacement, ...]
+      replacements:tuple[Replacement, ...],
+      amendments:tuple[Replacement, ...]
    ) -> None:
       self.accented_keys = accented_keys.split(",")
       self.kind = kind
       self.key = key.split('\\')[0]
       self.gram = GramInfo(kind, info.split(';'))
-      self.replacements: Dict[str, List[str]] = dict(replacements)
-      self.amendments: Dict[str, List[str]] = dict(amendments)
+      self.replacements: dict[str, list[str]] = dict(replacements)
+      self.amendments: dict[str, list[str]] = dict(amendments)
       if len(self.accented_keys) == 1 and len(self.gram.AP) > 1:
          self.accented_keys *= len(self.gram.AP)
 
@@ -70,7 +69,7 @@ class PartOfSpeech():
       morpheme:str,
       accent:str,
       current_AP:str
-   ) -> List[List[str]]:
+   ) -> list[list[str]]:
       """
       This function is a stub by default, e.g. in Adj and Verb.
       See a huge algorithm with the same name in Noun, though.
@@ -82,7 +81,7 @@ class PartOfSpeech():
       current_AP:str,
       stem:str,
       ending_part:AccentedTuple
-   ) -> List[List[str]]:
+   ) -> list[list[str]]:
 
       """
       Prepairs a list of morpheme pairs to be glued together.
@@ -128,11 +127,11 @@ class PartOfSpeech():
    def _append_morpheme(
       self,
       current_AP:str,
-      stems:List[str],
+      stems:list[str],
       ending_part:AccentedTuple
-   ) -> List[str]:
+   ) -> list[str]:
 
-      connectenda: List[List[str]] = []
+      connectenda: list[list[str]] = []
       for stem in stems:
          connectenda += self._connectendum(current_AP, stem, ending_part)
 
@@ -186,7 +185,7 @@ class PartOfSpeech():
       stem:str,
       morph_chain:MorphemeChain,
       iterative:bool=True
-   ) -> List[str]:
+   ) -> list[str]:
 
        # all ʲ-stems except рʲ-stems and штʲе-stems have two variants of œ-endings:
        # one of them is soft (nosem, putevi), the other hard (nosom, putovi)

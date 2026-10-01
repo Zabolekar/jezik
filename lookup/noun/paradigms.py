@@ -1,4 +1,4 @@
-from typing import Dict, NamedTuple, List, Iterator
+from typing import NamedTuple, Iterator
 from ..paradigm_helpers import (
    AccentedTuple, nice_name, MorphemeChain, LabeledEnding
 )
@@ -6,26 +6,26 @@ from ..charutils import c
 from ..utils import last_vowel_index
 
 class NounStem(NamedTuple):
-   sg_nom: List[MorphemeChain]
-   sg_acc: List[MorphemeChain]
-   sg_gen: List[MorphemeChain]
-   sg_dat: List[MorphemeChain]
-   sg_ins: List[MorphemeChain]
-   sg_loc: List[MorphemeChain]
-   sg_voc: List[MorphemeChain]
-   pl_nom: List[MorphemeChain]
-   pl_acc: List[MorphemeChain]
-   pl_gen: List[MorphemeChain]
-   pl_dat: List[MorphemeChain]
-   pl_ins: List[MorphemeChain]
-   pl_loc: List[MorphemeChain]
-   pl_voc: List[MorphemeChain]
+   sg_nom: list[MorphemeChain]
+   sg_acc: list[MorphemeChain]
+   sg_gen: list[MorphemeChain]
+   sg_dat: list[MorphemeChain]
+   sg_ins: list[MorphemeChain]
+   sg_loc: list[MorphemeChain]
+   sg_voc: list[MorphemeChain]
+   pl_nom: list[MorphemeChain]
+   pl_acc: list[MorphemeChain]
+   pl_gen: list[MorphemeChain]
+   pl_dat: list[MorphemeChain]
+   pl_ins: list[MorphemeChain]
+   pl_loc: list[MorphemeChain]
+   pl_voc: list[MorphemeChain]
 
    @property
    def labeled_endings(self) -> Iterator[LabeledEnding]:
       yield from zip(map(nice_name, self._fields), iter(self))
 
-m_anim_dict: Dict[str, Dict[str, List[MorphemeChain]]] = {
+m_anim_dict: dict[str, dict[str, list[MorphemeChain]]] = {
    'sg_acc': {
       'in': [[AccentedTuple('ø·', 'b.b:b?e:f.q.')]],
       'an': [[AccentedTuple('а·', 'b.b:b?e:f.q.')]]
@@ -43,7 +43,7 @@ male_gen_pl_marked = [
 
 female_gen_pl_i = [AccentedTuple(f'и·{c.macron}', 'b.b:c.c:g.g:')]
 
-def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
+def m_plural(suff:str = '_') -> list[list[MorphemeChain]]:
    ov = AccentedTuple('>œ·в', 'b.b:b?c?d:e:f.')
 
    suffixed_plurals = [
@@ -78,7 +78,7 @@ def m_plural(suff:str = '_') -> List[List[MorphemeChain]]:
       raise NotImplementedError("Unknown paradigm")
 
 
-def m_instr(stem: str) -> List[List[AccentedTuple]]:
+def m_instr(stem: str) -> list[list[AccentedTuple]]:
    lvi = last_vowel_index(stem)
 
    em = [AccentedTuple('е·м', 'b.b:b?e:f.q.')]
@@ -101,7 +101,7 @@ def m_instr(stem: str) -> List[List[AccentedTuple]]:
       result = [om]
    return result
 
-def m_voc(stem: str, anim: str) -> List[List[AccentedTuple]]:
+def m_voc(stem: str, anim: str) -> list[list[AccentedTuple]]:
    u = [AccentedTuple('у0·', 'b.b:b?c:c?b0d:e:f.q.')]
    e = [AccentedTuple('ʺе0·', 'b.b:b?c:c?b0d:e:f.q.')]
 

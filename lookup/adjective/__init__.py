@@ -1,4 +1,4 @@
-from typing import List, Iterator, Optional, Tuple
+from typing import Iterator, Optional
 import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech, Replacement
@@ -40,8 +40,8 @@ class Adjective(PartOfSpeech):
       accented_keys:str,
       kind:str,
       info:str,
-      replacements:Tuple[Replacement, ...],
-      amendments:Tuple[Replacement, ...]
+      replacements:tuple[Replacement, ...],
+      amendments:tuple[Replacement, ...]
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
       
@@ -56,7 +56,7 @@ class Adjective(PartOfSpeech):
       return expose(form, yat, latin)
 
    # different for Verb and Adjective
-   def _trunk(self) -> List[str]:
+   def _trunk(self) -> list[str]:
       result = []
 
       for number, item in enumerate(self.accented_keys):
@@ -119,7 +119,7 @@ class Adjective(PartOfSpeech):
             yield nice_name(label), uniq(result)
 
          else:
-            ready_forms: List[str] = []
+            ready_forms: list[str] = []
             for variation in ending: # e.g. -om, -ome, -omu
                if 'ʟ' in adj_form:
                   adj_variants = [adj_form.replace('ʟ', 'ʌ'), adj_form.replace('ʟ', 'л')]
@@ -151,7 +151,7 @@ class Adjective(PartOfSpeech):
    ) -> Iterator[LabeledMultiform]:
       """decline"""
       endings = self.gram.other[0]
-      MPs: List[AdjParadigm]
+      MPs: list[AdjParadigm]
       if endings == "all":
          MPs = [short_adj, long_adj]
       elif endings == "ski":

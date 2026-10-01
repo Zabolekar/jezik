@@ -1,10 +1,10 @@
 from __future__ import annotations
-from typing import Iterable, Iterator, List, Optional, Tuple, Union
+from typing import Iterable, Iterator, Optional, Union
 from .paradigm_helpers import TableCaption
 
 Form = str
-Multiform = List[Form]
-LabeledMultiform = Tuple[str, Multiform]
+Multiform = list[Form]
+LabeledMultiform = tuple[str, Multiform]
 
 class Table:
    def __init__(
@@ -39,7 +39,7 @@ class Table:
       )
 
    @property
-   def multiform(self) -> List[str]: # TODO: document in README, rethink
+   def multiform(self) -> list[str]: # TODO: document in README, rethink
       if len(self._data) != 1:
          raise AttributeError(
             "A 'Table' object has an attribute 'multiform' if and only if it has exactly one cell"

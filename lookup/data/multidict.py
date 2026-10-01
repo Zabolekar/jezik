@@ -1,10 +1,10 @@
-from typing import Dict, Generic, List, NamedTuple, Iterator, Optional, Tuple, TypeVar
+from typing import Generic, NamedTuple, Iterator, Optional, TypeVar
 import random
 from ..utils import cyr2lat, deaccentize, expose, garde
 from ..paradigm_helpers import accentize, uniq
 from ..charutils import all_vowels, c
 
-Replacement = Tuple[str, List[str]]
+Replacement = tuple[str, list[str]]
 
 KT = TypeVar("KT")
 VT = TypeVar("VT")
@@ -17,9 +17,9 @@ class Multidict(Generic[KT, VT]):
    Because we need consistent order for testing.
    """
    def __init__(self) -> None:
-      self._data: Dict[KT, List[VT]] = {}
+      self._data: dict[KT, list[VT]] = {}
 
-   def __getitem__(self, key: KT) -> List[VT]:
+   def __getitem__(self, key: KT) -> list[VT]:
       try:
          return self._data[key]
       except KeyError:
@@ -51,23 +51,23 @@ class Multidict(Generic[KT, VT]):
 # coincide (e.g. свет can be an outer representation of both свет and свꙓт).
 
 class Entry(NamedTuple):
-   caption: Tuple[str, str]
+   caption: tuple[str, str]
    accented_keys: str
    extra_key: str
    type: str
    info: str
-   replacements: Tuple[Replacement, ...]
-   amendments: Tuple[Replacement, ...]
+   replacements: tuple[Replacement, ...]
+   amendments: tuple[Replacement, ...]
    view: Optional[str] = None
 
 
-def inner_to_outer(accented_keys:str, extra_key:str) -> Iterator[Tuple[str, str]]:
+def inner_to_outer(accented_keys:str, extra_key:str) -> Iterator[tuple[str, str]]:
    """
    Converts a word in our inner notation to its possible outer notations.
    E.g. зъʌ yields зао, zao; свꙓтъʌ yields светао, свијетао, svijetao etc.)
    """
    keys = accented_keys.split(',')
-   big_tmp_list : List[str] = []
+   big_tmp_list : list[str] = []
    for k in keys:
       tmp = k + 'ø' if not k[-1] in all_vowels + '_' else k
       if 'ʟ' in tmp:
@@ -102,10 +102,10 @@ class FancyLookup:
 
    def __init__(self) -> None:
       self._inner_to_entries = Multidict[str, Entry]()
-      self._outer_to_inner = Multidict[Tuple[str, str], str]()
-      # in this Tuple[str, str] the first str is the outer key and the second is the yat mode
+      self._outer_to_inner = Multidict[tuple[str, str], str]()
+      # in this tuple[str, str] the first str is the outer key and the second is the yat mode
 
-   def __getitem__(self, key_with_mode: Tuple[str, str]) -> Iterator[Tuple[str, Entry]]:
+   def __getitem__(self, key_with_mode: tuple[str, str]) -> Iterator[tuple[str, Entry]]:
       outer_key, input_yat = key_with_mode
       inner_keys = self._outer_to_inner[(outer_key.lower(), input_yat)]
       for key in inner_keys:
@@ -118,5 +118,5 @@ class FancyLookup:
       for outer_key, input_yat in inner_to_outer(value.accented_keys, value.extra_key):
          self._outer_to_inner[(outer_key, input_yat)] = inner_key
 
-   def random_key(self) -> Tuple[str, str]:
+   def random_key(self) -> tuple[str, str]:
       return random.choice(list(self._outer_to_inner))
