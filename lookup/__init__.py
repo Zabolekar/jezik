@@ -40,7 +40,7 @@ def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
 
    latin = has(key, *tuple(all_latin))
 
-   key, with_se = strip_suffix(key, (" se", " се"))
+   key, with_se = strip_suffix(key.lower(), (" se", " се"))
 
    for inner_key, values in data[key, input_yat]:
       caption, accented_keys, _, kind, info, replacements, amendments, view = values
