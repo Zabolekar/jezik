@@ -273,6 +273,8 @@ class Noun(PartOfSpeech):
       """
 
       start_AP = self.gram.AP[i].replace('?', '.')
+      replacements = self.replacements.copy()
+      amendments = self.amendments.copy()
 
       declension_is_regular: bool = True
       if self.label("m"):
@@ -293,17 +295,17 @@ class Noun(PartOfSpeech):
             self.process_one_form(self.gram.AP[i], self.trunk[i], female_gen_pl_i)
          ] # curly yer must be deleted BEFORE general deyerifying, so mind the order
          if "i" in self.gram.MP[i]:
-            self.replacements["pl gen"] = form_with_i
+            replacements["pl gen"] = form_with_i
          elif "j" in self.gram.MP[i]:
-            self.amendments["pl gen"] = form_with_i
+            amendments["pl gen"] = form_with_i
 
       if declension_is_regular:
          for label, ending in lbld_endings:
-            if label in self.replacements:
+            if label in replacements:
                result = [
                   expose_replacement(form, yat, latin)
                   for form in
-                  self.replacements[label]
+                  replacements[label]
                ]
                yield nice_name(label), uniq(result)
 
@@ -342,17 +344,17 @@ class Noun(PartOfSpeech):
                         )
                         ready_forms += new_ready_form
 
-               if label in self.amendments:
+               if label in amendments:
                   ready_forms += [
                      expose_replacement(w_form, yat, latin)
-                     for w_form in self.amendments[label]
+                     for w_form in amendments[label]
                   ]
 
                result = [self._expose(form, yat, latin) for form in ready_forms]
                yield nice_name(label), uniq(result)
 
       else:
-         for label, am_forms in self.amendments.items():
+         for label, am_forms in amendments.items():
             result = [
                self._expose(form, yat, latin)
                for form in

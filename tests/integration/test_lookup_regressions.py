@@ -205,6 +205,14 @@ def test_gen_pl_i():
    assert "жало̀по̄јкӣ" in lookup("жалопојка")["gen pl"].multiform
    assert "жа̀лбӣ" in lookup("жалба")["gen pl"].multiform
    assert "ја̀гмӣ" in lookup("јагма")["gen pl"].multiform
+
+
+def test_proizvodnja_keeps_each_feminine_variant_genitive_plural_form():
+   result = lookup("производња")
+
+   assert result[0]["pl gen"].multiform == ["произво́дња̄", "произво̀дњӣ"]
+   assert result[1]["pl gen"].multiform == ["произво́дња̄", "произво́дњӣ"]
+   assert result[2]["pl gen"].multiform == ["про̀изво̄дња̄", "проѝзводњӣ"]
 #TODO ADD all forms for metla?
 
 def test_vol():
