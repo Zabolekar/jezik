@@ -1,7 +1,7 @@
-{% for length in ["short", "long"] %}
+{% for length, label in [("short", "NEODREĐENI"), ("long", "ODREĐENI")] %}
    {% if table["%s" % length]|list|length %}
       <tr>
-         <th colspan="4" class="form-name">{{ length|upper }}</td>
+         <th colspan="4" class="form-name">{{ label }}</td>
       </tr>
       {% for number in ["sg", "pl"] %}
 
