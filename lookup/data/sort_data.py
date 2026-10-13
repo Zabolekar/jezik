@@ -16,13 +16,14 @@ def reversed_lemma(string):
    return lemma(string)[::-1]
 
 def print_entry(header, data, file=sys.stdout):
-   print(f'{header}:', file=file)
+   ordered_data = {}
    for key in ordered_keys:
       if key in data:
-         print(f' {key}: {data[key]}', file=file)
+         ordered_data[key] = data[key]
    for key in data:
       if key not in ordered_keys:
-         print(f' {key}: {data[key]}', file=file)
+         ordered_data[key] = data[key]
+   yaml.safe_dump({header: ordered_data}, file, allow_unicode=True, sort_keys=False)
    print(file=file)
 
 def print_yaml_header(file=sys.stdout):
@@ -30,9 +31,9 @@ def print_yaml_header(file=sys.stdout):
       print(line, file=file)
 
 def to_sorted(in_file, out_file, key):
-   with open(in_file, 'r') as f:
+   with open(in_file, 'r', encoding='utf-8') as f:
       raw_data = yaml.safe_load(f)
-   with open(out_file, 'w') as f:
+   with open(out_file, 'w', encoding='utf-8') as f:
       print_yaml_header(f)
       for header in sorted(raw_data, key=key):
          print_entry(header, raw_data[header], file=f)
