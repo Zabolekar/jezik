@@ -10,6 +10,7 @@ from .paradigm_helpers import has, make_caption
 from .utils import strip_suffix
 from .verb import Verb
 
+ACCENTS_NOT_FOUND_MESSAGE = [("😞", ["Још не знамо како се акцентује ова реч"])]
 
 PartOfSpeech = Union[
    Type[Verb],
@@ -63,7 +64,7 @@ def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
          yield Table(
             "",
             make_caption(("", ""), 1, 1),
-            iter([("😞", ["Још не знамо како се акцентује ова реч"])]),
+            iter(ACCENTS_NOT_FOUND_MESSAGE),
             view
          )
          # # TODO, and also sometimes ријеч and/or latin
