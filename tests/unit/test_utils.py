@@ -1,4 +1,6 @@
-from ...lookup.utils import ungarde, garde, deyerify, insert, prettify, strip_suffix
+from ...lookup.utils import (
+   ungarde, garde, deyerify, expose_replacement, insert, prettify, strip_suffix
+)
 
 def test_ungarde():
    assert [ungarde(i) for i in [
@@ -72,6 +74,13 @@ def test_prettify():
    assert [prettify(word, "e") for word in [
        "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
    "це̄ле\u030dти", "беле\u030dжӣм", "ви\u030dдео"]
+
+def test_expose_replacement_preserves_long_yat_before_traditional_accent():
+   form = "звꙓ´ри_"
+
+   assert expose_replacement(form, "e") == "зве́рӣ"
+   assert expose_replacement(form, "je") == "звйје́рӣ"
+   assert expose_replacement(form, "ije") == "звијѐрӣ"
 
 def test_strip_suffix():
    s = "abcdefghi"

@@ -11,6 +11,7 @@ from typing import (
 )
 from itertools import chain
 from .charutils import *
+from .paradigm_helpers import accentize
 
 
 # Naming of things added for optimization purposes:
@@ -493,11 +494,7 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
    return expose_transform(form, yat=yat, latin=latin)
 
 def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
-   for k, v in _prettify_yat_replaces_c[yat]:
-      form = k.sub(v, form)
-   for q, w in real_accent.items():
-      form = form.replace(q, w)
-   return apply_yat_and_latin(form, yat, latin)
+   return expose(garde(accentize(form)), yat, latin)
 
 
 def strip_suffix(value:str, suffixes:Iterable[str]) -> tuple[str, bool]:

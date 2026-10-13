@@ -51,6 +51,14 @@ def test_yat_mode_for_ambiguous_forms():
    assert lookup("повијест", input_yat="ije", output_yat="e")["pl gen"].multiform == ["по̏ве̄стӣ"]
 
 
+def test_yat_mode_for_an_irregular_long_yat_form():
+   result = lookup("звер", input_yat="e")
+
+   assert result["pl gen"].multiform[-1] == "зве́рӣ"
+   assert lookup("звер", input_yat="e", output_yat="je")["pl gen"].multiform[-1] == "звйје́рӣ"
+   assert lookup("звер", input_yat="e", output_yat="ije")["pl gen"].multiform[-1] == "звијѐрӣ"
+
+
 def test_yat_mode_changes_the_exposed_form_not_the_lookup_result():
    assert lookup("снијег", input_yat="ije")["sg nom"].multiform == ["сни̏јег"]
    result = lookup("снијег", input_yat="ije", output_yat="je")
