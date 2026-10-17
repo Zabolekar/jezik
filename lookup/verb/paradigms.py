@@ -1,7 +1,16 @@
 from typing import Iterator, NamedTuple
-from ..paradigm_helpers import (AccentedTuple, nice_name,
-                                MorphemeChain, LabeledEnding)
+from ..paradigm_helpers import AccentedTuple, nice_name, MorphemeChain
 from ..charutils import c
+
+
+class VerbForm(NamedTuple):
+   label: str
+   variants: list[MorphemeChain]
+
+
+class VerbParadigm(NamedTuple):
+   forms: tuple[VerbForm, ...]
+
 
 class Present(NamedTuple):
    prs_1_sg: list[MorphemeChain]
@@ -15,9 +24,9 @@ class Present(NamedTuple):
    imv_2_pl: list[MorphemeChain]
 
    @property
-   def labeled_endings(self) -> Iterator[LabeledEnding]:
-      yield from zip(map(nice_name, self._fields),
-                     iter(self))
+   def forms(self) -> Iterator[VerbForm]:
+      for label, variants in zip(map(nice_name, self._fields), self):
+         yield VerbForm(label, variants)
 
 class Past(NamedTuple):
    pf_m_sg: list[MorphemeChain]
@@ -41,19 +50,9 @@ class Past(NamedTuple):
    ipf_3_pl: list[MorphemeChain]
 
    @property
-   def labeled_endings(self) -> Iterator[LabeledEnding]:
-      yield from zip(map(nice_name, self._fields),
-                     iter(self))
-
-
-class Stems(NamedTuple):
-   present: Present
-   past: Past
-
-   @property
-   def labeled_endings(self) -> Iterator[LabeledEnding]:
-      yield from self.present.labeled_endings
-      yield from self.past.labeled_endings
+   def forms(self) -> Iterator[VerbForm]:
+      for label, variants in zip(map(nice_name, self._fields), self):
+         yield VerbForm(label, variants)
 
 i_theme_past = AccentedTuple('и·', 'p.p:r.r:s0')
 a_theme_past = AccentedTuple('а·~', ' k:l.m.n.p:t.x.y0z0')
@@ -373,16 +372,16 @@ ie_present = Present(
    [[ie_theme_imv, ending_te]]
 )
 
-MP_to_verb_stems: dict[str, Stems] = dict(
-   alpha=Stems(i_present, i_past),
-   beta=Stems(a_present, a_past),
-   delta=Stems(je_present, a_past),
-   epsilon=Stems(uje_present, ova_past),
-   zeta=Stems(uje_present, iva_past),
-   eta=Stems(i_present, ie_past),
-   theta=Stems(ie_present, ie2_past),
-   mu=Stems(i_present, a_past),
-   kappa=Stems(e_present, zero_past),
-   kappa2=Stems(e_present, zero_past),
-   kappa3=Stems(e3_present, zero3_past)
+MP_to_verb_stems: dict[str, VerbParadigm] = dict(
+   alpha=VerbParadigm((*i_present.forms, *i_past.forms)),
+   beta=VerbParadigm((*a_present.forms, *a_past.forms)),
+   delta=VerbParadigm((*je_present.forms, *a_past.forms)),
+   epsilon=VerbParadigm((*uje_present.forms, *ova_past.forms)),
+   zeta=VerbParadigm((*uje_present.forms, *iva_past.forms)),
+   eta=VerbParadigm((*i_present.forms, *ie_past.forms)),
+   theta=VerbParadigm((*ie_present.forms, *ie2_past.forms)),
+   mu=VerbParadigm((*i_present.forms, *a_past.forms)),
+   kappa=VerbParadigm((*e_present.forms, *zero_past.forms)),
+   kappa2=VerbParadigm((*e_present.forms, *zero_past.forms)),
+   kappa3=VerbParadigm((*e3_present.forms, *zero3_past.forms))
 )

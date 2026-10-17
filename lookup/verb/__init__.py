@@ -110,7 +110,8 @@ class Verb(PartOfSpeech):
       # TODO: length_inconstancy currently not used
       # however, Svetozar says he will use it later
       # e.g. гри̏сти, гри́зе̄м
-      for label, ending in MP_to_verb_stems[self.gram.MP[i]].labeled_endings:
+      for form in MP_to_verb_stems[self.gram.MP[i]].forms:
+         label, ending = form
 
          if label in self.replacements:
             result = [

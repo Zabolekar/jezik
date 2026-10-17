@@ -65,6 +65,36 @@ def test_advokatirati():
    assert lookup("алудирати")["prs 1 sg"].multiform == ['алу̀дӣра̄м']
    assert lookup("ачити се")["prs 1 sg"].multiform == ['а̑чӣм се']
 
+
+def test_alpha_paradigm_keeps_present_past_and_imperfect_forms():
+   table = lookup("учити")[0]
+
+   assert table["prs 1 pl"].multiform == ["учи́мо", "у̀чӣмо"]
+   assert table["pf m sg"].multiform == ["у̀чио"]
+   assert table["aor 2 sg"].multiform == ["у̏чӣ"]
+   assert table["ipf 2 pl"].multiform == ["у̀ча̄сте"]
+
+
+@pytest.mark.parametrize(("paradigm", "word", "present", "past"), [
+   ("beta", "адвокатирати", ["адвока̀тӣра̄м"], ["адвокати́рао"]),
+   ("delta", "адвокатисати", ["адвока̀тише̄м"], ["адвокатѝсао"]),
+   ("epsilon", "адресовати", ["адрѐсује̄м"], ["а̏дресовао"]),
+   ("zeta", "казивати", ["ка̀зује̄м"], ["кази́вао"]),
+   ("eta", "волети", ["во̏лӣм"], ["во̀лео"]),
+   ("theta", "смети", ["сме̑м"], ["сме̏о"]),
+   ("mu", "држати", ["др̥̀жӣм"], ["др̥̏жао"]),
+   ("kappa", "мрети", ["мре̑м"], ["мр̥̏о"]),
+   ("kappa2", "насути", ["на̏спе̄м"], ["на̏суо"]),
+   ("kappa3", "нести", ["нѐсе̄м"], ["не̏сао"]),
+])
+def test_remaining_verb_paradigms_keep_present_and_past_forms(
+   paradigm, word, present, past
+):
+   table = lookup(word)[0]
+
+   assert table["prs 1 sg"].multiform == present, paradigm
+   assert table["pf m sg"].multiform == past, paradigm
+
 def test_lll():
    assert lookup("го")["nom sg m short"].multiform == ['го̑', 'го̑л']
    assert lookup("бо")["nom sg"].multiform == ['бо̑', 'бо̑л']
