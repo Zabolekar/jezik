@@ -37,12 +37,11 @@ class Verb(PartOfSpeech):
 
    # Verb-specific
    def _expose(self, form:str, yat:str="e", latin:bool=False) -> str:
-      form = expose(form, yat, latin)
+      return self._with_se(expose(form, yat, latin), latin)
+
+   def _with_se(self, form:str, latin:bool) -> str:
       if self.is_reflexive:
-         if latin:
-            form += ' se'
-         else:
-            form += ' се'
+         return form + (' se' if latin else ' се')
       return form
 
    # Verb-specific
@@ -115,7 +114,7 @@ class Verb(PartOfSpeech):
 
          if label in self.replacements:
             result = [
-               expose_replacement(w_form, yat, latin)
+               self._with_se(expose_replacement(w_form, yat, latin), latin)
                for w_form in self.replacements[label]
             ]
             yield nice_name(label), uniq(result)

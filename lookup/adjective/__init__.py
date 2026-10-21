@@ -71,6 +71,8 @@ class Adjective(PartOfSpeech):
                trunk = accented_adj
          elif self.label('ski'):
             trunk = re.sub(f'{c.macron}{c.straight}$', c.macron, accented_adj)[:-2]
+         else:
+            raise NotImplementedError(f"Unknown adjective type {self.kind} ({self.key})")
          if not 'a' in self.gram.AP[number]:
             lvi = last_vowel_index(trunk)
             if lvi is None:
@@ -158,6 +160,8 @@ class Adjective(PartOfSpeech):
          MPs = [long_adj]
       elif endings == "ov":
          MPs = [mixed_adj]
+      else:
+         raise NotImplementedError(f"Unknown adjective type {self.kind} ({self.key})")
 
       for i, AP in enumerate(self.gram.AP):
          # variant = None means all variants
