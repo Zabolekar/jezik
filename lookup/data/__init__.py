@@ -4,6 +4,7 @@ import yaml
 from ..charutils import all_vowels, plain_accents
 from .multidict import Entry, FancyLookup
 from ..utils import deaccentize
+from .validation import validate_entry
 
 data = FancyLookup()
 
@@ -30,6 +31,8 @@ for full_key in raw_data.keys():
    else:
       accented_keys = accented_keys_with_extra_key
       extra_key = ''
+
+   validate_entry(full_key, raw_data[full_key], accented_keys)
 
    unaccented_keys = deaccentize(accented_keys).split(',')
    if len(set(unaccented_keys)) != 1:

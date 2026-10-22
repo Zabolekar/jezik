@@ -3,35 +3,10 @@ import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
-from ..paradigm_helpers import nice_name, accentize, uniq
+from ..paradigm_helpers import nice_name, accentize, uniq, adj_AP_to_inner_AP
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 from ..charutils import c
 
-adj_AP_pairs = (
-   ('a.,a.', 'A.'),
-   ('0,a.', 'a.'),
-   ('a:,a:', 'A:'),
-   ('b:,b:', 'B:'),
-   ('0,a:', 'a:'),
-   ('0,c.', 'c.'),
-   ('b.,b.', 'B.'),
-   ('b.,c.', 'K.'),
-   ('0,c:', 'c:'),
-   ('b:,c.', 'K:.'),
-   ('a.,c.', 'L.'),
-   ('b?,b.', 'B?.'),
-   ('a.,a:', 'A.:'),
-   ('d:,b:', 'M:'),
-   ('d.,b.', 'M.'),
-   ('b:,c:', 'K:'),
-   ('a:,c.', 'L:.'),
-   ('b.,b:', 'B.:'),
-   ('d.,c.', 'N.')
-)  # rules: 0,x is x; x,x is X; bc ac db dc become KLMN;
-   # leave one length mark if they are the same,
-   # two length marks if they are different
-
-adj_AP_to_inner_AP = {b:a for a,b in adj_AP_pairs}
 
 class Adjective(PartOfSpeech):
    def __init__(

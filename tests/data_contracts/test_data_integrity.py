@@ -1,3 +1,4 @@
+import re
 import pytest # type: ignore
 from ...lookup import lookup, data
 from ...lookup.charutils import c, four_accents, roman
@@ -50,6 +51,33 @@ def test_no_exceptions():
    if bad_multiforms:
       print(bad_multiforms)
       raise ValueError("impossible accentuation")
+
+
+# internal notation that must never reach the user;
+# NB: 'й' is intentionally present in 'je' output (e.g. свйје̑т)
+_leaked_marker = re.compile(r"[·ø<>ʲʟʌъꚜꙏЪœʹʺ¦ȷĵˌ~!•°\d,(]|ꙓ|ѣ|  ")
+
+
+@pytest.mark.slow
+def test_every_output_mode_gives_clean_nonempty_forms():
+   """
+   Iterate over all outer keys (Cyrillic and Latin) and all output yat modes.
+   Ensure that no form is empty and no internal notation leaks into forms.
+   """
+   problems: list[tuple[str, str, str, str]] = []
+   for outer_key, input_yat in data._outer_to_inner:
+      output_yats = [input_yat, "je"] if input_yat == "ije" else [input_yat]
+      for output_yat in output_yats:
+         for table in lookup(outer_key, input_yat, output_yat):
+            if not table.pos:
+               continue # accents not found message
+            for label, forms in table:
+               if not forms:
+                  problems.append((outer_key, output_yat, label, "<empty>"))
+               for form in forms:
+                  if not form.strip() or _leaked_marker.search(form):
+                     problems.append((outer_key, output_yat, label, form))
+   assert not problems, problems[:20]
 
 
 def test_paradigms():

@@ -1,16 +1,10 @@
 from typing import Iterator, Optional
 from ..pos import PartOfSpeech, Replacement
 from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
-from ..paradigm_helpers import uniq, nice_name, oa, accentize
+from ..paradigm_helpers import uniq, nice_name, oa, accentize, infinitive_dict
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
 
-infinitive_dict: dict[str, str] = {
-   'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
-   'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
-   'eta': 'ѣти', 'theta': 'ети', 'iota': 'ати',
-   'kappa': 'ти', 'kappa2': 'ти', 'kappa3': 'ти', 'lambda': 'ти', 'mu': 'ати'
-}
 
 class Verb(PartOfSpeech):
    def __init__(

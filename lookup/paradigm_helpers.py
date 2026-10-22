@@ -8,6 +8,39 @@ from .charutils import real_accent
 oa = ['o.', 'o:', 'a.', 'a:', 'a!', 'a¡', 'a?', 'a¿']
 T = TypeVar('T')
 
+adj_AP_pairs = (
+   ('a.,a.', 'A.'),
+   ('0,a.', 'a.'),
+   ('a:,a:', 'A:'),
+   ('b:,b:', 'B:'),
+   ('0,a:', 'a:'),
+   ('0,c.', 'c.'),
+   ('b.,b.', 'B.'),
+   ('b.,c.', 'K.'),
+   ('0,c:', 'c:'),
+   ('b:,c.', 'K:.'),
+   ('a.,c.', 'L.'),
+   ('b?,b.', 'B?.'),
+   ('a.,a:', 'A.:'),
+   ('d:,b:', 'M:'),
+   ('d.,b.', 'M.'),
+   ('b:,c:', 'K:'),
+   ('a:,c.', 'L:.'),
+   ('b.,b:', 'B.:'),
+   ('d.,c.', 'N.')
+)  # rules: 0,x is x; x,x is X; bc ac db dc become KLMN;
+   # leave one length mark if they are the same,
+   # two length marks if they are different
+
+adj_AP_to_inner_AP = {b:a for a,b in adj_AP_pairs}
+
+infinitive_dict: dict[str, str] = {
+   'alpha': 'ити', 'beta': 'ати', 'gamma': 'нути',
+   'delta': 'ати', 'epsilon': 'овати', 'zeta': 'ивати',
+   'eta': 'ѣти', 'theta': 'ети', 'iota': 'ати',
+   'kappa': 'ти', 'kappa2': 'ти', 'kappa3': 'ти', 'lambda': 'ти', 'mu': 'ати'
+}
+
 _r = rcompile(r"([a-z]+|[A-Z]|\d)")
 def nice_name(name:str) -> str:
    return " ".join(_r.findall(name))
