@@ -1,8 +1,3 @@
-# TODO:
-# ----- well-named function for recessive accent,
-#       e.g. recessive(sequence) -> se̍quence
-# ----- think of better name for prettify(), like alternate() or assimilate()
-
 import re
 from typing import (
    Union, Optional, Callable, TypeVar,
@@ -166,7 +161,7 @@ def deyerify(form:str) -> str:
          form = insert(form, {lvi+1: c.straight})
    return form
 
-_prettify_replaces: list[tuple[str, str]] = [
+_assimilate_replaces: list[tuple[str, str]] = [
    ('([чшжј])ѣ', '\\1а'), ('(шт|жд)ѣ', '\\1а'),
    (f'јӥ{c.straight}', f'{c.straight}јӥ'), ('јӥ', f'{c.macron}ј'),
    ('ӥ', 'и'), (f'{c.straight}{c.macron}', f'{c.macron}{c.straight}'),
@@ -180,10 +175,10 @@ _prettify_replaces: list[tuple[str, str]] = [
    ('([ҵчџњљћђшжјʲ])œ', '\\1е'), ('œ', 'о'),
    ('ʲ', '')]
 
-_prettify_replaces_c: list[tuple[Pattern, str]]
-_prettify_replaces_c = [(re.compile(p), r) for p, r in _prettify_replaces]
+_assimilate_replaces_c: list[tuple[Pattern, str]]
+_assimilate_replaces_c = [(re.compile(p), r) for p, r in _assimilate_replaces]
 
-_prettify_yat_replaces: dict[str, list[tuple[str, str]]] = {
+_assimilate_yat_replaces: dict[str, list[tuple[str, str]]] = {
    "e": [('ꙓ', 'е'), ('ѣ', 'е')],
    "je": [
       (f'ѣ({c.straight}?о)', 'и\\1'),
@@ -194,27 +189,27 @@ _prettify_yat_replaces: dict[str, list[tuple[str, str]]] = {
       ('лꙓ', 'ље'), ('нꙓ', 'ње'),
       ('([бгджзкпстфхцчш]р)ꙓ', '\\1е'),
       ('[ꙓѣ]', 'је')] }
-_prettify_yat_replaces["ije"] = _prettify_yat_replaces["je"]
+_assimilate_yat_replaces["ije"] = _assimilate_yat_replaces["je"]
 
-_prettify_yat_replaces_c: dict[str, list[tuple[Pattern, str]]] = {
+_assimilate_yat_replaces_c: dict[str, list[tuple[Pattern, str]]] = {
    k: [(re.compile(p), r) for p, r in v]
-   for k, v in _prettify_yat_replaces.items()
+   for k, v in _assimilate_yat_replaces.items()
 }
 
-_prettify_big_palatalization: list[tuple[str, str]] = [
+_assimilate_big_palatalization: list[tuple[str, str]] = [
    ("(ст|шт|ск)ȷ", "шт"), ("(зд|жд|зг)ȷ", "жд"),
    #('слȷ', 'шљ'), ('злȷ', 'жљ'),
-   # back into regular string replaces, see `_prettify_simple_palatalization`
+   # back into regular string replaces, see `_assimilate_simple_palatalization`
    ('т?кʹ', 'ц'), #('гʹ', 'з'), ('хʹ', 'с'),
    ('с[кц]¦?ʺе', 'шче'),
    ('[кц]¦?ʺе', 'че') #, ('гʺ', 'ж'), ('хʺ', 'ш')
 ]
 
-_prettify_big_palatalization_c: list[tuple[Pattern, str]] = [
-   (re.compile(p), r) for p, r in _prettify_big_palatalization
+_assimilate_big_palatalization_c: list[tuple[Pattern, str]] = [
+   (re.compile(p), r) for p, r in _assimilate_big_palatalization
 ]
 
-_prettify_simple_palatalization: list[tuple[str, str]] = [
+_assimilate_simple_palatalization: list[tuple[str, str]] = [
    ('слȷ', 'шљ'), ('злȷ', 'жљ'),
    ('гʹ', 'з'), ('хʹ', 'с'),
    ('гʺ', 'ж'), ('хʺ', 'ш'),
@@ -222,23 +217,23 @@ _prettify_simple_palatalization: list[tuple[str, str]] = [
    ('лȷ', 'љ'), ('нȷ', 'њ')
 ]
 
-_prettify_small_palatalization: list[tuple[str, str]] = [
+_assimilate_small_palatalization: list[tuple[str, str]] = [
    ("([бмвфп])ȷ", "\\1љ"),
    ("[кц]ȷ", "ч"),
    ("[хс]ȷ", "ш"),
    ("[гз]ȷ", "ж"),
-   # back into regular string replaces, see `_prettify_simple_palatalization`
+   # back into regular string replaces, see `_assimilate_simple_palatalization`
    #('тȷ', 'ћ'), ('дȷ', 'ђ'),
    #('лȷ', 'љ'), ('нȷ', 'њ'),
    ('ц¦œ', 'це'),
    ('[ʹʺ¦ȷ]', '')
 ]
 
-_prettify_small_palatalization_c: list[tuple[Pattern, str]] = [
-   (re.compile(p), r) for p, r in _prettify_small_palatalization
+_assimilate_small_palatalization_c: list[tuple[Pattern, str]] = [
+   (re.compile(p), r) for p, r in _assimilate_small_palatalization
 ]
 
-_prettify_yer_yot = (
+_assimilate_yer_yot = (
    ('бĵ', 'бљ'), ('мĵ', 'мљ'), ('вĵ', 'вљ'), ('фĵ', 'фљ'), ('пĵ', 'пљ'),
    ('стĵ', 'шћ'), ('здĵ', 'жђ'), ('слĵ', 'шљ'), ('злĵ', 'жљ'),
    ('штĵ', 'шћ'), ('ждĵ', 'жђ'), ('скĵ', 'шт'), ('згĵ', 'жд'),
@@ -247,24 +242,24 @@ _prettify_yer_yot = (
    ('лĵ', 'љ'),('нĵ', 'њ'), ('јĵ', 'ј'), ('ĵ', 'ј')
 )
 
-def prettify(text:str, yat:str="e") -> str:
+def assimilate(text:str, yat:str="e") -> str:
    other_repl_modes = (
-      _prettify_small_palatalization_c,
-      _prettify_replaces_c,
-      _prettify_yat_replaces_c[yat]
+      _assimilate_small_palatalization_c,
+      _assimilate_replaces_c,
+      _assimilate_yat_replaces_c[yat]
    )
 
-   for entity in _prettify_big_palatalization_c:
+   for entity in _assimilate_big_palatalization_c:
       text = entity[0].sub(entity[1], text)
 
-   for old, new in _prettify_simple_palatalization:
+   for old, new in _assimilate_simple_palatalization:
       text = text.replace(old, new)
 
    for repl_mode in other_repl_modes:
       for entity in repl_mode:
          text = entity[0].sub(entity[1], text)
 
-   for old, new in _prettify_yer_yot:
+   for old, new in _assimilate_yer_yot:
       text = text.replace(old, new)
 
    return text
@@ -351,15 +346,15 @@ def garde(word: str) -> str: # Garde's accentuation
          result = result.translate(_garde_translator)
    return result
 
-_zeroify_translator = str.maketrans({
+_make_recessive_translator = str.maketrans({
    '0': None,
    c.straight: None,
    '~': c.macron
 })
 
-def zeroify(form:str) -> str:
+def make_recessive(form:str) -> str:
    if '0̍' in form: # 0 means accent on the firstmost syllable
-      form = form.translate(_zeroify_translator)
+      form = form.translate(_make_recessive_translator)
       fvi = first_vowel_index(form)
       if fvi is None:
          raise ValueError(f"{form} does not contain any vowels")
@@ -476,9 +471,9 @@ def apply_yat_and_latin(form: str, yat: str, latin: bool) -> str:
 expose_transform: _Transform[str] = compose1(
    (apply_yat_and_latin, ('yat', 'latin')), # fails somehow
    ungarde,
-   (prettify, ('yat',)),
+   (assimilate, ('yat',)),
    purify,
-   zeroify,
+   make_recessive,
    debracketify,
    deyerify,
    decurlyerify,

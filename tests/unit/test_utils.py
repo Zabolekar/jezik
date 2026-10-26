@@ -1,6 +1,9 @@
+import pytest # type: ignore
 from ...lookup.utils import (
-   ungarde, garde, deyerify, expose_replacement, insert, prettify, strip_suffix
+   ungarde, garde, deyerify, expose_replacement, insert, assimilate, make_recessive,
+   strip_suffix
 )
+from ...lookup.charutils import c
 
 def test_ungarde():
    assert [ungarde(i) for i in [
@@ -67,11 +70,11 @@ def test_insert():
    "аустроу\u030fгарски!\u0304"
    ]
 
-def test_prettify():
-   assert [prettify(word, "je") for word in [
+def test_assimilate():
+   assert [assimilate(word, "je") for word in [
        "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
    "цйје̄ље\u030dти", "биље\u030dжӣм", "ви\u030dдио"]
-   assert [prettify(word, "e") for word in [
+   assert [assimilate(word, "e") for word in [
        "цꙓ̄лѣ\u030dти", "бѣлѣ\u030dжӣм", "ви\u030dдѣʌ"]] == [
    "це̄ле\u030dти", "беле\u030dжӣм", "ви\u030dдео"]
 
@@ -89,3 +92,20 @@ def test_strip_suffix():
    assert strip_suffix(s, [""]) == (s, True)
    assert strip_suffix(s, ["ggghi", "gghi", "ghi", "hi", "i"]) == ("abcdef", True)
    assert strip_suffix(s, []) == (s, False)
+
+
+def test_make_recessive_puts_the_accent_on_the_first_vowel():
+   assert make_recessive(f"вода0{c.straight}") == f"во{c.straight}да"
+
+
+def test_make_recessive_turns_tilde_into_macron():
+   assert make_recessive(f"мо0{c.straight}~ре") == f"мо{c.straight}{c.macron}ре"
+
+
+def test_make_recessive_leaves_forms_without_the_zero_marker_alone():
+   assert make_recessive("вода") == "вода"
+
+
+def test_make_recessive_rejects_forms_without_vowels():
+   with pytest.raises(ValueError):
+      make_recessive(f"р0{c.straight}")
