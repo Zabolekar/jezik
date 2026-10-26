@@ -1,5 +1,5 @@
 from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
-from .utils import first_vowel_index, last_vowel_index, insert
+from .utils import expose, first_vowel_index, last_vowel_index, insert
 from .charutils import all_vowels, c
 from .data.multidict import Replacement
 
@@ -39,6 +39,10 @@ class PartOfSpeech():
       self.amendments: dict[str, list[str]] = dict(amendments)
       if len(self.accented_keys) == 1 and len(self.gram.AP) > 1:
          self.accented_keys *= len(self.gram.AP)
+
+   def _expose(self, form:str, yat:str="e", latin:bool=False) -> str:
+      """Converts a form from the inner to the outer notation, see `expose`"""
+      return expose(form, yat, latin)
 
    def label(self, lbl: str) -> bool:
       return lbl in self.gram.other

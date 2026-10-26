@@ -43,7 +43,6 @@ def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
    for inner_key, values in data[key, input_yat]:
       caption, accented_keys, _, kind, info, replacements, amendments, view = values
       POS = part_of_speech(kind)
-      # # TODO: we have a rather different POS variable in part_of_speech, make it a dict there
       if with_se and ((POS is not Verb) or (POS is Verb and not 'Refl' in kind)):
          continue # for skipping meaningless queries like "адвокат се"
       elif POS:

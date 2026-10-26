@@ -1,10 +1,10 @@
 from typing import Iterator, Optional
 from ..pos import PartOfSpeech, Replacement
-from ..utils import garde, expose
+from ..utils import garde
 from ..paradigm_helpers import uniq, nice_name, accentize
 from ..table import LabeledMultiform
 
-class Adverb(PartOfSpeech): #TODO majority of these can probably be moved to POS?
+class Adverb(PartOfSpeech):
    def __init__(
       self,
       key:str,
@@ -15,10 +15,6 @@ class Adverb(PartOfSpeech): #TODO majority of these can probably be moved to POS
       amendments:tuple[Replacement, ...]=()
    ) -> None:
       super().__init__(key, accented_keys, kind, info, replacements, amendments)
-
-   @staticmethod
-   def _expose(form:str, yat:str="e", latin:bool=False) -> str:
-      return expose(form, yat, latin)
 
    def multiforms(
       self,
@@ -32,4 +28,4 @@ class Adverb(PartOfSpeech): #TODO majority of these can probably be moved to POS
          for i, key in enumerate(self.accented_keys)
          if variant is None or variant == i
       ]
-      yield nice_name(""), uniq(expose(form, yat, latin) for form in accented_adverbs)
+      yield nice_name(""), uniq(self._expose(form, yat, latin) for form in accented_adverbs)

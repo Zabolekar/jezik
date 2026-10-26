@@ -1,7 +1,7 @@
 import pytest # type: ignore
 
 from ...lookup import utils
-from ...lookup import adjective, noun, verb
+from ...lookup import pos
 from ...lookup.adjective import Adjective
 from ...lookup.noun import Noun
 from ...lookup.verb import Verb
@@ -30,7 +30,7 @@ def expose_inputs(monkeypatch):
       inputs.append(form)
       return real_expose(form, *args, **kwargs)
    real_expose = utils.expose
-   for module in (utils, noun, verb, adjective):
+   for module in (utils, pos):
       monkeypatch.setattr(module, "expose", recording)
    return inputs
 

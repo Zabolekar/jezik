@@ -2,7 +2,7 @@ from typing import Iterator, Optional
 import re
 from ..table import LabeledMultiform
 from ..pos import PartOfSpeech, Replacement
-from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
+from ..utils import insert, garde, last_vowel_index, expose_replacement
 from ..paradigm_helpers import nice_name, accentize, uniq, adj_AP_to_inner_AP
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
 from ..charutils import c
@@ -26,10 +26,6 @@ class Adjective(PartOfSpeech):
       self.trunk = self._trunk()
 
    # different
-   @staticmethod
-   def _expose(form:str, yat:str="e", latin:bool=False) -> str:
-      return expose(form, yat, latin)
-
    # different for Verb and Adjective
    def _trunk(self) -> list[str]:
       result = []

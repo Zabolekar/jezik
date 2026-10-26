@@ -1,6 +1,6 @@
 from typing import Iterator, Optional
 from ..pos import PartOfSpeech, Replacement
-from ..utils import insert, garde, expose, last_vowel_index, expose_replacement
+from ..utils import insert, garde, last_vowel_index, expose_replacement
 from ..paradigm_helpers import uniq, nice_name, oa, accentize, infinitive_dict
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
@@ -31,7 +31,7 @@ class Verb(PartOfSpeech):
 
    # Verb-specific
    def _expose(self, form:str, yat:str="e", latin:bool=False) -> str:
-      return self._with_se(expose(form, yat, latin), latin)
+      return self._with_se(super()._expose(form, yat, latin), latin)
 
    def _with_se(self, form:str, latin:bool) -> str:
       if self.is_reflexive:

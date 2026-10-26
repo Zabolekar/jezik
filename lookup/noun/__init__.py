@@ -9,7 +9,7 @@ from ..pos import PartOfSpeech, Replacement
 from ..table import LabeledMultiform
 from ..utils import (
    deyerify, decurlyerify, purify, ungarde, indices, insert, garde,
-   expose, last_vowel_index, first_vowel_index, expose_replacement, swap
+   last_vowel_index, first_vowel_index, expose_replacement, swap
 )
 
 
@@ -67,10 +67,6 @@ class Noun(PartOfSpeech):
          params = paramList.split(',')
          self.suff = append_def(self.suff, params, ['+', '±'], '_')
          self.anim = append_def(self.anim, params, ['an'], 'in')
-
-   @staticmethod
-   def _expose(form:str, yat:str="e", latin:bool=False) -> str:
-      return expose(form, yat, latin)
 
    def _trunk(self) -> list[str]:
       result = []
