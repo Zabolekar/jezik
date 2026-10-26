@@ -1,5 +1,6 @@
 import pytest # type: ignore
 
+from ...entries import make_entry
 from ....lookup.noun import Noun
 from ....lookup.noun.paradigms import f_declension_a
 
@@ -18,9 +19,9 @@ def test_feminine_plural_accusative_uses_cyrillic_ie():
 def test_feminine_genitive_plural_overrides_do_not_leak_between_variants(
    first_mode, expected_first, expected_second
 ):
-   noun = Noun(
-      "магла", "ма`гла,ма´гла", "N\\f", f"b./{first_mode};b$", (), ()
-   )
+   noun = Noun("магла", make_entry(
+      "ма`гла,ма´гла", "N\\f", f"b./{first_mode};b$"
+   ))
 
    forms = list(noun.multiforms())
 

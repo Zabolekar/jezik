@@ -1,7 +1,7 @@
 from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
 from .utils import expose, first_vowel_index, last_vowel_index, insert
 from .charutils import all_vowels, c
-from .data.multidict import Replacement
+from .data.multidict import Entry
 
 def _swap(trunk:str) -> str:
    """
@@ -22,21 +22,13 @@ def _swap(trunk:str) -> str:
    return trunk
 
 class PartOfSpeech():
-   def __init__(
-      self,
-      key:str,
-      accented_keys:str,
-      kind:str,
-      info:str,
-      replacements:tuple[Replacement, ...],
-      amendments:tuple[Replacement, ...]
-   ) -> None:
-      self.accented_keys = accented_keys.split(",")
-      self.kind = kind
+   def __init__(self, key:str, entry:Entry) -> None:
+      self.accented_keys = entry.accented_keys.split(",")
+      self.kind = entry.type
       self.key = key.split('\\')[0]
-      self.gram = GramInfo(kind, info.split(';'))
-      self.replacements: dict[str, list[str]] = dict(replacements)
-      self.amendments: dict[str, list[str]] = dict(amendments)
+      self.gram = GramInfo(entry.type, entry.info.split(';'))
+      self.replacements: dict[str, list[str]] = dict(entry.replacements)
+      self.amendments: dict[str, list[str]] = dict(entry.amendments)
       if len(self.accented_keys) == 1 and len(self.gram.AP) > 1:
          self.accented_keys *= len(self.gram.AP)
 

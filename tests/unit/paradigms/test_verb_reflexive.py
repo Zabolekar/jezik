@@ -1,8 +1,9 @@
+from ...entries import make_entry
 from ....lookup.verb import Verb
 
 
 def _forms(replacements, latin=False):
-   verb = Verb("бојати", "бо`јати", "V\\Refl\\Ipf", "a./beta", replacements, ())
+   verb = Verb("бојати", make_entry("бо`јати", "V\\Refl\\Ipf", "a./beta", replacements))
    return dict(verb.multiforms(latin=latin))
 
 

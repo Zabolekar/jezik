@@ -3,6 +3,7 @@ from io import StringIO
 import pytest # type: ignore
 import yaml
 
+from ...entries import make_entry
 from ....lookup.adverb import Adverb
 from ....lookup.data.sort_data import print_entry, to_direct, to_reverse
 
@@ -63,5 +64,5 @@ def test_sorting_preserves_dictionary_data_and_usable_metadata(tmp_path, sorter,
    assert restored == entries
    assert list(restored) == expected_keys
    adverb_entry = restored["у¨залу_д"]
-   adverb = Adverb("узалуд", "у¨залу_д", adverb_entry["t"], adverb_entry["i"])
+   adverb = Adverb("узалуд", make_entry("у¨залу_д", adverb_entry["t"], adverb_entry["i"]))
    assert list(adverb.multiforms()) == [("", ["у̏залӯд"])]

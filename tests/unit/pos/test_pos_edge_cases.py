@@ -1,10 +1,11 @@
+from ...entries import make_entry
 from ....lookup.charutils import c
 from ....lookup.paradigm_helpers import AccentedTuple
 from ....lookup.pos import PartOfSpeech, _swap
 
 
 def _pos(kind="N"):
-   return PartOfSpeech("тест", "те̍ст", kind, "a./alpha", (), ())
+   return PartOfSpeech("тест", make_entry("те̍ст", kind, "a./alpha"))
 
 
 def test_swap_toggles_only_the_last_vowel_length():
@@ -41,3 +42,19 @@ def test_process_one_form_accents_a_yer_when_there_are_no_vowels():
    forms = _pos().process_one_form("a.", "съ", [AccentedTuple("ø", "")])
 
    assert forms == ["съ" + c.straight + "ø"]
+
+
+def test_part_of_speech_takes_everything_from_the_entry():
+   word = PartOfSpeech("тест\\ми", make_entry(
+      "те̍ст", "N\\m", "a.;b./x",
+      replacements=(("pl gen", ["а, б"]),),
+      amendments=(("sg nom", ["в"]),)
+   ))
+
+   assert word.key == "тест"
+   assert word.kind == "N\\m"
+   assert word.gram.AP == ["a.", "b."]
+   assert word.accented_keys == ["те̍ст", "те̍ст"] # copied for each accent paradigm
+   assert word.replacements == {"pl gen": ["а, б"]}
+   assert word.amendments == {"sg nom": ["в"]}
+   assert word.label("m")

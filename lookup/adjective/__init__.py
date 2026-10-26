@@ -1,7 +1,8 @@
 from typing import Iterator, Optional
 import re
 from ..table import LabeledMultiform
-from ..pos import PartOfSpeech, Replacement
+from ..data.multidict import Entry
+from ..pos import PartOfSpeech
 from ..utils import insert, garde, last_vowel_index, expose_replacement
 from ..paradigm_helpers import nice_name, accentize, uniq, adj_AP_to_inner_AP
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
@@ -9,16 +10,8 @@ from ..charutils import c
 
 
 class Adjective(PartOfSpeech):
-   def __init__(
-      self,
-      key:str,
-      accented_keys:str,
-      kind:str,
-      info:str,
-      replacements:tuple[Replacement, ...],
-      amendments:tuple[Replacement, ...]
-   ) -> None:
-      super().__init__(key, accented_keys, kind, info, replacements, amendments)
+   def __init__(self, key:str, entry:Entry) -> None:
+      super().__init__(key, entry)
       
       inner_APs = [adj_AP_to_inner_AP[AP].split(',') for AP in self.gram.AP]
       self.short_AP, self.long_AP = zip(*inner_APs)

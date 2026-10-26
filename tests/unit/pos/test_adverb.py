@@ -1,8 +1,9 @@
+from ...entries import make_entry
 from ....lookup.adverb import Adverb
 
 
 def test_exposes_each_accented_key():
-   adverb = Adverb("узалуд", "у¨залу_д,у´залу_д", "B", "0", (), ())
+   adverb = Adverb("узалуд", make_entry("у¨залу_д,у´залу_д", "B", "0"))
 
    _, forms = next(adverb.multiforms())
 
@@ -10,7 +11,7 @@ def test_exposes_each_accented_key():
 
 
 def test_variant_selects_a_single_accented_key():
-   adverb = Adverb("узалуд", "у¨залу_д,у´залу_д", "B", "0", (), ())
+   adverb = Adverb("узалуд", make_entry("у¨залу_д,у´залу_д", "B", "0"))
    _, both = next(adverb.multiforms())
 
    assert next(adverb.multiforms(variant=0))[1] == [both[0]]

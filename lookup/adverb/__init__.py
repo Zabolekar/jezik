@@ -1,21 +1,10 @@
 from typing import Iterator, Optional
-from ..pos import PartOfSpeech, Replacement
+from ..pos import PartOfSpeech
 from ..utils import garde
 from ..paradigm_helpers import uniq, nice_name, accentize
 from ..table import LabeledMultiform
 
 class Adverb(PartOfSpeech):
-   def __init__(
-      self,
-      key:str,
-      accented_keys:str,
-      kind:str,
-      info:str,
-      replacements:tuple[Replacement, ...]=(),
-      amendments:tuple[Replacement, ...]=()
-   ) -> None:
-      super().__init__(key, accented_keys, kind, info, replacements, amendments)
-
    def multiforms(
       self,
       *,

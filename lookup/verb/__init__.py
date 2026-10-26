@@ -1,5 +1,6 @@
 from typing import Iterator, Optional
-from ..pos import PartOfSpeech, Replacement
+from ..data.multidict import Entry
+from ..pos import PartOfSpeech
 from ..utils import insert, garde, last_vowel_index, expose_replacement
 from ..paradigm_helpers import uniq, nice_name, oa, accentize, infinitive_dict
 from .paradigms import MP_to_verb_stems
@@ -7,16 +8,8 @@ from ..table import LabeledMultiform
 
 
 class Verb(PartOfSpeech):
-   def __init__(
-      self,
-      key:str,
-      accented_keys:str,
-      kind:str,
-      info:str,
-      replacements:tuple[Replacement, ...],
-      amendments:tuple[Replacement, ...]
-   ) -> None:
-      super().__init__(key, accented_keys, kind, info, replacements, amendments)
+   def __init__(self, key:str, entry:Entry) -> None:
+      super().__init__(key, entry)
       #Verb-only
       self.is_reflexive = self.label('Refl')
       self.trunk = self._trunk()

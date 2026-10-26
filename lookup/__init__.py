@@ -40,29 +40,27 @@ def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
 
    key, with_se = strip_suffix(key.lower(), (" se", " се"))
 
-   for inner_key, values in data[key, input_yat]:
-      caption, accented_keys, _, kind, info, replacements, amendments, view = values
-      POS = part_of_speech(kind)
-      if with_se and ((POS is not Verb) or (POS is Verb and not 'Refl' in kind)):
+   for inner_key, entry in data[key, input_yat]:
+      POS = part_of_speech(entry.type)
+      if with_se and ((POS is not Verb) or (POS is Verb and not 'Refl' in entry.type)):
          continue # for skipping meaningless queries like "адвокат се"
       elif POS:
-         word = POS(inner_key, accented_keys, kind, info, replacements, amendments)
-         # # TODO: can we avoid passing kind and info again? POS already knows
+         word = POS(inner_key, entry)
          n_variants = len(word.accented_keys)
          for i in range(n_variants):
-            full_caption = make_caption(caption, n_variants, i)
+            full_caption = make_caption(entry.caption, n_variants, i)
             yield Table(
                POS.__name__.lower(),
                full_caption,
                word.multiforms(variant=i, yat=output_yat, latin=latin),
-               view
+               entry.view
             )
       else:
          yield Table(
             "",
             make_caption(("", ""), 1, 1),
             iter(ACCENTS_NOT_FOUND_MESSAGE),
-            view
+            entry.view
          )
          # # TODO, and also sometimes ријеч and/or latin
 

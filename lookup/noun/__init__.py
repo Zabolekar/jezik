@@ -5,7 +5,8 @@ from .paradigms import stem_male, stem_female, stem_neutral, male_gen_pl_marked,
 from ..charutils import c
 from ...fun_utils import compose1
 from ..paradigm_helpers import AccentedTuple, uniq, nice_name, accentize, append_def, has
-from ..pos import PartOfSpeech, Replacement
+from ..data.multidict import Entry
+from ..pos import PartOfSpeech
 from ..table import LabeledMultiform
 from ..utils import (
    deyerify, decurlyerify, purify, ungarde, indices, insert, garde,
@@ -48,16 +49,8 @@ noun_gpl_transform: Callable[[str], str] = compose1(
 
 
 class Noun(PartOfSpeech):
-   def __init__(
-      self,
-      key:str,
-      accented_keys:str,
-      kind:str,
-      info:str,
-      replacements:tuple[Replacement, ...],
-      amendments:tuple[Replacement, ...]
-   ) -> None:
-      super().__init__(key, accented_keys, kind, info, replacements, amendments)
+   def __init__(self, key:str, entry:Entry) -> None:
+      super().__init__(key, entry)
 
       self.trunk = self._trunk()
       self.anim: list[str] = []
