@@ -3,11 +3,12 @@ from typing import Callable, Iterator, Optional
 
 from .paradigms import stem_male, stem_female, stem_neutral, male_gen_pl_marked, female_gen_pl_i
 from ..charutils import c
+from ...fun_utils import compose1
 from ..paradigm_helpers import AccentedTuple, uniq, nice_name, accentize, append_def, has
 from ..pos import PartOfSpeech, Replacement
 from ..table import LabeledMultiform
 from ..utils import (
-   deyerify, decurlyerify, purify, ungarde, compose1, indices, insert, garde,
+   deyerify, decurlyerify, purify, ungarde, indices, insert, garde,
    expose, last_vowel_index, first_vowel_index, expose_replacement, swap
 )
 

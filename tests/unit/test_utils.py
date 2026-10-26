@@ -1,9 +1,9 @@
 import pytest # type: ignore
 from ...lookup.utils import (
-   ungarde, garde, deyerify, expose_replacement, insert, assimilate, make_recessive,
+   ungarde, garde, deyerify, expose_replacement, insert, assimilate, make_recessive, deaccentize,
    strip_suffix
 )
-from ...lookup.charutils import c
+from ...lookup.charutils import c, notation_marks
 
 def test_ungarde():
    assert [ungarde(i) for i in [
@@ -117,3 +117,8 @@ def test_deyerify_lengthens_vowel_before_sonorant_and_lost_yer():
 
 def test_deyerify_moves_accent_stranded_on_a_consonant_to_the_vowel():
    assert deyerify(f"авио{c.macron}н{c.straight}") == f"авио{c.straight}{c.macron}н"
+
+
+def test_deaccentize_removes_every_mark_of_the_plain_text_notation():
+   assert deaccentize("а`б´в¨г^д_е°ж!з") == "абвгдежз"
+   assert all(deaccentize(f"а{mark}") == "а" for mark in notation_marks)

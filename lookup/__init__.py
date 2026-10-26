@@ -19,19 +19,17 @@ PartOfSpeech = Union[
    Type[Adverb]
 ]
 
-def part_of_speech(kind:str) -> Optional[PartOfSpeech]:
-   POS = kind.split('\\')[0]
-   # TODO: it gets calculated doubly here and inside concrete classes, rethink
+# keys are the first component of the `t` field in data.yml, see NOTATION.md
+parts_of_speech: dict[str, PartOfSpeech] = {
+   "V": Verb,
+   "A": Adjective,
+   "N": Noun,
+   "B": Adverb
+}
 
-   if POS == "V":
-      return Verb
-   if POS == "A":
-      return Adjective
-   if POS == "N":
-      return Noun
-   if POS == "B":
-      return Adverb
-   return None # TODO other parts of speech
+def part_of_speech(kind:str) -> Optional[PartOfSpeech]:
+   # TODO other parts of speech: they return None here
+   return parts_of_speech.get(kind.split('\\')[0])
 
 def lazy_lookup(key:str, input_yat:str, output_yat:str) -> Iterator[Table]:
 

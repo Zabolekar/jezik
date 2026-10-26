@@ -1,11 +1,8 @@
 import re
-from typing import (
-   Union, Optional, Callable, TypeVar,
-   Iterator, Iterable, Sequence,
-   Pattern
-)
+from typing import Optional, Iterator, Iterable, Pattern
 from itertools import chain
 from .charutils import *
+from ..fun_utils import Transform, compose1
 from .paradigm_helpers import accentize
 
 
@@ -276,7 +273,7 @@ _deaccentize_translator = str.maketrans(dict(chain(
    ((acc, deacc) for accs, deacc in _deaccentize_accented.items()
                  for acc in accs),
    ((mark, None) for mark in c.items()),
-   ((mark, None) for mark in '`´_°¨^!') #TODO move this string somewhere
+   ((mark, None) for mark in notation_marks)
 )))
 
 def deaccentize(text:str) -> str:
@@ -287,6 +284,9 @@ _garde_translator = str.maketrans({
    c.doublegrave: c.straight,
    c.circumflex: f'{c.macron}{c.straight}'
 })
+
+def _replace_at(text:str, index:int, new:str) -> str:
+   return text[:index] + new + text[index+1:]
 
 def garde(word: str) -> str: # Garde's accentuation
    result = word
@@ -319,22 +319,16 @@ def garde(word: str) -> str: # Garde's accentuation
                   insert_bool = False
                else:
                   if len(result) > i+1:
-                     # TODO: May benefit from precompiling regexes
-                     # (or from remaking the transformation in other terms?)
                      if result[i+1] == c.grave:
                         insert_bool = True
-                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + '•', word2)
+                        word2 = _replace_at(word2, i+1, '•')
                      elif result[i+1] == c.acute:
                         insert_bool = True
-                        word2 = re.sub("^(.{" + str(i+1) + "}).", r"\g<1>" + c.macron, word2)
+                        word2 = _replace_at(word2, i+1, c.macron)
                      elif result[i+1] == c.doublegrave:
-                        word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                       r"\g<1>" + c.straight,
-                                       word2)
+                        word2 = _replace_at(word2, i+1, c.straight)
                      elif result[i+1] == c.circumflex:
-                        word2 = re.sub("^(.{" + str(i+1) + "}).",
-                                       r"\g<1>" + c.straight,
-                                       word2)
+                        word2 = _replace_at(word2, i+1, c.straight)
                         insert_dict[i+1] = c.macron
 
          word3 = insert(word2, insert_dict)
@@ -431,37 +425,6 @@ def deancientify(form:str) -> str:
    return form
 
 
-_T = TypeVar('_T')
-
-_Transform = Callable[..., _T] # this is too liberal but at least works nice
-
-_ComposeArg = Union[
-   Callable[[_T], _T],
-   tuple[_Transform[_T], Sequence[str]]
-]
-
-# TODO: A function of such generality (and maybe others like it) may need a module of its own,
-# like `fun_utils` or `gen_utils` outside `lookup`
-def compose1(*functions: _ComposeArg[_T]) -> _Transform[_T]:
-   """Composes a sequence of functions T -> T.
-
-      `compose1(f, g, h)(x) == f(g(h(x)))`
-
-      If kwargs are given, they can be supplied to these functions by
-      specifying which ones to give:
-
-      `compose1(f, (g, ('a')), h)(x, a=1, b=2) = f(g(h(x), a=1))`"""
-   def composition(arg, **kwargs):
-      for f in reversed(functions):
-         if isinstance(f, tuple):
-            f, kws = f
-            arg = f(arg, **{kw: kwargs[kw] for kw in kws})
-         else:
-            arg = f(arg)
-      return arg
-   return composition
-
-
 def apply_yat_and_latin(form: str, yat: str, latin: bool) -> str:
    if yat == "ije":
       form = je2ije(form)
@@ -469,7 +432,7 @@ def apply_yat_and_latin(form: str, yat: str, latin: bool) -> str:
       form = cyr2lat(form)
    return form
 
-expose_transform: _Transform[str] = compose1(
+expose_transform: Transform[str] = compose1(
    (apply_yat_and_latin, ('yat', 'latin')), # fails somehow
    ungarde,
    (assimilate, ('yat',)),

@@ -68,3 +68,17 @@ def test_random_key_delegates_to_the_data_index(monkeypatch):
    monkeypatch.setitem(random_key.__globals__, "data", FakeData())
 
    assert random_key() == ("реч", "ije")
+
+
+def test_part_of_speech_is_chosen_by_the_first_component_of_the_kind():
+   from ...lookup import part_of_speech
+   from ...lookup.adjective import Adjective
+   from ...lookup.adverb import Adverb
+   from ...lookup.noun import Noun
+   from ...lookup.verb import Verb
+
+   assert part_of_speech("V\\Tr\\Pf") is Verb
+   assert part_of_speech("A\\all") is Adjective
+   assert part_of_speech("N\\m") is Noun
+   assert part_of_speech("B") is Adverb
+   assert part_of_speech("P\\pron") is None

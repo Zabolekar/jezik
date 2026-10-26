@@ -12,6 +12,9 @@ real_accent = {
     '^': c.circumflex, '_': c.macron, '°': c.ring,
     '!': c.excl
 }
+# all the plain-text marks of our notation (see real_accent), as one string
+notation_marks = ''.join(real_accent)
+
 all_latin = "abcčćdđefghijklmnoprsštuvzžABCČĆDĐEFGHIJKLMNOPRSŠTUVZŽ"
 
 roman = ('I', 'II', 'III', 'IV', 'V', 'VI', 'VII')
