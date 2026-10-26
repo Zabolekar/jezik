@@ -120,14 +120,13 @@ class Verb(PartOfSpeech):
                   unexposed_forms += self.process_one_form(
                      self.gram.AP[i], self._current_trunk(i, label), variation)
 
-               if label in self.amendments:
-                  unexposed_forms += [
-                     expose_replacement(w_form, yat, latin)
-                     for w_form in self.amendments[label]
-                  ]
                result = [
                   self._expose(w_form, yat, latin)
                   for w_form in unexposed_forms
+               ]
+               result += [
+                  self._with_se(expose_replacement(w_form, yat, latin), latin)
+                  for w_form in self.amendments.get(label, [])
                ]
                yield nice_name(label), uniq(result)
 

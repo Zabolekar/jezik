@@ -86,14 +86,15 @@ class Adjective(PartOfSpeech):
          target_AP=self.short_AP[i]
       )
 
-      for label, ending in zip(paradigm._fields, paradigm):
+      for field, ending in zip(paradigm._fields, paradigm):
+         label = nice_name(field) # same notation as in nouns, verbs and data.yml
 
          if label in self.replacements:
             result = [
                expose_replacement(w_form, yat, latin) 
                for w_form in self.replacements[label]
             ]
-            yield nice_name(label), uniq(result)
+            yield label, uniq(result)
 
          else:
             unexposed_forms: list[str] = []
@@ -111,13 +112,12 @@ class Adjective(PartOfSpeech):
                         iterative=False
                      )
 
-            if label in self.amendments:
-               unexposed_forms += [
-                  expose_replacement(w_form, yat, latin)
-                  for w_form in self.amendments[label]
-               ]
             result = [self._expose(w_form, yat, latin) for w_form in unexposed_forms]
-            yield nice_name(label), uniq(result)
+            result += [
+               expose_replacement(w_form, yat, latin)
+               for w_form in self.amendments.get(label, [])
+            ]
+            yield label, uniq(result)
 
    def multiforms(
       self,

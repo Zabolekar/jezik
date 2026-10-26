@@ -344,22 +344,16 @@ class Noun(PartOfSpeech):
                         )
                         unexposed_forms += new_forms
 
-               if label in amendments:
-                  unexposed_forms += [
-                     expose_replacement(w_form, yat, latin)
-                     for w_form in amendments[label]
-                  ]
-
                result = [self._expose(form, yat, latin) for form in unexposed_forms]
+               result += [
+                  expose_replacement(w_form, yat, latin)
+                  for w_form in amendments.get(label, [])
+               ]
                yield nice_name(label), uniq(result)
 
       else:
          for label, am_forms in amendments.items():
-            result = [
-               self._expose(form, yat, latin)
-               for form in
-               [expose_replacement(form, yat, latin) for form in am_forms]
-            ]
+            result = [expose_replacement(form, yat, latin) for form in am_forms]
             yield nice_name(label), uniq(result)
 
 
