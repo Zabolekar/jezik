@@ -96,7 +96,7 @@ class Adjective(PartOfSpeech):
             yield nice_name(label), uniq(result)
 
          else:
-            ready_forms: list[str] = []
+            unexposed_forms: list[str] = []
             for variation in ending: # e.g. -om, -ome, -omu
                if 'ʟ' in adj_form:
                   adj_variants = [adj_form.replace('ʟ', 'ʌ'), adj_form.replace('ʟ', 'л')]
@@ -104,7 +104,7 @@ class Adjective(PartOfSpeech):
                   adj_variants = [adj_form]
                for adj_variant in adj_variants:
                   if self._adj_form_is_possible(adj_variant + variation.morpheme):
-                     ready_forms += self.process_one_form(
+                     unexposed_forms += self.process_one_form(
                         current_AP=current_AP,
                         stem=adj_variant,
                         morph_chain=[variation],
@@ -112,11 +112,11 @@ class Adjective(PartOfSpeech):
                      )
 
             if label in self.amendments:
-               ready_forms += [
+               unexposed_forms += [
                   expose_replacement(w_form, yat, latin)
                   for w_form in self.amendments[label]
                ]
-            result = [self._expose(w_form, yat, latin) for w_form in ready_forms]
+            result = [self._expose(w_form, yat, latin) for w_form in unexposed_forms]
             yield nice_name(label), uniq(result)
 
    def multiforms(

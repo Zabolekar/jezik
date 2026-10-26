@@ -109,9 +109,12 @@ _deyerify_repl_dict: dict[str, str] = {
    "жъч": "шч", "зъч": "шч", "съч": "шч", "џъч": "ч"
 }
 
-# TODO: Name these two semantically:
-_deyerify_pat1_c: Pattern = re.compile(f'([аеиоу{c.ring}][{c.straight}·]?)([лљмнњрјв]ʲ?)ъ')
-_deyerify_pat2_c: Pattern = re.compile(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{c.straight}')
+# vowel + sonorant + yer: the vowel is lengthened when the yer is lost,
+# e.g. ва¨рък -> ва̄рк
+_lengthen_before_sonorant_yer_c: Pattern = re.compile(f'([аеиоу{c.ring}][{c.straight}·]?)([лљмнњрјв]ʲ?)ъ')
+# accent mark right after a consonant, e.g. авио̄н̍ (it comes from an accented
+# zero ending); deyerify() moves it back to the preceding vowel
+_stranded_accent_c: Pattern = re.compile(f'[бвгдђжзјклʌљмнњпрṕсćтћфхцчџш]ʲ?{c.straight}')
 
 _deyerify_translator = str.maketrans({
    'ø': None,
@@ -131,8 +134,6 @@ def decurlyerify(form:str) -> str:
 
 def deyerify(form:str) -> str:
    repl_dict = _deyerify_repl_dict
-   re1 = _deyerify_pat1_c
-   re2 = _deyerify_pat2_c
 
    two_yers = form.count('ъ') == 2 # зајутрак, зајутарка; probably not the best place to do it
 
@@ -145,12 +146,12 @@ def deyerify(form:str) -> str:
    else:
       if two_yers:
          form = form.replace('ъ', f'а{c.macron}', 1).replace('ъ', '')
-      form = re1.sub(f'\\1{c.macron}\\2ъ', form)
+      form = _lengthen_before_sonorant_yer_c.sub(f'\\1{c.macron}\\2ъ', form)
       for k, v in repl_dict.items():
          form = form.replace(k, v)
       form = form.replace('ъ', '').replace('ꚜ', '').replace('ꙏ', '')
 
-   match = re2.search(form)
+   match = _stranded_accent_c.search(form)
    if match:
       wrong_acc_index = match.span()[0]
       form = form.replace(c.straight, '')

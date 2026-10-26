@@ -115,19 +115,19 @@ class Verb(PartOfSpeech):
 
          else:
             if self._verb_form_is_possible(label, self.gram.other):
-               ready_forms: list[str] = []
+               unexposed_forms: list[str] = []
                for variation in ending:
-                  ready_forms += self.process_one_form(
+                  unexposed_forms += self.process_one_form(
                      self.gram.AP[i], self._current_trunk(i, label), variation)
 
                if label in self.amendments:
-                  ready_forms += [
+                  unexposed_forms += [
                      expose_replacement(w_form, yat, latin)
                      for w_form in self.amendments[label]
                   ]
                result = [
                   self._expose(w_form, yat, latin)
-                  for w_form in ready_forms
+                  for w_form in unexposed_forms
                ]
                yield nice_name(label), uniq(result)
 

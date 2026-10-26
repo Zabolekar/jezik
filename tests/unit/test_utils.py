@@ -109,3 +109,11 @@ def test_make_recessive_leaves_forms_without_the_zero_marker_alone():
 def test_make_recessive_rejects_forms_without_vowels():
    with pytest.raises(ValueError):
       make_recessive(f"р0{c.straight}")
+
+
+def test_deyerify_lengthens_vowel_before_sonorant_and_lost_yer():
+   assert deyerify(f"ва{c.straight}рък") == f"ва{c.straight}{c.macron}рк"
+
+
+def test_deyerify_moves_accent_stranded_on_a_consonant_to_the_vowel():
+   assert deyerify(f"авио{c.macron}н{c.straight}") == f"авио{c.straight}{c.macron}н"

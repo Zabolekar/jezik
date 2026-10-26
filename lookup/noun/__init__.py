@@ -310,7 +310,7 @@ class Noun(PartOfSpeech):
                yield nice_name(label), uniq(result)
 
             else:
-               ready_forms: list[str] = [] # TODO: better name
+               unexposed_forms: list[str] = []
 
                # swapping length in case it is necessary
                to_swap_or_not = ('ø' not in ending[0][0].morpheme and '.' in start_AP)
@@ -339,18 +339,18 @@ class Noun(PartOfSpeech):
                      if self._noun_form_is_possible(
                         noun_variant, ending_variation, self.gram.AP[i]
                      ):
-                        new_ready_form = self.process_one_form(
+                        new_forms = self.process_one_form(
                            self.gram.AP[i], noun_variant, ending_variation
                         )
-                        ready_forms += new_ready_form
+                        unexposed_forms += new_forms
 
                if label in amendments:
-                  ready_forms += [
+                  unexposed_forms += [
                      expose_replacement(w_form, yat, latin)
                      for w_form in amendments[label]
                   ]
 
-               result = [self._expose(form, yat, latin) for form in ready_forms]
+               result = [self._expose(form, yat, latin) for form in unexposed_forms]
                yield nice_name(label), uniq(result)
 
       else:
