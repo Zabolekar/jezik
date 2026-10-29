@@ -1,9 +1,11 @@
 import re
 from typing import Optional, Iterator, Iterable, Pattern
 from itertools import chain
-from .charutils import *
-from .funcutils import Transform, compose1
-from .paradigm_helpers import accentize
+from . import characters as c
+from .charutils import (
+   all_vowels, any_vowel, any_of_four_accents, notation_marks, real_accent
+)
+from .generic_utils import Transform, compose1
 
 
 # Naming of things added for optimization purposes:
@@ -11,22 +13,23 @@ from .paradigm_helpers import accentize
 #   <name>_translator — a translation table used by `str.translate`
 #   _<funcname>_<name> — a thing used by function `funcname`
 
-palatalization_modes: dict[str, dict[str, str]] = {
-   'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
-         'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
-         'шт': 'шт', 'жд': 'жд', 'ск': 'шт', 'зг': 'жд',
-         'к': 'к', 'ц': 'ч', 'х': 'х', 'г': 'г',
-         'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
-         'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
-         'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'},
-   '': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
-        'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
-        'шт': 'шћ', 'жд': 'жђ', 'ск': 'шт', 'зг': 'жд',
-        'к': 'ч', 'ц': 'ч', 'х': 'ш', 'г': 'ж',
-        'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
-        'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
-        'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
-}
+# Not used yet; needed for e.g. passive participles and verbal nouns
+# palatalization_modes: dict[str, dict[str, str]] = {
+#    'и': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
+#          'ст': 'шт', 'зд': 'жд', 'сл': 'шљ', 'зл': 'жљ',
+#          'шт': 'шт', 'жд': 'жд', 'ск': 'шт', 'зг': 'жд',
+#          'к': 'к', 'ц': 'ч', 'х': 'х', 'г': 'г',
+#          'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
+#          'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
+#          'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'},
+#    '': {'б': 'бљ', 'м': 'мљ', 'в': 'вљ', 'ф': 'фљ', 'п': 'пљ',
+#         'ст': 'шћ', 'зд': 'жђ', 'сл': 'шљ', 'зл': 'жљ',
+#         'шт': 'шћ', 'жд': 'жђ', 'ск': 'шт', 'зг': 'жд',
+#         'к': 'ч', 'ц': 'ч', 'х': 'ш', 'г': 'ж',
+#         'ш': 'ш', 'ж': 'ж', 'ч': 'ч', 'џ': 'џ',
+#         'т': 'ћ', 'д': 'ђ', 'с': 'ш', 'з': 'ж',
+#         'л': 'љ', 'р': 'р', 'н': 'њ', 'ј': 'ј'}
+# }
 
 cyr2lat_dict: dict[str, str] = {
    'й':'ĭ', 'Й':'Ĭ',
@@ -86,13 +89,13 @@ def insert(word:str, position_to_accent:dict[int, str]) -> str:
 
    return ''.join(pieces())
 
-def palatalize(sequence:str, mode: str='') -> str:
-   idict = palatalization_modes[mode]
-   digraphs = ['ст', 'зд', 'сл', 'зл', 'шт', 'жд', 'ск', 'зг']
-   if sequence[-2:] in digraphs:
-      return sequence[:-2] + idict[sequence[-2:]]
-
-   return sequence[:-1] + idict[sequence[-1]]
+# def palatalize(sequence:str, mode: str='') -> str:
+#    idict = palatalization_modes[mode]
+#    digraphs = ['ст', 'зд', 'сл', 'зл', 'шт', 'жд', 'ск', 'зг']
+#    if sequence[-2:] in digraphs:
+#       return sequence[:-2] + idict[sequence[-2:]]
+#
+#    return sequence[:-1] + idict[sequence[-1]]
 
 _deyerify_repl_dict: dict[str, str] = {
    "стън": "сн",
@@ -276,6 +279,11 @@ _deaccentize_translator = str.maketrans(dict(chain(
    ((mark, None) for mark in notation_marks)
 )))
 
+def accentize(word:str) -> str: # traditional accentuation
+   for k, v in real_accent.items():
+      word = word.replace(k, v)
+   return word
+
 def deaccentize(text:str) -> str:
    return text.translate(_deaccentize_translator)
 
@@ -454,15 +462,3 @@ def expose(form:str, yat:str="e", latin:bool=False) -> str:
 
 def expose_replacement(form:str, yat:str="e", latin:bool=False) -> str:
    return expose(garde(accentize(form)), yat, latin)
-
-
-def strip_suffix(value:str, suffixes:Iterable[str]) -> tuple[str, bool]:
-   """
-   Tries to strip one of the given suffixes, iterating over them.
-   If succesful, returns (stripped_value, True).
-   Otherwise, returns (value, False).
-   """
-   for suffix in suffixes:
-      if value.endswith(suffix):
-         return value[:len(value) - len(suffix)], True
-   return value, False

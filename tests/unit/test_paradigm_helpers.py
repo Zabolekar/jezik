@@ -1,6 +1,8 @@
 import pytest # type: ignore
 
-from ...lookup.paradigm_helpers import GramInfo, OrderedSet, cut_AP, make_caption, str_find
+from ...lookup.paradigm_helpers import GramInfo, cut_AP
+from ...lookup.generic_utils import OrderedSet, str_find
+from ...lookup.table import make_caption
 
 
 def test_gram_info_parses_comments_paradigms_and_kind_labels():

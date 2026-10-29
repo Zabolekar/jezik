@@ -3,10 +3,11 @@ import re
 from ..table import LabeledMultiform
 from ..data.multidict import Entry
 from ..pos import PartOfSpeech
-from ..utils import insert, garde, last_vowel_index, expose_replacement
-from ..paradigm_helpers import nice_name, accentize, uniq, adj_AP_to_inner_AP
+from ..utils import insert, garde, last_vowel_index, expose_replacement, accentize
+from ..generic_utils import uniq
+from ..paradigm_helpers import nice_name, adj_AP_to_inner_AP
 from .paradigms import AdjParadigm, short_adj, long_adj, mixed_adj
-from ..charutils import c
+from .. import characters as c
 
 
 class Adjective(PartOfSpeech):

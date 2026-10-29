@@ -1,5 +1,5 @@
 from ...entries import make_entry
-from ....lookup.charutils import c
+from ....lookup import characters as c
 from ....lookup.paradigm_helpers import AccentedTuple
 from ....lookup.pos import PartOfSpeech, _swap
 

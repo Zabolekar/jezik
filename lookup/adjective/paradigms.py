@@ -1,6 +1,6 @@
 from typing import NamedTuple, Union
 from ..paradigm_helpers import AccentedTuple
-from ..charutils import c
+from .. import characters as c
 
 class ShortAdj(NamedTuple):
    m_sg_nom_short: list[AccentedTuple] # len 1

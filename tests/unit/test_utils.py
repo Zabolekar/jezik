@@ -1,9 +1,10 @@
 import pytest # type: ignore
 from ...lookup.utils import (
-   ungarde, garde, deyerify, expose_replacement, insert, assimilate, make_recessive, deaccentize,
-   strip_suffix
+   ungarde, garde, deyerify, expose_replacement, insert, assimilate, make_recessive, deaccentize
 )
-from ...lookup.charutils import c, notation_marks
+from ...lookup.generic_utils import strip_suffix
+from ...lookup import characters as c
+from ...lookup.charutils import notation_marks
 
 def test_ungarde():
    assert [ungarde(i) for i in [

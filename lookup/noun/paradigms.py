@@ -2,7 +2,7 @@ from typing import NamedTuple, Iterator
 from ..paradigm_helpers import (
    AccentedTuple, nice_name, MorphemeChain, LabeledEnding
 )
-from ..charutils import c
+from .. import characters as c
 from ..utils import last_vowel_index
 
 class NounStem(NamedTuple):

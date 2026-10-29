@@ -1,8 +1,10 @@
 import re
 import pytest # type: ignore
 from ...lookup import lookup, data
-from ...lookup.charutils import c, four_accents, roman
-from ...lookup.paradigm_helpers import cut_AP, has, str_find
+from ...lookup import characters as c
+from ...lookup.charutils import four_accents
+from ...lookup.paradigm_helpers import cut_AP, roman
+from ...lookup.generic_utils import has, str_find
 from ...lookup.table import LabeledMultiform
 
 

@@ -1,8 +1,9 @@
 from typing import Generic, NamedTuple, Iterator, Optional, TypeVar
 import random
-from ..utils import cyr2lat, deaccentize, expose, garde
-from ..paradigm_helpers import accentize, uniq
-from ..charutils import all_vowels, c
+from ..utils import accentize, cyr2lat, deaccentize, expose, garde
+from ..generic_utils import uniq
+from .. import characters as c
+from ..charutils import all_vowels
 
 Replacement = tuple[str, list[str]]
 

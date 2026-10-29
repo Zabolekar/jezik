@@ -1,8 +1,9 @@
 from typing import Iterator, Optional
 from ..data.multidict import Entry
 from ..pos import PartOfSpeech
-from ..utils import insert, garde, last_vowel_index, expose_replacement
-from ..paradigm_helpers import uniq, nice_name, oa, accentize, infinitive_dict
+from ..utils import insert, garde, last_vowel_index, expose_replacement, accentize
+from ..generic_utils import uniq
+from ..paradigm_helpers import nice_name, oa, infinitive_dict
 from .paradigms import MP_to_verb_stems
 from ..table import LabeledMultiform
 

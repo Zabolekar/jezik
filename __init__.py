@@ -5,7 +5,7 @@ from flask import (
    request, send_from_directory, url_for
 )
 from .lookup import lookup, random_key
-from .lookup.charutils import roman
+from .lookup.paradigm_helpers import roman
 from .lookup.table import Multitable
 
 class Query(PathConverter):

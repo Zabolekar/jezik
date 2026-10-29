@@ -1,7 +1,8 @@
 from typing import Iterator, Optional
 from ..pos import PartOfSpeech
-from ..utils import garde
-from ..paradigm_helpers import uniq, nice_name, accentize
+from ..utils import garde, accentize
+from ..generic_utils import uniq
+from ..paradigm_helpers import nice_name
 from ..table import LabeledMultiform
 
 class Adverb(PartOfSpeech):

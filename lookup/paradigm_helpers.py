@@ -1,12 +1,10 @@
-from typing import Generic, Iterable, Optional, TypeVar, Union
-from collections import OrderedDict
+from typing import Optional
 from dataclasses import dataclass
-from itertools import repeat
 from re import compile as rcompile
-from .charutils import real_accent
+
+roman = ('I', 'II', 'III', 'IV', 'V', 'VI', 'VII') # declension classes
 
 oa = ['o.', 'o:', 'a.', 'a:', 'a!', 'a¡', 'a?', 'a¿']
-T = TypeVar('T')
 
 adj_AP_pairs = (
    ('a.,a.', 'A.'),
@@ -45,47 +43,6 @@ _r = rcompile(r"([a-z]+|[A-Z]|\d)")
 def nice_name(name:str) -> str:
    return " ".join(_r.findall(name))
 
-def str_find(word:str, substr:str) -> int:
-   found = word.find(substr)
-   if found == -1:
-      return len(word)
-   return found
-
-def has(word:Union[str, list[str]], *args:str) -> bool:
-   """
-   Actually could've been called smth like "contains_any"
-   but we need some brevity here.
-   """
-   for arg in args:
-      if arg in word:
-         return True
-   return False
-
-def append_def(
-   target_list:list[str],
-   input_list:list[str],
-   appendable:list[str],
-   default_item:str
-) -> list[str]:
-   appended = False
-   for item in input_list:
-      if item in appendable:
-         target_list.append(item)
-         appended = True
-   if not appended:
-      target_list.append(default_item)
-   return target_list
-
-def accentize(word:str) -> str: # traditional accentuation
-   for k, v in real_accent.items():
-      word = word.replace(k, v)
-   return word
-
-@dataclass
-class Accents:
-   r: dict[int, str] # syllabic r
-   v: dict[int, str] # any other vowel
-
 def cut_AP (x:str) -> str:
    start = x.find('\\') + 1
    finish : Optional[int] = x.find('/')
@@ -102,7 +59,6 @@ class GramInfo:
    biaspectual; abbreviation "Dv" comes from "dvòvīdan")
    """
    def __init__(self, kind:str, infos:list[str]) -> None:
-      # accents = []
       self.AP: list[str] = [] # accent paradigm
       self.MP: list[str] = [] # morphological paradigm
       self.comment: list[str] = []
@@ -137,8 +93,6 @@ class GramInfo:
       else:
          raise ValueError("Can't decipher empty t")
 
-      #self.accents: list[Accents] = accents
-
       self.POS: str = POS # part of speech
       self.other: list[str] = other
 
@@ -150,34 +104,3 @@ class AccentedTuple:
 MorphemeChain = list[AccentedTuple]
 # the name sounds promising, but those "chains" are unlikely to be longer than two morphemes
 LabeledEnding = tuple[str, list[MorphemeChain]]
-
-class OrderedSet(OrderedDict, Generic[T]):
-   def __init__(self, i:Iterable[T]) -> None:
-      super().__init__(zip(i, repeat(None)))
-
-   def __repr__(self) -> str:
-      return f"OrderedSet({list(self)})"
-
-def uniq(i:Iterable[T]) -> list[T]:
-   return list(OrderedSet(i))
-
-
-@dataclass
-class TableCaption:
-   caption: str
-   par: str
-   subpar: str
-   full_caption: str
-
-
-def make_caption(
-   caption:tuple[str, str],
-   n:int,
-   i:int
-) -> TableCaption:
-   capt = caption[0]
-   dis = caption[1].replace(":", "")
-   if n == 1:
-      return TableCaption(capt, dis, "1", capt)
-   else:
-      return TableCaption(capt, dis, str(i+1), f"{capt} (вар. {i+1})") # TODO latin

@@ -1,10 +1,30 @@
 from __future__ import annotations
+from dataclasses import dataclass
 from typing import Iterable, Iterator, Optional, Union
-from .paradigm_helpers import TableCaption
 
 Form = str
 Multiform = list[Form]
 LabeledMultiform = tuple[str, Multiform]
+
+@dataclass
+class TableCaption:
+   caption: str
+   par: str
+   subpar: str
+   full_caption: str
+
+
+def make_caption(
+   caption:tuple[str, str],
+   n:int,
+   i:int
+) -> TableCaption:
+   capt = caption[0]
+   dis = caption[1].replace(":", "")
+   if n == 1:
+      return TableCaption(capt, dis, "1", capt)
+   else:
+      return TableCaption(capt, dis, str(i+1), f"{capt} (вар. {i+1})") # TODO latin
 
 class Table:
    def __init__(

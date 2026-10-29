@@ -1,6 +1,6 @@
 from typing import Iterator, NamedTuple
 from ..paradigm_helpers import AccentedTuple, nice_name, MorphemeChain
-from ..charutils import c
+from .. import characters as c
 
 
 class VerbForm(NamedTuple):

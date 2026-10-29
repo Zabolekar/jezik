@@ -5,9 +5,8 @@ from .adverb import Adverb
 from .charutils import all_latin
 from .data import data
 from .noun import Noun
-from .table import Table, Multitable
-from .paradigm_helpers import has, make_caption
-from .utils import strip_suffix
+from .table import Table, Multitable, make_caption
+from .generic_utils import has, strip_suffix
 from .verb import Verb
 
 ACCENTS_NOT_FOUND_MESSAGE = [("😞", ["Још не знамо како се акцентује ова реч"])]

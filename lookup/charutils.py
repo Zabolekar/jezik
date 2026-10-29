@@ -16,5 +16,3 @@ real_accent = {
 notation_marks = ''.join(real_accent)
 
 all_latin = "abcčćdđefghijklmnoprsštuvzžABCČĆDĐEFGHIJKLMNOPRSŠTUVZŽ"
-
-roman = ('I', 'II', 'III', 'IV', 'V', 'VI', 'VII')
