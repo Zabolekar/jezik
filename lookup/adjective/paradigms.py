@@ -2,8 +2,6 @@ from typing import NamedTuple, Union
 from ..paradigm_helpers import AccentedTuple
 from ..charutils import c
 
-# TODO: why is this organized so differently from nouns and verbs? unify and/or document
-
 class ShortAdj(NamedTuple):
    m_sg_nom_short: list[AccentedTuple] # len 1
    f_sg_nom_short: list[AccentedTuple] # 1
@@ -136,7 +134,15 @@ long_adj = LongAdj(
   )
 
 class MixedAdj(NamedTuple):
-   # TODO: sveto: document
+   # Adjectives like чији? - мајчин (whose? - mother's)
+   # or очев (whose? - father's) or братов (whose? - brother's)
+   # don't have long paradigm + short paradigm like добар/добри;
+   # they don't have only one long paradigm like српски, either;
+   # instead, they have exactly one paradigm which is a mixture of forms.
+   # This approach is further reflected in our adj classification into ov,ski,all.
+   # The field names for this mixed paradigm still contain 'long/short'
+   # because sometimes via Lookup we are looking for a specific set of forms
+   # and smth like "show me all neuter short forms of братов" seems like a plausible query.
    m_sg_nom_short: list[AccentedTuple]
    m_sg_gen_long: list[AccentedTuple]
    m_sg_gen_short: list[AccentedTuple]

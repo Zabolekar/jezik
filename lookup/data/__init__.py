@@ -17,7 +17,7 @@ with open(file_path, encoding="utf-8") as f:
    raw_data = yaml.safe_load(f)
 for full_key in raw_data.keys():
    if search(f"[^{all_vowels}ъ][{plain_accents}]", full_key):
-      raise ValueError(full_key) # TODO WHY doesn't it work??
+      raise ValueError(f"{full_key} is suddenly not found in raw data keys. Please fix the bug")
    # full_key is with disambiguator, key is without
    first_space = full_key.find(" ")
    if first_space != -1:

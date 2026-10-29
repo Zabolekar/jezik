@@ -1,6 +1,6 @@
 import pytest # type: ignore
 
-from ...fun_utils import compose1
+from ...lookup.funcutils import compose1
 
 
 def test_compose1_applies_functions_right_to_left():

@@ -99,17 +99,19 @@ class PartOfSpeech():
             if morpheme_[0] in all_vowels:
                stem = stem[:-1]
 
-      # declickify (ʘ) -- special double '0' in nesti-verbs
+      # remove ʘ, i.e. special double '0' in nesti-verbs
       if self.kind.startswith('V'):
          if current_AP in 'eʹxʺ':
             morpheme = morpheme.replace('ʘ', '')
       morpheme = morpheme.replace('ʘ', '0')
 
-      # TODO de...WHAT?...ify
+      # TODO please document.
       if current_AP not in ('c:', 'g:'):
          morpheme = morpheme.replace('>>', '')
 
-      # deleting the first of two accents (is it OK to have it here?)
+      # If the stem is accentable but the ending bears accent
+      # in this very AP, then we remove the accent from the stem
+      # (is it OK to have it here?).
       if current_AP in accent and c.straight in stem:
          stem = stem.replace(c.straight, '')
 
@@ -131,14 +133,11 @@ class PartOfSpeech():
       for stem in stems:
          connectenda += self._connectendum(current_AP, stem, ending_part)
 
-      # if this ending_part IS ACCENTED in this AP,
-      # then first we delete the now unnecessary accent in the stem in case it is there;
-      # second we put the accent into the ending_part,
-      # the word hereby being accented;
-      # and if it shouldn't, we just do nothing and leave it unaccented;
-      # after that, we append the morpheme
-      # TODO: understand all this "in [paradigm list]" stuff;
-      # I already see it is needed here, but it seems unlogical
+      # 1. if this ending_part IS ACCENTED in this AP, then
+      # 1a. we delete the now unnecessary accent in the stem in case it is there;
+      # 1b. we put the accent into the ending_part, the word hereby being accented;
+      # 2. and if it shouldn't, we just do nothing and leave it unaccented;
+      # 3. after that, we append the morpheme
 
       result = []
 
@@ -183,8 +182,11 @@ class PartOfSpeech():
       iterative:bool=True
    ) -> list[str]:
 
-       # all ʲ-stems except рʲ-stems and штʲе-stems have two variants of œ-endings:
-       # one of them is soft (nosem, putevi), the other hard (nosom, putovi)
+       # All ʲ-stems except рʲ-stems and штʲе-stems have two variants of œ-endings:
+       # one of them is soft (nosem, putevi), the other hard (nosom, putovi).
+       # This step sits in PartOfSpeech because there are Adjs and Nouns
+       # ending with soft r (море, шири) and soft št (ништ, капиште).
+       # Apparently no such thing in verbs.
       if (
          stem.endswith('ʲ') and stem[-2] != 'р' and 'œ' in morph_chain[0].morpheme
          and not (stem.endswith('штʲ') and self.label("n"))
@@ -193,11 +195,13 @@ class PartOfSpeech():
       else:
          iterable_form = [stem]
 
-      if iterative: # TODO write here WHEN iterative is True
-         for morph in morph_chain: # -ov- and -i in bog-ov-i are morphs
+      if iterative:
+         # Noun: -ov- and -i in bog-ov-i are morphs.
+         # Verb: -i- and -mo in govor-i-mo are morphs.
+         # Adjective: apparently no iteratives.
+         for morph in morph_chain: 
             iterable_form = self._append_morpheme(current_AP, iterable_form, morph)
          return iterable_form
-      else: # TODO when?
+      else:
          result = self._append_morpheme(current_AP, iterable_form, morph_chain[0])
          return result
-      # TODO apparently morph_chain is of len 1, but what if it's not?

@@ -2,7 +2,7 @@ import re
 from typing import Optional, Iterator, Iterable, Pattern
 from itertools import chain
 from .charutils import *
-from ..fun_utils import Transform, compose1
+from .funcutils import Transform, compose1
 from .paradigm_helpers import accentize
 
 
@@ -433,7 +433,7 @@ def apply_yat_and_latin(form: str, yat: str, latin: bool) -> str:
    return form
 
 expose_transform: Transform[str] = compose1(
-   (apply_yat_and_latin, ('yat', 'latin')), # fails somehow
+   (apply_yat_and_latin, ('yat', 'latin')),
    ungarde,
    (assimilate, ('yat',)),
    purify,
