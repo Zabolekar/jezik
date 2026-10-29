@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.13"
+cache: pip
+install:
+  - pip install -r requirements-dev.txt
+script:
+  - flake8
+  - mypy .
+  - pytest
