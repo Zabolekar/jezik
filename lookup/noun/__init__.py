@@ -2,16 +2,18 @@ from re import search as rsearch
 from typing import Callable, Iterator, Optional
 
 from .paradigms import stem_male, stem_female, stem_neutral, male_gen_pl_marked, female_gen_pl_i
-from .. import characters as c
+from ..utils import characters as c
 from ..generic_utils import compose1, uniq, append_def, has
 from ..paradigm_helpers import AccentedTuple, nice_name
 from ..data.multidict import Entry
 from ..pos import PartOfSpeech
 from ..table import LabeledMultiform
-from ..utils import (
-   deyerify, decurlyerify, purify, ungarde, indices, insert, garde,
-   last_vowel_index, first_vowel_index, expose_replacement, swap, accentize
+from ..utils.text_utils import (
+   indices, insert, last_vowel_index, first_vowel_index, swap, accentize
 )
+from ..utils.phonology import deyerify, decurlyerify
+from ..utils.accents import purify, ungarde, garde
+from ..utils.expose import expose_replacement
 
 
 def _apply_neocirk(

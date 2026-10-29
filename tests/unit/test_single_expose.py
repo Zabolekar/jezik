@@ -1,7 +1,7 @@
 import pytest # type: ignore
 
 from ..entries import make_entry
-from ...lookup import utils
+from ...lookup.utils import expose as expose_module
 from ...lookup import pos
 from ...lookup.adjective import Adjective
 from ...lookup.noun import Noun
@@ -29,8 +29,8 @@ def expose_inputs(monkeypatch):
    def recording(form, *args, **kwargs):
       inputs.append(form)
       return real_expose(form, *args, **kwargs)
-   real_expose = utils.expose
-   for module in (utils, pos):
+   real_expose = expose_module.expose
+   for module in (expose_module, pos):
       monkeypatch.setattr(module, "expose", recording)
    return inputs
 
@@ -41,7 +41,7 @@ def test_amended_forms_are_exposed_exactly_once(pos, yat, expose_inputs):
    forms = dict(_words()[pos].multiforms(yat=yat))[_label[pos]]
    amended = forms[-1] # amendments come after generated forms
 
-   assert amended == utils.expose_replacement(_amendment[pos], yat), "not amended"
+   assert amended == expose_module.expose_replacement(_amendment[pos], yat), "not amended"
    assert amended not in expose_inputs, "amended form was exposed twice"
 
 

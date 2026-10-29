@@ -2,7 +2,7 @@
 from typing import Iterator, Optional, Type, Union
 from .adjective import Adjective
 from .adverb import Adverb
-from .charutils import all_latin
+from .utils.charutils import all_latin
 from .data import data
 from .noun import Noun
 from .table import Table, Multitable, make_caption

@@ -1,6 +1,7 @@
 from typing import Iterator, Optional
 from ..pos import PartOfSpeech
-from ..utils import garde, accentize
+from ..utils.text_utils import accentize
+from ..utils.accents import garde
 from ..generic_utils import uniq
 from ..paradigm_helpers import nice_name
 from ..table import LabeledMultiform

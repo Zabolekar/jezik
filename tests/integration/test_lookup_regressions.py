@@ -1,6 +1,6 @@
 import pytest # type: ignore
 from ...lookup import lookup
-from ...lookup import characters as c
+from ...lookup.utils import characters as c
 
 def test_nonsense():
    assert not lookup("абырвалг")

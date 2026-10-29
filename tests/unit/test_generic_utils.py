@@ -1,6 +1,6 @@
 import pytest # type: ignore
 
-from ...lookup.generic_utils import compose1
+from ...lookup.generic_utils import compose1, strip_suffix
 
 
 def test_compose1_applies_functions_right_to_left():
@@ -29,3 +29,12 @@ def test_compose1_requires_the_requested_kwargs():
 
    with pytest.raises(KeyError):
       composed("x")
+
+
+def test_strip_suffix():
+   s = "abcdefghi"
+   assert strip_suffix(s, ["fghi"]) == ("abcde", True)
+   assert strip_suffix(s, ["gggg"]) == (s, False)
+   assert strip_suffix(s, [""]) == (s, True)
+   assert strip_suffix(s, ["ggghi", "gghi", "ghi", "hi", "i"]) == ("abcdef", True)
+   assert strip_suffix(s, []) == (s, False)

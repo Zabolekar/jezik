@@ -1,7 +1,8 @@
 from .paradigm_helpers import AccentedTuple, GramInfo, MorphemeChain, oa
-from .utils import expose, first_vowel_index, last_vowel_index, insert
-from . import characters as c
-from .charutils import all_vowels
+from .utils.expose import expose
+from .utils.text_utils import first_vowel_index, last_vowel_index, insert
+from .utils import characters as c
+from .utils.charutils import all_vowels
 from .data.multidict import Entry
 
 def _swap(trunk:str) -> str:

@@ -1,9 +1,9 @@
 from os import path as p
 from re import search
 import yaml
-from ..charutils import all_vowels, plain_accents
+from ..utils.charutils import all_vowels, plain_accents
 from .multidict import Entry, FancyLookup
-from ..utils import deaccentize
+from ..utils.text_utils import deaccentize
 from .validation import validate_entry
 
 data = FancyLookup()
