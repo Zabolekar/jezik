@@ -160,11 +160,17 @@ def test_multiple_accents():
    assert lookup("српскохрватски")["m sg nom"].multiform == ['ср̥̏пскохр̥̀ва̄тскӣ']
    assert lookup("hrvatskosrpski")["m sg nom"].multiform == ['hr̥̀vātskosȑ̥pskī']
 
-@pytest.mark.xfail # TODO: make it pass
 def test_plavosiv():
    "Similar to test_multiple_accents, but has its own peculiarities"
    assert lookup("плавосив")["m sg nom short"].multiform == ['пла́воси̑в']
    assert lookup("плавосив")["f sg nom short"].multiform == ['пла́воси́ва']
+   assert lookup("plavosiv")["f sg nom short"].multiform == ['plávosíva']
+   assert lookup("плавосив")["m sg nom long"].multiform == ['пла́воси̑вӣ']
+
+
+def test_jasnozut_preserves_its_first_falling_accent():
+   assert lookup("јасножут")["m sg nom short"].multiform == ['ја̏сножу̑т']
+   assert lookup("јасножут")["f sg nom short"].multiform == ['ја̏сножу́та']
 
 def test_predci():
    """covers issue #36"""

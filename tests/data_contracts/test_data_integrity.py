@@ -8,6 +8,7 @@ from ...lookup.generic_utils import has, str_find
 from ...lookup.table import LabeledMultiform
 from ...lookup.data.multidict import Entry, inner_to_outer
 from ...lookup.utils.text_utils import deaccentize
+from ...lookup.utils.expose import expose_replacement
 from ...lookup.verb import Verb
 from ..entries import make_entry
 
@@ -52,6 +53,23 @@ def test_infinitive_check_detects_the_original_robovati_error():
 
    assert any(yat == "e" and "робовати" in expected and "роовати" in actual
               for _, _, yat, expected, actual in problems)
+
+
+def test_generated_infinitive_accents_match_dictionary_headlines():
+   problems = []
+   for key in data._inner_to_entries:
+      for entry in data._inner_to_entries[key]:
+         if not entry.type.startswith("V\\"):
+            continue
+         verb = Verb(key, entry)
+         for variant, accented_key in enumerate(verb.accented_keys):
+            for yat in ("e", "je", "ije"):
+               expected = expose_replacement(accented_key, yat)
+               forms = dict(verb.multiforms(variant=variant, yat=yat)).get("infinitive", [])
+               actual = [form.removesuffix(" се") for form in forms]
+               if expected not in actual:
+                  problems.append((key, variant, yat, expected, actual))
+   assert not problems, problems[:20]
 
 
 @pytest.mark.slow

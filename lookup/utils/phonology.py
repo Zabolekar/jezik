@@ -91,7 +91,8 @@ def deyerify(form:str) -> str:
    match = _stranded_accent_c.search(form)
    if match:
       wrong_acc_index = match.span()[0]
-      form = form.replace(c.straight, '')
+      accent_index = match.end() - 1
+      form = form[:accent_index] + form[accent_index+1:]
       lvi = last_vowel_index(form[:wrong_acc_index+2])
       if lvi is None:
          raise ValueError(f"_{form[:wrong_acc_index+2]}_ does not contain any vowels")

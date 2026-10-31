@@ -22,3 +22,9 @@ def test_deyerify_lengthens_vowel_before_sonorant_and_lost_yer():
 
 def test_deyerify_moves_accent_stranded_on_a_consonant_to_the_vowel():
    assert deyerify(f"авио{c.macron}н{c.straight}") == f"авио{c.straight}{c.macron}н"
+
+
+def test_deyerify_keeps_earlier_accents_when_moving_a_stranded_one():
+   assert deyerify(f"пла{c.macron}во{c.straight}с!и{c.macron}в{c.straight}") == (
+      f"пла{c.macron}во{c.straight}с!и{c.straight}{c.macron}в"
+   )

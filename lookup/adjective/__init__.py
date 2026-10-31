@@ -97,12 +97,19 @@ class Adjective(PartOfSpeech):
                   adj_variants = [adj_form]
                for adj_variant in adj_variants:
                   if self._adj_form_is_possible(adj_variant + variation.morpheme):
-                     unexposed_forms += self.process_one_form(
+                     # An accented ending replaces the last stem accent, but a
+                     # compound may also have accents in its earlier parts.
+                     protected_accent = '\ue000'
+                     if current_AP in variation.accent and adj_variant.count(c.straight) > 1:
+                        prefix, _, final_part = adj_variant.rpartition(c.straight)
+                        adj_variant = prefix.replace(c.straight, protected_accent) + c.straight + final_part
+                     forms = self.process_one_form(
                         current_AP=current_AP,
                         stem=adj_variant,
                         morph_chain=[variation],
                         iterative=False
                      )
+                     unexposed_forms += [form.replace(protected_accent, c.straight) for form in forms]
 
             result = [self._expose(w_form, yat, latin) for w_form in unexposed_forms]
             result += [
