@@ -15,6 +15,11 @@ class Verb(PartOfSpeech):
       super().__init__(key, entry)
       #Verb-only
       self.is_reflexive = self.label('Refl')
+      for MP in self.gram.MP:
+         if MP not in infinitive_dict or MP not in MP_to_verb_stems:
+            raise NotImplementedError(
+               f'Type {MP} ({self.key}) does not exist or is not ready yet'
+            )
       self.trunk = self._trunk()
       self.trunk2 = self._trunk2()
 
@@ -136,11 +141,5 @@ class Verb(PartOfSpeech):
    ) -> Iterator[LabeledMultiform]:
       """conjugate"""
       for i, AP in enumerate(self.gram.AP):
-         if self.gram.MP[i] in infinitive_dict:
-            if not (variant is not None and variant != i):
-               yield from self._paradigm_to_forms(i, False, yat, latin)
-
-         else:
-            raise NotImplementedError(
-               f'Type {self.gram.MP[i]} ({self.key}) does not exist or is not ready yet'
-            )
+         if not (variant is not None and variant != i):
+            yield from self._paradigm_to_forms(i, False, yat, latin)

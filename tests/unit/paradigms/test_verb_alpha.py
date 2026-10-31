@@ -1,3 +1,7 @@
+import pytest # type: ignore
+
+from ...entries import make_entry
+from ....lookup.verb import Verb
 from ....lookup.verb.paradigms import (
    MP_to_verb_stems, VerbParadigm, i_past, i_present
 )
@@ -33,3 +37,11 @@ def test_every_verb_type_has_the_complete_set_of_form_labels():
 
    for paradigm in MP_to_verb_stems.values():
       assert [form.label for form in paradigm.forms] == expected_labels
+
+
+@pytest.mark.parametrize("paradigm", ["gamma", "iota", "lambda", "omega"])
+def test_unsupported_paradigm_has_a_clear_error_for_direct_verb_use(paradigm):
+   entry = make_entry("то¨нути", "V\\Itr\\Ipf", f"a./{paradigm}")
+
+   with pytest.raises(NotImplementedError, match=f"Type {paradigm} \\(тонути\\)"):
+      Verb("тонути", entry)

@@ -40,6 +40,9 @@ def validate_entry(full_key:str, raw_entry:Any, accented_keys:str) -> None:
          if AP not in adj_AP_to_inner_AP:
             fail(f"unknown adjective accent paradigm '{AP}'")
    elif gram.POS == "V":
+      # Import here because dictionary loading also initializes the verb package.
+      from ..verb.paradigms import MP_to_verb_stems
+
       for MP in gram.MP:
-         if MP not in infinitive_dict:
+         if MP not in infinitive_dict or MP not in MP_to_verb_stems:
             fail(f"unknown verb paradigm '{MP}'")

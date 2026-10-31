@@ -32,3 +32,9 @@ def test_invalid_entries_are_rejected_with_the_key(entry, keys, message):
    with pytest.raises(ValueError, match=message) as error:
       validate_entry("ключ", entry, keys)
    assert "ключ" in str(error.value) or message == "mapping"
+
+
+@pytest.mark.parametrize("paradigm", ["gamma", "iota", "lambda"])
+def test_unimplemented_verb_paradigms_are_rejected(paradigm):
+   with pytest.raises(ValueError, match=f"ключ: unknown verb paradigm '{paradigm}'"):
+      validate_entry("ключ", {"t": "V\\Itr\\Ipf", "i": f"a./{paradigm}"}, "то¨нути")

@@ -6,6 +6,10 @@ from ...lookup.utils.charutils import four_accents
 from ...lookup.paradigm_helpers import cut_AP, roman
 from ...lookup.generic_utils import has, str_find
 from ...lookup.table import LabeledMultiform
+from ...lookup.data.multidict import Entry, inner_to_outer
+from ...lookup.utils.text_utils import deaccentize
+from ...lookup.verb import Verb
+from ..entries import make_entry
 
 
 first_form = {
@@ -14,6 +18,40 @@ first_form = {
    "verb": "infinitive",
    "adverb": ""
 }
+
+
+def infinitive_spelling_mismatches(key:str, entry:Entry):
+   """Compare each generated infinitive with its own dictionary headline."""
+   verb = Verb(key, entry)
+   problems = []
+   for variant, accented_key in enumerate(verb.accented_keys):
+      for yat in ("e", "je", "ije"):
+         expected = {
+            outer for outer, mode in inner_to_outer(accented_key, "") if mode == yat
+         }
+         forms = dict(verb.multiforms(variant=variant, yat=yat)).get("infinitive", [])
+         actual = {deaccentize(form.removesuffix(" се")).lower() for form in forms}
+         if not expected.intersection(actual):
+            problems.append((key, variant, yat, expected, actual))
+   return problems
+
+
+def test_generated_infinitives_match_dictionary_headlines():
+   problems = []
+   for key in data._inner_to_entries:
+      for entry in data._inner_to_entries[key]:
+         if entry.type.startswith("V\\"):
+            problems.extend(infinitive_spelling_mismatches(key, entry))
+   assert not problems, problems[:20]
+
+
+def test_infinitive_check_detects_the_original_robovati_error():
+   entry = make_entry("ро¨бовати", "V\\Itr\\Ipf", "m./epsilon")
+
+   problems = infinitive_spelling_mismatches("робовати", entry)
+
+   assert any(yat == "e" and "робовати" in expected and "роовати" in actual
+              for _, _, yat, expected, actual in problems)
 
 
 @pytest.mark.slow
