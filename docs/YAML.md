@@ -44,7 +44,7 @@ Third, other pieces of info divided by commas. **an** means **animate**, **+** m
 
 **except** and/or **add** field (both optional) shows us the word's irregular forms.
 
-All these forms may contain yats, yers and other sophisticatedly treated symbols. See full list in NOTATION.md.
+All these forms may contain yats, yers and other sophisticatedly treated symbols. See the full list in [NOTATION.md](NOTATION.md).
 
 
 ## Verb examples

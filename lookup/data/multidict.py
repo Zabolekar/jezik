@@ -44,7 +44,7 @@ class Multidict(Generic[KT, VT]):
 
 # This Multidict was good enough for some time, but it didn't allow us to
 # look a word up using more than one notation. Furthermore, the only supported
-# notation was the one we use to store words in the data.yml (see NOTATION.md),
+# notation was the one we use to store words in the data.yml (see docs/NOTATION.md),
 # which is impractical because it doesn't correspond to any orthography in use.
 
 # A word is _defined_ by its inner representation AKA inner key. It can have

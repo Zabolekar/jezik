@@ -18,7 +18,7 @@ PartOfSpeech = Union[
    Type[Adverb]
 ]
 
-# keys are the first component of the `t` field in data.yml, see NOTATION.md
+# keys are the first component of the `t` field in data.yml, see docs/NOTATION.md
 parts_of_speech: dict[str, PartOfSpeech] = {
    "V": Verb,
    "A": Adjective,
